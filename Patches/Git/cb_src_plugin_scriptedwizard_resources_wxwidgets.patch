@@ -1,0 +1,92 @@
+diff --git src/plugins/scriptedwizard/resources/wxwidgets/common/app.cpp src/plugins/scriptedwizard/resources/wxwidgets/common/app.cpp
+index d9d7a2d..e4999c0 100644
+--- src/plugins/scriptedwizard/resources/wxwidgets/common/app.cpp
++++ src/plugins/scriptedwizard/resources/wxwidgets/common/app.cpp
+@@ -7,14 +7,17 @@
+  * License:
+  **************************************************************/
+ 
+-#ifdef WX_PRECOMP
+-#include "wx_pch.h"
+-#endif
+-
++[IF WXFB]#include <wx/wxprec.h>
++[ELSE]#ifdef WX_PRECOMP
++[PCH_INCLUDE]#endif[ENDIF WXFB]
+ #ifdef __BORLANDC__
+ #pragma hdrstop
+ #endif //__BORLANDC__
+-
++[IF WXFB]
++#ifndef WX_PRECOMP
++#include <wx/wx.h>
++#endif // WX_PRECOMP
++[ENDIF WXFB]
+ #include "[FILENAME_PREFIX]App.h"
+ #include "[FILENAME_PREFIX]Main.h"
+ 
+diff --git src/plugins/scriptedwizard/resources/wxwidgets/common/main.cpp src/plugins/scriptedwizard/resources/wxwidgets/common/main.cpp
+index b99fd10..43817ea 100644
+--- src/plugins/scriptedwizard/resources/wxwidgets/common/main.cpp
++++ src/plugins/scriptedwizard/resources/wxwidgets/common/main.cpp
+@@ -7,13 +7,21 @@
+  * License:
+  **************************************************************/
+ 
+-#ifdef WX_PRECOMP
+-#include "wx_pch.h"
+-#endif
+-
++[IF WXFB]#include <wx/wxprec.h>
++[ELSE]#ifdef WX_PRECOMP
++[IF WXDIALOG][IF NONE]#include <wx/wxprec.h>[ENDIF NONE][ENDIF WXDIALOG]
++[PCH_INCLUDE]#endif[ENDIF WXFB]
+ #ifdef __BORLANDC__
+ #pragma hdrstop
+ #endif //__BORLANDC__
++[IF WXFB]#ifndef WX_PRECOMP
++#include <wx/wx.h>
++#endif // WX_PRECOMP[ENDIF WXFB]
++[IF NONE]#ifndef WX_PRECOMP
++#include <wx/wx.h>
++#endif // WX_PRECOMP[ENDIF NONE]
++[IF WXDIALOG][IF NONE]#include <wx/button.h>
++#include <wx/statline.h>[ENDIF NONE][ENDIF WXDIALOG]
+ 
+ #include "[FILENAME_PREFIX]Main.h"
+ 
+diff --git src/plugins/scriptedwizard/resources/wxwidgets/common/main.h src/plugins/scriptedwizard/resources/wxwidgets/common/main.h
+index dbd8ad0..341f2eb 100644
+--- src/plugins/scriptedwizard/resources/wxwidgets/common/main.h
++++ src/plugins/scriptedwizard/resources/wxwidgets/common/main.h
+@@ -10,11 +10,9 @@
+ #ifndef [PROJECT_HDR]MAIN_H
+ #define [PROJECT_HDR]MAIN_H
+ 
+-[IF NONE]#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif[ENDIF NONE]
++[IF WXFRAME]#include <wx/frame.h>
+ 
+-#include "[FILENAME_PREFIX]App.h"
++#include "[FILENAME_PREFIX]App.h"[ENDIF WXFRAME]
+ 
+ [IF WXFRAME][IF NONE]class [CLASS_PREFIX]Frame: public wxFrame
+ {
+@@ -44,8 +42,14 @@ class [CLASS_PREFIX]Frame: public GUIFrame
+         virtual void OnQuit(wxCommandEvent& event);
+         virtual void OnAbout(wxCommandEvent& event);
+ };[ENDIF WXFB][ENDIF WXFRAME]
+-[IF WXDIALOG][IF NONE]#include <wx/button.h>
+-#include <wx/statline.h>
++[IF WXDIALOG][IF NONE]#include <wx/dialog.h>
++
++#include "[FILENAME_PREFIX]App.h"
++
++class wxButton;
++class wxStaticLine;
++class wxStaticText;
++
+ class [CLASS_PREFIX]Dialog: public wxDialog
+ {
+     public:
