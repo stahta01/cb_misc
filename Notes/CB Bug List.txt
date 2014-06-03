@@ -4,3 +4,12 @@ End of Line Option
 End of Line Mode of LF does NOT work when using wxWidgets Templates
    Till the file is edited and saved.
 
+wxWidgets Wizard
+   Checkmark for "Use __WXDEBUG__ and debug wxWidget Lib" 
+      seems to NOT work with empty or other types ofprojects.
+
+
+
+NOT BUGs; but feature change below
+   wxWidgets Wizard Project changes needed
+      Use custom vars for WX_CFG, WX_SUFFIX, and WX_VERSION
