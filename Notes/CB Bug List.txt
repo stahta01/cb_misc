@@ -1,0 +1,6 @@
+CB Bug List.txt
+Settings -> Editor
+End of Line Option
+End of Line Mode of LF does NOT work when using wxWidgets Templates
+   Till the file is edited and saved.
+
