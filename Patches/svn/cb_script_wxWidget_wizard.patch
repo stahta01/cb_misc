@@ -1,0 +1,30 @@
+Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
+===================================================================
+--- src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(revision 9793)
++++ src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(working copy)
+@@ -1222,6 +1222,7 @@
+         }
+         buffer  = HandleDirective(buffer, _T("NONE"), true);
+         buffer  = HandleDirective(buffer, _T("WXFB"), false);
++        buffer  = HandleDirective(buffer, _T("WXSMITH"), false);
+     }
+     else if (GuiBuilder == 1)
+     {
+@@ -1235,6 +1236,9 @@
+             buffer  = HandleDirective(buffer, _T("WXDIALOG"), false);
+             buffer  = HandleDirective(buffer, _T("WXFRAME"), true);
+         }
++        buffer  = HandleDirective(buffer, _T("NONE"), false);
++        buffer  = HandleDirective(buffer, _T("WXFB"), false);
++        buffer  = HandleDirective(buffer, _T("WXSMITH"), true);
+     }
+     else if (GuiBuilder == 2)
+     {
+@@ -1252,6 +1256,7 @@
+         buffer  = HandleDirective(buffer, _T("WXFB"), true);
+     }
+     buffer = HandleDirective(buffer, _T("WINDOWS"), (PLATFORM == PLATFORM_MSW ? true : false));
++    buffer = HandleDirective(buffer, _T("WANTUSERPCH"), (WantPCH == 1? true : false));
+ 
+     // create class name from project name which is valid c++ identifier
+     local Prefix = GetFixedProjectName(Wizard.GetProjectName());

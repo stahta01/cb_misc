@@ -6,9 +6,13 @@ End of Line Mode of LF does NOT work when using wxWidgets Templates
 
 wxWidgets Wizard
    Checkmark for "Use __WXDEBUG__ and debug wxWidget Lib" 
-      seems to NOT work with empty or other types ofprojects.
+      Does NOT seem to work with empty or other types ofprojects.
+         Was user error; it works if you click on the popups correctly.
 
-
+Might to bug or feature change
+   Fix [PCH_INCLUDE] for wxWidget wizard.
+      Maybe default to "#include <wx/wxprec.h>" if not set
+      Or ADD [IF PCH]
 
 NOT BUGs; but feature change below
    wxWidgets Wizard Project changes needed
