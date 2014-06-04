@@ -1,0 +1,83 @@
+Required rules for using PCH properly under Windows
+   1. The sdk_common.h file should only be included by sdk.h and sdk_precomp.h
+   2. Use sdk.h instead of sdk_precomp.h in CB Plugins
+   3. Do NOT include wx.h inside header files (unless that header is making a PCH).
+   4. Do NOT include sdk.h from inside header files (unless that header is making a PCH).
+   5. Do NOT include wxprec.h inside header files (unless that header is making a PCH).
+   6. Do NOT include a header file before include sdk.h.
+   6. Do NOT do a pragma before include sdk.h.
+   8. Should have "-Winvalid-pch" warning set.
+   9. Must have the folder containing sdk.h and sdk.h.gch in the search path!
+      NOTE: The folder containing sdk.h.gch must before the sdk.h folder.
+  10. Have the include of sdk.h guarded by macro suggested example below
+      #ifndef CB_USING_CMDLINE_SDK_H_INCLUDE
+Suggested rules for using PCH properly under Windows
+   1. Use <sdk.h> instead of "sdk.h" in CB Plugins
+   2. Try to avoid using CB_PRECOMP or WX_PRECOMP inside headers.
+   3. Define CB_PRECOMP for sdk.h; do NOT define WX_PRECOMP as a Compiler command line option.
+   4. Define WX_PRECOMP if wanted in sdk_common.h.
+   5. After including sdk.h; Do use CB_PRECOMP to guard includes of headers included by the sdk.h PCH.
+   6. After including sdk.h; Do use WX_PRECOMP to guard includes of headers included by the wxprec.h but not by sdk.h PCH.
+
+Priority order to check PCH rules
+   1. This sdk_common.h file should only be included by sdk.h and sdk_precomp.h
+   2. Check src/include for issues
+      A. Do NOT include wx/wx.h from inside header files.
+      B. Do NOT include wx/wxprec.h from inside header files except for the sdk_common.h file.
+      C. Do NOT have #pragma hdrstop in header file except for the sdk_common.h file.
+      D. Do NOT include sdk.h or sdk_precomp.h inside the CB include folder.
+      Needed to create and test a seperate patch to fix debuggermanager.h and xtra_res.h
+      ToDo: created patch for debuggermanager.h
+   3. Check src/sdk for issues
+      A. Do NOT include sdk.h; instead include sdk_precomp.h inside the CB sdk folder.
+      B. Do NOT include wx/wx.h from source files except for wxpropgrid, wxscintilla, and other sub-folders.
+      The files scrollingdialog.cpp and xtra_res.cpp violant these rules.
+      ToDo: Create patch for scrollingdialog.cpp and xtra_res.cpp
+   4. Check src/src for issues
+      A. Do NOT include sdk_precomp.h; instead include sdk.h inside the CB src folder.
+      B. Do NOT have #pragma hdrstop in header file.
+      C. Do NOT include sdk.h from inside header files.
+      D. Do NOT include wx/wx.h from inside header files.
+      E. Do NOT include wx/wxprec.h from inside header files.
+      F. Do NOT include wx/wx.h from inside source files.
+      ToDo: Fix switcherdlg.cpp, ipc.h, app.h, scriptconsole.h, and virtualbuildtargetsdlg.h
+   5. Check src/plugins for issues
+      A. Do NOT include sdk_precomp.h; instead include sdk.h inside a CB plugin folder.
+      B. Do NOT have #pragma hdrstop in header file.
+      C. Do NOT include sdk.h from inside header files.
+      D. Do NOT include wx/wx.h from inside header files.
+      E. Do NOT include wx/wxprec.h from inside header files.
+      ToDo: Fix
+               todo
+                  todolist.h                 hdrstop
+               modpoller
+                  ModPoller.h                wx/wxprec.h,wx/wx.h
+               scriptedwizard
+                  buildtargetpanel.h
+                  and many many more
+               abbreviations
+                  abbreviations.h            wx/wxprec.h,wx/wx.h
+               astyle
+                  astyleplugin.h             wx/wxprec.h,wx/wx.h,hdrstop
+               codecompletion
+                  parser\ccdebuginfo.h       wx/wxprec.h,hdrstop
+                  selectincludefile.h        wx/wxprec.h
+               debuggergdb
+                  databreakpointdlg.h        wx/wxprec.h,hdrstop
+               defaultmimehandler
+                  mimetypesarray.h           wx/wxprec.h,wx/wx.h,hdrstop
+               occurrenceshighlighting
+                  highlighter.h              wx/wxprec.h,wx/wx.h
+                  occurrenceshighlighting.h  wx/wxprec.h,wx/wx.h
+
+   6. Check src/plugins/contrib for issues
+      A. Do NOT include sdk_precomp.h; instead include sdk.h inside a CB plugin folder.
+      B. Do NOT have #pragma hdrstop in header file (unless that header is making a PCH).
+      C. Do NOT include sdk.h from inside header files (unless that header is making a PCH).
+      D. Do NOT include wx/wx.h from inside header files (unless that header is making a PCH).
+      E. Do NOT include wx/wxprec.h from inside header files (unless that header is making a PCH).
+
+Other locations to check include src/tools
+      ToDo: Fix
+         tools\cb_share_config
+            app.h                            wx/wxprec.h,wx/wx.h,hdrstop
