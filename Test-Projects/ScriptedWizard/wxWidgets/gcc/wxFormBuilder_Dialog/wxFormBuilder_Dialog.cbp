@@ -61,9 +61,9 @@
 		<Linker>
 			<Add option="-mthreads" />
 		</Linker>
-		<Unit filename="GUIDialog.cpp" />
-		<Unit filename="GUIDialog.h" />
-		<Unit filename="WxWizDialog.fbp" />
+		<Unit filename="GUIFrame.cpp" />
+		<Unit filename="GUIFrame.h" />
+		<Unit filename="WxWizFrame.fbp" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>

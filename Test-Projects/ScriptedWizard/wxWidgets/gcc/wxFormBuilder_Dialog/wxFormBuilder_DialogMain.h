@@ -10,22 +10,22 @@
 #ifndef WXFORMBUILDER_DIALOGMAIN_H
 #define WXFORMBUILDER_DIALOGMAIN_H
 
-
+#include <wx/frame.h>
 
 #include "wxFormBuilder_DialogApp.h"
 
 
+#include "GUIFrame.h"
 
-#include "GUIDialog.h"
-
-class wxFormBuilder_DialogDialog: public GUIDialog
+class wxFormBuilder_DialogFrame: public GUIFrame
 {
     public:
-        wxFormBuilder_DialogDialog(wxDialog *dlg);
-        ~wxFormBuilder_DialogDialog();
+        wxFormBuilder_DialogFrame(wxFrame *frame);
+        ~wxFormBuilder_DialogFrame();
     private:
         virtual void OnClose(wxCloseEvent& event);
         virtual void OnQuit(wxCommandEvent& event);
         virtual void OnAbout(wxCommandEvent& event);
 };
+
 #endif // WXFORMBUILDER_DIALOGMAIN_H

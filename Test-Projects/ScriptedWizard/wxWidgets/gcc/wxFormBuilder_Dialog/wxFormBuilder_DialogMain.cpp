@@ -8,12 +8,17 @@
  **************************************************************/
 
 #ifdef WX_PRECOMP
-#include "wx_pch.h"
+#include <wx/wxprec.h>
 #endif
 
 #ifdef __BORLANDC__
 #pragma hdrstop
 #endif //__BORLANDC__
+#ifndef WX_PRECOMP
+#include <wx/wx.h>
+#endif // WX_PRECOMP
+
+
 
 #include "wxFormBuilder_DialogMain.h"
 
@@ -46,27 +51,30 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 
+wxFormBuilder_DialogFrame::wxFormBuilder_DialogFrame(wxFrame *frame)
+    : GUIFrame(frame)
+{
+#if wxUSE_STATUSBAR
+    statusBar->SetStatusText(_("Hello Code::Blocks user!"), 0);
+    statusBar->SetStatusText(wxbuildinfo(short_f), 1);
+#endif
+}
 
-wxFormBuilder_DialogDialog::wxFormBuilder_DialogDialog(wxDialog *dlg)
-    : GUIDialog(dlg)
+wxFormBuilder_DialogFrame::~wxFormBuilder_DialogFrame()
 {
 }
 
-wxFormBuilder_DialogDialog::~wxFormBuilder_DialogDialog()
-{
-}
-
-void wxFormBuilder_DialogDialog::OnClose(wxCloseEvent &event)
-{
-    Destroy();
-}
-
-void wxFormBuilder_DialogDialog::OnQuit(wxCommandEvent &event)
+void wxFormBuilder_DialogFrame::OnClose(wxCloseEvent &event)
 {
     Destroy();
 }
 
-void wxFormBuilder_DialogDialog::OnAbout(wxCommandEvent &event)
+void wxFormBuilder_DialogFrame::OnQuit(wxCommandEvent &event)
+{
+    Destroy();
+}
+
+void wxFormBuilder_DialogFrame::OnAbout(wxCommandEvent &event)
 {
     wxString msg = wxbuildinfo(long_f);
     wxMessageBox(msg, _("Welcome to..."));

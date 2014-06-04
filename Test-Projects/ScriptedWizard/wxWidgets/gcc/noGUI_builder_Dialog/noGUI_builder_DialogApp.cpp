@@ -8,7 +8,7 @@
  **************************************************************/
 
 #ifdef WX_PRECOMP
-#include "wx_pch.h"
+#include <wx/wxprec.h>
 #endif
 
 #ifdef __BORLANDC__

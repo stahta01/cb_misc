@@ -10,7 +10,7 @@
 #ifndef WXFORMBUILDER_FRAME_WITH_WX_PCHMAIN_H
 #define WXFORMBUILDER_FRAME_WITH_WX_PCHMAIN_H
 
-
+#include <wx/frame.h>
 
 #include "wxFormBuilder_Frame_with_wx_pchApp.h"
 
