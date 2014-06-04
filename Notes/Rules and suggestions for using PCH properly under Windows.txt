@@ -16,6 +16,7 @@ Required rules for using CB PCH properly under Windows MinGW GCC
       NOTE: The folder containing sdk.h.gch must before the sdk.h folder.
   10. Have the include of sdk.h guarded by macro suggested example below
       #ifndef CB_USING_CMDLINE_SDK_H_INCLUDE
+
 Suggested rules for using PCH properly under Windows
    1. Use <sdk.h> instead of "sdk.h" in CB Plugins
    2. Try to avoid using CB_PRECOMP or WX_PRECOMP inside headers.

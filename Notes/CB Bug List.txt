@@ -9,6 +9,9 @@ wxWidgets Wizard
       Does NOT seem to work with empty or other types ofprojects.
       Was user error; it works if you click yes/no on the popups correctly.
 
+   Empty Project and PCH does NOT work correctly.
+      The "-include" option is not added to CB Project
+
 Might be bug or feature change (Partly done; needs more testing)
    Fix [PCH_INCLUDE] for wxWidget wizard (non wxSmith).
       ADDED [IF WANTUSERPCH]
