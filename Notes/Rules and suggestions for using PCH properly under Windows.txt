@@ -1,4 +1,9 @@
-Required rules for using PCH properly under Windows
+Things that fail when using a PCH properly under Windows MinGW GCC
+   1. Have CB set to put PCH in object directly fails to work 
+      if pch file in compiler working folder
+      it reads the normal header file instead
+
+Required rules for using CB PCH properly under Windows MinGW GCC
    1. The sdk_common.h file should only be included by sdk.h and sdk_precomp.h
    2. Use sdk.h instead of sdk_precomp.h in CB Plugins
    3. Do NOT include wx.h inside header files (unless that header is making a PCH).

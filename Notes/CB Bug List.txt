@@ -5,15 +5,18 @@ End of Line Mode of LF does NOT work when using wxWidgets Templates
    Till the file is edited and saved.
 
 wxWidgets Wizard
-   Checkmark for "Use __WXDEBUG__ and debug wxWidget Lib" 
+   NO ISSUE: Checkmark for "Use __WXDEBUG__ and debug wxWidget Lib" 
       Does NOT seem to work with empty or other types ofprojects.
-         Was user error; it works if you click on the popups correctly.
+      Was user error; it works if you click yes/no on the popups correctly.
 
-Might to bug or feature change
-   Fix [PCH_INCLUDE] for wxWidget wizard.
-      Maybe default to "#include <wx/wxprec.h>" if not set
-      Or ADD [IF PCH]
+Might be bug or feature change (Partly done; needs more testing)
+   Fix [PCH_INCLUDE] for wxWidget wizard (non wxSmith).
+      ADDED [IF WANTUSERPCH]
 
 NOT BUGs; but feature change below
    wxWidgets Wizard Project changes needed
       Use custom vars for WX_CFG, WX_SUFFIX, and WX_VERSION
+      
+      HOLD: Merge wxSmith template files into common files
+         Looks to be to hard to merge; maybe bad idea for most files.
+         The file app.cpp might be safe to do.
