@@ -1,0 +1,14 @@
+Code::Blocks Share Config        src/tools/cb_share_config
+Compiler                         src/plugins/compilergcc
+EnvVars                          src/plugins/contrib/envvars
+Files extension handler          src/plugins/defaultmimehandler
+Foreign projects importer        src/plugins/projectsimporter
+Help                             src/plugins/contrib/help_plugin
+ModPoller                        src/plugins/modpoller
+Scripted wizard                  src/plugins/scriptedwizard
+Source code formatter (AStyle)   src/plugins/astyle
+Todo List                        src/plugins/todo
+Tools Plus                       src/plugins/contrib/ToolsPlus
+wxSmith                          src/plugins/contrib/wxSmith
+
+Ones that need disabled to stop CB Project changes
