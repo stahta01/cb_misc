@@ -70,6 +70,7 @@
 		<Unit filename="wxSmith_DialogMain.h" />
 		<Unit filename="wxsmith/wxSmith_Dialogdialog.wxs" />
 		<Extensions>
+			<code_completion />
 			<envvars />
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="wxSmith_DialogApp.cpp" main="wxSmith_DialogDialog" init_handlers="necessary" language="CPP" />

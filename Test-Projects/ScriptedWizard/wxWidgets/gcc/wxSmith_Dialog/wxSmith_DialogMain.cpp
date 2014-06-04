@@ -2,7 +2,7 @@
  * Name:      wxSmith_DialogMain.cpp
  * Purpose:   Code for Application Frame
  * Author:     ()
- * Created:   2014-06-01
+ * Created:   2014-06-04
  * Copyright:  ()
  * License:
  **************************************************************/

@@ -2,7 +2,7 @@
  * Name:      noGUI_builder_DialogMain.h
  * Purpose:   Defines Application Frame
  * Author:     ()
- * Created:   2014-06-01
+ * Created:   2014-06-04
  * Copyright:  ()
  * License:
  **************************************************************/

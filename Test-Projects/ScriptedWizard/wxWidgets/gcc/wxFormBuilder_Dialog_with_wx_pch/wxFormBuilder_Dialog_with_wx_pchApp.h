@@ -2,7 +2,7 @@
  * Name:      wxFormBuilder_Dialog_with_wx_pchApp.h
  * Purpose:   Defines Application Class
  * Author:     ()
- * Created:   2014-06-02
+ * Created:   2014-06-04
  * Copyright:  ()
  * License:
  **************************************************************/

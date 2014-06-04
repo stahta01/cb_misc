@@ -72,6 +72,7 @@
 		<Unit filename="wxFormBuilder_FrameMain.cpp" />
 		<Unit filename="wxFormBuilder_FrameMain.h" />
 		<Extensions>
+			<code_completion />
 			<envvars />
 		</Extensions>
 	</Project>

@@ -76,6 +76,7 @@
 			<Option weight="0" />
 		</Unit>
 		<Extensions>
+			<code_completion />
 			<envvars />
 		</Extensions>
 	</Project>

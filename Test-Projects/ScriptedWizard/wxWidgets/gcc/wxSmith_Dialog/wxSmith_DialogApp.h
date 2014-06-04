@@ -2,7 +2,7 @@
  * Name:      wxSmith_DialogApp.h
  * Purpose:   Defines Application Class
  * Author:     ()
- * Created:   2014-06-01
+ * Created:   2014-06-04
  * Copyright:  ()
  * License:
  **************************************************************/

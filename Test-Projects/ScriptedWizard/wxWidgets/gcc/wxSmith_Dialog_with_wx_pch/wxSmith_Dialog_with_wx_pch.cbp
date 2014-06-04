@@ -77,6 +77,7 @@
 		</Unit>
 		<Unit filename="wxsmith/wxSmith_Dialog_with_wx_pchdialog.wxs" />
 		<Extensions>
+			<code_completion />
 			<envvars />
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="wxSmith_Dialog_with_wx_pchApp.cpp" main="wxSmith_Dialog_with_wx_pchDialog" init_handlers="necessary" language="CPP" />

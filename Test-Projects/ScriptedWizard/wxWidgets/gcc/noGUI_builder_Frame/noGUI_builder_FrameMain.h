@@ -2,7 +2,7 @@
  * Name:      noGUI_builder_FrameMain.h
  * Purpose:   Defines Application Frame
  * Author:     ()
- * Created:   2014-06-01
+ * Created:   2014-06-04
  * Copyright:  ()
  * License:
  **************************************************************/
@@ -10,9 +10,7 @@
 #ifndef NOGUI_BUILDER_FRAMEMAIN_H
 #define NOGUI_BUILDER_FRAMEMAIN_H
 
-#ifndef WX_PRECOMP
-    #include <wx/wx.h>
-#endif
+#include <wx/frame.h>
 
 #include "noGUI_builder_FrameApp.h"
 

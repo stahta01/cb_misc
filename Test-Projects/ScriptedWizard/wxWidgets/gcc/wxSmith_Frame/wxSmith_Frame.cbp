@@ -70,6 +70,7 @@
 		<Unit filename="wxSmith_FrameMain.h" />
 		<Unit filename="wxsmith/wxSmith_Frameframe.wxs" />
 		<Extensions>
+			<code_completion />
 			<envvars />
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="wxSmith_FrameApp.cpp" main="wxSmith_FrameFrame" init_handlers="necessary" language="CPP" />

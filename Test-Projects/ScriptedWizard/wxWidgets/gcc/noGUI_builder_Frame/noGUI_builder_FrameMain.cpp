@@ -2,18 +2,23 @@
  * Name:      noGUI_builder_FrameMain.cpp
  * Purpose:   Code for Application Frame
  * Author:     ()
- * Created:   2014-06-01
+ * Created:   2014-06-04
  * Copyright:  ()
  * License:
  **************************************************************/
 
 #ifdef WX_PRECOMP
-#include "wx_pch.h"
+#include <wx/wxprec.h>
 #endif
 
 #ifdef __BORLANDC__
 #pragma hdrstop
 #endif //__BORLANDC__
+
+#ifndef WX_PRECOMP
+#include <wx/wx.h>
+#endif // WX_PRECOMP
+
 
 #include "noGUI_builder_FrameMain.h"
 

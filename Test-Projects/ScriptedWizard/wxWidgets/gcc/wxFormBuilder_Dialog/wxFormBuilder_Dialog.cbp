@@ -72,6 +72,7 @@
 		<Unit filename="wxFormBuilder_DialogMain.cpp" />
 		<Unit filename="wxFormBuilder_DialogMain.h" />
 		<Extensions>
+			<code_completion />
 			<envvars />
 		</Extensions>
 	</Project>

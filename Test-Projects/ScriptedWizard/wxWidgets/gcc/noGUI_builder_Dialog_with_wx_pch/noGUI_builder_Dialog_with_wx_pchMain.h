@@ -2,7 +2,7 @@
  * Name:      noGUI_builder_Dialog_with_wx_pchMain.h
  * Purpose:   Defines Application Frame
  * Author:     ()
- * Created:   2014-06-02
+ * Created:   2014-06-04
  * Copyright:  ()
  * License:
  **************************************************************/

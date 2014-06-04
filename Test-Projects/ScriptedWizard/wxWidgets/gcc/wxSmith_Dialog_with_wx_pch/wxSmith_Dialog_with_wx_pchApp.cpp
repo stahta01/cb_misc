@@ -2,7 +2,7 @@
  * Name:      wxSmith_Dialog_with_wx_pchApp.cpp
  * Purpose:   Code for Application Class
  * Author:     ()
- * Created:   2014-06-02
+ * Created:   2014-06-04
  * Copyright:  ()
  * License:
  **************************************************************/

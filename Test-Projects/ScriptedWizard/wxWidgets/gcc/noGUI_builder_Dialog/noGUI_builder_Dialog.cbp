@@ -69,6 +69,7 @@
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Extensions>
+			<code_completion />
 			<envvars />
 		</Extensions>
 	</Project>
