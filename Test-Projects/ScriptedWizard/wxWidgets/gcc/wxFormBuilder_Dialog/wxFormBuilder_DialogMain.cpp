@@ -51,30 +51,27 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 
-wxFormBuilder_DialogFrame::wxFormBuilder_DialogFrame(wxFrame *frame)
-    : GUIFrame(frame)
-{
-#if wxUSE_STATUSBAR
-    statusBar->SetStatusText(_("Hello Code::Blocks user!"), 0);
-    statusBar->SetStatusText(wxbuildinfo(short_f), 1);
-#endif
-}
 
-wxFormBuilder_DialogFrame::~wxFormBuilder_DialogFrame()
+wxFormBuilder_DialogDialog::wxFormBuilder_DialogDialog(wxDialog *dlg)
+    : GUIDialog(dlg)
 {
 }
 
-void wxFormBuilder_DialogFrame::OnClose(wxCloseEvent &event)
+wxFormBuilder_DialogDialog::~wxFormBuilder_DialogDialog()
+{
+}
+
+void wxFormBuilder_DialogDialog::OnClose(wxCloseEvent &event)
 {
     Destroy();
 }
 
-void wxFormBuilder_DialogFrame::OnQuit(wxCommandEvent &event)
+void wxFormBuilder_DialogDialog::OnQuit(wxCommandEvent &event)
 {
     Destroy();
 }
 
-void wxFormBuilder_DialogFrame::OnAbout(wxCommandEvent &event)
+void wxFormBuilder_DialogDialog::OnAbout(wxCommandEvent &event)
 {
     wxString msg = wxbuildinfo(long_f);
     wxMessageBox(msg, _("Welcome to..."));

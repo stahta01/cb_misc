@@ -26,9 +26,9 @@ IMPLEMENT_APP(wxFormBuilder_DialogApp);
 
 bool wxFormBuilder_DialogApp::OnInit()
 {
-    wxFormBuilder_DialogFrame* frame = new wxFormBuilder_DialogFrame(0L);
-    frame->SetIcon(wxICON(aaaa)); // To Set App Icon
-    frame->Show();
     
+    wxFormBuilder_DialogDialog* dlg = new wxFormBuilder_DialogDialog(0L);
+    dlg->SetIcon(wxICON(aaaa)); // To Set App Icon
+    dlg->Show();
     return true;
 }
