@@ -30,7 +30,7 @@ REM PAUSE
 
 REM PAUSE
 REM Start of section
-SET PATCH_NAME=cb_src_plugin_scriptedwizard_resources_wxwidgets
+SET PATCH_NAME=cb_src_plugin_scriptedwizard_resources_wxwidgets_2
 unix2dos < %CB_GIT%\Patches\Git\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
 svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
