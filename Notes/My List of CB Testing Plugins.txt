@@ -10,5 +10,7 @@ Source code formatter (AStyle)   src/plugins/astyle
 Todo List                        src/plugins/todo
 Tools Plus                       src/plugins/contrib/ToolsPlus
 wxSmith                          src/plugins/contrib/wxSmith
+Code-completion                  src/ Custom Project
 
-Ones that need disabled to stop CB Project changes
+Ones that need are disabled; but, being installed causes cbp file changes
+Code-completion
