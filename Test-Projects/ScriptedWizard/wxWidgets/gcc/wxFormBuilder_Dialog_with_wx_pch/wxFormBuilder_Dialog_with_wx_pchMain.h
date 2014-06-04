@@ -12,6 +12,10 @@
 
 
 
+#include "wxFormBuilder_Dialog_with_wx_pchApp.h"
+
+
+
 #include "GUIDialog.h"
 
 class wxFormBuilder_Dialog_with_wx_pchDialog: public GUIDialog

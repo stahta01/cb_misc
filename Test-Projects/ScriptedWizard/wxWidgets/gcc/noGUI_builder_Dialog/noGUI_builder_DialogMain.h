@@ -10,15 +10,15 @@
 #ifndef NOGUI_BUILDER_DIALOGMAIN_H
 #define NOGUI_BUILDER_DIALOGMAIN_H
 
-
-#include <wx/dialog.h>
+#ifndef WX_PRECOMP
+    #include <wx/wx.h>
+#endif
 
 #include "noGUI_builder_DialogApp.h"
 
-class wxButton;
-class wxStaticLine;
-class wxStaticText;
 
+#include <wx/button.h>
+#include <wx/statline.h>
 class noGUI_builder_DialogDialog: public wxDialog
 {
     public:

@@ -12,6 +12,10 @@
 
 
 
+#include "wxFormBuilder_DialogApp.h"
+
+
+
 #include "GUIDialog.h"
 
 class wxFormBuilder_DialogDialog: public GUIDialog

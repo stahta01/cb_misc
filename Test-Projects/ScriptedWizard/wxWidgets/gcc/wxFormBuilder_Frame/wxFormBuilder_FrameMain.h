@@ -10,7 +10,7 @@
 #ifndef WXFORMBUILDER_FRAMEMAIN_H
 #define WXFORMBUILDER_FRAMEMAIN_H
 
-#include <wx/frame.h>
+
 
 #include "wxFormBuilder_FrameApp.h"
 

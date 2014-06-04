@@ -15,10 +15,6 @@
 #pragma hdrstop
 #endif //__BORLANDC__
 
-#ifndef WX_PRECOMP
-#include <wx/wx.h>
-#endif // WX_PRECOMP
-
 #include "wxFormBuilder_Frame_with_wx_pchApp.h"
 #include "wxFormBuilder_Frame_with_wx_pchMain.h"
 

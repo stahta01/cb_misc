@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Apr 16 2008)
+// C++ code generated with wxFormBuilder (version Feb 17 2007)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -8,17 +8,18 @@
 #ifndef __GUIFrame__
 #define __GUIFrame__
 
-#include <wx/string.h>
-#include <wx/bitmap.h>
-#include <wx/image.h>
-#include <wx/icon.h>
+// Define WX_GCH in order to support precompiled headers with GCC compiler.
+// You have to create the header "wx_pch.h" and include all files needed
+// for compile your gui inside it.
+// Then, compile it and place the file "wx_pch.h.gch" into the same
+// directory that "wx_pch.h".
+#ifdef WX_GCH
+#include <wx_pch.h>
+#else
+#include <wx/wx.h>
+#endif
+
 #include <wx/menu.h>
-#include <wx/gdicmn.h>
-#include <wx/font.h>
-#include <wx/colour.h>
-#include <wx/settings.h>
-#include <wx/statusbr.h>
-#include <wx/frame.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -30,12 +31,17 @@
 ///////////////////////////////////////////////////////////////////////////////
 class GUIFrame : public wxFrame 
 {
+    DECLARE_EVENT_TABLE()
     private:
+        
+        // Private event handlers
+        void _wxFB_OnClose( wxCloseEvent& event ){ OnClose( event ); }
+        void _wxFB_OnQuit( wxCommandEvent& event ){ OnQuit( event ); }
+        void _wxFB_OnAbout( wxCommandEvent& event ){ OnAbout( event ); }
+        
     
     protected:
         wxMenuBar* mbar;
-        wxMenu* fileMenu;
-        wxMenu* helpMenu;
         wxStatusBar* statusBar;
         
         // Virtual event handlers, overide them in your derived class
@@ -45,8 +51,7 @@ class GUIFrame : public wxFrame
         
     
     public:
-        GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxWidgets Application Template"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 481,466 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-        ~GUIFrame();
+        GUIFrame( wxWindow* parent, int id = wxID_ANY, wxString title = wxT("wxWidgets Application Template"), wxPoint pos = wxDefaultPosition, wxSize size = wxSize( 481,466 ), int style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
     
 };
 
