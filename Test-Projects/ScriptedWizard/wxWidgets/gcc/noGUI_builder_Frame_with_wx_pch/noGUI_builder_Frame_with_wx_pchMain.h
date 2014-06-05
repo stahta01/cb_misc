@@ -10,9 +10,7 @@
 #ifndef NOGUI_BUILDER_FRAME_WITH_WX_PCHMAIN_H
 #define NOGUI_BUILDER_FRAME_WITH_WX_PCHMAIN_H
 
-#ifndef WX_PRECOMP
-    #include <wx/wx.h>
-#endif
+#include <wx/frame.h>
 
 #include "noGUI_builder_Frame_with_wx_pchApp.h"
 

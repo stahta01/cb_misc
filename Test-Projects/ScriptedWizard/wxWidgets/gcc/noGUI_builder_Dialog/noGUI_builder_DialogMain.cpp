@@ -8,12 +8,18 @@
  **************************************************************/
 
 #ifdef WX_PRECOMP
-#include "wx_pch.h"
+#include <wx/wxprec.h>
 #endif
 
 #ifdef __BORLANDC__
 #pragma hdrstop
 #endif //__BORLANDC__
+
+#ifndef WX_PRECOMP
+#include <wx/wx.h>
+#endif // WX_PRECOMP
+#include <wx/button.h>
+#include <wx/statline.h>
 
 #include "noGUI_builder_DialogMain.h"
 

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Feb 17 2007)
+// C++ code generated with wxFormBuilder (version Apr 16 2008)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -18,13 +18,8 @@
 #include "GUIDialog.h"
 
 ///////////////////////////////////////////////////////////////////////////
-BEGIN_EVENT_TABLE( GUIDialog, wxDialog )
-    EVT_CLOSE( GUIDialog::_wxFB_OnClose )
-    EVT_BUTTON( idBtnAbout, GUIDialog::_wxFB_OnAbout )
-    EVT_BUTTON( idBtnQuit, GUIDialog::_wxFB_OnQuit )
-END_EVENT_TABLE()
 
-GUIDialog::GUIDialog( wxWindow* parent, int id, wxString title, wxPoint pos, wxSize size, int style ) : wxDialog( parent, id, title, pos, size, style )
+GUIDialog::GUIDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
     this->SetSizeHints( wxDefaultSize, wxDefaultSize );
     
@@ -32,7 +27,8 @@ GUIDialog::GUIDialog( wxWindow* parent, int id, wxString title, wxPoint pos, wxS
     bSizer1 = new wxBoxSizer( wxHORIZONTAL );
     
     m_staticText1 = new wxStaticText( this, wxID_ANY, wxT("Welcome To\nwxWidgets"), wxDefaultPosition, wxDefaultSize, 0 );
-    m_staticText1->SetFont( wxFont( 20, 74, 90, 90, false, wxT("Arial") ) );
+    m_staticText1->Wrap( -1 );
+    m_staticText1->SetFont( wxFont( 20, 70, 90, 90, false, wxT("Arial") ) );
     
     bSizer1->Add( m_staticText1, 0, wxALL|wxEXPAND, 5 );
     
@@ -53,4 +49,17 @@ GUIDialog::GUIDialog( wxWindow* parent, int id, wxString title, wxPoint pos, wxS
     this->SetSizer( bSizer1 );
     this->Layout();
     bSizer1->Fit( this );
+    
+    // Connect Events
+    this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIDialog::OnClose ) );
+    BtnAbout->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIDialog::OnAbout ), NULL, this );
+    BtnQuit->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIDialog::OnQuit ), NULL, this );
+}
+
+GUIDialog::~GUIDialog()
+{
+    // Disconnect Events
+    this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIDialog::OnClose ) );
+    BtnAbout->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIDialog::OnAbout ), NULL, this );
+    BtnQuit->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIDialog::OnQuit ), NULL, this );
 }
