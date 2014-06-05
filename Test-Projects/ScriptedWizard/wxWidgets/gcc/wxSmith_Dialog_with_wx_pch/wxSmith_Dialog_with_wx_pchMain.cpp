@@ -2,7 +2,7 @@
  * Name:      wxSmith_Dialog_with_wx_pchMain.cpp
  * Purpose:   Code for Application Frame
  * Author:     ()
- * Created:   2014-06-04
+ * Created:   2014-06-05
  * Copyright:  ()
  * License:
  **************************************************************/

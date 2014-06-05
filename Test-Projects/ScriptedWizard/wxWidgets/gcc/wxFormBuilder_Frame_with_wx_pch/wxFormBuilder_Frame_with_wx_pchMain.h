@@ -2,7 +2,7 @@
  * Name:      wxFormBuilder_Frame_with_wx_pchMain.h
  * Purpose:   Defines Application Frame
  * Author:     ()
- * Created:   2014-06-04
+ * Created:   2014-06-05
  * Copyright:  ()
  * License:
  **************************************************************/

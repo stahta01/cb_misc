@@ -2,7 +2,7 @@
  * Name:      wxFormBuilder_DialogApp.cpp
  * Purpose:   Code for Application Class
  * Author:     ()
- * Created:   2014-06-04
+ * Created:   2014-06-05
  * Copyright:  ()
  * License:
  **************************************************************/
