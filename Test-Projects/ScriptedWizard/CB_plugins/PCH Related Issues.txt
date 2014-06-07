@@ -1,0 +1,38 @@
+1. Including of wx/wx.h inside a normal header file (as in NOT a PCH file)
+2. Including of wx/wxprec.h inside a normal header file (as in NOT a PCH file)
+3. Change script function SetupTarget
+   A. Add condition pch code to SetupTarget
+   B. Add include of CB object directory on PCH
+
+defined(__MSYS__) 
+
+bool RenameBuildTarget(const wxString& oldTargetName, const wxString& newTargetName);
+
+target.SetObjectOutput(target.GetTitle());
+
+GetWantRelease
+GetReleaseName
+
+Wiz::GetTargetName
+Wiz::GetTargetOutputDir
+Wiz::GetTargetObjectOutputDir
+
+m_pWizCompilerPanel
+
+AddBuildTargetPage
+
+    // clear previous script's context
+    static const wxString clearout_wizscripts =  _T("function BeginWizard(){};\n"
+                                                    "function SetupProject(project){return false;};\n"
+                                                    "function SetupTarget(target,is_debug){return false;};\n"
+                                                    "function SetupCustom(){return false;};\n"
+                                                    "function CreateFiles(){return _T(\"\");};\n"
+                                                    "function GetFilesDir(){return _T(\"\");};\n"
+                                                    "function GetGeneratedFile(index){return _T(\"\");};\n");
+
+
+target.AddCompilerOption(_T("-Winvalid-pch"));
+target.AddCompilerOption(_T("-DCB_PRECOMP"));
+target.AddCompilerOption(_T("-DWX_PRECOMP"));
+
+target.SetOptionRelation(ortIncludeDirs, orPrependToParentOptions);

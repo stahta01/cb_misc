@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="tool/tool.cbp" />
+		<Project filename="generic/generic.cbp" />
+		<Project filename="mime/mime.cbp" />
+		<Project filename="wizard/wizard.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
