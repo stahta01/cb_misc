@@ -16,6 +16,7 @@ Required rules for using CB PCH properly under Windows MinGW GCC
       NOTE: The folder containing sdk.h.gch must before the sdk.h folder.
   10. Have the include of sdk.h guarded by macro suggested example below
       #ifndef CB_USING_CMDLINE_SDK_H_INCLUDE
+      Try testing for SDK_H instead.
 
 Suggested rules for using PCH properly under Windows
    1. Use <sdk.h> instead of "sdk.h" in CB Plugins
@@ -39,7 +40,12 @@ Priority order to check PCH rules
       B. Do NOT include wx/wx.h from source files except for wxpropgrid, wxscintilla, and other sub-folders.
       The files scrollingdialog.cpp and xtra_res.cpp violant these rules.
       ToDo: Create patch for scrollingdialog.cpp and xtra_res.cpp
-   4. Check src/src for issues
+   4. Check src/plugins/scriptedwizard/resources for issues
+      A. Do NOT have #pragma hdrstop in header file (unless that header is making a PCH).
+      B. Do NOT include sdk.h from inside header files (unless that header is making a PCH).
+      C. Do NOT include wx/wx.h from inside header files (unless that header is making a PCH).
+      D. Do NOT include wx/wxprec.h from inside header files (unless that header is making a PCH).
+   5. Check src/src for issues
       A. Do NOT include sdk_precomp.h; instead include sdk.h inside the CB src folder.
       B. Do NOT have #pragma hdrstop in header file.
       C. Do NOT include sdk.h from inside header files.
@@ -47,7 +53,7 @@ Priority order to check PCH rules
       E. Do NOT include wx/wxprec.h from inside header files.
       F. Do NOT include wx/wx.h from inside source files.
       ToDo: Fix switcherdlg.cpp, ipc.h, app.h, scriptconsole.h, and virtualbuildtargetsdlg.h
-   5. Check src/plugins for issues
+   6. Check src/plugins for issues
       A. Do NOT include sdk_precomp.h; instead include sdk.h inside a CB plugin folder.
       B. Do NOT have #pragma hdrstop in header file.
       C. Do NOT include sdk.h from inside header files.
@@ -76,7 +82,7 @@ Priority order to check PCH rules
                   highlighter.h              wx/wxprec.h,wx/wx.h
                   occurrenceshighlighting.h  wx/wxprec.h,wx/wx.h
 
-   6. Check src/plugins/contrib for issues
+   7. Check src/plugins/contrib for issues
       A. Do NOT include sdk_precomp.h; instead include sdk.h inside a CB plugin folder.
       B. Do NOT have #pragma hdrstop in header file (unless that header is making a PCH).
       C. Do NOT include sdk.h from inside header files (unless that header is making a PCH).

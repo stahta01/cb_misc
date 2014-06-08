@@ -1,0 +1,248 @@
+Index: src/CodeBlocks.cbp
+===================================================================
+--- src/CodeBlocks.cbp	(revision 9793)
++++ src/CodeBlocks.cbp	(working copy)
+@@ -733,7 +733,6 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmith/wxSmith.cbp
+===================================================================
+--- src/plugins/contrib/wxSmith/wxSmith.cbp	(revision 9793)
++++ src/plugins/contrib/wxSmith/wxSmith.cbp	(working copy)
+@@ -45,17 +45,18 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option="-include sdk.h" />
+ 			<Add option='[[if (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;)) print(_T(&quot;-Wno-attributes&quot;));]]' />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+ 			<Add directory="$(#WX.include)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxpropgrid\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(revision 9793)
++++ src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(working copy)
+@@ -20,6 +20,7 @@
+ 					<Add option="-ansi" />
+ 					<Add option="`wx-config --cflags`" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-fPIC" />
+ 				</Compiler>
+@@ -49,6 +50,7 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add directory="$(#wx.include)" />
+@@ -83,7 +85,7 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="../../../sdk/wxpropgrid/include" />
+Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cpp
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.cpp	(revision 9793)
++++ src/plugins/contrib/wxSmithAui/wxSmithAui.cpp	(working copy)
+@@ -1,4 +1,6 @@
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <configurationpanel.h>
+ #include "wxSmithAui.h"
+ 
+Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(revision 9793)
++++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(working copy)
+@@ -23,6 +23,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add option="-include sdk.h" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="../../../sdk/wxpropgrid/include" />
+@@ -80,7 +82,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp
+===================================================================
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp	(revision 9793)
++++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp	(working copy)
+@@ -21,7 +21,9 @@
+ * $HeadURL$
+ */
+ 
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <configurationpanel.h>
+ #include "wxSmithContribItems.h"
+ 
+Index: src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp	(revision 9793)
++++ src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp	(working copy)
+@@ -28,6 +28,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add option="-include sdk.h" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="..\..\..\sdk\wxpropgrid\include" />
+@@ -65,7 +67,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cpp
+===================================================================
+--- src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cpp	(revision 9793)
++++ src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cpp	(working copy)
+@@ -1,4 +1,6 @@
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <configurationpanel.h>
+ #include "wxSmithDateTimePicker.h"
+ 
+Index: src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp	(revision 9793)
++++ src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp	(working copy)
+@@ -27,6 +27,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add option="-include sdk.h" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="..\..\..\sdk\wxpropgrid\include" />
+@@ -70,7 +72,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp
+===================================================================
+--- src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp	(revision 9793)
++++ src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp	(working copy)
+@@ -22,7 +22,9 @@
+ *
+ */
+ 
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <configurationpanel.h>
+ 
+ #include "wxsSmithIExplore.h"
+Index: src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp	(revision 9793)
++++ src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp	(working copy)
+@@ -28,6 +28,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add option="-include sdk.h" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="..\..\..\sdk\wxpropgrid\include" />
+@@ -67,7 +69,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cpp
+===================================================================
+--- src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cpp	(revision 9793)
++++ src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cpp	(working copy)
+@@ -22,7 +22,9 @@
+ *
+ */
+ 
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <configurationpanel.h>
+ #include "wxsSmithPlot.h"
+ 
+Index: src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp	(revision 9793)
++++ src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp	(working copy)
+@@ -73,6 +73,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add option="-include sdk.h" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxpropgrid\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+@@ -115,7 +117,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cpp
+===================================================================
+--- src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cpp	(revision 9793)
++++ src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cpp	(working copy)
+@@ -18,7 +18,9 @@
+ *
+ */
+ 
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <configurationpanel.h>
+ #include "wxsSmithSTC.h"
+ 

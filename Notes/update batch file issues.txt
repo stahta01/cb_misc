@@ -1,0 +1,29 @@
+Remove copying of Templates folder
+
+Add copying of
+devel\share\CodeBlocks\images\settings
+   ToolsPlus.png
+   ToolsPlus-off.png
+   and serval other png files
+
+devel\share\CodeBlocks\images\wxsmith
+   Many Many PNG files
+
+devel\share\CodeBlocks\images\codesnippets
+   several png files
+
+devel\share\CodeBlocks\images\DoxyBlocks
+   several png files
+devel\share\CodeBlocks\images\DoxyBlocks\16x16
+   several png files
+
+devel\share\CodeBlocks\SpellChecker
+   several png files
+   OnlineSpellChecking.xml
+
+devel\share\CodeBlocks\images\ThreadSearch
+   several png files
+devel\share\CodeBlocks\images\ThreadSearch\16x16
+   several png files
+devel\share\CodeBlocks\images\ThreadSearch\22x22
+   several png files
