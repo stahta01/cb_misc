@@ -1,0 +1,37 @@
+Index: src/plugins/contrib/MouseSap/MouseSap.cbp
+===================================================================
+--- src/plugins/contrib/MouseSap/MouseSap.cbp	(revision 9793)
++++ src/plugins/contrib/MouseSap/MouseSap.cbp	(working copy)
+@@ -23,7 +23,6 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+@@ -31,6 +30,7 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 				</Compiler>
+Index: src/plugins/contrib/MouseSap/MouseSap.cpp
+===================================================================
+--- src/plugins/contrib/MouseSap/MouseSap.cpp	(revision 9793)
++++ src/plugins/contrib/MouseSap/MouseSap.cpp	(working copy)
+@@ -11,9 +11,9 @@
+ // If no selected text, paste clipboard data at cursor position
+ // If selected text, and user switches editors, copy selection to clipboard
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma implementation "MouseSap.h"
+-#endif
++//#if defined(__GNUG__) && !defined(__APPLE__)
++//	#pragma implementation "MouseSap.h"
++//#endif
+ 
+ 
+ #include <sdk.h>
