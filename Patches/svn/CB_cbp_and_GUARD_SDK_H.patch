@@ -1,0 +1,1101 @@
+Index: src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+===================================================================
+--- src/plugins/contrib/AutoVersioning/AutoVersioning.cbp	(revision 9793)
++++ src/plugins/contrib/AutoVersioning/AutoVersioning.cbp	(working copy)
+@@ -20,14 +20,15 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
+===================================================================
+--- src/plugins/contrib/AutoVersioning/AutoVersioning.cpp	(revision 9793)
++++ src/plugins/contrib/AutoVersioning/AutoVersioning.cpp	(working copy)
+@@ -1,6 +1,8 @@
+ #include <ctime>
+ #include <cstdlib> //For random numbers
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ 
+ #ifndef CB_PRECOMP
+ #include <wx/dynarray.h>
+Index: src/plugins/contrib/BrowseTracker/BrowseMarks.cpp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/BrowseMarks.cpp	(revision 9793)
++++ src/plugins/contrib/BrowseTracker/BrowseMarks.cpp	(working copy)
+@@ -18,7 +18,9 @@
+ */
+ // RCS-ID: $Id$
+ #if defined(CB_PRECOMP)
+-#include "sdk.h"
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #else
+ 	#include "sdk_events.h"
+ 	#include "manager.h"
+Index: src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(revision 9793)
++++ src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(working copy)
+@@ -21,15 +21,16 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/BrowseTracker/BrowseTracker.cpp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/BrowseTracker.cpp	(revision 9793)
++++ src/plugins/contrib/BrowseTracker/BrowseTracker.cpp	(working copy)
+@@ -66,7 +66,9 @@
+ 
+ 
+ #if defined(CB_PRECOMP)
+-#include "sdk.h"
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #else
+ 	#include "sdk_events.h"
+ 	#include "manager.h"
+Index: src/plugins/contrib/BrowseTracker/BrowseTrackerConfPanel.cpp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/BrowseTrackerConfPanel.cpp	(revision 9793)
++++ src/plugins/contrib/BrowseTracker/BrowseTrackerConfPanel.cpp	(working copy)
+@@ -9,7 +9,9 @@
+  * License:   GPL
+  **************************************************************/
+ 
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+ #include "configmanager.h"
+ #endif
+Index: src/plugins/contrib/BrowseTracker/JumpTracker.cpp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/JumpTracker.cpp	(revision 9793)
++++ src/plugins/contrib/BrowseTracker/JumpTracker.cpp	(working copy)
+@@ -1,7 +1,9 @@
+ // ----------------------------------------------------------------------------
+ //  JumpTracker.cpp
+ // ----------------------------------------------------------------------------
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <configurationpanel.h>
+ #include <cbstyledtextctrl.h>
+ #include <editormanager.h>
+Index: src/plugins/contrib/BrowseTracker/ProjectData.cpp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/ProjectData.cpp	(revision 9793)
++++ src/plugins/contrib/BrowseTracker/ProjectData.cpp	(working copy)
+@@ -19,7 +19,9 @@
+ // RCS-ID: $Id$
+ 
+ #if defined(CB_PRECOMP)
+-#include "sdk.h"
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #else
+ 	#include "sdk_events.h"
+ 	#include "manager.h"
+Index: src/plugins/contrib/Cccc/Cccc.cbp
+===================================================================
+--- src/plugins/contrib/Cccc/Cccc.cbp	(revision 9793)
++++ src/plugins/contrib/Cccc/Cccc.cbp	(working copy)
+@@ -31,12 +31,12 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+Index: src/plugins/contrib/CppCheck/CppCheck.cbp
+===================================================================
+--- src/plugins/contrib/CppCheck/CppCheck.cbp	(revision 9793)
++++ src/plugins/contrib/CppCheck/CppCheck.cbp	(working copy)
+@@ -31,12 +31,12 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+Index: src/plugins/contrib/Cscope/Cscope.cbp
+===================================================================
+--- src/plugins/contrib/Cscope/Cscope.cbp	(revision 9793)
++++ src/plugins/contrib/Cscope/Cscope.cbp	(working copy)
+@@ -29,9 +29,9 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option="-include sdk.h" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+@@ -39,6 +39,7 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 		</Compiler>
+Index: src/plugins/contrib/Cscope/CscopePlugin.cpp
+===================================================================
+--- src/plugins/contrib/Cscope/CscopePlugin.cpp	(revision 9793)
++++ src/plugins/contrib/Cscope/CscopePlugin.cpp	(working copy)
+@@ -1,4 +1,6 @@
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <wx/process.h>
+ 
+Index: src/plugins/contrib/DoxyBlocks/AutoDoc.cpp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/AutoDoc.cpp	(revision 9793)
++++ src/plugins/contrib/DoxyBlocks/AutoDoc.cpp	(working copy)
+@@ -21,7 +21,9 @@
+  *
+  *****************************************************************************/
+ 
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+   #include <cbeditor.h>
+   #include <configmanager.h>
+Index: src/plugins/contrib/DoxyBlocks/Config.cpp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/Config.cpp	(revision 9793)
++++ src/plugins/contrib/DoxyBlocks/Config.cpp	(working copy)
+@@ -23,7 +23,9 @@
+ 
+ #include "Config.h"
+ 
+-#include "sdk.h"
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <wx/filename.h>
+ 
+Index: src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp	(revision 9793)
++++ src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp	(working copy)
+@@ -21,7 +21,9 @@
+  *
+  *****************************************************************************/
+ #include "ConfigPanel.h"
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ 
+ //(*InternalHeaders(ConfigPanel)
+ #include <wx/intl.h>
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(revision 9793)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(working copy)
+@@ -22,14 +22,16 @@
+ 					<Add option="-mthreads" />
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp	(revision 9793)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp	(working copy)
+@@ -22,7 +22,9 @@
+  *****************************************************************************/
+ #include "DoxyBlocks.h"
+ 
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <wx/menu.h>
+     #include <wx/process.h>
+Index: src/plugins/contrib/DoxyBlocks/ExtractDocs.cpp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/ExtractDocs.cpp	(revision 9793)
++++ src/plugins/contrib/DoxyBlocks/ExtractDocs.cpp	(working copy)
+@@ -33,7 +33,9 @@
+  *
+  * Many thanks.
+  *****************************************************************************/
+-#include "sdk.h"
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <cbproject.h>
+     #include <macrosmanager.h>
+Index: src/plugins/contrib/EditorConfig/EditorConfig.cbp
+===================================================================
+--- src/plugins/contrib/EditorConfig/EditorConfig.cbp	(revision 9793)
++++ src/plugins/contrib/EditorConfig/EditorConfig.cbp	(working copy)
+@@ -22,14 +22,15 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/EditorConfig/EditorConfig.cpp
+===================================================================
+--- src/plugins/contrib/EditorConfig/EditorConfig.cpp	(revision 9793)
++++ src/plugins/contrib/EditorConfig/EditorConfig.cpp	(working copy)
+@@ -1,4 +1,6 @@
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ 
+ #ifndef CB_PRECOMP
+     #include <wx/event.h>
+Index: src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+===================================================================
+--- src/plugins/contrib/EditorTweaks/EditorTweaks.cbp	(revision 9793)
++++ src/plugins/contrib/EditorTweaks/EditorTweaks.cbp	(working copy)
+@@ -28,8 +28,8 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/FileManager/FileExplorer.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorer.cpp	(revision 9793)
++++ src/plugins/contrib/FileManager/FileExplorer.cpp	(working copy)
+@@ -4,7 +4,9 @@
+ #include <wx/aui/aui.h>
+ 
+ 
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <wx/dnd.h>
+     #include <wx/imaglist.h>
+Index: src/plugins/contrib/FileManager/FileExplorerSettings.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(revision 9793)
++++ src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(working copy)
+@@ -1,6 +1,8 @@
+ #include "FileExplorerSettings.h"
+ 
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+   #include <wx/xrc/xmlres.h>
+   #include <wx/checkbox.h>
+Index: src/plugins/contrib/FileManager/FileManager.cbp
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.cbp	(revision 9793)
++++ src/plugins/contrib/FileManager/FileManager.cbp	(working copy)
+@@ -37,14 +37,15 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option="-include sdk.h" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="..\..\..\include\mozilla_chardet" />
+Index: src/plugins/contrib/FileManager/FileManager.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.cpp	(revision 9793)
++++ src/plugins/contrib/FileManager/FileManager.cpp	(working copy)
+@@ -1,5 +1,7 @@
+ #include <wx/aui/aui.h>
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <cbauibook.h>
+     #include <cbproject.h>
+Index: src/plugins/contrib/FileManager/se_globals.h
+===================================================================
+--- src/plugins/contrib/FileManager/se_globals.h	(revision 9793)
++++ src/plugins/contrib/FileManager/se_globals.h	(working copy)
+@@ -7,7 +7,9 @@
+ 	#include <wx/wx.h>
+ #endif
+ 
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <wx/dir.h>
+     #include <wx/filename.h>
+Index: src/plugins/contrib/HexEditor/HexEditor.cbp
+===================================================================
+--- src/plugins/contrib/HexEditor/HexEditor.cbp	(revision 9793)
++++ src/plugins/contrib/HexEditor/HexEditor.cbp	(working copy)
+@@ -21,16 +21,17 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 				</Compiler>
+Index: src/plugins/contrib/HexEditor/HexEditor.cpp
+===================================================================
+--- src/plugins/contrib/HexEditor/HexEditor.cpp	(revision 9793)
++++ src/plugins/contrib/HexEditor/HexEditor.cpp	(working copy)
+@@ -20,7 +20,9 @@
+ * $HeadURL$
+ */
+ 
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <configurationpanel.h>
+ #include <manager.h>
+ #include <logmanager.h>
+Index: src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+===================================================================
+--- src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp	(revision 9793)
++++ src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp	(working copy)
+@@ -27,8 +27,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/MouseSap/MouseSap.cbp
+===================================================================
+--- src/plugins/contrib/MouseSap/MouseSap.cbp	(revision 9793)
++++ src/plugins/contrib/MouseSap/MouseSap.cbp	(working copy)
+@@ -23,7 +23,6 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+@@ -31,6 +30,7 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 				</Compiler>
+Index: src/plugins/contrib/MouseSap/MouseSap.cpp
+===================================================================
+--- src/plugins/contrib/MouseSap/MouseSap.cpp	(revision 9793)
++++ src/plugins/contrib/MouseSap/MouseSap.cpp	(working copy)
+@@ -11,9 +11,9 @@
+ // If no selected text, paste clipboard data at cursor position
+ // If selected text, and user switches editors, copy selection to clipboard
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma implementation "MouseSap.h"
+-#endif
++//#if defined(__GNUG__) && !defined(__APPLE__)
++//	#pragma implementation "MouseSap.h"
++//#endif
+ 
+ 
+ #include <sdk.h>
+Index: src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+===================================================================
+--- src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp	(revision 9793)
++++ src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp	(working copy)
+@@ -34,14 +34,15 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option="-include sdk.h" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+===================================================================
+--- src/plugins/contrib/ReopenEditor/ReopenEditor.cbp	(revision 9793)
++++ src/plugins/contrib/ReopenEditor/ReopenEditor.cbp	(working copy)
+@@ -27,8 +27,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/SmartIndent/SmartIndent.cbp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndent.cbp	(revision 9793)
++++ src/plugins/contrib/SmartIndent/SmartIndent.cbp	(working copy)
+@@ -172,9 +172,8 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DNOPCH" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/SmartIndent/SmartIndentCpp.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentCpp.cpp	(revision 9793)
++++ src/plugins/contrib/SmartIndent/SmartIndentCpp.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentCpp.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -13,7 +11,9 @@
+ #include <cbstyledtextctrl.h>
+ #include <wx/regex.h>
+ 
++#include "SmartIndentCpp.h"
+ 
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentFortran.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentFortran.cpp	(revision 9793)
++++ src/plugins/contrib/SmartIndent/SmartIndentFortran.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentFortran.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,8 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentFortran.h"
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp	(revision 9793)
++++ src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentHDL.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,8 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentHDL.h"
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentLua.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentLua.cpp	(revision 9793)
++++ src/plugins/contrib/SmartIndent/SmartIndentLua.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentLua.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,8 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentLua.h"
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp	(revision 9793)
++++ src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentPascal.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,8 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentPascal.h"
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentPython.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentPython.cpp	(revision 9793)
++++ src/plugins/contrib/SmartIndent/SmartIndentPython.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentPython.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,8 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentPython.h"
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentXML.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentXML.cpp	(revision 9793)
++++ src/plugins/contrib/SmartIndent/SmartIndentXML.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentXML.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -14,6 +12,8 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentXML.h"
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/byogames/byogames.cbp
+===================================================================
+--- src/plugins/contrib/byogames/byogames.cbp	(revision 9793)
++++ src/plugins/contrib/byogames/byogames.cbp	(working copy)
+@@ -34,11 +34,11 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="..\..\..\include\tinyxml" />
+Index: src/plugins/contrib/cb_koders/cb_koders.cbp
+===================================================================
+--- src/plugins/contrib/cb_koders/cb_koders.cbp	(revision 9793)
++++ src/plugins/contrib/cb_koders/cb_koders.cbp	(working copy)
+@@ -33,17 +33,18 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option="-include sdk.h" />
+ 			<Add option="-mthreads" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+Index: src/plugins/contrib/cb_koders/cb_koders.cpp
+===================================================================
+--- src/plugins/contrib/cb_koders/cb_koders.cpp	(revision 9793)
++++ src/plugins/contrib/cb_koders/cb_koders.cpp	(working copy)
+@@ -7,7 +7,9 @@
+  * $HeadURL$
+  */
+ 
+-#include "sdk.h" // Code::Blocks SDK
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+   #include <wx/intl.h>
+   #include <wx/menu.h>
+Index: src/plugins/contrib/codesnippets/codesnippets.cbp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets.cbp	(revision 9793)
++++ src/plugins/contrib/codesnippets/codesnippets.cbp	(working copy)
+@@ -39,14 +39,15 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option="-include sdk.h" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="..\..\..\src" />
+Index: src/plugins/contrib/codesnippets/codesnippets.cpp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets.cpp	(revision 9793)
++++ src/plugins/contrib/codesnippets/codesnippets.cpp	(working copy)
+@@ -20,7 +20,9 @@
+ // $Id$
+ 
+ #include <cstring>
+-#include "sdk.h"
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+ 	#include <wx/event.h>
+ 	#include <wx/frame.h> // Manager::Get()->GetAppWindow()
+Index: src/plugins/contrib/codesnippets/codesnippetstreectrl.cpp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippetstreectrl.cpp	(revision 9793)
++++ src/plugins/contrib/codesnippets/codesnippetstreectrl.cpp	(working copy)
+@@ -33,7 +33,9 @@
+     #include "wx/mimetype.h"
+ 
+ //-#if defined(BUILDING_PLUGIN)
+-    #include "sdk.h"
++    #ifndef SDK_H
++    #include <sdk.h> // Code::Blocks SDK
++    #endif
+     #ifndef CB_PRECOMP
+         #include "manager.h"
+         #include "editormanager.h"
+Index: src/plugins/contrib/codesnippets/codesnippetswindow.cpp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippetswindow.cpp	(revision 9793)
++++ src/plugins/contrib/codesnippets/codesnippetswindow.cpp	(working copy)
+@@ -45,7 +45,9 @@
+ #endif //__BORLANDC__
+ 
+ //-#if defined(BUILDING_PLUGIN)
+-    #include "sdk.h"
++    #ifndef SDK_H
++    #include <sdk.h> // Code::Blocks SDK
++    #endif
+     #ifndef CB_PRECOMP
+         #include "manager.h"
+         #include "logmanager.h"
+Index: src/plugins/contrib/codesnippets/snippetproperty.cpp
+===================================================================
+--- src/plugins/contrib/codesnippets/snippetproperty.cpp	(revision 9793)
++++ src/plugins/contrib/codesnippets/snippetproperty.cpp	(working copy)
+@@ -32,7 +32,9 @@
+     #include <wx/dnd.h>
+ 
+ //-#if defined(BUILDING_PLUGIN)
+-    #include "sdk.h"
++    #ifndef SDK_H
++    #include <sdk.h> // Code::Blocks SDK
++    #endif
+ //-#endif
+ 
+ #include "codesnippetswindow.h"
+Index: src/plugins/contrib/codestat/codestat.cbp
+===================================================================
+--- src/plugins/contrib/codestat/codestat.cbp	(revision 9793)
++++ src/plugins/contrib/codestat/codestat.cbp	(working copy)
+@@ -31,12 +31,12 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+Index: src/plugins/contrib/copystrings/copystrings.cbp
+===================================================================
+--- src/plugins/contrib/copystrings/copystrings.cbp	(revision 9793)
++++ src/plugins/contrib/copystrings/copystrings.cbp	(working copy)
+@@ -31,7 +31,6 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+@@ -39,6 +38,7 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 		</Compiler>
+Index: src/plugins/contrib/dragscroll/DragScroll.cbp
+===================================================================
+--- src/plugins/contrib/dragscroll/DragScroll.cbp	(revision 9793)
++++ src/plugins/contrib/dragscroll/DragScroll.cbp	(working copy)
+@@ -26,13 +26,13 @@
+ 			<Add option="-Wall" />
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option="-include sdk.h" />
+ 			<Add option="-pipe" />
+ 			<Add option="-mthreads" />
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+@@ -40,6 +40,7 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\src" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+Index: src/plugins/contrib/dragscroll/dragscroll.cpp
+===================================================================
+--- src/plugins/contrib/dragscroll/dragscroll.cpp	(revision 9793)
++++ src/plugins/contrib/dragscroll/dragscroll.cpp	(working copy)
+@@ -11,7 +11,9 @@
+ #endif
+ 
+ 
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <wx/app.h>
+ 	#include <wx/intl.h>
+Index: src/plugins/contrib/headerfixup/fileanalysis.cpp
+===================================================================
+--- src/plugins/contrib/headerfixup/fileanalysis.cpp	(revision 9793)
++++ src/plugins/contrib/headerfixup/fileanalysis.cpp	(working copy)
+@@ -7,7 +7,9 @@
+  * $HeadURL$
+  */
+ 
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+   #include "manager.h"
+   #include "editormanager.h"
+Index: src/plugins/contrib/headerfixup/headerfixup.cbp
+===================================================================
+--- src/plugins/contrib/headerfixup/headerfixup.cbp	(revision 9793)
++++ src/plugins/contrib/headerfixup/headerfixup.cbp	(working copy)
+@@ -20,16 +20,17 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 				</Compiler>
+Index: src/plugins/contrib/headerfixup/headerfixup.cpp
+===================================================================
+--- src/plugins/contrib/headerfixup/headerfixup.cpp	(revision 9793)
++++ src/plugins/contrib/headerfixup/headerfixup.cpp	(working copy)
+@@ -9,7 +9,9 @@
+ 
+ #include <wx/window.h>
+ 
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #include <cbproject.h>
+ #include <globals.h>
+ #include <manager.h>
+Index: src/plugins/contrib/keybinder/cbkeybinder.cpp
+===================================================================
+--- src/plugins/contrib/keybinder/cbkeybinder.cpp	(revision 9793)
++++ src/plugins/contrib/keybinder/cbkeybinder.cpp	(working copy)
+@@ -14,7 +14,9 @@
+     #pragma implementation "cbkeybinder.h"
+ #endif
+ 
+-#include <sdk.h>
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #ifndef CB_PRECOMP
+     #include <wx/dynarray.h>
+     #include <wx/intl.h>
+Index: src/plugins/contrib/keybinder/keybinder.cbp
+===================================================================
+--- src/plugins/contrib/keybinder/keybinder.cbp	(revision 9793)
++++ src/plugins/contrib/keybinder/keybinder.cbp	(working copy)
+@@ -15,13 +15,13 @@
+ 				<Option host_application="..\..\..\devel\codeblocks.exe" />
+ 				<Compiler>
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-pipe" />
+ 					<Add option="-mthreads" />
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+@@ -43,6 +43,7 @@
+ 		<Compiler>
+ 			<Add option="-Wall" />
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/keybinder/keybinder.cpp
+===================================================================
+--- src/plugins/contrib/keybinder/keybinder.cpp	(revision 9793)
++++ src/plugins/contrib/keybinder/keybinder.cpp	(working copy)
+@@ -32,7 +32,9 @@
+ #endif
+ 
+ #if defined(CB_PRECOMP)
+-#include "sdk.h"
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #else
+ 	#include "sdk_events.h"
+ 	#include "manager.h"
+Index: src/plugins/contrib/keybinder/menuutils.cpp
+===================================================================
+--- src/plugins/contrib/keybinder/menuutils.cpp	(revision 9793)
++++ src/plugins/contrib/keybinder/menuutils.cpp	(working copy)
+@@ -25,7 +25,9 @@
+ #endif
+ 
+ #if defined(CB_PRECOMP)
+-#include "sdk.h"
++#ifndef SDK_H
++#include <sdk.h> // Code::Blocks SDK
++#endif
+ #else
+     #include <wx/event.h>
+     #include <wx/frame.h> // Manager::Get()->GetAppWindow()
+Index: src/plugins/contrib/profiler/cbprofiler.cbp
+===================================================================
+--- src/plugins/contrib/profiler/cbprofiler.cbp	(revision 9793)
++++ src/plugins/contrib/profiler/cbprofiler.cbp	(working copy)
+@@ -31,12 +31,12 @@
+ 			<Add option="-fpermissive" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+===================================================================
+--- src/plugins/contrib/regex_testbed/RegExTestbed.cbp	(revision 9793)
++++ src/plugins/contrib/regex_testbed/RegExTestbed.cbp	(working copy)
+@@ -42,13 +42,13 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DSUPPORT_UTF8" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 		</Compiler>
+Index: src/plugins/contrib/rndgen/rndgen.cbp
+===================================================================
+--- src/plugins/contrib/rndgen/rndgen.cbp	(revision 9793)
++++ src/plugins/contrib/rndgen/rndgen.cbp	(working copy)
+@@ -25,8 +25,8 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/symtab/symtab.cbp
+===================================================================
+--- src/plugins/contrib/symtab/symtab.cbp	(revision 9793)
++++ src/plugins/contrib/symtab/symtab.cbp	(working copy)
+@@ -35,12 +35,12 @@
+ 			<Add option="-fpermissive" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.include)" />
