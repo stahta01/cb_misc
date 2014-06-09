@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="Test_CB_wx28.cbp" />
+		<Project filename="plugins/contrib/wxSmith/wxSmith.cbp" />
+		<Project filename="plugins/contrib/envvars/envvars.cbp" />
+		<Project filename="plugins/contrib/help_plugin/help-plugin.cbp" />
+		<Project filename="plugins/contrib/ToolsPlus/ToolsPlus.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

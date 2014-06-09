@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="wxContribItems wx2.8.x">
+		<Project filename="plugins/contrib/wxContribItems/wxContribItems.cbp" />
+		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp" />
+		<Project filename="plugins/contrib/lib_finder/lib_finder.cbp" />
+		<Project filename="plugins/contrib/ThreadSearch/ThreadSearch.cbp" />
+		<Project filename="plugins/contrib/source_exporter/Exporter.cbp" />
+		<Project filename="plugins/contrib/SpellChecker/SpellChecker.cbp" />
+		<Project filename="plugins/contrib/NassiShneiderman/NassiShneiderman.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
