@@ -176,41 +176,6 @@ Index: src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp
  #include <configurationpanel.h>
  
  #include "wxsSmithIExplore.h"
-Index: src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
-===================================================================
---- src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp	(revision 9793)
-+++ src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp	(working copy)
-@@ -28,6 +28,8 @@
- 					<Add option="-DBUILDING_PLUGIN" />
- 					<Add option="-DcbDEBUG" />
- 					<Add option="-DCB_PRECOMP" />
-+					<Add option="-include sdk.h" />
-+					<Add directory="..\..\..\.objs\include" />
- 					<Add directory="..\..\..\include" />
- 					<Add directory="..\..\..\sdk\wxscintilla\include" />
- 					<Add directory="..\..\..\sdk\wxpropgrid\include" />
-@@ -67,7 +69,6 @@
- 			<Add option="-DHAVE_W32API_H" />
- 			<Add option="-D__WXMSW__" />
- 			<Add option="-DWXUSINGDLL" />
--			<Add option="-DWX_PRECOMP" />
- 			<Add option="-DwxUSE_UNICODE" />
- 			<Add directory="$(#wx.include)" />
- 			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
-Index: src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cpp
-===================================================================
---- src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cpp	(revision 9793)
-+++ src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cpp	(working copy)
-@@ -22,7 +22,9 @@
- *
- */
- 
-+#ifndef SDK_H
- #include <sdk.h> // Code::Blocks SDK
-+#endif
- #include <configurationpanel.h>
- #include "wxsSmithPlot.h"
- 
 Index: src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
 ===================================================================
 --- src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp	(revision 9793)
