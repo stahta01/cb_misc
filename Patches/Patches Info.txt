@@ -1,0 +1,71 @@
+NOTE: This info needs to be updated to match the items commited to version control 
+
+svn/cb_src_PCH_devpak_plugin.patch and svn/cb_cbp_PCH_devpak_plugin.patch
+    Adds including of sdk.h to plugin.
+    Did many changes to includes in both cpp and h files.
+    Fixed devpak_plugin wx28 cbp project to search sdk.h PCH object folder.
+
+svn/cb_cbp_wx30_add_PCH.patch
+    Adds back PCH in Code::Blocks main project file.
+svn/cb_src_wx30_add_PCH.patch
+    Adds code to stop wxWidgets 3.0 PCH bug under windows when compiled with MinGW GCC 4.8.
+
+svn/cb_cbp_wx30_add_PCH_back_high_gain.patch
+    Adds back PCH in some Code::Blocks contrib project files.
+
+svn/cb_cbp_wx28_wxContribItems_WXMAKINGDLL.patch
+    Only file changed is wxContribItems.cbp
+    Changes 3 targets to using WXUSINGDLL instead of WXMAKINGDLL
+    Targets: wxFlatNotebook, wxchart, and wxthings.
+
+svn/cb_cbp_wx30_wxContribItems_WXMAKINGDLL.patch
+    Only file changed is wxContribItems_wx30.cbp
+    Changes 3 targets to using WXUSINGDLL instead of WXMAKINGDLL
+    Targets: wxFlatNotebook, wxchart, and wxthings.
+
+svn/cb_bat_update_remove_templates_new.patch
+    Removes code from update.bat,update30.bat, update30_64.bat.
+    The code was used to xcopy these subfolders
+    templates\common\*
+    templates\win32\*
+    Reason because the code is thought to not be needed.
+    Removed to see if any errors happens because of removal.
+
+
+applied/cb_src_fix_pluginmanager_install_error.patch (Applied to SVN Trunk)
+    Fixes the below error under windows.
+    "One or more plugins were not installed successfully"
+
+wxscintilla_cb.h
+    Header redirect file to be put in the CB include folder.
+        
+svn/cb_src_remove_hdrstop_only.patch
+    Removes #pragma hdrstop without any other change from header files.
+
+svn/cb_src_remove_sdk_common_h_new.patch
+    Removes the wrong including of sdk_common.h file.
+
+svn/cb_src_include_change_WX_PRECOMP_guard.patch
+    Changes the macro from WX_PRECOMP in header files below:
+        src/include/manager.h
+
+svn/cb_src_include_remove_CB_PRECOMP_guard.patch
+    Removes CB_PRECOMP guard and re-order includes in header files below:
+        src/include/scriptingmanager.h
+        src/include/templatemanager.h
+        src/include/ccmanager.h
+        src/include/compilerfactory.h
+
+svn/cb_src_include_remove_include_of_PCH_inside_header.patch
+    Removes include of sdk.h or wxprec.h along with hdrstop.
+
+svn/cb_src_src_add_sdk_h.patch
+    Adds the including of sdk.h to source file.
+
+svn/cb_src_sdk_fix_CB_PRECOMP_or_sdk_precomp.patch
+    Fixes the CB_PRECOMP include block by reordering the includes;
+    or, adding includes. In some cases adds or moves the including of
+    the sdk_precomp.h header.
+
+svn/cb_cbp_win_wxContribItems_move_WXMAKINGDLL.patch
+    Moves the define of WXMAKINGDLL from project level to target level.
