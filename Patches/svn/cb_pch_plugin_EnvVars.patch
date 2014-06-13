@@ -1,0 +1,17 @@
+Index: src/plugins/contrib/envvars/envvars.cbp
+===================================================================
+--- src/plugins/contrib/envvars/envvars.cbp	(revision 9793)
++++ src/plugins/contrib/envvars/envvars.cbp	(working copy)
+@@ -14,9 +14,11 @@
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+ 				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option projectIncludeDirsRelation="2" />
+ 				<Compiler>
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add directory="..\..\..\.objs\include" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="no_pch">
