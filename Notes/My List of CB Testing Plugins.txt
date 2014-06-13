@@ -10,7 +10,19 @@ Source code formatter (AStyle)   src/plugins/astyle
 Todo List                        src/plugins/todo
 Tools Plus                       src/plugins/contrib/ToolsPlus
 wxSmith                          src/plugins/contrib/wxSmith
-Code-completion                  src/ Custom Project
+Code-completion                  src/plugins/codecompletion
+debugger                         src/plugins/debuggergdb
 
 Ones that need are disabled; but, being installed causes cbp file changes
 Code-completion
+debugger
+
+<code_completion />
+<envvars />
+<wxsmith version="1">
+<debugger />
+
+Low used Plugins that result in cbp file changes.
+<lib_finder disable_auto="1" />
+<AutoVersioning>
+<DoxyBlocks>

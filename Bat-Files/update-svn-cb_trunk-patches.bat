@@ -18,6 +18,39 @@ svn revert --recursive .
 cd %CB_SVN%
 
 REM PAUSE
+REM Start of section SVN_new
+SET PATCH_NAME=CB_pch_cbp_and_GUARD_SDK_H
+unix2dos < %CB_GIT%\Patches\svn\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
+patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
+svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
+dos2unix < %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch > %CB_GIT%\Patches\svn\%PATCH_NAME%_new.patch
+svn revert --recursive .
+REM End of section
+REM PAUSE
+
+REM PAUSE
+REM Start of section
+SET PATCH_NAME=CB_cbp_and_GUARD_SDK_H
+unix2dos < %CB_GIT%\Patches\Git\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
+patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
+svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
+dos2unix < %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch > %CB_GIT%\Patches\svn\%PATCH_NAME%.patch
+svn revert --recursive .
+REM End of section
+REM PAUSE
+
+REM PAUSE
+REM Start of section
+SET PATCH_NAME=CB_sf_tims_for_upstream-patchfile
+unix2dos < %CB_GIT%\Patches\Git\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
+patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
+svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
+dos2unix < %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch > %CB_GIT%\Patches\svn\%PATCH_NAME%.patch
+svn revert --recursive .
+REM End of section
+REM PAUSE
+
+REM PAUSE
 REM Start of section
 SET PATCH_NAME=cb_sf_tims_wxSmithPCH-patchfile
 unix2dos < %CB_GIT%\Patches\Git\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
