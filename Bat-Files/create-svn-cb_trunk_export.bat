@@ -23,6 +23,7 @@ CD %CB_SVN%/src
     %CB_GIT%\src\build_tools\autorevision\autorevision +wx +int +t . include/autorevision.h
     svn add include/autorevision.h
     svn delete templates
+CD %CB_SVN%
     svn delete .gitignore
 REM PAUSE
 
