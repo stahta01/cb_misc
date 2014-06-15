@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="wxSmith Base Workspace wx3.0.x (64 bit)">
+		<Project filename="plugins/contrib/wxSmith/wxSmith_wx30_64.cbp" />
+		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui_wx30_64.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
