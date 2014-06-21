@@ -1,0 +1,234 @@
+Index: src/plugins/contrib/wxContribItems/wxContribItems.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems.cbp	(revision 9778)
++++ src/plugins/contrib/wxContribItems/wxContribItems.cbp	(working copy)
+@@ -16,6 +16,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_FNB" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -28,6 +29,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_CHART" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -40,6 +42,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -51,6 +54,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -64,6 +68,9 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+@@ -76,6 +83,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -90,6 +98,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -101,6 +110,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+ 					<Add directory="wxled/led/include" />
+@@ -127,7 +137,6 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp	(revision 9778)
++++ src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp	(working copy)
+@@ -16,6 +16,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_FNB" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -28,6 +29,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_CHART" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -40,6 +42,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -51,6 +54,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -64,6 +68,9 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+@@ -76,6 +83,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -90,6 +98,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -101,6 +110,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+ 					<Add directory="wxled/led/include" />
+@@ -127,7 +137,6 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp	(revision 9778)
++++ src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp	(working copy)
+@@ -16,6 +16,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_FNB" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -28,6 +29,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_CHART" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -40,6 +42,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -51,6 +54,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -64,6 +68,9 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+@@ -76,6 +83,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -90,6 +98,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -101,6 +110,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+ 					<Add directory="wxled/led/include" />
+@@ -128,7 +138,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-D_WIN64" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX30_64.include)" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
