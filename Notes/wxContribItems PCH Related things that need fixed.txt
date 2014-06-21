@@ -1,0 +1,14 @@
+wxContribItems PCH Related things that need fixed.txt
+   wxContribItems/wxFlatNotebook
+      wx.h included in header file.
+   wxContribItems/wxled/ledpanel
+      wx.h included in header file.
+   wxContribItems/wxled/lcdWindow
+      wx.h included in header file.
+   wxContribItems/wxChart
+      wx.h included in header file.
+      wxprec.h included in header file.
+      #pragma hdrstop in header file.
+   wxContribItems/wxSpeedButton (part of wxSmith)
+      wxprec.h included in header file.
+   

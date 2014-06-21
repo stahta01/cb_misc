@@ -1,0 +1,12 @@
+Component            Likely upstream source
+   KWIC              wxCode/kwic
+   wxchart           wxCode/wxchart
+   wxFlatNotebook    sf.net/wxFlatNotebook
+   wxImagePanel      developed as part of wxSmithContribItems
+   wxled/gizmosled   wxCode/gizmos
+   wxled/lcdWindow   wxCode/lcdwindow
+   wxled/led         wxCode/wxLed led
+   wxled/ledpanel    wxCode/ledpanel
+   wxSpeedButton     developed as part of wxSmith
+   wxthings          wxCode/wxthings
+   wxTreeList        wxCode/treelistctrl

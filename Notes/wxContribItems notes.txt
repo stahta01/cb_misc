@@ -1,0 +1,22 @@
+KWIC Current maintainer: Marco Cavallini http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/kwic/
+wxTreeList Current maintainer: Ronan Chartois http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/treelistctrl/
+
+wxled/wxLEDPanel Current maintainer: Christian Gräfe http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/ledpanel/
+
+wxled/LCDWindow wxCode UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/lcdwindow/
+wxled/wxLed wxCode Current maintainer: UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/led/src/led.cpp
+
+wxImagePanel Looks like a CB Created and Maintained code
+wxSpeedButton Looks like a CB Created and Maintained code
+
+This export-all-symbols option should NOT be needed after converting to WXUSINGDLL.
+
+No Source Code looks like it needs changed need to convert to WXUSINGDLL
+   wxFlatNotebook
+   wxchart Current maintainer: Paolo Gava http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/wxchart
+   wxthings/wxCustomButton Current maintainer: John Labenski http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/wxthings/
+   wxled/gizmosled http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/gizmos/
+
+CB Plugins that use some of the above.
+   ThreadSearch uses wxthings/wxCustomButton
+   Library finder uses wxFlatNotebook
