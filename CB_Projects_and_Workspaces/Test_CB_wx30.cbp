@@ -268,6 +268,39 @@
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
+			<Target title="Debugger">
+				<Option output="devel30/share/CodeBlocks/plugins/debugger" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="devel30" />
+				<Option object_output=".objs30" />
+				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="include" />
+					<Add directory="include/scripting/include" />
+					<Add directory="include/scripting/sqplus" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="devel30" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c if not exist devel30\share\CodeBlocks mkdir devel30\share\CodeBlocks" />
+					<Add after="zip -jq9 devel30\share\CodeBlocks\debugger.zip plugins\debuggergdb\resources\manifest.xml plugins\debuggergdb\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
 			<Target title="Code-completion">
 				<Option output="devel30/share/CodeBlocks/plugins/codecompletion" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
@@ -334,37 +367,6 @@
 				<ExtraCommands>
 					<Add after="cmd /c if not exist devel30\share\CodeBlocks mkdir devel30\share\CodeBlocks" />
 					<Add after="zip -jq9 devel30\share\CodeBlocks\defaultmimehandler.zip plugins\defaultmimehandler\resources\manifest.xml plugins\defaultmimehandler\resources\*.xrc" />
-					<Mode after="always" />
-				</ExtraCommands>
-			</Target>
-			<Target title="Open files list">
-				<Option output="devel30/share/CodeBlocks/plugins/openfileslist" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel30" />
-				<Option object_output=".objs30" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
-				<Option type="3" />
-				<Option compiler="gcc" />
-				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-				<Option host_application="./codeblocks.exe" />
-				<Option run_host_application_in_terminal="0" />
-				<Option projectLinkerOptionsRelation="1" />
-				<Compiler>
-					<Add option="-DBUILDING_PLUGIN" />
-					<Add directory="include" />
-				</Compiler>
-				<Linker>
-					<Add option="-Wl,--enable-auto-image-base" />
-					<Add option="-Wl,--add-stdcall-alias" />
-					<Add option="-Wl,--enable-auto-import" />
-					<Add option="-Wl,--no-undefined" />
-					<Add option="-mthreads" />
-					<Add library="codeblocks" />
-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add directory="devel30" />
-				</Linker>
-				<ExtraCommands>
-					<Add after="cmd /c if not exist devel30\share\CodeBlocks mkdir devel30\share\CodeBlocks" />
-					<Add after="zip -jq9 devel30\share\CodeBlocks\openfileslist.zip plugins\openfileslist\manifest.xml" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -482,8 +484,8 @@
 			</Environment>
 		</Build>
 		<VirtualTargets>
-			<Add alias="All" targets="tinyXML;Squirrel;Squirrel std lib;SqPlus;scintilla;sdk;src;AStyle;Compiler depslib;Compiler;Code-completion;Default MIME handler;Open files list;Projects-workspaces importer;Scripted wizard;To-do;" />
-			<Add alias="Core app &amp; plugins" targets="sdk;src;AStyle;Compiler depslib;Compiler;Code-completion;Default MIME handler;Open files list;Projects-workspaces importer;Scripted wizard;To-do;" />
+			<Add alias="All" targets="tinyXML;Squirrel;Squirrel std lib;SqPlus;scintilla;sdk;src;AStyle;Compiler depslib;Compiler;Debugger;Code-completion;Default MIME handler;Projects-workspaces importer;Scripted wizard;To-do;" />
+			<Add alias="Core app &amp; plugins" targets="sdk;src;AStyle;Compiler depslib;Compiler;Debugger;Code-completion;Default MIME handler;Projects-workspaces importer;Scripted wizard;To-do;" />
 			<Add alias="Third-party libs" targets="tinyXML;Squirrel;Squirrel std lib;SqPlus;scintilla;Compiler depslib;" />
 		</VirtualTargets>
 		<Compiler>
@@ -497,7 +499,7 @@
 			<Add option="-D__WXMSW__" />
 			<Add option="-DWXUSINGDLL" />
 			<Add option="-DcbDEBUG" />
-			<Add option="-DCB_PRECOMP" />
+			<Add option="-DNOPCH" />
 			<Add option="-DwxUSE_UNICODE" />
 			<Add directory="$(#WX30.include)" />
 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
@@ -1049,7 +1051,6 @@
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="include/sdk.h">
-			<Option compile="1" />
 			<Option weight="1" />
 			<Option target="src" />
 		</Unit>
@@ -1060,7 +1061,6 @@
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="include/sdk_precomp.h">
-			<Option compile="1" />
 			<Option weight="0" />
 			<Option target="sdk" />
 		</Unit>
@@ -1804,97 +1804,97 @@
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/cdb_commands.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/cdb_driver.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/cdb_driver.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/databreakpointdlg.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/databreakpointdlg.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debugger_defs.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debugger_defs.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggerdriver.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggerdriver.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggergdb.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggergdb.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggeroptionsdlg.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggeroptionsdlg.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggeroptionsprjdlg.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggeroptionsprjdlg.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggerstate.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/debuggerstate.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/editbreakpointdlg.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/editbreakpointdlg.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/editwatchdlg.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/editwatchdlg.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/gdb_commands.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/gdb_driver.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/gdb_driver.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/parsewatchvalue.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/parsewatchvalue.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/remotedebugging.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/resources/breakpoints.xrc">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/resources/debugger_options_dlg.xrc">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/resources/debugger_project_options_dlg.xrc">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/debuggergdb/resources/edit_watches_dlg.xrc">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="plugins/defaultmimehandler/EmbeddedHtmlPanel.cpp">
 			<Option target="Default MIME handler" />
@@ -1951,13 +1951,13 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/openfileslist/manifest.xml">
-			<Option target="Open files list" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/openfileslist/openfileslistplugin.cpp">
-			<Option target="Open files list" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/openfileslist/openfileslistplugin.h">
-			<Option target="Open files list" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/projectsimporter/devcpploader.cpp">
 			<Option target="Projects-workspaces importer" />
@@ -2251,7 +2251,7 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="scripts/gdb_types.script">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debugger" />
 		</Unit>
 		<Unit filename="scripts/make_dist.script">
 			<Option target="src" />
@@ -2650,16 +2650,37 @@
 		<Unit filename="sdk/resources/lexers/lexer_OgreMaterial.xml">
 			<Option target="scintilla" />
 		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_ada.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_ada.xml">
+			<Option target="scintilla" />
+		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_angelscript.sample">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_angelscript.xml">
 			<Option target="scintilla" />
 		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_bash.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_bash.xml">
+			<Option target="scintilla" />
+		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_batch.sample">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_batch.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_bibtex.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_caml.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_caml.xml">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_cg.sample">
@@ -2710,6 +2731,12 @@
 		<Unit filename="sdk/resources/lexers/lexer_f77.xml">
 			<Option target="scintilla" />
 		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_fortran.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_fortran.xml">
+			<Option target="scintilla" />
+		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_glsl.sample">
 			<Option target="scintilla" />
 		</Unit>
@@ -2720,6 +2747,12 @@
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_gm.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_haskell.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_haskell.xml">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_hitasm.sample">
@@ -2752,6 +2785,12 @@
 		<Unit filename="sdk/resources/lexers/lexer_latex.xml">
 			<Option target="scintilla" />
 		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_lisp.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_lisp.xml">
+			<Option target="scintilla" />
+		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_lua.sample">
 			<Option target="scintilla" />
 		</Unit>
@@ -2782,10 +2821,28 @@
 		<Unit filename="sdk/resources/lexers/lexer_nsis.xml">
 			<Option target="scintilla" />
 		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_objc.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_objc.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_pascal.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_pascal.xml">
+			<Option target="scintilla" />
+		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_perl.sample">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_perl.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_postscript.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_postscript.xml">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_prg.sample">
@@ -2812,10 +2869,46 @@
 		<Unit filename="sdk/resources/lexers/lexer_rc.xml">
 			<Option target="scintilla" />
 		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_ruby.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_ruby.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_smalltalk.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_smalltalk.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_sql.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_sql.xml">
+			<Option target="scintilla" />
+		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_squirrel.sample">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_squirrel.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_vbscript.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_vbscript.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_verilog.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_verilog.xml">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_vhdl.sample">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/resources/lexers/lexer_vhdl.xml">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/resources/lexers/lexer_xml.sample">
@@ -3083,6 +3176,9 @@
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/wxscintilla/src/scintilla/lexers/LexDMAP.cxx">
+			<Option target="scintilla" />
+		</Unit>
+		<Unit filename="sdk/wxscintilla/src/scintilla/lexers/LexDMIS.cxx">
 			<Option target="scintilla" />
 		</Unit>
 		<Unit filename="sdk/wxscintilla/src/scintilla/lexers/LexECL.cxx">
