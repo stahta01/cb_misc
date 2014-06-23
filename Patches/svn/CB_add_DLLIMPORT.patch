@@ -32,6 +32,22 @@ Index: src/include/cbexception.h
  {
      public:
          cbException(const wxString& msg, const wxString& file, int line);
+Index: src/include/cbproject.h
+===================================================================
+--- src/include/cbproject.h	(revision 9823)
++++ src/include/cbproject.h	(working copy)
+@@ -722,9 +722,9 @@
+ };
+ 
+ /// Returns a string valid to be used as LD_LIBRARY_PATH (or equivalent).
+-wxString cbGetDynamicLinkerPathForTarget(cbProject *project, ProjectBuildTarget* target);
++DLLIMPORT wxString cbGetDynamicLinkerPathForTarget(cbProject *project, ProjectBuildTarget* target);
+ /// Merges to LD_LIBRARY_PATH/PATH strings together to form a new valid string.
+-wxString cbMergeLibPaths(const wxString &oldPath, const wxString &newPath);
++DLLIMPORT wxString cbMergeLibPaths(const wxString &oldPath, const wxString &newPath);
+ 
+ #endif // CBPROJECT_H
+ 
 Index: src/include/cbstyledtextctrl.h
 ===================================================================
 --- src/include/cbstyledtextctrl.h	(revision 9823)
@@ -52,6 +68,63 @@ Index: src/include/cbstyledtextctrl.h
  {
      public:
          cbStyledTextCtrl(wxWindow* pParent, int id, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = 0);
+Index: src/include/cbtreectrl.h
+===================================================================
+--- src/include/cbtreectrl.h	(revision 9823)
++++ src/include/cbtreectrl.h	(working copy)
+@@ -17,7 +17,7 @@
+ /*
+     This is a "proxy" wxTreeCtrl descendant handles several usage limitations.
+ */
+-class cbTreeCtrl : public wxTreeCtrl
++class DLLIMPORT cbTreeCtrl : public wxTreeCtrl
+ {
+     public:
+         cbTreeCtrl();
+Index: src/include/cbworkspace.h
+===================================================================
+--- src/include/cbworkspace.h	(revision 9823)
++++ src/include/cbworkspace.h	(working copy)
+@@ -23,7 +23,7 @@
+   * @note The way WorkspaceLoader works now, requires that you save and delete the
+   * loaded workspace *before* creating a new one...
+   */
+-class cbWorkspace
++class DLLIMPORT cbWorkspace
+ {
+     public:
+         /** @brief Constructor
+Index: src/include/compiler.h
+===================================================================
+--- src/include/compiler.h	(revision 9823)
++++ src/include/compiler.h	(working copy)
+@@ -63,7 +63,7 @@
+ };
+ 
+ // regexes array declaration
+-struct RegExStruct
++struct DLLIMPORT RegExStruct
+ {
+     RegExStruct()
+         : desc(_("Unknown")), lt(cltError), regex(_T("")), filename(0), line(0)
+@@ -141,7 +141,7 @@
+ private:
+     wxRegEx regexObject;
+ };
+-WX_DECLARE_OBJARRAY(RegExStruct, RegExArray);
++WX_DECLARE_USER_EXPORTED_OBJARRAY(RegExStruct, RegExArray, DLLIMPORT);
+ 
+ /// Helper enum to retrieve compiler commands
+ enum CommandType
+@@ -187,7 +187,7 @@
+ };
+ 
+ /// Struct to keep switches
+-struct CompilerSwitches
++struct DLLIMPORT CompilerSwitches
+ {
+     static const CompilerLoggingType defaultLogging = clogFull;
+     wxString includeDirs;         // -I
 Index: src/include/confirmreplacedlg.h
 ===================================================================
 --- src/include/confirmreplacedlg.h	(revision 9823)
@@ -65,6 +138,19 @@ Index: src/include/confirmreplacedlg.h
  {
  	public:
  		ConfirmReplaceDlg(wxWindow* parent, bool replaceInFiles = false,
+Index: src/include/editarrayorderdlg.h
+===================================================================
+--- src/include/editarrayorderdlg.h	(revision 9823)
++++ src/include/editarrayorderdlg.h	(working copy)
+@@ -13,7 +13,7 @@
+ /*
+  * No description
+  */
+-class EditArrayOrderDlg : public wxScrollingDialog
++class DLLIMPORT EditArrayOrderDlg : public wxScrollingDialog
+ {
+ 	public:
+ 		// class constructor
 Index: src/include/editorcolourset.h
 ===================================================================
 --- src/include/editorcolourset.h	(revision 9823)
@@ -78,6 +164,32 @@ Index: src/include/editorcolourset.h
  {
      public:
          EditorColourSet(const wxString& setName = COLORSET_DEFAULT);
+Index: src/include/editpairdlg.h
+===================================================================
+--- src/include/editpairdlg.h	(revision 9823)
++++ src/include/editpairdlg.h	(working copy)
+@@ -9,7 +9,7 @@
+ #include <wx/intl.h>
+ #include "scrollingdialog.h"
+ 
+-class EditPairDlg : public wxScrollingDialog
++class DLLIMPORT EditPairDlg : public wxScrollingDialog
+ {
+     public:
+         enum BrowseMode
+Index: src/include/editpathdlg.h
+===================================================================
+--- src/include/editpathdlg.h	(revision 9823)
++++ src/include/editpathdlg.h	(working copy)
+@@ -9,7 +9,7 @@
+ #include "scrollingdialog.h"
+ #include <wx/intl.h>
+ 
+-class EditPathDlg : public wxScrollingDialog
++class DLLIMPORT EditPathDlg : public wxScrollingDialog
+ {
+ 	public:
+ 		EditPathDlg(wxWindow* parent,
 Index: src/include/filemanager.h
 ===================================================================
 --- src/include/filemanager.h	(revision 9823)
@@ -155,6 +267,71 @@ Index: src/include/logmanager.h
  {
      friend class LogManager;
  
+Index: src/include/manager.h
+===================================================================
+--- src/include/manager.h	(revision 9823)
++++ src/include/manager.h	(working copy)
+@@ -179,7 +179,7 @@
+     cbSearchResultsLog *m_SearchResultLog;
+ };
+ 
+-template <class MgrT> class Mgr
++template <class MgrT> class DLLIMPORT Mgr
+ {
+     static MgrT *instance;
+     static bool isShutdown;
+Index: src/include/multiselectdlg.h
+===================================================================
+--- src/include/multiselectdlg.h	(revision 9823)
++++ src/include/multiselectdlg.h	(working copy)
+@@ -11,7 +11,7 @@
+ #include <wx/dynarray.h>
+ #include "scrollingdialog.h"
+ 
+-class MultiSelectDlg : public wxScrollingDialog
++class DLLIMPORT MultiSelectDlg : public wxScrollingDialog
+ {
+     public:
+         MultiSelectDlg(wxWindow* parent,
+Index: src/include/projectfile.h
+===================================================================
+--- src/include/projectfile.h	(revision 9823)
++++ src/include/projectfile.h	(working copy)
+@@ -36,7 +36,7 @@
+ WX_DEFINE_ARRAY_INT(int, editorFoldLinesArray);
+ 
+ /** Represents a file in a Code::Blocks project. */
+-class ProjectFile
++class DLLIMPORT ProjectFile
+ {
+     public:
+         /// Constructor
+Index: src/include/projectfileoptionsdlg.h
+===================================================================
+--- src/include/projectfileoptionsdlg.h	(revision 9823)
++++ src/include/projectfileoptionsdlg.h	(working copy)
+@@ -11,7 +11,7 @@
+ 
+ class ProjectFile;
+ 
+-class ProjectFileOptionsDlg : public wxScrollingDialog
++class DLLIMPORT ProjectFileOptionsDlg : public wxScrollingDialog
+ {
+     public:
+         ProjectFileOptionsDlg(wxWindow* parent, ProjectFile* pf);
+Index: src/include/projectsfilemasksdlg.h
+===================================================================
+--- src/include/projectsfilemasksdlg.h	(revision 9823)
++++ src/include/projectsfilemasksdlg.h	(working copy)
+@@ -9,7 +9,7 @@
+ #include "scrollingdialog.h"
+ #include "filegroupsandmasks.h"
+ 
+-class ProjectsFileMasksDlg : public wxScrollingDialog
++class DLLIMPORT ProjectsFileMasksDlg : public wxScrollingDialog
+ {
+     public:
+         ProjectsFileMasksDlg(wxWindow* parent, FilesGroupsAndMasks* fgam);
 Index: src/include/scrollingdialog.h
 ===================================================================
 --- src/include/scrollingdialog.h	(revision 9823)
@@ -168,6 +345,15 @@ Index: src/include/scrollingdialog.h
  /*!
   * Base class for layout adapters - code that, for example, turns a dialog into a
   * scrolling dialog if there isn't enough screen space. You can derive further
+@@ -93,7 +95,7 @@
+  * be needed since the new functionality will be implemented in wxDialogBase.
+  */
+ 
+-class wxDialogHelper
++class DLLIMPORT wxDialogHelper
+ {
+ public:
+ 
 @@ -159,7 +161,7 @@
   * A class that makes its content scroll if necessary
   */
@@ -177,6 +363,19 @@ Index: src/include/scrollingdialog.h
  #if !wxCHECK_VERSION(2,9,0)
      , public wxDialogHelper
  #endif
+Index: src/include/sdk_events.h
+===================================================================
+--- src/include/sdk_events.h	(revision 9823)
++++ src/include/sdk_events.h	(working copy)
+@@ -206,7 +206,7 @@
+ // new event type like: cbEVT_THREAD_LOG_MESSAGE, cbEVT_THREAD_LOGDEBUG_MESSAGE
+ // cbEVT_THREAD_SYSTEM_HEADER_UPDATE.
+ 
+-class CodeBlocksThreadEvent : public wxCommandEvent
++class DLLIMPORT CodeBlocksThreadEvent : public wxCommandEvent
+ {
+ public:
+     CodeBlocksThreadEvent(wxEventType eventType = wxEVT_NULL, int id = wxID_ANY)
 Index: src/include/searchresultslog.h
 ===================================================================
 --- src/include/searchresultslog.h	(revision 9823)
@@ -190,6 +389,94 @@ Index: src/include/searchresultslog.h
  {
  	public:
  		cbSearchResultsLog(const wxArrayString& titles, wxArrayInt& widths);
+Index: src/include/tinyxml/tinystr.h
+===================================================================
+--- src/include/tinyxml/tinystr.h	(revision 9823)
++++ src/include/tinyxml/tinystr.h	(working copy)
+@@ -30,6 +30,21 @@
+ #include <assert.h>
+ #include <string.h>
+ 
++/* C::B begin */
++#ifdef EXPORT_LIB
++    #define TIXML_EXPORTING_DLL
++#elif defined(BUILDING_PLUGIN)
++    #define TIXML_USING_DLL
++#endif //
++/* C::B end */
++#ifdef TIXML_EXPORTING_DLL
++    #define TIXML_CLASS_DECLSPEC    __declspec(dllexport)
++#elif defined(TIXML_USING_DLL)
++    #define TIXML_CLASS_DECLSPEC    __declspec(dllimport)
++#else
++    #define TIXML_CLASS_DECLSPEC
++#endif // TIXML_EXPORTING_DLL
++
+ /*	The support for explicit isn't that universal, and it isn't really
+ 	required - it is used to check that the TiXmlString class isn't incorrectly
+ 	used. Be nice to old compilers and macro it here:
+@@ -52,7 +67,7 @@
+    The buffer allocation is made by a simplistic power of 2 like mechanism : if we increase
+    a string and there's no more room, we allocate a buffer twice as big as we need.
+ */
+-class TiXmlString
++class TIXML_CLASS_DECLSPEC TiXmlString
+ {
+   public :
+ 	// The size type used
+Index: src/include/tinyxml/tinyxml.h
+===================================================================
+--- src/include/tinyxml/tinyxml.h	(revision 9823)
++++ src/include/tinyxml/tinyxml.h	(working copy)
+@@ -43,6 +43,21 @@
+ #define DEBUG
+ #endif
+ 
++/* C::B begin */
++#ifdef EXPORT_LIB
++    #define TIXML_EXPORTING_DLL
++#elif defined(BUILDING_PLUGIN)
++    #define TIXML_USING_DLL
++#endif //
++/* C::B end */
++#ifdef TIXML_EXPORTING_DLL
++    #define TIXML_CLASS_DECLSPEC    __declspec(dllexport)
++#elif defined(TIXML_USING_DLL)
++    #define TIXML_CLASS_DECLSPEC    __declspec(dllimport)
++#else
++    #define TIXML_CLASS_DECLSPEC
++#endif // TIXML_EXPORTING_DLL
++
+ #ifdef TIXML_USE_STL
+ 	#include <string>
+  	#include <iostream>
+@@ -420,7 +435,7 @@
+ 	in a document, or stand on its own. The type of a TiXmlNode
+ 	can be queried, and it can be cast to its more defined type.
+ */
+-class TiXmlNode : public TiXmlBase
++class TIXML_CLASS_DECLSPEC TiXmlNode : public TiXmlBase
+ {
+ 	friend class TiXmlDocument;
+ 	friend class TiXmlElement;
+@@ -937,7 +952,7 @@
+ 	and can contain other elements, text, comments, and unknowns.
+ 	Elements also contain an arbitrary number of attributes.
+ */
+-class TiXmlElement : public TiXmlNode
++class TIXML_CLASS_DECLSPEC TiXmlElement : public TiXmlNode
+ {
+ public:
+ 	/// Construct an element.
+@@ -1390,7 +1405,7 @@
+ 	XML pieces. It can be saved, loaded, and printed to the screen.
+ 	The 'value' of a document node is the xml file name.
+ */
+-class TiXmlDocument : public TiXmlNode
++class TIXML_CLASS_DECLSPEC TiXmlDocument : public TiXmlNode
+ {
+ public:
+ 	/// Create an empty document, that has no name.
 Index: src/include/toolsmanager.h
 ===================================================================
 --- src/include/toolsmanager.h	(revision 9823)
@@ -203,6 +490,19 @@ Index: src/include/toolsmanager.h
  {
  	public:
  		friend class Mgr<ToolsManager>;
+Index: src/include/workspaceloader.h
+===================================================================
+--- src/include/workspaceloader.h	(revision 9823)
++++ src/include/workspaceloader.h	(working copy)
+@@ -8,7 +8,7 @@
+ 
+ #include "ibaseworkspaceloader.h"
+ 
+-class WorkspaceLoader : public IBaseWorkspaceLoader
++class DLLIMPORT WorkspaceLoader : public IBaseWorkspaceLoader
+ {
+     public:
+         WorkspaceLoader();
 Index: src/include/xtra_res.h
 ===================================================================
 --- src/include/xtra_res.h	(revision 9823)
@@ -238,6 +538,19 @@ Index: src/include/xtra_res.h
  {
      DECLARE_DYNAMIC_CLASS(wxScrollingDialogXmlHandler)
  
+Index: src/sdk/compiler.cpp
+===================================================================
+--- src/sdk/compiler.cpp	(revision 9823)
++++ src/sdk/compiler.cpp	(working copy)
+@@ -28,7 +28,7 @@
+ #include <wx/filefn.h>
+ #include <wx/xml/xml.h>
+ 
+-WX_DEFINE_OBJARRAY(RegExArray);
++WX_DEFINE_USER_EXPORTED_OBJARRAY(RegExArray);
+ 
+ // static
+ wxArrayString Compiler::m_CompilerIDs; // map to guarantee unique IDs
 Index: src/sdk/wxscintilla/include/wx/wxscintilla.h
 ===================================================================
 --- src/sdk/wxscintilla/include/wx/wxscintilla.h	(revision 9823)
