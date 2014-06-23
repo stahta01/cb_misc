@@ -1,0 +1,195 @@
+Index: src/include/cbexception.h
+===================================================================
+--- src/include/cbexception.h	(revision 9821)
++++ src/include/cbexception.h	(working copy)
+@@ -20,7 +20,7 @@
+ */
+ 
+ /** @brief The base Code::Blocks exception object. */
+-class cbException
++class DLLIMPORT cbException
+ {
+     public:
+         cbException(const wxString& msg, const wxString& file, int line);
+Index: src/include/cbstyledtextctrl.h
+===================================================================
+--- src/include/cbstyledtextctrl.h	(revision 9821)
++++ src/include/cbstyledtextctrl.h	(working copy)
+@@ -12,12 +12,14 @@
+ #include <map>
+ #include <set>
+ 
++#include "settings.h"
++
+ class wxContextMenuEvent;
+ class wxFocusEvent;
+ class wxMouseEvent;
+ class wxPoint;
+ 
+-class cbStyledTextCtrl : public wxScintilla
++class DLLIMPORT cbStyledTextCtrl : public wxScintilla
+ {
+     public:
+         cbStyledTextCtrl(wxWindow* pParent, int id, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = 0);
+Index: src/include/editorcolourset.h
+===================================================================
+--- src/include/editorcolourset.h	(revision 9821)
++++ src/include/editorcolourset.h	(working copy)
+@@ -73,7 +73,7 @@
+ };
+ WX_DECLARE_STRING_HASH_MAP(OptionSet, OptionSetsMap);
+ 
+-class EditorColourSet
++class DLLIMPORT EditorColourSet
+ {
+     public:
+         EditorColourSet(const wxString& setName = COLORSET_DEFAULT);
+Index: src/include/filemanager.h
+===================================================================
+--- src/include/filemanager.h	(revision 9821)
++++ src/include/filemanager.h	(working copy)
+@@ -28,7 +28,7 @@
+ 
+ 
+ // ***** class: LoaderBase *****
+-class LoaderBase : public AbstractJob
++class DLLIMPORT LoaderBase : public AbstractJob
+ {
+     wxSemaphore sem;
+     bool wait;
+@@ -64,7 +64,7 @@
+ };
+ 
+ // ***** class: FileLoader *****
+-class FileLoader : public LoaderBase
++class DLLIMPORT FileLoader : public LoaderBase
+ {
+ public:
+     FileLoader(const wxString& name) { fileName = name; };
+@@ -105,7 +105,7 @@
+ };
+ 
+ // ***** class: FileManager *****
+-class FileManager : public Mgr<FileManager>
++class DLLIMPORT FileManager : public Mgr<FileManager>
+ {
+     BackgroundThread fileLoaderThread;
+     BackgroundThread uncLoaderThread;
+Index: src/include/scrollingdialog.h
+===================================================================
+--- src/include/scrollingdialog.h	(revision 9821)
++++ src/include/scrollingdialog.h	(working copy)
+@@ -15,6 +15,8 @@
+ #include "wx/dialog.h"
+ #include "wx/propdlg.h"
+ 
++#include "settings.h"
++
+ /*!
+  * Base class for layout adapters - code that, for example, turns a dialog into a
+  * scrolling dialog if there isn't enough screen space. You can derive further
+@@ -159,7 +161,7 @@
+  * A class that makes its content scroll if necessary
+  */
+ 
+-class wxScrollingDialog: public wxDialog
++class DLLIMPORT wxScrollingDialog: public wxDialog
+ #if !wxCHECK_VERSION(2,9,0)
+     , public wxDialogHelper
+ #endif
+Index: src/include/xtra_res.h
+===================================================================
+--- src/include/xtra_res.h	(revision 9821)
++++ src/include/xtra_res.h	(working copy)
+@@ -6,19 +6,16 @@
+ #ifndef XTRA_RES_H
+ #define XTRA_RES_H
+ 
+-#include <wx/wxprec.h>
+ #include <wx/xrc/xmlres.h>
+ #include <wx/xrc/xh_dlg.h>
+ #include <wx/toolbar.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
++#include "settings.h"
+ 
+ 
+ class wxXmlResourceHandler;
+ 
+-class wxToolBarAddOnXmlHandler : public wxXmlResourceHandler
++class DLLIMPORT wxToolBarAddOnXmlHandler : public wxXmlResourceHandler
+ {
+     public:
+         wxToolBarAddOnXmlHandler();
+@@ -35,7 +32,7 @@
+             wxSize size = wxDefaultSize);
+ };
+ 
+-class wxScrollingDialogXmlHandler : public wxDialogXmlHandler
++class DLLIMPORT wxScrollingDialogXmlHandler : public wxDialogXmlHandler
+ {
+     DECLARE_DYNAMIC_CLASS(wxScrollingDialogXmlHandler)
+ 
+Index: src/sdk/wxscintilla/include/wx/wxscintilla.h
+===================================================================
+--- src/sdk/wxscintilla/include/wx/wxscintilla.h	(revision 9821)
++++ src/sdk/wxscintilla/include/wx/wxscintilla.h	(working copy)
+@@ -33,8 +33,17 @@
+ #if wxCHECK_VERSION(2,9,2)
+ #include <wx/versioninfo.h>
+ #endif
++#if defined(BUILDING_PLUGIN) || defined(EXPORT_LIB)
++    #include "settings.h"
++#else
++    #if defined(__WXMSW__)
++        #define DLLIMPORT __declspec (dllexport)
++    #endif // defined(__WXMSW__)
++#endif // defined(BUILDING_PLUGIN) || defined(EXPORT_LIB)
++#define WXDLLIMPEXP_SCI DLLIMPORT
++
++#if 0
+ /* C::B end */
+-
+ #ifdef WXMAKINGDLL_SCI
+     #define WXDLLIMPEXP_SCI WXEXPORT
+ #elif defined(WXUSINGDLL_SCI) || defined(WXUSINGDLL)
+@@ -42,7 +51,11 @@
+ #else // not making nor using DLL
+     #define WXDLLIMPEXP_SCI
+ #endif
++/* C::B begin */
++#endif // #if 0
++/* C::B end */
+ 
++
+ class WXDLLIMPEXP_FWD_CORE wxScrollBar;
+ 
+ // SWIG can't handle "#if" type of conditionals, only "#ifdef"
+Index: src/sdk/wxscintilla/src/ScintillaWX.h
+===================================================================
+--- src/sdk/wxscintilla/src/ScintillaWX.h	(revision 9821)
++++ src/sdk/wxscintilla/src/ScintillaWX.h	(working copy)
+@@ -53,6 +53,9 @@
+ 
+ //----------------------------------------------------------------------
+ 
++/* C::B begin */
++#if 0
++/* C::B end */
+ #ifdef WXMAKINGDLL_SCI
+     #define WXDLLIMPEXP_SCI WXEXPORT
+ #elif defined(WXUSINGDLL)
+@@ -60,8 +63,10 @@
+ #else // not making nor using DLL
+     #define WXDLLIMPEXP_SCI
+ #endif
++/* C::B begin */
++#endif // #if 0
++/* C::B end */
+ 
+-
+ #ifdef SCI_NAMESPACE
+ 	#ifndef SCI_NAMESPACE_PREFIX
+ 		#define SCI_NAMESPACE_PREFIX( x ) Scintilla::x
