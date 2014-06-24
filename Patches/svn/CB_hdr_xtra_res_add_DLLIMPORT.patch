@@ -1,0 +1,35 @@
+Index: src/include/xtra_res.h
+===================================================================
+--- src/include/xtra_res.h	(revision 9823)
++++ src/include/xtra_res.h	(working copy)
+@@ -6,19 +6,16 @@
+ #ifndef XTRA_RES_H
+ #define XTRA_RES_H
+ 
+-#include <wx/wxprec.h>
+ #include <wx/xrc/xmlres.h>
+ #include <wx/xrc/xh_dlg.h>
+ #include <wx/toolbar.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
++#include "settings.h"
+ 
+ 
+ class wxXmlResourceHandler;
+ 
+-class wxToolBarAddOnXmlHandler : public wxXmlResourceHandler
++class DLLIMPORT wxToolBarAddOnXmlHandler : public wxXmlResourceHandler
+ {
+     public:
+         wxToolBarAddOnXmlHandler();
+@@ -35,7 +32,7 @@
+             wxSize size = wxDefaultSize);
+ };
+ 
+-class wxScrollingDialogXmlHandler : public wxDialogXmlHandler
++class DLLIMPORT wxScrollingDialogXmlHandler : public wxDialogXmlHandler
+ {
+     DECLARE_DYNAMIC_CLASS(wxScrollingDialogXmlHandler)
+ 

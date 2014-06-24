@@ -1,0 +1,88 @@
+Index: src/include/tinyxml/tinystr.h
+===================================================================
+--- src/include/tinyxml/tinystr.h	(revision 9823)
++++ src/include/tinyxml/tinystr.h	(working copy)
+@@ -30,6 +30,21 @@
+ #include <assert.h>
+ #include <string.h>
+ 
++/* C::B begin */
++#ifdef EXPORT_LIB
++    #define TIXML_EXPORTING_DLL
++#elif defined(BUILDING_PLUGIN)
++    #define TIXML_USING_DLL
++#endif //
++/* C::B end */
++#ifdef TIXML_EXPORTING_DLL
++    #define TIXML_CLASS_DECLSPEC    __declspec(dllexport)
++#elif defined(TIXML_USING_DLL)
++    #define TIXML_CLASS_DECLSPEC    __declspec(dllimport)
++#else
++    #define TIXML_CLASS_DECLSPEC
++#endif // TIXML_EXPORTING_DLL
++
+ /*	The support for explicit isn't that universal, and it isn't really
+ 	required - it is used to check that the TiXmlString class isn't incorrectly
+ 	used. Be nice to old compilers and macro it here:
+@@ -52,7 +67,7 @@
+    The buffer allocation is made by a simplistic power of 2 like mechanism : if we increase
+    a string and there's no more room, we allocate a buffer twice as big as we need.
+ */
+-class TiXmlString
++class TIXML_CLASS_DECLSPEC TiXmlString
+ {
+   public :
+ 	// The size type used
+Index: src/include/tinyxml/tinyxml.h
+===================================================================
+--- src/include/tinyxml/tinyxml.h	(revision 9823)
++++ src/include/tinyxml/tinyxml.h	(working copy)
+@@ -43,6 +43,21 @@
+ #define DEBUG
+ #endif
+ 
++/* C::B begin */
++#ifdef EXPORT_LIB
++    #define TIXML_EXPORTING_DLL
++#elif defined(BUILDING_PLUGIN)
++    #define TIXML_USING_DLL
++#endif //
++/* C::B end */
++#ifdef TIXML_EXPORTING_DLL
++    #define TIXML_CLASS_DECLSPEC    __declspec(dllexport)
++#elif defined(TIXML_USING_DLL)
++    #define TIXML_CLASS_DECLSPEC    __declspec(dllimport)
++#else
++    #define TIXML_CLASS_DECLSPEC
++#endif // TIXML_EXPORTING_DLL
++
+ #ifdef TIXML_USE_STL
+ 	#include <string>
+  	#include <iostream>
+@@ -420,7 +435,7 @@
+ 	in a document, or stand on its own. The type of a TiXmlNode
+ 	can be queried, and it can be cast to its more defined type.
+ */
+-class TiXmlNode : public TiXmlBase
++class TIXML_CLASS_DECLSPEC TiXmlNode : public TiXmlBase
+ {
+ 	friend class TiXmlDocument;
+ 	friend class TiXmlElement;
+@@ -937,7 +952,7 @@
+ 	and can contain other elements, text, comments, and unknowns.
+ 	Elements also contain an arbitrary number of attributes.
+ */
+-class TiXmlElement : public TiXmlNode
++class TIXML_CLASS_DECLSPEC TiXmlElement : public TiXmlNode
+ {
+ public:
+ 	/// Construct an element.
+@@ -1390,7 +1405,7 @@
+ 	XML pieces. It can be saved, loaded, and printed to the screen.
+ 	The 'value' of a document node is the xml file name.
+ */
+-class TiXmlDocument : public TiXmlNode
++class TIXML_CLASS_DECLSPEC TiXmlDocument : public TiXmlNode
+ {
+ public:
+ 	/// Create an empty document, that has no name.

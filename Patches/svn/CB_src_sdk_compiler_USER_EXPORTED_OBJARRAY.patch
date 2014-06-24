@@ -1,0 +1,26 @@
+Index: src/include/compiler.h
+===================================================================
+--- src/include/compiler.h	(revision 9823)
++++ src/include/compiler.h	(working copy)
+@@ -141,7 +141,7 @@
+ private:
+     wxRegEx regexObject;
+ };
+-WX_DECLARE_OBJARRAY(RegExStruct, RegExArray);
++WX_DECLARE_USER_EXPORTED_OBJARRAY(RegExStruct, RegExArray, DLLIMPORT);
+ 
+ /// Helper enum to retrieve compiler commands
+ enum CommandType
+Index: src/sdk/compiler.cpp
+===================================================================
+--- src/sdk/compiler.cpp	(revision 9823)
++++ src/sdk/compiler.cpp	(working copy)
+@@ -28,7 +28,7 @@
+ #include <wx/filefn.h>
+ #include <wx/xml/xml.h>
+ 
+-WX_DEFINE_OBJARRAY(RegExArray);
++WX_DEFINE_USER_EXPORTED_OBJARRAY(RegExArray);
+ 
+ // static
+ wxArrayString Compiler::m_CompilerIDs; // map to guarantee unique IDs
