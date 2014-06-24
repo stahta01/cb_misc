@@ -2,7 +2,7 @@ Index: src/sdk/wxscintilla/include/wx/wxscintilla.h
 ===================================================================
 --- src/sdk/wxscintilla/include/wx/wxscintilla.h	(revision 9823)
 +++ src/sdk/wxscintilla/include/wx/wxscintilla.h	(working copy)
-@@ -33,8 +33,17 @@
+@@ -33,8 +33,18 @@
  #if wxCHECK_VERSION(2,9,2)
  #include <wx/versioninfo.h>
  #endif
@@ -17,11 +17,11 @@ Index: src/sdk/wxscintilla/include/wx/wxscintilla.h
 +
 +#if 0
  /* C::B end */
--
+ 
  #ifdef WXMAKINGDLL_SCI
      #define WXDLLIMPEXP_SCI WXEXPORT
  #elif defined(WXUSINGDLL_SCI) || defined(WXUSINGDLL)
-@@ -42,7 +51,11 @@
+@@ -42,7 +51,10 @@
  #else // not making nor using DLL
      #define WXDLLIMPEXP_SCI
  #endif
@@ -29,7 +29,6 @@ Index: src/sdk/wxscintilla/include/wx/wxscintilla.h
 +#endif // #if 0
 +/* C::B end */
  
-+
  class WXDLLIMPEXP_FWD_CORE wxScrollBar;
  
  // SWIG can't handle "#if" type of conditionals, only "#ifdef"
@@ -47,7 +46,7 @@ Index: src/sdk/wxscintilla/src/ScintillaWX.h
  #ifdef WXMAKINGDLL_SCI
      #define WXDLLIMPEXP_SCI WXEXPORT
  #elif defined(WXUSINGDLL)
-@@ -60,8 +63,10 @@
+@@ -60,8 +63,11 @@
  #else // not making nor using DLL
      #define WXDLLIMPEXP_SCI
  #endif
@@ -55,7 +54,7 @@ Index: src/sdk/wxscintilla/src/ScintillaWX.h
 +#endif // #if 0
 +/* C::B end */
  
--
+ 
  #ifdef SCI_NAMESPACE
  	#ifndef SCI_NAMESPACE_PREFIX
  		#define SCI_NAMESPACE_PREFIX( x ) Scintilla::x
