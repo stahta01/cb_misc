@@ -494,8 +494,12 @@ Index: src/include/workspaceloader.h
 ===================================================================
 --- src/include/workspaceloader.h	(revision 9823)
 +++ src/include/workspaceloader.h	(working copy)
-@@ -8,7 +8,7 @@
+@@ -6,9 +6,11 @@
+ #ifndef WORKSPACELOADER_H
+ #define WORKSPACELOADER_H
  
++#include "settings.h"
++
  #include "ibaseworkspaceloader.h"
  
 -class WorkspaceLoader : public IBaseWorkspaceLoader

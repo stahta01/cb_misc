@@ -1,0 +1,14 @@
+Index: src/plugins/compilergcc/compilerMINGWgenerator.cpp
+===================================================================
+--- src/plugins/compilergcc/compilerMINGWgenerator.cpp	(revision 9823)
++++ src/plugins/compilergcc/compilerMINGWgenerator.cpp	(working copy)
+@@ -41,7 +41,9 @@
+ 
+     // for PCH to work, the very first include dir *must* be the object output dir
+     // *only* if PCH is generated in the object output dir
++    // *only* if the project Include Dirs are being used
+     if (target &&
++        orUseTargetOptionsOnly != target->GetOptionRelation(ortIncludeDirs) &&
+         target->GetParentProject()->GetModeForPCH() == pchObjectDir)
+     {
+         wxArrayString includedDirs; // avoid adding duplicate dirs...
