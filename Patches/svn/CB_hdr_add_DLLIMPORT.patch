@@ -1,3 +1,16 @@
+Index: src/include/compiler.h
+===================================================================
+--- src/include/compiler.h	(revision 9827)
++++ src/include/compiler.h	(working copy)
+@@ -187,7 +187,7 @@
+ };
+ 
+ /// Struct to keep switches
+-struct CompilerSwitches
++struct DLLIMPORT CompilerSwitches
+ {
+     static const CompilerLoggingType defaultLogging = clogFull;
+     wxString includeDirs;         // -I
 Index: src/include/cbauibook.h
 ===================================================================
 --- src/include/cbauibook.h	(revision 9823)

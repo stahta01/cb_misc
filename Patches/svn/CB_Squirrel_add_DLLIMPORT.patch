@@ -1,0 +1,94 @@
+Index: src/include/scripting/include/squirrel.h
+===================================================================
+--- src/include/scripting/include/squirrel.h	(revision 9827)
++++ src/include/scripting/include/squirrel.h	(working copy)
+@@ -35,6 +35,26 @@
+ extern "C" {
+ #endif
+ 
++/* C::B begin */
++#if defined(BUILDING_PLUGIN) || defined(EXPORT_LIB)
++    #include "settings.h"
++    #define SQUIRREL_API DLLIMPORT
++    #define SQUIRREL_CLASS_DECL SQUIRREL_API
++#else
++    #if defined(__WXMSW__)
++        #define SQUIRREL_API __declspec (dllexport)
++        #define SQUIRREL_CLASS_DECL SQUIRREL_API
++    #else
++        #define SQUIRREL_API extern
++        #define SQUIRREL_CLASS_DECL
++    #endif // defined(__WXMSW__)
++#endif // defined(BUILDING_PLUGIN) || defined(EXPORT_LIB)
++/* C::B end */
++
++#ifndef SQUIRREL_CLASS_DECL
++#define SQUIRREL_CLASS_DECL
++#endif
++
+ #ifndef SQUIRREL_API
+ #define SQUIRREL_API extern
+ #endif
+Index: src/include/scripting/sqplus/SquirrelBindingsUtils.h
+===================================================================
+--- src/include/scripting/sqplus/SquirrelBindingsUtils.h	(revision 9827)
++++ src/include/scripting/sqplus/SquirrelBindingsUtils.h	(working copy)
+@@ -145,7 +145,7 @@
+ BOOL_T CreateStaticNamespace(HSQUIRRELVM v,ScriptNamespaceDecl *sn);
+ BOOL_T CreateClass(HSQUIRRELVM v,SquirrelClassDecl *cd);
+ BOOL_T InitScriptClasses(HSQUIRRELVM v);
+-BOOL_T CreateNativeClassInstance(HSQUIRRELVM v,const SQChar *classname,SQUserPointer ud,SQRELEASEHOOK hook);
++SQUIRREL_API BOOL_T CreateNativeClassInstance(HSQUIRRELVM v,const SQChar *classname,SQUserPointer ud,SQRELEASEHOOK hook);
+ 
+ #endif // SQUIRREL_BINDINGS_UTILS_H
+ 
+Index: src/include/scripting/sqplus/SquirrelObject.h
+===================================================================
+--- src/include/scripting/sqplus/SquirrelObject.h	(revision 9827)
++++ src/include/scripting/sqplus/SquirrelObject.h	(working copy)
+@@ -4,7 +4,7 @@
+ // C::B patch: Include required, so references are found
+ #include "sqplus.h"
+ 
+-class SquirrelObject
++class SQUIRREL_CLASS_DECL SquirrelObject
+ {
+ 	friend class SquirrelVM;
+ public:
+Index: src/include/scripting/sqplus/SquirrelVM.h
+===================================================================
+--- src/include/scripting/sqplus/SquirrelVM.h	(revision 9827)
++++ src/include/scripting/sqplus/SquirrelVM.h	(working copy)
+@@ -23,7 +23,7 @@
+     sqifAll    = 0xFF
+ };
+ 
+-class SquirrelVM
++class SQUIRREL_CLASS_DECL SquirrelVM
+ {
+ 	friend class SquirrelObject;
+ 	friend struct SquirrelError;
+Index: src/include/scripting/sqplus/sqplus.h
+===================================================================
+--- src/include/scripting/sqplus/sqplus.h	(revision 9827)
++++ src/include/scripting/sqplus/sqplus.h	(working copy)
+@@ -338,8 +338,8 @@
+ } // getVarNameTag
+ 
+ // Internal use only.
+-SQInteger setVarFunc(HSQUIRRELVM v);
+-SQInteger getVarFunc(HSQUIRRELVM v);
++SQUIRREL_API SQInteger setVarFunc(HSQUIRRELVM v);
++SQUIRREL_API SQInteger getVarFunc(HSQUIRRELVM v);
+ SQInteger setInstanceVarFunc(HSQUIRRELVM v);
+ SQInteger getInstanceVarFunc(HSQUIRRELVM v);
+ 
+@@ -1599,7 +1599,7 @@
+   } // release
+ };
+ 
+-BOOL_T CreateClass(HSQUIRRELVM v,SquirrelObject & newClass,SQUserPointer classType,const SQChar * name,const SQChar * baseName=0);
++SQUIRREL_API BOOL_T CreateClass(HSQUIRRELVM v,SquirrelObject & newClass,SQUserPointer classType,const SQChar * name,const SQChar * baseName=0);
+ 
+ #define SQ_ANCESTOR_CLASS_INDEX sqT("__ci")
+ 
