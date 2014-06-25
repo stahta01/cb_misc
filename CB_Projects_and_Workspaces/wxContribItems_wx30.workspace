@@ -3,5 +3,7 @@
 	<Workspace title="wxContribItems Workspace wx3.0.x">
 		<Project filename="plugins/contrib/wxContribItems/wxContribItems_wx30.cbp" />
 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30.cbp" />
+		<Project filename="plugins/contrib/lib_finder/lib_finder_wx30.cbp" />
+		<Project filename="plugins/contrib/ThreadSearch/ThreadSearch_wx30.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
