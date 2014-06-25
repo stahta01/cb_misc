@@ -10,6 +10,9 @@ wxImagePanel Looks like a CB Created and Maintained code
 wxSpeedButton Looks like a CB Created and Maintained code
 
 This export-all-symbols option should NOT be needed after converting to WXUSINGDLL.
+What does the "--enable-auto-import" option really do? 
+
+See DLLIMPORT and WXDLLIMPEXP_CORE (maybe create WXDLLIMPEXP_WXCODE)
 
 No Source Code looks like it needs changed need to convert to WXUSINGDLL
    wxFlatNotebook
