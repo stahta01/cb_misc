@@ -1,0 +1,17 @@
+Index: src/plugins/compilergcc/resources/compilers/options_common_re.xml
+===================================================================
+--- src/plugins/compilergcc/resources/compilers/options_common_re.xml	(revision 9838)
++++ src/plugins/compilergcc/resources/compilers/options_common_re.xml	(working copy)
+@@ -181,6 +181,12 @@
+            msg="1">
+         <![CDATA[.*cc.*:[ \t]([Uu]nrecognized.*option.*)]]>
+     </RegEx>
++    <RegEx name="Compiler warning (3)"
++           type="warning"
++           msg="2"
++           file="1">
++        <![CDATA[cc.*:[ \t][Ww]arning:(.*):[ \t](.*)]]>
++    </RegEx>
+     <RegEx name="No such file or directory"
+            type="error"
+            msg="2"
