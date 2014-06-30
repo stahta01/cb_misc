@@ -1,0 +1,18 @@
+Index: src/src/resources/project_options.xrc
+===================================================================
+--- src/src/resources/project_options.xrc	(revision 9841)
++++ src/src/resources/project_options.xrc	(working copy)
+@@ -255,8 +255,11 @@
+ 										<object class="sizeritem">
+ 											<object class="wxBoxSizer">
+ 												<object class="sizeritem">
+-													<object class="wxListBox" name="lstBuildTarget" />
+-													<flag>wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
++													<object class="wxListBox" name="lstBuildTarget">
++														<size>120,360</size>
++														<style>wxLB_HSCROLL</style>
++													</object>
++													<flag>wxALIGN_LEFT|wxALIGN_TOP</flag>
+ 												</object>
+ 												<object class="sizeritem">
+ 													<object class="wxBoxSizer">
