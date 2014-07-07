@@ -1,0 +1,24 @@
+Index: src/plugins/contrib/devpak_plugin/updatedlg.cpp
+===================================================================
+--- src/plugins/contrib/devpak_plugin/updatedlg.cpp	(revision 9844)
++++ src/plugins/contrib/devpak_plugin/updatedlg.cpp	(working copy)
+@@ -59,7 +59,7 @@
+     m_LastBlockSize(0),
+     m_HasUpdated(false),
+     m_FirstTimeCheck(true),
+-    m_Net(this, idNet, _T("http://devpaks.sourceforge.net/"))
++    m_Net(this, idNet, _T("http://stahta01.github.io/"))
+ {
+ 	//ctor
+ 	wxXmlResource::Get()->LoadObject(this, parent, _T("MainFrame"),_T("wxScrollingDialog"));
+@@ -326,8 +326,8 @@
+     }
+     if (cmb->GetCount() == 0)
+     {
+-        cmb->Append(_("devpaks.org Community Devpaks"));
+-        m_Servers.Add(_T("http://devpaks.sourceforge.net/"));
++        cmb->Append(_("Tim's Devpaks"));
++        m_Servers.Add(_T("http://stahta01.github.io/"));
+     }
+     cmb->SetSelection(0);
+ }
