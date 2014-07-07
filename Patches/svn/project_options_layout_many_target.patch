@@ -2,7 +2,15 @@ Index: src/src/projectoptionsdlg.cpp
 ===================================================================
 --- src/src/projectoptionsdlg.cpp	(revision 9844)
 +++ src/src/projectoptionsdlg.cpp	(working copy)
-@@ -63,7 +63,7 @@
+@@ -28,6 +28,7 @@
+     #include <wx/combobox.h>
+     #include <wx/filedlg.h>
+     #include <wx/filefn.h> // wxMatchWild
++    #include <wx/listctrl.h>
+     #include <wx/notebook.h>
+     #include <wx/sizer.h>
+     #include <wx/spinctrl.h>
+@@ -63,7 +64,7 @@ BEGIN_EVENT_TABLE(ProjectOptionsDlg, wxScrollingDi
      EVT_BUTTON(    XRCID("btnProjectBuildOptions"),             ProjectOptionsDlg::OnProjectBuildOptionsClick)
      EVT_BUTTON(    XRCID("btnProjectDeps"),                     ProjectOptionsDlg::OnProjectDepsClick)
      EVT_BUTTON(    XRCID("btnTargetBuildOptions"),              ProjectOptionsDlg::OnTargetBuildOptionsClick)
@@ -11,7 +19,7 @@ Index: src/src/projectoptionsdlg.cpp
      EVT_BUTTON(    XRCID("btnBuildOrder"),                      ProjectOptionsDlg::OnBuildOrderClick)
      EVT_BUTTON(    XRCID("btnAddBuildTarget"),                  ProjectOptionsDlg::OnAddBuildTargetClick)
      EVT_BUTTON(    XRCID("btnEditBuildTarget"),                 ProjectOptionsDlg::OnEditBuildTargetClick)
-@@ -83,7 +83,7 @@
+@@ -83,7 +84,7 @@ BEGIN_EVENT_TABLE(ProjectOptionsDlg, wxScrollingDi
      EVT_BUTTON(    XRCID("btnToggleCheckmarks"),                ProjectOptionsDlg::OnFileToggleMarkClick)
      EVT_BUTTON(    XRCID("btnCheckmarksOn"),                    ProjectOptionsDlg::OnFileMarkOnClick)
      EVT_BUTTON(    XRCID("btnCheckmarksOff"),                   ProjectOptionsDlg::OnFileMarkOffClick)
@@ -20,7 +28,7 @@ Index: src/src/projectoptionsdlg.cpp
      EVT_COMBOBOX(  XRCID("cmbProjectType"),                     ProjectOptionsDlg::OnProjectTypeChanged)
      EVT_CHECKBOX(  XRCID("chkCreateStaticLib"),                 ProjectOptionsDlg::OnCreateImportFileClick)
      EVT_CHECKBOX(  XRCID("chkCreateDefFile"),                   ProjectOptionsDlg::OnCreateDefFileClick)
-@@ -145,7 +145,7 @@
+@@ -145,7 +146,7 @@ ProjectOptionsDlg::ProjectOptionsDlg(wxWindow* par
      // we don't want the dialog to become huge ;)
      // note that a similar situation in editor settings had been solved by commenting
      // the following line out...
@@ -29,7 +37,7 @@ Index: src/src/projectoptionsdlg.cpp
  
      // other plugins configuration
      AddPluginPanels();
-@@ -206,12 +206,21 @@
+@@ -206,12 +207,21 @@ void ProjectOptionsDlg::FillScripts()
  void ProjectOptionsDlg::FillBuildTargets()
  {
      // add build targets
@@ -55,7 +63,7 @@ Index: src/src/projectoptionsdlg.cpp
  }
  
  void ProjectOptionsDlg::DoTargetChange(bool saveOld)
-@@ -219,11 +228,33 @@
+@@ -219,11 +229,33 @@ void ProjectOptionsDlg::DoTargetChange(bool saveOl
      if (saveOld)
          DoBeforeTargetChange();
  
@@ -93,7 +101,7 @@ Index: src/src/projectoptionsdlg.cpp
      if (!target)
          return;
  
-@@ -333,7 +364,7 @@
+@@ -333,7 +365,7 @@ void ProjectOptionsDlg::DoTargetChange(bool saveOl
      }
  
      // update currently selected target
@@ -102,7 +110,7 @@ Index: src/src/projectoptionsdlg.cpp
  }
  
  void ProjectOptionsDlg::DoBeforeTargetChange(bool force)
-@@ -1155,20 +1186,21 @@
+@@ -1155,20 +1187,21 @@ void ProjectOptionsDlg::OnScriptMoveDown(cb_unused
  
  void ProjectOptionsDlg::OnUpdateUI(cb_unused wxUpdateUIEvent& event)
  {
