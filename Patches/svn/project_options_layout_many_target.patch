@@ -1,0 +1,146 @@
+Index: src/src/projectoptionsdlg.cpp
+===================================================================
+--- src/src/projectoptionsdlg.cpp	(revision 9841)
++++ src/src/projectoptionsdlg.cpp	(working copy)
+@@ -63,7 +63,7 @@ BEGIN_EVENT_TABLE(ProjectOptionsDlg, wxScrollingDialog)
+     EVT_BUTTON(    XRCID("btnProjectBuildOptions"),             ProjectOptionsDlg::OnProjectBuildOptionsClick)
+     EVT_BUTTON(    XRCID("btnProjectDeps"),                     ProjectOptionsDlg::OnProjectDepsClick)
+     EVT_BUTTON(    XRCID("btnTargetBuildOptions"),              ProjectOptionsDlg::OnTargetBuildOptionsClick)
+-    EVT_LISTBOX_DCLICK(XRCID("lstBuildTarget"),                 ProjectOptionsDlg::OnTargetBuildOptionsClick)
++    //EVT_LISTBOX_DCLICK(XRCID("lstBuildTarget"),                 ProjectOptionsDlg::OnTargetBuildOptionsClick)
+     EVT_BUTTON(    XRCID("btnBuildOrder"),                      ProjectOptionsDlg::OnBuildOrderClick)
+     EVT_BUTTON(    XRCID("btnAddBuildTarget"),                  ProjectOptionsDlg::OnAddBuildTargetClick)
+     EVT_BUTTON(    XRCID("btnEditBuildTarget"),                 ProjectOptionsDlg::OnEditBuildTargetClick)
+@@ -83,7 +83,7 @@ BEGIN_EVENT_TABLE(ProjectOptionsDlg, wxScrollingDialog)
+     EVT_BUTTON(    XRCID("btnToggleCheckmarks"),                ProjectOptionsDlg::OnFileToggleMarkClick)
+     EVT_BUTTON(    XRCID("btnCheckmarksOn"),                    ProjectOptionsDlg::OnFileMarkOnClick)
+     EVT_BUTTON(    XRCID("btnCheckmarksOff"),                   ProjectOptionsDlg::OnFileMarkOffClick)
+-    EVT_LISTBOX(   XRCID("lstBuildTarget"),                     ProjectOptionsDlg::OnBuildTargetChanged)
++    //EVT_LISTBOX(   XRCID("lstBuildTarget"),                     ProjectOptionsDlg::OnBuildTargetChanged)
+     EVT_COMBOBOX(  XRCID("cmbProjectType"),                     ProjectOptionsDlg::OnProjectTypeChanged)
+     EVT_CHECKBOX(  XRCID("chkCreateStaticLib"),                 ProjectOptionsDlg::OnCreateImportFileClick)
+     EVT_CHECKBOX(  XRCID("chkCreateDefFile"),                   ProjectOptionsDlg::OnCreateDefFileClick)
+@@ -145,7 +145,7 @@ ProjectOptionsDlg::ProjectOptionsDlg(wxWindow* parent, cbProject* project)
+     // we don't want the dialog to become huge ;)
+     // note that a similar situation in editor settings had been solved by commenting
+     // the following line out...
+-    GetSizer()->SetSizeHints(this);
++//    GetSizer()->SetSizeHints(this);
+ 
+     // other plugins configuration
+     AddPluginPanels();
+@@ -206,11 +206,19 @@ void ProjectOptionsDlg::FillScripts()
+ void ProjectOptionsDlg::FillBuildTargets()
+ {
+     // add build targets
+-    wxListBox* lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListBox);
+-    lstTargets->Clear();
++    //wxListBox* lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListBox);
++    wxListCtrl *lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListCtrl);
++    lstTargets->ClearAll();
++    lstTargets->InsertColumn(0, wxT("Name"));
+     for (int i = 0; i < m_Project->GetBuildTargetsCount(); ++i)
+-        lstTargets->Append(m_Project->GetBuildTarget(i)->GetTitle());
+-    lstTargets->SetSelection(0);
++        //lstTargets->Append(m_Project->GetBuildTarget(i)->GetTitle());
++        lstTargets->InsertItem(lstTargets->GetItemCount(), m_Project->GetBuildTarget(i)->GetTitle());
++    //lstTargets->SetSelection(0);
++    if (lstTargets->GetItemCount() > 0)
++        lstTargets->SetItemState(0, wxLIST_STATE_SELECTED, wxLIST_STATE_SELECTED);
++    lstTargets->SetColumnWidth(0, wxLIST_AUTOSIZE);
++    int width = std::min(lstTargets->GetColumnWidth(0), 200);
++    lstTargets->SetMinSize(wxSize(width, 200));
+     DoTargetChange(false);
+ }
+ 
+@@ -219,11 +227,33 @@ void ProjectOptionsDlg::DoTargetChange(bool saveOld)
+     if (saveOld)
+         DoBeforeTargetChange();
+ 
+-    wxListBox* lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListBox);
++    //wxListBox* lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListBox);
++    wxListCtrl *lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListCtrl);
+ 
+-    if (lstTargets->GetSelection() == -1)
+-        lstTargets->SetSelection(0);
+-    ProjectBuildTarget* target = m_Project->GetBuildTarget(lstTargets->GetSelection());
++    if (lstTargets->GetItemCount() == 0)
++        return;
++
++    //if (lstTargets->GetSelection() == -1)
++        //lstTargets->SetSelection(0);
++    ProjectBuildTarget* target = nullptr;
++    if (lstTargets->GetSelectedItemCount() == 0)
++    {
++        lstTargets->SetItemState(0, wxLIST_STATE_SELECTED, wxLIST_STATE_SELECTED);
++        target = m_Project->GetBuildTarget(lstTargets->GetItemText(0));
++        m_Current_Sel = 0;
++    }
++    else
++    {
++        for (int item = 0; item < lstTargets->GetItemCount(); ++item)
++        {
++            if (lstTargets->GetItemState(item, wxLIST_STATE_SELECTED) == wxLIST_STATE_SELECTED)
++            {
++                target = m_Project->GetBuildTarget(lstTargets->GetItemText(item));
++                m_Current_Sel = item;
++                break;
++            }
++        }
++    }
+     if (!target)
+         return;
+ 
+@@ -333,7 +363,7 @@ void ProjectOptionsDlg::DoTargetChange(bool saveOld)
+     }
+ 
+     // update currently selected target
+-    m_Current_Sel = lstTargets->GetSelection();
++//    m_Current_Sel = lstTargets->GetSelection();
+ }
+ 
+ void ProjectOptionsDlg::DoBeforeTargetChange(bool force)
+@@ -1155,20 +1185,21 @@ void ProjectOptionsDlg::OnScriptMoveDown(cb_unused wxSpinEvent& event)
+ 
+ void ProjectOptionsDlg::OnUpdateUI(cb_unused wxUpdateUIEvent& event)
+ {
+-    wxListBox* lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListBox);
++    //wxListBox* lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListBox);
++    wxListCtrl* lstTargets = XRCCTRL(*this, "lstBuildTarget", wxListCtrl);
+     wxCheckListBox* list = XRCCTRL(*this, "lstFiles", wxCheckListBox);
+ 
+     bool filesEn = list->GetSelection() >= 0;
+-    bool en = lstTargets->GetSelection() >= 0;
++    bool en = lstTargets->GetSelectedItemCount() >= 0;
+ 
+     // files options
+     XRCCTRL(*this, "btnFileOptions", wxButton)->Enable(filesEn);
+ 
+     // target options
+-    XRCCTRL(*this, "btnBuildOrder",      wxButton)->Enable(lstTargets->GetCount() > 1);
++    XRCCTRL(*this, "btnBuildOrder",      wxButton)->Enable(lstTargets->GetItemCount() > 1);
+     XRCCTRL(*this, "btnEditBuildTarget", wxButton)->Enable(en);
+     XRCCTRL(*this, "btnCopyBuildTarget", wxButton)->Enable(en);
+-    XRCCTRL(*this, "btnDelBuildTarget",  wxButton)->Enable(en && lstTargets->GetCount() > 1);
++    XRCCTRL(*this, "btnDelBuildTarget",  wxButton)->Enable(en && lstTargets->GetItemCount() > 1);
+ 
+     // edit project/target build options
+     XRCCTRL(*this, "btnProjectBuildOptions", wxButton)->Enable(m_pCompiler);
+Index: src/src/resources/project_options.xrc
+===================================================================
+--- src/src/resources/project_options.xrc	(revision 9841)
++++ src/src/resources/project_options.xrc	(working copy)
+@@ -255,8 +255,11 @@
+ 										<object class="sizeritem">
+ 											<object class="wxBoxSizer">
+ 												<object class="sizeritem">
+-													<object class="wxListBox" name="lstBuildTarget" />
+-													<flag>wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
++													<object class="wxListCtrl" name="lstBuildTarget">
++														<style>wxLC_REPORT|wxLC_NO_HEADER|wxLC_SINGLE_SEL</style>
++													</object>
++													<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
++													<option>1</option>
+ 												</object>
+ 												<object class="sizeritem">
+ 													<object class="wxBoxSizer">
