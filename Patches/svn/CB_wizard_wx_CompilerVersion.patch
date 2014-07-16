@@ -1,0 +1,72 @@
+Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
+===================================================================
+--- src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(revision 9845)
++++ src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(working copy)
+@@ -15,6 +15,7 @@
+ IsEmpty <- false; // For empty projects
+ IsPartialDebug <- false; // For debug linking against release libraries
+ Configuration <- _T("");
++WxCompilerVersion <- _T("");
+ LibPath <- _T("");
+ LibPrefix <- _T(""); // Prefix of lib name
+ LibWxVer <- _T(""); // Determines wx version
+@@ -248,6 +249,7 @@
+         Wizard.CheckCheckbox(_T("chkWxConfAdvOpt"), IntToBool(ConfigManager.Read(_T("/wx_project_wizard/debug"), 0)));
+         Wizard.CheckCheckbox(_T("chkWxConfPCH"), IntToBool(ConfigManager.Read(_T("/wx_project_wizard/pch"), 0)));
+         Wizard.SetTextControlValue(_T("txtWxConfConfig"), ConfigManager.Read(_T("/wx_project_wizard/configuration"), _T("")));
++        Wizard.SetTextControlValue(_T("txtWxCompilerVersion"), ConfigManager.Read(_T("/wx_project_wizard/compilerversion"), _T("")));
+     }
+     return true;
+ }
+@@ -263,6 +265,7 @@
+         IsAdvOpt = Wizard.IsCheckboxChecked(_T("chkWxConfAdvOpt"));
+         WantPCH = Wizard.IsCheckboxChecked(_T("chkWxConfPCH"));
+         Configuration = Wizard.GetTextControlValue(_T("txtWxConfConfig"));
++        WxCompilerVersion = Wizard.GetTextControlValue(_T("txtWxCompilerVersion"));
+ 
+         // Ask the user whether wizard shall add PCH support when empty Project is selected
+         if (IsEmpty && WantPCH)
+@@ -299,13 +302,13 @@
+         local lib = WxPath + _T("/lib/");
+         if (GetCompilerFactory().CompilerInheritsFrom(Wizard.GetCompilerID(), _T("gcc*")))
+         {
+-            lib = lib + _T("gcc_");
++            lib = lib + _T("gcc") + WxCompilerVersion + _T("_");
+             lib_prefix = _T("lib");
+             lib_suffix = _T(".a");
+         }
+         else if (GetCompilerFactory().CompilerInheritsFrom(Wizard.GetCompilerID(), _T("msvc*")))
+         {
+-            lib = lib + _T("vc_");
++            lib = lib + _T("vc") + WxCompilerVersion + _T("_");
+             lib_prefix = _T("");
+             lib_suffix = _T(".lib");
+         }
+Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc
+===================================================================
+--- src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc	(revision 9845)
++++ src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc	(working copy)
+@@ -95,6 +95,23 @@
+                   <maxlength>0</maxlength>
+                 </object>
+               </object>
++              <object class="sizeritem">
++                <option>0</option>
++                <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
++                <border>8</border>
++                <object class="wxStaticText" name="m_staticText7">
++                  <label>wxCompilerVersion:</label>
++                </object>
++              </object>
++              <object class="sizeritem">
++                <option>1</option>
++                <flag>wxALL|wxEXPAND|wxALIGN_CENTRE_VERTICAL</flag>
++                <border>8</border>
++                <object class="wxTextCtrl" name="txtWxCompilerVersion">
++                  <value></value>
++                  <maxlength>0</maxlength>
++                </object>
++              </object>
+             </object>
+           </object>
+           <object class="sizeritem">
