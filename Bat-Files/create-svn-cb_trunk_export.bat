@@ -7,7 +7,7 @@ set CB_GIT=%CD%
 
 REM rmdir svn-codeblocks-export
 rm -rf svn-codeblocks-export
-    PAUSE
+REM PAUSE
 
 CD svn-codeblocks-trunk
 set CB_SVN=%CD%
