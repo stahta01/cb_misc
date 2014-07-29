@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Contrib tools">
+		<Project filename="tools/cb_share_config/cb_share_config.cbp" />
+		<Project filename="tools/CBLauncher/CbLauncher.cbp" />
+		<Project filename="tools/Addr2LineUI/Addr2LineUI.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
