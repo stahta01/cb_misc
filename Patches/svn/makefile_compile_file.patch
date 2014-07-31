@@ -1,0 +1,47 @@
+Index: src/plugins/compilergcc/compilergcc.cpp
+===================================================================
+--- src/plugins/compilergcc/compilergcc.cpp	(revision 9854)
++++ src/plugins/compilergcc/compilergcc.cpp	(working copy)
+@@ -2903,10 +2903,29 @@
+         return -2;
+     }
+     if (m_pProject)
+-        wxSetWorkingDirectory(m_pProject->GetBasePath());
++    {
++        if ( UseMake(m_pProject) )
++        {
++            wxSetWorkingDirectory(m_pProject->GetExecutionDir());
++            return CompileFileWithMake(file, m_pProject, bt); // compile file using custom makefile
++        } 
++        else
++        {
++            wxSetWorkingDirectory(m_pProject->GetBasePath());
++        }
++    }
+     return CompileFileDefault(m_pProject, pf, bt); // compile file using default build system
+ }
+ 
++int CompilerGCC::CompileFileWithMake(const wxString& file, cbProject* project, ProjectBuildTarget* bt)
++{
++    wxString cmd = GetMakeCommandFor(mcCompileFile, project, bt);
++    cmd.Replace(_T("$file"), file);
++    m_CommandQueue.Add(new CompilerCommand(cmd, wxEmptyString, project, bt));
++
++    return DoRunQueue();
++}
++
+ int CompilerGCC::CompileFileWithoutProject(const wxString& file)
+ {
+     // compile single file not belonging to a project
+Index: src/plugins/compilergcc/compilergcc.h
+===================================================================
+--- src/plugins/compilergcc/compilergcc.h	(revision 9854)
++++ src/plugins/compilergcc/compilergcc.h	(working copy)
+@@ -115,6 +115,7 @@
+         virtual int RebuildWorkspace(const wxString& target = wxEmptyString);
+         virtual int CompileFile(const wxString& file);
+         virtual int CompileFileWithoutProject(const wxString& file);
++        virtual int CompileFileWithMake(const wxString& file, cbProject* project, ProjectBuildTarget* bt);
+         virtual int CompileFileDefault(cbProject* project, ProjectFile* pf, ProjectBuildTarget* bt);
+         virtual int KillProcess();
+         virtual bool IsRunning() const;
