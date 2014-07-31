@@ -129,7 +129,7 @@
 					<Add directory="sdk/scripting/lib" />
 				</Linker>
 				<ExtraCommands>
-					<Add before="build_tools/autorevision/autorevision30 +wx +int +t . include/autorevision.h" />
+					<Add before="CMD /C REM build_tools/autorevision/autorevision30 +wx +int +t . include/autorevision.h" />
 					<Add after="cmd /c if not exist devel30\share\codeblocks_con mkdir devel30\share\codeblocks_con" />
 					<Add after="zip -jq9 devel30\share\codeblocks_con\manager_resources.zip sdk\resources\*.xrc" />
 					<Add after='cmd /c &quot;cd sdk\resources &amp; zip -0 -q ..\..\devel30\share\codeblocks_con\manager_resources.zip images\*.png images\12x12\*.png images\16x16\*.png&quot;' />
@@ -146,6 +146,7 @@
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
+					<Add option="-fpermissive" />
 					<Add option="-DBUILDING_PLUGIN" />
 					<Add directory="include" />
 					<Add directory="include/scripting/include" />
@@ -225,6 +226,9 @@
 					<Add option="-Wl,--no-undefined" />
 					<Add option="-mthreads" />
 					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
 					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 					<Add library="depslib30" />
 					<Add directory="devel30" />
@@ -295,6 +299,7 @@
 			<Add option="-DCB_FOR_CONSOLE" />
 			<Add option="-DNOPCH" />
 			<Add option="-DwxUSE_UNICODE" />
+			<Add option="-DwxUSE_GUI=0" />
 			<Add directory="$(#WX30.include)" />
 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 			<Add directory="sdk/wxscintilla/include" />
@@ -504,6 +509,9 @@
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="include/genericmultilinenotesdlg.h">
+			<Option target="sdk" />
+		</Unit>
+		<Unit filename="include/globals.h">
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="include/globals_base.h">
@@ -1108,6 +1116,8 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="plugins/compilergcc/advancedcompileroptionsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/compilergcc/advancedcompileroptionsdlg.h">
@@ -1228,6 +1238,8 @@
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/compilergcc/compilerflagdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/compilergcc/compilerflagdlg.h">
@@ -1240,12 +1252,16 @@
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/compilergcc/compilermessages.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/compilergcc/compilermessages.h">
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/compilergcc/compileroptionsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="Compiler" />
 		</Unit>
 		<Unit filename="plugins/compilergcc/compileroptionsdlg.h">
@@ -2421,12 +2437,16 @@
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/associations.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/associations.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/backtracedlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/backtracedlg.h">
@@ -2436,12 +2456,16 @@
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/breakpointsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/breakpointsdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/compilersettingsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/compilersettingsdlg.h">
@@ -2454,102 +2478,136 @@
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/crashhandler.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/crashhandler.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debugger_interface_creator.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debugger_interface_creator.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debuggermenu.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debuggermenu.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debuggersettingscommonpanel.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debuggersettingscommonpanel.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debuggersettingsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debuggersettingsdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debuggersettingspanel.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/debuggersettingspanel.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/disassemblydlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/disassemblydlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/dlgabout.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/dlgabout.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/dlgaboutplugin.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/dlgaboutplugin.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/editkeywordsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/editkeywordsdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/editorconfigurationdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/editorconfigurationdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/environmentsettingsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/environmentsettingsdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/examinememorydlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/examinememorydlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/find_replace.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/find_replace.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/infopane.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/infopane.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/main.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/main.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/notebookstyles.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/notebookstyles.h">
@@ -2564,30 +2622,40 @@
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/printdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/printdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/projectdepsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/projectdepsdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/projectmanagerui.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/projectmanagerui.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/projectoptionsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/projectoptionsdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/recentitemslist.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/recentitemslist.h">
@@ -2667,6 +2735,8 @@
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/scriptingsettingsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/scriptingsettingsdlg.h">
@@ -2679,30 +2749,40 @@
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/startherepage.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/startherepage.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/switcherdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/switcherdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/threadsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/threadsdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/virtualbuildtargetsdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/virtualbuildtargetsdlg.h">
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/watchesdlg.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 			<Option target="src" />
 		</Unit>
 		<Unit filename="src/watchesdlg.h">
