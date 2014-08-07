@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="CodeBlocks_console_wx30.cbp" />
+		<Project filename="plugins/contrib/envvars/envvars_console_wx30.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
