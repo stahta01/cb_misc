@@ -6,6 +6,7 @@ Welcome to Git (version 1.8.5.2-preview20131230)
 $ git --version
 git version 1.8.5.2.msysgit.0
 
+cd test
 
 Step 1: Git clone, change directory, and move head back one commit
 $
@@ -14,44 +15,43 @@ cd codeblocks_mods_test
 git reset --hard HEAD~1
 $
 
-Step 2: Create svn-remote "svn" in git config file
+Step 2: Create svn-remote "svn1" in git config file
 $
-git config --add svn-remote.svn.url http://svn.code.sf.net/p/codeblocks/code
-git config --add svn-remote.svn.fetch trunk:refs/remotes/svnstuff/trunk
-git config --add svn-remote.svn.branches branches/*:refs/remotes/svnstuff/*
-git config --add svn-remote.svn.tags tags/*:refs/remotes/svnstuff/tags/*
+git config --add svn-remote.svn1.url http://svn.code.sf.net/p/codeblocks/code
+git config --add svn-remote.svn1.fetch trunk:refs/remotes/svnstuff1/trunk
+git config --add svn-remote.svn1.branches branches/*:refs/remotes/svnstuff1/*
+git config --add svn-remote.svn1.tags tags/*:refs/remotes/svnstuff1/tags/*
 $
 
 Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
 commit 6ac780d332a35cce6e6e4b6c666376eaf3ad1f55
 
-Step 4: Create remotes/svnstuff/trunk using hash code
-$ mkdir .git/refs/remotes/svnstuff
+Step 4: Create remotes/svnstuff1/trunk using hash code
+$ mkdir .git/refs/remotes/svnstuff1
 Replace hash with value returned by the above command
-$ echo 6ac780d332a35cce6e6e4b6c666376eaf3ad1f55 > .git/refs/remotes/svnstuff/trunk
+$ echo 6ac780d332a35cce6e6e4b6c666376eaf3ad1f55 > .git/refs/remotes/svnstuff1/trunk
 
 Step 5: Verify hash code was created
-$ git show remotes/svnstuff/trunk | head -n 1
+$ git show remotes/svnstuff1/trunk | head -n 1
 
-Step 6: svn find-rev
+Step 6: SVN find-rev
 $ git svn find-rev HEAD
 
-Step 7: svn reset and fetch
-Use number plus 1 returned by svn find-rev step
-$ git svn fetch svn -r 9855
+Step 7: SVN  reset and fetch
+Use number plus 1 returned by SVN find-rev step
+$ git svn fetch svn1 -r 9855
 
-Step 8: Test git svn info
+Step 8: Test git SVN info
 Takes about a minute to return results.
 Note: If it does NOT work no results are ever returned in some cases.
 $ git svn info
-
 
 Step 9: Force branch master to use rebase.
 SVN does not like git merge so set to use git rebase.
 $ git config upstream.master.rebase true 
 
 Step 10: Test fetch and pull
-Note: I am guessing that the svn fetch should be done before all "git pull" commands.
-$ git svn fetch svn
+Note: I am guessing that the SVN  fetch should be done before all "git pull" commands.
+$ git svn fetch svn1
 $ git pull

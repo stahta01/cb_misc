@@ -41,7 +41,7 @@ Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
 commit b8d203e5c31182e95186861daa3d41aa170f73d8
 
-Step 4: Create remotes/svnstuff/trunk
+Step 4: Create remotes/svnstuff/trunk using hash code
 Replace hash with value returned by the above command
 $ echo b8d203e5c31182e95186861daa3d41aa170f73d8 > .git/refs/remotes/svnstuff/trunk
 
