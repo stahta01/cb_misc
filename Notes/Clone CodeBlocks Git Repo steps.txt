@@ -11,11 +11,12 @@ Step 1: Create clone Mirror as local Repo and move head back one commit
 note: You can replace repo_folder_name with another folder name
 
 Step 1A: Clone Git Mirror (Obf or Biplab)
-Use the next line for Git Mirrors by Obf
-$ git clone --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git repo_folder_name
 
 Use the next line for Git Mirrors by biplab
 $ git clone --origin upstream --branch master git://cb.biplab.in/codeblocks.git repo_folder_name
+
+Use the next line for Git Mirrors by Obf
+$ git clone --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git repo_folder_name
 
 Step 1B: Change current directory
 $ cd repo_folder_name
@@ -43,17 +44,17 @@ $ mkdir .git/refs/remotes/svnstuff
 
 Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
-commit 870e2add736b90dc8dacc4c7f5a148d2bfa50075
+commit 6ac780d332a35cce6e6e4b6c666376eaf3ad1f55
 
 Step 4: Create remotes trunk using hash code
 Replace hash with value returned by the above command
-$ echo 870e2add736b90dc8dacc4c7f5a148d2bfa50075 > .git/refs/remotes/svnstuff/trunk
+$ echo 6ac780d332a35cce6e6e4b6c666376eaf3ad1f55 > .git/refs/remotes/svnstuff/trunk
 
 Step 5: Verify hash code was created
 $ git show remotes/svnstuff/trunk | head -n 1
 
 Step 6: SVN find-rev
-Note: I have had long output for this command (Obf Mirror)
+Note: When, I have long output for this command, it is a good sign.
 $ git svn find-rev r1
 $ git svn find-rev HEAD
 
