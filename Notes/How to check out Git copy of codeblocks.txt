@@ -1,0 +1,40 @@
+Ideas copied from the following URLs
+   https://github.com/wxWidgets/wxWidgets/wiki
+   http://viget.com/extend/effectively-using-git-with-subversion
+   http://git-scm.com/book/en/Git-and-Other-Systems-Migrating-to-Git
+   https://www.kernel.org/pub/software/scm/git/docs/git-svn.html
+   http://blogs.atlassian.com/2013/12/git-svn-tips-and-tricks/
+   http://flavio.castelli.name/2007/09/04/howto_use_git_with_svn/
+   https://www.atlassian.com/git/tutorial/undoing-changes?_escaped_fragment_=checkout#!checkout
+   http://www.siteground.com/tutorials/git/commands.htm
+   http://trac.parrot.org/parrot/wiki/git-svn-tutorial
+
+
+Started about 9:45 AM Finished about 7:20 AM
+git svn clone --stdlayout --prefix=svn/ http://svn.code.sf.net/p/codeblocks/code cb_sf_git_svn_clone
+
+git svn fetch
+
+git svn find-rev HEAD
+
+git svn info
+
+IT Worked!!
+
+git fsck
+
+git gc
+
+git prune
+
+git fsck
+
+git svn info
+
+git branch trunk
+
+git checkout trunk
+
+git svn info
+
+

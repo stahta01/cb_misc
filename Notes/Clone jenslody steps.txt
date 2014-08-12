@@ -9,25 +9,39 @@ git version 1.8.5.2.msysgit.0
 
 Step 1: Git clone, change directory, and move head back one commit
 $
-git clone --origin upstream --branch master http://github.com/jenslody/codeblocks.git  cb_jenslody_test
-cd cb_jenslody_test
+git clone --origin upstream --branch master git://github.com/jenslody/codeblocks  cb_jenslody_test2
+cd cb_jenslody_test2
 git reset --hard HEAD~1
 $
 
-Step 2: Create svn-remote "svn" in git config file
+Step 2A: Create svn-remote "svn" in git config file
 $
 git config --add svn-remote.svn.url http://svn.code.sf.net/p/codeblocks/code
 git config --add svn-remote.svn.fetch trunk:refs/remotes/svnstuff/trunk
 git config --add svn-remote.svn.branches branches/*:refs/remotes/svnstuff/*
 git config --add svn-remote.svn.tags tags/*:refs/remotes/svnstuff/tags/*
 $
+Step 2B: Create svnstuff folder
+$ mkdir .git/refs/remotes/svnstuff
+Step 2C: Test "git svn find-rev"
+$ git svn find-rev HEAD
+Result Begins on next line
+Migrating from a git-svn v1 layout...
+Data from a previous version of git-svn exists, but
+        .git/svn
+        (required for this version (1.8.5.2.msysgit.0) of git-svn) does not exist.
+Done migrating from a git-svn v1 layout
+Result ended on above line
+If SVN number was returned goto step 3
+Step 2D:
+$ git svn fetch svn
+Goto Step 8
 
 Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
 commit b8d203e5c31182e95186861daa3d41aa170f73d8
 
 Step 4: Create remotes/svnstuff/trunk
-$ mkdir .git/refs/remotes/svnstuff
 Replace hash with value returned by the above command
 $ echo b8d203e5c31182e95186861daa3d41aa170f73d8 > .git/refs/remotes/svnstuff/trunk
 
@@ -36,11 +50,8 @@ $ git show remotes/svnstuff/trunk | head -n 1
 
 Step 6: svn find-rev
 $ git svn find-rev HEAD
-no value was returned, reason unknown
 
-Step 7: svn fetch
-Used the number of SVN trunk version
-$ git svn fetch svn -r 9855
+Step 7: 
 
 Step 8: Test git svn info
 Takes about a minute to return results.
