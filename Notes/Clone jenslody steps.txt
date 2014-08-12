@@ -1,0 +1,66 @@
+Based on the idea from  http://trac.parrot.org/parrot/wiki/git-svn-tutorial
+
+Warning: I am a Git Newbie; these steps created via trial and error.
+
+Welcome to Git (version 1.8.5.2-preview20131230)
+$ git --version
+git version 1.8.5.2.msysgit.0
+
+
+Step 1: Git clone, change directory, and move head back one commit
+$
+git clone --origin upstream --branch master http://github.com/jenslody/codeblocks.git  cb_jenslody_test
+cd cb_jenslody_test
+git reset --hard HEAD~1
+$
+
+Step 2: Create svn-remote "svn" in git config file
+$
+git config --add svn-remote.svn.url http://svn.code.sf.net/p/codeblocks/code
+git config --add svn-remote.svn.fetch trunk:refs/remotes/svnstuff/trunk
+git config --add svn-remote.svn.branches branches/*:refs/remotes/svnstuff/*
+git config --add svn-remote.svn.tags tags/*:refs/remotes/svnstuff/tags/*
+$
+
+Step 3: get hash code of current local commit
+$ git show heads/master | head -n 1
+commit b8d203e5c31182e95186861daa3d41aa170f73d8
+
+Step 4: Create remotes/svnstuff/trunk
+$ mkdir .git/refs/remotes/svnstuff
+Replace hash with value returned by the above command
+$ echo b8d203e5c31182e95186861daa3d41aa170f73d8 > .git/refs/remotes/svnstuff/trunk
+
+Step 5: Verify hash code was created
+$ git show remotes/svnstuff/trunk | head -n 1
+
+Step 6: svn find-rev
+$ git svn find-rev HEAD
+no value was returned, reason unknown
+
+Step 7: svn fetch
+Used the number of SVN trunk version
+$ git svn fetch svn -r 9855
+
+Step 8: Test git svn info
+Takes about a minute to return results.
+Note: If it does NOT work no results are ever returned in most cases.
+$ git svn info
+Unable to determine upstream SVN information from working tree history
+
+stahta01@TIMWIN7-32 ~/GitHome/cb_jenslody_test (master)
+$ git rev-parse HEAD
+b8d203e5c31182e95186861daa3d41aa170f73d8
+
+stahta01@TIMWIN7-32 ~/GitHome/cb_jenslody_test (master)
+$ git svn find-rev b8d203e5c31182e95186861daa3d41aa170f73d8
+
+
+Step 9: Force branch master to use rebase.
+SVN does not like git merge so set to use git rebase.
+$ git config upstream.master.rebase true 
+
+Step 10: Test fetch and pull
+Note: I am guessing that the svn fetch should be done before all "git pull" commands.
+$ git svn fetch svn
+$ git pull
