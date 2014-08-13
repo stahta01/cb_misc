@@ -1,72 +1,1953 @@
-Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
+Index: src/include/annoyingdialog.h
 ===================================================================
---- src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(revision 9849)
-+++ src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(working copy)
-@@ -15,6 +15,7 @@ IsAdvOpt <- false;
- IsEmpty <- false; // For empty projects
- IsPartialDebug <- false; // For debug linking against release libraries
- Configuration <- _T("");
-+WxCompilerVersion <- _T("");
- LibPath <- _T("");
- LibPrefix <- _T(""); // Prefix of lib name
- LibWxVer <- _T(""); // Determines wx version
-@@ -248,6 +249,7 @@ function OnEnter_WxConf(fwd)
-         Wizard.CheckCheckbox(_T("chkWxConfAdvOpt"), IntToBool(ConfigManager.Read(_T("/wx_project_wizard/debug"), 0)));
-         Wizard.CheckCheckbox(_T("chkWxConfPCH"), IntToBool(ConfigManager.Read(_T("/wx_project_wizard/pch"), 0)));
-         Wizard.SetTextControlValue(_T("txtWxConfConfig"), ConfigManager.Read(_T("/wx_project_wizard/configuration"), _T("")));
-+        Wizard.SetTextControlValue(_T("txtWxCompilerVersion"), ConfigManager.Read(_T("/wx_project_wizard/compilerversion"), _T("")));
+--- src/include/annoyingdialog.h	(revision 9855)
++++ src/include/annoyingdialog.h	(working copy)
+@@ -6,6 +6,10 @@
+ #ifndef ANNOYINGDIALOG_H
+ #define ANNOYINGDIALOG_H
+ 
++#ifdef CB_FOR_CONSOLE
++    #include "annoyingdialog_base.h"
++#else // #ifdef CB_FOR_CONSOLE
++
+ #include "settings.h"
+ #include "scrollingdialog.h"
+ #include <wx/string.h>
+@@ -67,4 +71,6 @@ class DLLIMPORT AnnoyingDialog : public wxScrollin
+         DECLARE_EVENT_TABLE()
+ };
+ 
++#endif // #ifdef CB_FOR_CONSOLE
++
+ #endif // ANNOYINGDIALOG_H
+Index: src/include/cbplugin.h
+===================================================================
+--- src/include/cbplugin.h	(revision 9855)
++++ src/include/cbplugin.h	(working copy)
+@@ -49,7 +49,9 @@ class wxWindow;
+ 
+ class cbBreakpoint;
+ class cbConfigurationPanel;
++#ifndef CB_FOR_CONSOLE
+ class cbDebuggerConfiguration;
++#endif // #ifndef CB_FOR_CONSOLE
+ class cbEditor;
+ class cbProject;
+ class cbStackFrame;
+@@ -371,6 +373,7 @@ class PLUGIN_EXPORT cbCompilerPlugin: public cbPlu
+ 
+ class wxScintillaEvent;
+ 
++#ifndef CB_FOR_CONSOLE
+ struct cbDebuggerFeature
+ {
+     enum Flags
+@@ -650,6 +653,7 @@ class PLUGIN_EXPORT cbDebuggerPlugin: public cbPlu
+         bool m_lastLineWasNormal;
+         wxString m_guiName, m_settingsName;
+ };
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ /** @brief Base class for tool plugins
+   *
+Index: src/include/cbproject.h
+===================================================================
+--- src/include/cbproject.h	(revision 9855)
++++ src/include/cbproject.h	(working copy)
+@@ -217,6 +217,7 @@ class DLLIMPORT cbProject : public CompileTargetBa
+           */
+         ProjectBuildTarget* AddBuildTarget(const wxString& targetName);
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Rename a build target.
+           * @param index The build target's index to rename.
+           * @param targetName The new name for the build target.
+@@ -285,6 +286,7 @@ class DLLIMPORT cbProject : public CompileTargetBa
+           * The number of array elements must be equal to GetBuildTargetsCount().
+           */
+         void ReOrderTargets(const wxArrayString& nameOrder);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** Set the active build target.
+           * @param name The build target name to set as active. If @c name does
+@@ -307,6 +309,7 @@ class DLLIMPORT cbProject : public CompileTargetBa
+ 
+         void SetCompilerID(const wxString& id); // overriden
+ 
++#ifndef CB_FOR_CONSOLE
+         /** @return The root item of this project in the project manager's tree. */
+         wxTreeItemId GetProjectNode(){ return m_ProjectNode; }
+ 
+@@ -354,6 +357,7 @@ class DLLIMPORT cbProject : public CompileTargetBa
+           * @return True if successful, false otherwise.
+           */
+         bool LoadLayout();
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** Notify that file(s) will be added shortly.
+           * This function should be called before calling AddFile().
+@@ -439,6 +443,7 @@ class DLLIMPORT cbProject : public CompileTargetBa
+         */
+         std::vector<Glob> GetGlobs() const;
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Convenience function for remembering the project's tree state when refreshing it.
+           * @return An array of strings containing the tree-path names of expanded nodes.
+           */
+@@ -459,6 +464,7 @@ class DLLIMPORT cbProject : public CompileTargetBa
+           * @param tree The tree control to restore its expanded state to a previously saved.
+           */
+         void RestoreTreeState(wxTreeCtrl* tree);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** Displays a target selection dialog.
+           * When invoked, a selection dialog is presented to the user so that he/she
+@@ -591,6 +597,7 @@ class DLLIMPORT cbProject : public CompileTargetBa
+           */
+         bool GetExtendedObjectNamesGeneration() const;
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Set notes on the project.
+           *
+           * @param notes Simple text notes about the project.
+@@ -623,6 +630,7 @@ class DLLIMPORT cbProject : public CompileTargetBa
+           * @note If @c editable is true, the @c nonEmptyOnly parameter is ignored...
+           */
+         void ShowNotes(bool nonEmptyOnly, bool editable = false);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** Changes project title
+           *
+@@ -677,7 +685,9 @@ class DLLIMPORT cbProject : public CompileTargetBa
+         void ExpandVirtualBuildTargetGroup(const wxString& alias, wxArrayString& result) const;
+         ProjectBuildTarget* AddDefaultBuildTarget();
+         int IndexOfBuildTargetName(const wxString& targetName) const;
++#ifndef CB_FOR_CONSOLE
+         wxString CreateUniqueFilename();
++#endif // #ifndef CB_FOR_CONSOLE
+         void NotifyPlugins(wxEventType type, const wxString& targetName = wxEmptyString, const wxString& oldTargetName = wxEmptyString);
+ 
+         // properties
+Index: src/include/cbworkspace.h
+===================================================================
+--- src/include/cbworkspace.h	(revision 9855)
++++ src/include/cbworkspace.h	(working copy)
+@@ -36,6 +36,7 @@ class cbWorkspace
+         /** @brief Destructor */
+         virtual ~cbWorkspace();
+ 
++#ifndef CB_FOR_CONSOLE
+         /** @brief Save the workspace
+           *
+           * @param force If false (the default), the workspace will not be written to disk,
+@@ -52,6 +53,7 @@ class cbWorkspace
+           * the filename to save will be displayed.
+           */
+         virtual bool SaveAs(const wxString& filename);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** @brief Get the workspace file's name
+           *
+@@ -92,6 +94,7 @@ class cbWorkspace
+           */
+         virtual bool IsDefault() const { return m_IsDefault; }
+ 
++#ifndef CB_FOR_CONSOLE
+         /** @brief Is this workspace modified?
+           *
+           * @return True if the workspace is modified, false if not.
+@@ -107,6 +110,7 @@ class cbWorkspace
+           * false, the workspace will be marked as unmodified.
+           */
+         virtual void SetModified(bool modified);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** @brief Set the preferred target for this workspace
+           */
+Index: src/include/ibaseloader.h
+===================================================================
+--- src/include/ibaseloader.h	(revision 9855)
++++ src/include/ibaseloader.h	(working copy)
+@@ -24,10 +24,12 @@ class DLLIMPORT IBaseLoader
+           * @return True on success, false on failure. */
+         virtual bool Open(const wxString& filename) = 0;
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Save a file.
+           * @param filename The file to save.
+           * @return True on success, false on failure. */
+         virtual bool Save(const wxString& filename) = 0;
++#endif // #ifndef CB_FOR_CONSOLE
+ };
+ 
+ #endif // IBASELOADER_H
+Index: src/include/infowindow.h
+===================================================================
+--- src/include/infowindow.h	(revision 9855)
++++ src/include/infowindow.h	(working copy)
+@@ -18,6 +18,10 @@
+ #ifndef INFOWINDOW_H
+ #define INFOWINDOW_H
+ 
++#ifdef CB_FOR_CONSOLE
++    #include "infowindow_base.h"
++#else // #ifdef CB_FOR_CONSOLE
++
+ #include <wx/event.h>
+ #include <wx/timer.h>
+ #include <wx/string.h>
+@@ -59,4 +63,6 @@ class InfoWindow : public wxInfoWindowBase
+         DECLARE_EVENT_TABLE()
+ };
+ 
++#endif // #ifdef CB_FOR_CONSOLE
++
+ #endif
+Index: src/include/manager.h
+===================================================================
+--- src/include/manager.h	(revision 9855)
++++ src/include/manager.h	(working copy)
+@@ -22,26 +22,36 @@
+ #include "cbfunctor.h"
+ 
+ // forward decls
++#ifndef CB_FOR_CONSOLE
+ class wxFrame;
+ class wxWindow;
++#endif // #ifndef CB_FOR_CONSOLE
+ class ProjectManager;
++#ifndef CB_FOR_CONSOLE
+ class EditorManager;
+ class DebuggerManager;
++#endif // #ifndef CB_FOR_CONSOLE
+ class LogManager;
+ class PluginManager;
++#ifndef CB_FOR_CONSOLE
+ class ToolsManager;
++#endif // #ifndef CB_FOR_CONSOLE
+ class MacrosManager;
+ class PersonalityManager;
++#ifndef CB_FOR_CONSOLE
+ class wxMenu;
+ class wxMenuBar;
+ class wxToolBar;
++#endif // #ifndef CB_FOR_CONSOLE
+ class UserVariableManager;
+ class ScriptingManager;
+ class ConfigManager;
+ class FileManager;
++#ifndef CB_FOR_CONSOLE
+ class ColourManager;
+ class CCManager;
+ class cbSearchResultsLog;
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ 
+ class DLLIMPORT Manager
+@@ -84,8 +94,10 @@ class DLLIMPORT Manager
+     /** Never, EVER, call this function! It is the last function called on shutdown.... */
+     static void Free();
+ 
++#ifndef CB_FOR_CONSOLE
+     wxFrame*  GetAppFrame()  const;
+     wxWindow* GetAppWindow() const;
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     static bool IsAppShuttingDown();
+     static bool IsAppStartedUp();
+@@ -111,21 +123,26 @@ class DLLIMPORT Manager
+      */
+ 
+     ProjectManager*      GetProjectManager()                          const;
++#ifndef CB_FOR_CONSOLE
+     EditorManager*       GetEditorManager()                           const;
++#endif // #ifndef CB_FOR_CONSOLE
+     LogManager*          GetLogManager()                              const;
+     PluginManager*       GetPluginManager()                           const;
++#ifndef CB_FOR_CONSOLE
+     ToolsManager*        GetToolsManager()                            const;
++#endif // #ifndef CB_FOR_CONSOLE
+     MacrosManager*       GetMacrosManager()                           const;
+     PersonalityManager*  GetPersonalityManager()                      const;
+     UserVariableManager* GetUserVariableManager()                     const;
+     ScriptingManager*    GetScriptingManager()                        const;
+     ConfigManager*       GetConfigManager(const wxString& name_space) const;
+     FileManager*         GetFileManager()                             const;
++#ifndef CB_FOR_CONSOLE
+     DebuggerManager*     GetDebuggerManager()                         const;
+     ColourManager*       GetColourManager()                           const;
+     CCManager*           GetCCManager()                               const;
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+-
+     /////// XML Resource functions ///////
+     /// Inits XML Resource system
+     static void InitXRC(bool force=false);
+@@ -133,6 +150,7 @@ class DLLIMPORT Manager
+     static void LoadXRC(wxString relpath);
+     static bool LoadResource(const wxString& file);
+ 
++#ifndef CB_FOR_CONSOLE
+     /// Loads Menubar from XRC
+     static wxMenuBar* LoadMenuBar(wxString resid, bool createonfailure = false);
+     /// Loads Menu from XRC
+@@ -146,6 +164,7 @@ class DLLIMPORT Manager
+     wxToolBar* CreateEmptyToolbar();
+     static void AddonToolBar(wxToolBar* toolBar,wxString resid);
+     static bool isToolBar16x16(wxToolBar* toolBar);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     static wxCmdLineParser* GetCmdLineParser();
+ 
+@@ -156,10 +175,12 @@ class DLLIMPORT Manager
+     void RegisterEventSink(wxEventType eventType, IEventFunctorBase<CodeBlocksLogEvent>*    functor);
+     void RemoveAllEventSinksFor(void* owner);
+ 
++#ifndef CB_FOR_CONSOLE
+     /// Returns pointer to the search result logger, might be nullptr or hidden.
+     cbSearchResultsLog* GetSearchResultLogger() const { return m_SearchResultLog; }
+     /// Sets the pointer to the search result logger, users must not call this method.
+     void SetSearchResultLogger(cbSearchResultsLog *log) { m_SearchResultLog = log; }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ private:
+     // event sinks
+@@ -176,7 +197,9 @@ class DLLIMPORT Manager
+     DockEventSinksMap   m_DockEventSinks;
+     LayoutEventSinksMap m_LayoutEventSinks;
+     LogEventSinksMap    m_LogEventSinks;
++#ifndef CB_FOR_CONSOLE
+     cbSearchResultsLog *m_SearchResultLog;
++#endif // #ifndef CB_FOR_CONSOLE
+ };
+ 
+ template <class MgrT> class Mgr
+Index: src/include/menuitemsmanager.h
+===================================================================
+--- src/include/menuitemsmanager.h	(revision 9855)
++++ src/include/menuitemsmanager.h	(working copy)
+@@ -6,6 +6,8 @@
+ #ifndef MENUITEMSMANAGER_H
+ #define MENUITEMSMANAGER_H
+ 
++#ifndef CB_FOR_CONSOLE
++
+ #include "settings.h"
+ #include <wx/menu.h>
+ 
+@@ -41,6 +43,7 @@ class DLLIMPORT MenuItemsManager
+         bool m_AutoClearOnDestroy; // if true, the menus are cleared in the destructor
+     private:
+ };
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ #endif // MENUITEMSMANAGER_H
+ 
+Index: src/include/pluginmanager.h
+===================================================================
+--- src/include/pluginmanager.h	(revision 9855)
++++ src/include/pluginmanager.h	(working copy)
+@@ -6,6 +6,10 @@
+ #ifndef PLUGINMANAGER_H
+ #define PLUGINMANAGER_H
+ 
++#include "pluginmanager_base.h"
++
++#ifndef CB_FOR_CONSOLE
++
+ #include <vector>
+ #include <map>
+ #include <set>
+@@ -182,4 +186,6 @@ class DLLIMPORT PluginManager : public Mgr<PluginM
+         DECLARE_EVENT_TABLE()
+ };
+ 
++#endif // #ifndef CB_FOR_CONSOLE
++
+ #endif // PLUGINMANAGER_H
+Index: src/include/projectfile.h
+===================================================================
+--- src/include/projectfile.h	(revision 9855)
++++ src/include/projectfile.h	(working copy)
+@@ -72,11 +72,13 @@ class ProjectFile
+          * targets this file belongs to. */
+         const wxArrayString& GetBuildTargets() const;
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Show the file properties dialog.
+           * @param parent The parent window for the dialog (can be NULL).
+           * @return True if the user closed the dialog with "OK", false if closed it with "Cancel".
+           */
+         bool ShowOptions(wxWindow* parent);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         // take as example the relative file sdk/cbProject.cpp
+         /** @return The relative (to the project) filename without extension. */
+@@ -101,12 +103,14 @@ class ProjectFile
+           * @return The details for this project file for the specified build target. */
+         const pfDetails& GetFileDetails(ProjectBuildTarget* target);
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Set the visual state (modified, read-only, etc).
+           * @param state The new visual state. */
+         void SetFileState(FileVisualState state);
+ 
+         /** @return The visual state (modified, read-only, etc). */
+         FileVisualState GetFileState() const;
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** Modify 'Use custom command to build this file' for a compilerId. */
+         void SetUseCustomBuildCommand(const wxString& compilerId, bool useCustomBuildCommand);
+Index: src/include/projectloader.h
+===================================================================
+--- src/include/projectloader.h	(revision 9855)
++++ src/include/projectloader.h	(working copy)
+@@ -33,10 +33,12 @@ class DLLIMPORT ProjectLoader : public IBaseLoader
+           * @return True on success, false on failure. */
+         bool Open(const wxString& filename);
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Save a file.
+           * @param filename The file to save.
+           * @return True on success, false on failure. */
+         bool Save(const wxString& filename);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** Open a file.
+           * This version of Open, will return a copy of the \<Extensions\> element (if found).
+@@ -46,6 +48,7 @@ class DLLIMPORT ProjectLoader : public IBaseLoader
+           * @return True on success, false on failure. */
+         bool Open(const wxString& filename, TiXmlElement** ppExtensions);
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Save a file.
+           * This version of Save, can override the \<Extensions\> element.
+           * @param filename The file to save.
+@@ -62,6 +65,7 @@ class DLLIMPORT ProjectLoader : public IBaseLoader
+           * @param onlyTarget The target name. If empty, it's like saving the project under a different name
+           * (i.e. all targets are exported to the new project). */
+         bool ExportTargetAsProject(const wxString& filename, const wxString& onlyTarget, TiXmlElement* pExtensions);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         /** @return True if the file was upgraded after load, false if not. */
+         bool FileUpgraded(){ return m_Upgraded; }
+Index: src/include/projectmanager.h
+===================================================================
+--- src/include/projectmanager.h	(revision 9855)
++++ src/include/projectmanager.h	(working copy)
+@@ -37,7 +37,10 @@ class DLLIMPORT cbProjectManagerUI
+     public:
+         virtual ~cbProjectManagerUI() {}
+ 
++#ifndef CB_FOR_CONSOLE
+         virtual cbAuiNotebook* GetNotebook() = 0;
++#endif // #ifndef CB_FOR_CONSOLE
++
+         /** Retrieve a pointer to the project manager's tree (GUI).
+           * @return A pointer to a wxTreeCtrl window.
+           */
+@@ -79,6 +82,7 @@ class DLLIMPORT cbProjectManagerUI
+         virtual void FinishLoadingProject(cbProject *project, bool newAddition, FilesGroupsAndMasks* fileGroups) = 0;
+         virtual void FinishLoadingWorkspace(cbProject *activeProject, const wxString &workspaceTitle) = 0;
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Checks whether all projects are saved. If not, asks
+           *  the user to save and saves accordingly.
+           *  @return False if the user pressed cancel.
+@@ -125,6 +129,7 @@ class DLLIMPORT cbProjectManagerUI
+ 
+         /** Switches the management's notebook to the Projects tab */
+         virtual void SwitchToProjectsPage() = 0;
++#endif // #ifndef CB_FOR_CONSOLE
+ };
+ 
+ 
+@@ -201,6 +206,7 @@ class DLLIMPORT ProjectManager : public Mgr<Projec
+           */
+         cbProject* LoadProject(const wxString& filename, bool activateIt = true);
+ 
++#ifndef CB_FOR_CONSOLE
+         /** Reloads a project and tries to keep everything the same (project order, dependencies, active project)
+           * @param project the project that will be reloaded, the pointer will be invalid after the call.
+           */
+@@ -233,6 +239,8 @@ class DLLIMPORT ProjectManager : public Mgr<Projec
+           * @return True if all projects were saved, false if even one save operation failed.
+           */
+         bool SaveAllProjects();
++#endif // #ifndef CB_FOR_CONSOLE
++
+         /** Close a project.
+           * @param project A pointer to the project to close.
+           * @param dontsave Force not (!) saving the project on close.
+Index: src/include/scripting/bindings/sc_plugin.h
+===================================================================
+--- src/include/scripting/bindings/sc_plugin.h	(revision 9855)
++++ src/include/scripting/bindings/sc_plugin.h	(working copy)
+@@ -6,6 +6,8 @@
+ #ifndef SC_PLUGIN_H
+ #define SC_PLUGIN_H
+ 
++#ifndef CB_FOR_CONSOLE
++
+ #include "sc_base_types.h"
+ #include <wx/dynarray.h>
+ 
+@@ -23,5 +25,6 @@ namespace ScriptBindings
+         void OnScriptModuleMenu(int id);
+     } // namespace ScriptPluginWrapper
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ #endif // SC_PLUGIN_H
+Index: src/include/scriptingmanager.h
+===================================================================
+--- src/include/scriptingmanager.h	(revision 9855)
++++ src/include/scriptingmanager.h	(working copy)
+@@ -6,6 +6,10 @@
+ #ifndef SCRIPTING_H
+ #define SCRIPTING_H
+ 
++#include "scriptingmanager_base.h"
++
++#ifndef CB_FOR_CONSOLE
++
+ #include <map>
+ #include <set>
+ 
+@@ -254,5 +258,6 @@ class DLLIMPORT ScriptingManager : public Mgr<Scri
+ 
+         DECLARE_EVENT_TABLE()
+ };
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ #endif // SCRIPTING_H
+Index: src/include/sdk_common.h
+===================================================================
+--- src/include/sdk_common.h	(revision 9855)
++++ src/include/sdk_common.h	(working copy)
+@@ -103,7 +103,6 @@
+     #include <wx/txtstrm.h>
+     #include <wx/utils.h>
+     #include <wx/wfstream.h>
+-    #include <wx/wxscintilla.h>
+     #include <wx/xrc/xmlres.h>
+ 
+     // basic headers
+Index: src/include/templatemanager.h
+===================================================================
+--- src/include/templatemanager.h	(revision 9855)
++++ src/include/templatemanager.h	(working copy)
+@@ -6,6 +6,8 @@
+ #ifndef TEMPLATEMANAGER_H
+ #define TEMPLATEMANAGER_H
+ 
++#ifndef CB_FOR_CONSOLE
++
+ #include "settings.h"
+ #include "manager.h"
+ #include <wx/event.h>
+@@ -41,5 +43,6 @@ class DLLIMPORT TemplateManager : public Mgr<Templ
+ 		TemplateManager();
+ 		virtual ~TemplateManager();
+ };
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ #endif // TEMPLATEMANAGER_H
+Index: src/include/uservarmanager.h
+===================================================================
+--- src/include/uservarmanager.h	(revision 9855)
++++ src/include/uservarmanager.h	(working copy)
+@@ -33,7 +33,9 @@ class DLLIMPORT UserVariableManager : public Mgr<U
+         void Arrogate();
+         bool Exists(const wxString& variable) const;
+ 
++#ifndef CB_FOR_CONSOLE
+         void Configure();
++#endif // #ifndef CB_FOR_CONSOLE
+         void Migrate();
+ 
+         UserVariableManager& operator=(cb_unused const UserVariableManager& rhs) // prevent assignment operator
+Index: src/sdk/cbplugin.cpp
+===================================================================
+--- src/sdk/cbplugin.cpp	(revision 9855)
++++ src/sdk/cbplugin.cpp	(working copy)
+@@ -63,12 +63,14 @@ void cbPlugin::Attach()
+ {
+     if (m_IsAttached)
+         return;
++#ifndef CB_FOR_CONSOLE
+     wxWindow* window = Manager::Get()->GetAppWindow();
+     if (window)
+     {
+         // push ourself in the application's event handling chain...
+         window->PushEventHandler(this);
      }
++#endif // #ifndef CB_FOR_CONSOLE
+     m_IsAttached = true;
+     OnAttach();
+     SetEvtHandlerEnabled(true);
+@@ -98,12 +100,14 @@ void cbPlugin::Release(bool appShutDown)
+     if (appShutDown)
+         return; // nothing more to do, if the app is shutting down
+ 
++#ifndef CB_FOR_CONSOLE
+     wxWindow* window = Manager::Get()->GetAppWindow();
+     if (window)
+     {
+         // remove ourself from the application's event handling chain...
+         window->RemoveEventHandler(this);
+     }
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
+ void cbPlugin::NotImplemented(const wxString& log) const
+@@ -120,6 +124,7 @@ cbCompilerPlugin::cbCompilerPlugin()
+     m_Type = ptCompiler;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ /////
+ ///// cbDebuggerPlugin
+ /////
+@@ -996,6 +1001,9 @@ void cbDebuggerPlugin::CancelValueTooltip(cb_unuse
+ {
+     Manager::Get()->GetDebuggerManager()->GetInterfaceFactory()->HideValueTooltip();
+ }
++
++#endif // #ifndef CB_FOR_CONSOLE
++
+ /////
+ ///// cbToolPlugin
+ /////
+@@ -1033,10 +1041,12 @@ void cbCodeCompletionPlugin::DoAutocomplete(const
+     DoAutocomplete(CCToken(-1, token), ed);
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ bool cbCodeCompletionPlugin::IsProviderFor(cbEditor* ed)
+ {
+     return (Manager::Get()->GetCCManager()->GetProviderFor(ed) == this);
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ /////
+ ///// cbWizardPlugin
+@@ -1047,6 +1057,7 @@ cbWizardPlugin::cbWizardPlugin()
+     m_Type = ptWizard;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ /////
+ ///// cbSmartIndentPlugin
+ /////
+@@ -1357,3 +1368,5 @@ wxChar cbSmartIndentPlugin::GetNextNonWhitespaceCh
+ 
+     return 0;
+ }
++
++#endif //#ifndef CB_FOR_CONSOLE
+Index: src/sdk/cbproject.cpp
+===================================================================
+--- src/sdk/cbproject.cpp	(revision 9855)
++++ src/sdk/cbproject.cpp	(working copy)
+@@ -23,14 +23,22 @@
+ 
+     #include "cbproject.h" // class's header file
+     #include "cbeditor.h"
++    #ifndef CB_FOR_CONSOLE
+     #include "cbtreectrl.h"
++    #endif // #ifndef CB_FOR_CONSOLE
+     #include "compiler.h" // GetSwitches
+     #include "compilerfactory.h"
+     #include "configmanager.h"
++    #ifndef CB_FOR_CONSOLE
+     #include "editormanager.h"
++    #endif // #ifndef CB_FOR_CONSOLE
+     #include "filemanager.h"
+     #include "globals.h"
++    #ifndef CB_FOR_CONSOLE
+     #include "infowindow.h"
++    #else // #ifndef CB_FOR_CONSOLE
++    #include "infowindow_base.h"
++    #endif // #ifndef CB_FOR_CONSOLE
+     #include "logmanager.h"
+     #include "macrosmanager.h"
+     #include "manager.h"
+@@ -42,15 +50,24 @@
+ #endif
+ 
+ #include <map>
++#ifndef CB_FOR_CONSOLE
++#include "projectoptionsdlg.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ #include "projectloader.h"
++#ifndef CB_FOR_CONSOLE
+ #include "projectlayoutloader.h"
+ #include "selecttargetdlg.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ #include "filegroupsandmasks.h"
+ #include "filefilters.h"
+ #include "annoyingdialog.h"
++#ifndef CB_FOR_CONSOLE
+ #include "genericmultilinenotesdlg.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ #include "compilercommandgenerator.h"
++#ifndef CB_FOR_CONSOLE
+ #include "cbcolourmanager.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ // class constructor
+ cbProject::cbProject(const wxString& filename) :
+@@ -79,6 +96,7 @@ cbProject::cbProject(const wxString& filename) :
+         m_BasePath = GetBasePath();
+         Open();
+     }
++#ifndef CB_FOR_CONSOLE
+     else
+     {
+         // new project
+@@ -105,6 +123,7 @@ cbProject::cbProject(const wxString& filename) :
+ //            NotifyPlugins(cbEVT_PROJECT_OPEN);
+         }
+     }
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
+ // class destructor
+@@ -200,6 +219,7 @@ void cbProject::SetMakefileCustom(bool custom)
+     }
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ wxString cbProject::CreateUniqueFilename()
+ {
+     const wxString prefix = _("Untitled");
+@@ -232,6 +252,7 @@ wxString cbProject::CreateUniqueFilename()
+     }
+     return tmp << _T(".") << FileFilters::CODEBLOCKS_EXT;
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ void cbProject::ClearAllProperties()
+ {
+@@ -425,6 +446,7 @@ void cbProject::Touch()
+     m_LastModified = wxDateTime::Now();
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ bool cbProject::SaveAs()
+ {
+     wxFileName fname;
+@@ -474,6 +496,7 @@ bool cbProject::SaveAs()
+     return false;
+ }
+ 
++
+ bool cbProject::Save()
+ {
+     if (m_Filename.IsEmpty())
+@@ -575,6 +598,7 @@ bool cbProject::LoadLayout()
+     }
+     return result;
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ void cbProject::BeginAddFiles()
+ {
+@@ -804,10 +828,12 @@ ProjectFile* cbProject::AddFile(int targetIndex, c
+     SetModified(true);
+     m_ProjectFilesMap[UnixFilename(pf->relativeFilename)] = pf; // add to hashmap
+ 
++#ifndef CB_FOR_CONSOLE
+     if (!wxFileExists(fullFilename))
+         pf->SetFileState(fvsMissing);
+     else if (!wxFile::Access(fullFilename.c_str(), wxFile::write)) // readonly
+         pf->SetFileState(fvsReadOnly);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     if ( !GenFilesHackMap.empty() )
+     {
+@@ -849,8 +875,9 @@ bool cbProject::RemoveFile(ProjectFile* pf)
+     if (!pf)
+         return false;
+     m_ProjectFilesMap.erase(UnixFilename(pf->relativeFilename)); // remove from hashmap
++#ifndef CB_FOR_CONSOLE
+     Manager::Get()->GetEditorManager()->Close(pf->file.GetFullPath());
+-
++#endif // #ifndef CB_FOR_CONSOLE
+ 	{
+ 		FilesList::iterator it = m_Files.find(pf);
+ 
+@@ -958,6 +985,7 @@ void cbProject::SetVirtualFolders(const wxArrayStr
+     }
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ void cbProject::SaveTreeState(wxTreeCtrl* tree)
+ {
+     ::SaveTreeState(tree, m_ProjectNode, m_ExpandedNodes, m_SelectedNodes);
+@@ -967,6 +995,7 @@ void cbProject::RestoreTreeState(wxTreeCtrl* tree)
+ {
+     ::RestoreTreeState(tree, m_ProjectNode, m_ExpandedNodes, m_SelectedNodes);
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ const wxString& cbProject::GetMakefile()
+ {
+@@ -1058,6 +1087,7 @@ ProjectFile* cbProject::GetFileByFilename(const wx
+     return m_ProjectFilesMap[UnixFilename(tmp)];
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ bool cbProject::QueryCloseAllFiles()
+ {
+     FilesList::iterator it = m_Files.begin();
+@@ -1109,17 +1139,20 @@ bool cbProject::SaveAllFiles()
+     }
+     return count == 0;
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ int cbProject::SelectTarget(int initial, bool evenIfOne)
+ {
+     if (!evenIfOne && GetBuildTargetsCount() == 1)
+         return 0;
+ 
++#ifndef CB_FOR_CONSOLE
+     SelectTargetDlg dlg(nullptr, this, initial);
+     PlaceWindow(&dlg);
+     if (dlg.ShowModal() == wxID_OK)
+         return dlg.GetSelection();
+ 
++#endif // #ifndef CB_FOR_CONSOLE
+     return -1;
+ }
+ 
+@@ -1158,6 +1191,7 @@ ProjectBuildTarget* cbProject::AddBuildTarget(cons
+     return target;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ bool cbProject::RenameBuildTarget(int index, const wxString& targetName)
+ {
+     ProjectBuildTarget* target = GetBuildTarget(index);
+@@ -1303,6 +1337,7 @@ bool cbProject::RemoveBuildTarget(const wxString&
+ {
+     return RemoveBuildTarget(IndexOfBuildTargetName(targetName));
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ int cbProject::IndexOfBuildTargetName(const wxString& targetName) const
+ {
+@@ -1385,6 +1420,7 @@ ProjectBuildTarget* cbProject::GetBuildTarget(cons
+     return GetBuildTarget(idx);
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ void cbProject::ReOrderTargets(const wxArrayString& nameOrder)
+ {
+     LogManager* msgMan = Manager::Get()->GetLogManager();
+@@ -1423,6 +1459,7 @@ void cbProject::ReOrderTargets(const wxArrayString
+     }
+     SetModified(true);
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ void cbProject::SetCurrentlyCompilingTarget(ProjectBuildTarget* bt)
+ {
+@@ -1571,6 +1608,7 @@ bool cbProject::GetExtendedObjectNamesGeneration()
+     return m_ExtendedObjectNamesGeneration;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ void cbProject::SetNotes(const wxString& notes)
+ {
+     if (m_Notes != notes)
+@@ -1615,6 +1653,7 @@ void cbProject::ShowNotes(bool nonEmptyOnly, bool
+             SetNotes(dlg.GetNotes());
+     }
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ void cbProject::SetTitle(const wxString& title)
+ {
+Index: src/sdk/cbworkspace.cpp
+===================================================================
+--- src/sdk/cbworkspace.cpp	(revision 9855)
++++ src/sdk/cbworkspace.cpp	(working copy)
+@@ -96,9 +96,12 @@ void cbWorkspace::Load()
+     LoadLayout();
+ 
+     m_Filename.SetExt(FileFilters::WORKSPACE_EXT);
++#ifndef CB_FOR_CONSOLE
+     SetModified(false);
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ bool cbWorkspace::Save(bool force)
+ {
+     if (m_Filename.GetFullPath().IsEmpty())
+@@ -143,18 +146,23 @@ bool cbWorkspace::SaveAs(cb_unused const wxString&
+ 
+     return Save(true);
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ void cbWorkspace::SetTitle(const wxString& title)
+ {
+     m_Title = title;
++#ifndef CB_FOR_CONSOLE
+     SetModified(true);
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ void cbWorkspace::SetModified(bool modified)
+ {
+     m_Modified = modified;
+     // Manager::Get()->GetLogManager()->DebugLog(F(_T("Setting workspace to modified = \"%s\""), modified ? _T("true") : _T("false")));
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ void cbWorkspace::SetPreferredTarget(const wxString &target)
+ {
+Index: src/sdk/compiler.cpp
+===================================================================
+--- src/sdk/compiler.cpp	(revision 9855)
++++ src/sdk/compiler.cpp	(working copy)
+@@ -1022,15 +1022,19 @@ void Compiler::LoadDefaultOptions(const wxString&
+             {
+                 flags.Replace(wxT("\n"), wxT(" "));
+                 flags.Replace(wxT("\r"), wxT(" "));
++#ifndef CB_FOR_CONSOLE
+                 SetCOnlyFlags( MakeUniqueString(GetCOnlyFlags() + wxT(" ") + flags,
+                                                 wxT(" ")) );
++#endif // #ifndef CB_FOR_CONSOLE
+             }
+             else if (node->GetAttribute(wxT("CPPFlags"), &flags))
+             {
+                 flags.Replace(wxT("\n"), wxT(" "));
+                 flags.Replace(wxT("\r"), wxT(" "));
++#ifndef CB_FOR_CONSOLE
+                 SetCPPOnlyFlags( MakeUniqueString(GetCPPOnlyFlags() + wxT(" ") + flags,
+                                                   wxT(" ")) );
++#endif // #ifndef CB_FOR_CONSOLE
+             }
+         }
+         else if (node->GetName() == wxT("Common"))
+Index: src/sdk/compilercommandgenerator.cpp
+===================================================================
+--- src/sdk/compilercommandgenerator.cpp	(revision 9855)
++++ src/sdk/compilercommandgenerator.cpp	(working copy)
+@@ -7,7 +7,12 @@
+  * $HeadURL$
+  */
+ 
++#ifdef CB_FOR_CONSOLE
++#include "pluginmanager_base.h"
++#endif // #ifndef CB_FOR_CONSOLE
++
+ #include "sdk_precomp.h"
++
+ #include "compilercommandgenerator.h"
+ 
+ #include <wx/intl.h>
+@@ -534,7 +539,9 @@ void CompilerCommandGenerator::DoBuildScripts(cbPr
+         }
+         catch (SquirrelError& e)
+         {
++#ifndef CB_FOR_CONSOLE
+             Manager::Get()->GetScriptingManager()->DisplayErrors(&e);
++#endif // #ifndef CB_FOR_CONSOLE
+             m_ScriptsWithErrors.Add(script_nomacro);
+         }
+     }
+Index: src/sdk/compilerfactory.cpp
+===================================================================
+--- src/sdk/compilerfactory.cpp	(revision 9855)
++++ src/sdk/compilerfactory.cpp	(working copy)
+@@ -266,7 +266,9 @@ void CompilerFactory::SaveSettings()
+ 
+ void CompilerFactory::LoadSettings()
+ {
++#ifndef CB_FOR_CONSOLE
+     bool needAutoDetection = false;
++#endif // #ifndef CB_FOR_CONSOLE
+     for (size_t i = 0; i < Compilers.GetCount(); ++i)
+     {
+         wxString baseKey = Compilers[i]->GetParentID().IsEmpty() ? _T("/sets") : _T("/user_sets");
+@@ -278,13 +280,16 @@ void CompilerFactory::LoadSettings()
+         event.SetClientData(static_cast<void*>(Compilers[i]));
+         Manager::Get()->ProcessEvent(event);
+ 
++#ifndef CB_FOR_CONSOLE
+         if (Compilers[i]->GetMasterPath().IsEmpty())
+         {
+             Manager::Get()->GetLogManager()->DebugLog(F(_T("Master path of compiler ID \"%s\" is empty -> triggers auto-detection."), Compilers[i]->GetID().wx_str()));
+             needAutoDetection = true;
+         }
++#endif // #ifndef CB_FOR_CONSOLE
+     }
+ 
++#ifndef CB_FOR_CONSOLE
+     // auto-detect missing compilers
+     if (needAutoDetection)
+     {
+@@ -293,6 +298,7 @@ void CompilerFactory::LoadSettings()
+         adc.ShowModal();
+         adc.Raise();
+     }
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
+ Compiler* CompilerFactory::SelectCompilerUI(const wxString& message, const wxString& preselectedID)
+@@ -319,6 +325,7 @@ Compiler* CompilerFactory::SelectCompilerUI(const
+             }
+         }
+     }
++#ifndef CB_FOR_CONSOLE
+     // now display a choice dialog
+     wxSingleChoiceDialog dlg(nullptr,
+                              message,
+@@ -330,6 +337,9 @@ Compiler* CompilerFactory::SelectCompilerUI(const
+     if (dlg.ShowModal() == wxID_OK)
+         return Compilers[dlg.GetSelection()];
+     return nullptr;
++#else // #ifndef CB_FOR_CONSOLE
++    return Compilers[selected];
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
+ wxString CompilerFactory::GetCompilerVersionString(const wxString& Id)
+Index: src/sdk/configmanager.cpp
+===================================================================
+--- src/sdk/configmanager.cpp	(revision 9855)
++++ src/sdk/configmanager.cpp	(working copy)
+@@ -872,6 +872,7 @@ bool ConfigManager::Read(const wxString& name, wxS
+     return false;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ void ConfigManager::Write(const wxString& name,  const wxColour& c)
+ {
+     wxString key(name);
+@@ -936,6 +937,7 @@ bool ConfigManager::Read(const wxString& name, wxC
+     *ret = wxNullColour;
+     return false;
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ void ConfigManager::Write(const wxString& name,  int value)
+ {
+Index: src/sdk/filemanager.cpp
+===================================================================
+--- src/sdk/filemanager.cpp	(revision 9855)
++++ src/sdk/filemanager.cpp	(working copy)
+@@ -16,7 +16,11 @@
+     #include "editormanager.h"
+     #include "infowindow.h"
+ #endif
++#ifndef CB_FOR_CONSOLE
+ #include "cbstyledtextctrl.h"
++#else // #ifndef CB_FOR_CONSOLE
++#include "infowindow_base.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ #include <wx/url.h>
+ #include <wx/encconv.h>
+@@ -131,6 +135,7 @@ FileManager::~FileManager()
+ //  urlLoaderThread.Die();
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ LoaderBase* FileManager::Load(const wxString& file, bool reuseEditors)
+ {
+     if (reuseEditors)
+@@ -175,8 +180,8 @@ LoaderBase* FileManager::Load(const wxString& file
+     fileLoaderThread.Queue(fl);
+     return fl;
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+-
+ namespace platform
+ {
+ #if defined ( __WIN32__ ) || defined ( _WIN64 )
+Index: src/sdk/loggers.cpp
+===================================================================
+--- src/sdk/loggers.cpp	(revision 9855)
++++ src/sdk/loggers.cpp	(working copy)
+@@ -22,7 +22,9 @@
+ #include <wx/wupdlock.h>
+ 
+ #include "loggers.h"
++#ifndef CB_FOR_CONSOLE
+ #include "cbcolourmanager.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ // Helper function which blends a colour with the default window text colour,
+ // so that text will be readable in bright and dark colour schemes
+@@ -68,6 +70,9 @@ void TextCtrlLogger::CopyContentsToClipboard(bool
+ 
+ void TextCtrlLogger::UpdateSettings()
+ {
++#ifdef CB_FOR_CONSOLE
++    return;
++#else
+     if (!control)
+         return;
+ 
+@@ -126,6 +131,7 @@ void TextCtrlLogger::UpdateSettings()
+ 
+     // Tell control about the font change
+     control->SetFont(default_font);
++#endif // #ifndef CB_FOR_CONSOLE
+ } // end of UpdateSettings
+ 
+ void TextCtrlLogger::Append(const wxString& msg, Logger::level lv)
+@@ -302,6 +308,9 @@ wxString ListCtrlLogger::GetItemAsText(long item)
+ 
+ void ListCtrlLogger::UpdateSettings()
+ {
++#ifdef CB_FOR_CONSOLE
++    return;
++#else
+     if (!control)
+         return;
+ 
+@@ -353,6 +362,7 @@ void ListCtrlLogger::UpdateSettings()
+         font.SetPointSize(size);
+         control->SetItemFont( i, font );
+     }//for
++#endif // #ifndef CB_FOR_CONSOLE
+ } // end of UpdateSettings
+ 
+ void ListCtrlLogger::Append(const wxString& msg, Logger::level lv)
+Index: src/sdk/logmanager.cpp
+===================================================================
+--- src/sdk/logmanager.cpp	(revision 9855)
++++ src/sdk/logmanager.cpp	(working copy)
+@@ -17,7 +17,9 @@
+ #include <wx/log.h>
+ #endif
+ 
++#ifndef CB_FOR_CONSOLE
+ #include "cbcolourmanager.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ #include "logmanager.h"
+ #include "loggers.h"
+ 
+@@ -73,6 +75,7 @@ LogManager::LogManager()
+     slot[app_log].title = _T("Code::Blocks");
+     slot[debug_log].title = _T("Code::Blocks Debug");
+ 
++#ifndef CB_FOR_CONSOLE
+     ColourManager *manager = Manager::Get()->GetColourManager();
+     manager->RegisterColour(_("Logs"), _("Success text"), wxT("logs_success_text"), *wxBLUE);
+     manager->RegisterColour(_("Logs"), _("Warning text"), wxT("logs_warning_text"), *wxBLUE);
+@@ -82,6 +85,7 @@ LogManager::LogManager()
+     manager->RegisterColour(_("Logs"), _("Critical text (ListCtrl)"),
+                             wxT("logs_critical_text_listctrl"), wxColour(0x0a, 0x00, 0x00));
+     manager->RegisterColour(_("Logs"), _("Failure text"), wxT("logs_failure_text"), wxColour(0x00, 0x00, 0xa0));
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     Register(_T("null"),   new Instantiator<NullLogger>);
+     Register(_T("stdout"), new Instantiator<StdoutLogger>);
+Index: src/sdk/macrosmanager.cpp
+===================================================================
+--- src/sdk/macrosmanager.cpp	(revision 9855)
++++ src/sdk/macrosmanager.cpp	(working copy)
+@@ -178,6 +178,7 @@ void MacrosManager::ClearProjectKeys()
+ 
+ wxString GetSelectedText()
+ {
++#ifndef CB_FOR_CONSOLE
+     cbEditor* ed = Manager::Get()->GetEditorManager()->GetBuiltinActiveEditor();
+     if (ed)
+     {
+@@ -194,6 +195,7 @@ wxString GetSelectedText()
+             }
+         }
+     }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     return wxEmptyString;
+ }
+@@ -218,6 +220,7 @@ void MacrosManager::RecalcVars(cbProject* project,
+     m_ActiveEditorLine     = -1;            // invalidate
+     m_ActiveEditorColumn   = -1;            // invalidate
+ 
++#ifndef CB_FOR_CONSOLE
+     if (editor)
+     {
+       // don't use pointer to editor here, because this might be the same,
+@@ -239,6 +242,7 @@ void MacrosManager::RecalcVars(cbProject* project,
+           }
+       }
+     }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     if (!project)
+     {
+@@ -439,7 +443,9 @@ void MacrosManager::ReplaceMacros(wxString& buffer
+     cbProject* project = target
+                         ? target->GetParentProject()
+                         : Manager::Get()->GetProjectManager()->GetActiveProject();
++#ifndef CB_FOR_CONSOLE
+     EditorBase* editor = Manager::Get()->GetEditorManager()->GetActiveEditor();
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     if (!target)
+     {
+@@ -453,8 +459,13 @@ void MacrosManager::ReplaceMacros(wxString& buffer
+                 target = project->GetBuildTarget(project->GetActiveBuildTarget());
+         }
+     }
++#ifndef CB_FOR_CONSOLE
+     if (project != m_LastProject || target != m_LastTarget || (editor && (editor->GetFilename() != m_ActiveEditorFilename)) )
+         RecalcVars(project, editor, target);
++#else // #ifndef CB_FOR_CONSOLE
++    if (project != m_LastProject || target != m_LastTarget )
++        RecalcVars(project, 0l, target);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     wxString search;
+     wxString replace;
+Index: src/sdk/manager.cpp
+===================================================================
+--- src/sdk/manager.cpp	(revision 9855)
++++ src/sdk/manager.cpp	(working copy)
+@@ -21,7 +21,9 @@
+     #include "editormanager.h"
+     #include "logmanager.h"
+     #include "pluginmanager.h"
++#ifndef CB_FOR_CONSOLE
+     #include "toolsmanager.h"
++#endif // #ifndef CB_FOR_CONSOLE
+     #include "macrosmanager.h"
+     #include "configmanager.h"
+     #include "scriptingmanager.h"
+@@ -44,7 +46,9 @@
+     #include <cstdlib>   // free the memory created by abi::__cxa_demangle
+ #endif // PPRCESS_EVENT_PERFORMANCE_MEASURE
+ 
++#ifndef CB_FOR_CONSOLE
+ #include "cbcolourmanager.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ #include "ccmanager.h"
+ #include "debuggermanager.h"
+ 
+@@ -119,7 +123,10 @@ static wxString GetCodeblocksEventName(wxEventType
+ }
+ #endif // PPRCESS_EVENT_PERFORMANCE_MEASURE
+ 
+-Manager::Manager() : m_pAppWindow(nullptr), m_SearchResultLog(nullptr)
++Manager::Manager() : m_pAppWindow(nullptr)
++#ifndef CB_FOR_CONSOLE
++, m_SearchResultLog(nullptr)
++#endif // #ifndef CB_FOR_CONSOLE
+ {
+ }
+ 
+@@ -167,7 +174,7 @@ Manager::~Manager()
+ //    FileManager::Free();
+ }
+ 
+-
++#ifndef CB_FOR_CONSOLE
+ Manager* Manager::Get(wxFrame *appWindow)
+ {
+     if (appWindow)
+@@ -183,6 +190,7 @@ Manager* Manager::Get(wxFrame *appWindow)
+     }
+     return Get();
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ Manager* Manager::Get()
+ {
+@@ -233,13 +241,17 @@ void Manager::Shutdown()
+ {
+     m_AppShuttingDown = true;
+ 
++#ifndef CB_FOR_CONSOLE
+     ToolsManager::Free();
+     TemplateManager::Free();
+     CCManager::Free();
++#endif // #ifndef CB_FOR_CONSOLE
+     PluginManager::Free();
+     ScriptingManager::Free();
+     ProjectManager::Free();
++#ifndef CB_FOR_CONSOLE
+     EditorManager::Free();
++#endif // #ifndef CB_FOR_CONSOLE
+     PersonalityManager::Free();
+     MacrosManager::Free();
+     UserVariableManager::Free();
+@@ -343,6 +355,7 @@ bool Manager::IsAppStartedUp()
+     return m_AppStartedUp;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ void Manager::InitXRC(bool force)
+ {
+     static bool xrcok = false;
+@@ -428,16 +441,19 @@ wxWindow* Manager::GetAppWindow() const
+ {
+     return (wxWindow*)m_pAppWindow;
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ ProjectManager* Manager::GetProjectManager() const
+ {
+     return ProjectManager::Get();
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ EditorManager* Manager::GetEditorManager() const
+ {
+     return EditorManager::Get();
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ LogManager* Manager::GetLogManager() const
+ {
+@@ -449,10 +465,12 @@ PluginManager* Manager::GetPluginManager() const
+     return PluginManager::Get();
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ ToolsManager* Manager::GetToolsManager() const
+ {
+     return ToolsManager::Get();
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ MacrosManager* Manager::GetMacrosManager() const
+ {
+@@ -484,6 +502,7 @@ FileManager* Manager::GetFileManager() const
+     return FileManager::Get();
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ DebuggerManager* Manager::GetDebuggerManager() const
+ {
+     return DebuggerManager::Get();
+@@ -498,6 +517,7 @@ CCManager* Manager::GetCCManager() const
+ {
+     return CCManager::Get();
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ bool Manager::LoadResource(const wxString& file)
+ {
+Index: src/sdk/pluginmanager.cpp
+===================================================================
+--- src/sdk/pluginmanager.cpp	(revision 9855)
++++ src/sdk/pluginmanager.cpp	(working copy)
+@@ -45,7 +45,9 @@
+ #include "tinyxml/tinyxml.h"
+ 
+ #include "annoyingdialog.h"
++#ifndef CB_FOR_CONSOLE
+ #include "pluginsconfigurationdlg.h"
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ #include "scripting/bindings/sc_plugin.h"
+ 
+Index: src/sdk/projectfile.cpp
+===================================================================
+--- src/sdk/projectfile.cpp	(revision 9855)
++++ src/sdk/projectfile.cpp	(working copy)
+@@ -141,12 +141,14 @@ const wxArrayString& ProjectFile::GetBuildTargets(
+     return buildTargets;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ bool ProjectFile::ShowOptions(wxWindow* parent)
+ {
+     ProjectFileOptionsDlg dlg(parent, this);
+     PlaceWindow(&dlg);
+     return dlg.ShowModal() == wxID_OK;
+ }
++#endif //#ifndef CB_FOR_CONSOLE
+ 
+ wxString ProjectFile::GetBaseName() const
+ {
+@@ -290,6 +292,7 @@ const pfDetails& ProjectFile::GetFileDetails(Proje
+     return *pfd;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ FileVisualState ProjectFile::GetFileState() const
+ {
+     return m_VisualState;
+@@ -308,6 +311,7 @@ void ProjectFile::SetFileState(FileVisualState sta
+         }
+     }
+ }
++#endif //#ifndef CB_FOR_CONSOLE
+ 
+ void ProjectFile::SetUseCustomBuildCommand(const wxString& compilerId, bool useCustomBuildCommand)
+ {
+Index: src/sdk/projectloader.cpp
+===================================================================
+--- src/sdk/projectloader.cpp	(revision 9855)
++++ src/sdk/projectloader.cpp	(working copy)
+@@ -396,7 +396,9 @@ void ProjectLoader::DoProjectOptions(TiXmlElement*
+     wxArrayString vfolders;
+     int platformsFinal = spAll;
+     PCHMode pch_mode = m_IsPre_1_2 ? pchSourceDir : pchObjectDir;
++#ifndef CB_FOR_CONSOLE
+     bool showNotes = false;
++#endif // #ifndef CB_FOR_CONSOLE
+     wxString notes;
+ 
+     // loop through all options
+@@ -463,9 +465,11 @@ void ProjectLoader::DoProjectOptions(TiXmlElement*
+     m_pProject->SetCompilerID(compilerId);
+     m_pProject->SetExtendedObjectNamesGeneration(extendedObjectNames);
+     m_pProject->SetModeForPCH(pch_mode);
++#ifndef CB_FOR_CONSOLE
+     m_pProject->SetVirtualFolders(vfolders);
+     m_pProject->SetNotes(notes);
+     m_pProject->SetShowNotesOnLoad(showNotes);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     DoMakeCommands(parentNode->FirstChildElement("MakeCommands"), m_pProject);
+     DoVirtualTargets(parentNode->FirstChildElement("VirtualTargets"));
+@@ -1166,6 +1170,7 @@ void ProjectLoader::AddArrayOfElements(TiXmlElemen
+     }
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ // convenience function, used in Save()
+ void ProjectLoader::SaveEnvironment(TiXmlElement* parent, CompileOptionsBase* base)
+ {
+@@ -1586,6 +1591,7 @@ bool ProjectLoader::ExportTargetAsProject(const wx
+ 
+     return cbSaveTinyXMLDocument(&doc, filename);
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ wxString ProjectLoader::GetValidCompilerID(const wxString& proposal, const wxString& scope)
+ {
+@@ -1608,6 +1614,7 @@ wxString ProjectLoader::GetValidCompilerID(const w
+             compiler = CompilerFactory::GetCompiler(idx);
+     }
+ 
++#ifndef CB_FOR_CONSOLE
+     if (!compiler)
+     {
+         if(!(Manager::Get()->GetConfigManager(_T("app"))->ReadBool(_T("/environment/ignore_invalid_targets"), true)))
+@@ -1620,6 +1627,7 @@ wxString ProjectLoader::GetValidCompilerID(const w
+             compiler = CompilerFactory::SelectCompilerUI(msg);
+         }
+     }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     if (!compiler)
+     {
+Index: src/sdk/projectmanager.cpp
+===================================================================
+--- src/sdk/projectmanager.cpp	(revision 9855)
++++ src/sdk/projectmanager.cpp	(working copy)
+@@ -30,7 +30,9 @@
+     #include "cbexception.h"  // for cbassert
+ #endif
+ 
++#ifndef CB_FOR_CONSOLE
+ #include <wx/progdlg.h>
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ #include "cbauibook.h"
+ //#include "filefilters.h"
+@@ -46,6 +48,7 @@ bool ProjectManager::s_CanShutdown = true;
+ BEGIN_EVENT_TABLE(ProjectManager, wxEvtHandler)
+ END_EVENT_TABLE()
+ 
++#ifndef CB_FOR_CONSOLE
+ class NullProjectManagerUI : public cbProjectManagerUI
+ {
+     public:
+@@ -70,10 +73,13 @@ class NullProjectManagerUI : public cbProjectManag
+         void ConfigureProjectDependencies(cbProject* base = nullptr) { (void)base; }
+         void SwitchToProjectsPage() {}
+ };
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ // class constructor
+ ProjectManager::ProjectManager() :
++#ifndef CB_FOR_CONSOLE
+     m_ui(new NullProjectManagerUI),
++#endif // #ifndef CB_FOR_CONSOLE
+     m_pWorkspace(nullptr),
+     m_IsLoadingProject(false),
+     m_IsLoadingWorkspace(false),
+@@ -97,7 +103,10 @@ ProjectManager::ProjectManager() :
+     // Event handling. This must be THE LAST THING activated on startup.
+     // Constructors and destructors must always follow the LIFO rule:
+     // Last in, first out.
++#ifndef CB_FOR_CONSOLE
+     Manager::Get()->GetAppWindow()->PushEventHandler(this);
++#endif // #ifndef CB_FOR_CONSOLE
++
+ }
+ 
+ // class destructor
+@@ -274,6 +283,7 @@ cbProject* ProjectManager::LoadProject(const wxStr
+     return result;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ void ProjectManager::ReloadProject(cbProject *project)
+ {
+     m_ui->FreezeTree();
+@@ -346,6 +356,7 @@ void ProjectManager::ReloadProject(cbProject *proj
+ 
+     m_ui->UnfreezeTree();
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ cbProject* ProjectManager::NewProject(const wxString& filename)
+ {
+@@ -377,6 +388,7 @@ cbProject* ProjectManager::NewProject(const wxStri
+ 
+ bool ProjectManager::CloseAllProjects(bool dontsave)
+ {
++#ifndef CB_FOR_CONSOLE
+     if (!dontsave)
+     {
+         if (!m_ui->QueryCloseAllProjects())
+@@ -384,6 +396,7 @@ bool ProjectManager::CloseAllProjects(bool dontsav
+     }
+ 
+     m_ui->FreezeTree();
++#endif // #ifndef CB_FOR_CONSOLE
+     m_IsClosingProject = true;
+     while (m_pProjects->GetCount() != 0)
+     {
+@@ -391,20 +404,26 @@ bool ProjectManager::CloseAllProjects(bool dontsav
+ //        if (!CloseActiveProject(true))
+         if (!CloseProject(m_pProjects->Item(0), true, false))
+         {
++#ifndef CB_FOR_CONSOLE
+             m_ui->UnfreezeTree(true);
++#endif // #ifndef CB_FOR_CONSOLE
+             m_IsClosingProject = false;
+             return false;
+         }
+     }
+ 
++#ifndef CB_FOR_CONSOLE
+     if (!Manager::IsAppShuttingDown())
+         m_ui->RebuildTree();
+     m_ui->UnfreezeTree(true);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     if (!m_InitialDir.IsEmpty())
+         wxFileName::SetCwd(m_InitialDir);
+     m_IsClosingProject = false;
++#ifndef CB_FOR_CONSOLE
+     WorkspaceChanged();
++#endif // #ifndef CB_FOR_CONSOLE
+ 
      return true;
  }
-@@ -263,6 +265,7 @@ function OnLeave_WxConf(fwd)
-         IsAdvOpt = Wizard.IsCheckboxChecked(_T("chkWxConfAdvOpt"));
-         WantPCH = Wizard.IsCheckboxChecked(_T("chkWxConfPCH"));
-         Configuration = Wizard.GetTextControlValue(_T("txtWxConfConfig"));
-+        WxCompilerVersion = Wizard.GetTextControlValue(_T("txtWxCompilerVersion"));
+@@ -415,11 +434,13 @@ bool ProjectManager::CloseProject(cbProject* proje
+         return true;
+     if (project->GetCurrentlyCompilingTarget())
+         return false;
++#ifndef CB_FOR_CONSOLE
+     if (!dontsave)
+     {
+          if (!m_ui->QueryCloseProject(project))
+             return false;
+     }
++#endif // #ifndef CB_FOR_CONSOLE
  
-         // Ask the user whether wizard shall add PCH support when empty Project is selected
-         if (IsEmpty && WantPCH)
-@@ -299,13 +302,13 @@ function OnLeave_WxConf(fwd)
-         local lib = WxPath + _T("/lib/");
-         if (GetCompilerFactory().CompilerInheritsFrom(Wizard.GetCompilerID(), _T("gcc*")))
+     bool wasActive = project == m_pActiveProject;
+     if (wasActive)
+@@ -433,11 +454,13 @@ bool ProjectManager::CloseProject(cbProject* proje
+     // the state of m_IsClosingProject.
+     bool isClosingOtherProjects = m_IsClosingProject;
+     m_IsClosingProject = true;
++#ifndef CB_FOR_CONSOLE
+     Manager::Get()->GetEditorManager()->UpdateProjectFiles(project);
+     project->SaveLayout();
+ 
+     if (m_pWorkspace)
+         m_pWorkspace->SetModified(true);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     RemoveProjectFromAllDependencies(project);
+     m_pProjects->Remove(project);
+@@ -448,16 +471,21 @@ bool ProjectManager::CloseProject(cbProject* proje
+     event.SetProject(project);
+     Manager::Get()->GetPluginManager()->NotifyPlugins(event);
+ 
++#ifndef CB_FOR_CONSOLE
+     project->CloseAllFiles(true);
+     if (refresh)
+         m_ui->RemoveProject(project);
++#endif // #ifndef CB_FOR_CONSOLE
+     if (wasActive && m_pProjects->GetCount())
+         SetProject(m_pProjects->Item(0), refresh);
+     delete project;
+     if (!m_InitialDir.IsEmpty()) // Restore the working directory
+         wxFileName::SetCwd(m_InitialDir);
+     m_IsClosingProject = isClosingOtherProjects;
++#ifndef CB_FOR_CONSOLE
+     WorkspaceChanged();
++#endif // #ifndef CB_FOR_CONSOLE
++
+     return true;
+ }
+ 
+@@ -470,6 +498,7 @@ bool ProjectManager::CloseActiveProject(bool donts
+     return true;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ bool ProjectManager::SaveProject(cbProject* project)
+ {
+     if (!project)
+@@ -523,6 +552,7 @@ bool ProjectManager::SaveAllProjects()
+     m_ui->UnfreezeTree(true);
+     return count == prjCount;
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ cbWorkspace* ProjectManager::GetWorkspace()
+ {
+@@ -530,7 +560,9 @@ cbWorkspace* ProjectManager::GetWorkspace()
+     {
+         m_pWorkspace = new cbWorkspace(_T(""));
+         m_pWorkspace->SetTitle(_("Workspace"));
++#ifndef CB_FOR_CONSOLE
+         m_pWorkspace->SetModified(false);
++#endif // #ifndef CB_FOR_CONSOLE
+     }
+     return m_pWorkspace;
+ }
+@@ -559,6 +591,7 @@ bool ProjectManager::LoadWorkspace(const wxString&
+     return false;
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ bool ProjectManager::SaveWorkspace()
+ {
+     return GetWorkspace()->Save();
+@@ -599,6 +632,7 @@ bool ProjectManager::CloseWorkspace()
+     WorkspaceChanged();
+     return result;
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ // This function is static for your convenience :)
+ bool ProjectManager::IsBusy()
+@@ -643,7 +677,7 @@ bool ProjectManager::IsClosingWorkspace()
+     return m_IsClosingWorkspace;
+ }
+ 
+-
++#ifndef CB_FOR_CONSOLE
+ int ProjectManager::DoAddFileToProject(const wxString& filename, cbProject* project, wxArrayInt& targets)
+ {
+     if (!project)
+@@ -760,6 +794,7 @@ int ProjectManager::AddMultipleFilesToProject(cons
+ 
+     return targets.GetCount();
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ bool ProjectManager::CausesCircularDependency(cbProject* base, cbProject* dependsOn)
+ {
+@@ -809,8 +844,10 @@ bool ProjectManager::AddProjectDependency(cbProjec
+     if (arr && arr->Index(dependsOn) == wxNOT_FOUND)
+     {
+         arr->Add(dependsOn);
++#ifndef CB_FOR_CONSOLE
+         if (m_pWorkspace)
+             m_pWorkspace->SetModified(true);
++#endif // #ifndef CB_FOR_CONSOLE
+         Manager::Get()->GetLogManager()->DebugLog(F(_T("%s now depends on %s (%lu deps)"), base->GetTitle().wx_str(), dependsOn->GetTitle().wx_str(), static_cast<unsigned long>(arr->GetCount())));
+     }
+     return true;
+@@ -835,8 +872,10 @@ void ProjectManager::RemoveProjectDependency(cbPro
+         m_ProjectDeps.erase(it);
+         delete arr;
+     }
++#ifndef CB_FOR_CONSOLE
+     if (m_pWorkspace)
+         m_pWorkspace->SetModified(true);
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
+ void ProjectManager::ClearProjectDependencies(cbProject* base)
+@@ -849,8 +888,10 @@ void ProjectManager::ClearProjectDependencies(cbPr
+ 
+     delete it->second;
+     m_ProjectDeps.erase(it);
++#ifndef CB_FOR_CONSOLE
+     if (m_pWorkspace)
+         m_pWorkspace->SetModified(true);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     Manager::Get()->GetLogManager()->DebugLog(_T("Removed all deps from ") + base->GetTitle());
+ }
+@@ -880,8 +921,10 @@ void ProjectManager::RemoveProjectFromAllDependenc
+         if (index != wxNOT_FOUND)
+             arr->RemoveAt(index);
+ 
++#ifndef CB_FOR_CONSOLE
+         if (m_pWorkspace)
+             m_pWorkspace->SetModified(true);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         // if it was the last dependency, delete the array
+         if (!arr->GetCount())
+@@ -915,6 +958,7 @@ void ProjectManager::OnAppDoneStartup(CodeBlocksEv
+     event.Skip();
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ void ProjectManager::WorkspaceChanged()
+ {
+     // We use IsBusy() to check *ALL* the conditions: If we're in the process of
+@@ -956,6 +1000,7 @@ void ProjectManager::RemoveFileFromProject(Project
+ 
+     Manager::Get()->GetLogManager()->DebugLog(_T("Removed ") + filename + _T(" from ") + project->GetTitle());
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ bool ProjectManager::BeginLoadingProject()
+ {
+@@ -988,14 +1033,18 @@ void ProjectManager::EndLoadingProject(cbProject*
+         if (newAddition)
          {
--            lib = lib + _T("gcc_");
-+            lib = lib + _T("gcc") + WxCompilerVersion + _T("_");
-             lib_prefix = _T("lib");
-             lib_suffix = _T(".a");
+             m_pProjects->Add(project);
++#ifndef CB_FOR_CONSOLE
+             project->LoadLayout();
++#endif // #ifndef CB_FOR_CONSOLE
          }
-         else if (GetCompilerFactory().CompilerInheritsFrom(Wizard.GetCompilerID(), _T("msvc*")))
+ 
++#ifndef CB_FOR_CONSOLE
+         if (!m_IsLoadingWorkspace)
+             m_ui->FinishLoadingProject(project, newAddition, m_pFileGroups);
+ 
+         if (m_pWorkspace)
+             m_pWorkspace->SetModified(true);
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         // if loading a workspace, avoid sending the event now
+         // we 'll send them after all projects have been loaded
+@@ -1009,9 +1058,11 @@ void ProjectManager::EndLoadingProject(cbProject*
+             event.SetProject(project);
+             Manager::Get()->ProcessEvent(event);
+ 
++#ifndef CB_FOR_CONSOLE
+             // finally, display project notes (if appropriate)
+             if (project->GetShowNotesOnLoad())
+                 project->ShowNotes(true);
++#endif // #ifndef CB_FOR_CONSOLE
+         }
+     }
+ 
+@@ -1024,7 +1075,9 @@ void ProjectManager::EndLoadingProject(cbProject*
+     if (!m_IsLoadingWorkspace)
+         Manager::Get()->GetUserVariableManager()->Arrogate();
+ 
++#ifndef CB_FOR_CONSOLE
+     WorkspaceChanged();
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
+ bool ProjectManager::BeginLoadingWorkspace()
+@@ -1033,6 +1086,7 @@ bool ProjectManager::BeginLoadingWorkspace()
+         return false;
+ 
+     m_IsLoadingWorkspace = true;
++#ifndef CB_FOR_CONSOLE
+     if (!CloseWorkspace())
+     {
+         m_IsLoadingWorkspace = false;
+@@ -1040,6 +1094,7 @@ bool ProjectManager::BeginLoadingWorkspace()
+     }
+ 
+     m_ui->BeginLoadingWorkspace();
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     return true;
+ }
+@@ -1055,6 +1110,7 @@ void ProjectManager::EndLoadingWorkspace()
+ 
+     if (m_pWorkspace->IsOK())
+     {
++#ifndef CB_FOR_CONSOLE
+         if (m_pProjectToActivate)
          {
--            lib = lib + _T("vc_");
-+            lib = lib + _T("vc") + WxCompilerVersion + _T("_");
-             lib_prefix = _T("");
-             lib_suffix = _T(".lib");
+             SetProject(m_pProjectToActivate, true);
+@@ -1062,11 +1118,14 @@ void ProjectManager::EndLoadingWorkspace()
          }
-Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc
+ 
+         m_ui->FinishLoadingWorkspace(m_pActiveProject, m_pWorkspace->GetTitle());
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         // sort out any global user vars that need to be defined now (in a batch) :)
+         Manager::Get()->GetUserVariableManager()->Arrogate();
+ 
++#ifndef CB_FOR_CONSOLE
+         int numNotes = 0;
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+         // and now send the project loaded events
+         // since we were loading a workspace, these events were not sent before
+@@ -1081,11 +1140,14 @@ void ProjectManager::EndLoadingWorkspace()
+             event.SetProject(project);
+             Manager::Get()->GetPluginManager()->NotifyPlugins(event);
+ 
++#ifndef CB_FOR_CONSOLE
+             // since we 're iterating anyway, let's count the project notes that should be displayed
+             if (project->GetShowNotesOnLoad() && !project->GetNotes().IsEmpty())
+                 ++numNotes;
++#endif // #ifndef CB_FOR_CONSOLE
+         }
+ 
++#ifndef CB_FOR_CONSOLE
+         // finally, display projects notes (if appropriate)
+         if (numNotes)
+         {
+@@ -1106,9 +1168,12 @@ void ProjectManager::EndLoadingWorkspace()
+         }
+ 
+         WorkspaceChanged();
++#endif // #ifndef CB_FOR_CONSOLE
+     }
++#ifndef CB_FOR_CONSOLE
+     else
+         CloseWorkspace();
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
+ void ProjectManager::SetIsRunning(cbPlugin *plugin)
+Index: src/sdk/uservarmanager.cpp
 ===================================================================
---- src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc	(revision 9849)
-+++ src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc	(working copy)
-@@ -95,6 +95,23 @@
-                   <maxlength>0</maxlength>
-                 </object>
-               </object>
-+              <object class="sizeritem">
-+                <option>0</option>
-+                <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
-+                <border>8</border>
-+                <object class="wxStaticText" name="m_staticText7">
-+                  <label>wxCompilerVersion:</label>
-+                </object>
-+              </object>
-+              <object class="sizeritem">
-+                <option>1</option>
-+                <flag>wxALL|wxEXPAND|wxALIGN_CENTRE_VERTICAL</flag>
-+                <border>8</border>
-+                <object class="wxTextCtrl" name="txtWxCompilerVersion">
-+                  <value></value>
-+                  <maxlength>0</maxlength>
-+                </object>
-+              </object>
-             </object>
-           </object>
-           <object class="sizeritem">
+--- src/sdk/uservarmanager.cpp	(revision 9855)
++++ src/sdk/uservarmanager.cpp	(working copy)
+@@ -19,17 +19,23 @@
+     #include "cbexception.h"
+     #include "infowindow.h"
+ 
++#ifndef CB_FOR_CONSOLE
+     #include <wx/button.h>
+     #include "scrollingdialog.h"
++#endif // #ifndef CB_FOR_CONSOLE
+     #include <wx/intl.h>
+     #include <wx/xrc/xmlres.h>
++#ifndef CB_FOR_CONSOLE
+     #include <wx/textctrl.h>
++#endif // #ifndef CB_FOR_CONSOLE
+     #include <wx/splitter.h>
+ #endif
+ 
+ #include "annoyingdialog.h"
++#ifndef CB_FOR_CONSOLE
+ #include <wx/choice.h>
+ #include <wx/textdlg.h> //wxTextEntryDialog
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+ #if wxCHECK_VERSION(2, 9, 0)
+ #include <wx/unichar.h>
+@@ -64,6 +70,7 @@ const wxChar *bim[] =
+ };
+ const wxArrayString builtinMembers((size_t) 7, bim);
+ 
++#ifndef CB_FOR_CONSOLE
+ class UsrGlblMgrEditDialog : public wxScrollingDialog
+ {
+     wxString m_CurrentSet;
+@@ -122,8 +129,8 @@ void UserVariableManager::Configure()
+     d.ShowModal();
+     m_ActiveSet = Manager::Get()->GetConfigManager(_T("gcv"))->Read(_T("/active"));
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+-
+ wxString UserVariableManager::Replace(const wxString& variable)
+ {
+     wxString package = variable.AfterLast(wxT('#')).BeforeFirst(wxT('.')).MakeLower();
+@@ -150,10 +157,12 @@ wxString UserVariableManager::Replace(const wxStri
+                          "the global compiler variable \"%s\".\n\n"
+                          "Please define it."), package.wx_str());
+             InfoWindow::Display(_("Global Compiler Variables"), msg , 8000, 1000);
++#ifndef CB_FOR_CONSOLE
+             UsrGlblMgrEditDialog d;
+             d.AddVar(package);
+             PlaceWindow(&d);
+             d.ShowModal();
++#endif // #ifndef CB_FOR_CONSOLE
+         }
+     }
+ 
+@@ -213,11 +222,15 @@ void UserVariableManager::Arrogate()
+ 
+     wxString peList;
+ 
++#ifndef CB_FOR_CONSOLE
+     UsrGlblMgrEditDialog d;
++#endif // #ifndef CB_FOR_CONSOLE
+ 
+     for (unsigned int i = 0; i < m_Preempted.GetCount(); ++i)
+     {
++#ifndef CB_FOR_CONSOLE
+         d.AddVar(m_Preempted[i]);
++#endif // #ifndef CB_FOR_CONSOLE
+         peList << m_Preempted[i] << _T('\n');
+     }
+     peList = peList.BeforeLast('\n'); // remove trailing newline
+@@ -233,11 +246,15 @@ void UserVariableManager::Arrogate()
+                      "%s\n\n"
+                      "Please define them."), peList.wx_str());
+ 
++#ifndef CB_FOR_CONSOLE
+     PlaceWindow(&d);
+     m_Preempted.Clear();
++#endif // #ifndef CB_FOR_CONSOLE
+     InfoWindow::Display(_("Global Compiler Variables"), msg , 8000 + 800*m_Preempted.GetCount(), 100);
+ 
++#ifndef CB_FOR_CONSOLE
+     d.ShowModal();
++#endif // #ifndef CB_FOR_CONSOLE
+ }
+ 
+ UserVariableManager::UserVariableManager()
+@@ -280,6 +297,7 @@ void UserVariableManager::Migrate()
+     cfgman_old->Delete();
+ }
+ 
++#ifndef CB_FOR_CONSOLE
+ BEGIN_EVENT_TABLE(UsrGlblMgrEditDialog, wxScrollingDialog)
+     EVT_BUTTON(XRCID("cloneVar"), UsrGlblMgrEditDialog::CloneVar)
+     EVT_BUTTON(XRCID("newVar"), UsrGlblMgrEditDialog::NewVar)
+@@ -667,3 +685,4 @@ void UsrGlblMgrEditDialog::Help(cb_unused wxComman
+ {
+     wxLaunchDefaultBrowser(_T("http://wiki.codeblocks.org/index.php?title=Global_compiler_variables"));
+ }
++#endif // #ifndef CB_FOR_CONSOLE
+Index: src/sdk/xtra_res.cpp
+===================================================================
+--- src/sdk/xtra_res.cpp	(revision 9855)
++++ src/sdk/xtra_res.cpp	(working copy)
+@@ -11,8 +11,9 @@
+ 
+ #ifndef CB_PRECOMP
+     #include "xtra_res.h"
++#ifndef CB_FOR_CONSOLE
+     #include "scrollingdialog.h"
+-    #include <wx/wx.h>
++#endif // #ifndef CB_FOR_CONSOLE
+ #endif
+ 
+ #include <wx/xml/xml.h>
