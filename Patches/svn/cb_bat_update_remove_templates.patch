@@ -1,6 +1,6 @@
 Index: src/update.bat
 ===================================================================
---- src/update.bat	(revision 9849)
+--- src/update.bat	(revision 9855)
 +++ src/update.bat	(working copy)
 @@ -91,10 +91,6 @@
  echo *.gdb       >> excludes.txt
@@ -15,7 +15,7 @@ Index: src/update.bat
  xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes.txt > nul
 Index: src/update30.bat
 ===================================================================
---- src/update30.bat	(revision 9849)
+--- src/update30.bat	(revision 9855)
 +++ src/update30.bat	(working copy)
 @@ -91,10 +91,6 @@
  echo *.gdb       >> excludes30.txt
@@ -30,7 +30,7 @@ Index: src/update30.bat
  xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes30.txt > nul
 Index: src/update30_64.bat
 ===================================================================
---- src/update30_64.bat	(revision 9849)
+--- src/update30_64.bat	(revision 9855)
 +++ src/update30_64.bat	(working copy)
 @@ -91,10 +91,6 @@
  echo *.gdb       >> excludes30_64.txt

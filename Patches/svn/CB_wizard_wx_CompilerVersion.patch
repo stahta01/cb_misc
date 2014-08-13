@@ -1,6 +1,6 @@
 Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
 ===================================================================
---- src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(revision 9849)
+--- src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(revision 9854)
 +++ src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(working copy)
 @@ -15,6 +15,7 @@
  IsEmpty <- false; // For empty projects
@@ -44,7 +44,7 @@ Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
          }
 Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc
 ===================================================================
---- src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc	(revision 9849)
+--- src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc	(revision 9854)
 +++ src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc	(working copy)
 @@ -95,6 +95,23 @@
                    <maxlength>0</maxlength>
