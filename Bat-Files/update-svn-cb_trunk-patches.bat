@@ -19,18 +19,20 @@ cd %CB_SVN%
 
 REM PAUSE
 REM Start of section SVN_new
-SET PATCH_NAME=cb_pch_plugin_wxSmithAui
-unix2dos < %CB_GIT%\Patches\svn\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
-svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
-dos2unix < %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch > %CB_GIT%\Patches\svn\%PATCH_NAME%_new.patch
-svn revert --recursive .
+
+REM SET PATCH_NAME=cb_pch_plugin_wxSmithAui
+REM unix2dos < %CB_GIT%\Patches\svn\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
+REM patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
+REM svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
+REM dos2unix < %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch > %CB_GIT%\Patches\svn\%PATCH_NAME%_new.patch
+REM svn revert --recursive .
+
 REM End of section
 REM PAUSE
 
 REM PAUSE
 REM Start of section
-SET PATCH_NAME=CB_wizard_wx_CompilerVersion
+SET PATCH_NAME=cb_src_sdk_templatemanager_cpp
 unix2dos < %CB_GIT%\Patches\Git\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
 svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
@@ -45,17 +47,6 @@ SET PATCH_NAME=CB_src_DevPak_stahta01_github_io
 unix2dos < %CB_GIT%\Patches\Git\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
 svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
-dos2unix < %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch > %CB_GIT%\Patches\svn\%PATCH_NAME%.patch
-svn revert --recursive .
-REM End of section
-REM PAUSE
-
-REM PAUSE
-REM Start of section
-SET PATCH_NAME=CB_custom_build-patchfile
-unix2dos < %CB_GIT%\Patches\Git\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
-svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style --extensions --show-c-function > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
 dos2unix < %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch > %CB_GIT%\Patches\svn\%PATCH_NAME%.patch
 svn revert --recursive .
 REM End of section
