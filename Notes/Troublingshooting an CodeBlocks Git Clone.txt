@@ -1,0 +1,28 @@
+Troublingshooting an Code::Blocks Git Clone
+
+1. $ git svn find-rev HEAD
+9854
+
+2. $ git svn find-rev r1
+cf2bdda292f001cdc7676d608187420df6b9aded
+
+3. $ git svn info
+Path: .
+URL: http://svn.code.sf.net/p/codeblocks/code/trunk
+Repository Root: http://svn.code.sf.net/p/codeblocks/code
+Repository UUID: 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+Revision: 9854
+Node Kind: directory
+Schedule: normal
+Last Changed Author: tpetrov
+Last Changed Rev: 9854
+Last Changed Date: 2014-07-31 03:33:52 -0400 (Thu, 31 Jul 2014)
+
+4. $ git log --grep=^git-svn-id: --first-parent -1
+commit 6ac780d332a35cce6e6e4b6c666376eaf3ad1f55
+Author: tpetrov <tpetrov@codeblocks.org>
+Date:   Thu Jul 31 07:33:52 2014 +0000
+
+    - wx30: Fix an assert in the compiler plugin introduced in r9852 (thanks muumi)
+
+    git-svn-id: http://svn.code.sf.net/p/codeblocks/code/trunk@9854 2a5c6006-c6dd-42ca-98ab-0921f2732cef
