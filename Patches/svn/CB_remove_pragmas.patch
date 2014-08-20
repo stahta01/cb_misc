@@ -1,0 +1,85 @@
+Index: src/plugins/contrib/MouseSap/MouseSap.cpp
+===================================================================
+--- src/plugins/contrib/MouseSap/MouseSap.cpp	(revision 9856)
++++ src/plugins/contrib/MouseSap/MouseSap.cpp	(working copy)
+@@ -11,11 +11,7 @@
+ // If no selected text, paste clipboard data at cursor position
+ // If selected text, and user switches editors, copy selection to clipboard
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma implementation "MouseSap.h"
+-#endif
+ 
+-
+ #include <sdk.h>
+ #ifndef CB_PRECOMP
+     #include <wx/app.h>
+Index: src/plugins/contrib/MouseSap/MouseSap.h
+===================================================================
+--- src/plugins/contrib/MouseSap/MouseSap.h	(revision 9856)
++++ src/plugins/contrib/MouseSap/MouseSap.h	(working copy)
+@@ -14,14 +14,7 @@
+ #ifndef MouseSap_H
+ #define MouseSap_H
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma interface "MouseSap.h"
+-#endif
+ 
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+ #include <wx/arrstr.h>
+ #include <wx/dynarray.h>
+ #include <wx/event.h> // wxEvtHandler
+Index: src/plugins/contrib/dragscroll/dragscroll.cpp
+===================================================================
+--- src/plugins/contrib/dragscroll/dragscroll.cpp	(revision 9856)
++++ src/plugins/contrib/dragscroll/dragscroll.cpp	(working copy)
+@@ -6,11 +6,7 @@
+  * License:   GPL
+  **************************************************************/
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma implementation "dragscroll.h"
+-#endif
+ 
+-
+ #include <sdk.h>
+ #ifndef CB_PRECOMP
+     #include <wx/app.h>
+Index: src/plugins/contrib/dragscroll/dragscroll.h
+===================================================================
+--- src/plugins/contrib/dragscroll/dragscroll.h	(revision 9856)
++++ src/plugins/contrib/dragscroll/dragscroll.h	(working copy)
+@@ -9,14 +9,7 @@
+ #ifndef DRAGSCROLL_H
+ #define DRAGSCROLL_H
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma interface "dragscroll.h"
+-#endif
+ 
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+ #include <wx/arrstr.h>
+ #include <wx/dynarray.h>
+ #include <wx/event.h> // wxEvtHandler
+Index: src/plugins/contrib/dragscroll/dragscrollcfg.h
+===================================================================
+--- src/plugins/contrib/dragscroll/dragscrollcfg.h	(revision 9856)
++++ src/plugins/contrib/dragscroll/dragscrollcfg.h	(working copy)
+@@ -1,9 +1,7 @@
+ #ifndef DragScrollCfg_H
+ #define DragScrollCfg_H
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
++
+ #include "dragscroll.h"
+ 
+ //(*Headers(cbDragScrollCfg)
