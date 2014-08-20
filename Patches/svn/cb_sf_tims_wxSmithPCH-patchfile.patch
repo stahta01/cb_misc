@@ -1,6 +1,6 @@
 Index: src/CodeBlocks.cbp
 ===================================================================
---- src/CodeBlocks.cbp	(revision 9855)
+--- src/CodeBlocks.cbp	(revision 9856)
 +++ src/CodeBlocks.cbp	(working copy)
 @@ -733,7 +733,6 @@
  			<Add option="-DWXUSINGDLL" />
@@ -12,7 +12,7 @@ Index: src/CodeBlocks.cbp
  			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 Index: src/plugins/contrib/wxSmith/wxSmith.cbp
 ===================================================================
---- src/plugins/contrib/wxSmith/wxSmith.cbp	(revision 9855)
+--- src/plugins/contrib/wxSmith/wxSmith.cbp	(revision 9856)
 +++ src/plugins/contrib/wxSmith/wxSmith.cbp	(working copy)
 @@ -45,17 +45,18 @@
  			<Add option="-fmessage-length=0" />
@@ -36,7 +36,7 @@ Index: src/plugins/contrib/wxSmith/wxSmith.cbp
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
 Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
 ===================================================================
---- src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(revision 9855)
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(revision 9856)
 +++ src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(working copy)
 @@ -20,6 +20,7 @@
  					<Add option="-ansi" />
@@ -65,7 +65,7 @@ Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
  			<Add directory="../../../sdk/wxpropgrid/include" />
 Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cpp
 ===================================================================
---- src/plugins/contrib/wxSmithAui/wxSmithAui.cpp	(revision 9855)
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.cpp	(revision 9856)
 +++ src/plugins/contrib/wxSmithAui/wxSmithAui.cpp	(working copy)
 @@ -1,4 +1,6 @@
 +#ifndef SDK_H
@@ -76,7 +76,7 @@ Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cpp
  
 Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
 ===================================================================
---- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(revision 9855)
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(revision 9856)
 +++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(working copy)
 @@ -23,6 +23,8 @@
  					<Add option="-DBUILDING_PLUGIN" />
@@ -97,7 +97,7 @@ Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
  			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
 Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp
 ===================================================================
---- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp	(revision 9855)
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp	(revision 9856)
 +++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp	(working copy)
 @@ -21,7 +21,9 @@
  * $HeadURL$
@@ -111,7 +111,7 @@ Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp
  
 Index: src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
 ===================================================================
---- src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp	(revision 9855)
+--- src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp	(revision 9856)
 +++ src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp	(working copy)
 @@ -28,6 +28,8 @@
  					<Add option="-DBUILDING_PLUGIN" />
@@ -132,7 +132,7 @@ Index: src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
  			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
 Index: src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cpp
 ===================================================================
---- src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cpp	(revision 9855)
+--- src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cpp	(revision 9856)
 +++ src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cpp	(working copy)
 @@ -1,4 +1,6 @@
 +#ifndef SDK_H
@@ -143,7 +143,7 @@ Index: src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cpp
  
 Index: src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
 ===================================================================
---- src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp	(revision 9855)
+--- src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp	(revision 9856)
 +++ src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp	(working copy)
 @@ -27,6 +27,8 @@
  					<Add option="-DBUILDING_PLUGIN" />
@@ -164,7 +164,7 @@ Index: src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
  			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
 Index: src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp
 ===================================================================
---- src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp	(revision 9855)
+--- src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp	(revision 9856)
 +++ src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp	(working copy)
 @@ -22,7 +22,9 @@
  *
@@ -178,7 +178,7 @@ Index: src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp
  #include "wxsSmithIExplore.h"
 Index: src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
 ===================================================================
---- src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp	(revision 9855)
+--- src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp	(revision 9856)
 +++ src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp	(working copy)
 @@ -73,6 +73,8 @@
  					<Add option="-DBUILDING_PLUGIN" />
@@ -199,7 +199,7 @@ Index: src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
  			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
 Index: src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cpp
 ===================================================================
---- src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cpp	(revision 9855)
+--- src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cpp	(revision 9856)
 +++ src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cpp	(working copy)
 @@ -18,7 +18,9 @@
  *

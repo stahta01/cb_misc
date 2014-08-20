@@ -1,6 +1,6 @@
 Index: src/plugins/contrib/devpak_plugin/updatedlg.cpp
 ===================================================================
---- src/plugins/contrib/devpak_plugin/updatedlg.cpp	(revision 9855)
+--- src/plugins/contrib/devpak_plugin/updatedlg.cpp	(revision 9856)
 +++ src/plugins/contrib/devpak_plugin/updatedlg.cpp	(working copy)
 @@ -59,7 +59,7 @@
      m_LastBlockSize(0),
