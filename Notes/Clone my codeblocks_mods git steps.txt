@@ -6,6 +6,16 @@ Welcome to Git (version 1.8.5.2-preview20131230)
 $ git --version
 git version 1.8.5.2.msysgit.0
 
+
+$ git log --grep=^git-svn-id: --first-parent -1
+commit 075b39aa365bcb2290ea31c87455bde1d17e920e
+Author: danslemi <danslemi@codeblocks.org>
+Date:   Wed Aug 6 15:33:43 2014 +0000
+
+    * OccurrencesHighlighting: small fix in #ifndef-ed code
+
+    git-svn-id: http://svn.code.sf.net/p/codeblocks/code/trunk@9855 2a5c6006-c6d
+
 cd test
 
 Step 1: Git clone, change directory, and move head back one commit
@@ -38,7 +48,7 @@ $ git show remotes/svnstuff1/trunk | head -n 1
 Step 6: SVN find-rev
 $ git svn find-rev HEAD
 
-Step 7: SVN  reset and fetch
+Step 7: SVN fetch
 Use number plus 1 returned by SVN find-rev step
 $ git svn fetch svn1 -r 9855
 

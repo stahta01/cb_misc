@@ -6,12 +6,21 @@ Welcome to Git (version 1.8.5.2-preview20131230)
 $ git --version
 git version 1.8.5.2.msysgit.0
 
+$ git log --grep=^git-svn-id: --first-parent -1
+commit 4cf0119361e30752355f407e3f4dd67ca89c3114
+Author: Daniel Anselmi <danslemi@codeblocks.org>
+Date:   Wed Aug 6 15:33:43 2014 +0000
+
+    * OccurrencesHighlighting: small fix in #ifndef-ed code
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@9855 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
 
 Step 1: Git clone, change directory, and move head back to first commit
 Step 1A: Git clone, change directory
 $
-git clone --no-checkout --origin upstream --branch master git://github.com/obfuscated/codeblocks_sf codeblocks_sf_test2
-cd codeblocks_sf_test2
+git clone --no-checkout --origin upstream --branch master git://github.com/obfuscated/codeblocks_sf cb_obfuscated_test
+cd cb_obfuscated_test
 git log --pretty=format:%H | tail -1
 $
 95aa83028f65708c6981061748d6ccad0c7498c0
@@ -22,7 +31,7 @@ $
 
 Step 2: Create svn-remote "svn" in git config file
 $
-git config --add svn-remote.svn.url http://svn.code.sf.net/p/codeblocks/code
+git config --add svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
 git config --add svn-remote.svn.fetch trunk:refs/remotes/svnstuff/trunk
 git config --add svn-remote.svn.branches branches/*:refs/remotes/svnstuff/*
 git config --add svn-remote.svn.tags tags/*:refs/remotes/svnstuff/tags/*
