@@ -1,0 +1,70 @@
+Index: src/plugins/contrib/codesnippets/codesnippets.cpp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets.cpp	(revision 9856)
++++ src/plugins/contrib/codesnippets/codesnippets.cpp	(working copy)
+@@ -20,7 +20,9 @@
+ // $Id$
+ 
+ #include <cstring>
++#ifndef SDK_H
+ #include "sdk.h"
++#endif // #ifndef SDK_H
+ #ifndef CB_PRECOMP
+ 	#include <wx/event.h>
+ 	#include <wx/frame.h> // Manager::Get()->GetAppWindow()
+Index: src/plugins/contrib/codesnippets/codesnippetstreectrl.cpp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippetstreectrl.cpp	(revision 9856)
++++ src/plugins/contrib/codesnippets/codesnippetstreectrl.cpp	(working copy)
+@@ -33,7 +33,9 @@
+     #include "wx/mimetype.h"
+ 
+ //-#if defined(BUILDING_PLUGIN)
++    #ifndef SDK_H
+     #include "sdk.h"
++    #endif // #ifndef SDK_H
+     #ifndef CB_PRECOMP
+         #include "manager.h"
+         #include "editormanager.h"
+Index: src/plugins/contrib/codesnippets/codesnippetswindow.cpp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippetswindow.cpp	(revision 9856)
++++ src/plugins/contrib/codesnippets/codesnippetswindow.cpp	(working copy)
+@@ -45,7 +45,9 @@
+ #endif //__BORLANDC__
+ 
+ //-#if defined(BUILDING_PLUGIN)
++    #ifndef SDK_H
+     #include "sdk.h"
++    #endif // #ifndef SDK_H
+     #ifndef CB_PRECOMP
+         #include "manager.h"
+         #include "logmanager.h"
+Index: src/plugins/contrib/codesnippets/snippetproperty.cpp
+===================================================================
+--- src/plugins/contrib/codesnippets/snippetproperty.cpp	(revision 9856)
++++ src/plugins/contrib/codesnippets/snippetproperty.cpp	(working copy)
+@@ -32,7 +32,9 @@
+     #include <wx/dnd.h>
+ 
+ //-#if defined(BUILDING_PLUGIN)
++    #ifndef SDK_H
+     #include "sdk.h"
++    #endif // #ifndef SDK_H
+ //-#endif
+ 
+ #include "codesnippetswindow.h"
+Index: src/plugins/contrib/lib_finder/librariesdlg.cpp
+===================================================================
+--- src/plugins/contrib/lib_finder/librariesdlg.cpp	(revision 9856)
++++ src/plugins/contrib/lib_finder/librariesdlg.cpp	(working copy)
+@@ -15,7 +15,9 @@
+ //*)
+ 
+ #include <algorithm>
++#ifndef SDK_H
+ #include <sdk.h>
++#endif // #ifndef SDK_H
+ #include <manager.h>
+ #include <configmanager.h>
+ #include <globals.h>
