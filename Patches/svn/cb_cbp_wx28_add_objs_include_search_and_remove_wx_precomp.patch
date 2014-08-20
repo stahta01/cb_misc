@@ -1,0 +1,399 @@
+Index: src/CodeBlocks.cbp
+===================================================================
+--- src/CodeBlocks.cbp	(revision 9855)
++++ src/CodeBlocks.cbp	(working copy)
+@@ -733,7 +733,6 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+===================================================================
+--- src/plugins/contrib/AutoVersioning/AutoVersioning.cbp	(revision 9855)
++++ src/plugins/contrib/AutoVersioning/AutoVersioning.cbp	(working copy)
+@@ -26,8 +26,8 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(revision 9855)
++++ src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(working copy)
+@@ -27,9 +27,9 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/Cccc/Cccc.cbp
+===================================================================
+--- src/plugins/contrib/Cccc/Cccc.cbp	(revision 9855)
++++ src/plugins/contrib/Cccc/Cccc.cbp	(working copy)
+@@ -31,12 +31,12 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+Index: src/plugins/contrib/CppCheck/CppCheck.cbp
+===================================================================
+--- src/plugins/contrib/CppCheck/CppCheck.cbp	(revision 9855)
++++ src/plugins/contrib/CppCheck/CppCheck.cbp	(working copy)
+@@ -31,12 +31,12 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+Index: src/plugins/contrib/Cscope/Cscope.cbp
+===================================================================
+--- src/plugins/contrib/Cscope/Cscope.cbp	(revision 9855)
++++ src/plugins/contrib/Cscope/Cscope.cbp	(working copy)
+@@ -31,7 +31,6 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+@@ -39,6 +38,7 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 		</Compiler>
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(revision 9855)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(working copy)
+@@ -22,14 +22,15 @@
+ 					<Add option="-mthreads" />
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/EditorConfig/EditorConfig.cbp
+===================================================================
+--- src/plugins/contrib/EditorConfig/EditorConfig.cbp	(revision 9855)
++++ src/plugins/contrib/EditorConfig/EditorConfig.cbp	(working copy)
+@@ -28,8 +28,8 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+===================================================================
+--- src/plugins/contrib/EditorTweaks/EditorTweaks.cbp	(revision 9855)
++++ src/plugins/contrib/EditorTweaks/EditorTweaks.cbp	(working copy)
+@@ -28,8 +28,8 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/HexEditor/HexEditor.cbp
+===================================================================
+--- src/plugins/contrib/HexEditor/HexEditor.cbp	(revision 9855)
++++ src/plugins/contrib/HexEditor/HexEditor.cbp	(working copy)
+@@ -27,10 +27,10 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 				</Compiler>
+Index: src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+===================================================================
+--- src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp	(revision 9855)
++++ src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp	(working copy)
+@@ -27,8 +27,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+===================================================================
+--- src/plugins/contrib/ReopenEditor/ReopenEditor.cbp	(revision 9855)
++++ src/plugins/contrib/ReopenEditor/ReopenEditor.cbp	(working copy)
+@@ -27,8 +27,8 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(revision 9855)
++++ src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(working copy)
+@@ -45,10 +45,10 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="..\..\..\include\mozilla_chardet" />
+Index: src/plugins/contrib/byogames/byogames.cbp
+===================================================================
+--- src/plugins/contrib/byogames/byogames.cbp	(revision 9855)
++++ src/plugins/contrib/byogames/byogames.cbp	(working copy)
+@@ -34,11 +34,11 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="..\..\..\include\tinyxml" />
+Index: src/plugins/contrib/cb_koders/cb_koders.cbp
+===================================================================
+--- src/plugins/contrib/cb_koders/cb_koders.cbp	(revision 9855)
++++ src/plugins/contrib/cb_koders/cb_koders.cbp	(working copy)
+@@ -39,11 +39,11 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+Index: src/plugins/contrib/codestat/codestat.cbp
+===================================================================
+--- src/plugins/contrib/codestat/codestat.cbp	(revision 9855)
++++ src/plugins/contrib/codestat/codestat.cbp	(working copy)
+@@ -31,12 +31,12 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+Index: src/plugins/contrib/copystrings/copystrings.cbp
+===================================================================
+--- src/plugins/contrib/copystrings/copystrings.cbp	(revision 9855)
++++ src/plugins/contrib/copystrings/copystrings.cbp	(working copy)
+@@ -31,7 +31,6 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+@@ -39,6 +38,7 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 		</Compiler>
+Index: src/plugins/contrib/envvars/envvars.cbp
+===================================================================
+--- src/plugins/contrib/envvars/envvars.cbp	(revision 9855)
++++ src/plugins/contrib/envvars/envvars.cbp	(working copy)
+@@ -14,9 +14,10 @@
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+ 				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option projectIncludeDirsRelation="2" />
+ 				<Compiler>
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add directory="..\..\..\.objs\include" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="no_pch">
+Index: src/plugins/contrib/headerfixup/headerfixup.cbp
+===================================================================
+--- src/plugins/contrib/headerfixup/headerfixup.cbp	(revision 9855)
++++ src/plugins/contrib/headerfixup/headerfixup.cbp	(working copy)
+@@ -26,10 +26,10 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 				</Compiler>
+Index: src/plugins/contrib/help_plugin/help-plugin.cbp
+===================================================================
+--- src/plugins/contrib/help_plugin/help-plugin.cbp	(revision 9855)
++++ src/plugins/contrib/help_plugin/help-plugin.cbp	(working copy)
+@@ -52,7 +52,6 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+@@ -82,6 +81,7 @@
+ 		<Compiler>
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="..\..\..\include\scripting\bindings" />
+Index: src/plugins/contrib/profiler/cbprofiler.cbp
+===================================================================
+--- src/plugins/contrib/profiler/cbprofiler.cbp	(revision 9855)
++++ src/plugins/contrib/profiler/cbprofiler.cbp	(working copy)
+@@ -31,12 +31,12 @@
+ 			<Add option="-fpermissive" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+===================================================================
+--- src/plugins/contrib/regex_testbed/RegExTestbed.cbp	(revision 9855)
++++ src/plugins/contrib/regex_testbed/RegExTestbed.cbp	(working copy)
+@@ -42,13 +42,13 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DSUPPORT_UTF8" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 		</Compiler>
+Index: src/plugins/contrib/rndgen/rndgen.cbp
+===================================================================
+--- src/plugins/contrib/rndgen/rndgen.cbp	(revision 9855)
++++ src/plugins/contrib/rndgen/rndgen.cbp	(working copy)
+@@ -25,8 +25,8 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/symtab/symtab.cbp
+===================================================================
+--- src/plugins/contrib/symtab/symtab.cbp	(revision 9855)
++++ src/plugins/contrib/symtab/symtab.cbp	(working copy)
+@@ -35,12 +35,12 @@
+ 			<Add option="-fpermissive" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.include)" />
