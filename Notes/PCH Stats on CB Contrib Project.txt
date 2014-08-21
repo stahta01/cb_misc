@@ -1,5 +1,5 @@
 cbp basename      # src files #sdk total  #sdk good   #CB_PRECOMP #WX_PRECOMP
-codesnippets      12          4           0           3
+++codesnippets    12          4           0           3
    Required adding header guard
 DevPakPlugin       8          0           0           0
    needs search folder for wx/wxscintilla.h
