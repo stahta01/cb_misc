@@ -1,6 +1,6 @@
 Index: src/sdk/templatemanager.cpp
 ===================================================================
---- src/sdk/templatemanager.cpp	(revision 9855)
+--- src/sdk/templatemanager.cpp	(revision 9856)
 +++ src/sdk/templatemanager.cpp	(working copy)
 @@ -263,8 +263,16 @@
          return;
