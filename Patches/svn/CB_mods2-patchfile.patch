@@ -157,6 +157,196 @@ Index: src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/FileManager/FileExplorer.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorer.cpp	(revision 9856)
++++ src/plugins/contrib/FileManager/FileExplorer.cpp	(working copy)
+@@ -1,3 +1,5 @@
++#include <sdk.h>
++
+ #include "FileExplorer.h"
+ #include <wx/dir.h>
+ #include <wx/filename.h>
+@@ -4,7 +6,6 @@
+ #include <wx/aui/aui.h>
+ 
+ 
+-#include <sdk.h>
+ #ifndef CB_PRECOMP
+     #include <wx/dnd.h>
+     #include <wx/imaglist.h>
+Index: src/plugins/contrib/FileManager/FileExplorer.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorer.h	(revision 9856)
++++ src/plugins/contrib/FileManager/FileExplorer.h	(working copy)
+@@ -1,7 +1,6 @@
+ #ifndef FILEEXPLORER_H
+ #define FILEEXPLORER_H
+ 
+-#include <wx/wx.h>
+ #include <wx/treectrl.h>
+ #include <wx/combobox.h>
+ #include <wx/dynarray.h>
+Index: src/plugins/contrib/FileManager/FileExplorerSettings.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(revision 9856)
++++ src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(working copy)
+@@ -1,6 +1,7 @@
++#include <sdk.h>
++
+ #include "FileExplorerSettings.h"
+ 
+-#include <sdk.h>
+ #ifndef CB_PRECOMP
+   #include <wx/xrc/xmlres.h>
+   #include <wx/checkbox.h>
+Index: src/plugins/contrib/FileManager/FileExplorerSettings.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerSettings.h	(revision 9856)
++++ src/plugins/contrib/FileManager/FileExplorerSettings.h	(working copy)
+@@ -1,10 +1,11 @@
+ #ifndef FILEEXPLORERSETTINGS_H
+ #define FILEEXPLORERSETTINGS_H
+ 
+-#include <wx/wx.h>
+ 
+ #include <wx/button.h>
++#include <wx/dialog.h>
+ 
++class wxListBox;
+ 
+ class FavoriteDir
+ {
+Index: src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(revision 9856)
++++ src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(working copy)
+@@ -1,3 +1,6 @@
++#include <wx/dir.h>
++#include <wx/txtstrm.h>
++
+ #include "FileExplorerUpdater.h"
+ #include "FileExplorer.h"
+ #include "se_globals.h"
+Index: src/plugins/contrib/FileManager/FileExplorerUpdater.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerUpdater.h	(revision 9856)
++++ src/plugins/contrib/FileManager/FileExplorerUpdater.h	(working copy)
+@@ -1,7 +1,8 @@
+ #ifndef FILEEXPLORERUPDATER_H_INCLUDED
+ #define FILEEXPLORERUPDATER_H_INCLUDED
+ 
+-#include <wx/wx.h>
++
++#include <wx/timer.h>
+ #include <wx/treectrl.h>
+ #include <wx/thread.h>
+ #include <wx/process.h>
+Index: src/plugins/contrib/FileManager/FileManager.cbp
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.cbp	(revision 9856)
++++ src/plugins/contrib/FileManager/FileManager.cbp	(working copy)
+@@ -42,9 +42,9 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="..\..\..\include\mozilla_chardet" />
+Index: src/plugins/contrib/FileManager/FileManager.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.cpp	(revision 9856)
++++ src/plugins/contrib/FileManager/FileManager.cpp	(working copy)
+@@ -1,5 +1,7 @@
++#include <sdk.h> // Code::Blocks SDK
++
+ #include <wx/aui/aui.h>
+-#include <sdk.h> // Code::Blocks SDK
++
+ #ifndef CB_PRECOMP
+     #include <cbauibook.h>
+     #include <cbproject.h>
+Index: src/plugins/contrib/FileManager/FileManager.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.h	(revision 9856)
++++ src/plugins/contrib/FileManager/FileManager.h	(working copy)
+@@ -10,13 +10,7 @@
+ #ifndef FILEMANAGER_H_INCLUDED
+ #define FILEMANAGER_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ 
+ #include "FileExplorer.h" // provides the FileExplorer class
+Index: src/plugins/contrib/FileManager/directorymonitor.h
+===================================================================
+--- src/plugins/contrib/FileManager/directorymonitor.h	(revision 9856)
++++ src/plugins/contrib/FileManager/directorymonitor.h	(working copy)
+@@ -1,10 +1,8 @@
+ #ifndef WXFILESYSTEMMONITOR_H
+ #define WXFILESYSTEMMONITOR_H
+ 
++#include <wx/event.h>
+ 
+-
+-#include <wx/wx.h>
+-
+ #define MONITOR_TERMINATE 0x010000
+ #define MONITOR_TOO_MANY_CHANGES 0x020000
+ #define MONITOR_ERROR 0x040000
+Index: src/plugins/contrib/FileManager/se_globals.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/se_globals.cpp	(revision 9856)
++++ src/plugins/contrib/FileManager/se_globals.cpp	(working copy)
+@@ -1,3 +1,7 @@
++
++#include <editorbase.h>
++#include <editormanager.h>
++
+ #include "se_globals.h"
+ 
+ wxString GetParentDir(const wxString &path)
+Index: src/plugins/contrib/FileManager/se_globals.h
+===================================================================
+--- src/plugins/contrib/FileManager/se_globals.h	(revision 9856)
++++ src/plugins/contrib/FileManager/se_globals.h	(working copy)
+@@ -1,23 +1,12 @@
+ #ifndef IL_GLOBALS_H
+ #define IL_GLOBALS_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
++#include <wx/filename.h>
+ 
+-#include <sdk.h>
+-#ifndef CB_PRECOMP
+-    #include <wx/dir.h>
+-    #include <wx/filename.h>
+-    #include <wx/txtstrm.h>
++#include <configurationpanel.h>
++#include <logmanager.h>
+ 
+-    #include <editorbase.h>
+-    #include <editormanager.h>
+-    #include <logmanager.h>
+-    #include <manager.h>
+-#endif
+ 
+ wxString GetParentDir(const wxString &path);
+ 
 Index: src/plugins/contrib/HexEditor/HexEditor.cbp
 ===================================================================
 --- src/plugins/contrib/HexEditor/HexEditor.cbp	(revision 9856)
@@ -256,6 +446,287 @@ Index: src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
  					<Add directory="..\..\..\include" />
  					<Add directory="$(#WX.include)" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/SmartIndent/SmartIndent.cbp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndent.cbp	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndent.cbp	(working copy)
+@@ -172,9 +172,8 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DNOPCH" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/SmartIndent/SmartIndentCpp.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentCpp.cpp	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentCpp.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentCpp.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -13,7 +11,9 @@
+ #include <cbstyledtextctrl.h>
+ #include <wx/regex.h>
+ 
++#include "SmartIndentCpp.h"
+ 
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentCpp.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentCpp.h	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentCpp.h	(working copy)
+@@ -1,13 +1,7 @@
+ #ifndef SMARTINDENTCPP_H_INCLUDED
+ #define SMARTINDENTCPP_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class SmartIndentCpp : public cbSmartIndentPlugin
+Index: src/plugins/contrib/SmartIndent/SmartIndentFortran.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentFortran.cpp	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentFortran.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentFortran.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,9 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentFortran.h"
++
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentFortran.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentFortran.h	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentFortran.h	(working copy)
+@@ -1,13 +1,7 @@
+ #ifndef SMARTINDENTFORTRAN_H_INCLUDED
+ #define SMARTINDENTFORTRAN_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+Index: src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentHDL.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,9 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentHDL.h"
++
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentHDL.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentHDL.h	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentHDL.h	(working copy)
+@@ -1,13 +1,7 @@
+ #ifndef SMARTINDENTHDL_H_INCLUDED
+ #define SMARTINDENTHDL_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+Index: src/plugins/contrib/SmartIndent/SmartIndentLua.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentLua.cpp	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentLua.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentLua.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,9 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentLua.h"
++
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentLua.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentLua.h	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentLua.h	(working copy)
+@@ -1,13 +1,7 @@
+ #ifndef SMARTINDENTLUA_H_INCLUDED
+ #define SMARTINDENTLUA_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+Index: src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentPascal.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,9 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentPascal.h"
++
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentPascal.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentPascal.h	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentPascal.h	(working copy)
+@@ -1,13 +1,7 @@
+ #ifndef SMARTINDENTPASCAL_H_INCLUDED
+ #define SMARTINDENTPASCAL_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+Index: src/plugins/contrib/SmartIndent/SmartIndentPython.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentPython.cpp	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentPython.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentPython.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -12,6 +10,9 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentPython.h"
++
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentPython.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentPython.h	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentPython.h	(working copy)
+@@ -1,13 +1,7 @@
+ #ifndef SMARTINDENTPYTHON_H_INCLUDED
+ #define SMARTINDENTPYTHON_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+Index: src/plugins/contrib/SmartIndent/SmartIndentXML.cpp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentXML.cpp	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentXML.cpp	(working copy)
+@@ -1,5 +1,3 @@
+-#include "SmartIndentXML.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -14,6 +12,9 @@
+ 
+ #include <cbstyledtextctrl.h>
+ 
++#include "SmartIndentXML.h"
++
++
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+ namespace
+Index: src/plugins/contrib/SmartIndent/SmartIndentXML.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentXML.h	(revision 9856)
++++ src/plugins/contrib/SmartIndent/SmartIndentXML.h	(working copy)
+@@ -1,13 +1,7 @@
+ #ifndef SMARTINDENTXML_H_INCLUDED
+ #define SMARTINDENTXML_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
 Index: src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
 ===================================================================
 --- src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(revision 9856)
@@ -543,6 +1014,151 @@ Index: src/plugins/contrib/help_plugin/help-plugin.cbp
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="..\..\..\include\scripting\bindings" />
+Index: src/plugins/contrib/keybinder/cbkeybinder.cpp
+===================================================================
+--- src/plugins/contrib/keybinder/cbkeybinder.cpp	(revision 9856)
++++ src/plugins/contrib/keybinder/cbkeybinder.cpp	(working copy)
+@@ -10,10 +10,6 @@
+ // The majority of this code was lifted from wxKeyBinder and
+ // its "minimal.cpp" sample program
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-    #pragma implementation "cbkeybinder.h"
+-#endif
+-
+ #include <sdk.h>
+ #ifndef CB_PRECOMP
+     #include <wx/dynarray.h>
+Index: src/plugins/contrib/keybinder/cbkeybinder.h
+===================================================================
+--- src/plugins/contrib/keybinder/cbkeybinder.h	(revision 9856)
++++ src/plugins/contrib/keybinder/cbkeybinder.h	(working copy)
+@@ -10,14 +10,7 @@
+ #ifndef CBKEYBINDER_H
+ #define CBKEYBINDER_H
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma interface "cbkeybinder.h"
+-#endif
+ 
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+ #include <wx/string.h>
+ #include <wx/timer.h>
+ 
+Index: src/plugins/contrib/keybinder/keybinder.cbp
+===================================================================
+--- src/plugins/contrib/keybinder/keybinder.cbp	(revision 9856)
++++ src/plugins/contrib/keybinder/keybinder.cbp	(working copy)
+@@ -21,7 +21,6 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+@@ -43,6 +42,7 @@
+ 		<Compiler>
+ 			<Add option="-Wall" />
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
++			<Add directory="..\..\..\.objs\include" />
+ 			<Add directory="..\..\..\include" />
+ 			<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 			<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/keybinder/keybinder.cpp
+===================================================================
+--- src/plugins/contrib/keybinder/keybinder.cpp	(revision 9856)
++++ src/plugins/contrib/keybinder/keybinder.cpp	(working copy)
+@@ -10,30 +10,18 @@
+ /////////////////////////////////////////////////////////////////////////////
+ // RCS-ID:      $Id$
+ 
++#include <sdk.h>
+ 
+ #if defined(kbLOGGING)
+     #include "debugging.h"
+ #endif
+ 
+-#ifdef __GNUG__
+-#pragma implementation "keybinder.h"
+-#endif
+-
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+ #ifndef WX_PRECOMP
+ 	#include "wx/wx.h"
+ 	#include "wx/log.h"
+ #endif
+ 
+-#if defined(CB_PRECOMP)
+-#include "sdk.h"
+-#else
++#if !defined(CB_PRECOMP)
+ 	#include "sdk_events.h"
+ 	#include "manager.h"
+ 	#include "projectmanager.h"
+Index: src/plugins/contrib/keybinder/keybinder.h
+===================================================================
+--- src/plugins/contrib/keybinder/keybinder.h	(revision 9856)
++++ src/plugins/contrib/keybinder/keybinder.h	(working copy)
+@@ -14,9 +14,6 @@
+ #ifndef __KEYBINDER_G__
+ #define __KEYBINDER_G__
+ 
+-#ifdef __GNUG__
+-#pragma interface "keybinder.h"
+-#endif
+ 
+ // required includes
+ #include "wx/panel.h"
+Index: src/plugins/contrib/keybinder/menuutils.cpp
+===================================================================
+--- src/plugins/contrib/keybinder/menuutils.cpp	(revision 9856)
++++ src/plugins/contrib/keybinder/menuutils.cpp	(working copy)
+@@ -9,21 +9,7 @@
+ /////////////////////////////////////////////////////////////////////////////
+ // RCS-ID:      $Id$
+ 
+-#ifdef __GNUG__
+-#pragma implementation "menuutils.h"
+-#endif
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+-
+ #if defined(CB_PRECOMP)
+ #include "sdk.h"
+ #else
+Index: src/plugins/contrib/keybinder/menuutils.h
+===================================================================
+--- src/plugins/contrib/keybinder/menuutils.h	(revision 9856)
++++ src/plugins/contrib/keybinder/menuutils.h	(working copy)
+@@ -13,9 +13,6 @@
+ #ifndef __WX_MENUUTILS_H__
+ #define __WX_MENUUTILS_H__
+ 
+-#ifdef __GNUG__
+-#pragma interface "menuutils.h"
+-#endif
+ 
+ // includes
+ #include "wx/panel.h"
 Index: src/plugins/contrib/lib_finder/lib_finder.cbp
 ===================================================================
 --- src/plugins/contrib/lib_finder/lib_finder.cbp	(revision 9856)
