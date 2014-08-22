@@ -5,7 +5,7 @@ DevPakPlugin       8          0           0           0
    needs search folder for wx/wxscintilla.h
 +DragScroll        3          1           0           1
    Required removing pragmas
-+FileManager        6          4           0           4
++FileManager       6          4           0           4
    Needs source code changes to some src files and one header file.
 +keybinder         3          3           0           3
    Requires removing pragmas
@@ -25,3 +25,22 @@ NassiShneiderman  25          1           0           1           16
    Requires removing pragmas
 Exporter           6          0           0           0            *
 SpellChecker      13          4           1           4           15
+ProjectOptionsManipulator     0
+
+cbp basename                  #sdk total  #sdk good   #CB_PRECOMP #WX_PRECOMP
+wxSmithContribItems           1
+wxSmithDateTimePicker         1
+wxSmithDemo                   0           0           0           
+wxsSmithIExplore              1
+wxsSmithPlot                  1
+wxsSmithSTC                   1
+
+CB Projects not in Contrib folder
+cbp basename      # src files #sdk total  #sdk good   #CB_PRECOMP #WX_PRECOMP
+headerguard       1           1           
+loghacker         1           1
+ModPoller         1           1
+tidycmt           1           1
+Addr2LineUI                   0
+codecompletion    *           *
+cctest            *           10
