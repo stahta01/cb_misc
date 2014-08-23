@@ -43,3 +43,48 @@ Index: src/plugins/contrib/lib_finder/lib_finder.cbp
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="..\..\..\include\tinyxml" />
+Index: src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+===================================================================
+--- src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp	(revision 9858)
++++ src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp	(working copy)
+@@ -34,14 +34,15 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option="-include sdk.h" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+===================================================================
+--- src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp	(revision 9858)
++++ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp	(working copy)
+@@ -32,16 +32,18 @@
+ 					<Add option="-Wall" />
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-mthreads" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="..\..\..\.objs\include" />
++					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="..\..\..\include" />
+ 				</Compiler>
+ 				<Linker>
