@@ -1,0 +1,95 @@
+Index: src/CodeBlocks.cbp
+===================================================================
+--- src/CodeBlocks.cbp	(revision 9856)
++++ src/CodeBlocks.cbp	(working copy)
+@@ -733,7 +733,6 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h	(revision 9858)
++++ src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h	(working copy)
+@@ -2,7 +2,7 @@
+ #define WXSMITHAUIMANAGER_H
+ 
+ #include <wx/aui/aui.h>
+-#include <wx/wx.h>
++
+ #include <wx/event.h>
+ 
+ #include <prep.h>
+Index: src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h	(revision 9858)
++++ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h	(working copy)
+@@ -19,7 +19,6 @@
+ #ifndef WXSMITHAUITOOLBAR_H
+ #define WXSMITHAUITOOLBAR_H
+ 
+-#include <wx/wx.h>
+ 
+ #if wxCHECK_VERSION(2,8,9)
+ 
+Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(revision 9858)
++++ src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(working copy)
+@@ -20,6 +20,7 @@
+ 					<Add option="-ansi" />
+ 					<Add option="`wx-config --cflags`" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-fPIC" />
+ 				</Compiler>
+@@ -49,6 +50,7 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option="-include sdk.h" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add directory="$(#wx.include)" />
+@@ -83,7 +85,7 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="../../../sdk/wxpropgrid/include" />
+Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cpp
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.cpp	(revision 9858)
++++ src/plugins/contrib/wxSmithAui/wxSmithAui.cpp	(working copy)
+@@ -1,4 +1,6 @@
++#ifndef SDK_H
+ #include <sdk.h> // Code::Blocks SDK
++#endif // #ifndef SDK_H
+ #include <configurationpanel.h>
+ #include "wxSmithAui.h"
+ 
+Index: src/plugins/contrib/wxSmithAui/wxSmithAui.h
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.h	(revision 9858)
++++ src/plugins/contrib/wxSmithAui/wxSmithAui.h	(working copy)
+@@ -10,13 +10,7 @@
+ #ifndef WXSMITHAUI_H_INCLUDED
+ #define WXSMITHAUI_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ 
+ class wxSmithAui : public cbPlugin
