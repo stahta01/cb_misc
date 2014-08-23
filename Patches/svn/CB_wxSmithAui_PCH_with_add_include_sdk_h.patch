@@ -27,14 +27,19 @@ Index: src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h
 ===================================================================
 --- src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h	(revision 9858)
 +++ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h	(working copy)
-@@ -19,7 +19,6 @@
+@@ -19,10 +19,11 @@
  #ifndef WXSMITHAUITOOLBAR_H
  #define WXSMITHAUITOOLBAR_H
  
 -#include <wx/wx.h>
++#include <wx/version.h>
  
  #if wxCHECK_VERSION(2,8,9)
  
++#include <wx/bitmap.h> 
+ #include <wx/aui/auibar.h>
+ 
+ class wxSmithAuiToolBar : public wxAuiToolBar
 Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
 ===================================================================
 --- src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(revision 9858)
