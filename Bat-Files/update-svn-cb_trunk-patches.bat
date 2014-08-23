@@ -32,7 +32,7 @@ REM PAUSE
 
 REM PAUSE
 REM Start of section
-SET PATCH_NAME=cb_src_sdk_templatemanager_cpp
+SET PATCH_NAME=CB_mods2-patchfile
 unix2dos < %CB_GIT%\Patches\Git\%PATCH_NAME%.patch > %CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --backup-if-mismatch --unified --strip=0 --ignore-whitespace --forward --input=%CB_GIT%\Patches\temp\%PATCH_NAME%-CRLF.patch
 svn.exe diff --extensions --unified --extensions --ignore-space-change --extensions --ignore-eol-style > %CB_GIT%\Patches\temp\%PATCH_NAME%-svn.patch
