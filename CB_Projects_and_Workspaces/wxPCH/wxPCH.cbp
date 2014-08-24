@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wxWidgets - PCH" />
+		<Option platforms="Windows;" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="pch">
+				<Option platforms="Windows;" />
+				<Option output="../../../devel/pch/lib.a" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="../../../.objs" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DWXUSINGDLL" />
+				</Compiler>
+			</Target>
+			<Environment>
+				<Variable name="WX_CFG" value="" />
+				<Variable name="WX_SUFFIX" value="u" />
+			</Environment>
+		</Build>
+		<Compiler>
+			<Add option="$(#CB_RELEASE_TYPE)" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-fmessage-length=0" />
+			<Add option="-fexceptions" />
+			<Add option="-Winvalid-pch" />
+			<Add option="-DHAVE_W32API_H" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add directory="$(#wx.include)" />
+			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+		</Compiler>
+		<Unit filename="pch/wx_pch.h">
+			<Option compile="1" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
