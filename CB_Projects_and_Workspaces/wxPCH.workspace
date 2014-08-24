@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="plugins/contrib/wxPCH/wxPCH.cbp" />
+		<Project filename="plugins/contrib/wxContribItems/wxContribItems.cbp" />
+		<Project filename="plugins/contrib/NassiShneiderman/NassiShneiderman.cbp" />
+		<Project filename="plugins/contrib/source_exporter/Exporter.cbp" />
+		<Project filename="plugins/contrib/SpellChecker/SpellChecker.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

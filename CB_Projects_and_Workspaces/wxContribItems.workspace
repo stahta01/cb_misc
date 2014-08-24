@@ -5,8 +5,5 @@
 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp" />
 		<Project filename="plugins/contrib/lib_finder/lib_finder.cbp" />
 		<Project filename="plugins/contrib/ThreadSearch/ThreadSearch.cbp" />
-		<Project filename="plugins/contrib/source_exporter/Exporter.cbp" />
-		<Project filename="plugins/contrib/SpellChecker/SpellChecker.cbp" />
-		<Project filename="plugins/contrib/NassiShneiderman/NassiShneiderman.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
