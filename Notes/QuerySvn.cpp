@@ -1,8 +1,82 @@
-bool QuerySvn(const string& workingDir, string& revision, string &date)
+bool QueryVcs(const string& workingDir, string& revision, string &date)
 {
     revision = "0";
     date = "unknown date";
+    
+    bool result = false;
+    
+    result = QuerySvn(workingDir, revision, date);
+    
+    return result;
+    
+    if (result) return result;
+    
+    result = QueryGit(workingDir, revision, date);
+    
+    if (result) return result;
+    
+    return QuerySvnOldStyle(workingDir, revision, date);
+}
 
+bool QuerySvnOldStyle(const string& workingDir, string& revision, string &date)
+{
+    // third try oldstyle (outdated) svn info (should not be needed anymore)
+    string svncmd = "";
+    FILE *svn = NULL;
+    
+    svncmd = "svn info --non-interactive ";
+    svncmd.append(workingDir);
+    svn = popen(svncmd.c_str(), "r");
+
+    if(svn)
+    {
+        memset(buf, 0, 16384);
+        fread(buf, 16383, 1, svn);
+        ret = pclose(svn);
+        if (!WIFEXITED(ret) || (WEXITSTATUS(ret) != 0))
+            return false;
+    }
+        string what("Last Changed Rev: ");
+        string output(buf);
+        string::size_type pos = string::npos;
+        string::size_type len = 0;
+        pos = output.find(what);
+        if (pos != string::npos)
+        {
+            pos += what.length();
+            len = 0;
+            // revision must be numeric
+            while (buf[ pos + len ] >= '0' && buf[ pos + len++ ] <= '9')
+                ;
+        }
+        if (len != 0)
+            revision = output.substr(pos, len);
+
+        what = "Last Changed Date: ";
+        pos = output.find(what);
+        if (pos != string::npos)
+        {
+            pos += what.length();
+            len = output.find(" ", pos);
+            // we want the position of the second space
+            if (len != string::npos)
+                len = output.find(" ", len + 1);
+            if (len != string::npos)
+                len -= pos;
+            else
+                len = 0;
+        }
+        if (len != 0)
+            date = output.substr(pos, len);
+
+        return true;
+    }
+    // if we are here, we could not read the info
+    return false;
+}
+
+bool QuerySvn(const string& workingDir, string& revision, string &date)
+{
     string svncmd("svn info --xml --non-interactive ");
     svncmd.append(workingDir);
 
@@ -47,7 +121,14 @@ bool QuerySvn(const string& workingDir, string& revision, string &date)
             return false;
         }
     }
+}
 
+bool QueryGit(const string& workingDir, string& revision, string &date)
+{
+    string svncmd = "";
+    
+    FILE *svn = NULL;
+    
     // ensure we have an english environment, needed
     // to correctly parse output of localized (git) svn info
 #ifndef __MINGW32__
@@ -67,21 +148,7 @@ bool QuerySvn(const string& workingDir, string& revision, string &date)
         int ret = pclose(svn);
         if (!WIFEXITED(ret) || (WEXITSTATUS(ret) != 0))
         {
-            svncmd = "svn info --non-interactive ";
-            svncmd.append(workingDir);
-            svn = popen(svncmd.c_str(), "r");
-
-            // third try oldstyle (outated) svn info (should not be needed anymore)
-            if(svn)
-            {
-                memset(buf, 0, 16384);
-                fread(buf, 16383, 1, svn);
-                ret = pclose(svn);
-                if (!WIFEXITED(ret) || (WEXITSTATUS(ret) != 0))
-                    return true;
-            }
-            else
-                return true;
+            return false;
         }
         string what("Last Changed Rev: ");
         string output(buf);
@@ -116,8 +183,8 @@ bool QuerySvn(const string& workingDir, string& revision, string &date)
         if (len != 0)
             date = output.substr(pos, len);
 
-        return false;
+        return true;
     }
     // if we are here, we could not read the info
-    return true;
+    return false;
 }
