@@ -39,9 +39,10 @@ bool QuerySvn(const string& workingDir, string& revision, string &date)
                     pos = date.rfind('.');
                     if (pos != string::npos)
                     {
-                        date = date.substr(0, pos);            }
+                        date = date.substr(0, pos);
                     }
-                    return true;
+                }
+                return true;
             }
             return false;
         }
