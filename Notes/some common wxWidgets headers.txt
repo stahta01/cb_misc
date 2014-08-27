@@ -1,3 +1,4 @@
+    // Some common non GUI wxWidgets Headers
     #include <wx/app.h>          // wxBase
     #include <wx/arrstr.h>       // wxBase
     #include <wx/choicdlg.h>     // wxBase
@@ -23,6 +24,7 @@
     #include <wx/utils.h>        // wxBase
     #include <wx/wfstream.h>     // wxBase not in wx/wx.h
 
+    // Some common GUI wxWidgets Headers
     #include <wx/bmpbuttn.h>     // wxCore
     #include <wx/button.h>       // wxCore
     #include <wx/checkbox.h>     // wxCore
