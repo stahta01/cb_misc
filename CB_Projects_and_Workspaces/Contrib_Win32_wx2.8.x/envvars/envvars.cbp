@@ -14,9 +14,10 @@
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
 				<Option host_application="..\..\..\devel\codeblocks.exe" />
+				<Option projectIncludeDirsRelation="2" />
 				<Compiler>
 					<Add option="-DCB_PRECOMP" />
-					<Add option="-DWX_PRECOMP" />
+					<Add directory="../../../.objs/include" />
 				</Compiler>
 			</Target>
 			<Target title="no_pch">
