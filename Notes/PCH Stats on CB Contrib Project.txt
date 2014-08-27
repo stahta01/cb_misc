@@ -1,7 +1,14 @@
 cbp basename      # src files #sdk total  #sdk good   #CB_PRECOMP #WX_PRECOMP
+++wxSmith          *          0
+++wxSmithAui       *          1           1
+   Required adding header guard
+   Did many other source code fixes.
 ++codesnippets    12          4           0           3
    Required adding header guard
-DevPakPlugin       8          0           0           0
+++lib_finder      15          1           0           0
+   Required adding header guard
+++ProjectOptionsManipulator   0
+++DevPakPlugin     8          0           0           0
    needs search folder for wx/wxscintilla.h
 +DragScroll        3          1           0           1
    Required removing pragmas
@@ -10,14 +17,10 @@ DevPakPlugin       8          0           0           0
 +keybinder         3          3           0           3
    Requires removing pragmas
    Needs source code changes to all src files.
-++lib_finder      15          1           0           0
-   Required adding header guard
 +MouseSap          1          1           0           1
    Required removing pragmas
 +SmartIndent       7          7           0           7
    Needs source code changes to all src and most header files.
-++wxSmith          *          0
-wxSmithAui         *          1           1
 ToolsPlus          6          5           0           2
    Needs source code changes to most header files.
    Needs fbp file to be edited and rebuilt.
@@ -25,12 +28,12 @@ NassiShneiderman  25          1           0           1           16
    Requires removing pragmas
 Exporter           6          0           0           0            *
 SpellChecker      13          4           1           4           15
-ProjectOptionsManipulator     0
 
 cbp basename                  #sdk total  #sdk good   #CB_PRECOMP #WX_PRECOMP
 wxSmithContribItems           1
 wxSmithDateTimePicker         1
 wxSmithDemo                   0           0           0           
+   No use of CB SDK headers.
 wxsSmithIExplore              1
 wxsSmithPlot                  1
 wxsSmithSTC                   1

@@ -2,7 +2,6 @@ KWIC Current maintainer: Marco Cavallini http://svn.code.sf.net/p/wxcode/code/tr
 wxTreeList Current maintainer: Ronan Chartois http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/treelistctrl/
 
 wxled/wxLEDPanel Current maintainer: Christian Gräfe http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/ledpanel/
-
 wxled/LCDWindow wxCode UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/lcdwindow/
 wxled/wxLed wxCode Current maintainer: UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/led/src/led.cpp
 
