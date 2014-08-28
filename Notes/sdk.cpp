@@ -75,5 +75,51 @@
 
 // CB SDK Headers in sdk_common.h
 #ifndef CB_PRECOMP
+    // basic headers
+    #include <settings.h>
+    #include <globals.h>
+    #include <sdk_events.h>
+    #include <cbexception.h>
 
+    // absolute base classes
+    #include <logger.h>
+    #include <editorbase.h>
+    #include <cbeditor.h>
+    #include <compileoptionsbase.h>
+    #include <compiletargetbase.h>
+    #include <projectbuildtarget.h>
+    #include <projectfile.h>
+    #include <cbplugin.h>
+    #include <cbproject.h>
+    #include <cbtool.h>
+    #include <cbworkspace.h>
+    #include <compilerfactory.h>
+    #include <compiler.h>
+    #include <workspaceloader.h>
+    #include <editorcolourset.h>
+    #include <pipedprocess.h>
+    #include <scrollingdialog.h>
+    #include <cbauibook.h>
+
+    // managers
+    #include <manager.h>
+    #include <configmanager.h>
+    #include <editormanager.h>
+    #include <logmanager.h>
+    #include <projectmanager.h>
+    #include <menuitemsmanager.h>
+    #include <scriptingmanager.h>
+    #include <toolsmanager.h>
+    #include <templatemanager.h>
+    #include <macrosmanager.h>
+    #include <pluginmanager.h>
+    #include <personalitymanager.h>
+    #include <uservarmanager.h>
+    #include <filemanager.h>
+
+    // other base files
+    #include <xtra_res.h>
+    #include <safedelete.h>
+    #include <infowindow.h>
+    #include <licenses.h>
 #endif // #ifndef CB_PRECOMP
