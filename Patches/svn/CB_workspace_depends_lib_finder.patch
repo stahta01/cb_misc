@@ -1,0 +1,117 @@
+Index: src/CodeBlocks-unix.workspace
+===================================================================
+--- src/CodeBlocks-unix.workspace	(revision 9862)
++++ src/CodeBlocks-unix.workspace	(working copy)
+@@ -7,7 +7,7 @@
+ 		<Project filename="plugins/contrib/wxContribItems/wxContribItems-unix.cbp" />
+ 		<Project filename="plugins/contrib/wxSmith/wxSmith-unix.cbp" />
+ 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems-unix.cbp">
+-			<Depends filename="plugins/contrib/lib_finder/lib_finder-unix.cbp" />
++			<Depends filename="plugins/contrib/wxContribItems/wxContribItems-unix.cbp" />
+ 			<Depends filename="plugins/contrib/wxSmith/wxSmith-unix.cbp" />
+ 		</Project>
+ 		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui.cbp">
+Index: src/CodeBlocks.workspace
+===================================================================
+--- src/CodeBlocks.workspace	(revision 9862)
++++ src/CodeBlocks.workspace	(working copy)
+@@ -9,7 +9,7 @@
+ 		<Project filename="plugins/contrib/wxContribItems/wxContribItems.cbp" />
+ 		<Project filename="plugins/contrib/wxSmith/wxSmith.cbp" />
+ 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp">
+-			<Depends filename="plugins/contrib/lib_finder/lib_finder.cbp" />
++			<Depends filename="plugins/contrib/wxContribItems/wxContribItems.cbp" />
+ 			<Depends filename="plugins/contrib/wxSmith/wxSmith.cbp" />
+ 		</Project>
+ 		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui.cbp">
+Index: src/CodeBlocks_wx30-unix.workspace
+===================================================================
+--- src/CodeBlocks_wx30-unix.workspace	(revision 9862)
++++ src/CodeBlocks_wx30-unix.workspace	(working copy)
+@@ -7,7 +7,7 @@
+ 		<Project filename="plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp" />
+ 		<Project filename="plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp" />
+ 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp">
+-			<Depends filename="plugins/contrib/lib_finder/lib_finder_wx30-unix.cbp" />
++			<Depends filename="plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp" />
+ 			<Depends filename="plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp" />
+ 		</Project>
+ 		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp">
+Index: src/CodeBlocks_wx30.workspace
+===================================================================
+--- src/CodeBlocks_wx30.workspace	(revision 9862)
++++ src/CodeBlocks_wx30.workspace	(working copy)
+@@ -9,7 +9,7 @@
+ 		<Project filename="plugins/contrib/wxContribItems/wxContribItems_wx30.cbp" />
+ 		<Project filename="plugins/contrib/wxSmith/wxSmith_wx30.cbp" />
+ 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30.cbp">
+-			<Depends filename="plugins/contrib/lib_finder/lib_finder_wx30.cbp" />
++			<Depends filename="plugins/contrib/wxContribItems/wxContribItems_wx30.cbp" />
+ 			<Depends filename="plugins/contrib/wxSmith/wxSmith_wx30.cbp" />
+ 		</Project>
+ 		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp">
+Index: src/CodeBlocks_wx30_64.workspace
+===================================================================
+--- src/CodeBlocks_wx30_64.workspace	(revision 9862)
++++ src/CodeBlocks_wx30_64.workspace	(working copy)
+@@ -9,7 +9,7 @@
+ 		<Project filename="plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp" />
+ 		<Project filename="plugins/contrib/wxSmith/wxSmith_wx30_64.cbp" />
+ 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30_64.cbp">
+-			<Depends filename="plugins/contrib/lib_finder/lib_finder_wx30_64.cbp" />
++			<Depends filename="plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp" />
+ 			<Depends filename="plugins/contrib/wxSmith/wxSmith_wx30_64.cbp" />
+ 		</Project>
+ 		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui_wx30_64.cbp">
+Index: src/ContribPlugins-unix.workspace
+===================================================================
+--- src/ContribPlugins-unix.workspace	(revision 9862)
++++ src/ContribPlugins-unix.workspace	(working copy)
+@@ -5,7 +5,7 @@
+ 		<Project filename="plugins/contrib/wxContribItems/wxContribItems-unix.cbp" />
+ 		<Project filename="plugins/contrib/wxSmith/wxSmith-unix.cbp" />
+ 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems-unix.cbp">
+-			<Depends filename="plugins/contrib/lib_finder/lib_finder-unix.cbp" />
++			<Depends filename="plugins/contrib/wxContribItems/wxContribItems-unix.cbp" />
+ 			<Depends filename="plugins/contrib/wxSmith/wxSmith-unix.cbp" />
+ 		</Project>
+ 		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui.cbp">
+Index: src/ContribPlugins.workspace
+===================================================================
+--- src/ContribPlugins.workspace	(revision 9862)
++++ src/ContribPlugins.workspace	(working copy)
+@@ -8,7 +8,7 @@
+ 		<Project filename="plugins/contrib/wxContribItems/wxContribItems.cbp" />
+ 		<Project filename="plugins/contrib/wxSmith/wxSmith.cbp" />
+ 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp">
+-			<Depends filename="plugins/contrib/lib_finder/lib_finder.cbp" />
++			<Depends filename="plugins/contrib/wxContribItems/wxContribItems.cbp" />
+ 			<Depends filename="plugins/contrib/wxSmith/wxSmith.cbp" />
+ 		</Project>
+ 		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui.cbp">
+Index: src/ContribPlugins_wx30-unix.workspace
+===================================================================
+--- src/ContribPlugins_wx30-unix.workspace	(revision 9862)
++++ src/ContribPlugins_wx30-unix.workspace	(working copy)
+@@ -5,7 +5,7 @@
+ 		<Project filename="plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp" />
+ 		<Project filename="plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp" />
+ 		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp">
+-			<Depends filename="plugins/contrib/lib_finder/lib_finder_wx30-unix.cbp" />
++			<Depends filename="plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp" />
+ 			<Depends filename="plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp" />
+ 		</Project>
+ 		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp">
+Index: src/ContribPlugins_wx30.workspace
+===================================================================
+--- src/ContribPlugins_wx30.workspace	(revision 9862)
++++ src/ContribPlugins_wx30.workspace	(working copy)
+@@ -8,7 +8,7 @@
+ 		<Project filename="plugins\contrib\wxContribItems\wxContribItems_wx30.cbp" />
+ 		<Project filename="plugins\contrib\wxSmith\wxSmith_wx30.cbp" />
+ 		<Project filename="plugins\contrib\wxSmithContribItems\wxSmithContribItems_wx30.cbp">
+-			<Depends filename="plugins\contrib\lib_finder\lib_finder_wx30.cbp" />
++			<Depends filename="plugins\contrib\wxContribItems\wxContribItems_wx30.cbp" />
+ 			<Depends filename="plugins\contrib\wxSmith\wxSmith_wx30.cbp" />
+ 		</Project>
+ 		<Project filename="plugins\contrib\wxSmithAui\wxSmithAui_wx30.cbp">
