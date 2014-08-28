@@ -1,4 +1,4 @@
-Steps to check or Fix local master
+Steps to create branch from local master
 
 cd Production
 cd codeblocks_mods2
@@ -11,9 +11,9 @@ git pull --rebase upstream master
 
 git status
 
-git branch build/cb_global_var
+git branch build/project_bugs
 
-git checkout build/cb_global_var
+git checkout build/project_bugs
 
 git pull --rebase upstream master
 
@@ -21,7 +21,11 @@ git status
 
 git svn fetch
 
+git status
+
 git svn rebase --local
+
+git status
 
 git svn info
 

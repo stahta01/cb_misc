@@ -73,7 +73,7 @@
     #include <wx/xrc/xmlres.h>
 #endif // #if defined(CB_PRECOMP)
 
-// CB SDK Header
+// CB SDK Headers in sdk_common.h
 #ifndef CB_PRECOMP
 
 #endif // #ifndef CB_PRECOMP

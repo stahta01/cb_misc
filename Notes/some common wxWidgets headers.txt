@@ -61,4 +61,5 @@
     #include <wx/treectrl.h>     // wxCore not in wx/wx.h
     #include <wx/xrc/xmlres.h>   // wxXRC  not in wx/wx.h
     
-    #include <wx/wxscintilla.h>  // Not part of wxWidgets
+    // Code::Blocks/wxscintilla header
+    #include <wx/wxscintilla.h>
