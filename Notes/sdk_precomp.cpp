@@ -1,3 +1,4 @@
+// sdk_precomp.h must be the first include in the file to work as a PCH
 #include "sdk_precomp.h"
 
 // wxWidgets headers in both wx/wx.h and sdk_common.h
