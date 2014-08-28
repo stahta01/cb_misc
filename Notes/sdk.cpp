@@ -1,4 +1,4 @@
-#include "sdk_precomp.h"
+#include <sdk.h>
 
 // wxWidgets headers in both wx/wx.h and sdk_common.h
 #if defined(CB_PRECOMP) || defined(WX_PRECOMP)
