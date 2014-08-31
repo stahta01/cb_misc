@@ -1,0 +1,1120 @@
+Index: src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+===================================================================
+--- src/plugins/contrib/AutoVersioning/AutoVersioning.cbp	(revision 9862)
++++ src/plugins/contrib/AutoVersioning/AutoVersioning.cbp	(working copy)
+@@ -36,7 +36,9 @@
+ 				<Linker>
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-mthreads" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
+ 					<Add library="codeblocks" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+@@ -47,8 +49,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -56,7 +59,6 @@
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add option="-Wall" />
+-			<Add option="$(#CB_RELEASE_TYPE)" />
+ 		</Compiler>
+ 		<Unit filename="AutoVersioning.cpp" />
+ 		<Unit filename="AutoVersioning.h" />
+@@ -76,8 +78,8 @@
+ 			<wxsmith version="1">
+ 				<gui name="wxWidgets" src="avVersionEditorDlg.cpp" main="avVersionEditorDlg" init_handlers="necessary" language="CPP" />
+ 				<resources>
+-					<wxScrollingDialog wxs="wxsmith/avVersionEditorDlg.wxs" src="avVersionEditorDlg.cpp" hdr="avVersionEditorDlg.h" name="avVersionEditorDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/avChangesDlg.wxs" src="avChangesDlg.cpp" hdr="avChangesDlg.h" name="avChangesDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/avVersionEditorDlg.wxs" src="avVersionEditorDlg.cpp" hdr="avVersionEditorDlg.h" fwddecl="0" i18n="1" name="avVersionEditorDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/avChangesDlg.wxs" src="avChangesDlg.cpp" hdr="avChangesDlg.h" fwddecl="0" i18n="1" name="avChangesDlg" language="CPP" />
+ 				</resources>
+ 			</wxsmith>
+ 			<debugger />
+Index: src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(revision 9862)
++++ src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(working copy)
+@@ -39,7 +39,10 @@
+ 					<Add option="-s" />
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-mthreads" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add library="codeblocks" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+@@ -50,8 +53,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/Cccc/Cccc.cbp
+===================================================================
+--- src/plugins/contrib/Cccc/Cccc.cbp	(revision 9862)
++++ src/plugins/contrib/Cccc/Cccc.cbp	(working copy)
+@@ -16,8 +16,9 @@
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -47,7 +48,8 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+Index: src/plugins/contrib/CppCheck/CppCheck.cbp
+===================================================================
+--- src/plugins/contrib/CppCheck/CppCheck.cbp	(revision 9862)
++++ src/plugins/contrib/CppCheck/CppCheck.cbp	(working copy)
+@@ -16,8 +16,9 @@
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -48,7 +49,8 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+Index: src/plugins/contrib/Cscope/Cscope.cbp
+===================================================================
+--- src/plugins/contrib/Cscope/Cscope.cbp	(revision 9862)
++++ src/plugins/contrib/Cscope/Cscope.cbp	(working copy)
+@@ -14,8 +14,9 @@
+ 				<Option host_application="..\..\..\devel\codeblocks.exe" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -47,7 +48,8 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 			<Add directory="..\..\..\devel" />
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(revision 9862)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(working copy)
+@@ -42,8 +42,9 @@
+ 				<Linker>
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-mthreads" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="../../../devel" />
+ 					<Add directory="$(#wx.lib)" />
+ 					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+@@ -55,7 +56,7 @@
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+ 				<Environment>
+-					<Variable name="WX_CFG" value="" />
++					<Variable name="WX_CFG" value="multi" />
+ 					<Variable name="WX_SUFFIX" value="u" />
+ 					<Variable name="WX_VERSION" value="28" />
+ 				</Environment>
+Index: src/plugins/contrib/EditorConfig/EditorConfig.cbp
+===================================================================
+--- src/plugins/contrib/EditorConfig/EditorConfig.cbp	(revision 9862)
++++ src/plugins/contrib/EditorConfig/EditorConfig.cbp	(working copy)
+@@ -36,8 +36,9 @@
+ 					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
+ 				</Linker>
+@@ -47,8 +48,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+===================================================================
+--- src/plugins/contrib/EditorTweaks/EditorTweaks.cbp	(revision 9862)
++++ src/plugins/contrib/EditorTweaks/EditorTweaks.cbp	(working copy)
+@@ -36,8 +36,10 @@
+ 					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
+ 				</Linker>
+@@ -46,8 +48,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/FileManager/FileManager.cbp
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.cbp	(revision 9862)
++++ src/plugins/contrib/FileManager/FileManager.cbp	(working copy)
+@@ -16,15 +16,19 @@
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 				</Compiler>
+ 				<Linker>
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/HexEditor/HexEditor.cbp
+===================================================================
+--- src/plugins/contrib/HexEditor/HexEditor.cbp	(revision 9862)
++++ src/plugins/contrib/HexEditor/HexEditor.cbp	(working copy)
+@@ -37,7 +37,8 @@
+ 				<Linker>
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-mthreads" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 					<Add directory="..\..\..\devel" />
+@@ -48,8 +49,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+===================================================================
+--- src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp	(revision 9862)
++++ src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp	(working copy)
+@@ -36,8 +36,10 @@
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 				</Linker>
+@@ -47,11 +49,12 @@
+ 					<Add after="update.bat" />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+-				<Environment>
+-					<Variable name="WX_SUFFIX" value="u" />
+-					<Variable name="WX_CFG" value="" />
+-				</Environment>
+ 			</Target>
++			<Environment>
++				<Variable name="WX_CFG" value="multi" />
++				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
++			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+ 			<Add alias="All" targets="default;" />
+Index: src/plugins/contrib/MouseSap/MouseSap.cbp
+===================================================================
+--- src/plugins/contrib/MouseSap/MouseSap.cbp	(revision 9862)
++++ src/plugins/contrib/MouseSap/MouseSap.cbp	(working copy)
+@@ -36,7 +36,8 @@
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+@@ -45,11 +46,12 @@
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\MouseSap.zip manifest.xml" />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+-				<Environment>
+-					<Variable name="WX_SUFFIX" value="u" />
+-					<Variable name="WX_CFG" value="" />
+-				</Environment>
+ 			</Target>
++			<Environment>
++				<Variable name="WX_CFG" value="multi" />
++				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
++			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+ 			<Add alias="All" targets="default;" />
+Index: src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp	(revision 9862)
++++ src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp	(working copy)
+@@ -38,8 +38,9 @@
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,-enable-auto-import" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
+ 				</Linker>
+@@ -47,7 +48,7 @@
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\NassiShneiderman.zip manifest.xml" />
+ 				</ExtraCommands>
+ 				<Environment>
+-					<Variable name="WX_CFG" value="" />
++					<Variable name="WX_CFG" value="multi" />
+ 					<Variable name="WX_SUFFIX" value="u" />
+ 					<Variable name="WX_VERSION" value="28" />
+ 				</Environment>
+Index: src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+===================================================================
+--- src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp	(revision 9862)
++++ src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp	(working copy)
+@@ -18,8 +18,8 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+@@ -54,8 +54,9 @@
+ 			<Add option="-Wl,--enable-auto-image-base" />
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+-			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="../../../devel" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+Index: src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+===================================================================
+--- src/plugins/contrib/ReopenEditor/ReopenEditor.cbp	(revision 9862)
++++ src/plugins/contrib/ReopenEditor/ReopenEditor.cbp	(working copy)
+@@ -36,8 +36,10 @@
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 				</Linker>
+@@ -45,11 +47,12 @@
+ 					<Add after="zip -jq9 ..\..\..\devel\share\codeblocks\ReopenEditor.zip manifest.xml *.xrc" />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+-				<Environment>
+-					<Variable name="WX_SUFFIX" value="u" />
+-					<Variable name="WX_CFG" value="" />
+-				</Environment>
+ 			</Target>
++			<Environment>
++				<Variable name="WX_CFG" value="multi" />
++				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
++			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+ 			<Add alias="All" targets="default;" />
+Index: src/plugins/contrib/SmartIndent/SmartIndent.cbp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndent.cbp	(revision 9862)
++++ src/plugins/contrib/SmartIndent/SmartIndent.cbp	(working copy)
+@@ -154,8 +154,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -181,8 +182,8 @@
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<Linker>
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="../../../devel" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+Index: src/plugins/contrib/SpellChecker/SpellChecker.cbp
+===================================================================
+--- src/plugins/contrib/SpellChecker/SpellChecker.cbp	(revision 9862)
++++ src/plugins/contrib/SpellChecker/SpellChecker.cbp	(working copy)
+@@ -90,7 +90,10 @@
+ 					<Add library="wxSpellChecker" />
+ 					<Add library="hunspell" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="../../../devel" />
+ 					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+@@ -110,8 +113,9 @@
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+ 				<Environment>
+-					<Variable name="WX_CFG" value="" />
++					<Variable name="WX_CFG" value="multi" />
+ 					<Variable name="WX_SUFFIX" value="u" />
++					<Variable name="WX_VERSION" value="28" />
+ 				</Environment>
+ 			</Target>
+ 		</Build>
+Index: src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(revision 9862)
++++ src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(working copy)
+@@ -18,15 +18,19 @@
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="wxcustombutton" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus.cbp	(revision 9862)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus.cbp	(working copy)
+@@ -17,17 +17,19 @@
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 				</Compiler>
+ 				<Linker>
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxscintilla_cb" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="gdi32" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/byogames/byogames.cbp
+===================================================================
+--- src/plugins/contrib/byogames/byogames.cbp	(revision 9862)
++++ src/plugins/contrib/byogames/byogames.cbp	(working copy)
+@@ -14,8 +14,9 @@
+ 				<Option host_application="..\..\..\devel\codeblocks.exe" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -49,7 +50,8 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 			<Add directory="..\..\..\devel" />
+Index: src/plugins/contrib/cb_koders/cb_koders.cbp
+===================================================================
+--- src/plugins/contrib/cb_koders/cb_koders.cbp	(revision 9862)
++++ src/plugins/contrib/cb_koders/cb_koders.cbp	(working copy)
+@@ -19,8 +19,9 @@
+ 				<Option projectResourceIncludeDirsRelation="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -53,7 +54,8 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 			<Add directory="../../../devel" />
+Index: src/plugins/contrib/codesnippets/codesnippets.cbp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets.cbp	(revision 9862)
++++ src/plugins/contrib/codesnippets/codesnippets.cbp	(working copy)
+@@ -19,13 +19,10 @@
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 					<Add option="-DCB_PRECOMP" />
+ 				</Compiler>
+-				<Linker>
+-					<Add library="codeblocks" />
+-				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+@@ -66,7 +63,8 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+Index: src/plugins/contrib/codestat/codestat.cbp
+===================================================================
+--- src/plugins/contrib/codestat/codestat.cbp	(revision 9862)
++++ src/plugins/contrib/codestat/codestat.cbp	(working copy)
+@@ -16,8 +16,9 @@
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -48,7 +49,9 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+Index: src/plugins/contrib/copystrings/copystrings.cbp
+===================================================================
+--- src/plugins/contrib/copystrings/copystrings.cbp	(revision 9862)
++++ src/plugins/contrib/copystrings/copystrings.cbp	(working copy)
+@@ -14,8 +14,9 @@
+ 				<Option host_application="..\..\..\devel\codeblocks.exe" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -47,7 +48,8 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 			<Add directory="..\..\..\devel" />
+Index: src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+===================================================================
+--- src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp	(revision 9862)
++++ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp	(working copy)
+@@ -46,6 +46,11 @@
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="codeblocks" />
+ 					<Add library="bz2" />
+ 					<Add directory="..\..\..\devel" />
+ 				</Linker>
+@@ -55,8 +60,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -72,8 +78,6 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+-			<Add library="codeblocks" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="bzip2" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 		</Linker>
+Index: src/plugins/contrib/dragscroll/DragScroll.cbp
+===================================================================
+--- src/plugins/contrib/dragscroll/DragScroll.cbp	(revision 9862)
++++ src/plugins/contrib/dragscroll/DragScroll.cbp	(working copy)
+@@ -15,8 +15,9 @@
+ 				<Option host_application="..\..\..\devel\codeblocks.exe" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -46,7 +47,9 @@
+ 		</Compiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+Index: src/plugins/contrib/envvars/envvars.cbp
+===================================================================
+--- src/plugins/contrib/envvars/envvars.cbp	(revision 9862)
++++ src/plugins/contrib/envvars/envvars.cbp	(working copy)
+@@ -31,8 +31,9 @@
+ 				</Compiler>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -63,7 +64,9 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+Index: src/plugins/contrib/headerfixup/headerfixup.cbp
+===================================================================
+--- src/plugins/contrib/headerfixup/headerfixup.cbp	(revision 9862)
++++ src/plugins/contrib/headerfixup/headerfixup.cbp	(working copy)
+@@ -43,8 +43,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -53,7 +54,8 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+ 		</Linker>
+ 		<Unit filename="bindings.cpp" />
+Index: src/plugins/contrib/help_plugin/help-plugin.cbp
+===================================================================
+--- src/plugins/contrib/help_plugin/help-plugin.cbp	(revision 9862)
++++ src/plugins/contrib/help_plugin/help-plugin.cbp	(working copy)
+@@ -72,8 +72,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -95,7 +96,10 @@
+ 			<Add option="-Wl,--enable-auto-image-base" />
+ 			<Add option="-Wl,--add-stdcall-alias" />
+ 			<Add option="-Wl,--enable-auto-import" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+Index: src/plugins/contrib/keybinder/keybinder.cbp
+===================================================================
+--- src/plugins/contrib/keybinder/keybinder.cbp	(revision 9862)
++++ src/plugins/contrib/keybinder/keybinder.cbp	(working copy)
+@@ -33,8 +33,9 @@
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -49,8 +50,9 @@
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<Linker>
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add library="codeblocks" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 		</Linker>
+Index: src/plugins/contrib/lib_finder/lib_finder.cbp
+===================================================================
+--- src/plugins/contrib/lib_finder/lib_finder.cbp	(revision 9862)
++++ src/plugins/contrib/lib_finder/lib_finder.cbp	(working copy)
+@@ -17,8 +17,9 @@
+ 				<Option projectResourceIncludeDirsRelation="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -63,9 +64,11 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
++			<Add library="codeblocks" />
+ 			<Add library="wxflatnotebook" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="..\..\..\base\tinyxml" />
+Index: src/plugins/contrib/profiler/cbprofiler.cbp
+===================================================================
+--- src/plugins/contrib/profiler/cbprofiler.cbp	(revision 9862)
++++ src/plugins/contrib/profiler/cbprofiler.cbp	(working copy)
+@@ -15,8 +15,9 @@
+ 				<Option host_application="..\..\..\devel\codeblocks.exe" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -48,8 +49,10 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 			<Add library="codeblocks" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 		</Linker>
+Index: src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+===================================================================
+--- src/plugins/contrib/regex_testbed/RegExTestbed.cbp	(revision 9862)
++++ src/plugins/contrib/regex_testbed/RegExTestbed.cbp	(working copy)
+@@ -24,8 +24,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -59,7 +60,9 @@
+ 			<Add option="-Wl,--enable-auto-image-base" />
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 			<Add directory="..\..\..\devel" />
+Index: src/plugins/contrib/rndgen/rndgen.cbp
+===================================================================
+--- src/plugins/contrib/rndgen/rndgen.cbp	(revision 9862)
++++ src/plugins/contrib/rndgen/rndgen.cbp	(working copy)
+@@ -30,10 +30,11 @@
+ 					<Add directory="..\..\..\include" />
+ 					<Add directory="..\..\..\sdk\wxscintilla\include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+@@ -44,8 +45,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/source_exporter/Exporter.cbp
+===================================================================
+--- src/plugins/contrib/source_exporter/Exporter.cbp	(revision 9862)
++++ src/plugins/contrib/source_exporter/Exporter.cbp	(working copy)
+@@ -74,7 +74,9 @@
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 					<Add library="wxPdfDocument" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add library="gdi32" />
+ 					<Add directory="..\..\..\devel" />
+ 					<Add directory="wxPdfDocument\lib" />
+@@ -85,8 +87,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/symtab/symtab.cbp
+===================================================================
+--- src/plugins/contrib/symtab/symtab.cbp	(revision 9862)
++++ src/plugins/contrib/symtab/symtab.cbp	(working copy)
+@@ -19,8 +19,9 @@
+ 				</Compiler>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -52,8 +53,10 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 			<Add library="codeblocks" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="..\..\..\devel" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 		</Linker>
+Index: src/plugins/contrib/wxContribItems/wxContribItems.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems.cbp	(revision 9862)
++++ src/plugins/contrib/wxContribItems/wxContribItems.cbp	(working copy)
+@@ -111,8 +111,9 @@
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -136,8 +137,11 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxpropgrid" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="../../../devel" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+Index: src/plugins/contrib/wxSmith/wxSmith.cbp
+===================================================================
+--- src/plugins/contrib/wxSmith/wxSmith.cbp	(revision 9862)
++++ src/plugins/contrib/wxSmith/wxSmith.cbp	(working copy)
+@@ -30,8 +30,9 @@
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -79,9 +80,14 @@
+ 			<Add option="-Wl,--add-stdcall-alias" />
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
++			<Add library="codeblocks" />
+ 			<Add library="wxpropgrid" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_richtext" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+ 			<Add directory="..\..\..\devel" />
+Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(revision 9862)
++++ src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(working copy)
+@@ -60,7 +60,9 @@
+ 					<Add option="-Wl,--add-stdcall-alias" />
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-mthreads" />
+-					<Add library="wxmsw28$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -68,8 +70,9 @@
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+ 				<Environment>
+-					<Variable name="WX_CFG" value="" />
++					<Variable name="WX_CFG" value="multi" />
+ 					<Variable name="WX_SUFFIX" value="u" />
++					<Variable name="WX_VERSION" value="28" />
+ 				</Environment>
+ 			</Target>
+ 		</Build>
+@@ -91,8 +94,8 @@
+ 		</Compiler>
+ 		<Linker>
+ 			<Add library="codeblocks" />
++			<Add library="wxpropgrid" />
+ 			<Add library="wxsmithlib" />
+-			<Add library="wxpropgrid" />
+ 			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<Unit filename="manifest.xml" />
+Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(revision 9862)
++++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(working copy)
+@@ -43,9 +43,11 @@
+ 					<Add directory="../wxContribItems/wxled/ledpanel/include" />
+ 				</Compiler>
+ 				<Linker>
++					<Add library="codeblocks" />
+ 					<Add library="wxpropgrid" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add library="wxsmithlib" />
+-					<Add library="codeblocks" />
+ 					<Add library="wxkwic" />
+ 					<Add library="wxflatnotebook" />
+ 					<Add library="wxchartctrl" />
+@@ -62,8 +64,9 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -88,8 +91,6 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxpropgrid" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="../../../devel" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>

@@ -1,0 +1,51 @@
+Index: src/tools/Addr2LineUI/Addr2LineUI.cbp
+===================================================================
+--- src/tools/Addr2LineUI/Addr2LineUI.cbp	(revision 9862)
++++ src/tools/Addr2LineUI/Addr2LineUI.cbp	(working copy)
+@@ -21,9 +21,9 @@
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_VER" value="28" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -47,7 +47,8 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw$(WX_VER)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="Addr2LineUIApp.cpp" />
+Index: src/tools/cb_share_config/cb_share_config.cbp
+===================================================================
+--- src/tools/cb_share_config/cb_share_config.cbp	(revision 9862)
++++ src/tools/cb_share_config/cb_share_config.cbp	(working copy)
+@@ -14,8 +14,9 @@
+ 				<Option compiler="gcc" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -44,7 +45,8 @@
+ 		<Linker>
+ 			<Add option="-mthreads" />
+ 			<Add library="txml" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+ 			<Add directory="..\..\base\tinyxml" />
+ 		</Linker>

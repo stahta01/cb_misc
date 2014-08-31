@@ -1,0 +1,430 @@
+Index: src/CodeBlocks.cbp
+===================================================================
+--- src/CodeBlocks.cbp	(revision 9862)
++++ src/CodeBlocks.cbp	(working copy)
+@@ -12,6 +12,7 @@
+ 				<Option working_dir="devel" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add directory="base/exchndl/include" />
+ 				</Compiler>
+@@ -27,6 +28,7 @@
+ 				<Option working_dir="" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add directory="include/tinyxml" />
+ 				</Compiler>
+@@ -60,6 +62,7 @@
+ 				<Option working_dir="" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fno-inline" />
+ 					<Add directory="include/scripting/include" />
+@@ -72,6 +75,7 @@
+ 				<Option external_deps="sdk/scripting/lib/libsquirrel.a;" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fno-inline" />
+ 					<Add directory="include/scripting/include" />
+@@ -84,6 +88,7 @@
+ 				<Option external_deps="sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fno-inline" />
+ 					<Add directory="include/scripting/include" />
+@@ -95,6 +100,7 @@
+ 				<Option working_dir="" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-D__WX__" />
+ 					<Add option="-DWINVER=0x0501" />
+@@ -122,6 +128,7 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DEXPORT_LIB" />
+ 					<Add option="-DwxPG_SUPPORT_TOOLTIPS" />
+@@ -136,6 +143,11 @@
+ 					<Add option="-Wl,--add-stdcall-alias" />
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="sdk">
+@@ -146,7 +158,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --verbose -p debug" />
+ 				<Option createStaticLib="1" />
+-				<Option projectLinkerOptionsRelation="2" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-Woverloaded-virtual" />
+ 					<Add option="-DEXPORT_LIB" />
+@@ -174,11 +186,19 @@
+ 					<Add library="shfolder" />
+ 					<Add library="txml" />
+ 					<Add library="wxscintilla_cb" />
+-					<Add library="wxpropgrid" />
+ 					<Add library="sqplus" />
+ 					<Add library="sqstdlib" />
+ 					<Add library="squirrel" />
+ 					<Add library="gdi32" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
++					<Add library="wxpropgrid" />
+ 					<Add directory="devel" />
+ 					<Add directory="sdk/scripting/lib" />
+ 					<Add directory="sdk/propgrid" />
+@@ -198,7 +218,7 @@
+ 				<Option type="0" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+-				<Option projectLinkerOptionsRelation="2" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -215,7 +235,6 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxpropgrid" />
+ 					<Add library="shfolder" />
+ 					<Add library="kernel32" />
+ 					<Add library="user32" />
+@@ -231,6 +250,15 @@
+ 					<Add library="rpcrt4" />
+ 					<Add library="advapi32" />
+ 					<Add library="wsock32" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
++					<Add library="wxpropgrid" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -250,7 +278,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -264,8 +291,9 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -283,7 +311,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DASTYLE_LIB" />
+@@ -297,7 +324,8 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -315,7 +343,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -327,7 +354,8 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -341,6 +369,7 @@
+ 				<Option working_dir="" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DDEPSLIB_WINDOWS" />
+ 				</Compiler>
+@@ -358,7 +387,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -373,8 +401,10 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add library="depslib" />
++					<Add library="wxpropgrid" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add directory="devel" />
+ 					<Add directory="plugins/compilergcc/depslib" />
+ 				</Linker>
+@@ -396,7 +426,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -410,7 +439,8 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -428,7 +458,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -445,8 +474,10 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -464,7 +495,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -476,7 +506,8 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -494,7 +525,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -505,8 +535,10 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -524,7 +556,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -536,7 +567,8 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -554,7 +586,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -565,8 +596,8 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -584,7 +615,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -601,8 +631,8 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -620,7 +650,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -633,8 +662,10 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -652,7 +683,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -670,7 +700,8 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -688,7 +719,6 @@
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+ 				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="include" />
+@@ -700,7 +730,6 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -710,14 +739,14 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+ 			<Add alias="All" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;wxpropgrid;sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
+-			<Add alias="Core app &amp; plugins" targets="sdk;src;AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
++			<Add alias="Core app &amp; plugins" targets="src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
+ 			<Add alias="Third-party libs" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;wxpropgrid;Compiler depslib;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+@@ -746,7 +775,9 @@
+ 			<Add directory="$(#WX)/lib/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</ResourceCompiler>
+ 		<Linker>
+-			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
+ 			<Add directory="base/tinyxml" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>

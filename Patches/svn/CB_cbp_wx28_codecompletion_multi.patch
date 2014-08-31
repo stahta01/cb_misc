@@ -1,0 +1,24 @@
+Index: src/plugins/codecompletion/cctest.cbp
+===================================================================
+--- src/plugins/codecompletion/cctest.cbp	(revision 9862)
++++ src/plugins/codecompletion/cctest.cbp	(working copy)
+@@ -18,7 +18,7 @@
+ 				</Compiler>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CFG" value="multi" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+@@ -51,8 +51,9 @@
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-Wl,--no-undefined" />
+ 			<Add option="-mthreads" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 			<Add directory="../../devel" />
+ 		</Linker>
