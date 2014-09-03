@@ -18,8 +18,9 @@ $ git clone --origin upstream --branch master git://cb.biplab.in/codeblocks.git 
 Use the next line for Git Mirrors by Obf
 $ git clone --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git repo_folder_name
 
-Step 1B: Change current directory
+Step 1B: Change current directory and check status
 $ cd repo_folder_name
+$ git status
 
 Step 1C: Move head back one commit
 $ git reset --hard HEAD~1
@@ -34,24 +35,24 @@ $ git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
 
 Step 2B: Set svn-remote "svn" fetch and branch info in git config file
 Use the next 3 lines for all Git Mirrors
-$ git config svn-remote.svn.fetch trunk:refs/remotes/svnstuff/trunk
-$ git config svn-remote.svn.branches branches/*:refs/remotes/svnstuff/*
-$ git config svn-remote.svn.tags tags/*:refs/remotes/svnstuff/tags/*
+$ git config svn-remote.svn.fetch trunk:refs/remotes/git-svn-stuff/trunk
+$ git config svn-remote.svn.branches branches/*:refs/remotes/git-svn-stuff/*
+$ git config svn-remote.svn.tags tags/*:refs/remotes/git-svn-stuff/tags/*
 
-Step 2C: Create svnstuff folder needed by svn-remote "svn"
-$ mkdir .git/refs/remotes/svnstuff
+Step 2C: Create git-svn-stuff folder needed by svn-remote "svn"
+$ mkdir .git/refs/remotes/git-svn-stuff
 
 
 Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
-commit 6ac780d332a35cce6e6e4b6c666376eaf3ad1f55
+commit 6f9c3b4921d73a9bc6e8c2b0f5f32a64f717d586
 
 Step 4: Create remotes trunk using hash code
 Replace hash with value returned by the above command
-$ echo 6ac780d332a35cce6e6e4b6c666376eaf3ad1f55 > .git/refs/remotes/svnstuff/trunk
+$ echo 6f9c3b4921d73a9bc6e8c2b0f5f32a64f717d586 > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 5: Verify hash code was created
-$ git show remotes/svnstuff/trunk | head -n 1
+$ git show remotes/git-svn-stuff/trunk | head -n 1
 
 Step 6: SVN find-rev
 Note: When, I have long output for this command, it is a good sign.
@@ -60,7 +61,7 @@ $ git svn find-rev HEAD
 
 Step 7: SVN fetch
 Use number plus 1 returned by SVN find-rev HEAD step
-$ git svn fetch svn -r 9855
+$ git svn fetch svn -r 9879
 
 Step 8: Test git svn info
 Takes about a minute to return results.
@@ -69,9 +70,16 @@ $ git svn info
 
 Step 9: Force branch master to use rebase.
 SVN does not like git merge so set to use git rebase.
-$ git config upstream.master.rebase true 
+$ git config master.rebase true 
 
 Step 10: Test fetch and pull
 Note: I am guessing that the svn fetch should be done before all "git pull" commands.
 $ git svn fetch svn
 $ git pull
+$ git status
+
+NOTE: You need to run the command below to keep git svn info results updated.
+I think it needs ran after git svn fetch; but, I have no idea if it should be 
+before or after git pull
+$ git svn rebase --local
+
