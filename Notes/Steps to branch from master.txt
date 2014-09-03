@@ -1,7 +1,7 @@
 Steps to create branch from local master
 
 cd Production
-cd codeblocks_mods2
+cd CB_mods2_project_only
 
 git checkout master
 
@@ -11,11 +11,15 @@ git pull --rebase upstream master
 
 git status
 
-git branch build/project_bugs
+git branch build/wx_multilib
 
-git checkout build/project_bugs
+git checkout build/wx_multilib
 
 git pull --rebase upstream master
+
+Step ??: Force branch to use rebase.
+SVN does not like git merge so set to use git rebase.
+$ git config branch.`git rev-parse --abbrev-ref HEAD`.rebase true
 
 git status
 
