@@ -1,0 +1,18 @@
+Index: src/plugins/codecompletion/ccoptionsdlg.cpp
+===================================================================
+--- src/plugins/codecompletion/ccoptionsdlg.cpp	(revision 9908)
++++ src/plugins/codecompletion/ccoptionsdlg.cpp	(working copy)
+@@ -24,12 +24,12 @@
+     #include <wx/treectrl.h>
+     #include <wx/xrc/xmlres.h>
+ 
+-    #include <cbstyledtextctrl.h>
+     #include <configmanager.h>
+     #include <globals.h>
+     #include <logmanager.h>
+     #include <manager.h>
+ #endif
++#include <cbstyledtextctrl.h>
+ 
+ #include <editpairdlg.h>
+ 
