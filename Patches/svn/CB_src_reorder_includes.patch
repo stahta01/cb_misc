@@ -887,20 +887,6 @@ Index: src/sdk/workspaceloader.cpp
  #include "tinyxml/tinyxml.h"
  #include "tinyxml/tinywxuni.h"
  
-Index: src/sdk/wxscintilla/include/wx/wxscintilla.h
-===================================================================
---- src/sdk/wxscintilla/include/wx/wxscintilla.h	(revision 9908)
-+++ src/sdk/wxscintilla/include/wx/wxscintilla.h	(working copy)
-@@ -127,6 +127,9 @@
- #define wxSCI_MARKNUM_LASTUNUSED 22
- /* C::B end */
- // Markers used for outlining and changed column.
-+/* C::B begin */
-+#define wxSCI_MARKNUM_LASTUNUSED 22
-+/* C::B end */
- #define wxSCI_MARKNUM_CHANGEUNSAVED 23
- #define wxSCI_MARKNUM_CHANGESAVED 24
- #define wxSCI_MARKNUM_FOLDEREND 25
 Index: src/sdk/xtra_res.cpp
 ===================================================================
 --- src/sdk/xtra_res.cpp	(revision 9908)
