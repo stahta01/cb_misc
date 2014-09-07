@@ -1,0 +1,42 @@
+Index: src/plugins/contrib/FileManager/FileExplorer.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorer.cpp	(revision 9908)
++++ src/plugins/contrib/FileManager/FileExplorer.cpp	(working copy)
+@@ -6,7 +6,6 @@
+ 
+ #include <sdk.h>
+ #ifndef CB_PRECOMP
+-    #include <wx/dnd.h>
+     #include <wx/imaglist.h>
+ 
+     #include <cbproject.h>
+@@ -14,6 +13,8 @@
+     #include <projectmanager.h>
+ #endif
+ 
++#include <wx/dnd.h>
++
+ #include <list>
+ #include <vector>
+ #include <iostream>
+Index: src/src/watchesdlg.cpp
+===================================================================
+--- src/src/watchesdlg.cpp	(revision 9908)
++++ src/src/watchesdlg.cpp	(working copy)
+@@ -10,7 +10,6 @@
+ #include "sdk.h"
+ #ifndef CB_PRECOMP
+     #include <wx/app.h>
+-    #include <wx/dnd.h>
+     #include <wx/fontutil.h>
+     #include <wx/menu.h>
+     #include <wx/settings.h>
+@@ -22,6 +21,8 @@
+     #include "scrollingdialog.h"
+ #endif
+ 
++#include <wx/dnd.h>
++
+ #include <numeric>
+ #include <map>
+ #include <algorithm>
