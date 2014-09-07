@@ -1,15 +1,3 @@
-Index: src/include/sdk_common.h
-===================================================================
---- src/include/sdk_common.h	(revision 9908)
-+++ src/include/sdk_common.h	(working copy)
-@@ -127,7 +127,6 @@
-     #include "compilerfactory.h"
-     #include "compiler.h"
-     #include "workspaceloader.h"
--    #include "editorcolourset.h"
-     #include "pipedprocess.h"
-     #include "scrollingdialog.h"
-     #include "cbauibook.h"
 Index: src/plugins/abbreviations/abbreviations.cpp
 ===================================================================
 --- src/plugins/abbreviations/abbreviations.cpp	(revision 9908)
@@ -78,6 +66,58 @@ Index: src/plugins/codecompletion/coderefactoring.cpp
  
  #include <wx/progdlg.h>
  
+Index: src/plugins/contrib/DoxyBlocks/AutoDoc.cpp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/AutoDoc.cpp	(revision 9908)
++++ src/plugins/contrib/DoxyBlocks/AutoDoc.cpp	(working copy)
+@@ -26,10 +26,10 @@
+   #include <cbeditor.h>
+   #include <configmanager.h>
+   #include <editormanager.h>
+-  #include <editorcolourset.h>
+   #include <logmanager.h>
+ #endif
+ #include <wx/tokenzr.h>
++#include <editorcolourset.h>
+ 
+ #include "DoxyBlocks.h"
+ #include "Expressions.h"
+Index: src/plugins/contrib/SpellChecker/SpellCheckerPlugin.cpp
+===================================================================
+--- src/plugins/contrib/SpellChecker/SpellCheckerPlugin.cpp	(revision 9908)
++++ src/plugins/contrib/SpellChecker/SpellCheckerPlugin.cpp	(working copy)
+@@ -20,12 +20,12 @@
+ #ifndef CB_PRECOMP
+     #include <cbeditor.h>
+     #include <configmanager.h>
+-    #include <editorcolourset.h>
+     #include <editormanager.h>
+ #endif
+ #include <configurationpanel.h>
+ #include <editor_hooks.h>
+ #include <cbstyledtextctrl.h>
++#include <editorcolourset.h>
+ #ifdef wxUSE_STATUSBAR
+ #include <cbstatusbar.h>
+ #endif
+Index: src/plugins/contrib/ThreadSearch/ThreadSearchView.cpp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearchView.cpp	(revision 9908)
++++ src/plugins/contrib/ThreadSearch/ThreadSearchView.cpp	(working copy)
+@@ -24,12 +24,12 @@
+ 
+     #include "cbeditor.h"
+     #include "configmanager.h"
+-    #include "editorcolourset.h"
+     #include "infowindow.h"
+     #include "logmanager.h"
+ #endif
+ 
+ #include "cbstyledtextctrl.h"
++#include "editorcolourset.h"
+ #include "encodingdetector.h"
+ #include "SearchInPanel.h"
+ #include "DirectoryParamsPanel.h"
 Index: src/sdk/cbeditor.cpp
 ===================================================================
 --- src/sdk/cbeditor.cpp	(revision 9908)
