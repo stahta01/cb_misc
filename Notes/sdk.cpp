@@ -2,7 +2,7 @@
 #include <sdk.h>
 
 // wxWidgets headers in both wx/wx.h and sdk_common.h
-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
+#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
     // wxWidgets non GUI headers
 //    #include <wx/app.h>
 //    #include <wx/arrstr.h>
@@ -44,7 +44,7 @@
 //    #include <wx/textctrl.h>
 //    #include <wx/textdlg.h>
 //    #include <wx/toolbar.h>
-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
+#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
 
 // wxWidgets headers in sdk_common.h; but, not in wx/wx.h
 #if !defined(CB_PRECOMP)
