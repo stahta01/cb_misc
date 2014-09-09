@@ -44,8 +44,8 @@ Index: src/tools/cb_share_config/cb_share_config.cbp
  			<Add option="-mthreads" />
  			<Add library="txml" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
  			<Add directory="..\..\base\tinyxml" />
  		</Linker>

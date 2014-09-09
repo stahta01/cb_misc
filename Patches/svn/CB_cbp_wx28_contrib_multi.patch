@@ -7,9 +7,9 @@ Index: src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
  					<Add option="-Wl,--enable-auto-import" />
  					<Add option="-mthreads" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
 +					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add library="codeblocks" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -24,25 +24,6 @@ Index: src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
  			</Environment>
  		</Build>
  		<VirtualTargets>
-@@ -56,7 +59,6 @@
- 		</VirtualTargets>
- 		<Compiler>
- 			<Add option="-Wall" />
--			<Add option="$(#CB_RELEASE_TYPE)" />
- 		</Compiler>
- 		<Unit filename="AutoVersioning.cpp" />
- 		<Unit filename="AutoVersioning.h" />
-@@ -76,8 +78,8 @@
- 			<wxsmith version="1">
- 				<gui name="wxWidgets" src="avVersionEditorDlg.cpp" main="avVersionEditorDlg" init_handlers="necessary" language="CPP" />
- 				<resources>
--					<wxScrollingDialog wxs="wxsmith/avVersionEditorDlg.wxs" src="avVersionEditorDlg.cpp" hdr="avVersionEditorDlg.h" name="avVersionEditorDlg" language="CPP" />
--					<wxScrollingDialog wxs="wxsmith/avChangesDlg.wxs" src="avChangesDlg.cpp" hdr="avChangesDlg.h" name="avChangesDlg" language="CPP" />
-+					<wxScrollingDialog wxs="wxsmith/avVersionEditorDlg.wxs" src="avVersionEditorDlg.cpp" hdr="avVersionEditorDlg.h" fwddecl="0" i18n="1" name="avVersionEditorDlg" language="CPP" />
-+					<wxScrollingDialog wxs="wxsmith/avChangesDlg.wxs" src="avChangesDlg.cpp" hdr="avChangesDlg.h" fwddecl="0" i18n="1" name="avChangesDlg" language="CPP" />
- 				</resources>
- 			</wxsmith>
- 			<debugger />
 Index: src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
 ===================================================================
 --- src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(revision 9862)
@@ -52,10 +33,10 @@ Index: src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
  					<Add option="-Wl,--enable-auto-import" />
  					<Add option="-mthreads" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
 +					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
 +					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add library="codeblocks" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -90,8 +71,8 @@ Index: src/plugins/contrib/Cccc/Cccc.cbp
  		<Linker>
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -115,8 +96,8 @@ Index: src/plugins/contrib/CppCheck/CppCheck.cbp
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -140,8 +121,8 @@ Index: src/plugins/contrib/Cscope/Cscope.cbp
  		<Linker>
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
  			<Add directory="..\..\..\devel" />
@@ -153,9 +134,9 @@ Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
  				<Linker>
  					<Add option="-Wl,--enable-auto-import" />
  					<Add option="-mthreads" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
  					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add directory="../../../devel" />
  					<Add directory="$(#wx.lib)" />
@@ -177,9 +158,9 @@ Index: src/plugins/contrib/EditorConfig/EditorConfig.cbp
  					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
  				</Compiler>
  				<Linker>
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
  					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
@@ -203,10 +184,10 @@ Index: src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
  					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
  				</Compiler>
  				<Linker>
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
  					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
@@ -230,11 +211,11 @@ Index: src/plugins/contrib/FileManager/FileManager.cbp
  					<Add option="$(#CB_RELEASE_TYPE)" />
  				</Compiler>
  				<Linker>
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+ 					<Add library="codeblocks" />
 +					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
 +					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
- 					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
@@ -257,8 +238,8 @@ Index: src/plugins/contrib/HexEditor/HexEditor.cbp
  					<Add option="-Wl,--enable-auto-import" />
  					<Add option="-mthreads" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 +					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add library="codeblocks" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
  					<Add directory="..\..\..\devel" />
@@ -281,10 +262,10 @@ Index: src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
  				</Compiler>
  				<Linker>
  					<Add option="-mthreads" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
  					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -315,9 +296,9 @@ Index: src/plugins/contrib/MouseSap/MouseSap.cbp
  				<Linker>
  					<Add option="-mthreads" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
  					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
 @@ -45,11 +46,12 @@
@@ -345,9 +326,9 @@ Index: src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
  				</Compiler>
  				<Linker>
  					<Add option="-Wl,-enable-auto-import" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
  					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
@@ -379,9 +360,9 @@ Index: src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.c
  			<Add option="-Wl,--enable-auto-image-base" />
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
  			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add directory="../../../devel" />
  			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
@@ -394,10 +375,10 @@ Index: src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
  				</Compiler>
  				<Linker>
  					<Add option="-mthreads" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
  					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -438,8 +419,8 @@ Index: src/plugins/contrib/SmartIndent/SmartIndent.cbp
  			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
  		</Compiler>
  		<Linker>
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
  			<Add directory="../../../devel" />
  			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
@@ -505,11 +486,11 @@ Index: src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
  					<Add option="$(#CB_RELEASE_TYPE)" />
  				</Compiler>
  				<Linker>
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
  					<Add library="codeblocks" />
 -					<Add library="wxscintilla_cb" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
  					<Add library="gdi32" />
  					<Add directory="..\..\..\devel" />
@@ -544,9 +525,9 @@ Index: src/plugins/contrib/byogames/byogames.cbp
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
  			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
  			<Add directory="..\..\..\devel" />
 Index: src/plugins/contrib/cb_koders/cb_koders.cbp
@@ -569,40 +550,11 @@ Index: src/plugins/contrib/cb_koders/cb_koders.cbp
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
  			<Add directory="../../../devel" />
-Index: src/plugins/contrib/codesnippets/codesnippets.cbp
-===================================================================
---- src/plugins/contrib/codesnippets/codesnippets.cbp	(revision 9862)
-+++ src/plugins/contrib/codesnippets/codesnippets.cbp	(working copy)
-@@ -19,13 +19,10 @@
- 					<Add option="$(#CB_RELEASE_TYPE)" />
- 					<Add option="-DCB_PRECOMP" />
- 				</Compiler>
--				<Linker>
--					<Add library="codeblocks" />
--				</Linker>
- 			</Target>
- 			<Environment>
-+				<Variable name="WX_CFG" value="multi" />
- 				<Variable name="WX_SUFFIX" value="u" />
--				<Variable name="WX_CFG" value="" />
- 				<Variable name="WX_VERSION" value="28" />
- 			</Environment>
- 		</Build>
-@@ -66,7 +63,8 @@
- 		<Linker>
- 			<Add option="-Wl,--enable-auto-import" />
- 			<Add option="-mthreads" />
--			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
- 			<Add library="codeblocks" />
- 			<Add directory="..\..\..\devel" />
- 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
 Index: src/plugins/contrib/codestat/codestat.cbp
 ===================================================================
 --- src/plugins/contrib/codestat/codestat.cbp	(revision 9862)
@@ -623,9 +575,9 @@ Index: src/plugins/contrib/codestat/codestat.cbp
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -649,9 +601,9 @@ Index: src/plugins/contrib/copystrings/copystrings.cbp
  		<Linker>
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
  			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
  			<Add directory="..\..\..\devel" />
 Index: src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
@@ -662,11 +614,11 @@ Index: src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
  				</Compiler>
  				<Linker>
  					<Add option="-mthreads" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
 +					<Add library="codeblocks" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add library="bz2" />
  					<Add directory="..\..\..\devel" />
  				</Linker>
@@ -709,10 +661,10 @@ Index: src/plugins/contrib/dragscroll/DragScroll.cbp
  		</Compiler>
  		<Linker>
  			<Add option="-mthreads" />
--			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -735,10 +687,10 @@ Index: src/plugins/contrib/envvars/envvars.cbp
  		</ResourceCompiler>
  		<Linker>
  			<Add option="-mthreads" />
--			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+-			<Add library="wxmsw28$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -762,8 +714,8 @@ Index: src/plugins/contrib/headerfixup/headerfixup.cbp
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  		</Linker>
  		<Unit filename="bindings.cpp" />
@@ -787,10 +739,10 @@ Index: src/plugins/contrib/help_plugin/help-plugin.cbp
  			<Add option="-Wl,--add-stdcall-alias" />
  			<Add option="-Wl,--enable-auto-import" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
 +			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add library="codeblocks" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -813,9 +765,9 @@ Index: src/plugins/contrib/keybinder/keybinder.cbp
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
  		</Compiler>
  		<Linker>
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
  			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -868,10 +820,10 @@ Index: src/plugins/contrib/profiler/cbprofiler.cbp
  		<Linker>
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
  			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -896,10 +848,10 @@ Index: src/plugins/contrib/regex_testbed/RegExTestbed.cbp
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
  			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
  			<Add directory="..\..\..\devel" />
 Index: src/plugins/contrib/rndgen/rndgen.cbp
@@ -910,13 +862,12 @@ Index: src/plugins/contrib/rndgen/rndgen.cbp
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
--					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
-+					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
  				</Compiler>
  				<Linker>
 -					<Add library="wxmsw28$(WX_SUFFIX)" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 +					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add library="codeblocks" />
  					<Add directory="..\..\..\devel" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -976,10 +927,10 @@ Index: src/plugins/contrib/symtab/symtab.cbp
  		<Linker>
  			<Add option="-Wl,--enable-auto-import" />
  			<Add option="-mthreads" />
-+			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
  			<Add library="codeblocks" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
++			<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
 -			<Add library="wxmsw28$(WX_SUFFIX)" />
  			<Add directory="..\..\..\devel" />
  			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
@@ -1071,50 +1022,3 @@ Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
  				</Environment>
  			</Target>
  		</Build>
-@@ -91,8 +94,8 @@
- 		</Compiler>
- 		<Linker>
- 			<Add library="codeblocks" />
-+			<Add library="wxpropgrid" />
- 			<Add library="wxsmithlib" />
--			<Add library="wxpropgrid" />
- 			<Add directory="../../../devel" />
- 		</Linker>
- 		<Unit filename="manifest.xml" />
-Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
-===================================================================
---- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(revision 9862)
-+++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(working copy)
-@@ -43,9 +43,11 @@
- 					<Add directory="../wxContribItems/wxled/ledpanel/include" />
- 				</Compiler>
- 				<Linker>
-+					<Add library="codeblocks" />
- 					<Add library="wxpropgrid" />
-+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
- 					<Add library="wxsmithlib" />
--					<Add library="codeblocks" />
- 					<Add library="wxkwic" />
- 					<Add library="wxflatnotebook" />
- 					<Add library="wxchartctrl" />
-@@ -62,8 +64,9 @@
- 				</ExtraCommands>
- 			</Target>
- 			<Environment>
--				<Variable name="WX_CFG" value="" />
-+				<Variable name="WX_CFG" value="multi" />
- 				<Variable name="WX_SUFFIX" value="u" />
-+				<Variable name="WX_VERSION" value="28" />
- 			</Environment>
- 		</Build>
- 		<VirtualTargets>
-@@ -88,8 +91,6 @@
- 		<Linker>
- 			<Add option="-Wl,--enable-auto-import" />
- 			<Add option="-mthreads" />
--			<Add library="wxpropgrid" />
--			<Add library="wxmsw28$(WX_SUFFIX)" />
- 			<Add directory="../../../devel" />
- 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
- 		</Linker>
