@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TestCB_SDK_headers" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="test_compilerfactory">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_settings">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_compiler">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_compileoptionsbase">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_globals">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_xtra_res">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_sdk">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_debuggermanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_filemanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_projectmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_uservarmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_scriptingmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_templatemanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_ccmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_cbdebugger_interfaces">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_configmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_manager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="dummy">
+				<Option type="4" />
+				<Option compiler="gcc" />
+			</Target>
+			<Environment>
+				<Variable name="WX_SUFFIX" value="u" />
+			</Environment>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="test_compilerfactory;test_settings;test_compiler;test_compileoptionsbase;test_globals;test_xtra_res;test_sdk;test_debuggermanager;test_filemanager;test_projectmanager;test_uservarmanager;test_scriptingmanager;test_templatemanager;test_ccmanager;test_cbdebugger_interfaces;test_configmanager;test_manager;" />
+			<Add alias="CB_debugger_interfaces" targets="test_globals;test_debuggermanager;test_cbdebugger_interfaces;test_configmanager;test_manager;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wmissing-include-dirs" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-Winvalid-pch" />
+			<Add directory="../../src/include" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+			<Add directory="$(#wx.include)" />
+			<Add directory="../../src/sdk/wxscintilla/include" />
+		</Compiler>
+		<Unit filename="../../src/include/annoyingdialog.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/autodetectcompilers.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/autorevision.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/backgroundthread.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/base64.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/blockallocated.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbauibook.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbcolourmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbdebugger_interfaces.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbeditor.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbeditorprintout.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbexception.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbexecute.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbfunctor.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbplugin.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbproject.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbstatusbar.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbstyledtextctrl.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbthreadedtask.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbthreadpool.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbtool.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbtreectrl.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/cbworkspace.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/ccmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/compileoptionsbase.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/compiler.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/compilercommandgenerator.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/compilerfactory.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/compileroptions.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/compiletargetbase.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/configmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/configurationpanel.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/configuretoolsdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/confirmreplacedlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/crc32.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/debuggermanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editarrayfiledlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editarrayorderdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editarraystringdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editor_hooks.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editorbase.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editorcolourset.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editorlexerloader.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editormanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editpairdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/editpathdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/edittooldlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/encodingdetector.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/externaldepsdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/filefilters.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/filegroupsandmasks.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/filemanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/findreplacebase.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/findreplacedlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/genericmultilinenotesdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/globals.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/ibaseloader.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/ibaseworkspaceloader.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/id.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/importers_globals.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/incrementalselectlistdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/infowindow.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/licenses.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/logger.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/loggers.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/logmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/macrosmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/managedthread.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/manager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/menuitemsmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/misctreeitemdata.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/CharDistribution.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/JpCntx.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/Alignment.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/Assertions.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/Attributes.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/Compiler.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/Likely.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/Types.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/mfbt/mozilla/Util.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsBig5Prober.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsCharSetProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsCodingStateMachine.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsEUCJPProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsEUCKRProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsEUCTWProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsEscCharsetProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsGB2312Prober.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsHebrewProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsLatin1Prober.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsMBCSGroupProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsPkgInt.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsSBCSGroupProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsSBCharSetProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsSJISProber.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsUTF8Prober.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsUniversalDetector.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_darwin.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_linux.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_openbsd.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_win95.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_winnt.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsprpub/pr/include/prmem.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/nsprpub/pr/include/prtypes.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/xpcom/base/ErrorList.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/xpcom/base/nsError.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/xpcom/base/nscore.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/xpcom/glue/nsDebug.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/mozilla_chardet/xpcom/glue/nsMemory.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/multiselectdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/newfromtemplatedlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/personalitymanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/pipedprocess.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/pluginmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/pluginsconfigurationdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/prep.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/printing_types.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projectbuildtarget.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projectfile.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projectfileoptionsdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projectlayoutloader.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projectloader.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projectloader_hooks.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projectmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projectsfilemasksdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/projecttemplateloader.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/safedelete.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/bindings/sc_base_types.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/bindings/sc_plugin.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/bindings/scriptbindings.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/sqdbgserver.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/sqrdbg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/sqstdaux.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/sqstdblob.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/sqstdio.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/sqstdmath.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/sqstdstring.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/sqstdsystem.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/include/squirrel.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqplus/SqPlusConst.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqplus/SquirrelBindingsUtils.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqplus/SquirrelBindingsUtilsWin32.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqplus/SquirrelObject.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqplus/SquirrelVM.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqplus/sqplus.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqplus/sqplusWin32.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqstdlib/sqstdblobimpl.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/sqstdlib/sqstdstream.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqarray.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqclass.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqclosure.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqcompiler.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqfuncproto.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqfuncstate.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqlexer.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqmem.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqobject.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqopcodes.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqpcheader.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqstate.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqstring.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqtable.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/squserdata.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/squtils.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scripting/squirrel/sqvm.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scriptingmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scriptsecuritywarningdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/scrollingdialog.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/sdk.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/sdk_common.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/sdk_events.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/sdk_precomp.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/searchresultslog.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/selecttargetdlg.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/settings.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/templatemanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/tinyxml/tinystr.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/tinyxml/tinywxuni.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/tinyxml/tinyxml.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/toolsmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/uservarmanager.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/workspaceloader.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="../../src/include/xtra_res.h">
+			<Option target="dummy" />
+		</Unit>
+		<Unit filename="test_cbdebugger_interfaces.cpp">
+			<Option link="0" />
+			<Option target="test_cbdebugger_interfaces" />
+		</Unit>
+		<Unit filename="test_ccmanager.cpp">
+			<Option link="0" />
+			<Option target="test_ccmanager" />
+		</Unit>
+		<Unit filename="test_compileoptionsbase.cpp">
+			<Option link="0" />
+			<Option target="test_compileoptionsbase" />
+		</Unit>
+		<Unit filename="test_compiler.cpp">
+			<Option link="0" />
+			<Option target="test_compiler" />
+		</Unit>
+		<Unit filename="test_compilerfactory.cpp">
+			<Option link="0" />
+			<Option target="test_compilerfactory" />
+		</Unit>
+		<Unit filename="test_configmanager.cpp">
+			<Option link="0" />
+			<Option target="test_configmanager" />
+		</Unit>
+		<Unit filename="test_debuggermanager.cpp">
+			<Option link="0" />
+			<Option target="test_debuggermanager" />
+		</Unit>
+		<Unit filename="test_filemanager.cpp">
+			<Option link="0" />
+			<Option target="test_filemanager" />
+		</Unit>
+		<Unit filename="test_globals.cpp">
+			<Option link="0" />
+			<Option target="test_globals" />
+		</Unit>
+		<Unit filename="test_manager.cpp">
+			<Option link="0" />
+			<Option target="test_manager" />
+		</Unit>
+		<Unit filename="test_projectmanager.cpp">
+			<Option link="0" />
+			<Option target="test_projectmanager" />
+		</Unit>
+		<Unit filename="test_scriptingmanager.cpp">
+			<Option link="0" />
+			<Option target="test_scriptingmanager" />
+		</Unit>
+		<Unit filename="test_sdk.cpp">
+			<Option link="0" />
+			<Option target="test_sdk" />
+		</Unit>
+		<Unit filename="test_settings.cpp">
+			<Option link="0" />
+			<Option target="test_settings" />
+		</Unit>
+		<Unit filename="test_templatemanager.cpp">
+			<Option link="0" />
+			<Option target="test_templatemanager" />
+		</Unit>
+		<Unit filename="test_uservarmanager.cpp">
+			<Option link="0" />
+			<Option target="test_uservarmanager" />
+		</Unit>
+		<Unit filename="test_xtra_res.cpp">
+			<Option link="0" />
+			<Option target="test_xtra_res" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
