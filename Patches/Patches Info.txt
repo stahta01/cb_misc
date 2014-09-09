@@ -36,9 +36,6 @@ applied/cb_src_fix_pluginmanager_install_error.patch (Applied to SVN Trunk)
     Fixes the below error under windows.
     "One or more plugins were not installed successfully"
 
-wxscintilla_cb.h
-    Header redirect file to be put in the CB include folder.
-        
 svn/cb_src_remove_hdrstop_only.patch
     Removes #pragma hdrstop without any other change from header files.
 
