@@ -1,6 +1,6 @@
 Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
 ===================================================================
---- src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(revision 9858)
+--- src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(revision 9862)
 +++ src/plugins/scriptedwizard/resources/wxwidgets/wizard.script	(working copy)
 @@ -1222,6 +1222,7 @@
          }

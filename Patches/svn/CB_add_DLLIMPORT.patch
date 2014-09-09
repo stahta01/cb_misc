@@ -1,6 +1,6 @@
 Index: src/include/cbauibook.h
 ===================================================================
---- src/include/cbauibook.h	(revision 9858)
+--- src/include/cbauibook.h	(revision 9862)
 +++ src/include/cbauibook.h	(working copy)
 @@ -7,6 +7,7 @@
  #define CBAUIBOOK_H_INCLUDED
@@ -21,7 +21,7 @@ Index: src/include/cbauibook.h
          /** \brief cbAuiNotebook constructor
 Index: src/include/cbexception.h
 ===================================================================
---- src/include/cbexception.h	(revision 9858)
+--- src/include/cbexception.h	(revision 9862)
 +++ src/include/cbexception.h	(working copy)
 @@ -20,7 +20,7 @@
  */
@@ -34,7 +34,7 @@ Index: src/include/cbexception.h
          cbException(const wxString& msg, const wxString& file, int line);
 Index: src/include/cbproject.h
 ===================================================================
---- src/include/cbproject.h	(revision 9858)
+--- src/include/cbproject.h	(revision 9862)
 +++ src/include/cbproject.h	(working copy)
 @@ -722,9 +722,9 @@
  };
@@ -50,7 +50,7 @@ Index: src/include/cbproject.h
  
 Index: src/include/cbstyledtextctrl.h
 ===================================================================
---- src/include/cbstyledtextctrl.h	(revision 9858)
+--- src/include/cbstyledtextctrl.h	(revision 9862)
 +++ src/include/cbstyledtextctrl.h	(working copy)
 @@ -12,12 +12,14 @@
  #include <map>
@@ -70,7 +70,7 @@ Index: src/include/cbstyledtextctrl.h
          cbStyledTextCtrl(wxWindow* pParent, int id, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = 0);
 Index: src/include/cbtreectrl.h
 ===================================================================
---- src/include/cbtreectrl.h	(revision 9858)
+--- src/include/cbtreectrl.h	(revision 9862)
 +++ src/include/cbtreectrl.h	(working copy)
 @@ -17,7 +17,7 @@
  /*
@@ -83,7 +83,7 @@ Index: src/include/cbtreectrl.h
          cbTreeCtrl();
 Index: src/include/cbworkspace.h
 ===================================================================
---- src/include/cbworkspace.h	(revision 9858)
+--- src/include/cbworkspace.h	(revision 9862)
 +++ src/include/cbworkspace.h	(working copy)
 @@ -23,7 +23,7 @@
    * @note The way WorkspaceLoader works now, requires that you save and delete the
@@ -96,7 +96,7 @@ Index: src/include/cbworkspace.h
          /** @brief Constructor
 Index: src/include/compiler.h
 ===================================================================
---- src/include/compiler.h	(revision 9858)
+--- src/include/compiler.h	(revision 9862)
 +++ src/include/compiler.h	(working copy)
 @@ -141,7 +141,7 @@
  private:
@@ -118,7 +118,7 @@ Index: src/include/compiler.h
      wxString includeDirs;         // -I
 Index: src/include/confirmreplacedlg.h
 ===================================================================
---- src/include/confirmreplacedlg.h	(revision 9858)
+--- src/include/confirmreplacedlg.h	(revision 9862)
 +++ src/include/confirmreplacedlg.h	(working copy)
 @@ -22,7 +22,7 @@
  	crCancel
@@ -131,7 +131,7 @@ Index: src/include/confirmreplacedlg.h
  		ConfirmReplaceDlg(wxWindow* parent, bool replaceInFiles = false,
 Index: src/include/editarrayorderdlg.h
 ===================================================================
---- src/include/editarrayorderdlg.h	(revision 9858)
+--- src/include/editarrayorderdlg.h	(revision 9862)
 +++ src/include/editarrayorderdlg.h	(working copy)
 @@ -13,7 +13,7 @@
  /*
@@ -144,7 +144,7 @@ Index: src/include/editarrayorderdlg.h
  		// class constructor
 Index: src/include/editorcolourset.h
 ===================================================================
---- src/include/editorcolourset.h	(revision 9858)
+--- src/include/editorcolourset.h	(revision 9862)
 +++ src/include/editorcolourset.h	(working copy)
 @@ -73,7 +73,7 @@
  };
@@ -157,7 +157,7 @@ Index: src/include/editorcolourset.h
          EditorColourSet(const wxString& setName = COLORSET_DEFAULT);
 Index: src/include/editpairdlg.h
 ===================================================================
---- src/include/editpairdlg.h	(revision 9858)
+--- src/include/editpairdlg.h	(revision 9862)
 +++ src/include/editpairdlg.h	(working copy)
 @@ -9,7 +9,7 @@
  #include <wx/intl.h>
@@ -170,7 +170,7 @@ Index: src/include/editpairdlg.h
          enum BrowseMode
 Index: src/include/editpathdlg.h
 ===================================================================
---- src/include/editpathdlg.h	(revision 9858)
+--- src/include/editpathdlg.h	(revision 9862)
 +++ src/include/editpathdlg.h	(working copy)
 @@ -9,7 +9,7 @@
  #include "scrollingdialog.h"
@@ -183,7 +183,7 @@ Index: src/include/editpathdlg.h
  		EditPathDlg(wxWindow* parent,
 Index: src/include/filemanager.h
 ===================================================================
---- src/include/filemanager.h	(revision 9858)
+--- src/include/filemanager.h	(revision 9862)
 +++ src/include/filemanager.h	(working copy)
 @@ -28,7 +28,7 @@
  
@@ -214,7 +214,7 @@ Index: src/include/filemanager.h
      BackgroundThread uncLoaderThread;
 Index: src/include/findreplacedlg.h
 ===================================================================
---- src/include/findreplacedlg.h	(revision 9858)
+--- src/include/findreplacedlg.h	(revision 9862)
 +++ src/include/findreplacedlg.h	(working copy)
 @@ -13,7 +13,7 @@
  class wxComboBox;
@@ -227,7 +227,7 @@ Index: src/include/findreplacedlg.h
          FindReplaceDlg(wxWindow* parent, const wxString& initial = wxEmptyString, bool hasSelection = false,
 Index: src/include/infowindow.h
 ===================================================================
---- src/include/infowindow.h	(revision 9858)
+--- src/include/infowindow.h	(revision 9862)
 +++ src/include/infowindow.h	(working copy)
 @@ -30,11 +30,14 @@
      typedef wxScrollingDialog wxInfoWindowBase;
@@ -247,7 +247,7 @@ Index: src/include/infowindow.h
          virtual ~InfoWindow();
 Index: src/include/logmanager.h
 ===================================================================
---- src/include/logmanager.h	(revision 9858)
+--- src/include/logmanager.h	(revision 9862)
 +++ src/include/logmanager.h	(working copy)
 @@ -31,7 +31,7 @@
  //} // namespace cb
@@ -260,7 +260,7 @@ Index: src/include/logmanager.h
  
 Index: src/include/manager.h
 ===================================================================
---- src/include/manager.h	(revision 9858)
+--- src/include/manager.h	(revision 9862)
 +++ src/include/manager.h	(working copy)
 @@ -179,7 +179,7 @@
      cbSearchResultsLog *m_SearchResultLog;
@@ -273,7 +273,7 @@ Index: src/include/manager.h
      static bool isShutdown;
 Index: src/include/multiselectdlg.h
 ===================================================================
---- src/include/multiselectdlg.h	(revision 9858)
+--- src/include/multiselectdlg.h	(revision 9862)
 +++ src/include/multiselectdlg.h	(working copy)
 @@ -11,7 +11,7 @@
  #include <wx/dynarray.h>
@@ -286,7 +286,7 @@ Index: src/include/multiselectdlg.h
          MultiSelectDlg(wxWindow* parent,
 Index: src/include/projectfile.h
 ===================================================================
---- src/include/projectfile.h	(revision 9858)
+--- src/include/projectfile.h	(revision 9862)
 +++ src/include/projectfile.h	(working copy)
 @@ -36,7 +36,7 @@
  WX_DEFINE_ARRAY_INT(int, editorFoldLinesArray);
@@ -299,7 +299,7 @@ Index: src/include/projectfile.h
          /// Constructor
 Index: src/include/projectfileoptionsdlg.h
 ===================================================================
---- src/include/projectfileoptionsdlg.h	(revision 9858)
+--- src/include/projectfileoptionsdlg.h	(revision 9862)
 +++ src/include/projectfileoptionsdlg.h	(working copy)
 @@ -11,7 +11,7 @@
  
@@ -312,7 +312,7 @@ Index: src/include/projectfileoptionsdlg.h
          ProjectFileOptionsDlg(wxWindow* parent, ProjectFile* pf);
 Index: src/include/projectsfilemasksdlg.h
 ===================================================================
---- src/include/projectsfilemasksdlg.h	(revision 9858)
+--- src/include/projectsfilemasksdlg.h	(revision 9862)
 +++ src/include/projectsfilemasksdlg.h	(working copy)
 @@ -9,7 +9,7 @@
  #include "scrollingdialog.h"
@@ -325,7 +325,7 @@ Index: src/include/projectsfilemasksdlg.h
          ProjectsFileMasksDlg(wxWindow* parent, FilesGroupsAndMasks* fgam);
 Index: src/include/scripting/include/squirrel.h
 ===================================================================
---- src/include/scripting/include/squirrel.h	(revision 9858)
+--- src/include/scripting/include/squirrel.h	(revision 9862)
 +++ src/include/scripting/include/squirrel.h	(working copy)
 @@ -35,6 +35,26 @@
  extern "C" {
@@ -356,7 +356,7 @@ Index: src/include/scripting/include/squirrel.h
  #endif
 Index: src/include/scripting/sqplus/SquirrelBindingsUtils.h
 ===================================================================
---- src/include/scripting/sqplus/SquirrelBindingsUtils.h	(revision 9858)
+--- src/include/scripting/sqplus/SquirrelBindingsUtils.h	(revision 9862)
 +++ src/include/scripting/sqplus/SquirrelBindingsUtils.h	(working copy)
 @@ -145,7 +145,7 @@
  BOOL_T CreateStaticNamespace(HSQUIRRELVM v,ScriptNamespaceDecl *sn);
@@ -369,7 +369,7 @@ Index: src/include/scripting/sqplus/SquirrelBindingsUtils.h
  
 Index: src/include/scripting/sqplus/SquirrelObject.h
 ===================================================================
---- src/include/scripting/sqplus/SquirrelObject.h	(revision 9858)
+--- src/include/scripting/sqplus/SquirrelObject.h	(revision 9862)
 +++ src/include/scripting/sqplus/SquirrelObject.h	(working copy)
 @@ -4,7 +4,7 @@
  // C::B patch: Include required, so references are found
@@ -382,7 +382,7 @@ Index: src/include/scripting/sqplus/SquirrelObject.h
  public:
 Index: src/include/scripting/sqplus/SquirrelVM.h
 ===================================================================
---- src/include/scripting/sqplus/SquirrelVM.h	(revision 9858)
+--- src/include/scripting/sqplus/SquirrelVM.h	(revision 9862)
 +++ src/include/scripting/sqplus/SquirrelVM.h	(working copy)
 @@ -23,7 +23,7 @@
      sqifAll    = 0xFF
@@ -395,7 +395,7 @@ Index: src/include/scripting/sqplus/SquirrelVM.h
  	friend struct SquirrelError;
 Index: src/include/scripting/sqplus/sqplus.h
 ===================================================================
---- src/include/scripting/sqplus/sqplus.h	(revision 9858)
+--- src/include/scripting/sqplus/sqplus.h	(revision 9862)
 +++ src/include/scripting/sqplus/sqplus.h	(working copy)
 @@ -338,8 +338,8 @@
  } // getVarNameTag
@@ -419,7 +419,7 @@ Index: src/include/scripting/sqplus/sqplus.h
  
 Index: src/include/scrollingdialog.h
 ===================================================================
---- src/include/scrollingdialog.h	(revision 9858)
+--- src/include/scrollingdialog.h	(revision 9862)
 +++ src/include/scrollingdialog.h	(working copy)
 @@ -15,6 +15,8 @@
  #include "wx/dialog.h"
@@ -450,7 +450,7 @@ Index: src/include/scrollingdialog.h
  #endif
 Index: src/include/sdk_events.h
 ===================================================================
---- src/include/sdk_events.h	(revision 9858)
+--- src/include/sdk_events.h	(revision 9862)
 +++ src/include/sdk_events.h	(working copy)
 @@ -206,7 +206,7 @@
  // new event type like: cbEVT_THREAD_LOG_MESSAGE, cbEVT_THREAD_LOGDEBUG_MESSAGE
@@ -463,7 +463,7 @@ Index: src/include/sdk_events.h
      CodeBlocksThreadEvent(wxEventType eventType = wxEVT_NULL, int id = wxID_ANY)
 Index: src/include/searchresultslog.h
 ===================================================================
---- src/include/searchresultslog.h	(revision 9858)
+--- src/include/searchresultslog.h	(revision 9862)
 +++ src/include/searchresultslog.h	(working copy)
 @@ -12,7 +12,7 @@
  class wxArrayString;
@@ -476,7 +476,7 @@ Index: src/include/searchresultslog.h
  		cbSearchResultsLog(const wxArrayString& titles, wxArrayInt& widths);
 Index: src/include/tinyxml/tinystr.h
 ===================================================================
---- src/include/tinyxml/tinystr.h	(revision 9858)
+--- src/include/tinyxml/tinystr.h	(revision 9862)
 +++ src/include/tinyxml/tinystr.h	(working copy)
 @@ -30,6 +30,21 @@
  #include <assert.h>
@@ -511,7 +511,7 @@ Index: src/include/tinyxml/tinystr.h
  	// The size type used
 Index: src/include/tinyxml/tinyxml.h
 ===================================================================
---- src/include/tinyxml/tinyxml.h	(revision 9858)
+--- src/include/tinyxml/tinyxml.h	(revision 9862)
 +++ src/include/tinyxml/tinyxml.h	(working copy)
 @@ -43,6 +43,21 @@
  #define DEBUG
@@ -564,7 +564,7 @@ Index: src/include/tinyxml/tinyxml.h
  	/// Create an empty document, that has no name.
 Index: src/include/toolsmanager.h
 ===================================================================
---- src/include/toolsmanager.h	(revision 9858)
+--- src/include/toolsmanager.h	(revision 9862)
 +++ src/include/toolsmanager.h	(working copy)
 @@ -20,7 +20,7 @@
  class PipedProcess;
@@ -577,7 +577,7 @@ Index: src/include/toolsmanager.h
  		friend class Mgr<ToolsManager>;
 Index: src/include/workspaceloader.h
 ===================================================================
---- src/include/workspaceloader.h	(revision 9858)
+--- src/include/workspaceloader.h	(revision 9862)
 +++ src/include/workspaceloader.h	(working copy)
 @@ -6,9 +6,11 @@
  #ifndef WORKSPACELOADER_H
@@ -594,7 +594,7 @@ Index: src/include/workspaceloader.h
          WorkspaceLoader();
 Index: src/include/xtra_res.h
 ===================================================================
---- src/include/xtra_res.h	(revision 9858)
+--- src/include/xtra_res.h	(revision 9862)
 +++ src/include/xtra_res.h	(working copy)
 @@ -6,19 +6,16 @@
  #ifndef XTRA_RES_H
@@ -629,7 +629,7 @@ Index: src/include/xtra_res.h
  
 Index: src/sdk/compiler.cpp
 ===================================================================
---- src/sdk/compiler.cpp	(revision 9858)
+--- src/sdk/compiler.cpp	(revision 9862)
 +++ src/sdk/compiler.cpp	(working copy)
 @@ -28,7 +28,7 @@
  #include <wx/filefn.h>
