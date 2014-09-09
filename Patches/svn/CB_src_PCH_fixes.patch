@@ -1,0 +1,83 @@
+Index: src/plugins/todo/todolistview.cpp
+===================================================================
+--- src/plugins/todo/todolistview.cpp	(revision 9908)
++++ src/plugins/todo/todolistview.cpp	(working copy)
+@@ -23,6 +23,7 @@
+ 
+     #include "cbeditor.h"
+     #include "cbproject.h"
++    #include "configmanager.h"
+     #include "editormanager.h"
+     #include "filemanager.h"
+     #include "globals.h"
+Index: src/sdk/editorlexerloader.cpp
+===================================================================
+--- src/sdk/editorlexerloader.cpp	(revision 9908)
++++ src/sdk/editorlexerloader.cpp	(working copy)
+@@ -21,6 +21,7 @@
+ #include "editorcolourset.h"
+ #include "editorlexerloader.h"
+ #include "filemanager.h"
++#include "tinyxml/tinyxml.h"
+ 
+ EditorLexerLoader::EditorLexerLoader(EditorColourSet* target)
+     : m_pTarget(target)
+Index: src/sdk/filemanager.cpp
+===================================================================
+--- src/sdk/filemanager.cpp	(revision 9908)
++++ src/sdk/filemanager.cpp	(working copy)
+@@ -10,6 +10,7 @@
+ #include "sdk_precomp.h"
+ 
+ #ifndef CB_PRECOMP
++    #include "configmanager.h"
+     #include "filemanager.h"
+     #include "safedelete.h"
+     #include "cbeditor.h"
+Index: src/src/debugger_interface_creator.cpp
+===================================================================
+--- src/src/debugger_interface_creator.cpp	(revision 9908)
++++ src/src/debugger_interface_creator.cpp	(working copy)
+@@ -2,6 +2,9 @@
+  * This file is part of the Code::Blocks IDE and licensed under the GNU Lesser General Public License, version 3
+  * http://www.gnu.org/licenses/gpl-3.0.html
+  */
++
++#include <sdk.h>
++
+ #include "debugger_interface_creator.h"
+ 
+ #ifndef CB_PRECOMP
+Index: src/src/find_replace.cpp
+===================================================================
+--- src/src/find_replace.cpp	(revision 9908)
++++ src/src/find_replace.cpp	(working copy)
+@@ -9,6 +9,7 @@
+     #include "cbauibook.h"
+     #include "cbeditor.h"
+     #include "cbproject.h"
++    #include "configmanager.h"
+     #include "editormanager.h"
+     #include "infowindow.h"
+     #include "projectfile.h"
+Index: src/src/main.cpp
+===================================================================
+--- src/src/main.cpp	(revision 9908)
++++ src/src/main.cpp	(working copy)
+@@ -31,13 +31,16 @@
+ #include "cbstatusbar.h"
+ #include "loggers.h"
+ 
++#include <wx/dcclient.h>
+ #include <wx/display.h>
+ #include <wx/dnd.h>
+ #include <wx/fileconf.h>
++#include <wx/filedlg.h>
+ #include <wx/filename.h>
+ #include <wx/gdicmn.h>
+ #include <wx/printdlg.h>
+ #include <wx/sstream.h>
++#include <wx/textdlg.h>
+ #include <wx/tipdlg.h>
+ #include <wx/tokenzr.h>
+ #include <wx/xrc/xmlres.h>
