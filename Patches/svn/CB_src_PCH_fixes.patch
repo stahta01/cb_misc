@@ -88,7 +88,7 @@ Index: src/src/find_replace.cpp
 ===================================================================
 --- src/src/find_replace.cpp	(revision 9908)
 +++ src/src/find_replace.cpp	(working copy)
-@@ -1,28 +1,34 @@
+@@ -1,28 +1,35 @@
 -#include "sdk.h"
 +// sdk.h must be the first include in the file to work as a PCH
 +#include <sdk.h>
@@ -114,6 +114,7 @@ Index: src/src/find_replace.cpp
 +    #include <projectfile.h>
 +    #include <cbproject.h>
 +    #include <cbauibook.h>
++    #include <configmanager.h>
 +    #include <editormanager.h>
 +    #include <infowindow.h>
 +#endif // #ifndef CB_PRECOMP
@@ -143,7 +144,7 @@ Index: src/src/main.cpp
 ===================================================================
 --- src/src/main.cpp	(revision 9908)
 +++ src/src/main.cpp	(working copy)
-@@ -7,20 +7,71 @@
+@@ -7,20 +7,74 @@
   * $HeadURL$
   */
  
@@ -162,6 +163,9 @@ Index: src/src/main.cpp
 +    #include <wx/filename.h>
 +
 +    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/dcclient.h>
++    #include <wx/filedlg.h>
++    #include <wx/textdlg.h>
 +    #include <wx/xrc/xmlres.h>
 +
 +    // CB SDK Headers in sdk_common.h
@@ -218,7 +222,7 @@ Index: src/src/main.cpp
  #include "main.h"
  #include "notebookstyles.h"
  #include "printdlg.h"
-@@ -28,46 +79,8 @@
+@@ -28,46 +82,8 @@
  #include "scriptingsettingsdlg.h"
  #include "startherepage.h"
  #include "switcherdlg.h"
