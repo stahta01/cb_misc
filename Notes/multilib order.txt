@@ -12,15 +12,3 @@ wxmsw$(WX_VERSION)$(WX_SUFFIX)_core
 wxbase$(WX_VERSION)$(WX_SUFFIX)_net
 wxbase$(WX_VERSION)$(WX_SUFFIX)_xml
 wxbase$(WX_VERSION)$(WX_SUFFIX)
-
-
-Changed more projects to using wxWidgets Multilib; using proper wxWidgets library order with base at the end.
-
-Changed more projects to using proper wxWidgets Multilib library order with base at the end.
-
-Exporter.cbp has build issues that seem to be hard to fix.
-SpellChecker.cbp has build issues that seem to be hard to fix.
-Try reversing the library link order from what I was trying.
-Reversing the order fixed the link error for SpellChecker and Exporter.
-
-Try fixing linker libs in Help Plugin they are using "\".

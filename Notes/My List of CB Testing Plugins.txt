@@ -1,17 +1,20 @@
-Code::Blocks Share Config        src/tools/cb_share_config
+Try using "Header Fixup" to see if it works well enough to use.
+
+
 Compiler                         src/plugins/compilergcc
-EnvVars                          src/plugins/contrib/envvars
 Files extension handler          src/plugins/defaultmimehandler
 Foreign projects importer        src/plugins/projectsimporter
-Help                             src/plugins/contrib/help_plugin
 ModPoller                        src/plugins/modpoller
 Scripted wizard                  src/plugins/scriptedwizard
 Source code formatter (AStyle)   src/plugins/astyle
 Todo List                        src/plugins/todo
-Tools Plus                       src/plugins/contrib/ToolsPlus
-wxSmith                          src/plugins/contrib/wxSmith
 Code-completion                  src/plugins/codecompletion
 debugger                         src/plugins/debuggergdb
+Code::Blocks Share Config        src/tools/cb_share_config
+EnvVars                          src/plugins/contrib/envvars
+Help                             src/plugins/contrib/help_plugin
+Tools Plus                       src/plugins/contrib/ToolsPlus
+wxSmith                          src/plugins/contrib/wxSmith
 
 Ones that need are disabled; but, being installed causes cbp file changes
 Code-completion

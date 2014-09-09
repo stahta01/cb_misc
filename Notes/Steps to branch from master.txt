@@ -27,7 +27,7 @@ git svn fetch
 
 git status
 
-git svn rebase --local
+git svn rebase
 
 git status
 
