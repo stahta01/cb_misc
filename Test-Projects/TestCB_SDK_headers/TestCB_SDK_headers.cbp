@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TestCB_SDK_headers" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="test_compilerfactory">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_settings">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_compiler">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_compileoptionsbase">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_globals">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_xtra_res">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_sdk">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_debuggermanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_filemanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_projectmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_uservarmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_scriptingmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_templatemanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_ccmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_cbdebugger_interfaces">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_configmanager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="test_manager">
+				<Option output="TestCB_SDK_headers" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Environment>
+				<Variable name="WX_SUFFIX" value="u" />
+			</Environment>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="test_compilerfactory;test_settings;test_compiler;test_compileoptionsbase;test_globals;test_xtra_res;test_sdk;test_debuggermanager;test_filemanager;test_projectmanager;test_uservarmanager;test_scriptingmanager;test_templatemanager;test_ccmanager;test_cbdebugger_interfaces;test_configmanager;test_manager;" />
+			<Add alias="CB_debugger_interfaces" targets="test_globals;test_debuggermanager;test_cbdebugger_interfaces;test_configmanager;test_manager;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wmissing-include-dirs" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-Winvalid-pch" />
+			<Add directory="$(#cb.include)" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+			<Add directory="$(#wx.include)" />
+			<Add directory="$(#cb)/sdk/wxscintilla/include" />
+		</Compiler>
+		<Unit filename="test_cbdebugger_interfaces.cpp">
+			<Option link="0" />
+			<Option target="test_cbdebugger_interfaces" />
+		</Unit>
+		<Unit filename="test_ccmanager.cpp">
+			<Option link="0" />
+			<Option target="test_ccmanager" />
+		</Unit>
+		<Unit filename="test_compileoptionsbase.cpp">
+			<Option link="0" />
+			<Option target="test_compileoptionsbase" />
+		</Unit>
+		<Unit filename="test_compiler.cpp">
+			<Option link="0" />
+			<Option target="test_compiler" />
+		</Unit>
+		<Unit filename="test_compilerfactory.cpp">
+			<Option link="0" />
+			<Option target="test_compilerfactory" />
+		</Unit>
+		<Unit filename="test_configmanager.cpp">
+			<Option link="0" />
+			<Option target="test_configmanager" />
+		</Unit>
+		<Unit filename="test_debuggermanager.cpp">
+			<Option link="0" />
+			<Option target="test_debuggermanager" />
+		</Unit>
+		<Unit filename="test_filemanager.cpp">
+			<Option link="0" />
+			<Option target="test_filemanager" />
+		</Unit>
+		<Unit filename="test_globals.cpp">
+			<Option link="0" />
+			<Option target="test_globals" />
+		</Unit>
+		<Unit filename="test_manager.cpp">
+			<Option link="0" />
+			<Option target="test_manager" />
+		</Unit>
+		<Unit filename="test_projectmanager.cpp">
+			<Option link="0" />
+			<Option target="test_projectmanager" />
+		</Unit>
+		<Unit filename="test_scriptingmanager.cpp">
+			<Option link="0" />
+			<Option target="test_scriptingmanager" />
+		</Unit>
+		<Unit filename="test_sdk.cpp">
+			<Option link="0" />
+			<Option target="test_sdk" />
+		</Unit>
+		<Unit filename="test_settings.cpp">
+			<Option link="0" />
+			<Option target="test_settings" />
+		</Unit>
+		<Unit filename="test_templatemanager.cpp">
+			<Option link="0" />
+			<Option target="test_templatemanager" />
+		</Unit>
+		<Unit filename="test_uservarmanager.cpp">
+			<Option link="0" />
+			<Option target="test_uservarmanager" />
+		</Unit>
+		<Unit filename="test_xtra_res.cpp">
+			<Option link="0" />
+			<Option target="test_xtra_res" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
