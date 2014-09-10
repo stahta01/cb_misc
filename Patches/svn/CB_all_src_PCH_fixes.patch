@@ -451,6 +451,29 @@ Index: src/plugins/contrib/NassiShneiderman/parseactions.cpp
  #include "parseactions.h"
  #include "bricks.h"
  
+Index: src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp	(revision 9915)
++++ src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp	(working copy)
+@@ -5,16 +5,9 @@
+ // PLEASE DO "NOT" EDIT THIS FILE!
+ ///////////////////////////////////////////////////////////////////////////
+ 
+-#include "wx/wxprec.h"
++#include <sdk.h>
++#include <wx/filedlg.h>
+ 
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif //__BORLANDC__
+-
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif //WX_PRECOMP
+-
+ #include "ToolsPlus.h"
+ #include "CmdConfigDialog.h"
+ 
 Index: src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp
 ===================================================================
 --- src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp	(revision 9915)
@@ -518,9 +541,14 @@ Index: src/plugins/contrib/ToolsPlus/ToolsPlus.cpp
 ===================================================================
 --- src/plugins/contrib/ToolsPlus/ToolsPlus.cpp	(revision 9915)
 +++ src/plugins/contrib/ToolsPlus/ToolsPlus.cpp	(working copy)
-@@ -1,3 +1,14 @@
+@@ -1,3 +1,19 @@
 +// sdk.h must be the first include in the file to work as a PCH
 +#include <sdk.h>
++
++#include <wx/dirdlg.h>
++#include <wx/filedlg.h>
++#include <wx/menu.h>
++#include <wx/textdlg.h>
 +
 +#ifndef CB_PRECOMP
 +    // CB SDK Headers in sdk_common.h
