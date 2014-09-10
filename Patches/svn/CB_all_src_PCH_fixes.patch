@@ -1,6 +1,6 @@
 Index: src/plugins/abbreviations/abbreviations.cpp
 ===================================================================
---- src/plugins/abbreviations/abbreviations.cpp	(revision 9908)
+--- src/plugins/abbreviations/abbreviations.cpp	(revision 9915)
 +++ src/plugins/abbreviations/abbreviations.cpp	(working copy)
 @@ -10,6 +10,8 @@
  #include <sdk.h>
@@ -13,20 +13,46 @@ Index: src/plugins/abbreviations/abbreviations.cpp
      #include <editorcolourset.h>
 Index: src/plugins/abbreviations/abbreviationsconfigpanel.cpp
 ===================================================================
---- src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(revision 9908)
+--- src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(revision 9915)
 +++ src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(working copy)
-@@ -14,6 +14,8 @@
-     #include <wx/xrc/xmlres.h>
-     #include <wx/fontutil.h>
+@@ -7,20 +7,29 @@
+  * $HeadURL$
+  */
+ 
++// sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h>
+-#include "abbreviationsconfigpanel.h"
+ 
+ #ifndef CB_PRECOMP
+-    #include <wx/xrc/xmlres.h>
+-    #include <wx/fontutil.h>
++    // wxWidgets non GUI headers in sdk_common.h
      #include <wx/choicdlg.h>
+ 
++    // wxWidgets GUI headers in sdk_common.h
 +    #include <wx/combobox.h>
 +    #include <wx/textdlg.h>
- 
++    #include <wx/xrc/xmlres.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <editorcolourset.h>
      #include <configmanager.h>
-     #include <editorcolourset.h>
+-    #include <editorcolourset.h>
+     #include <editormanager.h>
+     #include <logmanager.h>
+-#endif
++#endif // #ifndef CB_PRECOMP
+ 
++#include <wx/fontutil.h>
++
++#include "abbreviationsconfigpanel.h"
++
+ #include "cbcolourmanager.h"
+ 
+ BEGIN_EVENT_TABLE(AbbreviationsConfigPanel, cbConfigurationPanel)
 Index: src/plugins/astyle/astyleplugin.cpp
 ===================================================================
---- src/plugins/astyle/astyleplugin.cpp	(revision 9908)
+--- src/plugins/astyle/astyleplugin.cpp	(revision 9915)
 +++ src/plugins/astyle/astyleplugin.cpp	(working copy)
 @@ -15,6 +15,7 @@
      #include <string>
@@ -38,7 +64,7 @@ Index: src/plugins/astyle/astyleplugin.cpp
      #include <wx/fs_zip.h>
 Index: src/plugins/codecompletion/cctest/cctest_frame.cpp
 ===================================================================
---- src/plugins/codecompletion/cctest/cctest_frame.cpp	(revision 9908)
+--- src/plugins/codecompletion/cctest/cctest_frame.cpp	(revision 9915)
 +++ src/plugins/codecompletion/cctest/cctest_frame.cpp	(working copy)
 @@ -6,12 +6,7 @@
   * $HeadURL$
@@ -55,7 +81,7 @@ Index: src/plugins/codecompletion/cctest/cctest_frame.cpp
  
 Index: src/plugins/codecompletion/selectincludefile.cpp
 ===================================================================
---- src/plugins/codecompletion/selectincludefile.cpp	(revision 9908)
+--- src/plugins/codecompletion/selectincludefile.cpp	(revision 9915)
 +++ src/plugins/codecompletion/selectincludefile.cpp	(working copy)
 @@ -10,6 +10,7 @@
  #include "prep.h"
@@ -67,7 +93,7 @@ Index: src/plugins/codecompletion/selectincludefile.cpp
  
 Index: src/plugins/contrib/BrowseTracker/JumpTracker.cpp
 ===================================================================
---- src/plugins/contrib/BrowseTracker/JumpTracker.cpp	(revision 9908)
+--- src/plugins/contrib/BrowseTracker/JumpTracker.cpp	(revision 9915)
 +++ src/plugins/contrib/BrowseTracker/JumpTracker.cpp	(working copy)
 @@ -2,6 +2,7 @@
  //  JumpTracker.cpp
@@ -79,7 +105,7 @@ Index: src/plugins/contrib/BrowseTracker/JumpTracker.cpp
  #include <editormanager.h>
 Index: src/plugins/contrib/Cscope/CscopePlugin.cpp
 ===================================================================
---- src/plugins/contrib/Cscope/CscopePlugin.cpp	(revision 9908)
+--- src/plugins/contrib/Cscope/CscopePlugin.cpp	(revision 9915)
 +++ src/plugins/contrib/Cscope/CscopePlugin.cpp	(working copy)
 @@ -1,4 +1,5 @@
  #include <sdk.h> // Code::Blocks SDK
@@ -89,7 +115,7 @@ Index: src/plugins/contrib/Cscope/CscopePlugin.cpp
  
 Index: src/plugins/contrib/FileManager/FileExplorer.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/FileExplorer.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/FileExplorer.cpp	(revision 9915)
 +++ src/plugins/contrib/FileManager/FileExplorer.cpp	(working copy)
 @@ -2,8 +2,11 @@
  #include <wx/dir.h>
@@ -106,7 +132,7 @@ Index: src/plugins/contrib/FileManager/FileExplorer.cpp
      #include <wx/dnd.h>
 Index: src/plugins/contrib/FileManager/FileExplorerSettings.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(revision 9915)
 +++ src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(working copy)
 @@ -1,5 +1,8 @@
  #include "FileExplorerSettings.h"
@@ -119,7 +145,7 @@ Index: src/plugins/contrib/FileManager/FileExplorerSettings.cpp
    #include <wx/xrc/xmlres.h>
 Index: src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(revision 9915)
 +++ src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(working copy)
 @@ -1,3 +1,7 @@
 +#include <wx/dir.h>
@@ -131,7 +157,7 @@ Index: src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
  #include "se_globals.h"
 Index: src/plugins/contrib/FileManager/FileManager.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/FileManager.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/FileManager.cpp	(revision 9915)
 +++ src/plugins/contrib/FileManager/FileManager.cpp	(working copy)
 @@ -1,4 +1,5 @@
  #include <wx/aui/aui.h>
@@ -141,7 +167,7 @@ Index: src/plugins/contrib/FileManager/FileManager.cpp
      #include <cbauibook.h>
 Index: src/plugins/contrib/FileManager/directorymonitor.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/directorymonitor.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/directorymonitor.cpp	(revision 9915)
 +++ src/plugins/contrib/FileManager/directorymonitor.cpp	(working copy)
 @@ -1,8 +1,11 @@
 +#include <vector>
@@ -159,7 +185,7 @@ Index: src/plugins/contrib/FileManager/directorymonitor.cpp
  DEFINE_EVENT_TYPE(wxEVT_MONITOR_NOTIFY2)
 Index: src/plugins/contrib/FileManager/se_globals.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/se_globals.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/se_globals.cpp	(revision 9915)
 +++ src/plugins/contrib/FileManager/se_globals.cpp	(working copy)
 @@ -1,3 +1,6 @@
 +#include <editorbase.h>
@@ -170,7 +196,7 @@ Index: src/plugins/contrib/FileManager/se_globals.cpp
  wxString GetParentDir(const wxString &path)
 Index: src/plugins/contrib/NassiShneiderman/GraphBricks.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/GraphBricks.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/GraphBricks.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/GraphBricks.cpp	(working copy)
 @@ -1,3 +1,7 @@
 +#include <wx/brush.h>
@@ -182,7 +208,7 @@ Index: src/plugins/contrib/NassiShneiderman/GraphBricks.cpp
  #include "bricks.h"
 Index: src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp	(working copy)
 @@ -1,3 +1,6 @@
 +#include <wx/event.h>
@@ -193,7 +219,7 @@ Index: src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp
  #include "RedLineDrawlet.h"
 Index: src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp	(working copy)
 @@ -1,21 +1,8 @@
 -#ifdef __GNUG__
@@ -220,7 +246,7 @@ Index: src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp
  #include "NassiDiagramWindow.h"
 Index: src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp	(working copy)
 @@ -1,10 +1,7 @@
  
@@ -236,7 +262,7 @@ Index: src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp
  
 Index: src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp	(working copy)
 @@ -1,3 +1,4 @@
 +#include <wx/sizer.h>
@@ -245,7 +271,7 @@ Index: src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp
  #include <editormanager.h>
 Index: src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp	(working copy)
 @@ -1,11 +1,13 @@
 -#include <wx/sstream.h>
@@ -267,7 +293,7 @@ Index: src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
  #include <filefilters.h>
 Index: src/plugins/contrib/NassiShneiderman/NassiView.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/NassiView.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/NassiView.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/NassiView.cpp	(working copy)
 @@ -1,3 +1,9 @@
 +#include <wx/dcclient.h>
@@ -281,7 +307,7 @@ Index: src/plugins/contrib/NassiShneiderman/NassiView.cpp
  #include "NassiDiagramWindow.h"
 Index: src/plugins/contrib/NassiShneiderman/PasteTask.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/PasteTask.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/PasteTask.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/PasteTask.cpp	(working copy)
 @@ -1,3 +1,7 @@
 +#include <wx/cursor.h>
@@ -293,7 +319,7 @@ Index: src/plugins/contrib/NassiShneiderman/PasteTask.cpp
  #include "RedLineDrawlet.h"
 Index: src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp	(working copy)
 @@ -1,3 +1,6 @@
 +#include <wx/dc.h>
@@ -304,7 +330,7 @@ Index: src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp
  RedHatchDrawlet::RedHatchDrawlet(wxRect rect):
 Index: src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp	(working copy)
 @@ -1,3 +1,6 @@
 +#include <wx/dc.h>
@@ -315,7 +341,7 @@ Index: src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp
  RedLineDrawlet::RedLineDrawlet(wxPoint pos, wxCoord length, bool vertical):
 Index: src/plugins/contrib/NassiShneiderman/TextCtrl.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/TextCtrl.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/TextCtrl.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/TextCtrl.cpp	(working copy)
 @@ -1,3 +1,5 @@
 +#include <wx/dcclient.h>
@@ -325,7 +351,7 @@ Index: src/plugins/contrib/NassiShneiderman/TextCtrl.cpp
  
 Index: src/plugins/contrib/NassiShneiderman/TextGraph.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/TextGraph.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/TextGraph.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/TextGraph.cpp	(working copy)
 @@ -1,3 +1,5 @@
 +#include <wx/dc.h>
@@ -335,7 +361,7 @@ Index: src/plugins/contrib/NassiShneiderman/TextGraph.cpp
  #include "bricks.h"
 Index: src/plugins/contrib/NassiShneiderman/bricks.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/bricks.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/bricks.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/bricks.cpp	(working copy)
 @@ -1,26 +1,11 @@
 -#ifdef __GNUG__
@@ -367,7 +393,7 @@ Index: src/plugins/contrib/NassiShneiderman/bricks.cpp
      NASSI_BRICK_SELECT      =   0,
 Index: src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp	(working copy)
 @@ -20,6 +20,7 @@
  * $HeadURL$
@@ -379,7 +405,7 @@ Index: src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp
  #include "cbEditorPanel.h"
 Index: src/plugins/contrib/NassiShneiderman/commands.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/commands.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/commands.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/commands.cpp	(working copy)
 @@ -1,18 +1,5 @@
 -#ifdef __GNUG__
@@ -403,7 +429,7 @@ Index: src/plugins/contrib/NassiShneiderman/commands.cpp
  
 Index: src/plugins/contrib/NassiShneiderman/parseactions.cpp
 ===================================================================
---- src/plugins/contrib/NassiShneiderman/parseactions.cpp	(revision 9908)
+--- src/plugins/contrib/NassiShneiderman/parseactions.cpp	(revision 9915)
 +++ src/plugins/contrib/NassiShneiderman/parseactions.cpp	(working copy)
 @@ -1,18 +1,5 @@
 -#ifdef __GNUG__
@@ -427,58 +453,87 @@ Index: src/plugins/contrib/NassiShneiderman/parseactions.cpp
  
 Index: src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp
 ===================================================================
---- src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp	(revision 9908)
+--- src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp	(revision 9915)
 +++ src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp	(working copy)
-@@ -1,10 +1,16 @@
-+#include <wx/filename.h>
- #include <wx/notebook.h>
- #include <wx/textctrl.h>
- #include <wx/regex.h>
--#include "PipedProcessCtrl.h"
+@@ -1,9 +1,24 @@
+-#include <wx/notebook.h>
+-#include <wx/textctrl.h>
+-#include <wx/regex.h>
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
 +
-+#include <manager.h>
-+#include <configmanager.h>
-+#include <editormanager.h>
- #include <globals.h>
- #include <cbeditor.h>
++#ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/filename.h>
++    #include <wx/regex.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/notebook.h>
++    #include <wx/textctrl.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <globals.h>
++    #include <cbeditor.h>
++    #include <manager.h>
++    #include <configmanager.h>
++    #include <editormanager.h>
++#endif // #ifndef CB_PRECOMP
++
+ #include "PipedProcessCtrl.h"
+-#include <globals.h>
+-#include <cbeditor.h>
  
-+#include "PipedProcessCtrl.h"
-+
  ////////////////////////////////////// PipedProcessCtrl /////////////////////////////////////////////
  #define PP_ERROR_STYLE 1
- #define PP_LINK_STYLE 2
 Index: src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp
 ===================================================================
---- src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp	(revision 9908)
+--- src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp	(revision 9915)
 +++ src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp	(working copy)
-@@ -1,9 +1,12 @@
-+#include <wx/menu.h>
- #include <wx/notebook.h>
- #include <wx/textctrl.h>
- #include <wx/regex.h>
--#include "ShellCtrlBase.h"
+@@ -1,8 +1,20 @@
+-#include <wx/notebook.h>
+-#include <wx/textctrl.h>
+-#include <wx/regex.h>
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
 +
- #include <globals.h>
++#ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/regex.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/menu.h>
++    #include <wx/notebook.h>
++    #include <wx/textctrl.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <globals.h>
++#endif // #ifndef CB_PRECOMP
++
+ #include "ShellCtrlBase.h"
+-#include <globals.h>
  
-+#include "ShellCtrlBase.h"
-+
  // The global instance of the shell registry
  ShellRegistry& GlobalShellRegistry()
- {
 Index: src/plugins/contrib/ToolsPlus/se_globals.cpp
 ===================================================================
---- src/plugins/contrib/ToolsPlus/se_globals.cpp	(revision 9908)
+--- src/plugins/contrib/ToolsPlus/se_globals.cpp	(revision 9915)
 +++ src/plugins/contrib/ToolsPlus/se_globals.cpp	(working copy)
-@@ -1,3 +1,6 @@
-+#include <editorbase.h>
-+#include <editormanager.h>
+@@ -1,3 +1,12 @@
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++#ifndef CB_PRECOMP
++    // CB SDK Headers in sdk_common.h
++    #include <editorbase.h>
++    #include <editormanager.h>
++#endif // #ifndef CB_PRECOMP
 +
  #include "se_globals.h"
  
  wxString GetParentDir(const wxString &path)
 Index: src/plugins/contrib/source_exporter/exporter.cpp
 ===================================================================
---- src/plugins/contrib/source_exporter/exporter.cpp	(revision 9908)
+--- src/plugins/contrib/source_exporter/exporter.cpp	(revision 9915)
 +++ src/plugins/contrib/source_exporter/exporter.cpp	(working copy)
 @@ -7,6 +7,8 @@
   **************************************************************/
@@ -491,7 +546,7 @@ Index: src/plugins/contrib/source_exporter/exporter.cpp
  #include <manager.h>
 Index: src/plugins/contrib/wxSmith/wxseditor.cpp
 ===================================================================
---- src/plugins/contrib/wxSmith/wxseditor.cpp	(revision 9908)
+--- src/plugins/contrib/wxSmith/wxseditor.cpp	(revision 9915)
 +++ src/plugins/contrib/wxSmith/wxseditor.cpp	(working copy)
 @@ -24,7 +24,6 @@
  #include "wxsresource.h"
@@ -503,7 +558,7 @@ Index: src/plugins/contrib/wxSmith/wxseditor.cpp
      EditorBase(parent,title),
 Index: src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
 ===================================================================
---- src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp	(revision 9908)
+--- src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp	(revision 9915)
 +++ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp	(working copy)
 @@ -16,6 +16,8 @@
  * along with wxSmithAui. If not, see <http://www.gnu.org/licenses/>.
@@ -516,7 +571,7 @@ Index: src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
  #if wxCHECK_VERSION(2,8,9)
 Index: src/plugins/occurrenceshighlighting/highlighter.cpp
 ===================================================================
---- src/plugins/occurrenceshighlighting/highlighter.cpp	(revision 9908)
+--- src/plugins/occurrenceshighlighting/highlighter.cpp	(revision 9915)
 +++ src/plugins/occurrenceshighlighting/highlighter.cpp	(working copy)
 @@ -7,8 +7,6 @@
   * $HeadURL$
@@ -538,7 +593,7 @@ Index: src/plugins/occurrenceshighlighting/highlighter.cpp
      lineb(-1),
 Index: src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
 ===================================================================
---- src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(revision 9908)
+--- src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(revision 9915)
 +++ src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(working copy)
 @@ -12,6 +12,7 @@
  #ifndef CB_PRECOMP
@@ -550,7 +605,7 @@ Index: src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
      #include <editormanager.h>
 Index: src/plugins/todo/todolistview.cpp
 ===================================================================
---- src/plugins/todo/todolistview.cpp	(revision 9908)
+--- src/plugins/todo/todolistview.cpp	(revision 9915)
 +++ src/plugins/todo/todolistview.cpp	(working copy)
 @@ -23,6 +23,7 @@
  
@@ -562,7 +617,7 @@ Index: src/plugins/todo/todolistview.cpp
      #include "globals.h"
 Index: src/sdk/editorlexerloader.cpp
 ===================================================================
---- src/sdk/editorlexerloader.cpp	(revision 9908)
+--- src/sdk/editorlexerloader.cpp	(revision 9915)
 +++ src/sdk/editorlexerloader.cpp	(working copy)
 @@ -7,20 +7,26 @@
   * $HeadURL$
@@ -597,7 +652,7 @@ Index: src/sdk/editorlexerloader.cpp
      : m_pTarget(target)
 Index: src/sdk/filemanager.cpp
 ===================================================================
---- src/sdk/filemanager.cpp	(revision 9908)
+--- src/sdk/filemanager.cpp	(revision 9915)
 +++ src/sdk/filemanager.cpp	(working copy)
 @@ -7,9 +7,11 @@
   * $HeadURL$
@@ -613,7 +668,7 @@ Index: src/sdk/filemanager.cpp
      #include "cbeditor.h"
 Index: src/src/debugger_interface_creator.cpp
 ===================================================================
---- src/src/debugger_interface_creator.cpp	(revision 9908)
+--- src/src/debugger_interface_creator.cpp	(revision 9915)
 +++ src/src/debugger_interface_creator.cpp	(working copy)
 @@ -2,13 +2,17 @@
   * This file is part of the Code::Blocks IDE and licensed under the GNU Lesser General Public License, version 3
@@ -636,7 +691,7 @@ Index: src/src/debugger_interface_creator.cpp
  #include "cbstyledtextctrl.h"
 Index: src/src/find_replace.cpp
 ===================================================================
---- src/src/find_replace.cpp	(revision 9908)
+--- src/src/find_replace.cpp	(revision 9915)
 +++ src/src/find_replace.cpp	(working copy)
 @@ -1,28 +1,35 @@
 -#include "sdk.h"
@@ -692,7 +747,7 @@ Index: src/src/find_replace.cpp
      int start;
 Index: src/src/main.cpp
 ===================================================================
---- src/src/main.cpp	(revision 9908)
+--- src/src/main.cpp	(revision 9915)
 +++ src/src/main.cpp	(working copy)
 @@ -7,20 +7,74 @@
   * $HeadURL$
