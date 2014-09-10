@@ -1,0 +1,113 @@
+Index: src/plugins/abbreviations/abbreviations.cpp
+===================================================================
+--- src/plugins/abbreviations/abbreviations.cpp	(revision 9908)
++++ src/plugins/abbreviations/abbreviations.cpp	(working copy)
+@@ -10,6 +10,8 @@
+ #include <sdk.h>
+ 
+ #ifndef CB_PRECOMP
++    #include <wx/textdlg.h>
++    
+     #include <configurationpanel.h>
+     #include <cbstyledtextctrl.h>
+     #include <editorcolourset.h>
+Index: src/plugins/abbreviations/abbreviationsconfigpanel.cpp
+===================================================================
+--- src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(revision 9908)
++++ src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(working copy)
+@@ -14,6 +14,8 @@
+     #include <wx/xrc/xmlres.h>
+     #include <wx/fontutil.h>
+     #include <wx/choicdlg.h>
++    #include <wx/combobox.h>
++    #include <wx/textdlg.h>
+ 
+     #include <configmanager.h>
+     #include <editorcolourset.h>
+Index: src/plugins/astyle/astyleplugin.cpp
+===================================================================
+--- src/plugins/astyle/astyleplugin.cpp	(revision 9908)
++++ src/plugins/astyle/astyleplugin.cpp	(working copy)
+@@ -15,6 +15,7 @@
+     #include <string>
+     #include <vector>
+ 
++    #include <wx/menu.h>
+     #include <wx/msgdlg.h>
+     #include <wx/xrc/xmlres.h>
+     #include <wx/fs_zip.h>
+Index: src/plugins/codecompletion/cctest/cctest_frame.cpp
+===================================================================
+--- src/plugins/codecompletion/cctest/cctest_frame.cpp	(revision 9908)
++++ src/plugins/codecompletion/cctest/cctest_frame.cpp	(working copy)
+@@ -6,12 +6,7 @@
+  * $HeadURL$
+  */
+ 
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+ #ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+     #include <wx/file.h>
+ #endif
+ 
+Index: src/plugins/codecompletion/selectincludefile.cpp
+===================================================================
+--- src/plugins/codecompletion/selectincludefile.cpp	(revision 9908)
++++ src/plugins/codecompletion/selectincludefile.cpp	(working copy)
+@@ -10,6 +10,7 @@
+ #include "prep.h"
+ #include "selectincludefile.h"
+ 
++#include <wx/listbox.h>
+ #include <wx/xrc/xmlres.h>
+ #include <wx/arrstr.h>
+ 
+Index: src/plugins/occurrenceshighlighting/highlighter.cpp
+===================================================================
+--- src/plugins/occurrenceshighlighting/highlighter.cpp	(revision 9908)
++++ src/plugins/occurrenceshighlighting/highlighter.cpp	(working copy)
+@@ -7,8 +7,6 @@
+  * $HeadURL$
+  */
+ 
+-#include "highlighter.h"
+-
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -21,6 +19,8 @@
+ #include <cbstyledtextctrl.h>
+ #include <cbcolourmanager.h>
+ 
++#include "highlighter.h"
++
+ HighlightedEditorPositions::HighlightedEditorPositions():
+     linea(-1),
+     lineb(-1),
+Index: src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
+===================================================================
+--- src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(revision 9908)
++++ src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(working copy)
+@@ -12,6 +12,7 @@
+ #ifndef CB_PRECOMP
+     #include <algorithm>
+     #include <wx/listctrl.h>
++    #include <wx/menu.h>
+     #include <configmanager.h>
+     #include <cbeditor.h>
+     #include <editormanager.h>
+Index: src/plugins/todo/todolistview.cpp
+===================================================================
+--- src/plugins/todo/todolistview.cpp	(revision 9908)
++++ src/plugins/todo/todolistview.cpp	(working copy)
+@@ -23,6 +23,7 @@
+ 
+     #include "cbeditor.h"
+     #include "cbproject.h"
++    #include "configmanager.h"
+     #include "editormanager.h"
+     #include "filemanager.h"
+     #include "globals.h"
