@@ -5,6 +5,7 @@
     // wxWidgets non GUI headers in wx/wx.h; but, not in sdk_common.h
 
     // wxWidgets GUI headers in wx/wx.h; but, not in sdk_common.h
+//    #include <wx/dirdlg.h>
 //    #include <wx/gdicmn.h>
 //    #include <wx/settings.h>
 #endif // #if !defined(WX_PRECOMP)
