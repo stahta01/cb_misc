@@ -1,0 +1,259 @@
+Index: src/sdk/editorlexerloader.cpp
+===================================================================
+--- src/sdk/editorlexerloader.cpp	(revision 9908)
++++ src/sdk/editorlexerloader.cpp	(working copy)
+@@ -7,20 +7,26 @@
+  * $HeadURL$
+  */
+ 
++// sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+ 
+ #ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/dynarray.h>
++    #include <wx/regex.h>
++    
++    // CB SDK Headers in sdk_common.h
++    #include "wx/wxscintilla.h"
+     #include "globals.h"
+     #include "manager.h"
++    #include "filemanager.h"
+     #include "logmanager.h"
+-    #include <wx/dynarray.h>
+-    #include <wx/regex.h>
+-    #include <wx/wxscintilla.h>
+ #endif
+ 
+ #include "editorcolourset.h"
++#include "tinyxml/tinyxml.h"
++
+ #include "editorlexerloader.h"
+-#include "filemanager.h"
+ 
+ EditorLexerLoader::EditorLexerLoader(EditorColourSet* target)
+     : m_pTarget(target)
+Index: src/sdk/filemanager.cpp
+===================================================================
+--- src/sdk/filemanager.cpp	(revision 9908)
++++ src/sdk/filemanager.cpp	(working copy)
+@@ -7,9 +7,11 @@
+  * $HeadURL$
+  */
+ 
++// sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+ 
+ #ifndef CB_PRECOMP
++    #include "configmanager.h"
+     #include "filemanager.h"
+     #include "safedelete.h"
+     #include "cbeditor.h"
+Index: src/src/debugger_interface_creator.cpp
+===================================================================
+--- src/src/debugger_interface_creator.cpp	(revision 9908)
++++ src/src/debugger_interface_creator.cpp	(working copy)
+@@ -2,13 +2,17 @@
+  * This file is part of the Code::Blocks IDE and licensed under the GNU Lesser General Public License, version 3
+  * http://www.gnu.org/licenses/gpl-3.0.html
+  */
+-#include "debugger_interface_creator.h"
+ 
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
+ #ifndef CB_PRECOMP
+     #include "cbeditor.h"
+     #include "editormanager.h"
+ #endif
+ 
++#include "debugger_interface_creator.h"
++
+ #include "backtracedlg.h"
+ #include "breakpointsdlg.h"
+ #include "cbstyledtextctrl.h"
+Index: src/src/find_replace.cpp
+===================================================================
+--- src/src/find_replace.cpp	(revision 9908)
++++ src/src/find_replace.cpp	(working copy)
+@@ -1,28 +1,35 @@
+-#include "sdk.h"
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
+ 
+-#include "find_replace.h"
+-
+ #ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
+     #include <wx/dir.h>
+     #include <wx/regex.h>
+ 
+-    #include "cbauibook.h"
+-    #include "cbeditor.h"
+-    #include "cbproject.h"
+-    #include "editormanager.h"
+-    #include "infowindow.h"
+-    #include "projectfile.h"
+-#endif
++    // wxWidgets GUI headers in sdk_common.h
+ 
++    // CB SDK Headers in sdk_common.h
++    #include <cbeditor.h>
++    #include <projectfile.h>
++    #include <cbproject.h>
++    #include <cbauibook.h>
++    #include <configmanager.h>
++    #include <editormanager.h>
++    #include <infowindow.h>
++#endif // #ifndef CB_PRECOMP
++
+ #include <wx/progdlg.h>
+ 
+-#include "annoyingdialog.h"
+-#include "cbstyledtextctrl.h"
+-#include "confirmreplacedlg.h"
+-#include "encodingdetector.h"
+-#include "findreplacedlg.h"
+-#include "searchresultslog.h"
++#include <annoyingdialog.h>
++#include <cbstyledtextctrl.h>
++#include <confirmreplacedlg.h>
++#include <encodingdetector.h>
++#include <findreplacedlg.h>
++#include <searchresultslog.h>
+ 
++#include "find_replace.h"
++
++
+ struct cbFindReplaceData
+ {
+     int start;
+Index: src/src/main.cpp
+===================================================================
+--- src/src/main.cpp	(revision 9908)
++++ src/src/main.cpp	(working copy)
+@@ -7,20 +7,74 @@
+  * $HeadURL$
+  */
+ 
++// sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h>
+ 
++#if !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers in wx/wx.h; but, not in sdk_common.h
++
++    // wxWidgets GUI headers in wx/wx.h; but, not in sdk_common.h
++    #include <wx/gdicmn.h>
++#endif // #if !defined(WX_PRECOMP)
++
++#ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/filename.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/dcclient.h>
++    #include <wx/filedlg.h>
++    #include <wx/textdlg.h>
++    #include <wx/xrc/xmlres.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <editorcolourset.h>
++    #include <globals.h>
++    #include <sdk_events.h>
++    #include <cbexception.h>
++    #include <cbplugin.h>
++    #include <cbproject.h>
++    #include <cbworkspace.h>
++    #include <cbauibook.h>
++    #include <configmanager.h>
++    #include <editormanager.h>
++    #include <logmanager.h>
++    #include <projectmanager.h>
++    #include <scriptingmanager.h>
++    #include <toolsmanager.h>
++    #include <templatemanager.h>
++    #include <pluginmanager.h>
++    #include <personalitymanager.h>
++    #include <uservarmanager.h>
++    #include <infowindow.h>
++#endif // #ifndef CB_PRECOMP
++
++#include <wx/display.h>
++#include <wx/dnd.h>
++#include <wx/fileconf.h>
++#include <wx/printdlg.h>
++#include <wx/sstream.h>
++#include <wx/tipdlg.h>
++#include <wx/tokenzr.h>
++
++#include <annoyingdialog.h>
++#include <cbcolourmanager.h>
++#include <cbstatusbar.h>
++#include <cbstyledtextctrl.h>
++#include <ccmanager.h>
++#include <debuggermanager.h>
++#include <filefilters.h>
++#include <loggers.h>
++
+ #include "app.h"
+ #include "appglobals.h"
+ #include "batchbuild.h"
+-#include "cbauibook.h"
+-#include "cbstyledtextctrl.h"
+ #include "compilersettingsdlg.h"
+ #include "debuggersettingsdlg.h"
+ #include "dlgabout.h"
+ #include "dlgaboutplugin.h"
+ #include "environmentsettingsdlg.h"
+ #include "infopane.h"
+-#include "infowindow.h"
+ #include "main.h"
+ #include "notebookstyles.h"
+ #include "printdlg.h"
+@@ -28,46 +82,8 @@
+ #include "scriptingsettingsdlg.h"
+ #include "startherepage.h"
+ #include "switcherdlg.h"
+-#include "cbstatusbar.h"
+-#include "loggers.h"
+-
+-#include <wx/display.h>
+-#include <wx/dnd.h>
+-#include <wx/fileconf.h>
+-#include <wx/filename.h>
+-#include <wx/gdicmn.h>
+-#include <wx/printdlg.h>
+-#include <wx/sstream.h>
+-#include <wx/tipdlg.h>
+-#include <wx/tokenzr.h>
+-#include <wx/xrc/xmlres.h>
+-
+-#include <annoyingdialog.h>
+-#include <cbexception.h>
+-#include <cbplugin.h>
+-#include <cbproject.h>
+-#include <cbworkspace.h>
+-#include <ccmanager.h>
+-#include <configmanager.h>
+-#include <debuggermanager.h>
+-#include <editorcolourset.h>
+-#include <editormanager.h>
+-#include <filefilters.h>
+-#include <globals.h>
+-#include <logmanager.h>
+-#include <personalitymanager.h>
+-#include <pluginmanager.h>
+-#include <projectmanager.h>
+-#include <scriptingmanager.h>
+-#include <sdk_events.h>
+-#include <templatemanager.h>
+-#include <toolsmanager.h>
+-#include <uservarmanager.h>
+-
+ #include "debugger_interface_creator.h"
+ #include "debuggermenu.h"
+-
+-#include "cbcolourmanager.h"
+ #include "editorconfigurationdlg.h"
+ #include "projectmanagerui.h"
+ 
