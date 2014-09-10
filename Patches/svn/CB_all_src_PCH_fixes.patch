@@ -514,6 +514,25 @@ Index: src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp
  
  // The global instance of the shell registry
  ShellRegistry& GlobalShellRegistry()
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus.cpp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus.cpp	(revision 9915)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus.cpp	(working copy)
+@@ -1,3 +1,14 @@
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++#ifndef CB_PRECOMP
++    // CB SDK Headers in sdk_common.h
++    #include <editorbase.h>
++    #include <cbproject.h>
++    #include <editormanager.h>
++    #include <macrosmanager.h>
++#endif // #ifndef CB_PRECOMP
++
+ #include "ToolsPlus.h"
+ #include "se_globals.h"
+ 
 Index: src/plugins/contrib/ToolsPlus/se_globals.cpp
 ===================================================================
 --- src/plugins/contrib/ToolsPlus/se_globals.cpp	(revision 9915)
