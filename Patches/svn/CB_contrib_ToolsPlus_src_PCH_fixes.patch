@@ -1,50 +1,79 @@
 Index: src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp
 ===================================================================
---- src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp	(revision 9908)
+--- src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp	(revision 9915)
 +++ src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp	(working copy)
-@@ -1,10 +1,16 @@
-+#include <wx/filename.h>
- #include <wx/notebook.h>
- #include <wx/textctrl.h>
- #include <wx/regex.h>
--#include "PipedProcessCtrl.h"
+@@ -1,9 +1,24 @@
+-#include <wx/notebook.h>
+-#include <wx/textctrl.h>
+-#include <wx/regex.h>
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
 +
-+#include <manager.h>
-+#include <configmanager.h>
-+#include <editormanager.h>
- #include <globals.h>
- #include <cbeditor.h>
++#ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/filename.h>
++    #include <wx/regex.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/notebook.h>
++    #include <wx/textctrl.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <globals.h>
++    #include <cbeditor.h>
++    #include <manager.h>
++    #include <configmanager.h>
++    #include <editormanager.h>
++#endif // #ifndef CB_PRECOMP
++
+ #include "PipedProcessCtrl.h"
+-#include <globals.h>
+-#include <cbeditor.h>
  
-+#include "PipedProcessCtrl.h"
-+
  ////////////////////////////////////// PipedProcessCtrl /////////////////////////////////////////////
  #define PP_ERROR_STYLE 1
- #define PP_LINK_STYLE 2
 Index: src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp
 ===================================================================
---- src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp	(revision 9908)
+--- src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp	(revision 9915)
 +++ src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp	(working copy)
-@@ -1,9 +1,12 @@
-+#include <wx/menu.h>
- #include <wx/notebook.h>
- #include <wx/textctrl.h>
- #include <wx/regex.h>
--#include "ShellCtrlBase.h"
+@@ -1,8 +1,20 @@
+-#include <wx/notebook.h>
+-#include <wx/textctrl.h>
+-#include <wx/regex.h>
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
 +
- #include <globals.h>
++#ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/regex.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/menu.h>
++    #include <wx/notebook.h>
++    #include <wx/textctrl.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <globals.h>
++#endif // #ifndef CB_PRECOMP
++
+ #include "ShellCtrlBase.h"
+-#include <globals.h>
  
-+#include "ShellCtrlBase.h"
-+
  // The global instance of the shell registry
  ShellRegistry& GlobalShellRegistry()
- {
 Index: src/plugins/contrib/ToolsPlus/se_globals.cpp
 ===================================================================
---- src/plugins/contrib/ToolsPlus/se_globals.cpp	(revision 9908)
+--- src/plugins/contrib/ToolsPlus/se_globals.cpp	(revision 9915)
 +++ src/plugins/contrib/ToolsPlus/se_globals.cpp	(working copy)
-@@ -1,3 +1,6 @@
-+#include <editorbase.h>
-+#include <editormanager.h>
+@@ -1,3 +1,12 @@
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++#ifndef CB_PRECOMP
++    // CB SDK Headers in sdk_common.h
++    #include <editorbase.h>
++    #include <editormanager.h>
++#endif // #ifndef CB_PRECOMP
 +
  #include "se_globals.h"
  

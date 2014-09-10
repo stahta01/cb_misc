@@ -13,17 +13,43 @@ Index: src/plugins/abbreviations/abbreviations.cpp
      #include <editorcolourset.h>
 Index: src/plugins/abbreviations/abbreviationsconfigpanel.cpp
 ===================================================================
---- src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(revision 9908)
+--- src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(revision 9915)
 +++ src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(working copy)
-@@ -14,6 +14,8 @@
-     #include <wx/xrc/xmlres.h>
-     #include <wx/fontutil.h>
+@@ -7,20 +7,29 @@
+  * $HeadURL$
+  */
+ 
++// sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h>
+-#include "abbreviationsconfigpanel.h"
+ 
+ #ifndef CB_PRECOMP
+-    #include <wx/xrc/xmlres.h>
+-    #include <wx/fontutil.h>
++    // wxWidgets non GUI headers in sdk_common.h
      #include <wx/choicdlg.h>
+ 
++    // wxWidgets GUI headers in sdk_common.h
 +    #include <wx/combobox.h>
 +    #include <wx/textdlg.h>
- 
++    #include <wx/xrc/xmlres.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <editorcolourset.h>
      #include <configmanager.h>
-     #include <editorcolourset.h>
+-    #include <editorcolourset.h>
+     #include <editormanager.h>
+     #include <logmanager.h>
+-#endif
++#endif // #ifndef CB_PRECOMP
+ 
++#include <wx/fontutil.h>
++
++#include "abbreviationsconfigpanel.h"
++
+ #include "cbcolourmanager.h"
+ 
+ BEGIN_EVENT_TABLE(AbbreviationsConfigPanel, cbConfigurationPanel)
 Index: src/plugins/astyle/astyleplugin.cpp
 ===================================================================
 --- src/plugins/astyle/astyleplugin.cpp	(revision 9908)
