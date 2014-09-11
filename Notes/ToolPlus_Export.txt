@@ -1,0 +1,309 @@
+##Tools Plus Plugin (v0.6) Command Export##
+COMMAND#####################################
+name:Git Bash
+command line:CMD /C START "Git Bash" /D "C:\Program Files\Git" "C:\Program Files\Git\Git Bash.vbs" $(PROJECTDIR
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/Git Bash
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:git svn find-rev HEAD
+command line:%programfiles%\git\bin\git svn find-rev HEAD
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/svn/find-rev HEAD
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git svn info
+command line:%programfiles%\git\bin\git svn info
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/svn/info
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git svn fetch
+command line:git svn fetch
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/svn/fetch
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git svn rebase
+command line:git svn rebase
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/svn/rebase
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Tortoise Git repostatus
+command line:TortoiseGitProc.exe /command:repostatus
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/tgit/repostatus
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:Tortoise Git repobrowser
+command line:TortoiseGitProc.exe /command:repobrowser
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/tgit/repobrowser
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:Tortoise Git help
+command line:TortoiseGitProc.exe /command:help
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/tgit/help
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:Tortoise Git push
+command line:TortoiseGitProc.exe /command:push
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/tgit/push
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:git status
+command line:%programfiles%\git\bin\git status
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/status
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git status short
+command line:%programfiles%\git\bin\git status --short --branch
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/status short
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git branch list local
+command line:%programfiles%\git\bin\git branch --list
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/branch list local
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git branch list remote
+command line:%programfiles%\git\bin\git branch --list -r
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/branch list remote
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git remote verbose
+command line:%programfiles%\git\bin\git remote --verbose
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/remote verbose
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git pull rebase upstream master
+command line:%programfiles%\git\bin\git pull --rebase upstream master
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/pull rebase upstream master
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git rebase skip
+command line:%programfiles%\git\bin\git rebase --skip
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/rebase skip
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git rebase continue
+command line:%programfiles%\git\bin\git rebase --continue
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/rebase continue
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git rebase abort
+command line:%programfiles%\git\bin\git rebase --abort
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/rebase abort
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git pull rebase upstream master
+command line:%programfiles%\git\bin\git pull --rebase upstream master
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/pull rebase upstream master
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Bzr Status
+command line:bzr status
+workdir:$(PROJECTDIR
+wildcards:
+menu string:bzr/status
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Bzr Diff
+command line:bzr diff
+workdir:$(PROJECTDIR
+wildcards:
+menu string:bzr/diff
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Bzr Commit
+command line:bzr commit
+workdir:$(PROJECTDIR
+wildcards:
+menu string:bzr/commit
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:Bzr Log
+command line:bzr log
+workdir:$(PROJECTDIR
+wildcards:
+menu string:bzr/log
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Hg Status
+command line:hg status
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/status
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Hg Log
+command line:hg log
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/log
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Hg Commit
+command line:hg commit
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/commit
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:Hg Diff
+command line:hg diff
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/diff
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Hg Status Quiet
+command line:hg status -q
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/status-q
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
