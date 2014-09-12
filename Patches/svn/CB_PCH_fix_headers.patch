@@ -1,0 +1,1623 @@
+Index: src/include/ccmanager.h
+===================================================================
+--- src/include/ccmanager.h	(revision 9916)
++++ src/include/ccmanager.h	(working copy)
+@@ -6,12 +6,11 @@
+ #ifndef CCMANAGER_H
+ #define CCMANAGER_H
+ 
++#include <wx/timer.h>
++
++#include "cbplugin.h"
+ #include "manager.h"
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/timer.h>
+-    #include "cbplugin.h"
+-#endif
+ 
+ class UnfocusablePopupWindow;
+ class wxHtmlLinkEvent;
+Index: src/include/compilerfactory.h
+===================================================================
+--- src/include/compilerfactory.h	(revision 9916)
++++ src/include/compilerfactory.h	(working copy)
+@@ -6,10 +6,8 @@
+ #ifndef COMPILERFACTORY_H
+ #define COMPILERFACTORY_H
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/arrstr.h> // WX_DEFINE_ARRAY
+-    #include "compiler.h" // Compiler
+-#endif
++#include <wx/arrstr.h> // WX_DEFINE_ARRAY
++#include "compiler.h" // Compiler
+ 
+ #include "settings.h"
+ 
+Index: src/include/debuggermanager.h
+===================================================================
+--- src/include/debuggermanager.h	(revision 9916)
++++ src/include/debuggermanager.h	(working copy)
+@@ -6,20 +6,14 @@
+ #ifndef X_DEBUGGER_MANAGER_H
+ #define X_DEBUGGER_MANAGER_H
+ 
+-#include "sdk.h"
++#include <vector>
+ 
+-#ifndef CB_PRECOMP
+-#   include <map>
+-#   include <vector>
++#include "prep.h" // cb::shared_ptr
++#include "configmanager.h"
+ 
+-#   include <manager.h>
+-#   include <settings.h>
+-#   include <wx/string.h>
+ 
+-#   include "configmanager.h"
+-#endif
+-
+ class wxMenu;
++class wxString;
+ class wxToolBar;
+ class cbBacktraceDlg;
+ class cbBreakpointsDlg;
+Index: src/include/filemanager.h
+===================================================================
+--- src/include/filemanager.h	(revision 9916)
++++ src/include/filemanager.h	(working copy)
+@@ -16,13 +16,7 @@
+ #include <deque>
+ #include <memory>
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/file.h>
+-    #include <wx/filename.h>
+-    #include "configmanager.h"
+-#endif
+ 
+-
+ class TiXmlDocument;
+ namespace TinyXML{ 	bool SaveDocument(const wxString&, TiXmlDocument*); }
+ 
+Index: src/include/manager.h
+===================================================================
+--- src/include/manager.h	(revision 9916)
++++ src/include/manager.h	(working copy)
+@@ -9,11 +9,11 @@
+ #include <map>
+ #include <vector>
+ 
+-#ifndef WX_PRECOMP
+-#   ifdef __WXMSW__
+-#       include <wx/msw/wrapwin.h>  // Needed to prevent Yield define bug.
+-#   endif
+-#endif
++#include <wx/defs.h>    // __WINDOWS__ defined in wx/platform.h
++#if defined(__WINDOWS__)
++    #include <wx/msw/wrapwin.h>  // Needed to prevent Yield define bug.
++#endif // #if defined(__WINDOWS__)
++
+ #include <wx/event.h>
+ #include <wx/cmdline.h>
+ 
+Index: src/include/projectmanager.h
+===================================================================
+--- src/include/projectmanager.h	(revision 9916)
++++ src/include/projectmanager.h	(working copy)
+@@ -6,9 +6,6 @@
+ #ifndef PROJECTMANAGER_H
+ #define PROJECTMANAGER_H
+ 
+-#ifndef CB_PRECOMP
+-    #include "globals.h" // DEFAULT_WORKSPACE
+-#endif
+ 
+ #include <wx/event.h>
+ #include <wx/dynarray.h>
+@@ -17,6 +14,7 @@
+ 
+ #include "cbexception.h"
+ #include "cbtreectrl.h"
++#include "globals.h" // DEFAULT_WORKSPACE
+ #include "settings.h"
+ #include "manager.h"
+ 
+Index: src/include/scriptingmanager.h
+===================================================================
+--- src/include/scriptingmanager.h	(revision 9916)
++++ src/include/scriptingmanager.h	(working copy)
+@@ -9,15 +9,12 @@
+ #include <map>
+ #include <set>
+ 
+-#ifndef CB_PRECOMP
+-    #include "cbexception.h" // cbThrow
+-    #include "globals.h" // cbC2U
+-#endif
++#include <wx/intl.h>
+ 
++#include "cbexception.h" // cbThrow
+ #include "settings.h"
+ #include "manager.h"
+ #include "menuitemsmanager.h"
+-#include <wx/intl.h>
+ 
+ struct SquirrelError;
+ 
+Index: src/include/templatemanager.h
+===================================================================
+--- src/include/templatemanager.h	(revision 9916)
++++ src/include/templatemanager.h	(working copy)
+@@ -6,14 +6,13 @@
+ #ifndef TEMPLATEMANAGER_H
+ #define TEMPLATEMANAGER_H
+ 
+-#include "settings.h"
+-#include "manager.h"
+ #include <wx/event.h>
+ 
+-#ifndef CB_PRECOMP
+-    #include "globals.h"
+-#endif
++#include "cbproject.h"
++#include "manager.h"
++#include "settings.h"
+ 
++
+ //forward decls
+ class wxMenuBar;
+ class wxMenu;
+Index: src/include/uservarmanager.h
+===================================================================
+--- src/include/uservarmanager.h	(revision 9916)
++++ src/include/uservarmanager.h	(working copy)
+@@ -10,9 +10,6 @@
+ #include "manager.h"
+ #include "cbexception.h"
+ 
+-#ifndef CB_PRECOMP
+-    #include "globals.h"
+-#endif
+ 
+ class DLLIMPORT UserVariableManager : public Mgr<UserVariableManager>
+ {
+Index: src/include/xtra_res.h
+===================================================================
+--- src/include/xtra_res.h	(revision 9916)
++++ src/include/xtra_res.h	(working copy)
+@@ -6,16 +6,11 @@
+ #ifndef XTRA_RES_H
+ #define XTRA_RES_H
+ 
+-#include <wx/wxprec.h>
+ #include <wx/xrc/xmlres.h>
+ #include <wx/xrc/xh_dlg.h>
+ #include <wx/toolbar.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+ 
+-
+ class wxXmlResourceHandler;
+ 
+ class wxToolBarAddOnXmlHandler : public wxXmlResourceHandler
+Index: src/plugins/abbreviations/abbreviations.h
+===================================================================
+--- src/plugins/abbreviations/abbreviations.h	(revision 9916)
++++ src/plugins/abbreviations/abbreviations.h	(working copy)
+@@ -6,13 +6,7 @@
+ #ifndef ABBREVIATIONS_H_INCLUDED
+ #define ABBREVIATIONS_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ 
+ WX_DECLARE_STRING_HASH_MAP(wxString, AutoCompleteMap);
+Index: src/plugins/abbreviations/abbreviationsconfigpanel.h
+===================================================================
+--- src/plugins/abbreviations/abbreviationsconfigpanel.h	(revision 9916)
++++ src/plugins/abbreviations/abbreviationsconfigpanel.h	(working copy)
+@@ -16,6 +16,8 @@
+ #include <wx/panel.h>
+ #include <wx/button.h>
+ 
++class wxComboBox;
++
+ class AbbreviationsConfigPanel: public cbConfigurationPanel
+ {
+ public:
+Index: src/plugins/astyle/astyleplugin.h
+===================================================================
+--- src/plugins/astyle/astyleplugin.h	(revision 9916)
++++ src/plugins/astyle/astyleplugin.h	(working copy)
+@@ -6,17 +6,7 @@
+ #ifndef ASTYLEPLUGIN_H
+ #define ASTYLEPLUGIN_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // the base class we 're inheriting
+ #include <settings.h> // needed to use the Code::Blocks SDK
+ 
+Index: src/plugins/codecompletion/parser/ccdebuginfo.h
+===================================================================
+--- src/plugins/codecompletion/parser/ccdebuginfo.h	(revision 9916)
++++ src/plugins/codecompletion/parser/ccdebuginfo.h	(working copy)
+@@ -6,12 +6,7 @@
+ #ifndef CCDEBUGINFO_H
+ #define CCDEBUGINFO_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+ //(*Headers(CCDebugInfo)
+ #include <wx/notebook.h>
+ #include <wx/sizer.h>
+Index: src/plugins/codecompletion/selectincludefile.h
+===================================================================
+--- src/plugins/codecompletion/selectincludefile.h	(revision 9916)
++++ src/plugins/codecompletion/selectincludefile.h	(working copy)
+@@ -6,7 +6,6 @@
+ #ifndef SELECTINCLUDEFILE_H
+ #define SELECTINCLUDEFILE_H
+ 
+-#include <wx/wxprec.h>
+ 
+ #include "scrollingdialog.h"
+ 
+@@ -18,6 +17,8 @@
+     #include <wx/xrc/xmlres.h>
+ #endif
+ 
++class wxListBox;
++
+ class SelectIncludeFile: public wxScrollingDialog
+ {
+ public:
+Index: src/plugins/contrib/BrowseTracker/JumpTracker.h
+===================================================================
+--- src/plugins/contrib/BrowseTracker/JumpTracker.h	(revision 9916)
++++ src/plugins/contrib/BrowseTracker/JumpTracker.h	(working copy)
+@@ -10,13 +10,6 @@
+ #ifndef TESTPLUGIN_H_INCLUDED
+ #define TESTPLUGIN_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ // we must forward declare the array because it is used inside the class
+ // declaration
+Index: src/plugins/contrib/Cscope/CscopePlugin.h
+===================================================================
+--- src/plugins/contrib/Cscope/CscopePlugin.h	(revision 9916)
++++ src/plugins/contrib/Cscope/CscopePlugin.h	(working copy)
+@@ -10,12 +10,6 @@
+ #ifndef CSCOPE_H_INCLUDED
+ #define CSCOPE_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ #include <wx/timer.h>
+ 
+ 
+Index: src/plugins/contrib/EditorConfig/EditorConfig.h
+===================================================================
+--- src/plugins/contrib/EditorConfig/EditorConfig.h	(revision 9916)
++++ src/plugins/contrib/EditorConfig/EditorConfig.h	(working copy)
+@@ -1,12 +1,6 @@
+ #ifndef EDITORCONFIG_H
+ #define EDITORCONFIG_H
+ 
+-// For compilers that support pre-compilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-#endif
+-
+ #include <map>
+ 
+ #include <cbplugin.h> // for cbPlugin
+Index: src/plugins/contrib/FileManager/FileExplorer.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorer.h	(revision 9916)
++++ src/plugins/contrib/FileManager/FileExplorer.h	(working copy)
+@@ -1,7 +1,6 @@
+ #ifndef FILEEXPLORER_H
+ #define FILEEXPLORER_H
+ 
+-#include <wx/wx.h>
+ #include <wx/treectrl.h>
+ #include <wx/combobox.h>
+ #include <wx/dynarray.h>
+Index: src/plugins/contrib/FileManager/FileExplorerSettings.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerSettings.h	(revision 9916)
++++ src/plugins/contrib/FileManager/FileExplorerSettings.h	(working copy)
+@@ -1,10 +1,11 @@
+ #ifndef FILEEXPLORERSETTINGS_H
+ #define FILEEXPLORERSETTINGS_H
+ 
+-#include <wx/wx.h>
+-
+ #include <wx/button.h>
++#include <wx/dialog.h>
+ 
++class wxListBox;
++class wxTextCtrl;
+ 
+ class FavoriteDir
+ {
+Index: src/plugins/contrib/FileManager/FileExplorerUpdater.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerUpdater.h	(revision 9916)
++++ src/plugins/contrib/FileManager/FileExplorerUpdater.h	(working copy)
+@@ -1,7 +1,6 @@
+ #ifndef FILEEXPLORERUPDATER_H_INCLUDED
+ #define FILEEXPLORERUPDATER_H_INCLUDED
+ 
+-#include <wx/wx.h>
+ #include <wx/treectrl.h>
+ #include <wx/thread.h>
+ #include <wx/process.h>
+@@ -10,6 +9,8 @@
+ #include <vector>
+ class VCSstatearray;
+ class FileExplorer;
++class wxTimer;
++class wxTimerEvent;
+ 
+ BEGIN_DECLARE_EVENT_TYPES()
+ // SIMPLE wxCommandEvent DERIVED CUSTOM EVENTS THAT USE THE BUILTIN EVT_COMMAND EVENT TABLE ENTRY
+Index: src/plugins/contrib/FileManager/FileManager.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.h	(revision 9916)
++++ src/plugins/contrib/FileManager/FileManager.h	(working copy)
+@@ -10,13 +10,6 @@
+ #ifndef FILEMANAGER_H_INCLUDED
+ #define FILEMANAGER_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ 
+ #include "FileExplorer.h" // provides the FileExplorer class
+Index: src/plugins/contrib/FileManager/directorymonitor.h
+===================================================================
+--- src/plugins/contrib/FileManager/directorymonitor.h	(revision 9916)
++++ src/plugins/contrib/FileManager/directorymonitor.h	(working copy)
+@@ -2,9 +2,6 @@
+ #define WXFILESYSTEMMONITOR_H
+ 
+ 
+-
+-#include <wx/wx.h>
+-
+ #define MONITOR_TERMINATE 0x010000
+ #define MONITOR_TOO_MANY_CHANGES 0x020000
+ #define MONITOR_ERROR 0x040000
+Index: src/plugins/contrib/FileManager/se_globals.h
+===================================================================
+--- src/plugins/contrib/FileManager/se_globals.h	(revision 9916)
++++ src/plugins/contrib/FileManager/se_globals.h	(working copy)
+@@ -1,13 +1,6 @@
+ #ifndef IL_GLOBALS_H
+ #define IL_GLOBALS_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+-#include <sdk.h>
+ #ifndef CB_PRECOMP
+     #include <wx/dir.h>
+     #include <wx/filename.h>
+@@ -15,10 +8,14 @@
+ 
+     #include <editorbase.h>
+     #include <editormanager.h>
+-    #include <logmanager.h>
+     #include <manager.h>
+ #endif
+ 
++#include <globals.h> // cbMessageBox
++#include <logmanager.h>
++
++class wxFileName;
++
+ wxString GetParentDir(const wxString &path);
+ 
+ bool DirIsChildOf(const wxString &path, const wxString &child);
+Index: src/plugins/contrib/NassiShneiderman/GraphBricks.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/GraphBricks.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/GraphBricks.h	(working copy)
+@@ -1,23 +1,20 @@
+ #ifndef _GRAPH_BRICK_H_INCLUDED
+ #define _GRAPH_BRICK_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
++#include <map>
+ 
++#include <wx/gdicmn.h>
++
+ #include "TextGraph.h"
+ 
+-#include <map>
+ 
+-
+ class NassiView;
+ class NassiBrick;
+ class GraphNassiBrick;
+ class TextGraph;
+ class HooverDrawlet;
++class wxRect;
+ 
+ 
+ typedef std::map<NassiBrick*, GraphNassiBrick*> BricksMap;
+Index: src/plugins/contrib/NassiShneiderman/HooverDrawlet.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/HooverDrawlet.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/HooverDrawlet.h	(working copy)
+@@ -3,15 +3,10 @@
+ #ifndef HooverDrawlet_h
+ #define HooverDrawlet_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
++// END Interface Dependencies -----------------------------------------
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
++class wxDC;
+ 
+-// END Interface Dependencies -----------------------------------------
+-
+ class HooverDrawlet
+ {
+   public:
+Index: src/plugins/contrib/NassiShneiderman/InsertBrickTask.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/InsertBrickTask.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/InsertBrickTask.h	(working copy)
+@@ -3,13 +3,6 @@
+ #ifndef InsertBrickTask_h
+ #define InsertBrickTask_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include "Task.h"
+ #include "NassiView.h"
+ 
+Index: src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.h	(working copy)
+@@ -3,14 +3,6 @@
+ #ifndef _NASSI_DIAGRAM_H_INCLUDED
+ #define _NASSI_DIAGRAM_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+-
+ #include <wx/scrolwin.h>
+ #include <wx/caret.h>
+ #include <wx/dnd.h>
+Index: src/plugins/contrib/NassiShneiderman/NassiPlugin.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/NassiPlugin.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/NassiPlugin.h	(working copy)
+@@ -13,13 +13,6 @@
+ #ifndef NASSISHNEIDERMAN_H_INCLUDED
+ #define NASSISHNEIDERMAN_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbMimePlugin"
+ 
+ class NassiPlugin : public cbMimePlugin
+Index: src/plugins/contrib/NassiShneiderman/NassiView.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/NassiView.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/NassiView.h	(working copy)
+@@ -5,14 +5,8 @@
+ #ifndef NASSIVIEW_H_INCLUDED
+ #define NASSIVIEW_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <wx/dnd.h>
++#include <wx/font.h>
+ 
+ #include "FileContent.h"
+ #include "GraphBricks.h"
+@@ -25,6 +19,8 @@
+ class wxCommand;
+ class HooverDrawlet;
+ class TextCtrl;
++class wxKeyEvent;
++class wxMouseEvent;
+ 
+ class Task;
+ 
+Index: src/plugins/contrib/NassiShneiderman/PasteTask.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/PasteTask.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/PasteTask.h	(working copy)
+@@ -3,13 +3,6 @@
+ #ifndef PasteTask_h
+ #define PasteTask_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include "Task.h"
+ #include "NassiView.h"
+ 
+Index: src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.h	(working copy)
+@@ -1,6 +1,8 @@
+ #ifndef REDHATCHDRAWLET_H
+ #define REDHATCHDRAWLET_H
+ 
++#include <wx/gdicmn.h> // wxRect
++
+ #include "HooverDrawlet.h"
+ 
+ 
+Index: src/plugins/contrib/NassiShneiderman/RedLineDrawlet.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/RedLineDrawlet.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/RedLineDrawlet.h	(working copy)
+@@ -1,6 +1,8 @@
+ #ifndef REDLINEDRAWLET_H
+ #define REDLINEDRAWLET_H
+ 
++#include <wx/gdicmn.h> // wxPoint
++
+ #include "HooverDrawlet.h"
+ 
+ 
+Index: src/plugins/contrib/NassiShneiderman/Task.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/Task.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/Task.h	(working copy)
+@@ -3,13 +3,6 @@
+ #ifndef Task_h
+ #define Task_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ // END Interface Dependencies -----------------------------------------
+ 
+ // --------------------------------------------------------------------
+@@ -26,6 +19,10 @@
+ // --------------------------------------------------------------------
+ 
+ class HooverDrawlet;
++class wxCursor;
++class wxKeyEvent;
++class wxMouseEvent;
++class wxPoint;
+ 
+ class Task
+ {
+Index: src/plugins/contrib/NassiShneiderman/TextCtrl.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/TextCtrl.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/TextCtrl.h	(working copy)
+@@ -1,13 +1,8 @@
+ #ifndef TEXTCTRL_H
+ #define TEXTCTRL_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
++#include <wx/textctrl.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ class TextCtrl : public wxTextCtrl
+ {
+ public:
+Index: src/plugins/contrib/NassiShneiderman/TextCtrlTask.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/TextCtrlTask.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/TextCtrlTask.h	(working copy)
+@@ -1,13 +1,8 @@
+ #ifndef TEXTCTRLTASK_H
+ #define TEXTCTRLTASK_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
++#include <wx/defs.h> // wxUint32
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include "Task.h"
+ //#include "NassiView.h"
+ 
+Index: src/plugins/contrib/NassiShneiderman/TextGraph.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/TextGraph.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/TextGraph.h	(working copy)
+@@ -1,18 +1,16 @@
+ #ifndef TEXTGRAPH_H
+ #define TEXTGRAPH_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
++#include <vector>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
++#include <wx/dynarray.h>
++#include <wx/gdicmn.h>
+ 
+-#include <vector>
+-
+ class NassiView;
+ class NassiBrick;
+ class TextCtrlTask;
++class wxDC;
++class wxString;
+ 
+ class TextGraph
+ {
+Index: src/plugins/contrib/NassiShneiderman/cbEditorPanel.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/cbEditorPanel.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/cbEditorPanel.h	(working copy)
+@@ -23,13 +23,6 @@
+ #ifndef __CB_EDITOR_PANEL_H__
+ #define __CB_EDITOR_PANEL_H__
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <manager.h>
+ #include <editormanager.h>
+ #include <configmanager.h>
+Index: src/plugins/contrib/NassiShneiderman/logger.h
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/logger.h	(revision 9916)
++++ src/plugins/contrib/NassiShneiderman/logger.h	(working copy)
+@@ -1,13 +1,8 @@
+ #ifndef __LOGGER_H__
+ #define __LOGGER_H__
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
++class wxString;
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ class LoggerSingleton
+ {
+     public:
+Index: src/plugins/contrib/SmartIndent/SmartIndentCpp.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentCpp.h	(revision 9916)
++++ src/plugins/contrib/SmartIndent/SmartIndentCpp.h	(working copy)
+@@ -1,15 +1,12 @@
+ #ifndef SMARTINDENTCPP_H_INCLUDED
+ #define SMARTINDENTCPP_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
++#include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
++class cbEditor;
++class wxScintillaEvent;
++class wxString;
+ 
+-#include <cbplugin.h> // for "class cbSmartIndentPlugin"
+-
+ class SmartIndentCpp : public cbSmartIndentPlugin
+ {
+     public:
+Index: src/plugins/contrib/SmartIndent/SmartIndentFortran.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentFortran.h	(revision 9916)
++++ src/plugins/contrib/SmartIndent/SmartIndentFortran.h	(working copy)
+@@ -1,13 +1,6 @@
+ #ifndef SMARTINDENTFORTRAN_H_INCLUDED
+ #define SMARTINDENTFORTRAN_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+Index: src/plugins/contrib/SmartIndent/SmartIndentHDL.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentHDL.h	(revision 9916)
++++ src/plugins/contrib/SmartIndent/SmartIndentHDL.h	(working copy)
+@@ -1,17 +1,11 @@
+ #ifndef SMARTINDENTHDL_H_INCLUDED
+ #define SMARTINDENTHDL_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+ class wxScintillaEvent;
++class wxString;
+ 
+ class SmartIndentHDL : public cbSmartIndentPlugin
+ {
+Index: src/plugins/contrib/SmartIndent/SmartIndentLua.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentLua.h	(revision 9916)
++++ src/plugins/contrib/SmartIndent/SmartIndentLua.h	(working copy)
+@@ -1,17 +1,11 @@
+ #ifndef SMARTINDENTLUA_H_INCLUDED
+ #define SMARTINDENTLUA_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+ class wxScintillaEvent;
++class wxString;
+ 
+ class SmartIndentLua : public cbSmartIndentPlugin
+ {
+Index: src/plugins/contrib/SmartIndent/SmartIndentPascal.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentPascal.h	(revision 9916)
++++ src/plugins/contrib/SmartIndent/SmartIndentPascal.h	(working copy)
+@@ -1,17 +1,11 @@
+ #ifndef SMARTINDENTPASCAL_H_INCLUDED
+ #define SMARTINDENTPASCAL_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+ class wxScintillaEvent;
++class wxString;
+ 
+ class SmartIndentPascal : public cbSmartIndentPlugin
+ {
+Index: src/plugins/contrib/SmartIndent/SmartIndentPython.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentPython.h	(revision 9916)
++++ src/plugins/contrib/SmartIndent/SmartIndentPython.h	(working copy)
+@@ -1,13 +1,6 @@
+ #ifndef SMARTINDENTPYTHON_H_INCLUDED
+ #define SMARTINDENTPYTHON_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+Index: src/plugins/contrib/SmartIndent/SmartIndentXML.h
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndentXML.h	(revision 9916)
++++ src/plugins/contrib/SmartIndent/SmartIndentXML.h	(working copy)
+@@ -1,13 +1,6 @@
+ #ifndef SMARTINDENTXML_H_INCLUDED
+ #define SMARTINDENTXML_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+ 
+ class cbEditor;
+Index: src/plugins/contrib/SpellChecker/HunspellInterface.h
+===================================================================
+--- src/plugins/contrib/SpellChecker/HunspellInterface.h	(revision 9916)
++++ src/plugins/contrib/SpellChecker/HunspellInterface.h	(working copy)
+@@ -19,13 +19,6 @@
+ #ifndef __HUNSPELL_CHECK_INTERFACE__
+ #define __HUNSPELL_CHECK_INTERFACE__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+-
+ #include "wx/string.h"
+ 
+ // spell checker/thingie
+Index: src/plugins/contrib/SpellChecker/MySpellingDialog.h
+===================================================================
+--- src/plugins/contrib/SpellChecker/MySpellingDialog.h	(revision 9916)
++++ src/plugins/contrib/SpellChecker/MySpellingDialog.h	(working copy)
+@@ -19,13 +19,6 @@
+ #ifndef __MY_SPELL_CHECK_DIALOG__
+ #define __MY_SPELL_CHECK_DIALOG__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+-
+ #include "SpellCheckDialogInterface.h"
+ 
+ // modelless SpellChecker dialog
+Index: src/plugins/contrib/SpellChecker/OnlineSpellChecker.h
+===================================================================
+--- src/plugins/contrib/SpellChecker/OnlineSpellChecker.h	(revision 9916)
++++ src/plugins/contrib/SpellChecker/OnlineSpellChecker.h	(working copy)
+@@ -19,14 +19,8 @@
+ #ifndef OnlineSpellChecker_h
+ #define OnlineSpellChecker_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+ #include "cbeditor.h"
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ class wxSpellCheckEngineInterface;
+ class SpellCheckHelper;
+Index: src/plugins/contrib/SpellChecker/SpellCheckHelper.h
+===================================================================
+--- src/plugins/contrib/SpellChecker/SpellCheckHelper.h	(revision 9916)
++++ src/plugins/contrib/SpellChecker/SpellCheckHelper.h	(working copy)
+@@ -19,17 +19,10 @@
+ #ifndef SPELLCHECKHELPER_H
+ #define SPELLCHECKHELPER_H
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+-
+-
+ #include <map>
+ #include <set>
+ 
++#include <wx/wxprec.h>  // ToDo: Find out how to handle wxChar without using wx/wxprec.h.
+ 
+ // The spell check helper is used to detect if a word has to get spell-checked
+ //
+Index: src/plugins/contrib/SpellChecker/SpellCheckerPlugin.h
+===================================================================
+--- src/plugins/contrib/SpellChecker/SpellCheckerPlugin.h	(revision 9916)
++++ src/plugins/contrib/SpellChecker/SpellCheckerPlugin.h	(working copy)
+@@ -20,13 +20,6 @@
+ #ifndef SPELLCHECKER_H_INCLUDED
+ #define SPELLCHECKER_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ class wxSpellCheckEngineInterface;
+ class SpellCheckHelper;
+Index: src/plugins/contrib/SpellChecker/Thesaurus.h
+===================================================================
+--- src/plugins/contrib/SpellChecker/Thesaurus.h	(revision 9916)
++++ src/plugins/contrib/SpellChecker/Thesaurus.h	(working copy)
+@@ -19,15 +19,13 @@
+ #ifndef THESAURUS_H
+ #define THESAURUS_H
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+ 
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+-
+ #include <map>
+ #include <vector>
++
++#include <wx/string.h>
++#include <wx/window.h>
++
+ typedef std::map<wxString, std::vector< wxString > > synonyms;
+ 
+ class wxThes;
+Index: src/plugins/contrib/SpellChecker/wxThes.h
+===================================================================
+--- src/plugins/contrib/SpellChecker/wxThes.h	(revision 9916)
++++ src/plugins/contrib/SpellChecker/wxThes.h	(working copy)
+@@ -24,13 +24,6 @@
+ //#define MAX_LN_LEN 16384
+ 
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
+-
+ #include <wx/string.h>
+ #include <map>
+ #include <vector>
+Index: src/plugins/contrib/ToolsPlus/CmdConfigDialog.h
+===================================================================
+--- src/plugins/contrib/ToolsPlus/CmdConfigDialog.h	(revision 9916)
++++ src/plugins/contrib/ToolsPlus/CmdConfigDialog.h	(working copy)
+@@ -8,17 +8,6 @@
+ #ifndef __CMDCONFIGDIALOG__
+ #define __CMDCONFIGDIALOG__
+ 
+-// Define WX_GCH in order to support precompiled headers with GCC compiler.
+-// You have to create the header "wx_pch.h" and include all files needed
+-// for compile your gui inside it.
+-// Then, compile it and place the file "wx_pch.h.gch" into the same
+-// directory that "wx_pch.h".
+-#ifdef WX_GCH
+-#include <wx_pch.h>
+-#else
+-#include <wx/wx.h>
+-#endif
+-
+ #include <wx/button.h>
+ #include <wx/spinctrl.h>
+ #include <wx/choice.h>
+@@ -49,7 +38,6 @@
+ /// Class CmdConfigDialog
+ ///////////////////////////////////////////////////////////////////////////////
+ 
+-#include <sdk.h>
+ #include <configurationpanel.h>
+ 
+ class ToolsPlus;
+Index: src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h
+===================================================================
+--- src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h	(revision 9916)
++++ src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h	(working copy)
+@@ -1,19 +1,11 @@
+ #ifndef PPCTRL_H
+ #define PPCTRL_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+ #include <wx/process.h>
+ #include <wx/aui/aui.h>
+ 
+-#include <sdk.h>
+-#ifndef CB_PRECOMP
+-    #include <wx/wxscintilla.h>
+-#endif
++#include <wx/wxscintilla.h>
++
+ #include "ShellCtrlBase.h"
+ 
+ class PipedProcessCtrl;
+Index: src/plugins/contrib/ToolsPlus/ShellCtrlBase.h
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ShellCtrlBase.h	(revision 9916)
++++ src/plugins/contrib/ToolsPlus/ShellCtrlBase.h	(working copy)
+@@ -3,17 +3,9 @@
+ 
+ #include <map>
+ 
+-
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+-
+ #include <wx/process.h>
+ #include <wx/aui/aui.h>
+-#include <sdk.h>
++
+ #include "se_globals.h"
+ 
+ // CLASSES DEFINED IN THIS LIBRARY
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus.h
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus.h	(revision 9916)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus.h	(working copy)
+@@ -10,14 +10,11 @@
+ #ifndef TOOLSPLUS_H_INCLUDED
+ #define TOOLSPLUS_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
++#include <wx/checkbox.h>
++#include <wx/listbox.h>
++#include <wx/stattext.h>
+ 
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+-#include <sdk.h>
++#include <configmanager.h>
+ #include <cbplugin.h> // for "class cbPlugin"
+ #include "shellproperties.h"
+ #include "CmdConfigDialog.h"
+Index: src/plugins/contrib/ToolsPlus/se_globals.h
+===================================================================
+--- src/plugins/contrib/ToolsPlus/se_globals.h	(revision 9916)
++++ src/plugins/contrib/ToolsPlus/se_globals.h	(working copy)
+@@ -1,25 +1,10 @@
+ #ifndef IL_GLOBALS_H
+ #define IL_GLOBALS_H
+ 
+-#include <wx/wxprec.h>
++#include <globals.h>
++#include <manager.h>
++#include <logmanager.h>
+ 
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+-#include <sdk.h>
+-#ifndef CB_PRECOMP
+-    #include <wx/filename.h>
+- 
+-    #include <editorbase.h>
+-    #include <editormanager.h>
+-    #include <logmanager.h>
+-    #include <manager.h>
+-    #include <macrosmanager.h>
+-    #include <configmanager.h>
+-    #include <cbproject.h>
+-#endif
+-
+ wxString GetParentDir(const wxString &path);
+ 
+ bool DirIsChildOf(const wxString &path, const wxString &child);
+Index: src/plugins/contrib/cb_koders/kodersdialog.h
+===================================================================
+--- src/plugins/contrib/cb_koders/kodersdialog.h	(revision 9916)
++++ src/plugins/contrib/cb_koders/kodersdialog.h	(working copy)
+@@ -6,7 +6,6 @@
+ #ifndef KODERSDIALOG_H
+ #define KODERSDIALOG_H
+ 
+-#include <wx/wxprec.h>
+ 
+ //(*Headers(KodersDialog)
+ #include <wx/sizer.h>
+Index: src/plugins/contrib/headerfixup/configuration.h
+===================================================================
+--- src/plugins/contrib/headerfixup/configuration.h	(revision 9916)
++++ src/plugins/contrib/headerfixup/configuration.h	(working copy)
+@@ -6,12 +6,7 @@
+ #ifndef CONFIGURATION_H
+ #define CONFIGURATION_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+ //(*Headers(Configuration)
+ #include <wx/panel.h>
+ class wxTextCtrl;
+Index: src/plugins/contrib/headerfixup/execution.h
+===================================================================
+--- src/plugins/contrib/headerfixup/execution.h	(revision 9916)
++++ src/plugins/contrib/headerfixup/execution.h	(working copy)
+@@ -6,12 +6,7 @@
+ #ifndef EXECUTION_H
+ #define EXECUTION_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+ //(*Headers(Execution)
+ #include "scrollingdialog.h"
+ class wxGauge;
+Index: src/plugins/contrib/headerfixup/headerfixup.h
+===================================================================
+--- src/plugins/contrib/headerfixup/headerfixup.h	(revision 9916)
++++ src/plugins/contrib/headerfixup/headerfixup.h	(working copy)
+@@ -6,12 +6,7 @@
+ #ifndef HEADERFIXUP_H_INCLUDED
+ #define HEADERFIXUP_H_INCLUDED
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h>
+ #include <cbproject.h>
+ #include <configurationpanel.h>
+Index: src/plugins/contrib/headerfixup/protocol.h
+===================================================================
+--- src/plugins/contrib/headerfixup/protocol.h	(revision 9916)
++++ src/plugins/contrib/headerfixup/protocol.h	(working copy)
+@@ -6,12 +6,7 @@
+ #ifndef PROTOCOL_H
+ #define PROTOCOL_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+ //(*Headers(Protocol)
+ #include "scrollingdialog.h"
+ class wxTextCtrl;
+Index: src/plugins/contrib/regex_testbed/RegExTestbed.h
+===================================================================
+--- src/plugins/contrib/regex_testbed/RegExTestbed.h	(revision 9916)
++++ src/plugins/contrib/regex_testbed/RegExTestbed.h	(working copy)
+@@ -1,13 +1,7 @@
+ #ifndef REGEXTESTBED_H_INCLUDED
+ #define REGEXTESTBED_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbToolPlugin"
+ 
+ class RegExTestbed : public cbToolPlugin
+Index: src/plugins/contrib/regex_testbed/regexdlg.h
+===================================================================
+--- src/plugins/contrib/regex_testbed/regexdlg.h	(revision 9916)
++++ src/plugins/contrib/regex_testbed/regexdlg.h	(working copy)
+@@ -1,12 +1,7 @@
+ #ifndef REGEXDLG_H
+ #define REGEXDLG_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+ #include <set>
+ 
+ //(*Headers(RegExDlg)
+Index: src/plugins/contrib/source_exporter/BaseExporter.h
+===================================================================
+--- src/plugins/contrib/source_exporter/BaseExporter.h	(revision 9916)
++++ src/plugins/contrib/source_exporter/BaseExporter.h	(working copy)
+@@ -1,7 +1,6 @@
+ #ifndef BASEEXPORTER_INCLUDED
+ #define BASEEXPORTER_INCLUDED
+ 
+-#include <wx/wx.h>
+ #include <wx/wxscintilla.h>
+ 
+ #include <editorcolourset.h>
+Index: src/plugins/contrib/source_exporter/exporter.h
+===================================================================
+--- src/plugins/contrib/source_exporter/exporter.h	(revision 9916)
++++ src/plugins/contrib/source_exporter/exporter.h	(working copy)
+@@ -1,17 +1,7 @@
+ #ifndef EXPORTER_H
+ #define EXPORTER_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // the base class we 're inheriting
+ #include <settings.h> // needed to use the Code::Blocks SDK
+ 
+Index: src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h
+===================================================================
+--- src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h	(revision 9916)
++++ src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h	(working copy)
+@@ -23,7 +23,6 @@
+ #ifndef WXSTOOLBAREDITOR_H
+ #define WXSTOOLBAREDITOR_H
+ 
+-#include <wx/wxprec.h>
+ 
+ #include "wxstoolbar.h"
+ 
+Index: src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h
+===================================================================
+--- src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h	(revision 9916)
++++ src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h	(working copy)
+@@ -23,12 +23,7 @@
+ #ifndef WXSFONTFACEEDITORDLG_H
+ #define WXSFONTFACEEDITORDLG_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+ //(*Headers(wxsFontFaceEditorDlg)
+ #include <wx/sizer.h>
+ #include <wx/textctrl.h>
+Index: src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h	(revision 9916)
++++ src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h	(working copy)
+@@ -2,7 +2,6 @@
+ #define WXSMITHAUIMANAGER_H
+ 
+ #include <wx/aui/aui.h>
+-#include <wx/wx.h>
+ #include <wx/event.h>
+ 
+ #include <prep.h>
+Index: src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h	(revision 9916)
++++ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h	(working copy)
+@@ -19,10 +19,14 @@
+ #ifndef WXSMITHAUITOOLBAR_H
+ #define WXSMITHAUITOOLBAR_H
+ 
+-#include <wx/wx.h>
++#include <wx/version.h>
+ 
+ #if wxCHECK_VERSION(2,8,9)
+ 
++class wxSizerItem;
++class wxBoxSizer;
++#include <wx/bitmap.h>
++#include <wx/pen.h>
+ #include <wx/aui/auibar.h>
+ 
+ class wxSmithAuiToolBar : public wxAuiToolBar
+Index: src/plugins/contrib/wxSmithAui/wxSmithAui.h
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.h	(revision 9916)
++++ src/plugins/contrib/wxSmithAui/wxSmithAui.h	(working copy)
+@@ -10,13 +10,7 @@
+ #ifndef WXSMITHAUI_H_INCLUDED
+ #define WXSMITHAUI_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ 
+ class wxSmithAui : public cbPlugin
+Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.h
+===================================================================
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.h	(revision 9916)
++++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.h	(working copy)
+@@ -24,13 +24,7 @@
+ #ifndef WXSMITHCONTRIBITEMS_H_INCLUDED
+ #define WXSMITHCONTRIBITEMS_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ 
+ class wxSmithContribItems : public cbPlugin
+Index: src/plugins/debuggergdb/databreakpointdlg.h
+===================================================================
+--- src/plugins/debuggergdb/databreakpointdlg.h	(revision 9916)
++++ src/plugins/debuggergdb/databreakpointdlg.h	(working copy)
+@@ -6,12 +6,7 @@
+ #ifndef DATABREAKPOINTDLG_H
+ #define DATABREAKPOINTDLG_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+ //(*Headers(DataBreakpointDlg)
+ #include <wx/sizer.h>
+ #include <wx/radiobox.h>
+Index: src/plugins/defaultmimehandler/mimetypesarray.h
+===================================================================
+--- src/plugins/defaultmimehandler/mimetypesarray.h	(revision 9916)
++++ src/plugins/defaultmimehandler/mimetypesarray.h	(working copy)
+@@ -6,17 +6,7 @@
+ #ifndef MIMETYPESARRAY_H
+ #define MIMETYPESARRAY_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <wx/dynarray.h>
+ 
+ struct cbMimeType
+Index: src/plugins/occurrenceshighlighting/highlighter.h
+===================================================================
+--- src/plugins/occurrenceshighlighting/highlighter.h	(revision 9916)
++++ src/plugins/occurrenceshighlighting/highlighter.h	(working copy)
+@@ -6,18 +6,17 @@
+ #ifndef HIGHLIGHTER_H
+ #define HIGHLIGHTER_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <set>
+ 
++#include <wx/dynarray.h> // wxArrayInt
++#include <wx/string.h>
++
+ #include <editor_hooks.h>
+ 
+ class cbStyledTextCtrl;
++class wxColor;
++
+ namespace
+ {
+     class HighlightedEditorPositions
+Index: src/plugins/occurrenceshighlighting/occurrenceshighlighting.h
+===================================================================
+--- src/plugins/occurrenceshighlighting/occurrenceshighlighting.h	(revision 9916)
++++ src/plugins/occurrenceshighlighting/occurrenceshighlighting.h	(working copy)
+@@ -6,13 +6,7 @@
+ #ifndef OCCURRENCESHIGHLIGHTING_H_INCLUDED
+ #define OCCURRENCESHIGHLIGHTING_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <set>
+ 
+ #include <cbplugin.h>
+Index: src/src/app.h
+===================================================================
+--- src/src/app.h	(revision 9916)
++++ src/src/app.h	(working copy)
+@@ -6,14 +6,8 @@
+ #ifndef CODEBLOCKS_APP_H
+ #define CODEBLOCKS_APP_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+ #if !defined(WX_PRECOMP)
+-    #include <wx/wx.h>
+     #include <wx/intl.h>
+     #include <wx/laywin.h>
+     #include <wx/image.h>
+Index: src/src/ipc.h
+===================================================================
+--- src/src/ipc.h	(revision 9916)
++++ src/src/ipc.h	(working copy)
+@@ -7,11 +7,6 @@
+ #define IPC_H
+ 
+ 
+-#include "sdk.h"
+-
+-#include <wx/wx.h>
+-
+-
+ #ifdef __WIN32__
+ 
+     #define WIN32_LEAN_AND_MEAN
+Index: src/src/scriptconsole.h
+===================================================================
+--- src/src/scriptconsole.h	(revision 9916)
++++ src/src/scriptconsole.h	(working copy)
+@@ -6,12 +6,7 @@
+ #ifndef SCRIPTCONSOLE_H
+ #define SCRIPTCONSOLE_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+ //(*Headers(ScriptConsole)
+ #include <wx/sizer.h>
+ #include <wx/stattext.h>
+Index: src/src/virtualbuildtargetsdlg.h
+===================================================================
+--- src/src/virtualbuildtargetsdlg.h	(revision 9916)
++++ src/src/virtualbuildtargetsdlg.h	(working copy)
+@@ -6,12 +6,7 @@
+ #ifndef VIRTUALBUILDTARGETSDLG_H
+ #define VIRTUALBUILDTARGETSDLG_H
+ 
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+ //(*Headers(VirtualBuildTargetsDlg)
+ #include <wx/checklst.h>
+ #include <wx/listbox.h>
+Index: src/tools/cb_share_config/app.h
+===================================================================
+--- src/tools/cb_share_config/app.h	(revision 9916)
++++ src/tools/cb_share_config/app.h	(working copy)
+@@ -6,16 +6,8 @@
+ #ifndef APP_H
+ #define APP_H
+ 
+-#include <wx/wxprec.h>
++#include <wx/app.h>
+ 
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+ class MyApp : public wxApp
+ {
+ 	public:
