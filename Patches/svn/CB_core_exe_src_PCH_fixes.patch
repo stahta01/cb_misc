@@ -1,16 +1,14 @@
 Index: src/src/debugger_interface_creator.cpp
 ===================================================================
---- src/src/debugger_interface_creator.cpp	(revision 9908)
+--- src/src/debugger_interface_creator.cpp	(revision 9916)
 +++ src/src/debugger_interface_creator.cpp	(working copy)
-@@ -2,13 +2,17 @@
+@@ -2,13 +2,15 @@
   * This file is part of the Code::Blocks IDE and licensed under the GNU Lesser General Public License, version 3
   * http://www.gnu.org/licenses/gpl-3.0.html
   */
 -#include "debugger_interface_creator.h"
  
-+// sdk.h must be the first include in the file to work as a PCH
 +#include <sdk.h>
-+
  #ifndef CB_PRECOMP
      #include "cbeditor.h"
      #include "editormanager.h"
@@ -23,63 +21,19 @@ Index: src/src/debugger_interface_creator.cpp
  #include "cbstyledtextctrl.h"
 Index: src/src/find_replace.cpp
 ===================================================================
---- src/src/find_replace.cpp	(revision 9908)
+--- src/src/find_replace.cpp	(revision 9916)
 +++ src/src/find_replace.cpp	(working copy)
-@@ -1,28 +1,35 @@
--#include "sdk.h"
-+// sdk.h must be the first include in the file to work as a PCH
-+#include <sdk.h>
- 
--#include "find_replace.h"
--
- #ifndef CB_PRECOMP
-+    // wxWidgets non GUI headers in sdk_common.h
-     #include <wx/dir.h>
-     #include <wx/regex.h>
- 
--    #include "cbauibook.h"
--    #include "cbeditor.h"
--    #include "cbproject.h"
--    #include "editormanager.h"
--    #include "infowindow.h"
--    #include "projectfile.h"
--#endif
-+    // wxWidgets GUI headers in sdk_common.h
- 
-+    // CB SDK Headers in sdk_common.h
-+    #include <cbeditor.h>
-+    #include <projectfile.h>
-+    #include <cbproject.h>
-+    #include <cbauibook.h>
-+    #include <configmanager.h>
-+    #include <editormanager.h>
-+    #include <infowindow.h>
-+#endif // #ifndef CB_PRECOMP
-+
- #include <wx/progdlg.h>
- 
--#include "annoyingdialog.h"
--#include "cbstyledtextctrl.h"
--#include "confirmreplacedlg.h"
--#include "encodingdetector.h"
--#include "findreplacedlg.h"
--#include "searchresultslog.h"
-+#include <annoyingdialog.h>
-+#include <cbstyledtextctrl.h>
-+#include <confirmreplacedlg.h>
-+#include <encodingdetector.h>
-+#include <findreplacedlg.h>
-+#include <searchresultslog.h>
- 
-+#include "find_replace.h"
-+
-+
- struct cbFindReplaceData
- {
-     int start;
+@@ -9,6 +9,7 @@
+     #include "cbauibook.h"
+     #include "cbeditor.h"
+     #include "cbproject.h"
++    #include "configmanager.h"
+     #include "editormanager.h"
+     #include "infowindow.h"
+     #include "projectfile.h"
 Index: src/src/main.cpp
 ===================================================================
---- src/src/main.cpp	(revision 9908)
+--- src/src/main.cpp	(revision 9916)
 +++ src/src/main.cpp	(working copy)
 @@ -7,20 +7,74 @@
   * $HeadURL$

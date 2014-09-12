@@ -1,6 +1,6 @@
 Index: src/plugins/abbreviations/abbreviations.cpp
 ===================================================================
---- src/plugins/abbreviations/abbreviations.cpp	(revision 9908)
+--- src/plugins/abbreviations/abbreviations.cpp	(revision 9916)
 +++ src/plugins/abbreviations/abbreviations.cpp	(working copy)
 @@ -10,6 +10,8 @@
  #include <sdk.h>
@@ -13,35 +13,25 @@ Index: src/plugins/abbreviations/abbreviations.cpp
      #include <editorcolourset.h>
 Index: src/plugins/abbreviations/abbreviationsconfigpanel.cpp
 ===================================================================
---- src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(revision 9915)
+--- src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(revision 9916)
 +++ src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(working copy)
-@@ -7,20 +7,29 @@
-  * $HeadURL$
+@@ -8,11 +8,10 @@
   */
  
-+// sdk.h must be the first include in the file to work as a PCH
  #include <sdk.h>
 -#include "abbreviationsconfigpanel.h"
- 
+-
  #ifndef CB_PRECOMP
--    #include <wx/xrc/xmlres.h>
--    #include <wx/fontutil.h>
-+    // wxWidgets non GUI headers in sdk_common.h
-     #include <wx/choicdlg.h>
- 
-+    // wxWidgets GUI headers in sdk_common.h
 +    #include <wx/combobox.h>
 +    #include <wx/textdlg.h>
-+    #include <wx/xrc/xmlres.h>
-+
-+    // CB SDK Headers in sdk_common.h
-+    #include <editorcolourset.h>
+     #include <wx/xrc/xmlres.h>
+-    #include <wx/fontutil.h>
+     #include <wx/choicdlg.h>
+ 
      #include <configmanager.h>
--    #include <editorcolourset.h>
-     #include <editormanager.h>
+@@ -21,6 +20,10 @@
      #include <logmanager.h>
--#endif
-+#endif // #ifndef CB_PRECOMP
+ #endif
  
 +#include <wx/fontutil.h>
 +
@@ -52,7 +42,7 @@ Index: src/plugins/abbreviations/abbreviationsconfigpanel.cpp
  BEGIN_EVENT_TABLE(AbbreviationsConfigPanel, cbConfigurationPanel)
 Index: src/plugins/astyle/astyleplugin.cpp
 ===================================================================
---- src/plugins/astyle/astyleplugin.cpp	(revision 9908)
+--- src/plugins/astyle/astyleplugin.cpp	(revision 9916)
 +++ src/plugins/astyle/astyleplugin.cpp	(working copy)
 @@ -15,6 +15,7 @@
      #include <string>
@@ -64,7 +54,7 @@ Index: src/plugins/astyle/astyleplugin.cpp
      #include <wx/fs_zip.h>
 Index: src/plugins/codecompletion/cctest/cctest_frame.cpp
 ===================================================================
---- src/plugins/codecompletion/cctest/cctest_frame.cpp	(revision 9908)
+--- src/plugins/codecompletion/cctest/cctest_frame.cpp	(revision 9916)
 +++ src/plugins/codecompletion/cctest/cctest_frame.cpp	(working copy)
 @@ -6,12 +6,7 @@
   * $HeadURL$
@@ -81,30 +71,50 @@ Index: src/plugins/codecompletion/cctest/cctest_frame.cpp
  
 Index: src/plugins/codecompletion/selectincludefile.cpp
 ===================================================================
---- src/plugins/codecompletion/selectincludefile.cpp	(revision 9908)
+--- src/plugins/codecompletion/selectincludefile.cpp	(revision 9916)
 +++ src/plugins/codecompletion/selectincludefile.cpp	(working copy)
-@@ -10,6 +10,7 @@
- #include "prep.h"
+@@ -7,12 +7,22 @@
+  * $HeadURL$
+  */
+ 
+-#include "prep.h"
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++#ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/arrstr.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/listbox.h>
++    #include <wx/xrc/xmlres.h>
++
++    // CB SDK Headers in sdk_common.h
++#endif // #ifndef CB_PRECOMP
++
  #include "selectincludefile.h"
  
-+#include <wx/listbox.h>
- #include <wx/xrc/xmlres.h>
- #include <wx/arrstr.h>
- 
+-#include <wx/xrc/xmlres.h>
+-#include <wx/arrstr.h>
+-
+ BEGIN_EVENT_TABLE(SelectIncludeFile,wxScrollingDialog)
+     EVT_LISTBOX_DCLICK(XRCID("ID_LBX_INCLUDE_FILES"),SelectIncludeFile::OnOk)
+     EVT_BUTTON(XRCID("ID_BTN_OK"),SelectIncludeFile::OnOk)
 Index: src/plugins/occurrenceshighlighting/highlighter.cpp
 ===================================================================
---- src/plugins/occurrenceshighlighting/highlighter.cpp	(revision 9908)
+--- src/plugins/occurrenceshighlighting/highlighter.cpp	(revision 9916)
 +++ src/plugins/occurrenceshighlighting/highlighter.cpp	(working copy)
-@@ -7,8 +7,6 @@
+@@ -7,8 +7,7 @@
   * $HeadURL$
   */
  
 -#include "highlighter.h"
 -
++// sdk.h must be the first include in the file to work as a PCH
  #include <sdk.h> // Code::Blocks SDK
  
  #ifndef CB_PRECOMP
-@@ -21,6 +19,8 @@
+@@ -21,6 +20,8 @@
  #include <cbstyledtextctrl.h>
  #include <cbcolourmanager.h>
  
@@ -115,7 +125,7 @@ Index: src/plugins/occurrenceshighlighting/highlighter.cpp
      lineb(-1),
 Index: src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
 ===================================================================
---- src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(revision 9908)
+--- src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(revision 9916)
 +++ src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(working copy)
 @@ -12,6 +12,7 @@
  #ifndef CB_PRECOMP
@@ -127,7 +137,7 @@ Index: src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
      #include <editormanager.h>
 Index: src/plugins/todo/todolistview.cpp
 ===================================================================
---- src/plugins/todo/todolistview.cpp	(revision 9908)
+--- src/plugins/todo/todolistview.cpp	(revision 9916)
 +++ src/plugins/todo/todolistview.cpp	(working copy)
 @@ -23,6 +23,7 @@
  

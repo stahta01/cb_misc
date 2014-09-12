@@ -1,6 +1,6 @@
 Index: src/sdk/editorlexerloader.cpp
 ===================================================================
---- src/sdk/editorlexerloader.cpp	(revision 9908)
+--- src/sdk/editorlexerloader.cpp	(revision 9916)
 +++ src/sdk/editorlexerloader.cpp	(working copy)
 @@ -7,20 +7,26 @@
   * $HeadURL$
@@ -35,13 +35,9 @@ Index: src/sdk/editorlexerloader.cpp
      : m_pTarget(target)
 Index: src/sdk/filemanager.cpp
 ===================================================================
---- src/sdk/filemanager.cpp	(revision 9908)
+--- src/sdk/filemanager.cpp	(revision 9916)
 +++ src/sdk/filemanager.cpp	(working copy)
-@@ -7,9 +7,11 @@
-  * $HeadURL$
-  */
- 
-+// sdk_precomp.h must be the first include in the file to work as a PCH
+@@ -10,6 +10,7 @@
  #include "sdk_precomp.h"
  
  #ifndef CB_PRECOMP
