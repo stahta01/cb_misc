@@ -1,58 +1,153 @@
 Index: src/plugins/contrib/FileManager/FileExplorer.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/FileExplorer.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/FileExplorer.cpp	(revision 9916)
 +++ src/plugins/contrib/FileManager/FileExplorer.cpp	(working copy)
-@@ -2,8 +2,11 @@
- #include <wx/dir.h>
- #include <wx/filename.h>
- #include <wx/aui/aui.h>
-+#include <wx/stattext.h>
-+#include <wx/menu.h>
-+#include <wx/textdlg.h>
-+#include <wx/dirdlg.h>
+@@ -1,28 +1,41 @@
+-#include "FileExplorer.h"
+-#include <wx/dir.h>
+-#include <wx/filename.h>
+-#include <wx/aui/aui.h>
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
+ 
++#if !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers in wx/wx.h; but, not in sdk_common.h
+ 
+-#include <sdk.h>
++    // wxWidgets GUI headers in wx/wx.h; but, not in sdk_common.h
++    #include <wx/dirdlg.h>
++#endif // #if !defined(WX_PRECOMP)
++
+ #ifndef CB_PRECOMP
+-    #include <wx/dnd.h>
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/dir.h>
++    #include <wx/filename.h>
++
++    // wxWidgets GUI headers in sdk_common.h
+     #include <wx/imaglist.h>
++    #include <wx/menu.h>
++    #include <wx/stattext.h>
++    #include <wx/textdlg.h>
+ 
++    // CB SDK Headers in sdk_common.h
+     #include <cbproject.h>
+     #include <configmanager.h>
+     #include <projectmanager.h>
+-#endif
++#endif // #ifndef CB_PRECOMP
+ 
+ #include <list>
+ #include <vector>
+ #include <iostream>
+ 
++#include <wx/dnd.h>
++#include <wx/aui/aui.h>
+ 
++#include "FileExplorer.h"
+ #include "se_globals.h"
+ 
  
 -
- #include <sdk.h>
- #ifndef CB_PRECOMP
-     #include <wx/dnd.h>
+ #include <wx/arrimpl.cpp> // this is a magic incantation which must be done!
+ WX_DEFINE_OBJARRAY(VCSstatearray);
+ 
 Index: src/plugins/contrib/FileManager/FileExplorerSettings.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(revision 9916)
 +++ src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(working copy)
-@@ -1,5 +1,8 @@
- #include "FileExplorerSettings.h"
+@@ -1,15 +1,29 @@
+-#include "FileExplorerSettings.h"
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
  
-+#include <wx/dirdlg.h>
-+#include <wx/listbox.h>
+-#include <sdk.h>
++#if !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers in wx/wx.h; but, not in sdk_common.h
 +
- #include <sdk.h>
++    // wxWidgets GUI headers in wx/wx.h; but, not in sdk_common.h
++    #include <wx/dirdlg.h>
++#endif // #if !defined(WX_PRECOMP)
++
  #ifndef CB_PRECOMP
-   #include <wx/xrc/xmlres.h>
+-  #include <wx/xrc/xmlres.h>
+-  #include <wx/checkbox.h>
+-  #include <wx/choice.h>
++    // wxWidgets non GUI headers in sdk_common.h
+ 
+-  #include "cbproject.h"
+-#endif
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/checkbox.h>
++    #include <wx/choice.h>
++    #include <wx/listbox.h>
++    #include <wx/xrc/xmlres.h>
+ 
++    // CB SDK Headers in sdk_common.h
++    #include <cbproject.h>
++#endif // #ifndef CB_PRECOMP
+ 
++#include "FileExplorerSettings.h"
++
++
+ #include <wx/arrimpl.cpp> // this is a magic incantation which must be done!
+ WX_DEFINE_OBJARRAY(FavoriteDirs);
+ 
 Index: src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(revision 9916)
 +++ src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(working copy)
-@@ -1,3 +1,7 @@
-+#include <wx/dir.h>
-+#include <wx/timer.h>
-+#include <wx/txtstrm.h>
+@@ -1,3 +1,17 @@
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++#ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/dir.h>
++    #include <wx/timer.h>
++    #include <wx/txtstrm.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++
++    // CB SDK Headers in sdk_common.h
++#endif // #ifndef CB_PRECOMP
 +
  #include "FileExplorerUpdater.h"
  #include "FileExplorer.h"
  #include "se_globals.h"
 Index: src/plugins/contrib/FileManager/FileManager.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/FileManager.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/FileManager.cpp	(revision 9916)
 +++ src/plugins/contrib/FileManager/FileManager.cpp	(working copy)
-@@ -1,4 +1,5 @@
- #include <wx/aui/aui.h>
-+#include <wx/menu.h>
- #include <sdk.h> // Code::Blocks SDK
+@@ -1,12 +1,20 @@
+-#include <wx/aui/aui.h>
+-#include <sdk.h> // Code::Blocks SDK
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
  #ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/menu.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <cbproject.h>
      #include <cbauibook.h>
+-    #include <cbproject.h>
+     #include <projectmanager.h>
+-#endif
+-//#include <configurationpanel.h>
++#endif // #ifndef CB_PRECOMP
+ 
++#include <wx/aui/aui.h>
++
+ #include "FileManager.h"
+ 
+ // Register the plugin with Code::Blocks.
 Index: src/plugins/contrib/FileManager/directorymonitor.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/directorymonitor.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/directorymonitor.cpp	(revision 9916)
 +++ src/plugins/contrib/FileManager/directorymonitor.cpp	(working copy)
 @@ -1,8 +1,11 @@
 +#include <vector>
@@ -70,11 +165,17 @@ Index: src/plugins/contrib/FileManager/directorymonitor.cpp
  DEFINE_EVENT_TYPE(wxEVT_MONITOR_NOTIFY2)
 Index: src/plugins/contrib/FileManager/se_globals.cpp
 ===================================================================
---- src/plugins/contrib/FileManager/se_globals.cpp	(revision 9908)
+--- src/plugins/contrib/FileManager/se_globals.cpp	(revision 9916)
 +++ src/plugins/contrib/FileManager/se_globals.cpp	(working copy)
-@@ -1,3 +1,6 @@
-+#include <editorbase.h>
-+#include <editormanager.h>
+@@ -1,3 +1,12 @@
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++#ifndef CB_PRECOMP
++    // CB SDK Headers in sdk_common.h
++    #include <editorbase.h>
++    #include <editormanager.h>
++#endif // #ifndef CB_PRECOMP
 +
  #include "se_globals.h"
  
