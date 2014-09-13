@@ -1,0 +1,37 @@
+Warning: I am a Git Newbie; these steps created via trial and error.
+
+Welcome to Git (version 1.8.5.2-preview20131230)
+$ git --version
+git version 1.8.5.2.msysgit.0
+
+Step 1: Verify hash code foldername
+$ git show remotes/git-svn-stuff/trunk | head -n 1
+error
+$ git show remotes/svnstuff/trunk | head -n 1
+commit 7382f5d961d2c042780796d7b5eb616e21725317
+
+git log --grep=^git-svn-id: --first-parent -1 | head -n 1
+commit 47263089094fbf3e4fde17c6de3928b34b1eccdd
+
+Step 4: Create remotes trunk using hash code
+Replace hash with value returned by the above command
+$ echo 47263089094fbf3e4fde17c6de3928b34b1eccdd > .git/refs/remotes/svnstuff/trunk
+
+Step 5: Verify hash code was created
+$ git show remotes/svnstuff/trunk | head -n 1
+
+Step 6: SVN find-rev
+Note: When, I have long output for this command, it is a good sign.
+$ git svn find-rev r1
+$ git svn find-rev HEAD
+9915
+
+Step 7: SVN fetch
+$ git svn fetch
+
+NOTE: I did NOT need to do an "git svn rebase" to "get git svn" info to work.
+
+Step 8: Test git svn info
+Takes about a minute to return results.
+Note: If it does NOT work no results are ever returned in some cases.
+$ git svn info
