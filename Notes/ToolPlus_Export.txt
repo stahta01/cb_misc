@@ -2,7 +2,7 @@
 COMMAND#####################################
 name:Git Bash
 command line:CMD /C START "Git Bash" /D "C:\Program Files\Git" "C:\Program Files\Git\Git Bash.vbs" $(PROJECTDIR
-workdir:$(PROJECTDIR
+workdir:$(PROJECTDIR)
 wildcards:
 menu string:git/Git Bash
 menu priority:0
@@ -198,6 +198,39 @@ context menu priority:100
 envvarset:
 mode (W,C,):W
 COMMAND#####################################
+name:git branch description
+command line:CMD /C "C:\PROGRA~1\git\bin\sh.exe" -t -c "git config branch.`git rev-parse --abbrev-ref HEAD`.description"
+workdir:$(PROJECTDIR)
+wildcards:
+menu string:git/branch description
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):C
+COMMAND#####################################
+name:git pull rebase origin master
+command line:%programfiles%\git\bin\git pull --rebase origin master
+workdir:$(PROJECTDIR)
+wildcards:
+menu string:git/pull rebase origin master
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git pull rebase upstream master
+command line:%programfiles%\git\bin\git pull --rebase upstream master
+workdir:$(PROJECTDIR)
+wildcards:
+menu string:git/pull rebase upstream master
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
 name:Bzr Status
 command line:bzr status
 workdir:$(PROJECTDIR
@@ -294,27 +327,5 @@ menu string:hg/status-q
 menu priority:100
 context menu string:
 context menu priority:0
-envvarset:
-mode (W,C,):W
-COMMAND#####################################
-name:git pull rebase origin master
-command line:%programfiles%\git\bin\git pull --rebase origin master
-workdir:$(PROJECTDIR
-wildcards:
-menu string:git/pull rebase origin master
-menu priority:0
-context menu string:
-context menu priority:100
-envvarset:
-mode (W,C,):W
-COMMAND#####################################
-name:git pull rebase upstream master
-command line:%programfiles%\git\bin\git pull --rebase upstream master
-workdir:$(PROJECTDIR
-wildcards:
-menu string:git/pull rebase upstream master
-menu priority:0
-context menu string:
-context menu priority:100
 envvarset:
 mode (W,C,):W
