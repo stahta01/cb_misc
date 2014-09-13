@@ -18,6 +18,9 @@ REM
     svn update .
 REM svn update --ignore-externals .
 
+
+    svn propset svn:eol-style native src/include/ccmanager.h
+
 REM PAUSE
 
 CD %CB_SVN%/src
