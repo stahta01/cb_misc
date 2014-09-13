@@ -1,21 +1,19 @@
 Steps to create branch from local master
 
-cd Production
-cd CB_mods2_project_only
-
 git checkout master
 
+git log --grep=^git-svn-id: --first-parent -1
+
+NOTE: "git svn rebase" seems to fail to often for me to continue to use.
+Now using steps in file "git svn rebase test 1.txt" instead.
+
 git status
 
-git pull --rebase upstream master
+git branch build/cbPCHeadersFixed
+
+git checkout build/cbPCHeadersFixed
 
 git status
-
-git branch build/wx_multilib
-
-git checkout build/wx_multilib
-
-git pull --rebase upstream master
 
 Step ??: Force branch to use rebase.
 SVN does not like git merge so set to use git rebase.
@@ -27,7 +25,10 @@ git svn fetch
 
 git status
 
-git svn rebase
+git svn find-rev HEAD
+
+NOTE: "git svn rebase" seems to fail to often for me to continue to use.
+Now using steps in file "git svn rebase test 1.txt" instead.
 
 git status
 
@@ -36,5 +37,3 @@ git svn info
 $ git remote -v
 origin  https://stahta01@github.com/stahta01/codeblocks_mods.git (fetch)
 origin  https://stahta01@github.com/stahta01/codeblocks_mods.git (push)
-upstream        git://cb.biplab.in/codeblocks.git (fetch)
-upstream        git://cb.biplab.in/codeblocks.git (push)

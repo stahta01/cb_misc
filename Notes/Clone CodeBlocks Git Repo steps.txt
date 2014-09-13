@@ -78,8 +78,5 @@ $ git svn fetch svn
 $ git pull
 $ git status
 
-NOTE: You need to run the command below to keep git svn info results updated.
-I think it needs ran after git svn fetch; but, I have no idea if it should be 
-before or after git pull
-$ git svn rebase --local
-
+NOTE: "git svn rebase" seems to fail to often for me to continue to use.
+Now using steps in file "git svn rebase test 1.txt" instead.
