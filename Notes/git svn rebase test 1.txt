@@ -4,30 +4,30 @@ Welcome to Git (version 1.8.5.2-preview20131230)
 $ git --version
 git version 1.8.5.2.msysgit.0
 
-
-Step 0: I start one folder down so needs to go up one.
-cd ..
+Step 0: Start in folder with .git sub folder.
+Note: I start one folder down so needs to go up one.
+$ cd ..
 
 Step 1A: Find trunk hash code parent folder name
 $ ls .git/refs/remotes/*/trunk
 .git/refs/remotes/git-svn-stuff/trunk
 
 Step 1B: Verify hash code foldername
-Replace git-svn-stuff or ??? with the correct folder name.
+Note: Replace git-svn-stuff or ??? with the correct folder name.
 $ git show remotes/git-svn-stuff/trunk | head -n 1
 commit 8406a052deb8706a842cb29bafe21505ce238d85
 
 Step 2: Get hash code needed to be used later.
-git log --grep=^git-svn-id: --first-parent -1 | head -n 1
+$ git log --grep=^git-svn-id: --first-parent -1 | head -n 1
 commit 47263089094fbf3e4fde17c6de3928b34b1eccdd
 
 Step 3: Create/updates remotes trunk using hash code
-Replace hash with value returned by the above command
-Replace git-svn-stuff or ??? with the correct folder name.
+Note: Replace hash with value returned by the above command
+Note: Replace git-svn-stuff or ??? with the correct folder name.
 $ echo 47263089094fbf3e4fde17c6de3928b34b1eccdd > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 4: Verify hash code was created/changed
-Replace git-svn-stuff or ??? with the correct folder name.
+Note: Replace git-svn-stuff or ??? with the correct folder name.
 $ git show remotes/???/trunk | head -n 1
 
 Step 5: SVN find-rev r1
@@ -35,9 +35,9 @@ Note: When, I have long output for this command, it is a good sign.
 $ git svn find-rev r1
 
 Step 6: SVN fetch
+Note: Sometimes, I do NOT need to do "git svn fetch" to get "git svn info" to work.
 $ git svn fetch
 
-NOTE: Sometimes, I do NOT need to do "git svn fetch" to get "git svn info" to work.
 NOTE: I did NOT need to do an "git svn rebase" to get "git svn info" to work.
 
 Step 7: Test git svn info
