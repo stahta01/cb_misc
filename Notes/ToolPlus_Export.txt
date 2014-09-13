@@ -11,6 +11,17 @@ context menu priority:100
 envvarset:
 mode (W,C,):
 COMMAND#####################################
+name:git svn find-rev r1
+command line:%programfiles%\git\bin\git svn find-rev r1
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/svn/find-rev r1
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
 name:git svn find-rev HEAD
 command line:%programfiles%\git\bin\git svn find-rev HEAD
 workdir:$(PROJECTDIR
@@ -44,11 +55,11 @@ context menu priority:100
 envvarset:
 mode (W,C,):W
 COMMAND#####################################
-name:git svn rebase
-command line:git svn rebase
+name:git log git-svn-id first-parent
+command line:%programfiles%\git\bin\git log --grep=^git-svn-id: --first-parent -1
 workdir:$(PROJECTDIR
 wildcards:
-menu string:git/svn/rebase
+menu string:git/svn/git log git-svn-id
 menu priority:0
 context menu string:
 context menu priority:100
@@ -154,17 +165,6 @@ context menu priority:100
 envvarset:
 mode (W,C,):W
 COMMAND#####################################
-name:git pull rebase upstream master
-command line:%programfiles%\git\bin\git pull --rebase upstream master
-workdir:$(PROJECTDIR
-wildcards:
-menu string:git/pull rebase upstream master
-menu priority:0
-context menu string:
-context menu priority:100
-envvarset:
-mode (W,C,):W
-COMMAND#####################################
 name:git rebase skip
 command line:%programfiles%\git\bin\git rebase --skip
 workdir:$(PROJECTDIR
@@ -192,17 +192,6 @@ command line:%programfiles%\git\bin\git rebase --abort
 workdir:$(PROJECTDIR
 wildcards:
 menu string:git/rebase abort
-menu priority:0
-context menu string:
-context menu priority:100
-envvarset:
-mode (W,C,):W
-COMMAND#####################################
-name:git pull rebase upstream master
-command line:%programfiles%\git\bin\git pull --rebase upstream master
-workdir:$(PROJECTDIR
-wildcards:
-menu string:git/pull rebase upstream master
 menu priority:0
 context menu string:
 context menu priority:100
@@ -305,5 +294,27 @@ menu string:hg/status-q
 menu priority:100
 context menu string:
 context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git pull rebase origin master
+command line:%programfiles%\git\bin\git pull --rebase origin master
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/pull rebase origin master
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git pull rebase upstream master
+command line:%programfiles%\git\bin\git pull --rebase upstream master
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/pull rebase upstream master
+menu priority:0
+context menu string:
+context menu priority:100
 envvarset:
 mode (W,C,):W

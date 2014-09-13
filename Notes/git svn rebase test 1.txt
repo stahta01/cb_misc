@@ -15,7 +15,7 @@ $ ls .git/refs/remotes/*/trunk
 Step 1B: Verify hash code foldername
 Note: Replace git-svn-stuff or ??? with the correct folder name.
 $ git show remotes/git-svn-stuff/trunk | head -n 1
-commit 8406a052deb8706a842cb29bafe21505ce238d85
+commit 47263089094fbf3e4fde17c6de3928b34b1eccdd
 
 Step 2: Get hash code needed to be used later.
 $ git log --grep=^git-svn-id: --first-parent -1 | head -n 1
