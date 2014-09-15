@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Code::Blocks SDK wx2.8.x" />
+		<Option title="Code::Blocks_SDK_wx2.8.x" />
 		<Option default_target="src" />
 		<Option compiler="gcc" />
 		<Build>
