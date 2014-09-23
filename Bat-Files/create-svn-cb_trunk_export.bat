@@ -15,13 +15,14 @@ REM svn upgrade
 REM  
     svn revert --recursive .
     svn revert --recursive src/plugins/contrib/FortranProject
+
+    unix2dos "src/include/ccmanager.h"
+    svn propset svn:eol-style native src/include/ccmanager.h
+
     svn update .
 REM svn update --ignore-externals .
 
-
-    svn propset svn:eol-style native src/include/ccmanager.h
-
-REM PAUSE
+    PAUSE
 
 CD %CB_SVN%/src
 REM replace call of autorevision sed that set svn number to zero
