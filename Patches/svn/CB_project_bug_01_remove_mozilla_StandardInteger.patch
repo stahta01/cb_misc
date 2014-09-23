@@ -1,0 +1,70 @@
+Index: src/CodeBlocks-unix.cbp
+===================================================================
+--- src/CodeBlocks-unix.cbp	(revision 9919)
++++ src/CodeBlocks-unix.cbp	(working copy)
+@@ -767,9 +767,6 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+-		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+-			<Option target="sdk" />
+-		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/CodeBlocks.cbp
+===================================================================
+--- src/CodeBlocks.cbp	(revision 9919)
++++ src/CodeBlocks.cbp	(working copy)
+@@ -1010,9 +1010,6 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+-		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+-			<Option target="sdk" />
+-		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/CodeBlocks_wx30-unix.cbp
+===================================================================
+--- src/CodeBlocks_wx30-unix.cbp	(revision 9919)
++++ src/CodeBlocks_wx30-unix.cbp	(working copy)
+@@ -810,9 +810,6 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+-		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+-			<Option target="sdk" />
+-		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/CodeBlocks_wx30.cbp
+===================================================================
+--- src/CodeBlocks_wx30.cbp	(revision 9919)
++++ src/CodeBlocks_wx30.cbp	(working copy)
+@@ -1006,9 +1006,6 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+-		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+-			<Option target="sdk" />
+-		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/CodeBlocks_wx30_64.cbp
+===================================================================
+--- src/CodeBlocks_wx30_64.cbp	(revision 9919)
++++ src/CodeBlocks_wx30_64.cbp	(working copy)
+@@ -1009,9 +1009,6 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+-		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+-			<Option target="sdk" />
+-		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
