@@ -1,0 +1,48 @@
+diff --git src/plugins/contrib/codesnippets/codesnippets-unix.cbp src/plugins/contrib/codesnippets/codesnippets-unix.cbp
+index 8499da9..28873c8 100644
+--- src/plugins/contrib/codesnippets/codesnippets-unix.cbp
++++ src/plugins/contrib/codesnippets/codesnippets-unix.cbp
+@@ -44,7 +44,6 @@
+ 			<Add option="`wx-config --libs`" />
+ 			<Add option="-Wl,--no-undefined" />
+ 			<Add library="codeblocks" />
+-			<Add library="wxpropgrid" />
+ 			<Add directory="../../../devel" />
+ 			<Add directory="../../../base/tinyxml" />
+ 		</Linker>
+diff --git src/plugins/contrib/wxContribItems/wxContribItems.cbp src/plugins/contrib/wxContribItems/wxContribItems.cbp
+index 8d732db..d1ea985 100644
+--- src/plugins/contrib/wxContribItems/wxContribItems.cbp
++++ src/plugins/contrib/wxContribItems/wxContribItems.cbp
+@@ -136,7 +136,6 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxpropgrid" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="../../../devel" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+diff --git src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp
+index 19516d9..048ba91 100644
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp
++++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp
+@@ -22,7 +22,6 @@
+ 				<Compiler>
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-					<Add directory="../../../sdk/wxpropgrid/include" />
+ 					<Add directory="../wxSmith" />
+ 					<Add directory="../wxSmith/wxwidgets" />
+ 					<Add directory="../wxSmith/wxwidgets/properties" />
+diff --git src/tools/cb_share_config/cb_share_config-unix.cbp src/tools/cb_share_config/cb_share_config-unix.cbp
+index 7422b47..28c82ab 100644
+--- src/tools/cb_share_config/cb_share_config-unix.cbp
++++ src/tools/cb_share_config/cb_share_config-unix.cbp
+@@ -35,7 +35,6 @@
+ 			<Add option="`wx-config --libs`" />
+ 			<Add option="-Wl,--no-undefined" />
+ 			<Add library="txml" />
+-			<Add library="wxpropgrid" />
+ 			<Add directory="../../base/tinyxml" />
+ 			<Add directory="../../devel" />
+ 		</Linker>
