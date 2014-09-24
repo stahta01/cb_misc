@@ -1,0 +1,50 @@
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus.cbp	(revision 9919)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus.cbp	(working copy)
+@@ -18,7 +18,6 @@
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+-					<Add library="wxscintilla_cb" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="gdi32" />
+ 					<Add directory="..\..\..\devel" />
+Index: src/plugins/contrib/cb_koders/cb_koders-unix.cbp
+===================================================================
+--- src/plugins/contrib/cb_koders/cb_koders-unix.cbp	(revision 9919)
++++ src/plugins/contrib/cb_koders/cb_koders-unix.cbp	(working copy)
+@@ -9,7 +9,6 @@
+ 			<Target title="default">
+ 				<Option output="../../../devel/share/codeblocks/plugins/libcb_koders" prefix_auto="0" extension_auto="1" />
+ 				<Option object_output="../../../.objs/plugins/contrib/cb_koders" />
+-				<Option external_deps="../../../devel/libwxscintilla_cb.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -p debug" />
+Index: src/plugins/contrib/cb_koders/cb_koders.cbp
+===================================================================
+--- src/plugins/contrib/cb_koders/cb_koders.cbp	(revision 9919)
++++ src/plugins/contrib/cb_koders/cb_koders.cbp	(working copy)
+@@ -10,7 +10,7 @@
+ 			<Target title="default">
+ 				<Option output="../../../devel/share/CodeBlocks/plugins/cb_koders.dll" prefix_auto="0" extension_auto="0" />
+ 				<Option object_output="../../../.objs/plugins/contrib/cb_koders" />
+-				<Option external_deps="../../../devel/libcodeblocks.a;../../../devel/libwxscintilla_cb.a;" />
++				<Option external_deps="../../../devel/libcodeblocks.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+Index: src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp
+===================================================================
+--- src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp	(revision 9919)
++++ src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp	(working copy)
+@@ -9,7 +9,7 @@
+ 			<Target title="default">
+ 				<Option output="..\..\..\devel30_64\share\CodeBlocks\plugins\cb_koders.dll" prefix_auto="0" extension_auto="0" />
+ 				<Option object_output="..\..\..\.objs30_64\plugins\contrib\cb_koders" />
+-				<Option external_deps="..\..\..\devel30_64\libcodeblocks.a;..\..\..\devel30_64\libwxscintilla_cb.a;" />
++				<Option external_deps="..\..\..\devel30_64\libcodeblocks.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />

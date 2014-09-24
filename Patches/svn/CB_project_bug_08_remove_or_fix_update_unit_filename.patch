@@ -1,0 +1,244 @@
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks-unix.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks-unix.cbp	(revision 9919)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks-unix.cbp	(working copy)
+@@ -72,7 +72,6 @@
+ 		<Unit filename="ExtractDocs.cpp" />
+ 		<Unit filename="manifest.xml" />
+ 		<Unit filename="update" />
+-		<Unit filename="update.bat" />
+ 		<Unit filename="version.h" />
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(revision 9919)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(working copy)
+@@ -84,7 +84,6 @@
+ 		<Unit filename="Expressions.h" />
+ 		<Unit filename="ExtractDocs.cpp" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="update" />
+ 		<Unit filename="update.bat" />
+ 		<Unit filename="version.h" />
+ 		<Extensions>
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30-unix.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30-unix.cbp	(revision 9919)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30-unix.cbp	(working copy)
+@@ -66,7 +66,6 @@
+ 		<Unit filename="ExtractDocs.cpp" />
+ 		<Unit filename="manifest.xml" />
+ 		<Unit filename="update30" />
+-		<Unit filename="update30.bat" />
+ 		<Unit filename="version.h" />
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp	(revision 9919)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp	(working copy)
+@@ -83,7 +83,6 @@
+ 		<Unit filename="Expressions.h" />
+ 		<Unit filename="ExtractDocs.cpp" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="update30" />
+ 		<Unit filename="update30.bat" />
+ 		<Unit filename="version.h" />
+ 		<Extensions>
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp	(revision 9919)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp	(working copy)
+@@ -84,7 +84,6 @@
+ 		<Unit filename="Expressions.h" />
+ 		<Unit filename="ExtractDocs.cpp" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="update30" />
+ 		<Unit filename="update30_64.bat" />
+ 		<Unit filename="version.h" />
+ 		<Extensions>
+Index: src/plugins/contrib/ThreadSearch/ThreadSearch-unix.cbp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearch-unix.cbp	(revision 9919)
++++ src/plugins/contrib/ThreadSearch/ThreadSearch-unix.cbp	(working copy)
+@@ -95,7 +95,6 @@
+ 		<Unit filename="logging.h" />
+ 		<Unit filename="manifest.xml" />
+ 		<Unit filename="update" />
+-		<Unit filename="update.bat" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+Index: src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(revision 9919)
++++ src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(working copy)
+@@ -109,7 +109,6 @@
+ 		<Unit filename="ThreadSearchViewManagerMessagesNotebook.h" />
+ 		<Unit filename="logging.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="update" />
+ 		<Unit filename="update.bat" />
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/ThreadSearch/ThreadSearch_wx30-unix.cbp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearch_wx30-unix.cbp	(revision 9919)
++++ src/plugins/contrib/ThreadSearch/ThreadSearch_wx30-unix.cbp	(working copy)
+@@ -97,8 +97,7 @@
+ 		<Unit filename="ThreadSearchViewManagerMessagesNotebook.h" />
+ 		<Unit filename="logging.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="update" />
+-		<Unit filename="update.bat" />
++		<Unit filename="update30" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+Index: src/plugins/contrib/ThreadSearch/ThreadSearch_wx30.cbp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearch_wx30.cbp	(revision 9919)
++++ src/plugins/contrib/ThreadSearch/ThreadSearch_wx30.cbp	(working copy)
+@@ -108,7 +108,6 @@
+ 		<Unit filename="ThreadSearchViewManagerMessagesNotebook.h" />
+ 		<Unit filename="logging.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="update30" />
+ 		<Unit filename="update30.bat" />
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp	(revision 9919)
++++ src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp	(working copy)
+@@ -109,7 +109,6 @@
+ 		<Unit filename="ThreadSearchViewManagerMessagesNotebook.h" />
+ 		<Unit filename="logging.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="update30" />
+ 		<Unit filename="update30_64.bat" />
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus-unix.cbp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus-unix.cbp	(revision 9919)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus-unix.cbp	(working copy)
+@@ -76,7 +76,6 @@
+ 		<Unit filename="shellproperties.cpp" />
+ 		<Unit filename="shellproperties.h" />
+ 		<Unit filename="update" />
+-		<Unit filename="update.bat" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus.cbp	(revision 9919)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus.cbp	(working copy)
+@@ -81,7 +81,6 @@
+ 		<Unit filename="se_globals.h" />
+ 		<Unit filename="shellproperties.cpp" />
+ 		<Unit filename="shellproperties.h" />
+-		<Unit filename="update" />
+ 		<Unit filename="update.bat" />
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus_wx30-unix.cbp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus_wx30-unix.cbp	(revision 9919)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus_wx30-unix.cbp	(working copy)
+@@ -71,8 +71,7 @@
+ 		<Unit filename="se_globals.h" />
+ 		<Unit filename="shellproperties.cpp" />
+ 		<Unit filename="shellproperties.h" />
+-		<Unit filename="update" />
+-		<Unit filename="update.bat" />
++		<Unit filename="update30" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp	(revision 9919)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp	(working copy)
+@@ -79,7 +79,6 @@
+ 		<Unit filename="se_globals.h" />
+ 		<Unit filename="shellproperties.cpp" />
+ 		<Unit filename="shellproperties.h" />
+-		<Unit filename="update30" />
+ 		<Unit filename="update30.bat" />
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp	(revision 9919)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp	(working copy)
+@@ -80,7 +80,6 @@
+ 		<Unit filename="se_globals.h" />
+ 		<Unit filename="shellproperties.cpp" />
+ 		<Unit filename="shellproperties.h" />
+-		<Unit filename="update30" />
+ 		<Unit filename="update30_64.bat" />
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/codesnippets/codesnippets-unix.cbp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets-unix.cbp	(revision 9919)
++++ src/plugins/contrib/codesnippets/codesnippets-unix.cbp	(working copy)
+@@ -76,7 +76,6 @@
+ 		<Unit filename="snippetsimages.cpp" />
+ 		<Unit filename="snippetsimages.h" />
+ 		<Unit filename="update" />
+-		<Unit filename="update.bat" />
+ 		<Unit filename="version.cpp" />
+ 		<Unit filename="version.h" />
+ 		<Extensions>
+Index: src/plugins/contrib/codesnippets/codesnippets.cbp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets.cbp	(revision 9919)
++++ src/plugins/contrib/codesnippets/codesnippets.cbp	(working copy)
+@@ -119,7 +119,6 @@
+ 		</Unit>
+ 		<Unit filename="snippetsimages.cpp" />
+ 		<Unit filename="snippetsimages.h" />
+-		<Unit filename="update" />
+ 		<Unit filename="update.bat" />
+ 		<Unit filename="version.cpp" />
+ 		<Unit filename="version.h" />
+Index: src/plugins/contrib/codesnippets/codesnippets_wx30-unix.cbp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets_wx30-unix.cbp	(revision 9919)
++++ src/plugins/contrib/codesnippets/codesnippets_wx30-unix.cbp	(working copy)
+@@ -78,7 +78,6 @@
+ 		<Unit filename="snippetsimages.cpp" />
+ 		<Unit filename="snippetsimages.h" />
+ 		<Unit filename="update30" />
+-		<Unit filename="update30.bat" />
+ 		<Unit filename="version.cpp" />
+ 		<Unit filename="version.h" />
+ 		<Extensions>
+Index: src/plugins/contrib/codesnippets/codesnippets_wx30.cbp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets_wx30.cbp	(revision 9919)
++++ src/plugins/contrib/codesnippets/codesnippets_wx30.cbp	(working copy)
+@@ -117,7 +117,6 @@
+ 		</Unit>
+ 		<Unit filename="snippetsimages.cpp" />
+ 		<Unit filename="snippetsimages.h" />
+-		<Unit filename="update30" />
+ 		<Unit filename="update30.bat" />
+ 		<Unit filename="version.cpp" />
+ 		<Unit filename="version.h" />
+Index: src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp	(revision 9919)
++++ src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp	(working copy)
+@@ -118,7 +118,6 @@
+ 		</Unit>
+ 		<Unit filename="snippetsimages.cpp" />
+ 		<Unit filename="snippetsimages.h" />
+-		<Unit filename="update30_64" />
+ 		<Unit filename="update30_64.bat" />
+ 		<Unit filename="version.cpp" />
+ 		<Unit filename="version.h" />

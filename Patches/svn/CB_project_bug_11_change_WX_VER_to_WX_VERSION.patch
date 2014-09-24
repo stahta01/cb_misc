@@ -1,0 +1,66 @@
+Index: src/tools/Addr2LineUI/Addr2LineUI.cbp
+===================================================================
+--- src/tools/Addr2LineUI/Addr2LineUI.cbp	(revision 9919)
++++ src/tools/Addr2LineUI/Addr2LineUI.cbp	(working copy)
+@@ -22,7 +22,7 @@
+ 			</Target>
+ 			<Environment>
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_VER" value="28" />
++				<Variable name="WX_VERSION" value="28" />
+ 				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+@@ -47,7 +47,7 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw$(WX_VER)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="Addr2LineUIApp.cpp" />
+Index: src/tools/Addr2LineUI/Addr2LineUI_wx30.cbp
+===================================================================
+--- src/tools/Addr2LineUI/Addr2LineUI_wx30.cbp	(revision 9919)
++++ src/tools/Addr2LineUI/Addr2LineUI_wx30.cbp	(working copy)
+@@ -22,7 +22,7 @@
+ 			</Target>
+ 			<Environment>
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_VER" value="30" />
++				<Variable name="WX_VERSION" value="30" />
+ 				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+@@ -46,7 +46,7 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw$(WX_VER)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="$(#WX30.lib)\gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="Addr2LineUIApp.cpp" />
+Index: src/tools/Addr2LineUI/Addr2LineUI_wx30_64.cbp
+===================================================================
+--- src/tools/Addr2LineUI/Addr2LineUI_wx30_64.cbp	(revision 9919)
++++ src/tools/Addr2LineUI/Addr2LineUI_wx30_64.cbp	(working copy)
+@@ -22,7 +22,7 @@
+ 			</Target>
+ 			<Environment>
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_VER" value="30" />
++				<Variable name="WX_VERSION" value="30" />
+ 				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+@@ -49,7 +49,7 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add library="wxmsw$(WX_VER)$(WX_SUFFIX)" />
++			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="$(#WX30_64.lib)\gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="Addr2LineUIApp.cpp" />
