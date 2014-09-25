@@ -1,46 +1,66 @@
 Warning: I am a Git Newbie; these steps created via trial and error.
 
+Current theory is "git svn rebase" does NOT work sometimes when
+"git svn info" is lower than the commint in "git log --grep=^git-svn-id: --first-parent -1"
+
+
 Welcome to Git (version 1.8.5.2-preview20131230)
 $ git --version
 git version 1.8.5.2.msysgit.0
 
-Step 0: Start in folder with .git sub folder.
+Problem: "git svn info" returns wrong or no results.
+First, try a "git pull --rebase" from the master repo; it fixes some low value returns of "git svn info".
+These steps can be used instead of doing an "git svn rebase", in some cases.
+Note: These steps may NOT be safe or valid for users who wish to do SVN commints.
+
+Step 0A: Start in folder with .git sub folder.
 Note: I start one folder down so needs to go up one.
 $ cd ..
+
+Step 0B: Check value of HEAD
+$ git svn find-rev HEAD
+
+Step 0C: If value of HEAD lower than it should be do a pull rebase.
+$ git pull --rebase origin master
 
 Step 1A: Find trunk hash code parent folder name
 $ ls .git/refs/remotes/*/trunk
 .git/refs/remotes/git-svn-stuff/trunk
 
+$ git show origin/master | head -n 1
+commit 6974e15cd8628c100abb40e78edf9a0f6d837dc6
+
+$ git svn find-rev 6974e15cd8628c100abb40e78edf9a0f6d837dc6
+9919
+
 Step 1B: Verify hash code foldername
 Note: Replace git-svn-stuff or ??? with the correct folder name.
 $ git show remotes/git-svn-stuff/trunk | head -n 1
-commit 47263089094fbf3e4fde17c6de3928b34b1eccdd
+commit 6974e15cd8628c100abb40e78edf9a0f6d837dc6
+
+$ git svn find-rev 6974e15cd8628c100abb40e78edf9a0f6d837dc6
+9919
 
 Step 2: Get hash code needed to be used later.
 $ git log --grep=^git-svn-id: --first-parent -1 | head -n 1
-commit 47263089094fbf3e4fde17c6de3928b34b1eccdd
+commit 6974e15cd8628c100abb40e78edf9a0f6d837dc6
+
+$ git svn find-rev 6974e15cd8628c100abb40e78edf9a0f6d837dc6
+9919
 
 Step 3: Create/updates remotes trunk using hash code
 Note: Replace hash with value returned by the above command
 Note: Replace git-svn-stuff or ??? with the correct folder name.
-$ echo 47263089094fbf3e4fde17c6de3928b34b1eccdd > .git/refs/remotes/git-svn-stuff/trunk
+$ echo 6974e15cd8628c100abb40e78edf9a0f6d837dc6 > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 4: Verify hash code was created/changed
 Note: Replace git-svn-stuff or ??? with the correct folder name.
-$ git show remotes/???/trunk | head -n 1
-
-Step 5: SVN find-rev r1
-Note: When, I have long output for this command, it is a good sign.
-$ git svn find-rev r1
-
-Step 6: SVN fetch
-Note: Sometimes, I do NOT need to do "git svn fetch" to get "git svn info" to work.
-$ git svn fetch
+$ git show remotes/git-svn-stuff/trunk | head -n 1
 
 NOTE: I did NOT need to do an "git svn rebase" to get "git svn info" to work.
+NOTE: I am NOT sure if/when "git svn fetch" should be done.
 
-Step 7: Test git svn info
+Step 5: Test git svn info
 Takes about a minute to return results.
 Note: If it does NOT work no results are ever returned in some cases.
 $ git svn info
