@@ -1,0 +1,141 @@
+diff --git src/plugins/contrib/envvars/envvars.cpp src/plugins/contrib/envvars/envvars.cpp
+index 1290b5a..cfa8a4d 100644
+--- src/plugins/contrib/envvars/envvars.cpp
++++ src/plugins/contrib/envvars/envvars.cpp
+@@ -9,20 +9,35 @@
+ 
+ // ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ 
+-#include "sdk.h"
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/arrstr.h>
++
++    // wxWidgets GUI headers
++    #include <wx/menu.h>
++    #include <wx/toolbar.h>
++#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
+ #ifndef CB_PRECOMP
+-  #include <wx/arrstr.h>
+-  #include <wx/menu.h>
+-  #include <wx/toolbar.h>
++    // basic headers
++    #include <globals.h>
+ 
+-  #include <tinyxml/tinyxml.h>
++    // absolute base classes
++    #include <cbproject.h>
+ 
+-  #include "cbproject.h"
+-  #include "globals.h"
+-  #include "manager.h"
+-  #include "configmanager.h"
+-  #include "logmanager.h"
+-#endif
++    // managers
++    #include <manager.h>
++    #include <configmanager.h>
++    #include <logmanager.h>
++#endif // #ifndef CB_PRECOMP
++
++
++#include <tinyxml/tinyxml.h>
+ 
+ #include "projectloader_hooks.h"
+ #include <sqplus.h>
+diff --git src/plugins/contrib/envvars/envvars_common.cpp src/plugins/contrib/envvars/envvars_common.cpp
+index c84d335..2bdbc1e 100644
+--- src/plugins/contrib/envvars/envvars_common.cpp
++++ src/plugins/contrib/envvars/envvars_common.cpp
+@@ -9,18 +9,31 @@
+ 
+ // ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ 
+-#include "sdk.h"
+-#include "prep.h"
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/utils.h>
++
++    // wxWidgets GUI headers
++    #include <wx/checklst.h>
++#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++
++
++// CB SDK Headers in sdk_common.h
+ #ifndef CB_PRECOMP
+-  #include <wx/checklst.h>
+-  #include <wx/utils.h>
+-
+-  #include "configmanager.h"
+-  #include "globals.h"
+-  #include "manager.h"
+-  #include "macrosmanager.h"
+-  #include "logmanager.h"
+-#endif
++    // basic headers
++    #include <globals.h>
++
++    // managers
++    #include <manager.h>
++    #include <configmanager.h>
++    #include <logmanager.h>
++    #include <macrosmanager.h>
++#endif // #ifndef CB_PRECOMP
++
+ 
+ #include <map>
+ #include <utility> // std::pair
+diff --git src/plugins/contrib/envvars/envvars_prjoptdlg.cpp src/plugins/contrib/envvars/envvars_prjoptdlg.cpp
+index a4f59d8..5499da0 100644
+--- src/plugins/contrib/envvars/envvars_prjoptdlg.cpp
++++ src/plugins/contrib/envvars/envvars_prjoptdlg.cpp
+@@ -9,14 +9,32 @@
+ 
+ // ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+ 
+-#include "sdk.h"
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++
++    // wxWidgets GUI headers
++    #include <wx/checkbox.h>
++    #include <wx/choice.h>
++#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
++
++    // wxWidgets GUI headers
++    #include <wx/xrc/xmlres.h>
++#endif // #if !defined(CB_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
+ #ifndef CB_PRECOMP
+-  #include <wx/xrc/xmlres.h>
+-  #include <wx/checkbox.h>
+-  #include <wx/choice.h>
++    // absolute base classes
++    #include <cbproject.h>
++#endif // #ifndef CB_PRECOMP
+ 
+-  #include "cbproject.h"
+-#endif
+ 
+ #include "envvars.h"
+ #include "envvars_common.h"

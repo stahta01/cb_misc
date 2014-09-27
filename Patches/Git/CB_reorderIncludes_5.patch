@@ -1,0 +1,54 @@
+diff --git src/plugins/compilergcc/advancedcompileroptionsdlg.cpp src/plugins/compilergcc/advancedcompileroptionsdlg.cpp
+index 627b4ca..08e2d5f 100644
+--- src/plugins/compilergcc/advancedcompileroptionsdlg.cpp
++++ src/plugins/compilergcc/advancedcompileroptionsdlg.cpp
+@@ -7,21 +7,42 @@
+  * $HeadURL$
+  */
+ 
+-#include "sdk.h"
+-#ifndef CB_PRECOMP
++ // sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
++
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/intl.h>
++
++    // wxWidgets GUI headers
+     #include <wx/checkbox.h>
+     #include <wx/choice.h>
+     #include <wx/combobox.h>
+-    #include <wx/intl.h>
+     #include <wx/listbox.h>
+     #include <wx/sizer.h>
+-    #include <wx/spinctrl.h>
+     #include <wx/textctrl.h>
+     #include <wx/textdlg.h>
++#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
++
++    // wxWidgets GUI headers
++    #include <wx/spinctrl.h>
+     #include <wx/xrc/xmlres.h>
+-    #include "compilerfactory.h"
+-    #include "globals.h"
+-#endif
++#endif // #if !defined(CB_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
++    // basic headers
++    #include <globals.h>
++
++    // absolute base classes
++    #include <compilerfactory.h>
++#endif // #ifndef CB_PRECOMP
++
+ #include "advancedcompileroptionsdlg.h"
+ 
+ // TODO : implement full IsDirty mechanism, now always forced to true when OK is pressed

@@ -1,0 +1,107 @@
+diff --git src/base/tinyxml/tinywxuni.cpp src/base/tinyxml/tinywxuni.cpp
+index 57f48e3..d73fa24 100644
+--- src/base/tinyxml/tinywxuni.cpp
++++ src/base/tinyxml/tinywxuni.cpp
+@@ -1,11 +1,28 @@
++// sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/file.h>
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
+     #include <wx/string.h>
+-    #include "filemanager.h"
++
++    // wxWidgets GUI headers
++#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/file.h>
++
++    // wxWidgets GUI headers
++#endif // #if !defined(CB_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
++    // managers
+     #include "manager.h"
+-#endif
++    #include "filemanager.h"
++#endif // #ifndef CB_PRECOMP
+ 
+ #include "tinywxuni.h"
+ #include "tinyxml.h"
+diff --git src/sdk/annoyingdialog.cpp src/sdk/annoyingdialog.cpp
+index cd7b0d9..564a8c3 100644
+--- src/sdk/annoyingdialog.cpp
++++ src/sdk/annoyingdialog.cpp
+@@ -7,20 +7,34 @@
+  * $HeadURL$
+  */
+ 
++ // sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+-#ifndef CB_PRECOMP
++
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/intl.h>
++
++    // wxWidgets GUI headers
+     #include <wx/button.h>
+     #include <wx/checkbox.h>
+-    #include <wx/intl.h>
+     #include <wx/sizer.h>
++    #include <wx/statbmp.h>
+     #include <wx/stattext.h>
++#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
++    // basic headers
++    #include "globals.h"
+     #include "cbexception.h"
+-    #include "configmanager.h"
++
++    // managers
+     #include "manager.h"
++    #include "configmanager.h"
+     #include "logmanager.h"
+-    #include "globals.h"
+-#endif
+-#include <wx/statbmp.h>
++#endif // #ifndef CB_PRECOMP
++
+ #include "annoyingdialog.h"
+ 
+ BEGIN_EVENT_TABLE(AnnoyingDialog, wxScrollingDialog)
+diff --git src/sdk/xtra_res.cpp src/sdk/xtra_res.cpp
+index d5d09b5..308a72c 100644
+--- src/sdk/xtra_res.cpp
++++ src/sdk/xtra_res.cpp
+@@ -7,13 +7,17 @@
+  * $HeadURL$
+  */
+ 
++ // sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+ 
++// CB SDK Headers in sdk_common.h
+ #ifndef CB_PRECOMP
+-    #include "xtra_res.h"
++    // absolute base classes
+     #include "scrollingdialog.h"
+-    #include <wx/wx.h>
+-#endif
++
++    // other base files
++    #include "xtra_res.h"
++#endif // #ifndef CB_PRECOMP
+ 
+ #include <wx/xml/xml.h>
+ 

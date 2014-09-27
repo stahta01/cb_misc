@@ -1,0 +1,129 @@
+diff --git src/src/app.cpp src/src/app.cpp
+index 279d7f3..e85ee0a 100644
+--- src/src/app.cpp
++++ src/src/app.cpp
+@@ -7,44 +7,82 @@
+  * $HeadURL$
+  */
+ 
++ // sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h>
+-#include "app.h"
+-#include <wx/arrstr.h>
+-#include <wx/fs_zip.h>
+-#include <wx/fs_mem.h>
+-#include <wx/xrc/xmlres.h>
+-#include <wx/cmdline.h>
+-#include <wx/regex.h>
+-#include <wx/filefn.h>
+-#include <wx/log.h> // for wxSafeShowMessage()
+-#include <wx/msgdlg.h>
+-#include <wx/choicdlg.h>
+-#include <wx/notebook.h>
+-#include <wx/clipbrd.h>
+ 
+-#include "cbauibook.h"
+-#include <cbexception.h>
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/arrstr.h>
++    #include <wx/choicdlg.h>
++    #include <wx/hashmap.h>
++    #include <wx/intl.h>
++    #include <wx/log.h> // for wxSafeShowMessage()
++
++    // wxWidgets GUI headers
++    #include <wx/image.h>
++    #include <wx/msgdlg.h>
++#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/dir.h>
++    #include <wx/filename.h>
++    #include <wx/fs_zip.h>
++    #include <wx/regex.h>
++
++    // wxWidgets GUI headers
++    #include <wx/notebook.h>
++    #include <wx/xrc/xmlres.h>
++#endif // #if !defined(CB_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
++    // basic headers
++    #include <globals.h>
++    #include <sdk_events.h>
++    #include <cbexception.h>
++
++    // absolute base classes
++    #include <cbauibook.h>
++
++    // managers
++    #include <configmanager.h>
++    #include <editormanager.h>
++    #include <logmanager.h>
++    #include <projectmanager.h>
++    #include <scriptingmanager.h>
++    #include <pluginmanager.h>
++    #include <personalitymanager.h>
++    #include <filemanager.h> // LoaderBase
++
++    // other base files
++    #include <xtra_res.h>
++#endif // #ifndef CB_PRECOMP
++
++// wxWidgets headers in neither wx/wx.h and sdk_common.h
++#include <wx/clipbrd.h>
++#include <wx/cmdline.h>
+ #include <wx/debugrpt.h>
+-#include <configmanager.h>
+-#include <editormanager.h>
+-#include <projectmanager.h>
+-#include <personalitymanager.h>
+-#include <pluginmanager.h>
+-#include <sdk_events.h>
+-#include <manager.h>
+-#include <scriptingmanager.h>
+-#include <globals.h>
+-#include <logmanager.h>
+-#include <loggers.h>
+-#include "splashscreen.h"
+-#include "crashhandler.h"
+-#include "cbstyledtextctrl.h"
++#include <wx/filefn.h>
++#include <wx/fs_mem.h>
+ #include <wx/ipc.h>
+ 
+-#include "projectmanagerui.h"
++// CB SDK headers not in sdk_common.h
++#include <cbstyledtextctrl.h>
++#include <loggers.h>
+ 
++//
+ #include <sqplus.h>
+ 
++// Local header for this source file
++#include "app.h"
++
++// Other local header
++#include "projectmanagerui.h"
++#include "splashscreen.h"
++#include "crashhandler.h"
+ #ifndef __WXMSW__
+     #include "prefix.h" // binreloc
+ #endif
+@@ -57,11 +95,6 @@
+ 
+ #include "appglobals.h"
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/dir.h>
+-    #include "xtra_res.h"
+-    #include "filemanager.h" // LoaderBase
+-#endif
+ 
+ #ifndef APP_PREFIX
+ #define APP_PREFIX ""

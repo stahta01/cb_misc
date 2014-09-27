@@ -1,0 +1,62 @@
+diff --git src/sdk/autodetectcompilers.cpp src/sdk/autodetectcompilers.cpp
+index 7788201..e21af51 100644
+--- src/sdk/autodetectcompilers.cpp
++++ src/sdk/autodetectcompilers.cpp
+@@ -7,27 +7,48 @@
+  * $HeadURL$
+  */
+ 
++ // sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+-#include "autodetectcompilers.h"
+ 
+-#ifndef CB_PRECOMP
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/intl.h>
++    #include <wx/string.h>
++
++    // wxWidgets GUI headers
+     #include <wx/button.h>
++    #include <wx/stattext.h>
++#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
+     #include <wx/filename.h>
+-    #include <wx/intl.h>
++
++    // wxWidgets GUI headers
+     #include <wx/listctrl.h>
+-    #include <wx/stattext.h>
+-    #include <wx/string.h>
+     #include <wx/xrc/xmlres.h>
++#endif // #if !defined(CB_PRECOMP)
+ 
+-    #include "compiler.h"
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
++    // absolute base classes
+     #include "compilerfactory.h"
+-    #include "configmanager.h"
++    #include "compiler.h"
++
++    // managers
+     #include "manager.h"
++    #include "configmanager.h"
+     #include "macrosmanager.h"
+-#endif
++
++    // other base files
++    #include "infowindow.h"
++#endif // #ifndef CB_PRECOMP
++
+ #include <wx/tooltip.h>
+ 
+-#include "infowindow.h"
++#include "autodetectcompilers.h"
+ 
+ BEGIN_EVENT_TABLE(AutoDetectCompilers, wxScrollingDialog)
+     EVT_UPDATE_UI(-1, AutoDetectCompilers::OnUpdateUI)

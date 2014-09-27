@@ -1,0 +1,168 @@
+diff --git src/base/tinyxml/tinywxuni.cpp src/base/tinyxml/tinywxuni.cpp
+index d73fa24..9f18673 100644
+--- src/base/tinyxml/tinywxuni.cpp
++++ src/base/tinyxml/tinywxuni.cpp
+@@ -2,12 +2,12 @@
+ #include "sdk_precomp.h"
+ 
+ // wxWidgets headers in both wx/wx.h and sdk_common.h
+-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+     // wxWidgets non GUI headers
+     #include <wx/string.h>
+ 
+     // wxWidgets GUI headers
+-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+ 
+ // wxWidgets headers in sdk_common.h; but, not in wx/wx.h
+ #if !defined(CB_PRECOMP)
+diff --git src/plugins/compilergcc/advancedcompileroptionsdlg.cpp src/plugins/compilergcc/advancedcompileroptionsdlg.cpp
+index 08e2d5f..414a997 100644
+--- src/plugins/compilergcc/advancedcompileroptionsdlg.cpp
++++ src/plugins/compilergcc/advancedcompileroptionsdlg.cpp
+@@ -11,7 +11,7 @@
+ #include <sdk.h>
+ 
+ // wxWidgets headers in both wx/wx.h and sdk_common.h
+-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+     // wxWidgets non GUI headers
+     #include <wx/intl.h>
+ 
+@@ -23,7 +23,7 @@
+     #include <wx/sizer.h>
+     #include <wx/textctrl.h>
+     #include <wx/textdlg.h>
+-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+ 
+ // wxWidgets headers in sdk_common.h; but, not in wx/wx.h
+ #if !defined(CB_PRECOMP)
+diff --git src/plugins/contrib/envvars/envvars.cpp src/plugins/contrib/envvars/envvars.cpp
+index cfa8a4d..f878852 100644
+--- src/plugins/contrib/envvars/envvars.cpp
++++ src/plugins/contrib/envvars/envvars.cpp
+@@ -13,14 +13,14 @@
+ #include <sdk.h>
+ 
+ // wxWidgets headers in both wx/wx.h and sdk_common.h
+-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+     // wxWidgets non GUI headers
+     #include <wx/arrstr.h>
+ 
+     // wxWidgets GUI headers
+     #include <wx/menu.h>
+     #include <wx/toolbar.h>
+-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+ 
+ // CB SDK Headers in sdk_common.h
+ #ifndef CB_PRECOMP
+diff --git src/plugins/contrib/envvars/envvars_common.cpp src/plugins/contrib/envvars/envvars_common.cpp
+index 2bdbc1e..fad7883 100644
+--- src/plugins/contrib/envvars/envvars_common.cpp
++++ src/plugins/contrib/envvars/envvars_common.cpp
+@@ -13,13 +13,13 @@
+ #include <sdk.h>
+ 
+ // wxWidgets headers in both wx/wx.h and sdk_common.h
+-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+     // wxWidgets non GUI headers
+     #include <wx/utils.h>
+ 
+     // wxWidgets GUI headers
+     #include <wx/checklst.h>
+-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+ 
+ 
+ // CB SDK Headers in sdk_common.h
+diff --git src/plugins/contrib/envvars/envvars_prjoptdlg.cpp src/plugins/contrib/envvars/envvars_prjoptdlg.cpp
+index 5499da0..925f901 100644
+--- src/plugins/contrib/envvars/envvars_prjoptdlg.cpp
++++ src/plugins/contrib/envvars/envvars_prjoptdlg.cpp
+@@ -13,13 +13,13 @@
+ #include <sdk.h>
+ 
+ // wxWidgets headers in both wx/wx.h and sdk_common.h
+-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+     // wxWidgets non GUI headers
+ 
+     // wxWidgets GUI headers
+     #include <wx/checkbox.h>
+     #include <wx/choice.h>
+-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+ 
+ // wxWidgets headers in sdk_common.h; but, not in wx/wx.h
+ #if !defined(CB_PRECOMP)
+diff --git src/sdk/annoyingdialog.cpp src/sdk/annoyingdialog.cpp
+index 564a8c3..d759b09 100644
+--- src/sdk/annoyingdialog.cpp
++++ src/sdk/annoyingdialog.cpp
+@@ -11,7 +11,7 @@
+ #include "sdk_precomp.h"
+ 
+ // wxWidgets headers in both wx/wx.h and sdk_common.h
+-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+     // wxWidgets non GUI headers
+     #include <wx/intl.h>
+ 
+@@ -21,7 +21,7 @@
+     #include <wx/sizer.h>
+     #include <wx/statbmp.h>
+     #include <wx/stattext.h>
+-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+ 
+ // CB SDK Headers in sdk_common.h
+ #ifndef CB_PRECOMP
+diff --git src/sdk/autodetectcompilers.cpp src/sdk/autodetectcompilers.cpp
+index e21af51..41f47f5 100644
+--- src/sdk/autodetectcompilers.cpp
++++ src/sdk/autodetectcompilers.cpp
+@@ -11,7 +11,7 @@
+ #include "sdk_precomp.h"
+ 
+ // wxWidgets headers in both wx/wx.h and sdk_common.h
+-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+     // wxWidgets non GUI headers
+     #include <wx/intl.h>
+     #include <wx/string.h>
+@@ -19,7 +19,7 @@
+     // wxWidgets GUI headers
+     #include <wx/button.h>
+     #include <wx/stattext.h>
+-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+ 
+ // wxWidgets headers in sdk_common.h; but, not in wx/wx.h
+ #if !defined(CB_PRECOMP)
+diff --git src/src/app.cpp src/src/app.cpp
+index e85ee0a..2a93f98 100644
+--- src/src/app.cpp
++++ src/src/app.cpp
+@@ -11,7 +11,7 @@
+ #include <sdk.h>
+ 
+ // wxWidgets headers in both wx/wx.h and sdk_common.h
+-#if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+     // wxWidgets non GUI headers
+     #include <wx/arrstr.h>
+     #include <wx/choicdlg.h>
+@@ -22,7 +22,7 @@
+     // wxWidgets GUI headers
+     #include <wx/image.h>
+     #include <wx/msgdlg.h>
+-#endif // #if !defined(CB_PRECOMP) || !defined(WX_PRECOMP)
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
+ 
+ // wxWidgets headers in sdk_common.h; but, not in wx/wx.h
+ #if !defined(CB_PRECOMP)

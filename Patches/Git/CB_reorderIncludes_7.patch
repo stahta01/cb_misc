@@ -1,0 +1,243 @@
+diff --git src/sdk/cbplugin.cpp src/sdk/cbplugin.cpp
+index 96e7d9e..fd9c733 100644
+--- src/sdk/cbplugin.cpp
++++ src/sdk/cbplugin.cpp
+@@ -7,13 +7,29 @@
+  * $HeadURL$
+  */
+ 
++ // sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/frame.h> // wxFrame
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++
++    // wxWidgets GUI headers
++    #include <wx/frame.h>
+     #include <wx/menu.h>
++    #include <wx/toolbar.h>
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
+     #include <wx/process.h>
+ 
++    // wxWidgets GUI headers
++#endif // #if !defined(CB_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
+     #include "cbeditor.h"
+     #include "cbplugin.h"
+     #include "cbproject.h"
+@@ -31,7 +47,6 @@
+     #include "sdk_events.h"
+ #endif
+ 
+-#include <wx/toolbar.h>
+ 
+ #include "annoyingdialog.h"
+ #include "cbdebugger_interfaces.h"
+diff --git src/sdk/cbproject.cpp src/sdk/cbproject.cpp
+index 14ef93e..cf7c7f4 100644
+--- src/sdk/cbproject.cpp
++++ src/sdk/cbproject.cpp
+@@ -7,20 +7,32 @@
+  * $HeadURL$
+  */
+ 
++ // sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+ 
+-#ifndef wxUSE_CHOICEDLG
+-    #define wxUSE_CHOICEDLG 1
+-#endif
++#include <wx/defs.h> // wxUSE_CHOICEDLG
+ 
+-#include <wx/choicdlg.h>
+-#include <wx/filedlg.h>
+-#include <wx/filename.h>
+-#include <wx/textdlg.h>
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/choicdlg.h>
+ 
+-#ifndef CB_PRECOMP
++    // wxWidgets GUI headers
++    #include <wx/filedlg.h>
++    #include <wx/textdlg.h>
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
+     #include <wx/dir.h>
++    #include <wx/filename.h>
+ 
++    // wxWidgets GUI headers
++#endif // #if !defined(CB_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
+     #include "cbproject.h" // class's header file
+     #include "cbeditor.h"
+     #include "cbtreectrl.h"
+diff --git src/sdk/compilercommandgenerator.cpp src/sdk/compilercommandgenerator.cpp
+index dbe4a95..ddf3615 100644
+--- src/sdk/compilercommandgenerator.cpp
++++ src/sdk/compilercommandgenerator.cpp
+@@ -7,21 +7,45 @@
+  * $HeadURL$
+  */
+ 
++ // sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
++
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/intl.h>
++
++    // wxWidgets GUI headers
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
++    #include <wx/filename.h>
++
++    // wxWidgets GUI headers
++#endif // #if !defined(CB_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
++    // basic headers
++    #include "cbexception.h"
++
++    // absolute base classes
++    #include "cbproject.h"
++    #include "compilerfactory.h"
++    #include "compiler.h"
++
++    // managers
++    #include "manager.h"
++    #include "configmanager.h"
++    #include "logmanager.h"
++    #include "scriptingmanager.h"
++    #include "macrosmanager.h"
++#endif // #ifndef CB_PRECOMP
++
+ #include "compilercommandgenerator.h"
+ 
+-#include <wx/intl.h>
+-#include <wx/filename.h>
+-
+-#include "cbexception.h"
+-#include "cbproject.h"
+-#include "compilerfactory.h"
+-#include "compiler.h"
+-#include "manager.h"
+-#include "configmanager.h"
+-#include "logmanager.h"
+-#include "macrosmanager.h"
+-#include "scriptingmanager.h"
+ #include "filefilters.h"
+ 
+ #include "scripting/bindings/sc_base_types.h"
+diff --git src/sdk/globals.cpp src/sdk/globals.cpp
+index 0fa3ab2..5ab1626 100644
+--- src/sdk/globals.cpp
++++ src/sdk/globals.cpp
+@@ -7,17 +7,32 @@
+  * $HeadURL$
+  */
+ 
++ // sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+ 
+-#ifndef CB_PRECOMP
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
++
++    // wxWidgets GUI headers
++    #include <wx/image.h>
++    #include <wx/menu.h>
++    #include <wx/msgdlg.h>
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++
++// wxWidgets headers in sdk_common.h; but, not in wx/wx.h
++#if !defined(CB_PRECOMP)
++    // wxWidgets non GUI headers
+     #include <wx/file.h>
+     #include <wx/filename.h>
+-    #include <wx/filesys.h>
+-    #include <wx/image.h>
++
++    // wxWidgets GUI headers
+     #include <wx/imaglist.h>
+     #include <wx/listctrl.h>
+-    #include <wx/menu.h>
++#endif // #if !defined(CB_PRECOMP)
+ 
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
+     #include "wx/wxscintilla.h"
+ 
+     #include "cbexception.h"
+@@ -33,8 +48,8 @@
+ 
+ #include <wx/dirdlg.h>
+ #include <wx/filefn.h>
++#include <wx/filesys.h>
+ #include <wx/fontmap.h>
+-#include <wx/msgdlg.h>
+ #include <wx/tokenzr.h>
+ 
+ #include <algorithm>
+diff --git src/sdk/infowindow.cpp src/sdk/infowindow.cpp
+index 1a30129..8ce44f0 100644
+--- src/sdk/infowindow.cpp
++++ src/sdk/infowindow.cpp
+@@ -7,22 +7,31 @@
+  * $HeadURL$
+  */
+ 
++ // sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
+ 
+-#ifndef CB_PRECOMP
++// wxWidgets headers in both wx/wx.h and sdk_common.h
++#if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers
+     #include <wx/intl.h>
+-    #include <wx/stattext.h>
++
++    // wxWidgets GUI headers
++    #include <wx/frame.h>
++    #include <wx/panel.h>
+     #include <wx/sizer.h>
+-    #include <wx/settings.h>
+     #include <wx/statbmp.h>
+-    #include <wx/panel.h>
+-    #include <wx/frame.h>
++    #include <wx/stattext.h>
++#endif // #if !defined(CB_PRECOMP) && !defined(WX_PRECOMP)
++
++// CB SDK Headers in sdk_common.h
++#ifndef CB_PRECOMP
+     #include "infowindow.h"
+     #include "manager.h"
+ #endif
+ 
+ #include <limits>
+ #include <wx/display.h>
++#include <wx/settings.h>
+ 
+ BEGIN_EVENT_TABLE(InfoWindow, wxInfoWindowBase)
+ EVT_TIMER(-1, InfoWindow::OnTimer)
