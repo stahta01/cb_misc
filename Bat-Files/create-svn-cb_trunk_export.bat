@@ -22,17 +22,12 @@ REM
     svn update .
 REM svn update --ignore-externals .
 
-    PAUSE
+REM PAUSE
 
 CD %CB_SVN%/src
 REM replace call of autorevision sed that set svn number to zero
     %CB_GIT%\src\build_tools\autorevision\autorevision +wx +int +t . include/autorevision.h
     svn add include/autorevision.h
-REM remove this delete after writing xcopy batch to skip templates
-    svn delete templates
-CD %CB_SVN%
-REM remove this delete after writing xcopy batch to skip .gitignore
-    svn delete .gitignore
 REM PAUSE
 
 CD /D %TOP%
