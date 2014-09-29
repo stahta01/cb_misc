@@ -1,0 +1,85 @@
+diff --git src/plugins/astyle/astyleplugin.cpp src/plugins/astyle/astyleplugin.cpp
+index 80c002c..54ab3e6 100644
+--- src/plugins/astyle/astyleplugin.cpp
++++ src/plugins/astyle/astyleplugin.cpp
+@@ -9,6 +9,8 @@
+ 
+ #include <sdk.h>
+ 
++#include <wx/menu.h>
++
+ #ifndef CB_PRECOMP
+     #include <algorithm>
+     #include <sstream>
+diff --git src/plugins/codecompletion/selectincludefile.cpp src/plugins/codecompletion/selectincludefile.cpp
+index a2f62fb..860b48b 100644
+--- src/plugins/codecompletion/selectincludefile.cpp
++++ src/plugins/codecompletion/selectincludefile.cpp
+@@ -7,12 +7,15 @@
+  * $HeadURL$
+  */
+ 
+-#include "prep.h"
+-#include "selectincludefile.h"
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
+ 
+ #include <wx/xrc/xmlres.h>
+ #include <wx/arrstr.h>
+ 
++#include "selectincludefile.h"
++
++
+ BEGIN_EVENT_TABLE(SelectIncludeFile,wxScrollingDialog)
+     EVT_LISTBOX_DCLICK(XRCID("ID_LBX_INCLUDE_FILES"),SelectIncludeFile::OnOk)
+     EVT_BUTTON(XRCID("ID_BTN_OK"),SelectIncludeFile::OnOk)
+diff --git src/plugins/contrib/BrowseTracker/JumpTracker.cpp src/plugins/contrib/BrowseTracker/JumpTracker.cpp
+index 91471bb..3f5f8aa 100644
+--- src/plugins/contrib/BrowseTracker/JumpTracker.cpp
++++ src/plugins/contrib/BrowseTracker/JumpTracker.cpp
+@@ -2,6 +2,7 @@
+ //  JumpTracker.cpp
+ // ----------------------------------------------------------------------------
+ #include <sdk.h> // Code::Blocks SDK
++#include <wx/menu.h>
+ #include <configurationpanel.h>
+ #include <cbstyledtextctrl.h>
+ #include <editormanager.h>
+diff --git src/plugins/contrib/Cscope/CscopePlugin.cpp src/plugins/contrib/Cscope/CscopePlugin.cpp
+index 716d997..bd70acc 100644
+--- src/plugins/contrib/Cscope/CscopePlugin.cpp
++++ src/plugins/contrib/Cscope/CscopePlugin.cpp
+@@ -1,4 +1,5 @@
+ #include <sdk.h> // Code::Blocks SDK
++#include <wx/menu.h>
+ #ifndef CB_PRECOMP
+     #include <wx/process.h>
+ 
+diff --git src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
+index 13455d5..6c923fd 100644
+--- src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
++++ src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
+@@ -9,6 +9,8 @@
+ 
+ #include <sdk.h> // Code::Blocks SDK
+ 
++#include <wx/menu.h>
++
+ #ifndef CB_PRECOMP
+     #include <algorithm>
+     #include <wx/listctrl.h>
+diff --git src/src/main.cpp src/src/main.cpp
+index c4c840e..3ccc7bb 100644
+--- src/src/main.cpp
++++ src/src/main.cpp
+@@ -9,6 +9,10 @@
+ 
+ #include <sdk.h>
+ 
++#include <wx/dcclient.h>
++#include <wx/filedlg.h>
++#include <wx/textdlg.h>
++
+ #include "app.h"
+ #include "appglobals.h"
+ #include "batchbuild.h"
