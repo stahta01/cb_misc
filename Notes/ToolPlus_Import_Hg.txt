@@ -1,0 +1,56 @@
+##Tools Plus Plugin (v0.6) Command Export##
+COMMAND#####################################
+name:Hg Status
+command line:hg status
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/status
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Hg Log
+command line:hg log
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/log
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Hg Commit
+command line:hg commit
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/commit
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:Hg Diff
+command line:hg diff
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/diff
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Hg Status Quiet
+command line:hg status -q
+workdir:$(PROJECTDIR
+wildcards:
+menu string:hg/status-q
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W

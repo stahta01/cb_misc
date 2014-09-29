@@ -1,0 +1,45 @@
+##Tools Plus Plugin (v0.6) Command Export##
+COMMAND#####################################
+name:Bzr Status
+command line:bzr status
+workdir:$(PROJECTDIR
+wildcards:
+menu string:bzr/status
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Bzr Diff
+command line:bzr diff
+workdir:$(PROJECTDIR
+wildcards:
+menu string:bzr/diff
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Bzr Commit
+command line:bzr commit
+workdir:$(PROJECTDIR
+wildcards:
+menu string:bzr/commit
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):
+COMMAND#####################################
+name:Bzr Log
+command line:bzr log
+workdir:$(PROJECTDIR
+wildcards:
+menu string:bzr/log
+menu priority:100
+context menu string:
+context menu priority:0
+envvarset:
+mode (W,C,):W
