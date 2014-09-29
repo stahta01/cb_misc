@@ -11,17 +11,6 @@ context menu priority:100
 envvarset:
 mode (W,C,):
 COMMAND#####################################
-name:git svn find-rev r1
-command line:%programfiles%\git\bin\git svn find-rev r1
-workdir:$(PROJECTDIR
-wildcards:
-menu string:git/svn/find-rev r1
-menu priority:0
-context menu string:
-context menu priority:100
-envvarset:
-mode (W,C,):W
-COMMAND#####################################
 name:git svn find-rev HEAD
 command line:%programfiles%\git\bin\git svn find-rev HEAD
 workdir:$(PROJECTDIR
@@ -38,17 +27,6 @@ command line:%programfiles%\git\bin\git svn info
 workdir:$(PROJECTDIR
 wildcards:
 menu string:git/svn/info
-menu priority:0
-context menu string:
-context menu priority:100
-envvarset:
-mode (W,C,):W
-COMMAND#####################################
-name:git svn fetch
-command line:git svn fetch
-workdir:$(PROJECTDIR
-wildcards:
-menu string:git/svn/fetch
 menu priority:0
 context menu string:
 context menu priority:100
@@ -109,6 +87,28 @@ context menu string:
 context menu priority:100
 envvarset:
 mode (W,C,):
+COMMAND#####################################
+name:git config list
+command line:%programfiles%\git\bin\git config --list
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/config/list
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git config branch description
+command line:CMD /C sh.exe -t -c "git config branch.`git rev-parse --abbrev-ref HEAD`.description"
+workdir:$(PROJECTDIR)
+wildcards:
+menu string:git/config/branch description
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
 COMMAND#####################################
 name:git status
 command line:%programfiles%\git\bin\git status
@@ -197,17 +197,6 @@ context menu string:
 context menu priority:100
 envvarset:
 mode (W,C,):W
-COMMAND#####################################
-name:git branch description
-command line:CMD /C "C:\PROGRA~1\git\bin\sh.exe" -t -c "git config branch.`git rev-parse --abbrev-ref HEAD`.description"
-workdir:$(PROJECTDIR)
-wildcards:
-menu string:git/branch description
-menu priority:0
-context menu string:
-context menu priority:100
-envvarset:
-mode (W,C,):C
 COMMAND#####################################
 name:git pull rebase origin master
 command line:%programfiles%\git\bin\git pull --rebase origin master
@@ -327,5 +316,38 @@ menu string:hg/status-q
 menu priority:100
 context menu string:
 context menu priority:0
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git config global pull.rebase true
+command line:%programfiles%\git\bin\git config --global pull.rebase true
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/config/set global pull.rebase true
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:git config pull.rebase
+command line:%programfiles%\git\bin\git config pull.rebase
+workdir:$(PROJECTDIR
+wildcards:
+menu string:git/config/git config pull.rebase
+menu priority:0
+context menu string:
+context menu priority:100
+envvarset:
+mode (W,C,):W
+COMMAND#####################################
+name:Display folder info
+command line:CMD /C cd
+workdir:$(PROJECTDIR)
+wildcards:
+menu string:Display folder info
+menu priority:0
+context menu string:
+context menu priority:100
 envvarset:
 mode (W,C,):W
