@@ -3,6 +3,7 @@ Also, check wxWidgets makefile and wx-config
 
 codeblocks
 propgrid
+wxmsw$(WX_VERSION)$(WX_SUFFIX)_propgrid
 wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui
 wxmsw$(WX_VERSION)$(WX_SUFFIX)_richtext
 wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc
@@ -12,3 +13,14 @@ wxmsw$(WX_VERSION)$(WX_SUFFIX)_core
 wxbase$(WX_VERSION)$(WX_SUFFIX)_net
 wxbase$(WX_VERSION)$(WX_SUFFIX)_xml
 wxbase$(WX_VERSION)$(WX_SUFFIX)
+
+<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_propgrid" />
+<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
+<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_richtext" />
+<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
+<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
+<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
+<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
+<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
+<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
+<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />

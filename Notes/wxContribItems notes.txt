@@ -1,14 +1,33 @@
 KWIC Current maintainer: Marco Cavallini http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/kwic/
+   Upgrade to current wxcode
 wxTreeList Current maintainer: Ronan Chartois http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/treelistctrl/
+   WXDLLEXPORT
+   WXDLLIMPEXP_WXCODE
+   WXMAKINGDLL_WXCODE
+
+   // For shared/DLL builds
+   #ifdef WXMAKINGDLL_WXCODE
+       #define WXDLLIMPEXP_WXCODE                  WXEXPORT
+       #define WXDLLIMPEXP_DATA_WXCODE(type)       WXEXPORT type
+   #elif defined(WXUSINGDLL)
+       #define WXDLLIMPEXP_WXCODE                  WXIMPORT
+       #define WXDLLIMPEXP_DATA_WXCODE(type)       WXIMPORT type
+   #else // Not making nor using DLL
+       #define WXDLLIMPEXP_WXCODE
+       #define WXDLLIMPEXP_DATA_WXCODE(type)       type
+   #endif
 
 wxled/wxLEDPanel Current maintainer: Christian Gräfe http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/ledpanel/
 wxled/LCDWindow wxCode UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/lcdwindow/
 wxled/wxLed wxCode Current maintainer: UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/led/src/led.cpp
+About 3 Minutes link time for wxled/* target.
+   WXMAKINGDLL_GIZMOS
+   WXMAKINGDLL_WXCODE
 
 wxImagePanel Looks like a CB Created and Maintained code
 wxSpeedButton Looks like a CB Created and Maintained code
 
-This export-all-symbols option should NOT be needed after converting to WXUSINGDLL.
+This export-all-symbols option may NOT be needed after converting to WXUSINGDLL.
 What does the "--enable-auto-import" option really do? 
 
 See DLLIMPORT and WXDLLIMPEXP_CORE (maybe create WXDLLIMPEXP_WXCODE)
