@@ -16,8 +16,8 @@ REM
     svn revert --recursive .
     svn revert --recursive src/plugins/contrib/FortranProject
 
-    unix2dos "src/include/ccmanager.h"
-    svn propset svn:eol-style native src/include/ccmanager.h
+REM unix2dos "src/include/ccmanager.h"
+REM svn propset svn:eol-style native src/include/ccmanager.h
 
     svn update .
 REM svn update --ignore-externals .
@@ -25,7 +25,7 @@ REM svn update --ignore-externals .
 REM PAUSE
 
 CD %CB_SVN%/src
-REM replace call of autorevision sed that set svn number to zero
+REM replace call of autorevision with sed that sets svn number to zero
     %CB_GIT%\src\build_tools\autorevision\autorevision +wx +int +t . include/autorevision.h
     svn add include/autorevision.h
 REM PAUSE
