@@ -1,0 +1,71 @@
+Production/CB_mods2_project_only
+* build/cb_global_var
+  build/combinedNoPush
+  build/noPCH
+  build/optionOrder
+  build/project_target_change
+  build/scratchNoPush
+  build/temp
+  build/template
+  build/winXX
+  build/wxConfigProjects
+  build/wxContribItems
+  build/wx_multilib
+  filelayout/wxscintilla_h
+  master
+
+Production/codeblocks_mods2_bugfix/src
+* build/combinedNoPush
+  build/project_bugs
+  build/reorderIncludes
+  build/template_bugs
+  build/winOsOnlyFixes
+  master
+
+Production/codeblocks_mods2_master/src
+* master
+
+Production/codeblocks_mods2_NOGUI/src
+  build/codeblocks_console
+  build/no_gui_libs
+* master
+
+Production/codeblocks_mods2_origin/src
+  build/cbPCHeadersFixed
+  build/combinedNoPush
+  build/project_bugs
+  build/scripts
+  feature/wx-config
+  build/reorderIncludes
+  build/addPCH_contrib_wx28_win32
+* master
+
+Production/codeblocks_mods2_plugin/src
+* master
+  plugin/wxContribItems
++plugin/FileManager
++plugin/NassiShneiderman
++plugin/ToolsPlus
+
+Obsolete svnstuff folder used in .git/refs/remotes/svnstuff/trunk
+   Production/codeblocks_mods2_old/src
+     build/PCH_cbp
+     build/PCH_src
+     build/PCH_wxContribItems
+     build/PCH_wxSmith
+     build/cbPCH
+     build/codeblocks_console
+     build/reducedPCH
+     build/wxPCH
+   * master
+
+   Production/codeblocks_mods2_PCH/src
+     build/PCH_cbp
+     build/PCH_src
+     build/PCH_wxContribItems
+     build/PCH_wxSmith
+     build/cbPCH
+     build/codeblocks_console
+     build/reducedPCH
+     build/wxPCH
+     master
