@@ -1,0 +1,45 @@
+Git Repo Info.txt
+
+E:\OpenSourceCode\Apps\IDEs\CodeBlocks
+   codeblocks_sf_fork
+      master
+         (git svn find-rev HEAD) Yes
+         (git svn info)          No
+      build/split_cb_project
+         (git svn find-rev HEAD) No
+         (git svn info)          No
+      svn/trunk
+         (git svn find-rev HEAD) 9855
+         (git svn info)          No
+      obfuscated/master
+         (git svn find-rev HEAD) 9854
+         (git svn info)          No
+      obfuscated/no?gui?sdk
+         (git svn find-rev HEAD)
+         (git svn info)         
+      build/templates
+         (git svn find-rev HEAD)
+         (git svn info)         
+
+   cb_sf_git_svn_clone
+      master
+         (git svn find-rev HEAD) Yes
+         (git svn info)          Yes
+      trunk
+         (git svn find-rev HEAD) Yes
+         (git svn info)          Yes
+   obfuscated_cb_sf
+      master
+         (git svn find-rev HEAD) 9854
+         (git svn info)          No
+      obfuscated/master
+         (git svn find-rev HEAD) 9854
+         (git svn info)          No
+   codeblocks_svn_clone
+      master
+         (git svn find-rev HEAD)
+         (git svn info)         
+         
+http://github.com/stahta01/codeblocks_sf_fork/trunk
+
+https://github.com/stahta01/codeblocks_svn_clone.git
