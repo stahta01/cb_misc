@@ -1,0 +1,4087 @@
+Index: src/CodeBlocks.cbp
+===================================================================
+--- src/CodeBlocks.cbp	(revision 9934)
++++ src/CodeBlocks.cbp	(working copy)
+@@ -733,8 +733,7 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+@@ -1287,7 +1286,6 @@
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/sdk.h">
+-			<Option compile="1" />
+ 			<Option weight="1" />
+ 			<Option target="src" />
+ 		</Unit>
+@@ -1298,7 +1296,6 @@
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/sdk_precomp.h">
+-			<Option compile="1" />
+ 			<Option weight="0" />
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/plugins/abbreviations/abbreviations.cpp
+===================================================================
+--- src/plugins/abbreviations/abbreviations.cpp	(revision 9934)
++++ src/plugins/abbreviations/abbreviations.cpp	(working copy)
+@@ -9,6 +9,8 @@
+ 
+ #include <sdk.h>
+ 
++#include <wx/textdlg.h> 
++
+ #ifndef CB_PRECOMP
+     #include <configurationpanel.h>
+     #include <cbstyledtextctrl.h>
+Index: src/plugins/abbreviations/abbreviations.h
+===================================================================
+--- src/plugins/abbreviations/abbreviations.h	(revision 9934)
++++ src/plugins/abbreviations/abbreviations.h	(working copy)
+@@ -6,13 +6,7 @@
+ #ifndef ABBREVIATIONS_H_INCLUDED
+ #define ABBREVIATIONS_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ 
+ WX_DECLARE_STRING_HASH_MAP(wxString, AutoCompleteMap);
+Index: src/plugins/abbreviations/abbreviationsconfigpanel.cpp
+===================================================================
+--- src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(revision 9934)
++++ src/plugins/abbreviations/abbreviationsconfigpanel.cpp	(working copy)
+@@ -10,6 +10,8 @@
+ #include <sdk.h>
+ #include "abbreviationsconfigpanel.h"
+ 
++#include <wx/textdlg.h> 
++
+ #ifndef CB_PRECOMP
+     #include <wx/xrc/xmlres.h>
+     #include <wx/fontutil.h>
+Index: src/plugins/abbreviations/abbreviationsconfigpanel.h
+===================================================================
+--- src/plugins/abbreviations/abbreviationsconfigpanel.h	(revision 9934)
++++ src/plugins/abbreviations/abbreviationsconfigpanel.h	(working copy)
+@@ -15,6 +15,7 @@
+ #include <wx/listbox.h>
+ #include <wx/panel.h>
+ #include <wx/button.h>
++#include <wx/combobox.h>
+ 
+ class AbbreviationsConfigPanel: public cbConfigurationPanel
+ {
+Index: src/plugins/astyle/astyleplugin.cpp
+===================================================================
+--- src/plugins/astyle/astyleplugin.cpp	(revision 9934)
++++ src/plugins/astyle/astyleplugin.cpp	(working copy)
+@@ -9,6 +9,7 @@
+ 
+ #include <sdk.h>
+ 
++#include <wx/menu.h>
+ #ifndef CB_PRECOMP
+     #include <algorithm>
+     #include <sstream>
+Index: src/plugins/astyle/astyleplugin.h
+===================================================================
+--- src/plugins/astyle/astyleplugin.h	(revision 9934)
++++ src/plugins/astyle/astyleplugin.h	(working copy)
+@@ -6,17 +6,7 @@
+ #ifndef ASTYLEPLUGIN_H
+ #define ASTYLEPLUGIN_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // the base class we 're inheriting
+ #include <settings.h> // needed to use the Code::Blocks SDK
+ 
+Index: src/plugins/codecompletion/parser/expression.cpp
+===================================================================
+--- src/plugins/codecompletion/parser/expression.cpp	(revision 9934)
++++ src/plugins/codecompletion/parser/expression.cpp	(working copy)
+@@ -11,9 +11,6 @@
+ 
+ #include <stack>
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <logmanager.h>
+ #include <manager.h>
+Index: src/plugins/compilergcc/compilerMSVC.cpp
+===================================================================
+--- src/plugins/compilergcc/compilerMSVC.cpp	(revision 9934)
++++ src/plugins/compilergcc/compilerMSVC.cpp	(working copy)
+@@ -9,7 +9,7 @@
+ 
+ #include <sdk.h>
+ #include "compilerMSVC.h"
+-#include <wx/wx.h>
++
+ #include <wx/intl.h>
+ #include <wx/regex.h>
+ #include <wx/config.h>
+Index: src/plugins/compilergcc/compilerMSVC10.cpp
+===================================================================
+--- src/plugins/compilergcc/compilerMSVC10.cpp	(revision 9934)
++++ src/plugins/compilergcc/compilerMSVC10.cpp	(working copy)
+@@ -9,7 +9,7 @@
+ 
+ #include <sdk.h>
+ #include "compilerMSVC10.h"
+-#include <wx/wx.h>
++
+ #include <wx/intl.h>
+ #include <wx/regex.h>
+ #include <wx/config.h>
+Index: src/plugins/compilergcc/compilerMSVC8.cpp
+===================================================================
+--- src/plugins/compilergcc/compilerMSVC8.cpp	(revision 9934)
++++ src/plugins/compilergcc/compilerMSVC8.cpp	(working copy)
+@@ -9,7 +9,7 @@
+ 
+ #include <sdk.h>
+ #include "compilerMSVC8.h"
+-#include <wx/wx.h>
++
+ #include <wx/intl.h>
+ #include <wx/regex.h>
+ #include <wx/config.h>
+Index: src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+===================================================================
+--- src/plugins/contrib/AutoVersioning/AutoVersioning.cbp	(revision 9934)
++++ src/plugins/contrib/AutoVersioning/AutoVersioning.cbp	(working copy)
+@@ -7,12 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\AutoVersioning.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\AutoVersioning" />
++				<Option output="../../../devel/share/codeblocks/plugins/AutoVersioning.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/AutoVersioning" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 					<Add option="-pipe" />
+@@ -25,21 +26,20 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-mthreads" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\codeblocks\AutoVersioning.zip manifest.xml" />
+@@ -47,8 +47,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -76,8 +76,8 @@
+ 			<wxsmith version="1">
+ 				<gui name="wxWidgets" src="avVersionEditorDlg.cpp" main="avVersionEditorDlg" init_handlers="necessary" language="CPP" />
+ 				<resources>
+-					<wxScrollingDialog wxs="wxsmith/avVersionEditorDlg.wxs" src="avVersionEditorDlg.cpp" hdr="avVersionEditorDlg.h" name="avVersionEditorDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/avChangesDlg.wxs" src="avChangesDlg.cpp" hdr="avChangesDlg.h" name="avChangesDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/avVersionEditorDlg.wxs" src="avVersionEditorDlg.cpp" hdr="avVersionEditorDlg.h" fwddecl="0" i18n="1" name="avVersionEditorDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/avChangesDlg.wxs" src="avChangesDlg.cpp" hdr="avChangesDlg.h" fwddecl="0" i18n="1" name="avChangesDlg" language="CPP" />
+ 				</resources>
+ 			</wxsmith>
+ 			<debugger />
+Index: src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+===================================================================
+--- src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(revision 9934)
++++ src/plugins/contrib/BrowseTracker/BrowseTracker.cbp	(working copy)
+@@ -7,12 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\BrowseTracker.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\BrowseTracker" />
++				<Option output="../../../devel/share/codeblocks/plugins/BrowseTracker.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/BrowseTracker" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -26,14 +27,13 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-s" />
+@@ -41,8 +41,8 @@
+ 					<Add option="-mthreads" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\codeblocks\BrowseTracker.zip manifest.xml" />
+@@ -50,8 +50,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/Cccc/Cccc.cbp
+===================================================================
+--- src/plugins/contrib/Cccc/Cccc.cbp	(revision 9934)
++++ src/plugins/contrib/Cccc/Cccc.cbp	(working copy)
+@@ -7,17 +7,18 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\Cccc.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\Cccc" />
++				<Option output="../../../devel/share/codeblocks/plugins/Cccc.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/Cccc" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -30,17 +31,16 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -49,8 +49,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ../../../devel/share/codeblocks/Cccc.zip resources/manifest.xml" />
+Index: src/plugins/contrib/CppCheck/CppCheck.cbp
+===================================================================
+--- src/plugins/contrib/CppCheck/CppCheck.cbp	(revision 9934)
++++ src/plugins/contrib/CppCheck/CppCheck.cbp	(working copy)
+@@ -7,12 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\CppCheck.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\CppCheck" />
++				<Option output="../../../devel/share/codeblocks/plugins/CppCheck.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/CppCheck" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+ 			<Environment>
+@@ -30,17 +31,16 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -50,8 +50,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ../../../devel/share/codeblocks/CppCheck.zip resources/manifest.xml" />
+Index: src/plugins/contrib/Cscope/Cscope.cbp
+===================================================================
+--- src/plugins/contrib/Cscope/Cscope.cbp	(revision 9934)
++++ src/plugins/contrib/Cscope/Cscope.cbp	(working copy)
+@@ -6,16 +6,17 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\Cscope" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\Cscope" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/Cscope" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/Cscope" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance --no-check-associations -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -30,17 +31,16 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -49,8 +49,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\Cscope.zip manifest.xml" />
+Index: src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+===================================================================
+--- src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(revision 9934)
++++ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp	(working copy)
+@@ -27,8 +27,7 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+@@ -93,7 +92,7 @@
+ 			<debugger />
+ 			<AutoVersioning>
+ 				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+-				<Settings autoincrement="1" date_declarations="1" update_manifest="1" do_auto_increment="1" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
++				<Settings autoincrement="1" date_declarations="1" use_define="0" update_manifest="1" do_auto_increment="1" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
+ 				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangeLog.txt" />
+ 				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="" />
+ 			</AutoVersioning>
+Index: src/plugins/contrib/EditorConfig/EditorConfig.cbp
+===================================================================
+--- src/plugins/contrib/EditorConfig/EditorConfig.cbp	(revision 9934)
++++ src/plugins/contrib/EditorConfig/EditorConfig.cbp	(working copy)
+@@ -7,13 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\EditorConfig" prefix_auto="1" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\EditorConfig" />
++				<Option output="../../../devel/share/codeblocks/plugins/EditorConfig" prefix_auto="1" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/EditorConfig" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --verbose -p debug" />
+-				<Option host_application=".\codeblocks.exe" />
++				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -27,19 +27,18 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#wx.include)" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\EditorConfig.zip manifest.xml" />
+@@ -61,7 +60,7 @@
+ 		<Unit filename="EditorConfigUI.cpp" />
+ 		<Unit filename="EditorConfigUI.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="wxsmith\EditorConfigUI.wxs" />
++		<Unit filename="wxsmith/EditorConfigUI.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<debugger />
+@@ -70,6 +69,7 @@
+ 					<wxPanel wxs="wxsmith/EditorConfigUI.wxs" src="EditorConfigUI.cpp" hdr="EditorConfigUI.h" fwddecl="1" i18n="1" name="EditorConfigUI" language="CPP" />
+ 				</resources>
+ 			</wxsmith>
++			<envvars />
+ 		</Extensions>
+ 	</Project>
+ </CodeBlocks_project_file>
+Index: src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+===================================================================
+--- src/plugins/contrib/EditorTweaks/EditorTweaks.cbp	(revision 9934)
++++ src/plugins/contrib/EditorTweaks/EditorTweaks.cbp	(working copy)
+@@ -7,13 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\EditorTweaks" prefix_auto="1" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\EditorTweaks" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/EditorTweaks" prefix_auto="1" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/EditorTweaks" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance --no-check-associations -ns -nd -p debug" />
+-				<Option host_application=".\codeblocks.exe" />
++				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -27,19 +27,18 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#wx.include)" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\EditorTweaks.zip manifest.xml *.xrc" />
+@@ -58,7 +57,7 @@
+ 		<Unit filename="EditorTweaksConfDlg.cpp" />
+ 		<Unit filename="EditorTweaksConfDlg.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="wxsmith\EditorTweaksConfDlg.wxs" />
++		<Unit filename="wxsmith/EditorTweaksConfDlg.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+Index: src/plugins/contrib/FileManager/FileManager.cbp
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.cbp	(revision 9934)
++++ src/plugins/contrib/FileManager/FileManager.cbp	(working copy)
+@@ -6,25 +6,26 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\FileManager" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\FileManager" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/FileManager" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/FileManager" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -41,20 +42,19 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\codeblocks\FileManager.zip manifest.xml Resources\fileexplorersettings.xrc" />
+Index: src/plugins/contrib/HexEditor/HexEditor.cbp
+===================================================================
+--- src/plugins/contrib/HexEditor/HexEditor.cbp	(revision 9934)
++++ src/plugins/contrib/HexEditor/HexEditor.cbp	(working copy)
+@@ -8,12 +8,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\HexEditor" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\HexEditor" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/HexEditor" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/HexEditor" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 					<Add option="-pipe" />
+@@ -26,21 +27,20 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-mthreads" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\HexEditor.zip manifest.xml" />
+@@ -48,8 +48,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -93,22 +93,22 @@
+ 		<Unit filename="TestCasesDlg.h" />
+ 		<Unit filename="TestCasesHelper.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="wxsmith\ExpressionTester.wxs" />
+-		<Unit filename="wxsmith\HexEditPanel.wxs" />
+-		<Unit filename="wxsmith\SearchDialog.wxs" />
+-		<Unit filename="wxsmith\SelectStoredExpressionDlg.wxs" />
+-		<Unit filename="wxsmith\TestCasesDlg.wxs" />
++		<Unit filename="wxsmith/ExpressionTester.wxs" />
++		<Unit filename="wxsmith/HexEditPanel.wxs" />
++		<Unit filename="wxsmith/SearchDialog.wxs" />
++		<Unit filename="wxsmith/SelectStoredExpressionDlg.wxs" />
++		<Unit filename="wxsmith/TestCasesDlg.wxs" />
+ 		<Extensions>
+ 			<envvars />
+ 			<code_completion />
+ 			<debugger />
+ 			<wxsmith version="1">
+ 				<resources>
+-					<wxPanel wxs="wxsmith/HexEditPanel.wxs" src="HexEditPanel.cpp" hdr="HexEditPanel.h" name="HexEditPanel" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/ExpressionTester.wxs" src="ExpressionTester.cpp" hdr="ExpressionTester.h" name="ExpressionTester" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/SelectStoredExpressionDlg.wxs" src="SelectStoredExpressionDlg.cpp" hdr="SelectStoredExpressionDlg.h" name="SelectStoredExpressionDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/TestCasesDlg.wxs" src="TestCasesDlg.cpp" hdr="TestCasesDlg.h" name="TestCasesDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/SearchDialog.wxs" src="SearchDialog.cpp" hdr="SearchDialog.h" name="SearchDialog" language="CPP" />
++					<wxPanel wxs="wxsmith/HexEditPanel.wxs" src="HexEditPanel.cpp" hdr="HexEditPanel.h" fwddecl="0" i18n="1" name="HexEditPanel" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/ExpressionTester.wxs" src="ExpressionTester.cpp" hdr="ExpressionTester.h" fwddecl="0" i18n="1" name="ExpressionTester" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/SelectStoredExpressionDlg.wxs" src="SelectStoredExpressionDlg.cpp" hdr="SelectStoredExpressionDlg.h" fwddecl="0" i18n="1" name="SelectStoredExpressionDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/TestCasesDlg.wxs" src="TestCasesDlg.cpp" hdr="TestCasesDlg.h" fwddecl="0" i18n="1" name="TestCasesDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/SearchDialog.wxs" src="SearchDialog.cpp" hdr="SearchDialog.h" fwddecl="0" i18n="1" name="SearchDialog" language="CPP" />
+ 				</resources>
+ 			</wxsmith>
+ 			<lib_finder disable_auto="1" />
+Index: src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+===================================================================
+--- src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp	(revision 9934)
++++ src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp	(working copy)
+@@ -7,12 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\IncrementalSearch" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\IncrementalSearch" />
++				<Option output="../../../devel/share/codeblocks/plugins/IncrementalSearch" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/IncrementalSearch" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -26,20 +27,19 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -jq9 ..\..\..\devel\share\codeblocks\IncrementalSearch.zip manifest.xml *.xrc" />
+@@ -48,8 +48,8 @@
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+ 				<Environment>
++					<Variable name="WX_CFG" value="" />
+ 					<Variable name="WX_SUFFIX" value="u" />
+-					<Variable name="WX_CFG" value="" />
+ 				</Environment>
+ 			</Target>
+ 		</Build>
+Index: src/plugins/contrib/MouseSap/MouseSap.cbp
+===================================================================
+--- src/plugins/contrib/MouseSap/MouseSap.cbp	(revision 9934)
++++ src/plugins/contrib/MouseSap/MouseSap.cbp	(working copy)
+@@ -7,12 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\MouseSap" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\MouseSap" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/MouseSap" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/MouseSap" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -22,32 +23,31 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\MouseSap.zip manifest.xml" />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+ 				<Environment>
++					<Variable name="WX_CFG" value="" />
+ 					<Variable name="WX_SUFFIX" value="u" />
+-					<Variable name="WX_CFG" value="" />
+ 				</Environment>
+ 			</Target>
+ 		</Build>
+Index: src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
+===================================================================
+--- src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp	(revision 9934)
++++ src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp	(working copy)
+@@ -8,12 +8,12 @@
+ 		<Build>
+ 			<Target title="default">
+ 				<Option platforms="Windows;" />
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\NassiShneiderman" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\NassiShneiderman" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/NassiShneiderman" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/NassiShneiderman" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance --no-check-associations -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -27,21 +27,20 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#wx.include)" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 					<Add directory="$(#boost.include)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,-enable-auto-import" />
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\NassiShneiderman.zip manifest.xml" />
+Index: src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+===================================================================
+--- src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp	(revision 9934)
++++ src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp	(working copy)
+@@ -18,8 +18,8 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+@@ -39,8 +39,7 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+Index: src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+===================================================================
+--- src/plugins/contrib/ReopenEditor/ReopenEditor.cbp	(revision 9934)
++++ src/plugins/contrib/ReopenEditor/ReopenEditor.cbp	(working copy)
+@@ -7,12 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\ReopenEditor" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\ReopenEditor" />
++				<Option output="../../../devel/share/codeblocks/plugins/ReopenEditor" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/ReopenEditor" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -26,28 +27,27 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
++					<Add directory="../../../include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -jq9 ..\..\..\devel\share\codeblocks\ReopenEditor.zip manifest.xml *.xrc" />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+ 				<Environment>
++					<Variable name="WX_CFG" value="" />
+ 					<Variable name="WX_SUFFIX" value="u" />
+-					<Variable name="WX_CFG" value="" />
+ 				</Environment>
+ 			</Target>
+ 		</Build>
+@@ -61,7 +61,7 @@
+ 		<Unit filename="ReopenEditorListView.cpp" />
+ 		<Unit filename="ReopenEditorListView.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="wxsmith\ReopenEditorConfDLg.wxs" />
++		<Unit filename="wxsmith/ReopenEditorConfDLg.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+Index: src/plugins/contrib/SmartIndent/SmartIndent.cbp
+===================================================================
+--- src/plugins/contrib/SmartIndent/SmartIndent.cbp	(revision 9934)
++++ src/plugins/contrib/SmartIndent/SmartIndent.cbp	(working copy)
+@@ -171,10 +171,8 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DNOPCH" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#wx.include)" />
+Index: src/plugins/contrib/SpellChecker/SpellChecker.cbp
+===================================================================
+--- src/plugins/contrib/SpellChecker/SpellChecker.cbp	(revision 9934)
++++ src/plugins/contrib/SpellChecker/SpellChecker.cbp	(working copy)
+@@ -76,7 +76,7 @@
+ 					<Add option="-pipe" />
+ 					<Add option="-mthreads" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DCB_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add directory="hunspell/src" />
+ 					<Add directory="wxspellchecker/include" />
+@@ -121,7 +121,7 @@
+ 		<Compiler>
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 		</Compiler>
+Index: src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+===================================================================
+--- src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(revision 9934)
++++ src/plugins/contrib/ThreadSearch/ThreadSearch.cbp	(working copy)
+@@ -6,13 +6,14 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\ThreadSearch.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\ThreadSearch" />
+-				<Option external_deps="..\..\..\devel\wxcustombutton.dll;" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/ThreadSearch.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/ThreadSearch" />
++				<Option external_deps="../../../devel/wxcustombutton.dll;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 				</Compiler>
+@@ -20,13 +21,13 @@
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="wxcustombutton" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -44,22 +45,21 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\wxContribItems\wxthings\include" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../wxContribItems/wxthings/include" />
+ 		</Compiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+Index: src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+===================================================================
+--- src/plugins/contrib/ToolsPlus/ToolsPlus.cbp	(revision 9934)
++++ src/plugins/contrib/ToolsPlus/ToolsPlus.cbp	(working copy)
+@@ -6,12 +6,12 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\ToolsPlus" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\ToolsPlus" />
++				<Option output="../../../devel/share/codeblocks/plugins/ToolsPlus" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/ToolsPlus" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -21,8 +21,8 @@
+ 					<Add library="wxscintilla_cb" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="gdi32" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+@@ -44,20 +44,19 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+@@ -71,7 +70,7 @@
+ 		<Unit filename="CmdConfigDialog.h" />
+ 		<Unit filename="PipedProcessCtrl.cpp" />
+ 		<Unit filename="PipedProcessCtrl.h" />
+-		<Unit filename="Resources\dialogs.fbp" />
++		<Unit filename="Resources/dialogs.fbp" />
+ 		<Unit filename="ShellCtrlBase.cpp" />
+ 		<Unit filename="ShellCtrlBase.h" />
+ 		<Unit filename="ToolsPlus.cpp" />
+Index: src/plugins/contrib/byogames/byogames.cbp
+===================================================================
+--- src/plugins/contrib/byogames/byogames.cbp	(revision 9934)
++++ src/plugins/contrib/byogames/byogames.cbp	(working copy)
+@@ -6,16 +6,17 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\byogames.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\byogames" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/byogames.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/byogames" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -30,18 +31,17 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-mthreads" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\tinyxml" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/tinyxml" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -51,8 +51,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\byogames.zip manifest.xml" />
+@@ -78,8 +78,8 @@
+ 			<wxsmith version="1">
+ 				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+ 				<resources>
+-					<wxScrollingDialog wxs="wxsmith/byoGameSelect.wxs" src="byogameselect.cpp" hdr="byogameselect.h" name="byoGameSelect" language="CPP" />
+-					<wxPanel wxs="wxsmith/byoConf.wxs" src="byoconf.cpp" hdr="byoconf.h" name="byoConf" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/byoGameSelect.wxs" src="byogameselect.cpp" hdr="byogameselect.h" fwddecl="0" i18n="1" name="byoGameSelect" language="CPP" />
++					<wxPanel wxs="wxsmith/byoConf.wxs" src="byoconf.cpp" hdr="byoconf.h" fwddecl="0" i18n="1" name="byoConf" language="CPP" />
+ 				</resources>
+ 			</wxsmith>
+ 			<envvars />
+Index: src/plugins/contrib/cb_koders/cb_koders.cbp
+===================================================================
+--- src/plugins/contrib/cb_koders/cb_koders.cbp	(revision 9934)
++++ src/plugins/contrib/cb_koders/cb_koders.cbp	(working copy)
+@@ -35,11 +35,10 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-mthreads" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+Index: src/plugins/contrib/codesnippets/codesnippets.cbp
+===================================================================
+--- src/plugins/contrib/codesnippets/codesnippets.cbp	(revision 9934)
++++ src/plugins/contrib/codesnippets/codesnippets.cbp	(working copy)
+@@ -7,25 +7,25 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="Plugin - Win32">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\codesnippets.dll" prefix_auto="0" extension_auto="0" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\codesnippets\plugin\" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/codesnippets.dll" prefix_auto="0" extension_auto="0" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/codesnippets/plugin/" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DCB_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+ 		</Build>
+@@ -43,33 +43,33 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\src" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../src" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 			<Add directory="Search" />
+ 			<Add directory="editor" />
+ 			<Add directory="." />
+-			<Add directory="..\..\..\include\tinyxml" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="../../../include/tinyxml" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 		</Compiler>
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="update.bat" />
+@@ -90,17 +90,17 @@
+ 		</Unit>
+ 		<Unit filename="manifest.xml" />
+ 		<Unit filename="menuidentifiers.h" />
+-		<Unit filename="resources\Makefile.am" />
+-		<Unit filename="resources\allsnippets.png" />
+-		<Unit filename="resources\category.png" />
+-		<Unit filename="resources\findf.png" />
+-		<Unit filename="resources\findfdisabled.png" />
+-		<Unit filename="resources\manifest.xml" />
+-		<Unit filename="resources\options.png" />
+-		<Unit filename="resources\optionsdisabled.png" />
+-		<Unit filename="resources\snippet.png" />
+-		<Unit filename="resources\stop.png" />
+-		<Unit filename="resources\stopdisabled.png" />
++		<Unit filename="resources/Makefile.am" />
++		<Unit filename="resources/allsnippets.png" />
++		<Unit filename="resources/category.png" />
++		<Unit filename="resources/findf.png" />
++		<Unit filename="resources/findfdisabled.png" />
++		<Unit filename="resources/manifest.xml" />
++		<Unit filename="resources/options.png" />
++		<Unit filename="resources/optionsdisabled.png" />
++		<Unit filename="resources/snippet.png" />
++		<Unit filename="resources/stop.png" />
++		<Unit filename="resources/stopdisabled.png" />
+ 		<Unit filename="settingsdlg.cpp" />
+ 		<Unit filename="settingsdlg.h" />
+ 		<Unit filename="settingsdlgform.cpp" />
+Index: src/plugins/contrib/codestat/codestat.cbp
+===================================================================
+--- src/plugins/contrib/codestat/codestat.cbp	(revision 9934)
++++ src/plugins/contrib/codestat/codestat.cbp	(working copy)
+@@ -7,17 +7,18 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\codestat.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\codestat" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/codestat.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/codestat" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -30,17 +31,16 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -50,8 +50,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\codeblocks\codestat.zip resources\manifest.xml resources\*.xrc" />
+@@ -64,9 +64,9 @@
+ 		<Unit filename="codestatexec.cpp" />
+ 		<Unit filename="codestatexec.h" />
+ 		<Unit filename="language_def.h" />
+-		<Unit filename="resources\config_dialog.xrc" />
+-		<Unit filename="resources\main_dialog.xrc" />
+-		<Unit filename="resources\manifest.xml" />
++		<Unit filename="resources/config_dialog.xrc" />
++		<Unit filename="resources/main_dialog.xrc" />
++		<Unit filename="resources/manifest.xml" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+Index: src/plugins/contrib/copystrings/copystrings.cbp
+===================================================================
+--- src/plugins/contrib/copystrings/copystrings.cbp	(revision 9934)
++++ src/plugins/contrib/copystrings/copystrings.cbp	(working copy)
+@@ -6,16 +6,17 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\copystrings.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\copystrings" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/copystrings.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/copystrings" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -30,17 +31,16 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -49,8 +49,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\copystrings.zip manifest.xml" />
+Index: src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+===================================================================
+--- src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp	(revision 9934)
++++ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp	(working copy)
+@@ -8,9 +8,9 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="libbz2">
+-				<Option output="bzip2\libbz2.a" prefix_auto="0" extension_auto="0" />
++				<Option output="bzip2/libbz2.a" prefix_auto="0" extension_auto="0" />
+ 				<Option working_dir="" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\devpak_plugin" />
++				<Option object_output="../../../.objs/plugins/contrib/devpak_plugin" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Compiler>
+@@ -21,12 +21,13 @@
+ 				</Linker>
+ 			</Target>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\devpakupdater.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\devpak_plugin" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/devpakupdater.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/devpak_plugin" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectResourceIncludeDirsRelation="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+@@ -35,19 +36,18 @@
+ 					<Add option="-mthreads" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
++					<Add directory="../../../include" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
+ 					<Add library="bz2" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip ..\..\..\devel\share\CodeBlocks\devpakupdater.zip manifest.xml *.xrc" />
+@@ -55,8 +55,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -65,7 +65,7 @@
+ 		<Compiler>
+ 			<Add directory="bzip2" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -75,39 +75,39 @@
+ 			<Add library="codeblocks" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="bzip2" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+-		<Unit filename="bzip2\blocksort.c">
++		<Unit filename="bzip2/blocksort.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib.c">
++		<Unit filename="bzip2/bzlib.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib.h">
++		<Unit filename="bzip2/bzlib.h">
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib_private.h">
++		<Unit filename="bzip2/bzlib_private.h">
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\compress.c">
++		<Unit filename="bzip2/compress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\crctable.c">
++		<Unit filename="bzip2/crctable.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\decompress.c">
++		<Unit filename="bzip2/decompress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\huffman.c">
++		<Unit filename="bzip2/huffman.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\randtable.c">
++		<Unit filename="bzip2/randtable.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+Index: src/plugins/contrib/dragscroll/DragScroll.cbp
+===================================================================
+--- src/plugins/contrib/dragscroll/DragScroll.cbp	(revision 9934)
++++ src/plugins/contrib/dragscroll/DragScroll.cbp	(working copy)
+@@ -7,16 +7,17 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\DragScroll.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\dragscroll" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/DragScroll.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/dragscroll" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -31,25 +32,24 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\src" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../src" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\DragScroll.zip manifest.xml" />
+Index: src/plugins/contrib/envvars/envvars.cbp
+===================================================================
+--- src/plugins/contrib/envvars/envvars.cbp	(revision 9934)
++++ src/plugins/contrib/envvars/envvars.cbp	(working copy)
+@@ -8,24 +8,26 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\envvars.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\envvars" />
++				<Option output="../../../devel/share/codeblocks/plugins/envvars.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/envvars" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DWX_PRECOMP" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="no_pch">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\envvars.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\envvars" />
++				<Option output="../../../devel/share/codeblocks/plugins/envvars.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/envvars" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-DNOPCH" />
+ 				</Compiler>
+@@ -36,7 +38,7 @@
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="default;" />
++			<Add alias="All" targets="no_pch;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add option="-Wall" />
+@@ -50,13 +52,13 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\include\scripting\include" />
+-			<Add directory="..\..\..\include\scripting\sqplus" />
+-			<Add directory="..\..\..\include\scripting\bindings" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../include/scripting/include" />
++			<Add directory="../../../include/scripting/sqplus" />
++			<Add directory="../../../include/scripting/bindings" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -65,8 +67,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\codeblocks\envvars.zip manifest.xml *.xrc" />
+Index: src/plugins/contrib/headerfixup/headerfixup.cbp
+===================================================================
+--- src/plugins/contrib/headerfixup/headerfixup.cbp	(revision 9934)
++++ src/plugins/contrib/headerfixup/headerfixup.cbp	(working copy)
+@@ -7,12 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\headerfixup" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\headerfixup" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/headerfixup" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/headerfixup" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 					<Add option="-pipe" />
+@@ -25,17 +26,16 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\headerfixup.zip manifest.xml" />
+@@ -43,8 +43,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -73,18 +73,18 @@
+ 		<Unit filename="protocol.cpp" />
+ 		<Unit filename="protocol.h" />
+ 		<Unit filename="todo.txt" />
+-		<Unit filename="wxsmith\configuration.wxs" />
+-		<Unit filename="wxsmith\execution.wxs" />
+-		<Unit filename="wxsmith\protocol.wxs" />
++		<Unit filename="wxsmith/configuration.wxs" />
++		<Unit filename="wxsmith/execution.wxs" />
++		<Unit filename="wxsmith/protocol.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+ 			<wxsmith version="1">
+ 				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+ 				<resources>
+-					<wxPanel wxs="wxsmith/configuration.wxs" src="configuration.cpp" hdr="configuration.h" fwddecl="1" name="Configuration" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/execution.wxs" src="execution.cpp" hdr="execution.h" fwddecl="1" name="Execution" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/protocol.wxs" src="protocol.cpp" hdr="protocol.h" fwddecl="1" name="Protocol" language="CPP" />
++					<wxPanel wxs="wxsmith/configuration.wxs" src="configuration.cpp" hdr="configuration.h" fwddecl="1" i18n="1" name="Configuration" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/execution.wxs" src="execution.cpp" hdr="execution.h" fwddecl="1" i18n="1" name="Execution" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/protocol.wxs" src="protocol.cpp" hdr="protocol.h" fwddecl="1" i18n="1" name="Protocol" language="CPP" />
+ 				</resources>
+ 			</wxsmith>
+ 			<SVNInside Login="" Password="" ConnectStatus="1" NeedsPassword="0" />
+Index: src/plugins/contrib/help_plugin/help-plugin.cbp
+===================================================================
+--- src/plugins/contrib/help_plugin/help-plugin.cbp	(revision 9934)
++++ src/plugins/contrib/help_plugin/help-plugin.cbp	(working copy)
+@@ -8,9 +8,9 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="bzip2">
+-				<Option output="bzip2\libbzip2.a" prefix_auto="0" extension_auto="0" />
++				<Option output="bzip2/libbzip2.a" prefix_auto="0" extension_auto="0" />
+ 				<Option working_dir="" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\help_plugin\bzip2" />
++				<Option object_output="../../../.objs/plugins/contrib/help_plugin/bzip2" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Option createDefFile="1" />
+@@ -22,9 +22,9 @@
+ 				</Linker>
+ 			</Target>
+ 			<Target title="zlib">
+-				<Option output="zlib\libz.a" prefix_auto="0" extension_auto="0" />
++				<Option output="zlib/libz.a" prefix_auto="0" extension_auto="0" />
+ 				<Option working_dir="" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\help_plugin\zlib" />
++				<Option object_output="../../../.objs/plugins/contrib/help_plugin/zlib" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Option createDefFile="1" />
+@@ -36,12 +36,13 @@
+ 				</Linker>
+ 			</Target>
+ 			<Target title="help_plugin">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\help_plugin.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\help_plugin" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/help_plugin.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/help_plugin" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -51,8 +52,7 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+@@ -63,8 +63,8 @@
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
+-					<Add library="bzip2\libbzip2.a" />
+-					<Add library="zlib\libz.a" />
++					<Add library="bzip2/libbzip2.a" />
++					<Add library="zlib/libz.a" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\help_plugin.zip manifest.xml *.xrc *.png" />
+@@ -72,8 +72,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -81,12 +81,12 @@
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\scripting\bindings" />
+-			<Add directory="..\..\..\include\scripting\include" />
+-			<Add directory="..\..\..\include\scripting\sqplus" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/scripting/bindings" />
++			<Add directory="../../../include/scripting/include" />
++			<Add directory="../../../include/scripting/sqplus" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -97,8 +97,8 @@
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="HelpConfigDialog.cpp">
+ 			<Option target="help_plugin" />
+@@ -112,37 +112,37 @@
+ 		<Unit filename="MANFrame.h">
+ 			<Option target="help_plugin" />
+ 		</Unit>
+-		<Unit filename="bzip2\blocksort.c">
++		<Unit filename="bzip2/blocksort.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="bzip2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib.c">
++		<Unit filename="bzip2/bzlib.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="bzip2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib.h">
++		<Unit filename="bzip2/bzlib.h">
+ 			<Option target="bzip2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib_private.h">
++		<Unit filename="bzip2/bzlib_private.h">
+ 			<Option target="bzip2" />
+ 		</Unit>
+-		<Unit filename="bzip2\compress.c">
++		<Unit filename="bzip2/compress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="bzip2" />
+ 		</Unit>
+-		<Unit filename="bzip2\crctable.c">
++		<Unit filename="bzip2/crctable.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="bzip2" />
+ 		</Unit>
+-		<Unit filename="bzip2\decompress.c">
++		<Unit filename="bzip2/decompress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="bzip2" />
+ 		</Unit>
+-		<Unit filename="bzip2\huffman.c">
++		<Unit filename="bzip2/huffman.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="bzip2" />
+ 		</Unit>
+-		<Unit filename="bzip2\randtable.c">
++		<Unit filename="bzip2/randtable.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="bzip2" />
+ 		</Unit>
+@@ -173,82 +173,82 @@
+ 		<Unit filename="manifest.xml">
+ 			<Option target="help_plugin" />
+ 		</Unit>
+-		<Unit filename="zlib\adler32.c">
++		<Unit filename="zlib/adler32.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\compress.c">
++		<Unit filename="zlib/compress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\crc32.c">
++		<Unit filename="zlib/crc32.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\crc32.h">
++		<Unit filename="zlib/crc32.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\deflate.c">
++		<Unit filename="zlib/deflate.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\deflate.h">
++		<Unit filename="zlib/deflate.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\gzio.c">
++		<Unit filename="zlib/gzio.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\infback.c">
++		<Unit filename="zlib/infback.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\inffast.c">
++		<Unit filename="zlib/inffast.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\inffast.h">
++		<Unit filename="zlib/inffast.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\inffixed.h">
++		<Unit filename="zlib/inffixed.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\inflate.c">
++		<Unit filename="zlib/inflate.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\inflate.h">
++		<Unit filename="zlib/inflate.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\inftrees.c">
++		<Unit filename="zlib/inftrees.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\inftrees.h">
++		<Unit filename="zlib/inftrees.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\trees.c">
++		<Unit filename="zlib/trees.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\trees.h">
++		<Unit filename="zlib/trees.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\uncompr.c">
++		<Unit filename="zlib/uncompr.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\zconf.h">
++		<Unit filename="zlib/zconf.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\zlib.h">
++		<Unit filename="zlib/zlib.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\zutil.c">
++		<Unit filename="zlib/zutil.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="zlib" />
+ 		</Unit>
+-		<Unit filename="zlib\zutil.h">
++		<Unit filename="zlib/zutil.h">
+ 			<Option target="zlib" />
+ 		</Unit>
+ 		<Extensions>
+Index: src/plugins/contrib/keybinder/keybinder.cbp
+===================================================================
+--- src/plugins/contrib/keybinder/keybinder.cbp	(revision 9934)
++++ src/plugins/contrib/keybinder/keybinder.cbp	(working copy)
+@@ -7,12 +7,13 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\keybinder.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\keybinder" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/keybinder.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/keybinder" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-pipe" />
+@@ -20,8 +21,7 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+@@ -33,8 +33,8 @@
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -43,16 +43,16 @@
+ 		<Compiler>
+ 			<Add option="-Wall" />
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<Linker>
+ 			<Add library="codeblocks" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\keybinder.zip manifest.xml" />
+Index: src/plugins/contrib/lib_finder/lib_finder.cbp
+===================================================================
+--- src/plugins/contrib/lib_finder/lib_finder.cbp	(revision 9934)
++++ src/plugins/contrib/lib_finder/lib_finder.cbp	(working copy)
+@@ -7,18 +7,19 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\lib_finder.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\lib_finder" />
+-				<Option external_deps="..\..\..\devel\wxflatnotebook.dll;" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/lib_finder.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/lib_finder" />
++				<Option external_deps="../../../devel/wxflatnotebook.dll;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectResourceIncludeDirsRelation="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -33,29 +34,28 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-mthreads" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\tinyxml" />
+-			<Add directory="..\..\..\include\scripting\include" />
+-			<Add directory="..\..\..\include\scripting\sqplus" />
+-			<Add directory="..\..\..\include\scripting\squirrel" />
+-			<Add directory="..\..\..\include\scripting\bindings" />
+-			<Add directory="..\wxContribItems\wxFlatNotebook\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/tinyxml" />
++			<Add directory="../../../include/scripting/include" />
++			<Add directory="../../../include/scripting/sqplus" />
++			<Add directory="../../../include/scripting/squirrel" />
++			<Add directory="../../../include/scripting/bindings" />
++			<Add directory="../wxContribItems/wxFlatNotebook/include" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -66,9 +66,9 @@
+ 			<Add library="wxflatnotebook" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="..\..\..\base\tinyxml" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="../../../base/tinyxml" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="update.bat" />
+@@ -82,10 +82,10 @@
+ 		<Unit filename="headersdetectordlg.h" />
+ 		<Unit filename="lib_finder.cpp" />
+ 		<Unit filename="lib_finder.h" />
+-		<Unit filename="lib_finder\codeblocks_sdk.xml" />
+-		<Unit filename="lib_finder\glfw.xml" />
+-		<Unit filename="lib_finder\readme.txt" />
+-		<Unit filename="lib_finder\wxwidgets.xml" />
++		<Unit filename="lib_finder/codeblocks_sdk.xml" />
++		<Unit filename="lib_finder/glfw.xml" />
++		<Unit filename="lib_finder/readme.txt" />
++		<Unit filename="lib_finder/wxwidgets.xml" />
+ 		<Unit filename="librariesdlg.cpp" />
+ 		<Unit filename="librariesdlg.h" />
+ 		<Unit filename="librarydetectionconfig.h" />
+@@ -110,27 +110,27 @@
+ 		<Unit filename="resultmap.h" />
+ 		<Unit filename="webresourcesmanager.cpp" />
+ 		<Unit filename="webresourcesmanager.h" />
+-		<Unit filename="wxsmith\DefsDownloadDlg.wxs" />
+-		<Unit filename="wxsmith\DirListDlg.wxs" />
+-		<Unit filename="wxsmith\HeadersDetectorDlg.wxs" />
+-		<Unit filename="wxsmith\LibSelectDlg.wxs" />
+-		<Unit filename="wxsmith\LibrariesDlg.wxs" />
+-		<Unit filename="wxsmith\ProcessingDlg.wxs" />
+-		<Unit filename="wxsmith\ProjectConfigurationPanel.wxs" />
+-		<Unit filename="wxsmith\ProjectMissingLibs.wxs" />
++		<Unit filename="wxsmith/DefsDownloadDlg.wxs" />
++		<Unit filename="wxsmith/DirListDlg.wxs" />
++		<Unit filename="wxsmith/HeadersDetectorDlg.wxs" />
++		<Unit filename="wxsmith/LibSelectDlg.wxs" />
++		<Unit filename="wxsmith/LibrariesDlg.wxs" />
++		<Unit filename="wxsmith/ProcessingDlg.wxs" />
++		<Unit filename="wxsmith/ProjectConfigurationPanel.wxs" />
++		<Unit filename="wxsmith/ProjectMissingLibs.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<wxsmith version="1">
+ 				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+ 				<resources>
+-					<wxScrollingDialog wxs="wxsmith/DirListDlg.wxs" src="dirlistdlg.cpp" hdr="dirlistdlg.h" fwddecl="1" name="DirListDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/ProcessingDlg.wxs" src="processingdlg.cpp" hdr="processingdlg.h" fwddecl="1" name="ProcessingDlg" language="CPP" />
+-					<wxPanel wxs="wxsmith/ProjectConfigurationPanel.wxs" src="projectconfigurationpanel.cpp" hdr="projectconfigurationpanel.h" fwddecl="1" name="ProjectConfigurationPanel" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/LibSelectDlg.wxs" src="libselectdlg.cpp" hdr="libselectdlg.h" fwddecl="1" name="LibSelectDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/LibrariesDlg.wxs" src="librariesdlg.cpp" hdr="librariesdlg.h" fwddecl="1" name="LibrariesDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/HeadersDetectorDlg.wxs" src="headersdetectordlg.cpp" hdr="headersdetectordlg.h" fwddecl="1" name="HeadersDetectorDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/DefsDownloadDlg.wxs" src="defsdownloaddlg.cpp" hdr="defsdownloaddlg.h" fwddecl="1" name="DefsDownloadDlg" language="CPP" />
+-					<wxScrollingDialog wxs="wxsmith/ProjectMissingLibs.wxs" src="projectmissinglibs.cpp" hdr="projectmissinglibs.h" fwddecl="1" name="ProjectMissingLibs" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/DirListDlg.wxs" src="dirlistdlg.cpp" hdr="dirlistdlg.h" fwddecl="1" i18n="1" name="DirListDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/ProcessingDlg.wxs" src="processingdlg.cpp" hdr="processingdlg.h" fwddecl="1" i18n="1" name="ProcessingDlg" language="CPP" />
++					<wxPanel wxs="wxsmith/ProjectConfigurationPanel.wxs" src="projectconfigurationpanel.cpp" hdr="projectconfigurationpanel.h" fwddecl="1" i18n="1" name="ProjectConfigurationPanel" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/LibSelectDlg.wxs" src="libselectdlg.cpp" hdr="libselectdlg.h" fwddecl="1" i18n="1" name="LibSelectDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/LibrariesDlg.wxs" src="librariesdlg.cpp" hdr="librariesdlg.h" fwddecl="1" i18n="1" name="LibrariesDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/HeadersDetectorDlg.wxs" src="headersdetectordlg.cpp" hdr="headersdetectordlg.h" fwddecl="1" i18n="1" name="HeadersDetectorDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/DefsDownloadDlg.wxs" src="defsdownloaddlg.cpp" hdr="defsdownloaddlg.h" fwddecl="1" i18n="1" name="DefsDownloadDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/ProjectMissingLibs.wxs" src="projectmissinglibs.cpp" hdr="projectmissinglibs.h" fwddecl="1" i18n="1" name="ProjectMissingLibs" language="CPP" />
+ 				</resources>
+ 			</wxsmith>
+ 			<envvars />
+Index: src/plugins/contrib/profiler/cbprofiler.cbp
+===================================================================
+--- src/plugins/contrib/profiler/cbprofiler.cbp	(revision 9934)
++++ src/plugins/contrib/profiler/cbprofiler.cbp	(working copy)
+@@ -7,16 +7,17 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\Profiler.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\profiler" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/Profiler.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/profiler" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -30,17 +31,16 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-fpermissive" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -50,8 +50,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="codeblocks" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\codeblocks\Profiler.zip resources\manifest.xml resources\*.xrc" />
+@@ -63,9 +63,9 @@
+ 		<Unit filename="cbprofilerconfig.h" />
+ 		<Unit filename="cbprofilerexec.cpp" />
+ 		<Unit filename="cbprofilerexec.h" />
+-		<Unit filename="resources\configuration.xrc" />
+-		<Unit filename="resources\main_dialog.xrc" />
+-		<Unit filename="resources\manifest.xml" />
++		<Unit filename="resources/configuration.xrc" />
++		<Unit filename="resources/main_dialog.xrc" />
++		<Unit filename="resources/manifest.xml" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
+Index: src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+===================================================================
+--- src/plugins/contrib/regex_testbed/RegExTestbed.cbp	(revision 9934)
++++ src/plugins/contrib/regex_testbed/RegExTestbed.cbp	(working copy)
+@@ -8,13 +8,14 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\RegExTestbed" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\regex_testbed" />
+-				<Option external_deps="..\..\..\devel\libcodeblocks.a;" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/RegExTestbed" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/regex_testbed" />
++				<Option external_deps="../../../devel/libcodeblocks.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 				</Compiler>
+@@ -24,8 +25,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -38,19 +39,18 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-mthreads" />
+-			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DSUPPORT_UTF8" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -61,8 +61,8 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<Unit filename="RegExTestbed.cpp" />
+ 		<Unit filename="RegExTestbed.h" />
+@@ -74,7 +74,7 @@
+ 			<wxsmith version="1">
+ 				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+ 				<resources>
+-					<wxScrollingDialog wxs="wxsmith/RegExDlg.wxs" src="regexdlg.cpp" hdr="regexdlg.h" xrc="regexdlg.xrc" name="RegExDlg" language="CPP" />
++					<wxScrollingDialog wxs="wxsmith/RegExDlg.wxs" src="regexdlg.cpp" hdr="regexdlg.h" xrc="regexdlg.xrc" fwddecl="0" i18n="1" name="RegExDlg" language="CPP" />
+ 				</resources>
+ 			</wxsmith>
+ 			<envvars />
+Index: src/plugins/contrib/rndgen/rndgen.cbp
+===================================================================
+--- src/plugins/contrib/rndgen/rndgen.cbp	(revision 9934)
++++ src/plugins/contrib/rndgen/rndgen.cbp	(working copy)
+@@ -7,11 +7,12 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\rndgen" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\rndgen" />
++				<Option output="../../../devel/share/codeblocks/plugins/rndgen" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/rndgen" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 					<Add option="-pipe" />
+@@ -24,19 +25,18 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\rndgen.zip manifest.xml" />
+@@ -44,8 +44,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+Index: src/plugins/contrib/source_exporter/Exporter.cbp
+===================================================================
+--- src/plugins/contrib/source_exporter/Exporter.cbp	(revision 9934)
++++ src/plugins/contrib/source_exporter/Exporter.cbp	(working copy)
+@@ -8,9 +8,9 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="wxPdfDocument">
+-				<Option output="wxPdfDocument\lib\wxPdfDocument" prefix_auto="1" extension_auto="1" />
++				<Option output="wxPdfDocument/lib/wxPdfDocument" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Option projectCompilerOptionsRelation="2" />
+@@ -20,64 +20,65 @@
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="makefont">
+-				<Option output="wxPdfDocument\makefont\makefont" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="wxPdfDocument\makefont" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
++				<Option output="wxPdfDocument/makefont/makefont" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="wxPdfDocument/makefont" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+ 				<Linker>
+ 					<Add library="wxPdfDocument" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="minimal">
+-				<Option output="wxPdfDocument\samples\minimal\minimal" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="wxPdfDocument\samples\minimal" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
++				<Option output="wxPdfDocument/samples/minimal/minimal" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="wxPdfDocument/samples/minimal" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+ 				<Linker>
+ 					<Add library="wxPdfDocument" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="pdfdc">
+-				<Option output="wxPdfDocument\samples\pdfdcl\pdfdc" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="wxPdfDocument\samples\pdfdc" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
++				<Option output="wxPdfDocument/samples/pdfdcl/pdfdc" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="wxPdfDocument/samples/pdfdc" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+ 				<Linker>
+ 					<Add library="wxPdfDocument" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\Exporter" prefix_auto="0" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
+-				<Option external_deps="wxPdfDocument\lib\libwxPdfDocument.a;" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/Exporter" prefix_auto="0" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
++				<Option external_deps="wxPdfDocument/lib/libwxPdfDocument.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DCB_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 					<Add library="wxPdfDocument" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="gdi32" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="wxPdfDocument\lib" />
++					<Add directory="../../../devel" />
++					<Add directory="wxPdfDocument/lib" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\Exporter.zip manifest.xml" />
+@@ -85,8 +86,8 @@
+ 				</ExtraCommands>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -100,21 +101,21 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DWXMAKINGDLL_PDFDOC" />
+ 			<Add option="-DwxPDF_USE_WXMODULE=0" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="wxPdfDocument\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="wxPdfDocument/include" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="BaseExporter.cpp">
+ 			<Option target="default" />
+@@ -155,445 +156,445 @@
+ 		<Unit filename="manifest.xml">
+ 			<Option target="default" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfannotation.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfannotation.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfarraydouble.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfarraydouble.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfarraytypes.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfarraytypes.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfbarcode.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfbarcode.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfbookmark.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfbookmark.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcffdecoder.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcffdecoder.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcffindex.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcffindex.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcjkfontdata.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcjkfontdata.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcolour.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcolour.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcoonspatchmesh.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcoonspatchmesh.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcorefontdata.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcorefontdata.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdc.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdc.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdc28.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdc28.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdc29.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdc29.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdoc.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdoc.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdocdef.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdocdef.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdocument.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdocument.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfencoding.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfencoding.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfencrypt.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfencrypt.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffont.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffont.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdata.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdata.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdatacore.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdatacore.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdataopentype.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdataopentype.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdatatruetype.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdatatruetype.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdatatype0.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdatatype0.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdatatype1.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdatatype1.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdescription.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdescription.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdetails.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdetails.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontextended.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontextended.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontmacosx.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontmacosx.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontmanager.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontmanager.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontparser.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontparser.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontparsertruetype.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontparsertruetype.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontparsertype1.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontparsertype1.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontsubsetcff.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontsubsetcff.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontsubsettruetype.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontsubsettruetype.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontvolt.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontvolt.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfform.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfform.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfgradient.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfgradient.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfgraphics.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfgraphics.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfimage.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfimage.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfinfo.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfinfo.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdflayer.h">
++		<Unit filename="wxPdfDocument/include/wx/pdflayer.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdflinestyle.h">
++		<Unit filename="wxPdfDocument/include/wx/pdflinestyle.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdflinks.h">
++		<Unit filename="wxPdfDocument/include/wx/pdflinks.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfobjects.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfobjects.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfparser.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfparser.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfpattern.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfpattern.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfprint.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfprint.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfproperties.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfproperties.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfrijndael.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfrijndael.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfshape.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfshape.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfspotcolour.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfspotcolour.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdftemplate.h">
++		<Unit filename="wxPdfDocument/include/wx/pdftemplate.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfutility.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfutility.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfxml.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfxml.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\makefont\makefont.cpp">
++		<Unit filename="wxPdfDocument/makefont/makefont.cpp">
+ 			<Option target="makefont" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\makefont\makefont.rc">
++		<Unit filename="wxPdfDocument/makefont/makefont.rc">
+ 			<Option compilerVar="WINDRES" />
+ 			<Option target="makefont" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\barcodes.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/barcodes.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\bookmark.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/bookmark.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\charting.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/charting.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\cjktest.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/cjktest.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\clipping.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/clipping.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\drawing.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/drawing.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\glyphwriting.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/glyphwriting.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\gradients.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/gradients.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\indicfonts.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/indicfonts.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\jsform.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/jsform.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\kerning.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/kerning.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\labels.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/labels.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\layers.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/layers.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\minimal.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/minimal.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\minimal.rc">
++		<Unit filename="wxPdfDocument/samples/minimal/minimal.rc">
+ 			<Option compilerVar="WINDRES" />
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\protection.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/protection.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\rotation.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/rotation.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\templates.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/templates.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\transformation.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/transformation.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\transparency.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/transparency.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial1.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial1.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial2.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial2.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial3.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial3.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial4.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial4.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial5.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial5.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial6.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial6.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial7.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial7.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\wmf.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/wmf.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\xmlwrite.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/xmlwrite.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\mondrian.ico">
++		<Unit filename="wxPdfDocument/samples/pdfdc/mondrian.ico">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\mondrian.xpm">
++		<Unit filename="wxPdfDocument/samples/pdfdc/mondrian.xpm">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\printing.cpp">
++		<Unit filename="wxPdfDocument/samples/pdfdc/printing.cpp">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\printing.h">
++		<Unit filename="wxPdfDocument/samples/pdfdc/printing.h">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\printing.rc">
++		<Unit filename="wxPdfDocument/samples/pdfdc/printing.rc">
+ 			<Option compilerVar="WINDRES" />
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\smile.jpg">
++		<Unit filename="wxPdfDocument/samples/pdfdc/smile.jpg">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\up.gif">
++		<Unit filename="wxPdfDocument/samples/pdfdc/up.gif">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfannotation.cpp">
++		<Unit filename="wxPdfDocument/src/pdfannotation.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfbarcode.cpp">
++		<Unit filename="wxPdfDocument/src/pdfbarcode.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcffdecoder.cpp">
++		<Unit filename="wxPdfDocument/src/pdfcffdecoder.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcffindex.cpp">
++		<Unit filename="wxPdfDocument/src/pdfcffindex.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcjkfontdata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcjkfontdata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcmapdata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcmapdata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcodepagedata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcodepagedata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcolour.cpp">
++		<Unit filename="wxPdfDocument/src/pdfcolour.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcolourdata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcolourdata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcorefontdata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcorefontdata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcorefontkerning.inc">
++		<Unit filename="wxPdfDocument/src/pdfcorefontkerning.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdc.cpp">
++		<Unit filename="wxPdfDocument/src/pdfdc.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdc28.inc">
++		<Unit filename="wxPdfDocument/src/pdfdc28.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdc29.inc">
++		<Unit filename="wxPdfDocument/src/pdfdc29.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdecode.cpp">
++		<Unit filename="wxPdfDocument/src/pdfdecode.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdocument.cpp">
++		<Unit filename="wxPdfDocument/src/pdfdocument.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfencoding.cpp">
++		<Unit filename="wxPdfDocument/src/pdfencoding.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfencrypt.cpp">
++		<Unit filename="wxPdfDocument/src/pdfencrypt.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffont.cpp">
++		<Unit filename="wxPdfDocument/src/pdffont.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdata.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdata.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdatacore.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdatacore.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdataopentype.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdataopentype.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdatatruetype.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdatatruetype.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdatatype0.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdatatype0.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdatatype1.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdatatype1.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdescription.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdescription.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdetails.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdetails.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontextended.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontextended.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontmanager.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontmanager.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontparser.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontparser.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontparsertruetype.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontparsertruetype.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontparsertype1.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontparsertype1.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontsubsetcff.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontsubsetcff.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontsubsettruetype.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontsubsettruetype.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontvolt.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontvolt.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfform.cpp">
++		<Unit filename="wxPdfDocument/src/pdfform.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfglyphnames.inc">
++		<Unit filename="wxPdfDocument/src/pdfglyphnames.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfgradient.cpp">
++		<Unit filename="wxPdfDocument/src/pdfgradient.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfgraphics.cpp">
++		<Unit filename="wxPdfDocument/src/pdfgraphics.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfimage.cpp">
++		<Unit filename="wxPdfDocument/src/pdfimage.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfkernel.cpp">
++		<Unit filename="wxPdfDocument/src/pdfkernel.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdflayer.cpp">
++		<Unit filename="wxPdfDocument/src/pdflayer.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfobjects.cpp">
++		<Unit filename="wxPdfDocument/src/pdfobjects.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfocg.cpp">
++		<Unit filename="wxPdfDocument/src/pdfocg.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfparser.cpp">
++		<Unit filename="wxPdfDocument/src/pdfparser.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfpattern.cpp">
++		<Unit filename="wxPdfDocument/src/pdfpattern.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfprint.cpp">
++		<Unit filename="wxPdfDocument/src/pdfprint.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfrijndael.cpp">
++		<Unit filename="wxPdfDocument/src/pdfrijndael.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdftemplate.cpp">
++		<Unit filename="wxPdfDocument/src/pdftemplate.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfutility.cpp">
++		<Unit filename="wxPdfDocument/src/pdfutility.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfxml.cpp">
++		<Unit filename="wxPdfDocument/src/pdfxml.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\wxmemdbg.h">
++		<Unit filename="wxPdfDocument/src/wxmemdbg.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+ 		<Extensions>
+Index: src/plugins/contrib/symtab/symtab.cbp
+===================================================================
+--- src/plugins/contrib/symtab/symtab.cbp	(revision 9934)
++++ src/plugins/contrib/symtab/symtab.cbp	(working copy)
+@@ -8,19 +8,20 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\SymTab.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\symtab" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/SymTab.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/symtab" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+ 				</Compiler>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -34,17 +35,16 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-fpermissive" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -54,16 +54,16 @@
+ 			<Add option="-mthreads" />
+ 			<Add library="codeblocks" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ..\..\..\devel\share\codeblocks\SymTab.zip resources\manifest.xml resources\*.xrc" />
+ 			<Mode after="always" />
+ 		</ExtraCommands>
+-		<Unit filename="resources\config_dialog.xrc" />
+-		<Unit filename="resources\exec_dialog.xrc" />
+-		<Unit filename="resources\manifest.xml" />
++		<Unit filename="resources/config_dialog.xrc" />
++		<Unit filename="resources/exec_dialog.xrc" />
++		<Unit filename="resources/manifest.xml" />
+ 		<Unit filename="symtab.cpp" />
+ 		<Unit filename="symtab.h" />
+ 		<Unit filename="symtabconfig.cpp" />
+Index: src/plugins/contrib/wxContribItems/wxContribItems.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems.cbp	(revision 9934)
++++ src/plugins/contrib/wxContribItems/wxContribItems.cbp	(working copy)
+@@ -16,6 +16,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_FNB" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -28,6 +29,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_CHART" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -40,6 +42,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -51,6 +54,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -64,6 +68,9 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+@@ -76,6 +83,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -90,6 +98,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -101,6 +110,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+ 					<Add directory="wxled/led/include" />
+@@ -127,7 +137,6 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp	(revision 9934)
++++ src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp	(working copy)
+@@ -16,6 +16,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_FNB" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -28,6 +29,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_CHART" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -40,6 +42,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -51,6 +54,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -64,6 +68,9 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+@@ -76,6 +83,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -90,6 +98,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -101,6 +110,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+ 					<Add directory="wxled/led/include" />
+@@ -127,7 +137,6 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp	(revision 9934)
++++ src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp	(working copy)
+@@ -16,6 +16,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_FNB" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -28,6 +29,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_CHART" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -40,6 +42,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -51,6 +54,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -64,6 +68,9 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+@@ -76,6 +83,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -90,6 +98,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -101,6 +110,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+ 					<Add directory="wxled/led/include" />
+@@ -128,7 +138,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-D_WIN64" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX30_64.include)" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmith/wxSmith.cbp
+===================================================================
+--- src/plugins/contrib/wxSmith/wxSmith.cbp	(revision 9934)
++++ src/plugins/contrib/wxSmith/wxSmith.cbp	(working copy)
+@@ -23,7 +23,7 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Linker>
+ 					<Add library="wxsmithlib" />
+@@ -50,25 +50,24 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxpropgrid\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\scripting\include" />
+-			<Add directory="..\..\..\include\scripting\squirrel" />
+-			<Add directory="..\..\..\include\scripting\sqplus" />
+-			<Add directory="..\..\..\include\scripting\bindings" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxpropgrid/include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/scripting/include" />
++			<Add directory="../../../include/scripting/squirrel" />
++			<Add directory="../../../include/scripting/sqplus" />
++			<Add directory="../../../include/scripting/bindings" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -82,10 +81,10 @@
+ 			<Add library="wxpropgrid" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="..\..\..\base\tinyxml" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../devel" />
++			<Add directory="../../../base/tinyxml" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="update.bat" />
+Index: src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(revision 9934)
++++ src/plugins/contrib/wxSmithAui/wxSmithAui.cbp	(working copy)
+@@ -82,8 +82,7 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="../../../sdk/wxpropgrid/include" />
+Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(revision 9934)
++++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp	(working copy)
+@@ -22,7 +22,7 @@
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="../../../sdk/wxpropgrid/include" />
+@@ -80,7 +80,7 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+Index: src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp	(revision 9934)
++++ src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp	(working copy)
+@@ -7,33 +7,34 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="MathPlot">
+-				<Option output="..\..\..\devel\libMathPlot" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel/MathPlot" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\wxSmithPlot\MathPlot" />
++				<Option object_output="../../../.objs/plugins/contrib/wxSmithPlot/MathPlot" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Option createDefFile="1" />
+ 			</Target>
+ 			<Target title="wxSmithPlot">
+ 				<Option platforms="Windows;" />
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\wxSmithPlot" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\wxSmithPlot" />
++				<Option output="../../../devel/share/codeblocks/plugins/wxSmithPlot" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/wxSmithPlot" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log -na -ns -nd -p debug" />
+ 				<Option host_application="codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
+-					<Add directory="..\..\..\sdk\wxpropgrid\include" />
+-					<Add directory="..\wxSmith\properties" />
+-					<Add directory="..\wxSmith\wxwidgets" />
+-					<Add directory="..\wxSmith\wxwidgets\properties" />
++					<Add option="-DNOPCH" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
++					<Add directory="../../../sdk/wxpropgrid/include" />
++					<Add directory="../wxSmith/properties" />
++					<Add directory="../wxSmith/wxwidgets" />
++					<Add directory="../wxSmith/wxwidgets/properties" />
+ 					<Add directory="images" />
+ 				</Compiler>
+ 				<Linker>
+@@ -41,7 +42,7 @@
+ 					<Add library="wxsmithlib" />
+ 					<Add library="codeblocks" />
+ 					<Add library="wxpropgrid" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\wxSmithPlot.zip manifest.xml" />
+@@ -67,10 +68,10 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 			<Add directory="." />
+ 		</Compiler>
+ 		<Linker>
+@@ -78,30 +79,30 @@
+ 			<Add option="-Wl,--export-all-symbols" />
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+-		<Unit filename="images\axis16.xpm">
++		<Unit filename="images/axis16.xpm">
+ 			<Option target="wxSmithPlot" />
+ 		</Unit>
+-		<Unit filename="images\axis32.xpm">
++		<Unit filename="images/axis32.xpm">
+ 			<Option target="wxSmithPlot" />
+ 		</Unit>
+-		<Unit filename="images\marker16.xpm">
++		<Unit filename="images/marker16.xpm">
+ 			<Option target="wxSmithPlot" />
+ 		</Unit>
+-		<Unit filename="images\marker32.xpm">
++		<Unit filename="images/marker32.xpm">
+ 			<Option target="wxSmithPlot" />
+ 		</Unit>
+-		<Unit filename="images\plot16.xpm">
++		<Unit filename="images/plot16.xpm">
+ 			<Option target="wxSmithPlot" />
+ 		</Unit>
+-		<Unit filename="images\plot32.xpm">
++		<Unit filename="images/plot32.xpm">
+ 			<Option target="wxSmithPlot" />
+ 		</Unit>
+-		<Unit filename="images\vector16.xpm">
++		<Unit filename="images/vector16.xpm">
+ 			<Option target="wxSmithPlot" />
+ 		</Unit>
+-		<Unit filename="images\vector32.xpm">
++		<Unit filename="images/vector32.xpm">
+ 			<Option target="wxSmithPlot" />
+ 		</Unit>
+ 		<Unit filename="manifest.xml">
+Index: src/plugins/defaultmimehandler/mimetypesarray.h
+===================================================================
+--- src/plugins/defaultmimehandler/mimetypesarray.h	(revision 9934)
++++ src/plugins/defaultmimehandler/mimetypesarray.h	(working copy)
+@@ -6,17 +6,7 @@
+ #ifndef MIMETYPESARRAY_H
+ #define MIMETYPESARRAY_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <wx/dynarray.h>
+ 
+ struct cbMimeType
+Index: src/plugins/occurrenceshighlighting/highlighter.h
+===================================================================
+--- src/plugins/occurrenceshighlighting/highlighter.h	(revision 9934)
++++ src/plugins/occurrenceshighlighting/highlighter.h	(working copy)
+@@ -6,15 +6,12 @@
+ #ifndef HIGHLIGHTER_H
+ #define HIGHLIGHTER_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <set>
+ 
++#include <wx/colour.h>
++#include <wx/string.h>
++
+ #include <editor_hooks.h>
+ 
+ class cbStyledTextCtrl;
+Index: src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
+===================================================================
+--- src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(revision 9934)
++++ src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp	(working copy)
+@@ -9,6 +9,7 @@
+ 
+ #include <sdk.h> // Code::Blocks SDK
+ 
++#include <wx/menu.h>
+ #ifndef CB_PRECOMP
+     #include <algorithm>
+     #include <wx/listctrl.h>
+Index: src/plugins/occurrenceshighlighting/occurrenceshighlighting.h
+===================================================================
+--- src/plugins/occurrenceshighlighting/occurrenceshighlighting.h	(revision 9934)
++++ src/plugins/occurrenceshighlighting/occurrenceshighlighting.h	(working copy)
+@@ -6,13 +6,7 @@
+ #ifndef OCCURRENCESHIGHLIGHTING_H_INCLUDED
+ #define OCCURRENCESHIGHLIGHTING_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <set>
+ 
+ #include <cbplugin.h>
+Index: src/sdk/scrollingdialog.cpp
+===================================================================
+--- src/sdk/scrollingdialog.cpp	(revision 9934)
++++ src/sdk/scrollingdialog.cpp	(working copy)
+@@ -9,11 +9,18 @@
+ // Licence:
+ /////////////////////////////////////////////////////////////////////////////
+ 
+-#include "wx/wx.h"
++
+ #include "wx/module.h"
+ #include "wx/display.h"
+ #include "wx/bookctrl.h"
++#include <wx/scrolwin.h>
++#include <wx/sizer.h>
++#include <wx/button.h>
+ 
++#ifdef __WXMSW__
++    #include <wx/msw/wrapwin.h> // SetWindowPos
++#endif // #ifdef __WXMSW__
++
+ #include "scrollingdialog.h"
+ 
+ // Allow for caption size on wxWidgets < 2.9
+Index: src/sdk/wxscintilla/src/wxscintilla.cpp
+===================================================================
+--- src/sdk/wxscintilla/src/wxscintilla.cpp	(revision 9934)
++++ src/sdk/wxscintilla/src/wxscintilla.cpp	(working copy)
+@@ -44,6 +44,13 @@
+     #include <wx/dcbuffer.h>
+ #endif
+ 
++#include <wx/dcclient.h> // wxPaintDC
++#include <wx/textctrl.h> // wxTEXT_TYPE_ANY
++
++/* C::B begin */
++#include <wx/log.h> // wxSafeShowMessage
++/* C::B end */
++
+ #include "ScintillaWX.h"
+ #include "wx/wxscintilla.h"
+ 
+Index: src/sdk/xtra_res.cpp
+===================================================================
+--- src/sdk/xtra_res.cpp	(revision 9934)
++++ src/sdk/xtra_res.cpp	(working copy)
+@@ -12,9 +12,11 @@
+ #ifndef CB_PRECOMP
+     #include "xtra_res.h"
+     #include "scrollingdialog.h"
+-    #include <wx/wx.h>
+ #endif
+ 
++#include <wx/frame.h>
++#include <wx/image.h>
++
+ #include <wx/xml/xml.h>
+ 
+ /////////////////////////////////////////////////////////////////////////////
+Index: src/src/app.h
+===================================================================
+--- src/src/app.h	(revision 9934)
++++ src/src/app.h	(working copy)
+@@ -13,7 +13,6 @@
+ #endif
+ 
+ #if !defined(WX_PRECOMP)
+-    #include <wx/wx.h>
+     #include <wx/intl.h>
+     #include <wx/laywin.h>
+     #include <wx/image.h>
+@@ -26,6 +25,7 @@
+     #include "resources/icons/app.xpm"
+ #endif
+ 
++#include <wx/app.h>
+ #include <wx/taskbar.h>
+ #include <wx/splash.h>
+ #include <wx/snglinst.h>
+Index: src/src/main.cpp
+===================================================================
+--- src/src/main.cpp	(revision 9934)
++++ src/src/main.cpp	(working copy)
+@@ -31,13 +31,16 @@
+ #include "cbstatusbar.h"
+ #include "loggers.h"
+ 
++#include <wx/dcclient.h>
+ #include <wx/display.h>
+ #include <wx/dnd.h>
+ #include <wx/fileconf.h>
++#include <wx/filedlg.h>
+ #include <wx/filename.h>
+ #include <wx/gdicmn.h>
+ #include <wx/printdlg.h>
+ #include <wx/sstream.h>
++#include <wx/textdlg.h>
+ #include <wx/tipdlg.h>
+ #include <wx/tokenzr.h>
+ #include <wx/xrc/xmlres.h>
+Index: src/src/switcherdlg.cpp
+===================================================================
+--- src/src/switcherdlg.cpp	(revision 9934)
++++ src/src/switcherdlg.cpp	(working copy)
+@@ -9,8 +9,8 @@
+ // Licence:     wxWidgets licence
+ /////////////////////////////////////////////////////////////////////////////
+ 
+-#include <wx/wx.h>
+ 
++#include <wx/sizer.h>
+ #include <wx/settings.h>
+ #include <wx/dcbuffer.h>
+ 
+Index: src/src/switcherdlg.h
+===================================================================
+--- src/src/switcherdlg.h	(revision 9934)
++++ src/src/switcherdlg.h	(working copy)
+@@ -12,6 +12,7 @@
+ #ifndef _WX_SWITCHERDLG_H_
+ #define _WX_SWITCHERDLG_H_
+ 
++#include <wx/control.h>
+ #include <wx/dynarray.h>
+ #include <wx/html/htmlwin.h>
+ 
+Index: src/tools/Addr2LineUI/Addr2LineUI.cbp
+===================================================================
+--- src/tools/Addr2LineUI/Addr2LineUI.cbp	(revision 9934)
++++ src/tools/Addr2LineUI/Addr2LineUI.cbp	(working copy)
+@@ -7,9 +7,9 @@
+ 		<Build>
+ 			<Target title="default">
+ 				<Option platforms="Windows;" />
+-				<Option output="..\..\devel\Addr2LineUI" prefix_auto="1" extension_auto="1" />
+-				<Option working_dir="..\..\devel" />
+-				<Option object_output="..\..\.objs\tools\Addr2LineUI" />
++				<Option output="../../devel/Addr2LineUI" prefix_auto="1" extension_auto="1" />
++				<Option working_dir="../../devel" />
++				<Option object_output="../../.objs/tools/Addr2LineUI" />
+ 				<Option type="0" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="2" />
+@@ -21,9 +21,9 @@
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_VER" value="28" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -37,18 +37,18 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add option="-DNOPCH" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw$(WX_VER)$(WX_SUFFIX)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="Addr2LineUIApp.cpp" />
+ 		<Unit filename="Addr2LineUIApp.h" />
+@@ -57,7 +57,7 @@
+ 		<Unit filename="resource.rc">
+ 			<Option compilerVar="WINDRES" />
+ 		</Unit>
+-		<Unit filename="wxsmith\Addr2LineUIDialog.wxs" />
++		<Unit filename="wxsmith/Addr2LineUIDialog.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />
