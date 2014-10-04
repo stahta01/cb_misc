@@ -10,8 +10,8 @@ Ideas copied from the following URLs
    http://trac.parrot.org/parrot/wiki/git-svn-tutorial
 
 
-Started about 9:45 AM Finished about 7:20 AM
-git svn clone --stdlayout --prefix=svn/ http://svn.code.sf.net/p/codeblocks/code cb_sf_git_svn_clone
+Started about 10:45 AM Finished about  PM of the next Day
+git svn clone --stdlayout --prefix=git-svn-stuff/ http://svn.code.sf.net/p/codeblocks/code cb_svn_git_clone
 
 git svn fetch
 
@@ -30,11 +30,3 @@ git prune
 git fsck
 
 git svn info
-
-git branch trunk
-
-git checkout trunk
-
-git svn info
-
-

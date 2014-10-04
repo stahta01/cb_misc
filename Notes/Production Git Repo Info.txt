@@ -1,7 +1,9 @@
+my_cb_svn_git_clone/master
+
 Production/CB_mods2_project_only
-* build/cb_global_var
+B build/cb_global_var            Rebase fails to work
   build/combinedNoPush
-  build/noPCH
+B build/noPCH                    Rebase fails to work
   build/optionOrder
   build/project_target_change
   build/scratchNoPush
@@ -15,51 +17,36 @@ Production/CB_mods2_project_only
   master
 
 Production/codeblocks_mods2_bugfix/src
-* build/combinedNoPush
+  build/combinedNoPush
   build/project_bugs
   build/reorderIncludes
+  build/scripts
   build/template_bugs
   build/winOsOnlyFixes
-  master
-
-Production/codeblocks_mods2_master/src
 * master
 
 Production/codeblocks_mods2_NOGUI/src
-  build/codeblocks_console
+B build/codeblocks_console
   build/no_gui_libs
-* master
+* codeblocks_console
+  master
 
 Production/codeblocks_mods2_origin/src
   build/cbPCHeadersFixed
   build/combinedNoPush
-  build/project_bugs
-  build/scripts
   feature/wx-config
-  build/reorderIncludes
-  build/addPCH_contrib_wx28_win32
-* master
+  build/addPCH_wx28_win32
+  master
 
 Production/codeblocks_mods2_plugin/src
-* master
+  master
   plugin/wxContribItems
 +plugin/FileManager
 +plugin/NassiShneiderman
 +plugin/ToolsPlus
 
 Obsolete svnstuff folder used in .git/refs/remotes/svnstuff/trunk
-   Production/codeblocks_mods2_old/src
-     build/PCH_cbp
-     build/PCH_src
-     build/PCH_wxContribItems
-     build/PCH_wxSmith
-     build/cbPCH
-     build/codeblocks_console
-     build/reducedPCH
-     build/wxPCH
-   * master
-
-   Production/codeblocks_mods2_PCH/src
+   Production/codeblocks_mods2_PCH_old/src
      build/PCH_cbp
      build/PCH_src
      build/PCH_wxContribItems
