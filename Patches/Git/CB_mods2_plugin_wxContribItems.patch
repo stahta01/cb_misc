@@ -1,0 +1,62 @@
+diff --git src/plugins/contrib/wxContribItems/wxContribItems.cbp src/plugins/contrib/wxContribItems/wxContribItems.cbp
+index 8d732db..d79990e 100644
+--- src/plugins/contrib/wxContribItems/wxContribItems.cbp
++++ src/plugins/contrib/wxContribItems/wxContribItems.cbp
+@@ -51,6 +51,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -64,6 +65,9 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+@@ -76,6 +80,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -90,6 +95,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -101,6 +107,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+ 					<Add directory="wxled/led/include" />
+@@ -127,7 +134,6 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+@@ -136,7 +142,6 @@
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add option="-mthreads" />
+-			<Add library="wxpropgrid" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="../../../devel" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
