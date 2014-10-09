@@ -15,21 +15,24 @@ cd %GitHome%\Production\codeblocks_mods2_plugin
 @echo off
 git diff --exit-code
 if errorlevel 1 (
-   echo Failure Reason Given is %errorlevel%
+   echo git diff returned %errorlevel%
    goto _ABORT
 )
-
 git diff --cached --exit-code
 if errorlevel 1 (
-   echo Failure Reason Given is %errorlevel%
+   echo git diff --cached returned %errorlevel%
    goto _ABORT
 )
-
 @echo on
 
 git.exe checkout     plugin/ToolsPlus --
-
 git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_ToolsPlus.patch
+
+git.exe checkout     plugin/wxContribItems --
+git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_wxContribItems.patch
+
+git.exe checkout master --
+
 PAUSE
 GOTO EOF
 
