@@ -63,6 +63,10 @@ SET PATCH_NAME=CB_project_bug_11_change_WX_VER_to_WX_VERSION
 unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 
+SET PATCH_NAME=CB_mods2_build_reorderIncludes
+unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+
 PAUSE
 GOTO EOF
 

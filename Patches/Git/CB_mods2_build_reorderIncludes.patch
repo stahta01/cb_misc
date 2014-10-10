@@ -1,0 +1,454 @@
+diff --git src/plugins/abbreviations/abbreviations.cpp src/plugins/abbreviations/abbreviations.cpp
+index a4173b5..c1d9626 100644
+--- src/plugins/abbreviations/abbreviations.cpp
++++ src/plugins/abbreviations/abbreviations.cpp
+@@ -7,22 +7,29 @@
+  * $HeadURL$
+  */
+ 
++// sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h>
+ 
+ #ifndef CB_PRECOMP
+-    #include <configurationpanel.h>
+-    #include <cbstyledtextctrl.h>
+-    #include <editorcolourset.h>
+-#endif
++    // wxWidgets non GUI headers in sdk_common.h
+ 
+-#include "abbreviations.h"
+-#include "abbreviationsconfigpanel.h"
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/textdlg.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <editorcolourset.h>
++#endif // #ifndef CB_PRECOMP
+ 
++#include <configurationpanel.h>
++#include <cbstyledtextctrl.h>
+ #include <ccmanager.h>
+ #include <editor_hooks.h>
+ #include <sqplus.h>
+ #include <sc_base_types.h>
+ 
++#include "abbreviations.h"
++#include "abbreviationsconfigpanel.h"
++
+ 
+ // Register the plugin with Code::Blocks.
+ // We are using an anonymous namespace so we don't litter the global one.
+diff --git src/plugins/abbreviations/abbreviationsconfigpanel.cpp src/plugins/abbreviations/abbreviationsconfigpanel.cpp
+index 5cf9522..55f63d8 100644
+--- src/plugins/abbreviations/abbreviationsconfigpanel.cpp
++++ src/plugins/abbreviations/abbreviationsconfigpanel.cpp
+@@ -7,22 +7,32 @@
+  * $HeadURL$
+  */
+ 
++// sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h>
+-#include "abbreviationsconfigpanel.h"
+ 
+ #ifndef CB_PRECOMP
+-    #include <wx/xrc/xmlres.h>
+-    #include <wx/fontutil.h>
++    // wxWidgets non GUI headers in sdk_common.h
+     #include <wx/choicdlg.h>
+ 
+-    #include <configmanager.h>
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/combobox.h>
++    #include <wx/textdlg.h>
++    #include <wx/xrc/xmlres.h>
++
++    // CB SDK Headers in sdk_common.h
+     #include <editorcolourset.h>
++    #include <configmanager.h>
+     #include <editormanager.h>
+     #include <logmanager.h>
+-#endif
++#endif // #ifndef CB_PRECOMP
++
++#include <wx/fontutil.h>
++
++#include "abbreviationsconfigpanel.h"
+ 
+ #include "cbcolourmanager.h"
+ 
++
+ BEGIN_EVENT_TABLE(AbbreviationsConfigPanel, cbConfigurationPanel)
+ END_EVENT_TABLE()
+ 
+diff --git src/plugins/compilergcc/compilergcc.cpp src/plugins/compilergcc/compilergcc.cpp
+index f435b8c..0c1cf70 100644
+--- src/plugins/compilergcc/compilergcc.cpp
++++ src/plugins/compilergcc/compilergcc.cpp
+@@ -7,45 +7,56 @@
+  * $HeadURL$
+  */
+ 
++// sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h>
+ 
+-#include <wx/frame.h> // GetMenuBar
+-#include <wx/gauge.h> // Needs to be before compilergcc.h if NOPCH on wxMSW
+-#include <wx/listctrl.h>
+-#include <wx/xrc/xmlres.h>
+-#include <wx/sizer.h>
+-#include <wx/button.h>
+-#include <wx/stattext.h>
+-#include <wx/statline.h>
+-#include <wx/ffile.h>
+-#include <wx/utils.h>
+-#include <wx/uri.h>
+-#include <wx/xml/xml.h>
++#if !defined(WX_PRECOMP)
++    // wxWidgets non GUI headers in wx/wx.h; but, not in sdk_common.h
++
++    // wxWidgets GUI headers in wx/wx.h; but, not in sdk_common.h
++    #include <wx/gauge.h> // Needs to be before compilergcc.h if NOPCH on wxMSW
++#endif // #if !defined(WX_PRECOMP)
+ 
+ #ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
+     #include <wx/app.h>
++    #include <wx/utils.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/button.h>
++    #include <wx/frame.h> // GetMenuBar
++    #include <wx/listctrl.h>
++    #include <wx/sizer.h>
++    #include <wx/stattext.h>
+     #include <wx/textdlg.h>
+     #include <wx/toolbar.h>
+-#endif
++    #include <wx/xrc/xmlres.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <sdk_events.h>
++    #include <cbeditor.h>
++    #include <pipedprocess.h>
++    #include <manager.h>
++    #include <configmanager.h>
++    #include <editormanager.h>
++    #include <logmanager.h>
++    #include <projectmanager.h>
++    #include <scriptingmanager.h>
++    #include <macrosmanager.h>
++    #include <pluginmanager.h>
++    #include <infowindow.h>
++#endif // #ifndef CB_PRECOMP
++
++#include <wx/statline.h>
++#include <wx/ffile.h>
++#include <wx/uri.h>
++#include <wx/xml/xml.h>
+ 
+-#include <prep.h>
+-#include <manager.h>
+-#include <sdk_events.h>
+-#include <pipedprocess.h>
+-#include <configmanager.h>
+ #include <compilercommandgenerator.h>
+ #include <debuggermanager.h>
+-#include <logmanager.h>
+-#include <macrosmanager.h>
+-#include <projectmanager.h>
+-#include <editormanager.h>
+-#include <scriptingmanager.h>
+ #include <configurationpanel.h>
+-#include <pluginmanager.h>
+-#include <cbeditor.h>
+ #include <annoyingdialog.h>
+ #include <filefilters.h>
+-#include <infowindow.h>
+ 
+ #include "compilergcc.h"
+ #include "compileroptionsdlg.h"
+diff --git src/plugins/contrib/source_exporter/exporter.cpp src/plugins/contrib/source_exporter/exporter.cpp
+index b35da13..fe4533e 100644
+--- src/plugins/contrib/source_exporter/exporter.cpp
++++ src/plugins/contrib/source_exporter/exporter.cpp
+@@ -6,7 +6,10 @@
+  * License:   GPL
+  **************************************************************/
+ 
++#include <wx/filedlg.h>
+ #include <wx/frame.h> // GetMenuBar
++#include <wx/menu.h>
++
+ #include "exporter.h"
+ #include <configmanager.h>
+ #include <manager.h>
+diff --git src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
+index 8a4bb64..1762cb9 100644
+--- src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
++++ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
+@@ -16,6 +16,8 @@
+ * along with wxSmithAui. If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
++#include <wx/sizer.h>
++
+ #include "wxSmithAuiToolBar.h"
+ 
+ #if wxCHECK_VERSION(2,8,9)
+diff --git src/plugins/occurrenceshighlighting/highlighter.cpp src/plugins/occurrenceshighlighting/highlighter.cpp
+index c123398..61815c1 100644
+--- src/plugins/occurrenceshighlighting/highlighter.cpp
++++ src/plugins/occurrenceshighlighting/highlighter.cpp
+@@ -7,8 +7,7 @@
+  * $HeadURL$
+  */
+ 
+-#include "highlighter.h"
+-
++// sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h> // Code::Blocks SDK
+ 
+ #ifndef CB_PRECOMP
+@@ -21,6 +20,8 @@
+ #include <cbstyledtextctrl.h>
+ #include <cbcolourmanager.h>
+ 
++#include "highlighter.h"
++
+ HighlightedEditorPositions::HighlightedEditorPositions():
+     linea(-1),
+     lineb(-1),
+diff --git src/plugins/todo/todolistview.cpp src/plugins/todo/todolistview.cpp
+index 6c095c2..ef8e0cb 100644
+--- src/plugins/todo/todolistview.cpp
++++ src/plugins/todo/todolistview.cpp
+@@ -23,6 +23,7 @@
+ 
+     #include "cbeditor.h"
+     #include "cbproject.h"
++    #include "configmanager.h"
+     #include "editormanager.h"
+     #include "filemanager.h"
+     #include "globals.h"
+diff --git src/sdk/annoyingdialog.cpp src/sdk/annoyingdialog.cpp
+index cd7b0d9..d6e5c47 100644
+--- src/sdk/annoyingdialog.cpp
++++ src/sdk/annoyingdialog.cpp
+@@ -7,20 +7,29 @@
+  * $HeadURL$
+  */
+ 
++// sdk_precomp.h must be the first include in the file to work as a PCH
+ #include "sdk_precomp.h"
++
+ #ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/intl.h>
++
++    // wxWidgets GUI headers in sdk_common.h
+     #include <wx/button.h>
+     #include <wx/checkbox.h>
+-    #include <wx/intl.h>
+     #include <wx/sizer.h>
++    #include <wx/statbmp.h>
+     #include <wx/stattext.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include "globals.h"
+     #include "cbexception.h"
+-    #include "configmanager.h"
+     #include "manager.h"
++    #include "configmanager.h"
+     #include "logmanager.h"
+-    #include "globals.h"
+-#endif
+-#include <wx/statbmp.h>
++#endif // #ifndef CB_PRECOMP
++
++
+ #include "annoyingdialog.h"
+ 
+ BEGIN_EVENT_TABLE(AnnoyingDialog, wxScrollingDialog)
+diff --git src/sdk/editorlexerloader.cpp src/sdk/editorlexerloader.cpp
+index aff864a..4fc40d3 100644
+--- src/sdk/editorlexerloader.cpp
++++ src/sdk/editorlexerloader.cpp
+@@ -12,15 +12,18 @@
+ #ifndef CB_PRECOMP
+     #include "globals.h"
+     #include "manager.h"
++    #include "filemanager.h"
+     #include "logmanager.h"
+     #include <wx/dynarray.h>
+     #include <wx/regex.h>
+     #include <wx/wxscintilla.h>
+ #endif
+ 
++#include "tinyxml/tinyxml.h" // TiXmlDocument
++
+ #include "editorcolourset.h"
+ #include "editorlexerloader.h"
+-#include "filemanager.h"
++
+ 
+ EditorLexerLoader::EditorLexerLoader(EditorColourSet* target)
+     : m_pTarget(target)
+diff --git src/sdk/filemanager.cpp src/sdk/filemanager.cpp
+index 03f56d7..5ebf2ad 100644
+--- src/sdk/filemanager.cpp
++++ src/sdk/filemanager.cpp
+@@ -13,6 +13,7 @@
+     #include "filemanager.h"
+     #include "safedelete.h"
+     #include "cbeditor.h"
++    #include "configmanager.h"
+     #include "editormanager.h"
+     #include "infowindow.h"
+ #endif
+diff --git src/src/app.cpp src/src/app.cpp
+index 279d7f3..afd5b38 100644
+--- src/src/app.cpp
++++ src/src/app.cpp
+@@ -7,44 +7,65 @@
+  * $HeadURL$
+  */
+ 
++// sdk.h must be the first include in the file to work as a PCH
+ #include <sdk.h>
+-#include "app.h"
+-#include <wx/arrstr.h>
+-#include <wx/fs_zip.h>
+-#include <wx/fs_mem.h>
+-#include <wx/xrc/xmlres.h>
+-#include <wx/cmdline.h>
+-#include <wx/regex.h>
+-#include <wx/filefn.h>
+-#include <wx/log.h> // for wxSafeShowMessage()
+-#include <wx/msgdlg.h>
+-#include <wx/choicdlg.h>
+-#include <wx/notebook.h>
+-#include <wx/clipbrd.h>
+ 
+-#include "cbauibook.h"
+-#include <cbexception.h>
++#ifndef CB_PRECOMP
++    // wxWidgets non GUI headers in sdk_common.h
++    #include <wx/arrstr.h>
++    #include <wx/choicdlg.h>
++    #include <wx/dir.h>
++    #include <wx/filename.h>
++    #include <wx/fs_zip.h>
++    #include <wx/hashmap.h>
++    #include <wx/intl.h>
++    #include <wx/log.h>
++    #include <wx/regex.h>
++
++    // wxWidgets GUI headers in sdk_common.h
++    #include <wx/image.h>
++    #include <wx/msgdlg.h>
++    #include <wx/notebook.h>
++    #include <wx/xrc/xmlres.h>
++
++    // CB SDK Headers in sdk_common.h
++    #include <globals.h>
++    #include <sdk_events.h>
++    #include <cbexception.h>
++    #include <cbauibook.h>
++    #include <configmanager.h>
++    #include <editormanager.h>
++    #include <logmanager.h>
++    #include <projectmanager.h>
++    #include <scriptingmanager.h>
++    #include <pluginmanager.h>
++    #include <personalitymanager.h>
++    #include <filemanager.h> // LoaderBase
++    #include <xtra_res.h>
++#endif // #ifndef CB_PRECOMP
++
++// wxWidgets headers in neither wx/wx.h and sdk_common.h
++#include <wx/clipbrd.h>
++#include <wx/cmdline.h>
+ #include <wx/debugrpt.h>
+-#include <configmanager.h>
+-#include <editormanager.h>
+-#include <projectmanager.h>
+-#include <personalitymanager.h>
+-#include <pluginmanager.h>
+-#include <sdk_events.h>
+-#include <manager.h>
+-#include <scriptingmanager.h>
+-#include <globals.h>
+-#include <logmanager.h>
+-#include <loggers.h>
+-#include "splashscreen.h"
+-#include "crashhandler.h"
+-#include "cbstyledtextctrl.h"
++#include <wx/filefn.h>
++#include <wx/fs_mem.h>
+ #include <wx/ipc.h>
+ 
+-#include "projectmanagerui.h"
++// CB SDK headers not in sdk_common.h
++#include <cbstyledtextctrl.h>
++#include <loggers.h>
+ 
++//
+ #include <sqplus.h>
+ 
++// Local header for this source file
++#include "app.h"
++
++// Other local header
++#include "projectmanagerui.h"
++#include "splashscreen.h"
++#include "crashhandler.h"
+ #ifndef __WXMSW__
+     #include "prefix.h" // binreloc
+ #endif
+@@ -57,11 +78,6 @@
+ 
+ #include "appglobals.h"
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/dir.h>
+-    #include "xtra_res.h"
+-    #include "filemanager.h" // LoaderBase
+-#endif
+ 
+ #ifndef APP_PREFIX
+ #define APP_PREFIX ""
+diff --git src/src/debugger_interface_creator.cpp src/src/debugger_interface_creator.cpp
+index 12b04c9..92b6618 100644
+--- src/src/debugger_interface_creator.cpp
++++ src/src/debugger_interface_creator.cpp
+@@ -2,13 +2,17 @@
+  * This file is part of the Code::Blocks IDE and licensed under the GNU Lesser General Public License, version 3
+  * http://www.gnu.org/licenses/gpl-3.0.html
+  */
+-#include "debugger_interface_creator.h"
++
++// sdk.h must be the first include in the file to work as a PCH
++#include <sdk.h>
+ 
+ #ifndef CB_PRECOMP
+     #include "cbeditor.h"
+     #include "editormanager.h"
+ #endif
+ 
++#include "debugger_interface_creator.h"
++
+ #include "backtracedlg.h"
+ #include "breakpointsdlg.h"
+ #include "cbstyledtextctrl.h"
+diff --git src/src/find_replace.cpp src/src/find_replace.cpp
+index 06846c6..118d95d 100644
+--- src/src/find_replace.cpp
++++ src/src/find_replace.cpp
+@@ -9,6 +9,7 @@
+     #include "cbauibook.h"
+     #include "cbeditor.h"
+     #include "cbproject.h"
++    #include "configmanager.h"
+     #include "editormanager.h"
+     #include "infowindow.h"
+     #include "projectfile.h"

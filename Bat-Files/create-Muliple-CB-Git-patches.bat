@@ -81,6 +81,10 @@ git.exe checkout     build/scripts --
 git pull --rebase origin master
 git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_scripts.patch
 
+git.exe checkout     build/reorderIncludes --
+git pull --rebase origin master
+git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_reorderIncludes.patch
+
 git.exe checkout master --
 git pull --rebase origin master
 
