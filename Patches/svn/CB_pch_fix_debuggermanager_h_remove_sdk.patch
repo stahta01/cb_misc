@@ -1,0 +1,28 @@
+Index: src/include/debuggermanager.h
+===================================================================
+--- src/include/debuggermanager.h	(revision 9935)
++++ src/include/debuggermanager.h	(working copy)
+@@ -6,19 +6,18 @@
+ #ifndef X_DEBUGGER_MANAGER_H
+ #define X_DEBUGGER_MANAGER_H
+ 
+-#include "sdk.h"
+-
++#include "prep.h"
++#include "settings.h"
++#include "configmanager.h"
+ #ifndef CB_PRECOMP
+ #   include <map>
+ #   include <vector>
+ 
+ #   include <manager.h>
+-#   include <settings.h>
+ #   include <wx/string.h>
+-
+-#   include "configmanager.h"
+ #endif
+ 
++
+ class wxMenu;
+ class wxToolBar;
+ class cbBacktraceDlg;
