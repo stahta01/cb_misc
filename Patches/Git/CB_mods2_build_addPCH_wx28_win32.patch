@@ -238,7 +238,7 @@ index 32ccd6e..089f9ee 100644
  #ifndef CB_PRECOMP
      #include <wx/app.h>
 diff --git src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
-index 474e257..a745476 100644
+index fdc3822..0c5a310 100644
 --- src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
 +++ src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
 @@ -1,8 +1,9 @@
