@@ -1,0 +1,37 @@
+Index: src/plugins/compilergcc/directcommands.cpp
+===================================================================
+--- src/plugins/compilergcc/directcommands.cpp	(revision 9936)
++++ src/plugins/compilergcc/directcommands.cpp	(working copy)
+@@ -677,8 +677,6 @@
+             ret.Add(wxString(COMPILER_SIMPLE_LOG) + _("Linking stage skipped (build target has no object files to link)"));
+         return ret;
+     }
+-    if (IsOpenWatcom && target->GetTargetType() != ttStaticLib)
+-        linkfiles << _T("file ");
+     bool subseq(false);
+     for (unsigned int i = 0; i < files.GetCount(); ++i)
+     {
+Index: src/plugins/compilergcc/resources/compilers/options_ow.xml
+===================================================================
+--- src/plugins/compilergcc/resources/compilers/options_ow.xml	(revision 9936)
++++ src/plugins/compilergcc/resources/compilers/options_ow.xml	(working copy)
+@@ -436,15 +436,15 @@
+     <Command name="CompileResource"
+              value="$rescomp -q -r -fo=$resource_output $res_includes $file"/>
+     <Command name="LinkExe"
+-             value="$linker option quiet $link_options $libdirs $link_objects name $exe_output $libs $link_resobjects"/>
++             value="$linker option quiet $link_options $libdirs file $link_objects name $exe_output $libs $link_resobjects"/>
+     <Command name="LinkConsoleExe"
+-             value="$linker option quiet $link_options $libdirs $link_objects name $exe_output $libs $link_resobjects"/>
++             value="$linker option quiet $link_options $libdirs file $link_objects name $exe_output $libs $link_resobjects"/>
+     <Command name="LinkDynamic"
+-             value="$linker option quiet $link_options $libdirs name $exe_output $libs $link_objects"/>
++             value="$linker option quiet $link_options $libdirs name $exe_output $libs file $link_objects"/>
+     <Command name="LinkStatic"
+              value="$lib_linker -q $static_output $link_objects"/>
+     <Command name="LinkNative"
+-             value="$linker option quiet $link_options $libdirs $link_objects name $exe_output $libs $link_resobjects"/>
++             value="$linker option quiet $link_options $libdirs file $link_objects name $exe_output $libs $link_resobjects"/>
+     <Common name="cmds"/>
+ 
+     <RegEx name="Note"
