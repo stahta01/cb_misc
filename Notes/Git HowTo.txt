@@ -1,3 +1,9 @@
+From http://stackoverflow.com/questions/1628088/how-to-reset-my-local-repository-to-be-just-like-the-remote-repository-head
+Setting your branch to exactly match the remote branch can be done in two steps:
+
+git fetch origin
+git reset --hard origin/master
+
 
 To Clone the best method (I know of) seems to be command line of
 git clone --branch scriptedwizard https://github.com/stahta01/codeblocks_sf_tims.git codeblocks_sf_tims_scriptedwizard
