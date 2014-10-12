@@ -59,6 +59,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
+   git push --force-with-lease "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_addPCH_wx28_win32.patch
 )
 REM PAUSE
