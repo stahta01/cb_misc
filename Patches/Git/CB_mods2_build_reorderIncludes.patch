@@ -294,7 +294,7 @@ index aff864a..4fc40d3 100644
  EditorLexerLoader::EditorLexerLoader(EditorColourSet* target)
      : m_pTarget(target)
 diff --git src/sdk/filemanager.cpp src/sdk/filemanager.cpp
-index 03f56d7..5ebf2ad 100644
+index ef2272e..03730e3 100644
 --- src/sdk/filemanager.cpp
 +++ src/sdk/filemanager.cpp
 @@ -13,6 +13,7 @@
