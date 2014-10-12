@@ -8,7 +8,8 @@ CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
 
-SET GIT_HEAD_COMMIT=5517a9c5df08016f1664074cfdf528f6f7286309
+REM 9936
+SET GIT_HEAD_COMMIT=adc3eda801c1d045ef80642e1c78b5fefbfafc95
 
 cd %GitHome%\Production\codeblocks_mods2_plugin
 
@@ -55,6 +56,10 @@ git.exe checkout     build/addPCH_wx28_win32 --
 git pull --rebase origin master
 git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_addPCH_wx28_win32.patch
 
+git.exe checkout     build/cbPCHeadersFixed --
+git pull --rebase origin master
+git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_cbPCHeadersFixed.patch
+
 git.exe checkout master --
 git pull --rebase origin master
 
@@ -84,6 +89,10 @@ git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\G
 git.exe checkout     build/reorderIncludes --
 git pull --rebase origin master
 git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_reorderIncludes.patch
+
+git.exe checkout     compiler/open_watcom --
+git pull --rebase origin master
+git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_compiler_open_watcom.patch
 
 git.exe checkout master --
 git pull --rebase origin master
