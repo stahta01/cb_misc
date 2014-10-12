@@ -36,7 +36,7 @@ git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\G
 
 git.exe checkout master --
 git pull --rebase origin master
-
+REM PAUSE
 
 cd %GitHome%\Production\codeblocks_mods2_origin
 @echo off
@@ -54,14 +54,25 @@ if errorlevel 1 (
 
 git.exe checkout     build/addPCH_wx28_win32 --
 git pull --rebase origin master
-git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_addPCH_wx28_win32.patch
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+) else (
+   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_addPCH_wx28_win32.patch
+)
+REM PAUSE
 
 git.exe checkout     build/cbPCHeadersFixed --
 git pull --rebase origin master
+echo git pull returned %errorlevel%
 git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_cbPCHeadersFixed.patch
+REM PAUSE
 
 git.exe checkout master --
 git pull --rebase origin master
+echo git pull returned %errorlevel%
+REM PAUSE
 
 
 cd %GitHome%\Production\codeblocks_mods2_bugfix
@@ -96,7 +107,6 @@ git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\G
 
 git.exe checkout master --
 git pull --rebase origin master
-
 
 PAUSE
 GOTO EOF
