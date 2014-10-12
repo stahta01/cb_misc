@@ -71,6 +71,8 @@ SET PATCH_NAME=CB_mods2_build_reorderIncludes
 unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 
+git commit -am 'Commit apply-Muliple-CB-Git-patches.bat changes.'
+
 PAUSE
 GOTO EOF
 
