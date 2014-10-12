@@ -33,7 +33,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
-   git push --force-with-lease "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
+   git push --force-with-lease "origin" plugin/ToolsPlus:plugin/ToolsPlus
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_ToolsPlus.patch
 )
 
@@ -44,7 +44,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
-   git push --force-with-lease "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
+   git push --force-with-lease "origin" plugin/wxContribItems:plugin/wxContribItems
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_wxContribItems.patch
 )
 
@@ -85,7 +85,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
-   git push --force-with-lease "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
+   git push --force-with-lease "origin" build/cbPCHeadersFixed:build/cbPCHeadersFixed
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_cbPCHeadersFixed.patch
 )
 REM PAUSE
@@ -117,7 +117,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
-   git push --force-with-lease "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
+   git push --force-with-lease "origin" build/template_bugs:build/template_bugs
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_template_bugs.patch
 )
 
@@ -128,7 +128,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
-   git push --force-with-lease "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
+   git push --force-with-lease "origin" build/scripts:build/scripts
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_scripts.patch
 )
 
@@ -139,7 +139,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
-   git push --force-with-lease "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
+   git push --force-with-lease "origin" build/reorderIncludes:build/reorderIncludes
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_reorderIncludes.patch
 )
 
@@ -150,7 +150,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
-   git push --force-with-lease "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
+   git push --force-with-lease "origin" compiler/open_watcom:compiler/open_watcom
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_compiler_open_watcom.patch
 )
 
