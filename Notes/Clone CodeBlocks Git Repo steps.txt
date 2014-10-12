@@ -2,12 +2,12 @@ Based on the idea from  http://trac.parrot.org/parrot/wiki/git-svn-tutorial
 
 Warning: I am a Git Newbie; these steps created via trial and error.
 
-Welcome to Git (version 1.8.5.2-preview20131230)
+Welcome to Git (version 1.9.4-preview20140929)
 $ git --version
-git version 1.8.5.2.msysgit.0
+git version 1.9.4.msysgit.2
 
 
-Step 1: Create clone Mirror as local Repo and move head back one commit
+Step 1: Create clone Mirror as local Repo
 note: You can replace repo_folder_name with another folder name
 
 Step 1A: Clone Git Mirror (Obf or Biplab)
@@ -22,9 +22,15 @@ Step 1B: Change current directory and check status
 $ cd repo_folder_name
 $ git status
 
-Step 1C: Move head back one commit
-$ git reset --hard HEAD~1
+Step 1C: Get Hash code and URL
+$ git log --grep=^git-svn-id: --first-parent -1 | head -n 7
+commit 4f4016ab24fabcaa6ca851bcf06bc96c46a3efde
+Author: T Petrov <tpetrov@codeblocks.org>
+Date:   Sun Oct 12 15:32:47 2014 +0000
 
+    - build: noPCH fixes
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@9957 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 
 Step 2: Create SVN config and folder 
 Step 2A: Set svn-remote "svn" URL in info git config file
@@ -45,11 +51,11 @@ $ mkdir .git/refs/remotes/git-svn-stuff
 
 Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
-commit 6f9c3b4921d73a9bc6e8c2b0f5f32a64f717d586
+commit 4f4016ab24fabcaa6ca851bcf06bc96c46a3efde
 
 Step 4: Create remotes trunk using hash code
 Replace hash with value returned by the above command
-$ echo 6f9c3b4921d73a9bc6e8c2b0f5f32a64f717d586 > .git/refs/remotes/git-svn-stuff/trunk
+$ echo 4f4016ab24fabcaa6ca851bcf06bc96c46a3efde > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 5: Verify hash code was created
 $ git show remotes/git-svn-stuff/trunk | head -n 1
@@ -60,8 +66,7 @@ $ git svn find-rev r1
 $ git svn find-rev HEAD
 
 Step 7: SVN fetch
-Use number plus 1 returned by SVN find-rev HEAD step
-$ git svn fetch svn -r 9879
+$ git svn fetch
 
 Step 8: Test git svn info
 Takes about a minute to return results.
@@ -72,11 +77,12 @@ Step 9: Force branch master to use rebase.
 SVN does not like git merge so set to use git rebase.
 $ git config master.rebase true 
 
-Step 10: Test fetch and pull
-Note: I am guessing that the svn fetch should be done before all "git pull" commands.
-$ git svn fetch svn
+Step 10: Test "git pull" and "git svn rebase"
+Note: I am guessing that the "git svn rebase" should be done after all "git pull" commands.
 $ git pull
+$ git svn rebase
 $ git status
 
-NOTE: "git svn rebase" seems to fail to often for me to continue to use.
-Now using steps in file "git svn rebase test 1.txt" instead.
+NOTE: "git svn rebase" seems to fail to often for me using the 1.8 version of MSysGit.
+I used the steps in file "git svn rebase test 1.txt" instead.
+I am now trying "git svn rebase" to see if it work in version 1.9.4.msysgit.2
