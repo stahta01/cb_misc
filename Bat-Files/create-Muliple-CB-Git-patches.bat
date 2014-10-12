@@ -8,8 +8,8 @@ CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
 
-REM 9936
-SET GIT_HEAD_COMMIT=adc3eda801c1d045ef80642e1c78b5fefbfafc95
+REM 9956
+SET GIT_HEAD_COMMIT=9af19f132f1d58122f2e4a251e4372b78acca235
 
 cd %GitHome%\Production\codeblocks_mods2_plugin
 
