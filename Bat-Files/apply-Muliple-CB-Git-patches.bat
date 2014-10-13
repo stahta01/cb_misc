@@ -22,6 +22,13 @@ if errorlevel 1 (
 )
 @echo on
 
+git.exe checkout     master --
+if errorlevel 1 (
+   echo git checkout returned %errorlevel%
+   goto _ABORT
+)
+git.exe svn rebase
+
 git.exe checkout     build/combinedNoPush --
 if errorlevel 1 (
    echo git checkout returned %errorlevel%

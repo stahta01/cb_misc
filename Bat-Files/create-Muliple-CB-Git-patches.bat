@@ -8,8 +8,8 @@ CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
 
-REM 9959
-SET GIT_HEAD_COMMIT=55ed0aac7a6d7487a672f4d5fde0d3c89bf1adc5
+REM 9983 git svn find-rev bd63c619247b2e551cc71f1e75bbadaa5fe1bbb6
+SET GIT_HEAD_COMMIT=bd63c619247b2e551cc71f1e75bbadaa5fe1bbb6
 
 cd %GitHome%\Production\codeblocks_mods2_plugin
 
