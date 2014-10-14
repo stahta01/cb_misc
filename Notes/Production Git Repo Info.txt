@@ -1,3 +1,8 @@
+Production/CB_Obf
+ upstream=http://github.com/obfuscated/codeblocks_sf.git
+ origin=https://stahta01@github.com/stahta01/codeblocks_sf_tims.git
+* master
+
 Production/CB_mods2_project_only
   build/scratchNoPush
   build/combinedNoPush
@@ -42,6 +47,7 @@ Production/codeblocks_mods2_origin
   build/cbPCHeadersFixed
   feature/wx-config
   build/addPCH_wx28_win32
+  build/no_contrib_folder
   master
 
 Production/codeblocks_mods2_plugin/src

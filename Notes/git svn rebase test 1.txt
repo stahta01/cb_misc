@@ -19,7 +19,7 @@ $ cd ..
 
 Step 0B: Check value of HEAD
 $ git svn find-rev HEAD
-9956
+9985
 
 Step 0C: If value of HEAD lower than it should be do a pull rebase.
 $ git pull --rebase origin master
@@ -29,31 +29,31 @@ $ ls .git/refs/remotes/*/trunk
 .git/refs/remotes/git-svn-stuff/trunk
 
 $ git show origin/master | head -n 1
-commit 9af19f132f1d58122f2e4a251e4372b78acca235
+commit 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
 
-$ git svn find-rev 9af19f132f1d58122f2e4a251e4372b78acca235
-9956
+$ git svn find-rev 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
+9985
 
 
 Step 1B: Verify hash code foldername
 Note: Replace git-svn-stuff or ??? with the correct folder name.
 $ git show remotes/git-svn-stuff/trunk | head -n 1
-commit 5517a9c5df08016f1664074cfdf528f6f7286309
+commit 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
 
-$ git svn find-rev 5517a9c5df08016f1664074cfdf528f6f7286309
-9935
+$ git svn find-rev 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
+9985
 
 Step 2: Get hash code needed to be used later.
 $ git log --grep=^git-svn-id: --first-parent -1 | head -n 1
-commit 9af19f132f1d58122f2e4a251e4372b78acca235
+commit 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
 
-$ git svn find-rev 9af19f132f1d58122f2e4a251e4372b78acca235
-9956
+$ git svn find-rev 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
+9985
 
 Step 3: Create/updates remotes trunk using hash code
 Note: Replace hash with value returned by the above command
 Note: Replace git-svn-stuff or ??? with the correct folder name.
-$ echo 9af19f132f1d58122f2e4a251e4372b78acca235 > .git/refs/remotes/git-svn-stuff/trunk
+$ echo 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 4: Verify hash code was created/changed
 Note: Replace git-svn-stuff or ??? with the correct folder name.

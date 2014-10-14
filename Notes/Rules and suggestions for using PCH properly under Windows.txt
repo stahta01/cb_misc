@@ -14,6 +14,7 @@ Required rules for using CB PCH properly under Windows MinGW GCC
    8. Should have "-Winvalid-pch" warning set.
    9. Must have the folder containing sdk.h and sdk.h.gch in the search path!
       NOTE: The folder containing sdk.h.gch must before the sdk.h folder.
+   10.When using CB_PRECOMP in a c++ non header file; include the correct PCH before it.
 
 Suggested rules for using PCH properly under Windows
    1. Use <sdk.h> instead of "sdk.h" in CB Plugins
