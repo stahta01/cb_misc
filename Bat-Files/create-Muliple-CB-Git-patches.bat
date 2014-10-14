@@ -8,8 +8,8 @@ CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
 
-REM 9983 git svn find-rev bd63c619247b2e551cc71f1e75bbadaa5fe1bbb6
-SET GIT_HEAD_COMMIT=bd63c619247b2e551cc71f1e75bbadaa5fe1bbb6
+REM 9985 git svn find-rev 25e1ebc27f9aa47853c4ba424f90d6b7bbcc4a0e
+SET GIT_HEAD_COMMIT=25e1ebc27f9aa47853c4ba424f90d6b7bbcc4a0e
 
 cd %GitHome%\Production\codeblocks_mods2_plugin
 
@@ -150,7 +150,7 @@ if errorlevel 1 (
    echo aborting rebase
    git rebase --abort
 ) else (
-   git push --force-with-lease "origin" compiler/open_watcom:compiler/open_watcom
+REM git push --force-with-lease "origin" compiler/open_watcom:compiler/open_watcom
    git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_compiler_open_watcom.patch
 )
 
