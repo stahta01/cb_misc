@@ -8,8 +8,8 @@ CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
 
-REM 9985 git svn find-rev 25e1ebc27f9aa47853c4ba424f90d6b7bbcc4a0e
-SET GIT_HEAD_COMMIT=25e1ebc27f9aa47853c4ba424f90d6b7bbcc4a0e
+REM 9990 git svn find-rev 41f8ebf6a5976c6c5fe3351a05b0373cd7fe82d8
+SET GIT_HEAD_COMMIT=41f8ebf6a5976c6c5fe3351a05b0373cd7fe82d8
 
 cd %GitHome%\Production\codeblocks_mods2_plugin
 
@@ -25,6 +25,12 @@ if errorlevel 1 (
    goto _ABORT
 )
 @echo on
+
+git.exe checkout master --
+git pull --rebase origin master
+echo git pull returned %errorlevel%
+git reset --hard origin/master
+REM PAUSE
 
 git.exe checkout     plugin/ToolsPlus --
 git pull --rebase origin master
@@ -49,7 +55,6 @@ if errorlevel 1 (
 )
 
 git.exe checkout master --
-git pull --rebase origin master
 REM PAUSE
 
 cd %GitHome%\Production\codeblocks_mods2_origin
@@ -65,6 +70,12 @@ if errorlevel 1 (
    goto _ABORT
 )
 @echo on
+
+git.exe checkout master --
+git pull --rebase origin master
+echo git pull returned %errorlevel%
+git reset --hard origin/master
+REM PAUSE
 
 git.exe checkout     build/addPCH_wx28_win32 --
 git pull --rebase origin master
@@ -91,8 +102,6 @@ if errorlevel 1 (
 REM PAUSE
 
 git.exe checkout master --
-git pull --rebase origin master
-echo git pull returned %errorlevel%
 REM PAUSE
 
 
@@ -109,6 +118,12 @@ if errorlevel 1 (
    goto _ABORT
 )
 @echo on
+
+git.exe checkout master --
+git pull --rebase origin master
+echo git pull returned %errorlevel%
+git reset --hard origin/master
+REM PAUSE
 
 git.exe checkout     build/template_bugs --
 git pull --rebase origin master
@@ -155,7 +170,6 @@ REM git push --force-with-lease "origin" compiler/open_watcom:compiler/open_watc
 )
 
 git.exe checkout master --
-git pull --rebase origin master
 
 PAUSE
 GOTO EOF
