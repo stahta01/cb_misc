@@ -1,5 +1,5 @@
 diff --git src/CodeBlocks.cbp src/CodeBlocks.cbp
-index 0fe2885..70eb544 100644
+index 20c350f..73629ce 100644
 --- src/CodeBlocks.cbp
 +++ src/CodeBlocks.cbp
 @@ -734,7 +734,6 @@
@@ -1034,7 +1034,7 @@ index dbebddd..4bc7c33 100644
  					<Add directory="..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
 diff --git src/tools/Addr2LineUI/Addr2LineUI.cbp src/tools/Addr2LineUI/Addr2LineUI.cbp
-index 3e57d23..d3772e7 100644
+index ef568e4..6b8ffeb 100644
 --- src/tools/Addr2LineUI/Addr2LineUI.cbp
 +++ src/tools/Addr2LineUI/Addr2LineUI.cbp
 @@ -37,7 +37,6 @@

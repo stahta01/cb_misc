@@ -306,10 +306,10 @@ index ef2272e..03730e3 100644
      #include "infowindow.h"
  #endif
 diff --git src/src/app.cpp src/src/app.cpp
-index 279d7f3..afd5b38 100644
+index 2f40f1c..5fc1668 100644
 --- src/src/app.cpp
 +++ src/src/app.cpp
-@@ -7,44 +7,65 @@
+@@ -7,45 +7,66 @@
   * $HeadURL$
   */
  
@@ -386,6 +386,7 @@ index 279d7f3..afd5b38 100644
 +#include <wx/filefn.h>
 +#include <wx/fs_mem.h>
  #include <wx/ipc.h>
+ #include <wx/msgout.h>
  
 -#include "projectmanagerui.h"
 +// CB SDK headers not in sdk_common.h
@@ -405,7 +406,7 @@ index 279d7f3..afd5b38 100644
  #ifndef __WXMSW__
      #include "prefix.h" // binreloc
  #endif
-@@ -57,11 +78,6 @@
+@@ -58,11 +79,6 @@
  
  #include "appglobals.h"
  

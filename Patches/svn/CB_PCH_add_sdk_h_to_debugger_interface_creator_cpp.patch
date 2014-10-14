@@ -1,6 +1,6 @@
 Index: src/src/debugger_interface_creator.cpp
 ===================================================================
---- src/src/debugger_interface_creator.cpp	(revision 9936)
+--- src/src/debugger_interface_creator.cpp	(revision 9964)
 +++ src/src/debugger_interface_creator.cpp	(working copy)
 @@ -2,13 +2,17 @@
   * This file is part of the Code::Blocks IDE and licensed under the GNU Lesser General Public License, version 3
