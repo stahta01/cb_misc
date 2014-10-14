@@ -27,7 +27,18 @@ if errorlevel 1 (
    echo git checkout returned %errorlevel%
    goto _ABORT
 )
-git.exe svn rebase
+git fetch origin
+git reset --hard origin/master
+
+git pull --rebase origin master
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+) else (
+   git.exe svn rebase
+)
 
 git.exe checkout     build/combinedNoPush --
 if errorlevel 1 (
@@ -37,6 +48,19 @@ if errorlevel 1 (
 REM PAUSE
 git fetch origin
 git reset --hard origin/master
+
+git pull --rebase origin master
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+) else (
+   git.exe svn rebase
+)
+
+git.exe svn info
+    PAUSE
 
 SET PATCH_NAME=CB_mods2_build_template_bugs
 unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
@@ -58,19 +82,11 @@ SET PATCH_NAME=CB_mods2_build_addPCH_wx28_win32
 unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 
-SET PATCH_NAME=CB_project_bug_02_VirtualBuildTargetsDlg
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-
 SET PATCH_NAME=CB_project_bug_03_VirualTarget_Core_app_and_plugins
 unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 
 SET PATCH_NAME=CB_project_bug_07_remove_depends_on_lib_finder
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-
-SET PATCH_NAME=CB_project_bug_11_change_WX_VER_to_WX_VERSION
 unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 
