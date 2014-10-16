@@ -2,9 +2,10 @@ Based on the idea from  http://trac.parrot.org/parrot/wiki/git-svn-tutorial
 
 Warning: I am a Git Newbie; these steps created via trial and error.
 
-Welcome to Git (version 1.9.4-preview20140929)
+Welcome to Git 
 $ git --version
-git version 1.9.4.msysgit.2
+
+git version 1.8.5.2.msysgit.0
 
 
 Step 1: Create clone Mirror as local Repo
@@ -51,11 +52,11 @@ $ mkdir .git/refs/remotes/git-svn-stuff
 
 Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
-commit 4f4016ab24fabcaa6ca851bcf06bc96c46a3efde
+commit c9f7553a2ca477869361006f73ce1c8ad117b1c9
 
 Step 4: Create remotes trunk using hash code
 Replace hash with value returned by the above command
-$ echo 4f4016ab24fabcaa6ca851bcf06bc96c46a3efde > .git/refs/remotes/git-svn-stuff/trunk
+$ echo c9f7553a2ca477869361006f73ce1c8ad117b1c9 > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 5: Verify hash code was created
 $ git show remotes/git-svn-stuff/trunk | head -n 1
