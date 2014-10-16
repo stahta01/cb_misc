@@ -1,5 +1,5 @@
 diff --git src/CodeBlocks.cbp src/CodeBlocks.cbp
-index 20c350f..73629ce 100644
+index c0037e3..29941f7 100644
 --- src/CodeBlocks.cbp
 +++ src/CodeBlocks.cbp
 @@ -734,7 +734,6 @@
