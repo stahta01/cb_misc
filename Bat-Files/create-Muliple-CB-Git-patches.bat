@@ -8,11 +8,11 @@ CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
 
-REM 9990 git svn find-rev 41f8ebf6a5976c6c5fe3351a05b0373cd7fe82d8
-SET GIT_HEAD_COMMIT=41f8ebf6a5976c6c5fe3351a05b0373cd7fe82d8
+REM 9992 git svn find-rev c9f7553a2ca477869361006f73ce1c8ad117b1c9
+SET GIT_HEAD_COMMIT=c9f7553a2ca477869361006f73ce1c8ad117b1c9
 
-REM SET GIT_PUSH_OPTION=--force-with-lease 
-SET GIT_PUSH_OPTION=
+SET GIT_PUSH_OPTION=--force-with-lease 
+REM SET GIT_PUSH_OPTION=
 
 cd %GitHome%\Production\codeblocks_mods2_plugin
 
