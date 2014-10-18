@@ -8,8 +8,8 @@ CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
 
-REM 10000 git svn find-rev 7dc4648eefa6254aa8e0fc787cac05180189db6b
-SET GIT_HEAD_COMMIT=7dc4648eefa6254aa8e0fc787cac05180189db6b
+REM 10001 git svn find-rev 69ba6f7d89af5d0dd982f3c9f86c38e8c4162143
+SET GIT_HEAD_COMMIT=69ba6f7d89af5d0dd982f3c9f86c38e8c4162143
 
 SET GIT_PUSH_OPTION=--force-with-lease 
 REM SET GIT_PUSH_OPTION=
