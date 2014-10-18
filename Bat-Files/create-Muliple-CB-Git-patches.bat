@@ -14,6 +14,8 @@ SET GIT_HEAD_COMMIT=69ba6f7d89af5d0dd982f3c9f86c38e8c4162143
 SET GIT_PUSH_OPTION=--force-with-lease 
 REM SET GIT_PUSH_OPTION=
 
+REM goto codeblocks_mods2_bugfix
+
 cd %GitHome%\Production\codeblocks_mods2_plugin
 
 @echo off
@@ -107,7 +109,7 @@ REM PAUSE
 git.exe checkout master --
 REM PAUSE
 
-
+:codeblocks_mods2_bugfix
 cd %GitHome%\Production\codeblocks_mods2_bugfix
 @echo off
 git diff --exit-code
@@ -159,17 +161,6 @@ if errorlevel 1 (
 ) else (
    git push %GIT_PUSH_OPTION% "origin" build/reorderIncludes:build/reorderIncludes
    git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_reorderIncludes.patch
-)
-
-git.exe checkout     compiler/open_watcom --
-git pull --rebase origin master
-if errorlevel 1 (
-   echo git pull returned %errorlevel%
-   echo aborting rebase
-   git rebase --abort
-) else (
-REM git push %GIT_PUSH_OPTION% "origin" compiler/open_watcom:compiler/open_watcom
-   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_compiler_open_watcom.patch
 )
 
 git.exe checkout master --
