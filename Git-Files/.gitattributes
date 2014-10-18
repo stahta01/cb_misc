@@ -16,15 +16,16 @@
 *.c text eol=lf
 *.h text eol=lf
 *.cxx text eol=lf
+*.cpp text eol=lf
 *.sh text eol=lf
 *.cbp text eol=lf
 .gitattributes text eol=lf
 
-# Denote all files that are NOT truly binary; but, it works best to treat them
-# as binary.
-.gitignore binary
-*.bat binary
-src/sdk/filemanager.cpp binary
+# Denote all files that are NOT truly binary; 
+# but, it works around a bug as binary.
+# .gitignore binary
+# *.bat binary
+# src/sdk/filemanager.cpp binary
 
 # Denote all files that are truly binary and should not be modified.
 *.png binary
