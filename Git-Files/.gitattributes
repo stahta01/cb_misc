@@ -1,7 +1,9 @@
-*.dll -crlf -diff
+*.dll binary
 *.zip -crlf -diff
-*.h -crlf
-*.c -crlf
-*.cpp -crlf
+*.h eol=lf
+*.c eol=lf
+*.cpp eol=lf
+*.cxx eol=lf
 *.sh eol=lf
-*.cbp eol=crlf
+*.cbp eol=lf
+*.fbp auto eol=crlf
