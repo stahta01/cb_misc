@@ -63,7 +63,7 @@ git.exe svn info
 REM PAUSE
 
 SET PATCH_NAME=CB_mods2_build_template_bugs
-git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
+git apply --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 
 SET PATCH_NAME=CB_mods2_build_bats
@@ -73,19 +73,19 @@ patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patche
 REM PAUSE
 
 SET PATCH_NAME=CB_mods2_plugin_wxContribItems
-git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
+git apply --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_mods2_plugin_ToolsPlus
-git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
+git apply --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_mods2_build_addPCH_wx28_win32
-git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
+git apply --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_project_bug_03_VirualTarget_Core_app_and_plugins
-git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
+git apply --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_project_bug_07_remove_depends_on_lib_finder
-git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
+git apply --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 REM SET PATCH_NAME=CB_mods2_build_reorderIncludes
 REM unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch

@@ -43,7 +43,7 @@ if errorlevel 1 (
    git rebase --abort
 ) else (
    git push %GIT_PUSH_OPTION% "origin" plugin/ToolsPlus:plugin/ToolsPlus
-   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_ToolsPlus.patch
+   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_ToolsPlus.patch
 )
 
 git.exe checkout     plugin/wxContribItems --
@@ -54,7 +54,7 @@ if errorlevel 1 (
    git rebase --abort
 ) else (
    git push %GIT_PUSH_OPTION% "origin" plugin/wxContribItems:plugin/wxContribItems
-   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_wxContribItems.patch
+   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_wxContribItems.patch
 )
 
 git.exe checkout master --
@@ -88,7 +88,7 @@ if errorlevel 1 (
    git rebase --abort
 ) else (
    git push %GIT_PUSH_OPTION% "origin" build/addPCH_wx28_win32:build/addPCH_wx28_win32
-   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_addPCH_wx28_win32.patch
+   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_addPCH_wx28_win32.patch
 )
 REM PAUSE
 
@@ -100,7 +100,7 @@ if errorlevel 1 (
    git rebase --abort
 ) else (
    git push %GIT_PUSH_OPTION% "origin" build/cbPCHeadersFixed:build/cbPCHeadersFixed
-   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_cbPCHeadersFixed.patch
+   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_cbPCHeadersFixed.patch
 )
 REM PAUSE
 
@@ -136,7 +136,7 @@ if errorlevel 1 (
    git rebase --abort
 ) else (
    git push %GIT_PUSH_OPTION% "origin" build/template_bugs:build/template_bugs
-   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_template_bugs.patch
+   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_template_bugs.patch
 )
 
 git.exe checkout     build/scripts --
@@ -147,7 +147,7 @@ if errorlevel 1 (
    git rebase --abort
 ) else (
    git push %GIT_PUSH_OPTION% "origin" build/scripts:build/scripts
-   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_scripts.patch
+   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_scripts.patch
 )
 
 git.exe checkout     build/reorderIncludes --
@@ -158,7 +158,7 @@ if errorlevel 1 (
    git rebase --abort
 ) else (
    git push %GIT_PUSH_OPTION% "origin" build/reorderIncludes:build/reorderIncludes
-   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_reorderIncludes.patch
+   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_reorderIncludes.patch
 )
 
 git.exe checkout     compiler/open_watcom --
@@ -169,7 +169,7 @@ if errorlevel 1 (
    git rebase --abort
 ) else (
 REM git push %GIT_PUSH_OPTION% "origin" compiler/open_watcom:compiler/open_watcom
-   git diff --diff-filter=M --no-prefix %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_compiler_open_watcom.patch
+   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_compiler_open_watcom.patch
 )
 
 git.exe checkout master --
