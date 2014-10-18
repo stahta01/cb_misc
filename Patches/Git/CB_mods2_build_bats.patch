@@ -1,0 +1,69 @@
+diff --git src/plugins/contrib/IncrementalSearch/update.bat src/plugins/contrib/IncrementalSearch/update.bat
+index 353acad..8a18de5 100644
+--- src/plugins/contrib/IncrementalSearch/update.bat
++++ src/plugins/contrib/IncrementalSearch/update.bat
+@@ -11,8 +11,6 @@ rem $HeadURL: https://mortenmacfly@svn.berlios.de/svnroot/repos/codeblocks/trunk
+ rem
+ 
+ md ..\..\..\devel\share\CodeBlocks\images\settings > nul 2>&1
+-md ..\..\..\output\share\CodeBlocks\images\settings > nul 2>&1
+ copy .\*.png ..\..\..\devel\share\CodeBlocks\images\settings\ > nul 2>&1
+-copy .\*.png ..\..\..\output\share\CodeBlocks\images\settings\ > nul 2>&1
+ exit 0
+ 
+diff --git src/plugins/contrib/ToolsPlus/update.bat src/plugins/contrib/ToolsPlus/update.bat
+index 25f4898..1016e3f 100644
+--- src/plugins/contrib/ToolsPlus/update.bat
++++ src/plugins/contrib/ToolsPlus/update.bat
+@@ -1,6 +1,4 @@
+ @echo off
+ md ..\..\..\devel\share\CodeBlocks\images\settings > nul 2>&1
+-md ..\..\..\output\share\CodeBlocks\images\settings > nul 2>&1
+ copy .\Resources\*.png ..\..\..\devel\share\CodeBlocks\images\settings\ > nul 2>&1
+-copy .\Resources\*.png ..\..\..\output\share\CodeBlocks\images\settings\ > nul 2>&1
+ exit 0
+diff --git src/update.bat src/update.bat
+index f9d215b..68af514 100644
+--- src/update.bat
++++ src/update.bat
+@@ -91,10 +91,6 @@ echo \.svn\      >> excludes.txt
+ echo *.gdb       >> excludes.txt
+ xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_DEVEL_RESDIR%\templates\wizard /EXCLUDE:excludes.txt >nul
+ xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_OUTPUT_RESDIR%\templates\wizard /EXCLUDE:excludes.txt >nul
+-xcopy /D /y templates\common\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes.txt > nul
+-xcopy /D /y templates\win32\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes.txt > nul
+-xcopy /D /y templates\common\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes.txt > nul
+-xcopy /D /y templates\win32\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes.txt > nul
+ xcopy /D /y scripts\*.gdb %CB_OUTPUT_RESDIR% > nul
+ xcopy /D /y scripts\* %CB_DEVEL_RESDIR%\scripts /EXCLUDE:excludes.txt > nul
+ xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes.txt > nul
+diff --git src/update30.bat src/update30.bat
+index 3c63c75..531cad3 100644
+--- src/update30.bat
++++ src/update30.bat
+@@ -91,10 +91,6 @@ echo \.svn\      >> excludes30.txt
+ echo *.gdb       >> excludes30.txt
+ xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_DEVEL_RESDIR%\templates\wizard /EXCLUDE:excludes30.txt >nul
+ xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_OUTPUT_RESDIR%\templates\wizard /EXCLUDE:excludes30.txt >nul
+-xcopy /D /y templates\common\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes30.txt > nul
+-xcopy /D /y templates\win32\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes30.txt > nul
+-xcopy /D /y templates\common\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes30.txt > nul
+-xcopy /D /y templates\win32\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes30.txt > nul
+ xcopy /D /y scripts\*.gdb %CB_OUTPUT_RESDIR% > nul
+ xcopy /D /y scripts\* %CB_DEVEL_RESDIR%\scripts /EXCLUDE:excludes30.txt > nul
+ xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes30.txt > nul
+diff --git src/update30_64.bat src/update30_64.bat
+index 84380bd..0cebaa2 100644
+--- src/update30_64.bat
++++ src/update30_64.bat
+@@ -91,10 +91,6 @@ echo \.svn\      >> excludes30_64.txt
+ echo *.gdb       >> excludes30_64.txt
+ xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_DEVEL_RESDIR%\templates\wizard /EXCLUDE:excludes30_64.txt >nul
+ xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_OUTPUT_RESDIR%\templates\wizard /EXCLUDE:excludes30_64.txt >nul
+-xcopy /D /y templates\common\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes30_64.txt > nul
+-xcopy /D /y templates\win32\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes30_64.txt > nul
+-xcopy /D /y templates\common\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes30_64.txt > nul
+-xcopy /D /y templates\win32\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes30_64.txt > nul
+ xcopy /D /y scripts\*.gdb %CB_OUTPUT_RESDIR% > nul
+ xcopy /D /y scripts\* %CB_DEVEL_RESDIR%\scripts /EXCLUDE:excludes30_64.txt > nul
+ xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes30_64.txt > nul
