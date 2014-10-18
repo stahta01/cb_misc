@@ -66,9 +66,9 @@ SET PATCH_NAME=CB_mods2_build_template_bugs
 git apply --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 
-SET PATCH_NAME=CB_mods2_build_bats
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+REM SET PATCH_NAME=CB_mods2_build_bats
+REM unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+REM patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 
 REM PAUSE
 
