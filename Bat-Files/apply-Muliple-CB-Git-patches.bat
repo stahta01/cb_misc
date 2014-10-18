@@ -63,32 +63,27 @@ git.exe svn info
 REM PAUSE
 
 SET PATCH_NAME=CB_mods2_build_template_bugs
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_mods2_build_scripts
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
+
+REM PAUSE
 
 SET PATCH_NAME=CB_mods2_plugin_wxContribItems
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_mods2_plugin_ToolsPlus
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_mods2_build_addPCH_wx28_win32
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_project_bug_03_VirualTarget_Core_app_and_plugins
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 SET PATCH_NAME=CB_project_bug_07_remove_depends_on_lib_finder
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+git apply -p0 --reject %PATCHES%\Patches\git\%PATCH_NAME%.patch
 
 REM SET PATCH_NAME=CB_mods2_build_reorderIncludes
 REM unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
