@@ -1,31 +1,13 @@
-diff --git src/plugins/contrib/IncrementalSearch/update.bat src/plugins/contrib/IncrementalSearch/update.bat
+diff --git a/src/plugins/contrib/IncrementalSearch/update.bat b/src/plugins/contrib/IncrementalSearch/update.bat
 index 353acad..8a18de5 100644
---- src/plugins/contrib/IncrementalSearch/update.bat
-+++ src/plugins/contrib/IncrementalSearch/update.bat
-@@ -11,8 +11,6 @@ rem $HeadURL: https://mortenmacfly@svn.berlios.de/svnroot/repos/codeblocks/trunk
- rem
- 
- md ..\..\..\devel\share\CodeBlocks\images\settings > nul 2>&1
--md ..\..\..\output\share\CodeBlocks\images\settings > nul 2>&1
- copy .\*.png ..\..\..\devel\share\CodeBlocks\images\settings\ > nul 2>&1
--copy .\*.png ..\..\..\output\share\CodeBlocks\images\settings\ > nul 2>&1
- exit 0
- 
-diff --git src/plugins/contrib/ToolsPlus/update.bat src/plugins/contrib/ToolsPlus/update.bat
+Binary files a/src/plugins/contrib/IncrementalSearch/update.bat and b/src/plugins/contrib/IncrementalSearch/update.bat differ
+diff --git a/src/plugins/contrib/ToolsPlus/update.bat b/src/plugins/contrib/ToolsPlus/update.bat
 index 25f4898..1016e3f 100644
---- src/plugins/contrib/ToolsPlus/update.bat
-+++ src/plugins/contrib/ToolsPlus/update.bat
-@@ -1,6 +1,4 @@
- @echo off
- md ..\..\..\devel\share\CodeBlocks\images\settings > nul 2>&1
--md ..\..\..\output\share\CodeBlocks\images\settings > nul 2>&1
- copy .\Resources\*.png ..\..\..\devel\share\CodeBlocks\images\settings\ > nul 2>&1
--copy .\Resources\*.png ..\..\..\output\share\CodeBlocks\images\settings\ > nul 2>&1
- exit 0
-diff --git src/update src/update
+Binary files a/src/plugins/contrib/ToolsPlus/update.bat and b/src/plugins/contrib/ToolsPlus/update.bat differ
+diff --git a/src/update b/src/update
 index 31061b7..c6a0cf4 100755
---- src/update
-+++ src/update
+--- a/src/update
++++ b/src/update
 @@ -131,10 +131,6 @@ cp -f devel/share/codeblocks/images/settings/*.png output/share/codeblocks/image
  
  rsync -au --exclude-from=excludes.txt plugins/scriptedwizard/resources/ ${RESDIR}/templates/wizard > /dev/null
@@ -37,25 +19,13 @@ index 31061b7..c6a0cf4 100755
  cp -f scripts/*.script ${RESDIR}/scripts > /dev/null
  cp -f scripts/*.script output/share/codeblocks/scripts > /dev/null
  cp -f scripts/*.gdb ${RESDIR}/scripts > /dev/null
-diff --git src/update.bat src/update.bat
+diff --git a/src/update.bat b/src/update.bat
 index f9d215b..68af514 100644
---- src/update.bat
-+++ src/update.bat
-@@ -91,10 +91,6 @@ echo \.svn\      >> excludes.txt
- echo *.gdb       >> excludes.txt
- xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_DEVEL_RESDIR%\templates\wizard /EXCLUDE:excludes.txt >nul
- xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_OUTPUT_RESDIR%\templates\wizard /EXCLUDE:excludes.txt >nul
--xcopy /D /y templates\common\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes.txt > nul
--xcopy /D /y templates\win32\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes.txt > nul
--xcopy /D /y templates\common\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes.txt > nul
--xcopy /D /y templates\win32\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes.txt > nul
- xcopy /D /y scripts\*.gdb %CB_OUTPUT_RESDIR% > nul
- xcopy /D /y scripts\* %CB_DEVEL_RESDIR%\scripts /EXCLUDE:excludes.txt > nul
- xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes.txt > nul
-diff --git src/update30 src/update30
+Binary files a/src/update.bat and b/src/update.bat differ
+diff --git a/src/update30 b/src/update30
 index a26ec93..9304800 100755
---- src/update30
-+++ src/update30
+--- a/src/update30
++++ b/src/update30
 @@ -93,10 +93,6 @@ cp -f plugins/compilergcc/resources/compilers/*.xml output30/share/codeblocks/co
  
  rsync -au --exclude-from=excludes.txt plugins/scriptedwizard/resources/ ${RESDIR}/templates/wizard > /dev/null
@@ -67,33 +37,9 @@ index a26ec93..9304800 100755
  cp -f scripts/*.script ${RESDIR}/scripts > /dev/null
  cp -f scripts/*.script output30/share/codeblocks/scripts > /dev/null
  cp -f scripts/*.gdb ${RESDIR}/scripts > /dev/null
-diff --git src/update30.bat src/update30.bat
+diff --git a/src/update30.bat b/src/update30.bat
 index 3c63c75..531cad3 100644
---- src/update30.bat
-+++ src/update30.bat
-@@ -91,10 +91,6 @@ echo \.svn\      >> excludes30.txt
- echo *.gdb       >> excludes30.txt
- xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_DEVEL_RESDIR%\templates\wizard /EXCLUDE:excludes30.txt >nul
- xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_OUTPUT_RESDIR%\templates\wizard /EXCLUDE:excludes30.txt >nul
--xcopy /D /y templates\common\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes30.txt > nul
--xcopy /D /y templates\win32\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes30.txt > nul
--xcopy /D /y templates\common\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes30.txt > nul
--xcopy /D /y templates\win32\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes30.txt > nul
- xcopy /D /y scripts\*.gdb %CB_OUTPUT_RESDIR% > nul
- xcopy /D /y scripts\* %CB_DEVEL_RESDIR%\scripts /EXCLUDE:excludes30.txt > nul
- xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes30.txt > nul
-diff --git src/update30_64.bat src/update30_64.bat
+Binary files a/src/update30.bat and b/src/update30.bat differ
+diff --git a/src/update30_64.bat b/src/update30_64.bat
 index 84380bd..0cebaa2 100644
---- src/update30_64.bat
-+++ src/update30_64.bat
-@@ -91,10 +91,6 @@ echo \.svn\      >> excludes30_64.txt
- echo *.gdb       >> excludes30_64.txt
- xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_DEVEL_RESDIR%\templates\wizard /EXCLUDE:excludes30_64.txt >nul
- xcopy /D /y /s plugins\scriptedwizard\resources\* %CB_OUTPUT_RESDIR%\templates\wizard /EXCLUDE:excludes30_64.txt >nul
--xcopy /D /y templates\common\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes30_64.txt > nul
--xcopy /D /y templates\win32\* %CB_OUTPUT_RESDIR%\templates /EXCLUDE:excludes30_64.txt > nul
--xcopy /D /y templates\common\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes30_64.txt > nul
--xcopy /D /y templates\win32\* %CB_DEVEL_RESDIR%\templates /EXCLUDE:excludes30_64.txt > nul
- xcopy /D /y scripts\*.gdb %CB_OUTPUT_RESDIR% > nul
- xcopy /D /y scripts\* %CB_DEVEL_RESDIR%\scripts /EXCLUDE:excludes30_64.txt > nul
- xcopy /D /y scripts\* %CB_OUTPUT_RESDIR%\scripts /EXCLUDE:excludes30_64.txt > nul
+Binary files a/src/update30_64.bat and b/src/update30_64.bat differ
