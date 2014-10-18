@@ -1,0 +1,107 @@
+$ git config core.eol lf
+$ git config core.autocrlf input
+
+local .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	hideDotFiles = dotGitOnly
+	eol = lf
+	autocrlf = input
+[remote "upstream"]
+	url = git://cb.biplab.in/codeblocks.git
+	fetch = +refs/heads/*:refs/remotes/upstream/*
+[branch "master"]
+	remote = upstream
+	merge = refs/heads/master
+	rebase = true
+	pushbranch = master
+	pushremote = origin
+[svn-remote "svn"]
+	url = http://svn.code.sf.net/p/codeblocks/code
+	fetch = trunk:refs/remotes/git-svn-stuff/trunk
+[master]
+	rebase = true
+[remote]
+[remote "origin"]
+	url = https://stahta01@github.com/stahta01/codeblocks_mods.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "build/template_bugs"]
+	rebase = true
+	pushbranch = build/template_bugs
+	pushremote = origin
+	remote = origin
+	merge = refs/heads/build/template_bugs
+[branch "build/winOsOnlyFixes"]
+	remote = origin
+	merge = refs/heads/build/winOsOnlyFixes
+	rebase = true
+	pushbranch = build/winOsOnlyFixes
+	pushremote = origin
+[branch "build/project_bugs"]
+	remote = origin
+	merge = refs/heads/build/project_bugs
+	rebase = true
+[branch "build/reorderIncludes"]
+	pushbranch = build/reorderIncludes
+	pushremote = origin
+	remote = origin
+	merge = refs/heads/build/reorderIncludes
+	rebase = true
+[branch "build/scripts"]
+	pushbranch = build/scripts
+	pushremote = origin
+	remote = origin
+	merge = refs/heads/build/scripts
+	rebase = true
+[branch "build/project_missing_file"]
+	remote = origin
+	merge = refs/heads/build/project_missing_file
+	rebase = true
+[credential]
+	helper = cache --timeout=30000
+[branch "build/combinedNoPush"]
+	remote = origin
+	merge = refs/heads/master
+	rebase = true
+
+global .gitconfig
+[user]
+	name = Tim S
+	email = stahta01@users.sourceforge.net
+[core]
+	autocrlf = false
+	safecrlf = true
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = true
+[credential]
+	helper = !'C:\\Users\\stahta01\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+
+System wide gitconfig
+[core]
+	symlinks = false
+	autocrlf = input
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = true
+[pack]
+	packSizeLimit = 2g
+[help]
+	format = html
+[http]
+	sslCAinfo = /bin/curl-ca-bundle.crt
+[sendemail]
+	smtpserver = /bin/msmtp.exe
+
+[diff "astextplain"]
+	textconv = astextplain
+[rebase]
+	autosquash = true
