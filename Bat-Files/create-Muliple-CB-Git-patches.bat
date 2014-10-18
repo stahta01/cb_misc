@@ -37,16 +37,6 @@ echo git pull returned %errorlevel%
 git reset --hard origin/master
 REM PAUSE
 
-git.exe checkout     plugin/ToolsPlus --
-git pull --rebase origin master
-if errorlevel 1 (
-   echo git pull returned %errorlevel%
-   echo aborting rebase
-   git rebase --abort
-) else (
-   git push %GIT_PUSH_OPTION% "origin" plugin/ToolsPlus:plugin/ToolsPlus
-   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_plugin_ToolsPlus.patch
-)
 
 git.exe checkout     plugin/wxContribItems --
 git pull --rebase origin master
@@ -151,19 +141,6 @@ if errorlevel 1 (
    git push %GIT_PUSH_OPTION% "origin" build/scripts:build/scripts
    git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_scripts.patch
 )
-
-git.exe checkout     build/reorderIncludes --
-git pull --rebase origin master
-if errorlevel 1 (
-   echo git pull returned %errorlevel%
-   echo aborting rebase
-   git rebase --abort
-) else (
-   git push %GIT_PUSH_OPTION% "origin" build/reorderIncludes:build/reorderIncludes
-   git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_reorderIncludes.patch
-)
-
-git.exe checkout master --
 
 PAUSE
 GOTO EOF
