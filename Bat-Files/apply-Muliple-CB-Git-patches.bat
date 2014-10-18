@@ -60,7 +60,7 @@ if errorlevel 1 (
 )
 
 git.exe svn info
-    PAUSE
+REM PAUSE
 
 SET PATCH_NAME=CB_mods2_build_template_bugs
 unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
@@ -90,9 +90,9 @@ SET PATCH_NAME=CB_project_bug_07_remove_depends_on_lib_finder
 unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 
-SET PATCH_NAME=CB_mods2_build_reorderIncludes
-unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
-patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+REM SET PATCH_NAME=CB_mods2_build_reorderIncludes
+REM unix2dos < %PATCHES%\Patches\git\%PATCH_NAME%.patch > %PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
+REM patch --unified --strip=0 --ignore-whitespace --forward --input=%PATCHES%\Patches\temp\%PATCH_NAME%-CRLF.patch
 
 git commit -am "Commit apply-Muliple-CB-Git-patches.bat changes."
 
