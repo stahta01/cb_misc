@@ -1,5 +1,6 @@
 $ git config core.eol lf
 $ git config core.autocrlf input
+$ git config core.safecrlf true
 
 local .git/config
 [core]
@@ -12,6 +13,7 @@ local .git/config
 	hideDotFiles = dotGitOnly
 	eol = lf
 	autocrlf = input
+	safecrlf = true
 [remote "upstream"]
 	url = git://cb.biplab.in/codeblocks.git
 	fetch = +refs/heads/*:refs/remotes/upstream/*
