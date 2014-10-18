@@ -1,7 +1,7 @@
-diff --git src/CodeBlocks.cbp src/CodeBlocks.cbp
+diff --git a/src/CodeBlocks.cbp b/src/CodeBlocks.cbp
 index c0037e3..29941f7 100644
---- src/CodeBlocks.cbp
-+++ src/CodeBlocks.cbp
+--- a/src/CodeBlocks.cbp
++++ b/src/CodeBlocks.cbp
 @@ -734,7 +734,6 @@
  			<Add option="-DWXUSINGDLL" />
  			<Add option="-DcbDEBUG" />
@@ -10,10 +10,10 @@ index c0037e3..29941f7 100644
  			<Add option="-DwxUSE_UNICODE" />
  			<Add directory="$(#WX.include)" />
  			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
-diff --git src/plugins/contrib/AutoVersioning/AutoVersioning.cbp src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
 index d14d29f..21c6317 100644
---- src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
-+++ src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
 @@ -26,8 +26,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -24,10 +24,10 @@ index d14d29f..21c6317 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
-diff --git src/plugins/contrib/AutoVersioning/AutoVersioning.cpp src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning.cpp b/src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
 index f8603df..2173bfd 100644
---- src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
-+++ src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
 @@ -1,6 +1,8 @@
 +// sdk.h must be the first include in the file to work as a PCH
 +#include <sdk.h>
@@ -38,10 +38,10 @@ index f8603df..2173bfd 100644
  
  #ifndef CB_PRECOMP
  #include <wx/dynarray.h>
-diff --git src/plugins/contrib/BrowseTracker/BrowseTracker.cbp src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
 index 5e1f882..5f5c905 100644
---- src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
-+++ src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
 @@ -28,9 +28,9 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -53,10 +53,10 @@ index 5e1f882..5f5c905 100644
  					<Add directory="../../../include" />
  					<Add directory="../../../sdk/wxscintilla/include" />
  					<Add directory="$(#WX.include)" />
-diff --git src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp b/src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
 index a08f1f2..49a5cf3 100644
---- src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
-+++ src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
+--- a/src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
 @@ -30,7 +30,7 @@
  * $HeadURL$
  */
@@ -66,10 +66,10 @@ index a08f1f2..49a5cf3 100644
  #include "BrowseTrackerLayout.h"
  
  #ifndef CB_PRECOMP
-diff --git src/plugins/contrib/Cccc/Cccc.cbp src/plugins/contrib/Cccc/Cccc.cbp
+diff --git a/src/plugins/contrib/Cccc/Cccc.cbp b/src/plugins/contrib/Cccc/Cccc.cbp
 index 590aa74..cec43e4 100644
---- src/plugins/contrib/Cccc/Cccc.cbp
-+++ src/plugins/contrib/Cccc/Cccc.cbp
+--- a/src/plugins/contrib/Cccc/Cccc.cbp
++++ b/src/plugins/contrib/Cccc/Cccc.cbp
 @@ -31,12 +31,12 @@
  			<Add option="-fexceptions" />
  			<Add option="-DBUILDING_PLUGIN" />
@@ -84,10 +84,10 @@ index 590aa74..cec43e4 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="$(#WX.INCLUDE)" />
-diff --git src/plugins/contrib/CppCheck/CppCheck.cbp src/plugins/contrib/CppCheck/CppCheck.cbp
+diff --git a/src/plugins/contrib/CppCheck/CppCheck.cbp b/src/plugins/contrib/CppCheck/CppCheck.cbp
 index 4abd895..668d72b 100644
---- src/plugins/contrib/CppCheck/CppCheck.cbp
-+++ src/plugins/contrib/CppCheck/CppCheck.cbp
+--- a/src/plugins/contrib/CppCheck/CppCheck.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck.cbp
 @@ -31,12 +31,12 @@
  			<Add option="-fexceptions" />
  			<Add option="-DBUILDING_PLUGIN" />
@@ -102,10 +102,10 @@ index 4abd895..668d72b 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="$(#WX.INCLUDE)" />
-diff --git src/plugins/contrib/Cscope/Cscope.cbp src/plugins/contrib/Cscope/Cscope.cbp
+diff --git a/src/plugins/contrib/Cscope/Cscope.cbp b/src/plugins/contrib/Cscope/Cscope.cbp
 index 6865c0c..852ff4e 100644
---- src/plugins/contrib/Cscope/Cscope.cbp
-+++ src/plugins/contrib/Cscope/Cscope.cbp
+--- a/src/plugins/contrib/Cscope/Cscope.cbp
++++ b/src/plugins/contrib/Cscope/Cscope.cbp
 @@ -31,7 +31,6 @@
  			<Add option="-Winvalid-pch" />
  			<Add option="-DBUILDING_PLUGIN" />
@@ -122,10 +122,10 @@ index 6865c0c..852ff4e 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  		</Compiler>
-diff --git src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
 index b838ea1..8e8b211 100644
---- src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
-+++ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
 @@ -22,14 +22,15 @@
  					<Add option="-mthreads" />
  					<Add option="-fmessage-length=0" />
@@ -143,10 +143,10 @@ index b838ea1..8e8b211 100644
  					<Add directory="../../../include" />
  					<Add directory="../../../sdk/wxscintilla/include" />
  					<Add directory="$(#wx.include)" />
-diff --git src/plugins/contrib/EditorConfig/EditorConfig.cbp src/plugins/contrib/EditorConfig/EditorConfig.cbp
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig.cbp b/src/plugins/contrib/EditorConfig/EditorConfig.cbp
 index 461a9df..fb90b2c 100644
---- src/plugins/contrib/EditorConfig/EditorConfig.cbp
-+++ src/plugins/contrib/EditorConfig/EditorConfig.cbp
+--- a/src/plugins/contrib/EditorConfig/EditorConfig.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig.cbp
 @@ -28,8 +28,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -157,10 +157,10 @@ index 461a9df..fb90b2c 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#wx.include)" />
-diff --git src/plugins/contrib/EditorTweaks/EditorTweaks.cbp src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
 index 20d7c2d..052386d 100644
---- src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
-+++ src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
 @@ -28,8 +28,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -171,10 +171,10 @@ index 20d7c2d..052386d 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#wx.include)" />
-diff --git src/plugins/contrib/HexEditor/HexEditor.cbp src/plugins/contrib/HexEditor/HexEditor.cbp
+diff --git a/src/plugins/contrib/HexEditor/HexEditor.cbp b/src/plugins/contrib/HexEditor/HexEditor.cbp
 index 1f56562..b685bd3 100644
---- src/plugins/contrib/HexEditor/HexEditor.cbp
-+++ src/plugins/contrib/HexEditor/HexEditor.cbp
+--- a/src/plugins/contrib/HexEditor/HexEditor.cbp
++++ b/src/plugins/contrib/HexEditor/HexEditor.cbp
 @@ -27,10 +27,10 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -187,10 +187,10 @@ index 1f56562..b685bd3 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  				</Compiler>
-diff --git src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
 index 9e30670..96a15dc 100644
---- src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
-+++ src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
 @@ -27,8 +27,8 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -201,10 +201,10 @@ index 9e30670..96a15dc 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
-diff --git src/plugins/contrib/MouseSap/MouseSap.cbp src/plugins/contrib/MouseSap/MouseSap.cbp
+diff --git a/src/plugins/contrib/MouseSap/MouseSap.cbp b/src/plugins/contrib/MouseSap/MouseSap.cbp
 index 9e70e2d..d9107b0 100644
---- src/plugins/contrib/MouseSap/MouseSap.cbp
-+++ src/plugins/contrib/MouseSap/MouseSap.cbp
+--- a/src/plugins/contrib/MouseSap/MouseSap.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap.cbp
 @@ -23,7 +23,6 @@
  					<Add option="-fexceptions" />
  					<Add option="-DBUILDING_PLUGIN" />
@@ -221,10 +221,10 @@ index 9e70e2d..d9107b0 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  				</Compiler>
-diff --git src/plugins/contrib/MouseSap/MouseSap.cpp src/plugins/contrib/MouseSap/MouseSap.cpp
+diff --git a/src/plugins/contrib/MouseSap/MouseSap.cpp b/src/plugins/contrib/MouseSap/MouseSap.cpp
 index 32ccd6e..089f9ee 100644
---- src/plugins/contrib/MouseSap/MouseSap.cpp
-+++ src/plugins/contrib/MouseSap/MouseSap.cpp
+--- a/src/plugins/contrib/MouseSap/MouseSap.cpp
++++ b/src/plugins/contrib/MouseSap/MouseSap.cpp
 @@ -11,11 +11,6 @@
  // If no selected text, paste clipboard data at cursor position
  // If selected text, and user switches editors, copy selection to clipboard
@@ -237,10 +237,10 @@ index 32ccd6e..089f9ee 100644
  #include <sdk.h>
  #ifndef CB_PRECOMP
      #include <wx/app.h>
-diff --git src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp b/src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
 index fdc3822..0c5a310 100644
---- src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
-+++ src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
+--- a/src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
++++ b/src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
 @@ -1,8 +1,9 @@
 +// sdk.h must be the first include in the file to work as a PCH
 +#include <sdk.h> // Code::Blocks SDK
@@ -253,10 +253,10 @@ index fdc3822..0c5a310 100644
  #ifndef CB_PRECOMP
      #include <cbeditor.h>
  #endif
-diff --git src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
 index 37bc276..d076902 100644
---- src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
-+++ src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
 @@ -28,8 +28,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -267,10 +267,10 @@ index 37bc276..d076902 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#wx.include)" />
-diff --git src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
 index e2687fa..527c7c1 100644
---- src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
-+++ src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
 @@ -34,14 +34,15 @@
  			<Add option="-fmessage-length=0" />
  			<Add option="-fexceptions" />
@@ -288,10 +288,10 @@ index e2687fa..527c7c1 100644
  			<Add directory="../../../include" />
  			<Add directory="../../../sdk/wxscintilla/include" />
  			<Add directory="$(#WX.include)" />
-diff --git src/plugins/contrib/ReopenEditor/ReopenEditor.cbp src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
 index e2102ac..d6c95e3 100644
---- src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
-+++ src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
 @@ -27,8 +27,8 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -302,10 +302,10 @@ index e2102ac..d6c95e3 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="$(#WX.include)" />
  					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
-diff --git src/plugins/contrib/SmartIndent/SmartIndent.cbp src/plugins/contrib/SmartIndent/SmartIndent.cbp
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent.cbp b/src/plugins/contrib/SmartIndent/SmartIndent.cbp
 index da6c9b6..2b49d00 100644
---- src/plugins/contrib/SmartIndent/SmartIndent.cbp
-+++ src/plugins/contrib/SmartIndent/SmartIndent.cbp
+--- a/src/plugins/contrib/SmartIndent/SmartIndent.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent.cbp
 @@ -172,9 +172,8 @@
  			<Add option="-DWXUSINGDLL" />
  			<Add option="-DcbDEBUG" />
@@ -317,10 +317,10 @@ index da6c9b6..2b49d00 100644
  			<Add directory="../../../include" />
  			<Add directory="../../../sdk/wxscintilla/include" />
  			<Add directory="$(#wx.include)" />
-diff --git src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp b/src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp
 index e0d9017..0fe06b9 100644
---- src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp
-+++ src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp
+--- a/src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp
++++ b/src/plugins/contrib/SmartIndent/SmartIndentHDL.cpp
 @@ -1,7 +1,8 @@
 -#include "SmartIndentHDL.h"
 -
@@ -332,10 +332,10 @@ index e0d9017..0fe06b9 100644
  #ifndef CB_PRECOMP
      #include <cbeditor.h>
      #include <configmanager.h>
-diff --git src/plugins/contrib/SmartIndent/SmartIndentLua.cpp src/plugins/contrib/SmartIndent/SmartIndentLua.cpp
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentLua.cpp b/src/plugins/contrib/SmartIndent/SmartIndentLua.cpp
 index 2f45c77..34579b5 100644
---- src/plugins/contrib/SmartIndent/SmartIndentLua.cpp
-+++ src/plugins/contrib/SmartIndent/SmartIndentLua.cpp
+--- a/src/plugins/contrib/SmartIndent/SmartIndentLua.cpp
++++ b/src/plugins/contrib/SmartIndent/SmartIndentLua.cpp
 @@ -1,7 +1,8 @@
 -#include "SmartIndentLua.h"
 -
@@ -347,10 +347,10 @@ index 2f45c77..34579b5 100644
  #ifndef CB_PRECOMP
      #include <cbeditor.h>
      #include <configmanager.h>
-diff --git src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp b/src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp
 index 8253d64..df8392f 100644
---- src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp
-+++ src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp
+--- a/src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp
++++ b/src/plugins/contrib/SmartIndent/SmartIndentPascal.cpp
 @@ -1,7 +1,8 @@
 -#include "SmartIndentPascal.h"
 -
@@ -362,10 +362,10 @@ index 8253d64..df8392f 100644
  #ifndef CB_PRECOMP
      #include <cbeditor.h>
      #include <configmanager.h>
-diff --git src/plugins/contrib/SmartIndent/SmartIndentPython.cpp src/plugins/contrib/SmartIndent/SmartIndentPython.cpp
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentPython.cpp b/src/plugins/contrib/SmartIndent/SmartIndentPython.cpp
 index 5bb733d..0cf761c 100644
---- src/plugins/contrib/SmartIndent/SmartIndentPython.cpp
-+++ src/plugins/contrib/SmartIndent/SmartIndentPython.cpp
+--- a/src/plugins/contrib/SmartIndent/SmartIndentPython.cpp
++++ b/src/plugins/contrib/SmartIndent/SmartIndentPython.cpp
 @@ -1,7 +1,8 @@
 -#include "SmartIndentPython.h"
 -
@@ -377,10 +377,10 @@ index 5bb733d..0cf761c 100644
  #ifndef CB_PRECOMP
      #include <cbeditor.h>
      #include <configmanager.h>
-diff --git src/plugins/contrib/SmartIndent/SmartIndentXML.cpp src/plugins/contrib/SmartIndent/SmartIndentXML.cpp
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentXML.cpp b/src/plugins/contrib/SmartIndent/SmartIndentXML.cpp
 index bb010b9..8c681b9 100644
---- src/plugins/contrib/SmartIndent/SmartIndentXML.cpp
-+++ src/plugins/contrib/SmartIndent/SmartIndentXML.cpp
+--- a/src/plugins/contrib/SmartIndent/SmartIndentXML.cpp
++++ b/src/plugins/contrib/SmartIndent/SmartIndentXML.cpp
 @@ -1,7 +1,8 @@
 -#include "SmartIndentXML.h"
 -
@@ -392,10 +392,10 @@ index bb010b9..8c681b9 100644
  #ifndef CB_PRECOMP
      #include <cbeditor.h>
      #include <configmanager.h>
-diff --git src/plugins/contrib/SpellChecker/SpellChecker.cbp src/plugins/contrib/SpellChecker/SpellChecker.cbp
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker.cbp b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
 index 8e4ee90..756f8a2 100644
---- src/plugins/contrib/SpellChecker/SpellChecker.cbp
-+++ src/plugins/contrib/SpellChecker/SpellChecker.cbp
+--- a/src/plugins/contrib/SpellChecker/SpellChecker.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
 @@ -80,6 +80,7 @@
  					<Add option="-DcbDEBUG" />
  					<Add directory="hunspell/src" />
@@ -412,10 +412,10 @@ index 8e4ee90..756f8a2 100644
  			<Add option="-DWXUSINGDLL" />
  			<Add option="-DwxUSE_UNICODE" />
  		</Compiler>
-diff --git src/plugins/contrib/ThreadSearch/ThreadSearch.cbp src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+diff --git a/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp b/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
 index 742c877..5f8fec5 100644
---- src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
-+++ src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+--- a/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
++++ b/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
 @@ -45,10 +45,10 @@
  			<Add option="-D__WXMSW__" />
  			<Add option="-DcbDEBUG" />
@@ -428,10 +428,10 @@ index 742c877..5f8fec5 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="..\..\..\include\mozilla_chardet" />
-diff --git src/plugins/contrib/byogames/byogames.cbp src/plugins/contrib/byogames/byogames.cbp
+diff --git a/src/plugins/contrib/byogames/byogames.cbp b/src/plugins/contrib/byogames/byogames.cbp
 index 314f185..b0f847f 100644
---- src/plugins/contrib/byogames/byogames.cbp
-+++ src/plugins/contrib/byogames/byogames.cbp
+--- a/src/plugins/contrib/byogames/byogames.cbp
++++ b/src/plugins/contrib/byogames/byogames.cbp
 @@ -34,11 +34,11 @@
  			<Add option="-DHAVE_W32API_H" />
  			<Add option="-D__WXMSW__" />
@@ -445,10 +445,10 @@ index 314f185..b0f847f 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="..\..\..\include\tinyxml" />
-diff --git src/plugins/contrib/cb_koders/cb_koders.cbp src/plugins/contrib/cb_koders/cb_koders.cbp
+diff --git a/src/plugins/contrib/cb_koders/cb_koders.cbp b/src/plugins/contrib/cb_koders/cb_koders.cbp
 index ef561b0..0881bda 100644
---- src/plugins/contrib/cb_koders/cb_koders.cbp
-+++ src/plugins/contrib/cb_koders/cb_koders.cbp
+--- a/src/plugins/contrib/cb_koders/cb_koders.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders.cbp
 @@ -39,11 +39,11 @@
  			<Add option="-DHAVE_W32API_H" />
  			<Add option="-D__WXMSW__" />
@@ -462,10 +462,10 @@ index ef561b0..0881bda 100644
  			<Add directory="../../../include" />
  			<Add directory="../../../sdk/wxscintilla/include" />
  		</Compiler>
-diff --git src/plugins/contrib/codesnippets/codesnippets.cbp src/plugins/contrib/codesnippets/codesnippets.cbp
+diff --git a/src/plugins/contrib/codesnippets/codesnippets.cbp b/src/plugins/contrib/codesnippets/codesnippets.cbp
 index 5b8f49c..0699922 100644
---- src/plugins/contrib/codesnippets/codesnippets.cbp
-+++ src/plugins/contrib/codesnippets/codesnippets.cbp
+--- a/src/plugins/contrib/codesnippets/codesnippets.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets.cbp
 @@ -43,10 +43,10 @@
  			<Add option="-DHAVE_W32API_H" />
  			<Add option="-D__WXMSW__" />
@@ -478,10 +478,10 @@ index 5b8f49c..0699922 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="..\..\..\src" />
-diff --git src/plugins/contrib/codesnippets/codesnippets.cpp src/plugins/contrib/codesnippets/codesnippets.cpp
+diff --git a/src/plugins/contrib/codesnippets/codesnippets.cpp b/src/plugins/contrib/codesnippets/codesnippets.cpp
 index e36c656..1343315 100644
---- src/plugins/contrib/codesnippets/codesnippets.cpp
-+++ src/plugins/contrib/codesnippets/codesnippets.cpp
+--- a/src/plugins/contrib/codesnippets/codesnippets.cpp
++++ b/src/plugins/contrib/codesnippets/codesnippets.cpp
 @@ -19,8 +19,11 @@
  */
  // $Id$
@@ -495,10 +495,10 @@ index e36c656..1343315 100644
  #ifndef CB_PRECOMP
  	#include <wx/event.h>
  	#include <wx/frame.h> // Manager::Get()->GetAppWindow()
-diff --git src/plugins/contrib/codestat/codestat.cbp src/plugins/contrib/codestat/codestat.cbp
+diff --git a/src/plugins/contrib/codestat/codestat.cbp b/src/plugins/contrib/codestat/codestat.cbp
 index 4b319ac..5186e1f 100644
---- src/plugins/contrib/codestat/codestat.cbp
-+++ src/plugins/contrib/codestat/codestat.cbp
+--- a/src/plugins/contrib/codestat/codestat.cbp
++++ b/src/plugins/contrib/codestat/codestat.cbp
 @@ -31,12 +31,12 @@
  			<Add option="-fexceptions" />
  			<Add option="-DBUILDING_PLUGIN" />
@@ -513,10 +513,10 @@ index 4b319ac..5186e1f 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="$(#WX.INCLUDE)" />
-diff --git src/plugins/contrib/codestat/codestatexec.cpp src/plugins/contrib/codestat/codestatexec.cpp
+diff --git a/src/plugins/contrib/codestat/codestatexec.cpp b/src/plugins/contrib/codestat/codestatexec.cpp
 index 3782f84..c7ce1df 100644
---- src/plugins/contrib/codestat/codestatexec.cpp
-+++ src/plugins/contrib/codestat/codestatexec.cpp
+--- a/src/plugins/contrib/codestat/codestatexec.cpp
++++ b/src/plugins/contrib/codestat/codestatexec.cpp
 @@ -6,9 +6,11 @@
   * Copyright: (c) Zlika
   * License:   GPL
@@ -530,10 +530,10 @@ index 3782f84..c7ce1df 100644
  #ifndef CB_PRECOMP
  #   include <wx/choice.h>
  #   include <wx/gauge.h>
-diff --git src/plugins/contrib/copystrings/copystrings.cbp src/plugins/contrib/copystrings/copystrings.cbp
+diff --git a/src/plugins/contrib/copystrings/copystrings.cbp b/src/plugins/contrib/copystrings/copystrings.cbp
 index 56c35b6..9308462 100644
---- src/plugins/contrib/copystrings/copystrings.cbp
-+++ src/plugins/contrib/copystrings/copystrings.cbp
+--- a/src/plugins/contrib/copystrings/copystrings.cbp
++++ b/src/plugins/contrib/copystrings/copystrings.cbp
 @@ -31,7 +31,6 @@
  			<Add option="-Winvalid-pch" />
  			<Add option="-DBUILDING_PLUGIN" />
@@ -550,10 +550,10 @@ index 56c35b6..9308462 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  		</Compiler>
-diff --git src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
 index d6ab36c..0e8d4db 100644
---- src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
-+++ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
 @@ -32,17 +32,19 @@
  					<Add option="-Wall" />
  					<Add option="$(#CB_RELEASE_TYPE)" />
@@ -575,10 +575,10 @@ index d6ab36c..0e8d4db 100644
  				</Compiler>
  				<Linker>
  					<Add option="-mthreads" />
-diff --git src/plugins/contrib/dragscroll/DragScroll.cbp src/plugins/contrib/dragscroll/DragScroll.cbp
+diff --git a/src/plugins/contrib/dragscroll/DragScroll.cbp b/src/plugins/contrib/dragscroll/DragScroll.cbp
 index 804d23c..f035e80 100644
---- src/plugins/contrib/dragscroll/DragScroll.cbp
-+++ src/plugins/contrib/dragscroll/DragScroll.cbp
+--- a/src/plugins/contrib/dragscroll/DragScroll.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll.cbp
 @@ -32,7 +32,6 @@
  			<Add option="-fexceptions" />
  			<Add option="-DBUILDING_PLUGIN" />
@@ -595,10 +595,10 @@ index 804d23c..f035e80 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\src" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
-diff --git src/plugins/contrib/dragscroll/dragscroll.cpp src/plugins/contrib/dragscroll/dragscroll.cpp
+diff --git a/src/plugins/contrib/dragscroll/dragscroll.cpp b/src/plugins/contrib/dragscroll/dragscroll.cpp
 index cda4f14..e83437c 100644
---- src/plugins/contrib/dragscroll/dragscroll.cpp
-+++ src/plugins/contrib/dragscroll/dragscroll.cpp
+--- a/src/plugins/contrib/dragscroll/dragscroll.cpp
++++ b/src/plugins/contrib/dragscroll/dragscroll.cpp
 @@ -6,11 +6,6 @@
   * License:   GPL
   **************************************************************/
@@ -611,10 +611,10 @@ index cda4f14..e83437c 100644
  #include <sdk.h>
  #ifndef CB_PRECOMP
      #include <wx/app.h>
-diff --git src/plugins/contrib/envvars/envvars.cbp src/plugins/contrib/envvars/envvars.cbp
+diff --git a/src/plugins/contrib/envvars/envvars.cbp b/src/plugins/contrib/envvars/envvars.cbp
 index cd58b83..542e727 100644
---- src/plugins/contrib/envvars/envvars.cbp
-+++ src/plugins/contrib/envvars/envvars.cbp
+--- a/src/plugins/contrib/envvars/envvars.cbp
++++ b/src/plugins/contrib/envvars/envvars.cbp
 @@ -14,9 +14,10 @@
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
@@ -627,10 +627,10 @@ index cd58b83..542e727 100644
  				</Compiler>
  			</Target>
  			<Target title="no_pch">
-diff --git src/plugins/contrib/headerfixup/headerfixup.cbp src/plugins/contrib/headerfixup/headerfixup.cbp
+diff --git a/src/plugins/contrib/headerfixup/headerfixup.cbp b/src/plugins/contrib/headerfixup/headerfixup.cbp
 index d726ccd..6280900 100644
---- src/plugins/contrib/headerfixup/headerfixup.cbp
-+++ src/plugins/contrib/headerfixup/headerfixup.cbp
+--- a/src/plugins/contrib/headerfixup/headerfixup.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup.cbp
 @@ -26,10 +26,10 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -643,10 +643,10 @@ index d726ccd..6280900 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  				</Compiler>
-diff --git src/plugins/contrib/help_plugin/help-plugin.cbp src/plugins/contrib/help_plugin/help-plugin.cbp
+diff --git a/src/plugins/contrib/help_plugin/help-plugin.cbp b/src/plugins/contrib/help_plugin/help-plugin.cbp
 index 26a61e3..666007a 100644
---- src/plugins/contrib/help_plugin/help-plugin.cbp
-+++ src/plugins/contrib/help_plugin/help-plugin.cbp
+--- a/src/plugins/contrib/help_plugin/help-plugin.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin.cbp
 @@ -52,7 +52,6 @@
  					<Add option="-fexceptions" />
  					<Add option="-DBUILDING_PLUGIN" />
@@ -663,10 +663,10 @@ index 26a61e3..666007a 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="..\..\..\include\scripting\bindings" />
-diff --git src/plugins/contrib/keybinder/cbkeybinder.cpp src/plugins/contrib/keybinder/cbkeybinder.cpp
+diff --git a/src/plugins/contrib/keybinder/cbkeybinder.cpp b/src/plugins/contrib/keybinder/cbkeybinder.cpp
 index 8c6d8e2..7f2a4c9 100644
---- src/plugins/contrib/keybinder/cbkeybinder.cpp
-+++ src/plugins/contrib/keybinder/cbkeybinder.cpp
+--- a/src/plugins/contrib/keybinder/cbkeybinder.cpp
++++ b/src/plugins/contrib/keybinder/cbkeybinder.cpp
 @@ -10,10 +10,6 @@
  // The majority of this code was lifted from wxKeyBinder and
  // its "minimal.cpp" sample program
@@ -678,10 +678,10 @@ index 8c6d8e2..7f2a4c9 100644
  #include <sdk.h>
  #ifndef CB_PRECOMP
      #include <wx/dynarray.h>
-diff --git src/plugins/contrib/keybinder/keybinder.cbp src/plugins/contrib/keybinder/keybinder.cbp
+diff --git a/src/plugins/contrib/keybinder/keybinder.cbp b/src/plugins/contrib/keybinder/keybinder.cbp
 index e240b49..8ec0d60 100644
---- src/plugins/contrib/keybinder/keybinder.cbp
-+++ src/plugins/contrib/keybinder/keybinder.cbp
+--- a/src/plugins/contrib/keybinder/keybinder.cbp
++++ b/src/plugins/contrib/keybinder/keybinder.cbp
 @@ -21,7 +21,6 @@
  					<Add option="-fexceptions" />
  					<Add option="-DBUILDING_PLUGIN" />
@@ -698,10 +698,10 @@ index e240b49..8ec0d60 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="$(#WX.include)" />
-diff --git src/plugins/contrib/lib_finder/lib_finder.cbp src/plugins/contrib/lib_finder/lib_finder.cbp
+diff --git a/src/plugins/contrib/lib_finder/lib_finder.cbp b/src/plugins/contrib/lib_finder/lib_finder.cbp
 index 9232990..d4efb2c 100644
---- src/plugins/contrib/lib_finder/lib_finder.cbp
-+++ src/plugins/contrib/lib_finder/lib_finder.cbp
+--- a/src/plugins/contrib/lib_finder/lib_finder.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder.cbp
 @@ -37,11 +37,11 @@
  			<Add option="-DHAVE_W32API_H" />
  			<Add option="-D__WXMSW__" />
@@ -715,10 +715,10 @@ index 9232990..d4efb2c 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="..\..\..\include\tinyxml" />
-diff --git src/plugins/contrib/lib_finder/librariesdlg.cpp src/plugins/contrib/lib_finder/librariesdlg.cpp
+diff --git a/src/plugins/contrib/lib_finder/librariesdlg.cpp b/src/plugins/contrib/lib_finder/librariesdlg.cpp
 index 283dbd0..4ce6a4d 100644
---- src/plugins/contrib/lib_finder/librariesdlg.cpp
-+++ src/plugins/contrib/lib_finder/librariesdlg.cpp
+--- a/src/plugins/contrib/lib_finder/librariesdlg.cpp
++++ b/src/plugins/contrib/lib_finder/librariesdlg.cpp
 @@ -1,3 +1,6 @@
 +// sdk.h must be the first include in the file to work as a PCH
 +#include <sdk.h>
@@ -735,10 +735,10 @@ index 283dbd0..4ce6a4d 100644
  #include <manager.h>
  #include <configmanager.h>
  #include <globals.h>
-diff --git src/plugins/contrib/profiler/cbprofiler.cbp src/plugins/contrib/profiler/cbprofiler.cbp
+diff --git a/src/plugins/contrib/profiler/cbprofiler.cbp b/src/plugins/contrib/profiler/cbprofiler.cbp
 index 551f870..317756f 100644
---- src/plugins/contrib/profiler/cbprofiler.cbp
-+++ src/plugins/contrib/profiler/cbprofiler.cbp
+--- a/src/plugins/contrib/profiler/cbprofiler.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler.cbp
 @@ -31,12 +31,12 @@
  			<Add option="-fpermissive" />
  			<Add option="-DBUILDING_PLUGIN" />
@@ -753,10 +753,10 @@ index 551f870..317756f 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="$(#WX.include)" />
-diff --git src/plugins/contrib/regex_testbed/RegExTestbed.cbp src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
 index f7051ae..4528b43 100644
---- src/plugins/contrib/regex_testbed/RegExTestbed.cbp
-+++ src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
 @@ -42,13 +42,13 @@
  			<Add option="-DHAVE_W32API_H" />
  			<Add option="-D__WXMSW__" />
@@ -772,10 +772,10 @@ index f7051ae..4528b43 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  		</Compiler>
-diff --git src/plugins/contrib/rndgen/rndgen.cbp src/plugins/contrib/rndgen/rndgen.cbp
+diff --git a/src/plugins/contrib/rndgen/rndgen.cbp b/src/plugins/contrib/rndgen/rndgen.cbp
 index 64f5b49..88c4729 100644
---- src/plugins/contrib/rndgen/rndgen.cbp
-+++ src/plugins/contrib/rndgen/rndgen.cbp
+--- a/src/plugins/contrib/rndgen/rndgen.cbp
++++ b/src/plugins/contrib/rndgen/rndgen.cbp
 @@ -25,8 +25,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -786,10 +786,10 @@ index 64f5b49..88c4729 100644
  					<Add directory="..\..\..\include" />
  					<Add directory="..\..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
-diff --git src/plugins/contrib/symtab/symtab.cbp src/plugins/contrib/symtab/symtab.cbp
+diff --git a/src/plugins/contrib/symtab/symtab.cbp b/src/plugins/contrib/symtab/symtab.cbp
 index a377c17..726ba82 100644
---- src/plugins/contrib/symtab/symtab.cbp
-+++ src/plugins/contrib/symtab/symtab.cbp
+--- a/src/plugins/contrib/symtab/symtab.cbp
++++ b/src/plugins/contrib/symtab/symtab.cbp
 @@ -35,12 +35,12 @@
  			<Add option="-fpermissive" />
  			<Add option="-DBUILDING_PLUGIN" />
@@ -804,10 +804,10 @@ index a377c17..726ba82 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
  			<Add directory="$(#WX.include)" />
-diff --git src/plugins/contrib/wxSmith/wxSmith.cbp src/plugins/contrib/wxSmith/wxSmith.cbp
+diff --git a/src/plugins/contrib/wxSmith/wxSmith.cbp b/src/plugins/contrib/wxSmith/wxSmith.cbp
 index caf1d31..7a72d6f 100644
---- src/plugins/contrib/wxSmith/wxSmith.cbp
-+++ src/plugins/contrib/wxSmith/wxSmith.cbp
+--- a/src/plugins/contrib/wxSmith/wxSmith.cbp
++++ b/src/plugins/contrib/wxSmith/wxSmith.cbp
 @@ -45,17 +45,18 @@
  			<Add option="-fmessage-length=0" />
  			<Add option="-fexceptions" />
@@ -828,10 +828,10 @@ index caf1d31..7a72d6f 100644
  			<Add directory="..\..\..\include" />
  			<Add directory="..\..\..\sdk\wxpropgrid\include" />
  			<Add directory="..\..\..\sdk\wxscintilla\include" />
-diff --git src/plugins/contrib/wxSmithAui/wxSmithAui.cbp src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
+diff --git a/src/plugins/contrib/wxSmithAui/wxSmithAui.cbp b/src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
 index 03f1cf1..734799b 100644
---- src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
-+++ src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
+--- a/src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
++++ b/src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
 @@ -83,7 +83,7 @@
  			<Add option="-DWXUSINGDLL" />
  			<Add option="-DcbDEBUG" />
@@ -841,10 +841,10 @@ index 03f1cf1..734799b 100644
  			<Add directory="../../../include" />
  			<Add directory="../../../sdk/wxscintilla/include" />
  			<Add directory="../../../sdk/wxpropgrid/include" />
-diff --git src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
 index 9a71c73..d1f8dfd 100644
---- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
-+++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
 @@ -23,6 +23,7 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -861,10 +861,10 @@ index 9a71c73..d1f8dfd 100644
  			<Add option="-DwxUSE_UNICODE" />
  			<Add directory="$(#wx.include)" />
  			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
-diff --git src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
+diff --git a/src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp b/src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
 index a61ed98..69771e1 100644
---- src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
-+++ src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
+--- a/src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
++++ b/src/plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp
 @@ -28,6 +28,7 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -881,10 +881,10 @@ index a61ed98..69771e1 100644
  			<Add option="-DwxUSE_UNICODE" />
  			<Add directory="$(#wx.include)" />
  			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
-diff --git src/plugins/contrib/wxSmithDemo/wxSmithDemo.cbp src/plugins/contrib/wxSmithDemo/wxSmithDemo.cbp
+diff --git a/src/plugins/contrib/wxSmithDemo/wxSmithDemo.cbp b/src/plugins/contrib/wxSmithDemo/wxSmithDemo.cbp
 index fa017d5..c5002cf 100644
---- src/plugins/contrib/wxSmithDemo/wxSmithDemo.cbp
-+++ src/plugins/contrib/wxSmithDemo/wxSmithDemo.cbp
+--- a/src/plugins/contrib/wxSmithDemo/wxSmithDemo.cbp
++++ b/src/plugins/contrib/wxSmithDemo/wxSmithDemo.cbp
 @@ -22,7 +22,7 @@
  					<Add option="-Winvalid-pch" />
  					<Add option="-DBUILDING_PLUGIN" />
@@ -903,10 +903,10 @@ index fa017d5..c5002cf 100644
  			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
  			<Add directory="$(#wx.include)" />
  		</Compiler>
-diff --git src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
+diff --git a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
 index d726f87..dfa501f 100644
---- src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
-+++ src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
+--- a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
++++ b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
 @@ -27,6 +27,7 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -923,10 +923,10 @@ index d726f87..dfa501f 100644
  			<Add option="-DwxUSE_UNICODE" />
  			<Add directory="$(#wx.include)" />
  			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
-diff --git src/plugins/contrib/wxSmithPlot/wxsMathPlot.h src/plugins/contrib/wxSmithPlot/wxsMathPlot.h
+diff --git a/src/plugins/contrib/wxSmithPlot/wxsMathPlot.h b/src/plugins/contrib/wxSmithPlot/wxsMathPlot.h
 index db1fba8..033e556 100644
---- src/plugins/contrib/wxSmithPlot/wxsMathPlot.h
-+++ src/plugins/contrib/wxSmithPlot/wxsMathPlot.h
+--- a/src/plugins/contrib/wxSmithPlot/wxsMathPlot.h
++++ b/src/plugins/contrib/wxSmithPlot/wxsMathPlot.h
 @@ -26,7 +26,8 @@
  #include    <cmath>
  #include    <iostream>
@@ -937,10 +937,10 @@ index db1fba8..033e556 100644
  #include    <wx/settings.h>
  #include    <wx/utils.h>
  #include    <wx/string.h>
-diff --git src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
+diff --git a/src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp b/src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
 index bbc2b3e..e56a68e 100644
---- src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
-+++ src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
+--- a/src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
++++ b/src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp
 @@ -28,6 +28,7 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -957,10 +957,10 @@ index bbc2b3e..e56a68e 100644
  			<Add option="-DwxUSE_UNICODE" />
  			<Add directory="$(#wx.include)" />
  			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
-diff --git src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
+diff --git a/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp b/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
 index edc2417..664e884 100644
---- src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
-+++ src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
+--- a/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
++++ b/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
 @@ -73,6 +73,7 @@
  					<Add option="-DBUILDING_PLUGIN" />
  					<Add option="-DcbDEBUG" />
@@ -977,10 +977,10 @@ index edc2417..664e884 100644
  			<Add option="-DwxUSE_UNICODE" />
  			<Add directory="$(#wx.include)" />
  			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
-diff --git src/plugins/headerguard/headerguard.cbp src/plugins/headerguard/headerguard.cbp
+diff --git a/src/plugins/headerguard/headerguard.cbp b/src/plugins/headerguard/headerguard.cbp
 index 57fb756..738ed2a 100644
---- src/plugins/headerguard/headerguard.cbp
-+++ src/plugins/headerguard/headerguard.cbp
+--- a/src/plugins/headerguard/headerguard.cbp
++++ b/src/plugins/headerguard/headerguard.cbp
 @@ -26,8 +26,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -991,10 +991,10 @@ index 57fb756..738ed2a 100644
  					<Add directory="..\..\include" />
  					<Add directory="..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
-diff --git src/plugins/loghacker/loghacker.cbp src/plugins/loghacker/loghacker.cbp
+diff --git a/src/plugins/loghacker/loghacker.cbp b/src/plugins/loghacker/loghacker.cbp
 index 0794c46..4dc8498 100644
---- src/plugins/loghacker/loghacker.cbp
-+++ src/plugins/loghacker/loghacker.cbp
+--- a/src/plugins/loghacker/loghacker.cbp
++++ b/src/plugins/loghacker/loghacker.cbp
 @@ -25,8 +25,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -1005,10 +1005,10 @@ index 0794c46..4dc8498 100644
  					<Add directory="..\..\include" />
  					<Add directory="..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
-diff --git src/plugins/modpoller/ModPoller.cbp src/plugins/modpoller/ModPoller.cbp
+diff --git a/src/plugins/modpoller/ModPoller.cbp b/src/plugins/modpoller/ModPoller.cbp
 index a2ed1e2..3a52f2b 100644
---- src/plugins/modpoller/ModPoller.cbp
-+++ src/plugins/modpoller/ModPoller.cbp
+--- a/src/plugins/modpoller/ModPoller.cbp
++++ b/src/plugins/modpoller/ModPoller.cbp
 @@ -25,8 +25,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -1019,10 +1019,10 @@ index a2ed1e2..3a52f2b 100644
  					<Add directory="..\..\include" />
  					<Add directory="..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
-diff --git src/plugins/tidycmt/tidycmt.cbp src/plugins/tidycmt/tidycmt.cbp
+diff --git a/src/plugins/tidycmt/tidycmt.cbp b/src/plugins/tidycmt/tidycmt.cbp
 index dbebddd..4bc7c33 100644
---- src/plugins/tidycmt/tidycmt.cbp
-+++ src/plugins/tidycmt/tidycmt.cbp
+--- a/src/plugins/tidycmt/tidycmt.cbp
++++ b/src/plugins/tidycmt/tidycmt.cbp
 @@ -25,8 +25,8 @@
  					<Add option="-DWXUSINGDLL" />
  					<Add option="-DcbDEBUG" />
@@ -1033,10 +1033,10 @@ index dbebddd..4bc7c33 100644
  					<Add directory="..\..\include" />
  					<Add directory="..\..\sdk\wxscintilla\include" />
  					<Add directory="$(#WX.include)" />
-diff --git src/tools/Addr2LineUI/Addr2LineUI.cbp src/tools/Addr2LineUI/Addr2LineUI.cbp
+diff --git a/src/tools/Addr2LineUI/Addr2LineUI.cbp b/src/tools/Addr2LineUI/Addr2LineUI.cbp
 index ef568e4..6b8ffeb 100644
---- src/tools/Addr2LineUI/Addr2LineUI.cbp
-+++ src/tools/Addr2LineUI/Addr2LineUI.cbp
+--- a/src/tools/Addr2LineUI/Addr2LineUI.cbp
++++ b/src/tools/Addr2LineUI/Addr2LineUI.cbp
 @@ -37,7 +37,6 @@
  			<Add option="-D__WXMSW__" />
  			<Add option="-DWXUSINGDLL" />

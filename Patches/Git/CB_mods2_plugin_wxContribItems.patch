@@ -1,7 +1,7 @@
-diff --git src/plugins/contrib/wxContribItems/wxContribItems.cbp src/plugins/contrib/wxContribItems/wxContribItems.cbp
+diff --git a/src/plugins/contrib/wxContribItems/wxContribItems.cbp b/src/plugins/contrib/wxContribItems/wxContribItems.cbp
 index 8d732db..d79990e 100644
---- src/plugins/contrib/wxContribItems/wxContribItems.cbp
-+++ src/plugins/contrib/wxContribItems/wxContribItems.cbp
+--- a/src/plugins/contrib/wxContribItems/wxContribItems.cbp
++++ b/src/plugins/contrib/wxContribItems/wxContribItems.cbp
 @@ -51,6 +51,7 @@
  				<Option compiler="gcc" />
  				<Option createStaticLib="1" />

@@ -1,7 +1,7 @@
-diff --git src/sdk/templatemanager.cpp src/sdk/templatemanager.cpp
+diff --git a/src/sdk/templatemanager.cpp b/src/sdk/templatemanager.cpp
 index 30399c8..a5e3e8a 100644
---- src/sdk/templatemanager.cpp
-+++ src/sdk/templatemanager.cpp
+--- a/src/sdk/templatemanager.cpp
++++ b/src/sdk/templatemanager.cpp
 @@ -263,8 +263,19 @@ void TemplateManager::SaveUserTemplate(cbProject* prj)
          return;
      }
