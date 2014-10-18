@@ -3,6 +3,7 @@
 
 # Explicitly declare text files you want to always be normalized and converted
 # to native line endings on checkout.
+# .gitignore text
 # *.c text
 # *.h text
 
@@ -17,10 +18,11 @@
 *.cxx text eol=lf
 *.sh text eol=lf
 *.cbp text eol=lf
-*.gitattributes text eol=lf
+.gitattributes text eol=lf
 
 # Denote all files that are NOT truly binary; but, it works best to treat them
 # as binary.
+.gitignore binary
 *.bat binary
 src/sdk/filemanager.cpp binary
 
