@@ -26,8 +26,8 @@ REM PAUSE
 
 CD %CB_SVN%/src
 REM replace call of autorevision with sed that sets svn number to zero
-    %CB_GIT%\src\build_tools\autorevision\autorevision +wx +int +t . include/autorevision.h
-    svn add include/autorevision.h
+REM %CB_GIT%\src\build_tools\autorevision\autorevision +wx +int +t . include/autorevision.h
+REM svn add include/autorevision.h
 REM PAUSE
 
 CD /D %TOP%
