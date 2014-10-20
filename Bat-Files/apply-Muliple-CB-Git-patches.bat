@@ -7,6 +7,7 @@ set PATCHES=%CD%
 CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
+SET GIT_PULL_MASTER=svn_rebase/master
 
 cd %GitHome%\Production\codeblocks_mods2_bugfix
 @echo off
@@ -28,9 +29,11 @@ if errorlevel 1 (
    goto _ABORT
 )
 git fetch origin
-git reset --hard origin/master
+git reset --hard origin/%GIT_PULL_MASTER%
+    PAUSE
 
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
+    PAUSE
 if errorlevel 1 (
    echo git pull returned %errorlevel%
    echo aborting rebase
@@ -47,9 +50,9 @@ if errorlevel 1 (
 )
 REM PAUSE
 git fetch origin
-git reset --hard origin/master
+git reset --hard origin/%GIT_PULL_MASTER%
 
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 if errorlevel 1 (
    echo git pull returned %errorlevel%
    echo aborting rebase
