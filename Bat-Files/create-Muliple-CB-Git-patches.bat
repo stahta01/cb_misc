@@ -8,10 +8,11 @@ CD /D C:\Users\stahta01\GitHome
 
 set GitHome=%CD%
 
-REM 10001 git svn find-rev 69ba6f7d89af5d0dd982f3c9f86c38e8c4162143
-SET GIT_HEAD_COMMIT=69ba6f7d89af5d0dd982f3c9f86c38e8c4162143
+REM 10002 git svn find-rev 2b09d8d1555c0d98a8d57347c2975b2c7a6d6284
+SET GIT_HEAD_COMMIT=2b09d8d1555c0d98a8d57347c2975b2c7a6d6284
 
 SET GIT_PUSH_OPTION=--force-with-lease 
+SET GIT_PULL_MASTER=svn_rebase/master
 REM SET GIT_PUSH_OPTION=
 
 REM goto codeblocks_mods2_bugfix
@@ -32,14 +33,14 @@ if errorlevel 1 (
 @echo on
 
 git.exe checkout master --
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 echo git pull returned %errorlevel%
-git reset --hard origin/master
+git reset --hard origin/%GIT_PULL_MASTER%
 REM PAUSE
 
 
 git.exe checkout     plugin/wxContribItems --
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 if errorlevel 1 (
    echo git pull returned %errorlevel%
    echo aborting rebase
@@ -67,13 +68,13 @@ if errorlevel 1 (
 @echo on
 
 git.exe checkout master --
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 echo git pull returned %errorlevel%
-git reset --hard origin/master
+git reset --hard origin/%GIT_PULL_MASTER%
 REM PAUSE
 
 git.exe checkout     build/addPCH_wx28_win32 --
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 if errorlevel 1 (
    echo git pull returned %errorlevel%
    echo aborting rebase
@@ -85,7 +86,7 @@ if errorlevel 1 (
 REM PAUSE
 
 git.exe checkout     build/cbPCHeadersFixed --
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 if errorlevel 1 (
    echo git pull returned %errorlevel%
    echo aborting rebase
@@ -115,13 +116,13 @@ if errorlevel 1 (
 @echo on
 
 git.exe checkout master --
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 echo git pull returned %errorlevel%
-git reset --hard origin/master
+git reset --hard origin/%GIT_PULL_MASTER%
 REM PAUSE
 
 git.exe checkout     build/template_bugs --
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 if errorlevel 1 (
    echo git pull returned %errorlevel%
    echo aborting rebase
@@ -132,7 +133,7 @@ if errorlevel 1 (
 )
 
 git.exe checkout     build/scripts --
-git pull --rebase origin master
+git pull --rebase origin %GIT_PULL_MASTER%
 if errorlevel 1 (
    echo git pull returned %errorlevel%
    echo aborting rebase
@@ -141,6 +142,9 @@ if errorlevel 1 (
    git push %GIT_PUSH_OPTION% "origin" build/scripts:build/scripts
    git diff --diff-filter=M %GIT_HEAD_COMMIT% HEAD -- > %TOP%\Patches\Git\CB_mods2_build_scripts.patch
 )
+
+git.exe checkout master --
+REM PAUSE
 
 PAUSE
 GOTO EOF
