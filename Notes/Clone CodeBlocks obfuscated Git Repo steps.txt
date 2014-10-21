@@ -1,0 +1,94 @@
+Based on the idea from  http://trac.parrot.org/parrot/wiki/git-svn-tutorial
+
+Warning: I am a Git Newbie; these steps created via trial and error.
+
+Welcome to Git (version 1.8.5.2-preview20131230)
+$ git --version
+git version 1.8.5.2.msysgit.0
+
+
+Step 1: Create clone Mirror as local Repo
+note: You can replace repo_folder_name with another folder name
+
+Step 1A: Clone Git Mirror Obf
+
+Use the next line for Git Mirrors by Obf
+$ git clone --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git repo_folder_name
+
+Step 1B: Change current directory and check status
+$ cd repo_folder_name
+$ git status
+
+Step 1C: Get Hash code and URL
+$ git log --grep=^git-svn-id: --first-parent -1 | head -n 7
+commit cfc15b7dc27440d95f0e7eec8f7def23bb76053d
+Author: T Petrov <tpetrov@codeblocks.org>
+Date:   Mon Oct 20 17:34:07 2014 +0000
+
+    - autotools: Fix make dist on linux
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10002 2a5c6006-c
+6dd-42ca-98ab-0921f2732cef
+
+Step 2: Create SVN config and folder 
+Step 2A: Set svn-remote "svn" URL in info git config file
+Use the next line for Git Mirrors by Obf
+$ git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+
+Step 2B: Set svn-remote "svn" fetch and branch info in git config file
+Use the next 3 lines for all Git Mirrors
+$ git config svn-remote.svn.fetch trunk:refs/remotes/git-svn-stuff/trunk
+$ git config svn-remote.svn.branches branches/*:refs/remotes/git-svn-stuff/*
+$ git config svn-remote.svn.tags tags/*:refs/remotes/git-svn-stuff/tags/*
+
+Step 2C: Create git-svn-stuff folder needed by svn-remote "svn"
+$ mkdir .git/refs/remotes/git-svn-stuff
+
+
+Step 3: get hash code of current local commit
+$ git show heads/master | head -n 1
+commit cfc15b7dc27440d95f0e7eec8f7def23bb76053d
+
+Step 4: Create remotes trunk using hash code
+Replace hash with value returned by the above command
+$ echo cfc15b7dc27440d95f0e7eec8f7def23bb76053d > .git/refs/remotes/git-svn-stuff/trunk
+
+Step 5: Verify hash code was created
+$ git show remotes/git-svn-stuff/trunk | head -n 1
+
+Step 6: SVN find-rev
+Note: When, I have long output for this command, it is a good sign.
+$ git svn find-rev r1
+$ git svn find-rev HEAD
+
+NOTE: I must have done something wrong because step 7 is taking about a day to finish
+Step 7: SVN fetch
+$ git svn fetch
+
+Step 8: Test git svn info
+Takes about a minute to return results.
+Note: If it does NOT work no results are ever returned in some cases.
+$ git svn info
+
+Step 9: Force branch master to use rebase.
+SVN does not like git merge so set to use git rebase.
+$ git config master.rebase true 
+
+Step 10: Test "git pull" and "git svn rebase"
+Note: I am guessing that the "git svn rebase" should be done after all "git pull" commands.
+$ git pull --rebase upstream master
+$ git svn fetch
+$ git svn rebase
+$ git status
+
+NOTE: "git svn rebase" seems to fail to often for me using the 1.8 version of MSysGit.
+I used the steps in file "git svn rebase test 1.txt" instead.
+I am now trying "git svn rebase" to see if it work in version 1.9.4.msysgit.2
+Had a different bug using version 1.9.4.msysgit.2; it did NOT like using the GnuWin32 patch command EOL issues.
+
+Now trying 1.8 version and "git svn rebase" once more to see if problem still happens or not.
+
+NOTE: I have thoughts that the setting of upstream might have effects on "git svn info"
+git branch --set-upstream-to=origin/svn_rebase/master
+git branch --set-upstream-to=origin/master
+git branch --set-upstream-to=upstream/master
