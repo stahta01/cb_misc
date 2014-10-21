@@ -2,9 +2,8 @@ Based on the idea from  http://trac.parrot.org/parrot/wiki/git-svn-tutorial
 
 Warning: I am a Git Newbie; these steps created via trial and error.
 
-Welcome to Git 
+Welcome to Git (version 1.8.5.2-preview20131230)
 $ git --version
-
 git version 1.8.5.2.msysgit.0
 
 
