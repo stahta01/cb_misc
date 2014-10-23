@@ -41,6 +41,12 @@ if errorlevel 1 (
    goto _ABORT
 ) else (
    git.exe svn rebase
+   if errorlevel 1 (
+   echo git.exe svn rebase returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+   )
 )
 
 git.exe svn info
@@ -69,6 +75,22 @@ if errorlevel 1 (
 REM
 REM
 REM
+
+git pull --rebase origin %GIT_PULL_MASTER%
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+) else (
+   git.exe svn rebase
+   if errorlevel 1 (
+   echo git.exe svn rebase returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+   )
+)
 
 git.exe svn info
 REM PAUSE
