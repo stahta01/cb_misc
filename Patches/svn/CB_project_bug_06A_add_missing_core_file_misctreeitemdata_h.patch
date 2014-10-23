@@ -1,6 +1,6 @@
 Index: src/CodeBlocks-unix.cbp
 ===================================================================
---- src/CodeBlocks-unix.cbp	(revision 9919)
+--- src/CodeBlocks-unix.cbp	(revision 10002)
 +++ src/CodeBlocks-unix.cbp	(working copy)
 @@ -746,6 +746,9 @@
  		<Unit filename="include/menuitemsmanager.h">
@@ -14,7 +14,7 @@ Index: src/CodeBlocks-unix.cbp
  		</Unit>
 Index: src/CodeBlocks.cbp
 ===================================================================
---- src/CodeBlocks.cbp	(revision 9919)
+--- src/CodeBlocks.cbp	(revision 10002)
 +++ src/CodeBlocks.cbp	(working copy)
 @@ -989,6 +989,9 @@
  		<Unit filename="include/menuitemsmanager.h">
@@ -28,7 +28,7 @@ Index: src/CodeBlocks.cbp
  		</Unit>
 Index: src/CodeBlocks_wx30-unix.cbp
 ===================================================================
---- src/CodeBlocks_wx30-unix.cbp	(revision 9919)
+--- src/CodeBlocks_wx30-unix.cbp	(revision 10002)
 +++ src/CodeBlocks_wx30-unix.cbp	(working copy)
 @@ -789,6 +789,9 @@
  		<Unit filename="include/menuitemsmanager.h">
@@ -42,7 +42,7 @@ Index: src/CodeBlocks_wx30-unix.cbp
  		</Unit>
 Index: src/CodeBlocks_wx30.cbp
 ===================================================================
---- src/CodeBlocks_wx30.cbp	(revision 9919)
+--- src/CodeBlocks_wx30.cbp	(revision 10002)
 +++ src/CodeBlocks_wx30.cbp	(working copy)
 @@ -985,6 +985,9 @@
  		<Unit filename="include/menuitemsmanager.h">
@@ -56,7 +56,7 @@ Index: src/CodeBlocks_wx30.cbp
  		</Unit>
 Index: src/CodeBlocks_wx30_64.cbp
 ===================================================================
---- src/CodeBlocks_wx30_64.cbp	(revision 9919)
+--- src/CodeBlocks_wx30_64.cbp	(revision 10002)
 +++ src/CodeBlocks_wx30_64.cbp	(working copy)
 @@ -988,6 +988,9 @@
  		<Unit filename="include/menuitemsmanager.h">
