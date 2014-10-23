@@ -73,7 +73,19 @@ if errorlevel 1 (
 )
 
 REM
+REM build/rejectedPatches
 REM
+
+git pull --rebase origin build/rejectedPatches
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+)
+
+REM
+REM Cleanup
 REM
 
 git pull --rebase origin %GIT_PULL_MASTER%
