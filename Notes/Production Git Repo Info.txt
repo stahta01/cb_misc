@@ -1,7 +1,26 @@
-Production/CB_Obf
+Production/CB_Obf_master
  upstream=http://github.com/obfuscated/codeblocks_sf.git
  origin=https://stahta01@github.com/stahta01/codeblocks_sf_tims.git
-* master
++ git_rebase/master
++ svn_rebase/master
+  master
+
+Production/CB_Obf_plugin
+  plugin/wxContribItems
+
+Production/CB_Obf_build
+ upstream=http://github.com/obfuscated/codeblocks_sf.git
+ origin=https://stahta01@github.com/stahta01/codeblocks_sf_tims.git
+  build/addPCH_wx28_win32
+  build/cb_sdk_includes_fixed
+  build/template_bugs
+  build/scripts
+  build/combinedNoPush
+  for_upstream
+  git_rebase/master
+  master
+  old_for_upstream
+* svn_rebase/master
 
 Production/codeblocks_mods2_master
  upstream=???
@@ -21,6 +40,7 @@ U filelayout/wxscintilla_h
   master
 
 build/combinedNoPush in Production/codeblocks_mods2_bugfix
+ codeblocks_sf_tims=https://stahta01@github.com/stahta01/codeblocks_sf_tims.git
    build/template_bugs        
    build/scripts              
    plugin/wxContribItems      
