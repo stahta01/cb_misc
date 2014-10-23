@@ -1,26 +1,32 @@
-Production/CB_Obf_master
+/Production/CB_Obf_master
  upstream=http://github.com/obfuscated/codeblocks_sf.git
  origin=https://stahta01@github.com/stahta01/codeblocks_sf_tims.git
-+ git_rebase/master
-+ svn_rebase/master
+  git_rebase/master
+  svn_rebase/master
   master
 
-Production/CB_Obf_plugin
+/Production/CB_Obf_plugin
   plugin/wxContribItems
+? plugin/DoxyBlocks
+  ??  CB_project_bug_09_add_invalid-pch.patch
 
-Production/CB_Obf_build
+/Production/CB_Obf_build
  upstream=http://github.com/obfuscated/codeblocks_sf.git
  origin=https://stahta01@github.com/stahta01/codeblocks_sf_tims.git
   build/addPCH_wx28_win32
+  ??  CB_project_bug_09_add_invalid-pch.patch
   build/cb_sdk_includes_fixed
   build/template_bugs
   build/scripts
   build/combinedNoPush
+  build/rejectedPatches
   for_upstream
-  git_rebase/master
+      CB_project_bug_04_remove_wxscintilla_cb.patch
+      CB_project_bug_05_remove_wxpropgrid.patch
+      CB_project_bug_07_remove_depends_on_lib_finder.patch
+      CB_project_bug_08_remove_or_fix_update_unit_filename.patch
   master
   old_for_upstream
-* svn_rebase/master
 
 Production/codeblocks_mods2_master
  upstream=???
@@ -85,4 +91,4 @@ Production/codeblocks_mods2_plugin/src
   plugin/scriptedwizard_resources
 D plugin/FortranProject_cbsvn
   build/cb_sdk_includes_fixed
-  build/combinedNoPush
+D build/combinedNoPush

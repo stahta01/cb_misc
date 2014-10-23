@@ -92,3 +92,4 @@ git branch --set-upstream-to=origin/svn_rebase/master
 git branch --set-upstream-to=origin/master
 git branch --set-upstream-to=upstream/master
 git fetch origin
+git branch --set-upstream-to=origin/git_rebase/master
