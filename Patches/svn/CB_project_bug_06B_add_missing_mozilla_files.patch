@@ -1,0 +1,150 @@
+Index: src/CodeBlocks-unix.cbp
+===================================================================
+--- src/CodeBlocks-unix.cbp	(revision 9919)
++++ src/CodeBlocks-unix.cbp	(working copy)
+@@ -746,12 +746,15 @@
+ 		<Unit filename="include/menuitemsmanager.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/CharDistribution.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/JpCntx.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Alignment.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+@@ -770,6 +776,9 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/CodeBlocks.cbp
+===================================================================
+--- src/CodeBlocks.cbp	(revision 9919)
++++ src/CodeBlocks.cbp	(working copy)
+@@ -989,12 +989,15 @@
+ 		<Unit filename="include/menuitemsmanager.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/CharDistribution.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/JpCntx.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Alignment.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+@@ -1013,6 +1019,9 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/CodeBlocks_wx30-unix.cbp
+===================================================================
+--- src/CodeBlocks_wx30-unix.cbp	(revision 9919)
++++ src/CodeBlocks_wx30-unix.cbp	(working copy)
+@@ -789,12 +789,15 @@
+ 		<Unit filename="include/menuitemsmanager.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/CharDistribution.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/JpCntx.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Alignment.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+@@ -813,6 +819,9 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/CodeBlocks_wx30.cbp
+===================================================================
+--- src/CodeBlocks_wx30.cbp	(revision 9919)
++++ src/CodeBlocks_wx30.cbp	(working copy)
+@@ -985,12 +985,15 @@
+ 		<Unit filename="include/menuitemsmanager.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/CharDistribution.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/JpCntx.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Alignment.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+@@ -1009,6 +1015,9 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+Index: src/CodeBlocks_wx30_64.cbp
+===================================================================
+--- src/CodeBlocks_wx30_64.cbp	(revision 9919)
++++ src/CodeBlocks_wx30_64.cbp	(working copy)
+@@ -988,12 +988,15 @@
+ 		<Unit filename="include/menuitemsmanager.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/CharDistribution.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+ 		<Unit filename="include/mozilla_chardet/JpCntx.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Alignment.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
+ 			<Option target="sdk" />
+ 		</Unit>
+@@ -1012,6 +1018,9 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+ 			<Option target="sdk" />
+ 		</Unit>
++		<Unit filename="include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
++			<Option target="sdk" />
++		</Unit>
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Types.h">
+ 			<Option target="sdk" />
+ 		</Unit>
