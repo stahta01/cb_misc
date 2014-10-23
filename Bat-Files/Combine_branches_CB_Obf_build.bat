@@ -56,6 +56,18 @@ REM
 REM
 REM
 
+git pull --rebase origin for_upstream
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+)
+
+REM
+REM
+REM
+
 git pull --rebase origin build/cb_sdk_includes_fixed
 if errorlevel 1 (
    echo git pull returned %errorlevel%
@@ -63,6 +75,10 @@ if errorlevel 1 (
    git rebase --abort
    goto _ABORT
 )
+
+REM
+REM
+REM
 
 git pull --rebase origin build/template_bugs
 if errorlevel 1 (
