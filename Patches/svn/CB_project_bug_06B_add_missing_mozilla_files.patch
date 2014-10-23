@@ -1,8 +1,8 @@
 Index: src/CodeBlocks-unix.cbp
 ===================================================================
---- src/CodeBlocks-unix.cbp	(revision 9919)
+--- src/CodeBlocks-unix.cbp	(revision 10002)
 +++ src/CodeBlocks-unix.cbp	(working copy)
-@@ -746,6 +746,9 @@
+@@ -752,6 +752,9 @@
  		<Unit filename="include/mozilla_chardet/JpCntx.h">
  			<Option target="sdk" />
  		</Unit>
@@ -12,8 +12,8 @@ Index: src/CodeBlocks-unix.cbp
  		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
  			<Option target="sdk" />
  		</Unit>
-@@ -770,6 +776,9 @@
- 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+@@ -767,6 +770,9 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
  			<Option target="sdk" />
  		</Unit>
 +		<Unit filename="include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
@@ -24,9 +24,9 @@ Index: src/CodeBlocks-unix.cbp
  		</Unit>
 Index: src/CodeBlocks.cbp
 ===================================================================
---- src/CodeBlocks.cbp	(revision 9919)
+--- src/CodeBlocks.cbp	(revision 10002)
 +++ src/CodeBlocks.cbp	(working copy)
-@@ -989,6 +989,9 @@
+@@ -995,6 +995,9 @@
  		<Unit filename="include/mozilla_chardet/JpCntx.h">
  			<Option target="sdk" />
  		</Unit>
@@ -36,7 +36,7 @@ Index: src/CodeBlocks.cbp
  		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
  			<Option target="sdk" />
  		</Unit>
-@@ -1013,6 +1019,9 @@
+@@ -1013,6 +1016,9 @@
  		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
  			<Option target="sdk" />
  		</Unit>
@@ -48,9 +48,9 @@ Index: src/CodeBlocks.cbp
  		</Unit>
 Index: src/CodeBlocks_wx30-unix.cbp
 ===================================================================
---- src/CodeBlocks_wx30-unix.cbp	(revision 9919)
+--- src/CodeBlocks_wx30-unix.cbp	(revision 10002)
 +++ src/CodeBlocks_wx30-unix.cbp	(working copy)
-@@ -789,6 +789,9 @@
+@@ -795,6 +795,9 @@
  		<Unit filename="include/mozilla_chardet/JpCntx.h">
  			<Option target="sdk" />
  		</Unit>
@@ -60,8 +60,8 @@ Index: src/CodeBlocks_wx30-unix.cbp
  		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
  			<Option target="sdk" />
  		</Unit>
-@@ -813,6 +819,9 @@
- 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
+@@ -810,6 +813,9 @@
+ 		<Unit filename="include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
  			<Option target="sdk" />
  		</Unit>
 +		<Unit filename="include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
@@ -72,9 +72,9 @@ Index: src/CodeBlocks_wx30-unix.cbp
  		</Unit>
 Index: src/CodeBlocks_wx30.cbp
 ===================================================================
---- src/CodeBlocks_wx30.cbp	(revision 9919)
+--- src/CodeBlocks_wx30.cbp	(revision 10002)
 +++ src/CodeBlocks_wx30.cbp	(working copy)
-@@ -985,6 +985,9 @@
+@@ -991,6 +991,9 @@
  		<Unit filename="include/mozilla_chardet/JpCntx.h">
  			<Option target="sdk" />
  		</Unit>
@@ -84,7 +84,7 @@ Index: src/CodeBlocks_wx30.cbp
  		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
  			<Option target="sdk" />
  		</Unit>
-@@ -1009,6 +1015,9 @@
+@@ -1009,6 +1012,9 @@
  		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
  			<Option target="sdk" />
  		</Unit>
@@ -96,9 +96,9 @@ Index: src/CodeBlocks_wx30.cbp
  		</Unit>
 Index: src/CodeBlocks_wx30_64.cbp
 ===================================================================
---- src/CodeBlocks_wx30_64.cbp	(revision 9919)
+--- src/CodeBlocks_wx30_64.cbp	(revision 10002)
 +++ src/CodeBlocks_wx30_64.cbp	(working copy)
-@@ -988,6 +988,9 @@
+@@ -994,6 +994,9 @@
  		<Unit filename="include/mozilla_chardet/JpCntx.h">
  			<Option target="sdk" />
  		</Unit>
@@ -108,7 +108,7 @@ Index: src/CodeBlocks_wx30_64.cbp
  		<Unit filename="include/mozilla_chardet/mfbt/mozilla/Assertions.h">
  			<Option target="sdk" />
  		</Unit>
-@@ -1012,6 +1018,9 @@
+@@ -1012,6 +1015,9 @@
  		<Unit filename="include/mozilla_chardet/mfbt/mozilla/StandardInteger.h">
  			<Option target="sdk" />
  		</Unit>
