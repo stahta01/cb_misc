@@ -1,4 +1,4 @@
-SET PATH=C:\GreenApps\Subversion-1.7\bin;C:\GreenApps\GnuWin32\bin;%SystemRoot%\system32
+SET PATH=C:\GreenApps\Subversion-1.7\bin;C:\Apps\GnuWin32\bin;%SystemRoot%\system32
 
 setlocal
 CD ..
