@@ -18,14 +18,13 @@
 *.bat text eol=crlf
 
 # Declare files that will always have LF line endings on checkout.
-*.sh text eol=lf
 .gitattributes eol=lf
+*.sh text eol=lf
 # *.sub text eol=lf
 # *.cbp text eol=lf
 
 # Denote all files that are NOT truly binary; 
 # but, it works around a bug as binary.
-# .gitattributes binary
 # src/sdk/resources/lexers/lexer_bibtex.sample binary
 # src/sdk/scripting/bindings/scriptbindings.cpp binary
 # src/sdk/filemanager.cpp binary
