@@ -4,29 +4,42 @@
 # Explicitly declare text files you want to always be normalized and converted
 # to native line endings on checkout.
 # .gitignore text
+# .gitattributes text
 *.c text
-*.h text
-*.cxx text
+*.cbp text
 *.cpp text
+*.cxx text
+*.fbp text
+*.h text
+*.hxx text
 
 # Declare files that will always have CRLF line endings on checkout.
 *.sln text eol=crlf
 *.bat text eol=crlf
-*.fbp text eol=crlf
 
 # Declare files that will always have LF line endings on checkout.
 *.sh text eol=lf
-*.cbp text eol=lf
-.gitattributes text eol=lf
+# *.sub text eol=lf
+# *.cbp text eol=lf
 
 # Denote all files that are NOT truly binary; 
 # but, it works around a bug as binary.
-# .gitignore binary
-# *.bat binary
+.gitattributes binary
+# src/sdk/resources/lexers/lexer_bibtex.sample binary
+# src/sdk/scripting/bindings/scriptbindings.cpp binary
 # src/sdk/filemanager.cpp binary
+# src/plugins/scriptedwizard/compilerpanel.cpp binary
 
 # Denote all files that are truly binary and should not be modified.
-*.png binary
-*.jpg binary
+*.BMP binary
+*.bmp binary
 *.dll binary
+*.doc binary
+*.gif binary
+*.icns binary
+*.ico binary
+*.jpg binary
+*.png binary
+*.xcf binary
+*.z binary
 *.zip binary
