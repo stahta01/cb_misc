@@ -23,7 +23,6 @@ if errorlevel 1 (
 )
 @echo on
 
-
 git.exe checkout     build/combinedNoPush --
 if errorlevel 1 (
    echo git checkout returned %errorlevel%
@@ -51,6 +50,18 @@ if errorlevel 1 (
 
 git.exe svn info
 REM PAUSE
+
+REM
+REM
+REM
+
+git pull --rebase origin formatting/linefeed_correction
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+)
 
 REM
 REM
