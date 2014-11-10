@@ -1,0 +1,14 @@
+Use to rebase ~/GitHome/Production/CB_Obf_build (for_upstream)
+
+cd ../CB_Obf_build
+
+$ git.exe status
+$ git.exe checkout for_upstream
+
+$ git fetch upstream
+$ git pull --rebase upstream master
+$ git status
+
+$ git.exe push --force-with-lease --progress  "origin" for_upstream:for_upstream
+
+$ git branch --set-upstream-to=origin/for_upstream
