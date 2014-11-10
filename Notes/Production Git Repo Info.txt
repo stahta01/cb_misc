@@ -1,9 +1,27 @@
+/Production/CodeBlocks_master
++biplab=git://cb.biplab.in/codeblocks.git
++jenslody=http://github.com/jenslody/codeblocks.git
+ obfuscated=http://github.com/obfuscated/codeblocks_sf.git
++origin=??https://stahta01@github.com/stahta01/codeblocks_svn_rebase.git
+  master
+  obfuscated/master
+  obfuscated/svn_rebase/master
++ jenslody/svn_rebase/master
++ jenslody/master
++ biplab/svn_rebase/master
++ biplab/master
+
+/Production/CB_Obf_master_CRLF
+  master
+  formatting/linefeed_correction
+
 /Production/CB_Obf_master
  upstream=http://github.com/obfuscated/codeblocks_sf.git
  origin=https://stahta01@github.com/stahta01/codeblocks_sf_tims.git
   git_rebase/master
   svn_rebase/master
   master
+  formatting/linefeed_correction
 
 /Production/CB_Obf_plugin
   plugin/wxContribItems
@@ -21,10 +39,8 @@
   build/combinedNoPush
   build/rejectedPatches
   for_upstream
-      CB_project_bug_04_remove_wxscintilla_cb.patch
-      CB_project_bug_05_remove_wxpropgrid.patch
-      CB_project_bug_07_remove_depends_on_lib_finder.patch
-      CB_project_bug_08_remove_or_fix_update_unit_filename.patch
+      build/addPCH_wx28_win32 project only changes.
+      plugin/wxContribItems
   master
   old_for_upstream
 

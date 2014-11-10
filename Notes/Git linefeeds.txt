@@ -2,6 +2,21 @@ $ git config core.eol lf
 $ git config core.autocrlf input
 $ git config core.safecrlf true
 
+$ git config core.autocrlf true
+$ git config core.autocrlf false
+
+$ git config core.safecrlf warn
+
+$ git config core.eol crlf
+
+--local
+.git/config
+--global
+~/.gitconfig
+--system
+$(prefix)/etc/gitconfig
+--list
+
 local .git/config
 [core]
 	repositoryformatversion = 0

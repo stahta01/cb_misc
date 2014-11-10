@@ -29,10 +29,10 @@ $ ls .git/refs/remotes/*/trunk
 .git/refs/remotes/git-svn-stuff/trunk
 
 $ git show origin/master | head -n 1
-commit 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
+commit bf84f85b31448eb3f55cfb2bf7f0efa2aaa27f9f
 
-$ git svn find-rev 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
-9985
+$ git svn find-rev bf84f85b31448eb3f55cfb2bf7f0efa2aaa27f9f
+10009
 
 
 Step 1B: Verify hash code foldername
@@ -45,15 +45,15 @@ $ git svn find-rev 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
 
 Step 2: Get hash code needed to be used later.
 $ git log --grep=^git-svn-id: --first-parent -1 | head -n 1
-commit 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
+commit bf84f85b31448eb3f55cfb2bf7f0efa2aaa27f9f
 
-$ git svn find-rev 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae
-9985
+$ git svn find-rev bf84f85b31448eb3f55cfb2bf7f0efa2aaa27f9f
+10009
 
 Step 3: Create/updates remotes trunk using hash code
 Note: Replace hash with value returned by the above command
 Note: Replace git-svn-stuff or ??? with the correct folder name.
-$ echo 58d8f5b3314ebf7e86ea4f669b12d4207625a0ae > .git/refs/remotes/git-svn-stuff/trunk
+$ echo bf84f85b31448eb3f55cfb2bf7f0efa2aaa27f9f > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 4: Verify hash code was created/changed
 Note: Replace git-svn-stuff or ??? with the correct folder name.
