@@ -56,6 +56,7 @@ REM
 REM
 
 REM goto after_linefeed_correction
+REM src/plugins/contrib/IncrementalSearch/IncrementalSearch.cpp
 git pull --rebase origin formatting/linefeed_correction
 if errorlevel 1 (
    echo git pull returned %errorlevel%
@@ -64,6 +65,20 @@ if errorlevel 1 (
    goto _ABORT
 )
 :after_linefeed_correction
+
+REM
+REM
+REM
+
+    goto after_linefeed_safecrlf
+git pull --rebase origin formatting/safecrlf
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+)
+:after_linefeed_safecrlf
 
 REM
 REM
