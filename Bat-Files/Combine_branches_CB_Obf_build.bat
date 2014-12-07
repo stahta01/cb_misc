@@ -55,7 +55,7 @@ REM
 REM
 REM
 
-REM goto after_linefeed_correction
+    goto after_linefeed_correction
 REM src/plugins/contrib/IncrementalSearch/IncrementalSearch.cpp
 git pull --rebase origin formatting/linefeed_correction
 if errorlevel 1 (
@@ -65,20 +65,6 @@ if errorlevel 1 (
    goto _ABORT
 )
 :after_linefeed_correction
-
-REM
-REM
-REM
-
-    goto after_linefeed_safecrlf
-git pull --rebase origin formatting/safecrlf
-if errorlevel 1 (
-   echo git pull returned %errorlevel%
-   echo aborting rebase
-   git rebase --abort
-   goto _ABORT
-)
-:after_linefeed_safecrlf
 
 REM
 REM
@@ -117,6 +103,18 @@ if errorlevel 1 (
 )
 
 REM
+REM
+REM
+
+git pull --rebase origin gnumakefile
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+)
+
+REM
 REM build/rejectedPatches
 REM
 
@@ -127,6 +125,20 @@ if errorlevel 1 (
    git rebase --abort
    goto _ABORT
 )
+
+REM
+REM
+REM
+
+REM goto after_linefeed_gitattributes
+git pull --rebase origin formatting/gitattributes
+if errorlevel 1 (
+   echo git pull returned %errorlevel%
+   echo aborting rebase
+   git rebase --abort
+   goto _ABORT
+)
+:after_linefeed_gitattributes
 
 REM
 REM Cleanup
