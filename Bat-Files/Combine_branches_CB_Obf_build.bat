@@ -106,7 +106,7 @@ REM
 REM
 REM
 
-git pull --rebase origin gnumakefile
+git pull --rebase origin compiler/gnumake
 if errorlevel 1 (
    echo git pull returned %errorlevel%
    echo aborting rebase
