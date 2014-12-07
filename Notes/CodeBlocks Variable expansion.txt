@@ -1,0 +1,17 @@
+$(TARGET_CC)   The current target's build tool executable (compiler, linker, etc). 
+$(TARGET_CPP)  The current target's build tool executable (compiler, linker, etc). 
+$(TARGET_LD)   The current target's build tool executable (compiler, linker, etc). 
+$(TARGET_LIB)  The current target's build tool executable (compiler, linker, etc). 
+
+$(TDAY)        Current date in the form YYYYMMDD (for example 20051228) 
+$(TODAY)       Current date in the form YYYY-MM-DD (for example 2005-12-28) 
+$(NOW)         Timestamp in the form YYYY-MM-DD-hh.mm (for example 2005-12-28-07.15) 
+$(NOW_L)       Timestamp in the form YYYY-MM-DD-hh.mm.ss (for example 2005-12-28-07.15.45) 
+
+$(MAKEFILE)             The filename of the makefile.
+$(TARGET_OUTPUT_FILE)   The current target's output file.
+
+$(ACTIVE_EDITOR_FILENAME) The filename of the file opened in the currently active editor.
+$(ACTIVE_EDITOR_DIRNAME)  Currently active file's containing directory (relative to the common top level path)
+$(ACTIVE_EDITOR_STEM)     Currently active file's base name (without extension).
+$(ACTIVE_EDITOR_EXT)      Currently active file's extension.
