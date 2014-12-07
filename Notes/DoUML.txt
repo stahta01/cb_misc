@@ -1,0 +1,8 @@
+leonardo2d/douml
+DoUML/douml          forked from leonardo2d/douml  This branch is 159 commits ahead of leonardo2d:master
+vresnev/douml        forked from DoUML/douml       This branch is 5 commits ahead of DoUML:master
+di98jgu/douml        forked from DoUML/douml       This branch is 7 commits ahead, 14 commits behind DoUML:master
+jeremysalwen/douml   forked from DoUML/douml       This branch is 14 commits behind DoUML:master
+pol51/douml          forked from DoUML/douml       This branch is 1 commit ahead, 22 commits behind DoUML:master
+
+http://github.com/stahta01/douml
