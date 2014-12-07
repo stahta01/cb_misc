@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_compiler_options>
+<CodeBlocks_compiler_options>
+    <if platform="windows">
+        <Program name="C"         value=""/>
+        <Program name="CPP"       value=""/>
+        <Program name="LD"        value=""/>
+        <Program name="DBGconfig" value="gdb_debugger:Default"/>
+        <Program name="LIB"       value=""/>
+        <Program name="WINDRES"   value=""/>
+        <Program name="MAKE"      value="mingw32-make.exe"/>
+    </if>
+    <else>
+        <Program name="C"         value=""/>
+        <Program name="CPP"       value=""/>
+        <Program name="LD"        value=""/>
+        <Program name="DBGconfig" value="gdb_debugger:Default"/>
+        <Program name="LIB"       value=""/>
+        <Program name="WINDRES"   value=""/>
+        <Program name="MAKE"      value="make"/>
+    </else>
+
+    <Switch name="includeDirs"             value="-I"/>
+    <Switch name="libDirs"                 value="-L"/>
+    <Switch name="linkLibs"                value="-l"/>
+    <Switch name="defines"                 value="-D"/>
+    <Switch name="genericSwitch"           value="-"/>
+    <Switch name="objectExtension"         value="o"/>
+    <Switch name="needDependencies"        value="true"/>
+    <Switch name="forceCompilerUseQuotes"  value="false"/>
+    <Switch name="forceLinkerUseQuotes"    value="false"/>
+    <Switch name="logging"                 value="default"/>
+    <Switch name="libPrefix"               value="lib"/>
+    <Switch name="libExtension"            value="a"/>
+    <Switch name="linkerNeedsLibPrefix"    value="false"/>
+    <Switch name="linkerNeedsLibExtension" value="false"/>
+    <Switch name="supportsPCH"             value="true"/>
+    <Switch name="PCHExtension"            value="gch"/>
+    <Switch name="UseFullSourcePaths"      value="true"/>
+    
+    <Common name="re"/>
+
+</CodeBlocks_compiler_options>
