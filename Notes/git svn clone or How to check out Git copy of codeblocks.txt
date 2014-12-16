@@ -10,7 +10,7 @@ Ideas copied from the following URLs
    http://trac.parrot.org/parrot/wiki/git-svn-tutorial
 
 
-Started about 10:45 AM Finished about  PM of the next Day
+Started about 3:45 PM Finished about  PM of the next Day
 git svn clone --stdlayout --prefix=git-svn-stuff/ http://svn.code.sf.net/p/codeblocks/code cb_svn_git_clone
 
 git svn fetch
