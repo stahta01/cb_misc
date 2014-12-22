@@ -1,0 +1,25 @@
+9ada8fc3673810080788ca3a92bb7441090ad353
+ sdk/wxconfig/wx-config-win.cpp |   8 ++++----
+ * - fixed: wx-config: under Windows, if the build configuration is set to 'debug' append the 'd' bit, otherwise, dont add anything (this is done to overcome a change in wx29)
+
+diff --git a/sdk/wxconfig/wx-config-win.cpp b/sdk/wxconfig/wx-config-win.cpp
+index 52b1b19..4606881 100644
+--- a/sdk/wxconfig/wx-config-win.cpp
++++ b/sdk/wxconfig/wx-config-win.cpp
+@@ -945,12 +945,12 @@ public:
+         if (cfg["USE_GUI"] == "1")
+             po["PORTNAME"] = "msw";
+ 
+-        if (cfg["BUILD"] == "debug" && cfg["DEBUG_FLAG"] == "default")
+-            po["WXDEBUGFLAG"] = "d";
+-
+         if (cfg["DEBUG_FLAG"] == "1")
+             po["WXDEBUGFLAG"] = "d";
+-
++			
++        if (cfg["BUILD"] == "debug")
++            po["WXDEBUGFLAG"] = "d";
++		
+         if (cfg["UNICODE"] == "1")
+             po["WXUNICODEFLAG"] = "u";
+ 

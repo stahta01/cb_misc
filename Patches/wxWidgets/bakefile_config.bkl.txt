@@ -1,0 +1,33 @@
+ build/bakefiles/config.bkl | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/build/bakefiles/config.bkl b/build/bakefiles/config.bkl
+index f8997df..7484df0 100644
+--- a/build/bakefiles/config.bkl
++++ b/build/bakefiles/config.bkl
+@@ -525,6 +525,13 @@ Set the version of your Mingw installation here.
+     "2.95" ... for Mingw 1.1 or any of the older versions
+             </description>
+         </option>
++        <option name="WINDRES">
++            <default-value>windres --use-temp-file</default-value>
++            <description>
++Windows resource compiler to use, possibly including extra options.
++For example, add "-F pe-i386" here if using 64 bit windres for 32 bit build.
++            </description>
++        </option>
+         <set var="GCCFLAGS">
+             <if cond="GCC_VERSION=='2.95'">-fvtable-thunks</if>
+         </set>
+
+SHA-1: 2f67c4ae07484971aaaeaebad1529f2f16377574
+
+* Make windres command used in MinGW build configurable.
+
+This allows to pass extra arguments to windres, which is especially important
+when using 64 bit windres for building 32 bit applications as the generated .o
+file uses a wrong architecture unless "-F pe-i386" is explicitly specified.
+
+See #15601.
+
+git-svn-id: https://svn.wxwidgets.org/svn/wx/wxWidgets/trunk@75074 c3d73ce0-8a6f-49c7-b76d-6d57e0e08775
