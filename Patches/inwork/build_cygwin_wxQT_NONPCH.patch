@@ -1,0 +1,541 @@
+diff --git include/wx/qt/font.h include/wx/qt/font.h
+index 224468e..d426575
+--- include/wx/qt/font.h
++++ include/wx/qt/font.h
+@@ -8,6 +8,8 @@
+ #ifndef _WX_QT_FONT_H_
+ #define _WX_QT_FONT_H_
+ 
++#include "wx/font.h"
++
+ class QFont;
+ class WXDLLIMPEXP_CORE wxFont : public wxFontBase
+ {
+diff --git include/wx/qt/private/converter.h include/wx/qt/private/converter.h
+index 5bc0f2d..208ac86
+--- include/wx/qt/private/converter.h
++++ include/wx/qt/private/converter.h
+@@ -14,6 +14,8 @@
+ #include "wx/defs.h"
+ #include <QtCore/Qt>
+ 
++#include "wx/kbdstate.h"
++
+ // Rely on overloading and let the compiler pick the correct version, which makes
+ // them easier to use then to write wxQtConvertQtRectToWxRect() or wxQtConvertWxRectToQtRect()
+ 
+diff --git include/wx/qt/private/winevent.h include/wx/qt/private/winevent.h
+index 45e94f0..286a6b0
+--- include/wx/qt/private/winevent.h
++++ include/wx/qt/private/winevent.h
+@@ -11,6 +11,7 @@
+ #ifndef _WX_QT_EVENTSIGNALFORWARDER_H_
+ #define _WX_QT_EVENTSIGNALFORWARDER_H_
+ 
++#include "wx/log.h"
+ #include "wx/window.h"
+ #include "wx/qt/private/converter.h"
+ #include "wx/qt/private/utils.h"
+diff --git src/qt/bitmap.cpp src/qt/bitmap.cpp
+index 2265de7..70e00d5
+--- src/qt/bitmap.cpp
++++ src/qt/bitmap.cpp
+@@ -8,15 +8,23 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QtGui/QPixmap>
++#include <QtGui/QBitmap>
++#include <QtWidgets/QLabel>
++
++#ifndef WX_PRECOMP
++    #include "wx/image.h"
++#endif // WX_PRECOMP
++
+ #include "wx/bitmap.h"
+-#include "wx/image.h"
+ #include "wx/rawbmp.h"
+ #include "wx/qt/private/converter.h"
+ #include "wx/qt/private/utils.h"
+ 
+-#include <QtGui/QPixmap>
+-#include <QtGui/QBitmap>
+-#include <QtWidgets/QLabel>
+ 
+ static wxImage ConvertImage( QImage qtImage )
+ {
+diff --git src/qt/button.cpp src/qt/button.cpp
+index d06e145..382f126
+--- src/qt/button.cpp
++++ src/qt/button.cpp
+@@ -8,8 +8,16 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#ifndef WX_PRECOMP
++    #include "wx/bitmap.h"
++#endif // WX_PRECOMP
++
+ #include "wx/button.h"
+-#include "wx/bitmap.h"
++#include "wx/stockitem.h"
+ #include "wx/qt/private/utils.h"
+ #include "wx/qt/private/winevent.h"
+ 
+diff --git src/qt/clipbrd.cpp src/qt/clipbrd.cpp
+index 438ee99..3a5ec3b
+--- src/qt/clipbrd.cpp
++++ src/qt/clipbrd.cpp
+@@ -8,12 +8,18 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QApplication>
++#include <QClipboard>
++
+ #include "wx/clipbrd.h"
+ #include "wx/scopedarray.h"
+ #include "wx/scopeguard.h"
+ #include "wx/qt/private/converter.h"
+ 
+-#include <QClipboard>
+ 
+ // ----------------------------------------------------------------------------
+ // wxClipboard ctor/dtor
+diff --git src/qt/colour.cpp src/qt/colour.cpp
+index e64784e..bad77af
+--- src/qt/colour.cpp
++++ src/qt/colour.cpp
+@@ -9,12 +9,18 @@
+ 
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+-#include "wx/qt/private/utils.h"
+ 
+ #ifdef __BORLANDC__
+-#pragma hdrstop
++    #pragma hdrstop
+ #endif
+ 
++#ifndef WX_PRECOMP
++    #include "wx/colour.h"
++#endif // WX_PRECOMP
++
++#include "wx/qt/private/utils.h"
++
++
+ int wxColour::GetPixel() const
+ {
+     wxMISSING_IMPLEMENTATION( "wxColour::GetPixel" );
+diff --git src/qt/converter.cpp src/qt/converter.cpp
+index 5b407f5..334c41d
+--- src/qt/converter.cpp
++++ src/qt/converter.cpp
+@@ -9,8 +9,9 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
+-#include "wx/gdicmn.h"
+-#include "wx/gdicmn.h"
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
+ 
+ #include <QtCore/QRect>
+ #include <QtCore/QString>
+@@ -22,6 +23,11 @@
+     #include <QtCore/QDate>
+ #endif // wxUSE_DATETIME
+ 
++#include "wx/kbdstate.h"
++#include "wx/gdicmn.h"
++#include "wx/gdicmn.h"
++
++
+ wxPoint wxQtConvertPoint( const QPoint &point )
+ {
+     if (point.isNull())
+diff --git src/qt/cursor.cpp src/qt/cursor.cpp
+index edefb18..0fb633c
+--- src/qt/cursor.cpp
++++ src/qt/cursor.cpp
+@@ -7,11 +7,21 @@
+ 
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+-#include "wx/cursor.h"
++
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
+ 
+ #include <QApplication>
+ #include <QBitmap>
+ 
++#ifndef WX_PRECOMP
++    #include "wx/bitmap.h"
++#endif // WX_PRECOMP
++
++#include "wx/cursor.h"
++
++
+ void wxSetCursor(const wxCursor& cursor)
+ {
+     if (cursor.m_qtCursor.shape() == Qt::ArrowCursor)
+diff --git src/qt/dataobj.cpp src/qt/dataobj.cpp
+index b406310..0b47289
+--- src/qt/dataobj.cpp
++++ src/qt/dataobj.cpp
+@@ -8,6 +8,12 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QObject>
++
+ #include "wx/qt/private/converter.h"
+ #include "wx/qt/private/utils.h"
+ #include "wx/dataobj.h"
+diff --git src/qt/dc.cpp src/qt/dc.cpp
+index 807eff0..14cde6f
+--- src/qt/dc.cpp
++++ src/qt/dc.cpp
+@@ -8,12 +8,22 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QtGui/QBitmap>
++
++#ifndef WX_PRECOMP
++    #include "wx/icon.h"
++    #include "wx/log.h"
++#endif // WX_PRECOMP
++
+ #include "wx/dc.h"
+-#include "wx/icon.h"
+ #include "wx/qt/dc.h"
+ #include "wx/qt/private/converter.h"
+ #include "wx/qt/private/utils.h"
+-#include <QtGui/QBitmap>
++
+ 
+ static void SetPenColour( QPainter *qtPainter, QColor col )
+ {
+diff --git src/qt/dcclient.cpp src/qt/dcclient.cpp
+index b7e7270..3b8dfce
+--- src/qt/dcclient.cpp
++++ src/qt/dcclient.cpp
+@@ -8,11 +8,20 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QtGui/QPicture>
++
++#ifndef WX_PRECOMP
++    #include "wx/log.h"
++    #include "wx/window.h"
++#endif // WX_PRECOMP
++
+ #include "wx/dcclient.h"
+-#include "wx/log.h"
+ #include "wx/qt/dcclient.h"
+ 
+-#include <QtGui/QPicture>
+ 
+ //##############################################################################
+ 
+diff --git src/qt/font.cpp src/qt/font.cpp
+index 41e7673..f9d5525
+--- src/qt/font.cpp
++++ src/qt/font.cpp
+@@ -8,13 +8,18 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QtGui/QFont>
++#include <QtGui/QFontInfo>
++
+ #include "wx/font.h"
+ #include "wx/fontutil.h"
+ #include "wx/qt/private/utils.h"
+ #include "wx/qt/private/converter.h"
+ 
+-#include <QtGui/QFont>
+-#include <QtGui/QFontInfo>
+ 
+ static QFont::StyleHint ConvertFontFamily(wxFontFamily family)
+ {
+diff --git src/qt/fontutil.cpp src/qt/fontutil.cpp
+index d77d7dc..3ce79b0
+--- src/qt/fontutil.cpp
++++ src/qt/fontutil.cpp
+@@ -8,6 +8,12 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QtGui/QFont>
++
+ #include "wx/fontutil.h"
+ #include "wx/encinfo.h"
+ 
+diff --git src/qt/frame.cpp src/qt/frame.cpp
+index 4944181..5f39c9f
+--- src/qt/frame.cpp
++++ src/qt/frame.cpp
+@@ -8,12 +8,21 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QtWidgets/QScrollArea>
++
++#ifndef WX_PRECOMP
++    #include "wx/menu.h"
++    #include "wx/toolbar.h"
++#endif // WX_PRECOMP
++
+ #include "wx/frame.h"
+-#include "wx/menu.h"
+ #include "wx/qt/private/utils.h"
+ #include "wx/qt/private/converter.h"
+ #include "wx/qt/private/winevent.h"
+-#include <QtWidgets/QScrollArea>
+ 
+ 
+ class wxQtMainWindow : public wxQtEventSignalHandler< QMainWindow, wxFrame >
+diff --git src/qt/listctrl.cpp src/qt/listctrl.cpp
+index 9c3ccbc..3fced62
+--- src/qt/listctrl.cpp
++++ src/qt/listctrl.cpp
+@@ -8,12 +8,20 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QHeaderView>
++
++#ifndef WX_PRECOMP
++    #include "wx/bitmap.h"
++#endif // WX_PRECOMP
++
+ #include "wx/listctrl.h"
+ #include "wx/imaglist.h"
+ #include "wx/qt/private/winevent.h"
+ 
+-#include <QHeaderView>
+-
+ 
+ class wxQtTreeWidget : public wxQtEventSignalHandler< QTreeWidget, wxListCtrl >
+ {
+diff --git src/qt/tglbtn.cpp src/qt/tglbtn.cpp
+index d4cbc11..a83b247
+--- src/qt/tglbtn.cpp
++++ src/qt/tglbtn.cpp
+@@ -8,8 +8,16 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#ifndef WX_PRECOMP
++    #include "wx/bitmap.h"
++#endif // WX_PRECOMP
++
++#include "wx/stockitem.h"
+ #include "wx/tglbtn.h"
+-#include "wx/bitmap.h"
+ #include "wx/qt/private/converter.h"
+ #include "wx/qt/private/winevent.h"
+ 
+diff --git src/qt/toolbar.cpp src/qt/toolbar.cpp
+index ed8beca..6240986
+--- src/qt/toolbar.cpp
++++ src/qt/toolbar.cpp
+@@ -8,14 +8,23 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
+-#include "wx/toolbar.h"
+-#include "wx/qt/private/winevent.h"
+-#include "wx/qt/private/converter.h"
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
+ 
+ #if wxUSE_TOOLBAR
+ 
++#include <QActionGroup>
+ #include <QtWidgets/QToolButton>
+ 
++#ifndef WX_PRECOMP
++    #include "wx/menu.h"
++#endif // WX_PRECOMP
++
++#include "wx/toolbar.h"
++#include "wx/qt/private/winevent.h"
++#include "wx/qt/private/converter.h"
++
+ class wxQtToolButton;
+ class wxToolBarTool : public wxToolBarToolBase
+ {
+diff --git src/qt/tooltip.cpp src/qt/tooltip.cpp
+index 409035a..f78b44f
+--- src/qt/tooltip.cpp
++++ src/qt/tooltip.cpp
+@@ -8,6 +8,14 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#ifndef WX_PRECOMP
++    #include "wx/window.h"
++#endif // WX_PRECOMP
++
+ #include "wx/tooltip.h"
+ #include "wx/qt/private/utils.h"
+ 
+diff --git src/qt/uiaction.cpp src/qt/uiaction.cpp
+index b37d946..1278434
+--- src/qt/uiaction.cpp
++++ src/qt/uiaction.cpp
+@@ -8,12 +8,17 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#include <QtTest/QtTestGui>
++
+ #include "wx/qt/defs.h"
+ #include "wx/qt/private/utils.h"
+ #include "wx/uiaction.h"
+ #include "wx/qt/private/converter.h"
+ 
+-#include <QtTest/QtTestGui>
+ 
+ #if wxUSE_UIACTIONSIMULATOR
+ 
+diff --git src/qt/utils.cpp src/qt/utils.cpp
+index cca032f..786264b
+--- src/qt/utils.cpp
++++ src/qt/utils.cpp
+@@ -8,11 +8,9 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
+-#include "wx/utils.h"
+-#include "wx/window.h"
+-#include "wx/cursor.h"
+-#include "wx/qt/private/utils.h"
+-#include "wx/qt/private/converter.h"
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
+ 
+ #include <QtGui/QCursor>
+ #include <QtWidgets/QApplication>
+@@ -20,6 +18,17 @@
+ #include <QtGui/QDesktopServices>
+ #include <QtCore/QUrl>
+ 
++#ifndef WX_PRECOMP
++    #include "wx/cursor.h"
++    #include "wx/log.h"
++    #include "wx/window.h"
++#endif // WX_PRECOMP
++
++#include "wx/utils.h"
++#include "wx/qt/private/utils.h"
++#include "wx/qt/private/converter.h"
++
++
+ void wxMissingImplementation( const char fileName[], unsigned lineNumber,
+     const char feature[] )
+ {
+diff --git src/qt/window.cpp src/qt/window.cpp
+index 31969dc..c267af2
+--- src/qt/window.cpp
++++ src/qt/window.cpp
+@@ -8,14 +8,9 @@
+ // For compilers that support precompilation, includes "wx.h".
+ #include "wx/wxprec.h"
+ 
+-#include "wx/window.h"
+-#include "wx/log.h"
+-#include "wx/menu.h"
+-#include "wx/tooltip.h"
+-#include "wx/scrolbar.h"
+-#include "wx/qt/private/utils.h"
+-#include "wx/qt/private/converter.h"
+-#include "wx/qt/private/winevent.h"
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
+ 
+ #include <QtGui/QPicture>
+ #include <QtGui/QPainter>
+@@ -24,6 +19,20 @@
+ #include <QtWidgets/QWidget>
+ #include <QtWidgets/QScrollArea>
+ 
++#ifndef WX_PRECOMP
++    #include "wx/dcclient.h"
++    #include "wx/frame.h"
++    #include "wx/log.h"
++    #include "wx/menu.h"
++    #include "wx/scrolbar.h"
++#endif // WX_PRECOMP
++
++#include "wx/window.h"
++#include "wx/tooltip.h"
++#include "wx/qt/private/utils.h"
++#include "wx/qt/private/converter.h"
++#include "wx/qt/private/winevent.h"
++
+ 
+ #define VERT_SCROLLBAR_POSITION 0, 1
+ #define HORZ_SCROLLBAR_POSITION 1, 0
