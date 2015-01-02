@@ -1,3 +1,18 @@
+diff --git include/wx/fontutil.h include/wx/fontutil.h
+index 1790a5b..c3d2dfd 100644
+--- include/wx/fontutil.h
++++ include/wx/fontutil.h
+@@ -25,6 +25,10 @@
+     #include "wx/msw/wrapwin.h"
+ #endif
+ 
++#if defined(__WXQT__)
++    #include <QtGui/QFont>
++#endif
++
+ class WXDLLIMPEXP_FWD_BASE wxArrayString;
+ struct WXDLLIMPEXP_FWD_CORE wxNativeEncodingInfo;
+ 
 diff --git include/wx/qt/private/converter.h include/wx/qt/private/converter.h
 index 5bc0f2d..208ac86 100644
 --- include/wx/qt/private/converter.h
