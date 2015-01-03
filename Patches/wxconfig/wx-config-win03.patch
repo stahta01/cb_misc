@@ -1,0 +1,19 @@
+ sdk/wxconfig/wx-config-win.cpp |   5 ++++-
+ * Windows: wx-config.exe make sure that NDEBUG is defined for non debug flags
+
+diff --git a/sdk/wxconfig/wx-config-win.cpp b/sdk/wxconfig/wx-config-win.cpp
+index 2b04cb1..292543c 100644
+--- a/sdk/wxconfig/wx-config-win.cpp
++++ b/sdk/wxconfig/wx-config-win.cpp
+@@ -1077,7 +1077,10 @@ public:
+         po["SETUPHDIR"] += po["WXUNICODEFLAG"] + po["WXDEBUGFLAG"];
+ 
+         po["cflags"]  = easyMode(po["__DEBUGINFO"]) + easyMode(po["__OPTIMIZEFLAG_2"]) + po["__THREADSFLAG"];
+-        po["cflags"] += po["GCCFLAGS"] + addDefine("HAVE_W32API_H") + addDefine("__WXMSW__") + po["__WXUNIV_DEFINE_p"];
++		po["cflags"] += po["GCCFLAGS"] + addDefine("HAVE_W32API_H") + addDefine("__WXMSW__") + po["__WXUNIV_DEFINE_p"];
++		if(cfg["BUILD"] == "release")
++			po["cflags"] += addDefine("NDEBUG");
++			
+         po["cflags"] += po["__DEBUG_DEFINE_p"] + po["__EXCEPTIONS_DEFINE_p"] + po["__RTTI_DEFINE_p"];
+         po["cflags"] += po["__THREAD_DEFINE_p"] + po["__UNICODE_DEFINE_p"] + po["__MSLU_DEFINE_p"];
+         po["cflags"] += po["__GFXCTX_DEFINE_p"];

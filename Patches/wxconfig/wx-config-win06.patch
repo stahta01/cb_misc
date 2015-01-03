@@ -1,0 +1,17 @@
+ sdk/wxconfig/wx-config-win.cpp | 3 ++-
+ * Make wx-config also to honor the 'std' special keyword
+
+diff --git a/sdk/wxconfig/wx-config-win.cpp b/sdk/wxconfig/wx-config-win.cpp
+index 48db72b..3c137ae 100644
+--- a/sdk/wxconfig/wx-config-win.cpp
++++ b/sdk/wxconfig/wx-config-win.cpp
+@@ -396,7 +396,8 @@ protected:
+                 }
+                 else
+                 {
+-                    m_libs.push_back(param);
++					if( param.empty() == false )
++						m_libs.push_back(param);
+                     break;
+                 }
+             }
