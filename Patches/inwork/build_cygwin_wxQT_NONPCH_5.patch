@@ -1,5 +1,5 @@
 diff --git include/wx/fontutil.h include/wx/fontutil.h
-index 1790a5b..c3d2dfd 100644
+index 1790a5b..678beef 100644
 --- include/wx/fontutil.h
 +++ include/wx/fontutil.h
 @@ -25,6 +25,10 @@
@@ -50,6 +50,81 @@ index 276f7ff..63b76f8 100644
  class wxQtToolBar;
  
  class WXDLLIMPEXP_CORE wxToolBar : public wxToolBarBase
+diff --git src/common/fontcmn.cpp src/common/fontcmn.cpp
+index 4f0a4a6..1b5f8db 100644
+--- src/common/fontcmn.cpp
++++ src/common/fontcmn.cpp
+@@ -39,6 +39,10 @@
+     #include  "wx/msw/winundef.h"
+ #endif
+ 
++#if defined(__WXQT__)
++    #include <QtGui/QFont> // needed before wx/fontutil.h
++#endif
++
+ #include "wx/fontutil.h" // for wxNativeFontInfo
+ #include "wx/fontmap.h"
+ #include "wx/fontenum.h"
+diff --git src/common/fontmap.cpp src/common/fontmap.cpp
+index ffac05c..bb8aca0 100644
+--- src/common/fontmap.cpp
++++ src/common/fontmap.cpp
+@@ -25,6 +25,10 @@
+ 
+ #if wxUSE_FONTMAP
+ 
++#if defined(__WXQT__)
++    #include <QtGui/QFont> // needed before wx/fontmap.h
++#endif
++
+ #include "wx/fontmap.h"
+ 
+ #ifndef WX_PRECOMP
+diff --git src/common/fontutilcmn.cpp src/common/fontutilcmn.cpp
+index f13e717..aa6f05f 100644
+--- src/common/fontutilcmn.cpp
++++ src/common/fontutilcmn.cpp
+@@ -23,6 +23,10 @@
+     #pragma hdrstop
+ #endif
+ 
++#if defined(__WXQT__)
++    #include <QtGui/QFont> // needed before wx/fontutil.h
++#endif
++
+ #include "wx/fontutil.h"
+ #include "wx/encinfo.h"
+ 
+diff --git src/html/helpdata.cpp src/html/helpdata.cpp
+index 35d0522..91b003e 100644
+--- src/html/helpdata.cpp
++++ src/html/helpdata.cpp
+@@ -24,6 +24,10 @@
+ 
+ #include <ctype.h>
+ 
++#if defined(__WXQT__)
++    #include <QtGui/QFont> // needed before wx/fontmap.h
++#endif
++
+ #include "wx/html/helpdata.h"
+ #include "wx/tokenzr.h"
+ #include "wx/wfstream.h"
+diff --git src/html/htmlpars.cpp src/html/htmlpars.cpp
+index d0663f5..e48aa9a 100644
+--- src/html/htmlpars.cpp
++++ src/html/htmlpars.cpp
+@@ -22,6 +22,10 @@
+     #include "wx/wxcrtvararg.h"
+ #endif
+ 
++#if defined(__WXQT__)
++    #include <QtGui/QFont> // needed before wx/fontmap.h
++#endif
++
+ #include "wx/tokenzr.h"
+ #include "wx/wfstream.h"
+ #include "wx/url.h"
 diff --git src/qt/bitmap.cpp src/qt/bitmap.cpp
 index 2265de7..97e9fd0 100644
 --- src/qt/bitmap.cpp
