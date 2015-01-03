@@ -7,7 +7,7 @@ index 1790a5b..c3d2dfd 100644
  #endif
  
 +#if defined(__WXQT__)
-+    #include <QtGui/QFont>
++    class QFont;
 +#endif
 +
  class WXDLLIMPEXP_FWD_BASE wxArrayString;
