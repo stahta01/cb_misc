@@ -51,10 +51,10 @@ index 276f7ff..63b76f8 100644
  
  class WXDLLIMPEXP_CORE wxToolBar : public wxToolBarBase
 diff --git src/qt/bitmap.cpp src/qt/bitmap.cpp
-index 2265de7..70e00d5 100644
+index 2265de7..97e9fd0 100644
 --- src/qt/bitmap.cpp
 +++ src/qt/bitmap.cpp
-@@ -8,15 +8,23 @@
+@@ -8,15 +8,24 @@
  // For compilers that support precompilation, includes "wx.h".
  #include "wx/wxprec.h"
  
@@ -67,6 +67,7 @@ index 2265de7..70e00d5 100644
 +#include <QtWidgets/QLabel>
 +
 +#ifndef WX_PRECOMP
++    #include "wx/icon.h"
 +    #include "wx/image.h"
 +#endif // WX_PRECOMP
 +
