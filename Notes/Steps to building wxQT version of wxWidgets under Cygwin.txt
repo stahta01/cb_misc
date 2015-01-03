@@ -16,16 +16,24 @@ Step 2D: Install the optional packages; if wanted
    cppunit
    git
 
-Step 3: Download wxWidgets source code
- I used TortoiseGit 1.8.11.0 with git version 1.8.5.2.msysgit.0
- https://github.com/stahta01/wxWidgets to clone into C:\SourceCode\OpenSourceCode\Libs\GUI\wxWidgets\wxWidgets
+Step 3: Download wxWidgets source code 
+ 
+ NOTE: Cygwin needs lf line endings; or you get errors trying to do configure
+ 
+ $  mkdir cygwin
+ $  mkdir cygwin/devel
+ $  cd cygwin/devel
+ 
+ $  git clone https://github.com/stahta01/wxWidgets
+ 
+ $  git.exe checkout -b build/wxQT_PCH_FIXES origin/build/wxQT_PCH_FIXES
 
 Step 4: Building wxQT
-   cd /cygdrive/C/SourceCode/OpenSourceCode/Libs/GUI/wxWidgets/wxWidgets
+$  cd cygwin/devel/wxWidgets
 
-mkdir build_qt5_wx3.1.x_static_unicode
-cd build_qt5_wx3.1.x_static_unicode
-../configure --prefix=/opt/wx/3.1.x \
+$  mkdir build_qt5_wx3.1.x_static_unicode
+$  cd build_qt5_wx3.1.x_static_unicode
+$  ../configure --prefix=/opt/wx/3.1.x \
       --with-qt \
       --disable-monolithic \
       --disable-shared \
