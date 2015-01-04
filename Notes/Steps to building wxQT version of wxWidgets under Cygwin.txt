@@ -11,7 +11,7 @@ Step 2A: Install the Devel packages needed for wxWidgets configure/make
 
 Step 2B: Install the wanted GCC Toolchain
    I used the i686-pc-cygwin Toolchain; On Cygwin64, a prefix of cygwin32- is used.
-   	  gcc-core, gcc-g++, and also do the recommended packages.
+      gcc-core, gcc-g++, and also do the recommended packages.
 
 Step 2C: Install the packages needed for wxQT
    Qt5 Libs Packages
