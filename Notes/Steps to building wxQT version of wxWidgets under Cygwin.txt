@@ -1,3 +1,5 @@
+URL to get the online verstion is https://github.com/stahta01/stahta01.github.io/blob/master/wxWidgets/Steps%20to%20building%20wxQT%20version%20of%20wxWidgets%20under%20Cygwin.txt
+
 Steps to building wxQT version of wxWidgets under Cygwin
 
 Step 1: Have a recent version of Cygwin installed on the Windows PC.
