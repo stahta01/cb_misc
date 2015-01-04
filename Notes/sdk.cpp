@@ -2,9 +2,8 @@
 #include <sdk.h>
 
 #if !defined(WX_PRECOMP)
-    // wxWidgets non GUI headers in wx/wx.h; but, not in sdk_common.h
-
-    // wxWidgets GUI headers in wx/wx.h; but, not in sdk_common.h
+    // wxWidgets headers in wx/wx.h; but, not in sdk_common.h
+//    #include <wx/dataobj.h>
 //    #include <wx/dirdlg.h>
 //    #include <wx/gauge.h>
 //    #include <wx/gdicmn.h>
