@@ -4,32 +4,49 @@ Step 1: Have a recent version of Cygwin installed on the Windows PC.
  I used this 32 bit version uname -a output below
  "CYGWIN_NT-6.1 TimWin7-32 1.7.33-2(0.280/5/3) 2014-11-13 15:45 i686 Cygwin"
 
-Step 2A: Install the packages needed for wxWidgets configure/make
+Step 2A: Install the Devel packages needed for wxWidgets configure/make
+   make
+   pkg-config and also do the recommended packages. 
+     possible wxQT bug: internal wxWidgets package config does NOT know what to do about Qt5 on Cygwin
 
 Step 2B: Install the wanted GCC Toolchain
-   i686-pc-cygwin
+   I used the i686-pc-cygwin Toolchain; On Cygwin64, a prefix of cygwin32- is used.
+   	  gcc-core, gcc-g++, and also do the recommended packages.
 
 Step 2C: Install the packages needed for wxQT
-   libQt5Gui-devel
+   Qt5 Libs Packages
+      libQt5Gui-devel and also do the recommended packages.      
 
 Step 2D: Install the optional packages; if wanted
    cppunit
    git
 
 Step 3: Download wxWidgets source code 
- 
  NOTE: Cygwin needs lf line endings; or you get errors trying to do configure
  
- $  mkdir cygwin
- $  mkdir cygwin/devel
- $  cd cygwin/devel
+ Using Cywin Git
+ # Option --depth=1 needed because of bad internet connection.
  
- $  git clone https://github.com/stahta01/wxWidgets
+ git config --global core.eol lf
+ 
+ git clone --depth=1 --origin upstream https://github.com/wxWidgets/wxWidgets.git
+
+ git.exe status
+ 
+ git fetch --depth=1000
+ git fetch --depth=2000
+ # Option --unshallow removes the depth setting above.
+ git fetch --unshallow
+ 
+ git.exe status
+ git.exe checkout master
+ 
+ git.exe pull upstream master
  
  $  git.exe checkout -b build/wxQT_PCH_FIXES origin/build/wxQT_PCH_FIXES
 
 Step 4: Building wxQT
-$  cd cygwin/devel/wxWidgets
+$  cd ~/devel/wxWidgets/wxWidgets
 
 $  mkdir build_qt5_wx3.1.x_static_unicode
 $  cd build_qt5_wx3.1.x_static_unicode
@@ -38,7 +55,6 @@ $  ../configure --prefix=/opt/wx/3.1.x \
       --disable-monolithic \
       --disable-shared \
       --host=i686-pc-cygwin \
-      --build=i686-pc-cygwin \
       --enable-xrc \
       --with-libjpeg=builtin \
       --with-regex=builtin \
@@ -46,10 +62,46 @@ $  ../configure --prefix=/opt/wx/3.1.x \
       --disable-precomp-headers \
       --enable-unicode
 
-###
+## Reasons for the above configure options
+The --with-qt selects the wxQT Toolkit.
+The other --with- options are because sometime in the past I had issues using an wxWidgets build using the system version.
+The --enable-xrc is because the Code::Blocks directions mentions it; I believe it is the default in wxWidgets
+The --disable-shared is because the shared version has a linking error because Cygwin GCC uses Windows like export/import syntax that needs fixed.
+The --disable-monolithic is the default and the best options for static; it is here to remind me to test --enable-monolithic under shared.
+The --disable-precomp-headers is the common default under Windows GCCs; but, --enable-precomp-headers is the common default under Linux
+The --host=i686-pc-cygwin selects the Compiler toolchain that will be used.
+The --enable-unicode is to remind me the default is now Unicode
+
+##
+
+### Final output from Configure command
+Configured wxWidgets 3.1.0 for `i686-pc-cygwin'
+
+  Which GUI toolkit should wxWidgets use?                 qt
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         no
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      no
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+
+
 
 ###
+
+make clean
 
 make
+
 
 make install
