@@ -1,0 +1,62 @@
+# Declare files you want to always be converted 
+# to native line endings on checkout.
+README text
+WARNING text
+*.c text
+*.C text
+*.cbp text
+*.cpp text
+*.cxx text
+*.fbp text
+*.h text
+*.hpp text
+*.hxx text
+*.m4 text
+*.xpm text
+*.txt text
+*.TXT text
+*.workspace text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.vcproj text eol=crlf
+*.vcxproj text eol=crlf
+*.filters text eol=crlf
+*.sln text eol=crlf
+*.dsw text eol=crlf
+*.dsp text eol=crlf
+*.rc text eol=crlf
+*.icproj text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.vc text eol=crlf
+*.wat text eol=crlf
+*.tgt text eol=crlf
+*.bcc text eol=crlf
+
+# Declare files that will always have LF line endings on checkout.
+Makefile.am text eol=lf
+*.awk text eol=lf
+*.mm text eol=lf
+*.sh text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.BMP binary
+*.bmp binary
+*.ctg binary
+*.dll binary
+*.doc binary
+*.gif binary
+*.icns binary
+*.ico binary
+*.jpg binary
+*.mo binary
+*.mp4 binary
+*.otf binary
+*.pdf binary
+*.pfb binary
+*.png binary
+*.ttf binary
+*.wdr binary
+*.wmf binary
+*.xcf binary
+*.z binary
