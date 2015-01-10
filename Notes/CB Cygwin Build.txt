@@ -33,12 +33,12 @@ $  cd ~/devel/wxWidgets/wxWidgets
 
 $  mkdir build_gtk2_wx3.1.x_shared_unicode
 $  cd build_gtk2_wx3.1.x_shared_unicode
+$  export CPPFLAGS=""
 $  export CXXFLAGS="-Wno-attributes"
 $  ../configure --prefix=/opt/wx/gtk2/3.1.x \
       --with-gtk=2 \
       --disable-monolithic \
       --enable-shared \
-      --host=i686-pc-cygwin \
       --enable-xrc \
       --with-libjpeg=builtin \
       --with-regex=builtin \
@@ -48,6 +48,8 @@ $  ../configure --prefix=/opt/wx/gtk2/3.1.x \
       --disable-universal \
       --disable-precomp-headers \
       --enable-unicode
+
+# Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
 
 ###
   Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for libnotify
@@ -79,7 +81,7 @@ make
 
 make install
 
-/opt/wx/gtk2/3.1.x/bin/wx-config --list
+/opt/wx/gtk2/3.1.x/bin/wx-config --libs
 
 git://cb.biplab.in/codeblocks.git
 
@@ -90,8 +92,12 @@ git clone git://cb.biplab.in/codeblocks.git codeblocks-git
 
 ####
 # Requires Cygwin packages:
-#   libtool
+#   libtool 2.4-1
 #		automake
+#   zip
+#   gcc 4.9.2-1 does not work "g++: error: unrecognized command line option '-pthread'"
+#   trying gcc 4.8.3
+#      
 ####
 
 
@@ -105,13 +111,33 @@ echo $ACLOCAL_FLAGS
 export CPPFLAGS="-U__STRICT_ANSI__"
 export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
 echo $CXXFLAGS
- ./configure --disable-pch --with-wx-prefix=/opt/wx/gtk2/3.1.x
- 
+ ./configure --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/wx/gtk2/3.1.x/bin/wx-config
+
+
+#  
+# --with-wx-prefix=/opt/wx/gtk2/3.1.x
+# --with-platform=PLATFORM #the platform to build, win32, macosx or gtk(default)
+# X features:
+#  --x-includes=DIR    X include files are in DIR
+#  --x-libraries=DIR   X library files are in DIR
+
+make clean
+
 make
 
+make install
 
+In order to run Code::Blocks 
 ####
 # Requires Cygwin packages:
 #   
 #		
 ####
+
+
+
+Error messages that happened on some of the prior attempts to build
+
+		g++: error: unrecognized command line option '-pthread'
+
+
