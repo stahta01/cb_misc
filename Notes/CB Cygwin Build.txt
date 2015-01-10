@@ -1,25 +1,3 @@
-My steps to compile wxWidgets:
-./configure --build=x86_64-pc-cygwin --without-msw --with-gtk --disable-universal --enable-tooltips --enable-dnd
-
-../configure --enable-unicode --with-libjpeg=builtin --with-regex=builtin --without-msw --with-gtk --prefix=/opt/wx/2.8 --enable-monolithic  --disable-universal --without-gtkprint --without-gnomeprint --enable-tooltips --enable-dnd --enable-shared
-
-These options --without-gtkprint --without-gnomeprint helped build in the past using wxWidgets SVN trunk (2.9) .
-
-I am nearly certain "--enable-shared" is required for a wxWidgets able to be used by Code::Blocks.
-I decided to try "--enable-unicode" this option because this will reduce the patches needed by Code::Blocks it has about 3 places ANSI code needs fixed the last time I did an ANSI build (about 1 year ago.)
-I used "--with-libjpeg=builtin" because two years ago; the version of libjpeg in CygWin caused issues.
-I used "--with-regex=builtin" because the other poster in this thread commented out code that using this option might NOT need done.
-
-
-
-./bootstrap
-export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
- ./configure
- 
- 
- 
-export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
-
 ####
 # Requires Cygwin packages:
 #   libgtk2.0-devel
@@ -35,6 +13,7 @@ $  mkdir build_gtk2_wx3.1.x_shared_unicode
 $  cd build_gtk2_wx3.1.x_shared_unicode
 $  export CPPFLAGS=""
 $  export CXXFLAGS="-Wno-attributes"
+# Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
 $  ../configure --prefix=/opt/wx/gtk2/3.1.x \
       --with-gtk=2 \
       --disable-monolithic \
@@ -49,7 +28,6 @@ $  ../configure --prefix=/opt/wx/gtk2/3.1.x \
       --disable-precomp-headers \
       --enable-unicode
 
-# Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
 
 ###
   Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for libnotify
@@ -132,9 +110,9 @@ make install
 In order to run Code::Blocks 
 ####
 # Requires Cygwin packages:
-#   These packages where suggested as good ones to add to get octave to run; I am hoping it workes for getting CB to run.
-#   ?xinit
-#   ?xlaunch
+#   These packages where suggested as good ones to add to get GNU Octave to run; I am hoping it workes for getting CB to run.
+#   xinit
+#   xlaunch
 #		??gnuplot
 ####
 
@@ -143,6 +121,4 @@ $		startxwin /usr/local/bin/codeblocks.exe --prefix="/usr/local"
 C:\Apps32\Cygwin1_7\bin\mintty.exe /bin/sh -lc 'startxwin /usr/local/bin/codeblocks.exe --prefix="/usr/local"'
 
 
-
-Error messages that happened on some of the prior attempts to build
 
