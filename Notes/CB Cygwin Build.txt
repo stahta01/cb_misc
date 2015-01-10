@@ -30,6 +30,8 @@ $  ../configure --prefix=/opt/wx/gtk2/3.1.x \
 
 
 ###
+Configured wxWidgets 3.1.0 for `i686-pc-cygwin'
+
   Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for libnotify
   Should wxWidgets be compiled into single library?       no
   Should wxWidgets be linked as a shared library?         yes
@@ -59,14 +61,18 @@ make
 
 make install
 
+/opt/wx/gtk2/3.1.x/bin/wx-config --list
+
 /opt/wx/gtk2/3.1.x/bin/wx-config --libs
 
+## Git clone code begin
 git://cb.biplab.in/codeblocks.git
 
 cd ~/devel
 mkdir codeblocks
 cd ~/devel/codeblocks
 git clone git://cb.biplab.in/codeblocks.git codeblocks-git
+## Git clone code end
 
 ####
 # Requires Cygwin packages:
@@ -74,7 +80,7 @@ git clone git://cb.biplab.in/codeblocks.git codeblocks-git
 #		automake
 #   zip
 #   gcc 4.9.2-1 does not work "g++: error: unrecognized command line option '-pthread'"
-#   gcc 4.8.3 	seems to be working great.
+#   gcc 4.8.3-2	seems to be working great.
 #      
 ####
 
@@ -89,15 +95,17 @@ echo $ACLOCAL_FLAGS
 export CPPFLAGS="-U__STRICT_ANSI__"
 export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
 echo $CXXFLAGS
- ./configure --enable-shared --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/wx/gtk2/3.1.x/bin/wx-config
+ ./configure --prefix=/usr/local/cb --enable-static --enable-debug --enable-scripted-wizard --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/wx/gtk2/3.1.x/bin/wx-config
 
 
-#  
+#  --disable-dependency-tracking
 # --with-wx-prefix=/opt/wx/gtk2/3.1.x
 # --with-platform=PLATFORM #the platform to build, win32, macosx or gtk(default)
 # X features:
 #  --x-includes=DIR    X include files are in DIR
 #  --x-libraries=DIR   X library files are in DIR
+
+make uninstall
 
 make clean
 
@@ -116,9 +124,9 @@ In order to run Code::Blocks
 #		??gnuplot
 ####
 
-$		startxwin /usr/local/bin/codeblocks.exe --prefix="/usr/local"
+$		startxwin /usr/local/cb/bin/codeblocks.exe --prefix="/usr/local/cb"
 
-C:\Apps32\Cygwin1_7\bin\mintty.exe /bin/sh -lc 'startxwin /usr/local/bin/codeblocks.exe --prefix="/usr/local"'
+C:\Apps32\Cygwin1_7\bin\mintty.exe /bin/sh -lc 'startxwin /usr/local/cb/bin/codeblocks.exe --prefix="/usr/local/cb"'
 
 
 
