@@ -96,7 +96,7 @@ git clone git://cb.biplab.in/codeblocks.git codeblocks-git
 #		automake
 #   zip
 #   gcc 4.9.2-1 does not work "g++: error: unrecognized command line option '-pthread'"
-#   trying gcc 4.8.3
+#   gcc 4.8.3 	seems to be working great.
 #      
 ####
 
@@ -111,7 +111,7 @@ echo $ACLOCAL_FLAGS
 export CPPFLAGS="-U__STRICT_ANSI__"
 export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
 echo $CXXFLAGS
- ./configure --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/wx/gtk2/3.1.x/bin/wx-config
+ ./configure --enable-shared --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/wx/gtk2/3.1.x/bin/wx-config
 
 
 #  
@@ -127,17 +127,22 @@ make
 
 make install
 
+
+
 In order to run Code::Blocks 
 ####
 # Requires Cygwin packages:
-#   
-#		
+#   These packages where suggested as good ones to add to get octave to run; I am hoping it workes for getting CB to run.
+#   ?xinit
+#   ?xlaunch
+#		??gnuplot
 ####
+
+$		startxwin /usr/local/bin/codeblocks.exe --prefix="/usr/local"
+
+C:\Apps32\Cygwin1_7\bin\mintty.exe /bin/sh -lc 'startxwin /usr/local/bin/codeblocks.exe --prefix="/usr/local"'
 
 
 
 Error messages that happened on some of the prior attempts to build
-
-		g++: error: unrecognized command line option '-pthread'
-
 
