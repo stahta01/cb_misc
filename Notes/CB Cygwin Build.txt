@@ -1,0 +1,117 @@
+My steps to compile wxWidgets:
+./configure --build=x86_64-pc-cygwin --without-msw --with-gtk --disable-universal --enable-tooltips --enable-dnd
+
+../configure --enable-unicode --with-libjpeg=builtin --with-regex=builtin --without-msw --with-gtk --prefix=/opt/wx/2.8 --enable-monolithic  --disable-universal --without-gtkprint --without-gnomeprint --enable-tooltips --enable-dnd --enable-shared
+
+These options --without-gtkprint --without-gnomeprint helped build in the past using wxWidgets SVN trunk (2.9) .
+
+I am nearly certain "--enable-shared" is required for a wxWidgets able to be used by Code::Blocks.
+I decided to try "--enable-unicode" this option because this will reduce the patches needed by Code::Blocks it has about 3 places ANSI code needs fixed the last time I did an ANSI build (about 1 year ago.)
+I used "--with-libjpeg=builtin" because two years ago; the version of libjpeg in CygWin caused issues.
+I used "--with-regex=builtin" because the other poster in this thread commented out code that using this option might NOT need done.
+
+
+
+./bootstrap
+export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
+ ./configure
+ 
+ 
+ 
+export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
+
+####
+# Requires Cygwin packages:
+#   libgtk2.0-devel
+#
+####
+
+$ pkg-config gtk+-2.0 --libs
+
+
+$  cd ~/devel/wxWidgets/wxWidgets
+
+$  mkdir build_gtk2_wx3.1.x_shared_unicode
+$  cd build_gtk2_wx3.1.x_shared_unicode
+$  export CXXFLAGS="-Wno-attributes"
+$  ../configure --prefix=/opt/wx/gtk2/3.1.x \
+      --with-gtk=2 \
+      --disable-monolithic \
+      --enable-shared \
+      --host=i686-pc-cygwin \
+      --enable-xrc \
+      --with-libjpeg=builtin \
+      --with-regex=builtin \
+      --with-tiff=builtin \
+      --without-gtkprint \
+      --without-gnomeprint \
+      --disable-universal \
+      --disable-precomp-headers \
+      --enable-unicode
+
+###
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for libnotify
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      no
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                sys
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
+
+
+###
+
+make uninstall
+
+make clean
+
+make
+
+make install
+
+/opt/wx/gtk2/3.1.x/bin/wx-config --list
+
+git://cb.biplab.in/codeblocks.git
+
+cd ~/devel
+mkdir codeblocks
+cd ~/devel/codeblocks
+git clone git://cb.biplab.in/codeblocks.git codeblocks-git
+
+####
+# Requires Cygwin packages:
+#   libtool
+#		automake
+####
+
+
+cd ~/devel/codeblocks/codeblocks-git
+
+
+export ACLOCAL_FLAGS="-I `/opt/wx/gtk2/3.1.x/bin/wx-config --prefix`/share/aclocal"
+echo $ACLOCAL_FLAGS
+
+./bootstrap
+export CPPFLAGS="-U__STRICT_ANSI__"
+export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
+echo $CXXFLAGS
+ ./configure --disable-pch --with-wx-prefix=/opt/wx/gtk2/3.1.x
+ 
+make
+
+
+####
+# Requires Cygwin packages:
+#   
+#		
+####
