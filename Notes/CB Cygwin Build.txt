@@ -6,15 +6,33 @@
 
 $ pkg-config gtk+-2.0 --libs
 
+$   	i686-pc-cygwin-g++ --version
+#
+$   	i686-pc-cygwin-g++ -pthread
+### Good Result
+i686-pc-cygwin-g++: fatal error: no input files
+compilation terminated.
+###
+### Bad Result
+i686-pc-cygwin-g++: error: unrecognized command line option ‘-pthread’
+i686-pc-cygwin-g++: fatal error: no input files
+compilation terminated.
+##  CB Build Error
+libtool: link: i686-pc-cygwin-g++ -g -DDEBUG -DCB_AUTOCONF -DWXMAKINGDLL_SCI -Wno-attributes -fPIC -DPIC -fexceptions -Wl,--no-undefined -o .libs/codeblocks.exe app.o appglobals.o backtracedlg.o breakpointsdlg.o compilersettingsdlg.o cpuregistersdlg.o crashhandler.o debugger_interface_creator.o debuggermenu.o debuggersettingscommonpanel.o debuggersettingsdlg.o debuggersettingspanel.o disassemblydlg.o dlgabout.o dlgaboutplugin.o editkeywordsdlg.o editorconfigurationdlg.o environmentsettingsdlg.o examinememorydlg.o find_replace.o infopane.o main.o notebookstyles.o prefix.o printdlg.o projectmanagerui.o projectdepsdlg.o projectoptionsdlg.o recentitemslist.o scriptconsole.o scriptingsettingsdlg.o splashscreen.o startherepage.o switcherdlg.o threadsdlg.o virtualbuildtargetsdlg.o watchesdlg.o  ../sdk/.libs/libcodeblocks.a -L/usr/local/cb/gtk2/lib /usr/local/cb/gtk2/lib/libwx_gtk2u_aui-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_propgrid-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_richtext-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_xrc-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_qa-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu_net-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_html-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_adv-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_core-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu_xml-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu-3.1.a -lgthread-2.0 -lwxregexu-3.1 -lwxtiff-3.1 -lwxjpeg-3.1 -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 /usr/lib/libXinerama.dll.a /usr/lib/libXi.dll.a /usr/lib/libXrandr.dll.a /usr/lib/libXcursor.dll.a /usr/lib/libXcomposite.dll.a -latk-1.0 -lcairo /usr/lib/libpixman-1.dll.a -lEGL -lGL /usr/lib/libXdamage.dll.a /usr/lib/libXfixes.dll.a /usr/lib/libX11-xcb.dll.a /usr/lib/libxcb-glx.dll.a /usr/lib/libxcb-shm.dll.a /usr/lib/libxcb-render.dll.a /usr/lib/libXrender.dll.a /usr/lib/libXext.dll.a /usr/lib/libX11.dll.a /usr/lib/libxcb.dll.a /usr/lib/libXau.dll.a /usr/lib/libXdmcp.dll.a -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lharfbuzz -lpango-1.0 -lgmodule-2.0 -lgobject-2.0 -lffi -lglib-2.0 /usr/lib/libintl.dll.a /usr/lib/libiconv.dll.a /usr/lib/libpcre.dll.a /usr/lib/libfontconfig.dll.a /usr/lib/libexpat.dll.a /usr/lib/libfreetype.dll.a -lbz2 /usr/lib/libpng15.dll.a -lz -lpthread -ldl -pthread
+i686-pc-cygwin-g++: error: unrecognized command line option '-pthread'
+Makefile:610: recipe for target 'codeblocks.exe' failed
+
+###
+
 
 $  cd ~/devel/wxWidgets/wxWidgets
 
-$  mkdir build_gtk2_wx3.1.x_shared_unicode
-$  cd build_gtk2_wx3.1.x_shared_unicode
+$  mkdir build_cb_gtk2_wx3.1.x_shared_unicode
+$  cd build_cb_gtk2_wx3.1.x_shared_unicode
 $  export CPPFLAGS=""
 $  export CXXFLAGS="-Wno-attributes"
 # Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
-$  ../configure --prefix=/opt/wx/gtk2/3.1.x \
+$  ../configure --prefix=/usr/local/cb/gtk2 \
       --with-gtk=2 \
       --disable-monolithic \
       --enable-shared \
@@ -51,6 +69,7 @@ Configured wxWidgets 3.1.0 for `i686-pc-cygwin'
                                        sdl                no
 
 
+
 ###
 
 make uninstall
@@ -61,9 +80,71 @@ make
 
 make install
 
-/opt/wx/gtk2/3.1.x/bin/wx-config --list
+#########
+$  cd ~/devel/wxWidgets/wxWidgets
 
-/opt/wx/gtk2/3.1.x/bin/wx-config --libs
+$  mkdir build_cb_gtk2_wx3.1.x_static_unicode
+$  cd build_cb_gtk2_wx3.1.x_static_unicode
+$  export CPPFLAGS=""
+$  export CXXFLAGS="-Wno-attributes"
+# Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
+$  ../configure --prefix=/usr/local/cb/gtk2 \
+      --with-gtk=2 \
+      --disable-monolithic \
+      --disable-shared \
+      --enable-xrc \
+      --with-libjpeg=builtin \
+      --with-regex=builtin \
+      --with-tiff=builtin \
+      --without-gtkprint \
+      --without-gnomeprint \
+      --disable-universal \
+      --disable-precomp-headers \
+      --enable-unicode
+
+###
+Configured wxWidgets 3.1.0 for `i686-pc-cygwin'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for libnotify
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         no
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      no
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                sys
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
+
+###
+
+make uninstall
+
+make clean
+
+make
+
+make install
+
+###
+ The installation of wxWidgets is finished.  On certain
+ platforms (e.g. Linux) you'll now have to run ldconfig
+ if you installed a shared library and also modify the
+ LD_LIBRARY_PATH (or equivalent) environment variable.
+###
+
+#########
+
+/usr/local/cb/gtk2/bin/wx-config --list
+
+/usr/local/cb/gtk2/bin/wx-config --libs std,aui,propgrid
 
 ## Git clone code begin
 git://cb.biplab.in/codeblocks.git
@@ -72,6 +153,11 @@ cd ~/devel
 mkdir codeblocks
 cd ~/devel/codeblocks
 git clone git://cb.biplab.in/codeblocks.git codeblocks-git
+
+git config core.eol lf
+
+git reset --hard
+
 ## Git clone code end
 
 ####
@@ -87,19 +173,23 @@ git clone git://cb.biplab.in/codeblocks.git codeblocks-git
 
 cd ~/devel/codeblocks/codeblocks-git
 
+/usr/local/cb/gtk2/bin/wx-config --list
 
-export ACLOCAL_FLAGS="-I `/opt/wx/gtk2/3.1.x/bin/wx-config --prefix`/share/aclocal"
+export ACLOCAL_FLAGS="-I `/usr/local/cb/gtk2/bin/wx-config --prefix`/share/aclocal"
 echo $ACLOCAL_FLAGS
 
 ./bootstrap
 export CPPFLAGS="-U__STRICT_ANSI__"
-export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
+export CXXFLAGS="-Wno-attributes"
 echo $CXXFLAGS
- ./configure --prefix=/usr/local/cb --enable-static --enable-debug --enable-scripted-wizard --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/wx/gtk2/3.1.x/bin/wx-config
+
+# export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
+
+ ./configure --prefix=/usr/local/cb/gtk2 --enable-static --enable-debug --enable-scripted-wizard --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/usr/local/cb/gtk2/bin/wx-config
 
 
 #  --disable-dependency-tracking
-# --with-wx-prefix=/opt/wx/gtk2/3.1.x
+# --with-wx-prefix=/usr/local/cb/gtk2
 # --with-platform=PLATFORM #the platform to build, win32, macosx or gtk(default)
 # X features:
 #  --x-includes=DIR    X include files are in DIR
@@ -130,3 +220,5 @@ C:\Apps32\Cygwin1_7\bin\mintty.exe /bin/sh -lc 'startxwin /usr/local/cb/bin/code
 
 
 
+C:\Apps32\Cygwin1_7\usr\local\cb\gtk2\lib\wx\include\gtk2-unicode-static-3.1
+C:\Apps32\Cygwin1_7\usr\local\cb\gtk2\lib\wx\include\gtk2-unicode-3.1
