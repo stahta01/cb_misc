@@ -1,3 +1,6 @@
+
+git fetch --unshallow
+
 From http://stackoverflow.com/questions/1628088/how-to-reset-my-local-repository-to-be-just-like-the-remote-repository-head
 Setting your branch to exactly match the remote branch can be done in two steps:
 
