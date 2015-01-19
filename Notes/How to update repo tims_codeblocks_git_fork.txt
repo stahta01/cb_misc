@@ -1,0 +1,7 @@
+How to update repo tims_codeblocks_git_fork.txt
+
+git status
+git checkout master
+git svn fetch svn1
+git reset --hard git-svn1-stuff/trunk
+git svn info
