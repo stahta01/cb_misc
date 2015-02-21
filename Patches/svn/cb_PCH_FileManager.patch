@@ -1,0 +1,342 @@
+Index: src/plugins/contrib/FileManager/CommitBrowser.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/CommitBrowser.cpp	(revision 10123)
++++ src/plugins/contrib/FileManager/CommitBrowser.cpp	(working copy)
+@@ -1,9 +1,16 @@
+-#include "CommitBrowser.h"
+-#include "FileExplorerUpdater.h"
++#include <sdk.h> // Code::Blocks SDK
++
++#ifndef WX_PRECOMP
++    // wxWidgets header in wx/wx.h; but, not in sdk_common.h.
++    #include <wx/defs.h>    // Including wx/defs.h before any other wx Header prevents some weird wx bugs.
++#endif
+ 
+ //(*InternalHeaders(CommitBrowser)
+ #include <wx/xrc/xmlres.h>
+ //*)
++
++#include "CommitBrowser.h"
++#include "FileExplorerUpdater.h"
+ 
+ //(*IdInit(CommitBrowser)
+ //*)
+Index: src/plugins/contrib/FileManager/FileExplorer.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorer.cpp	(revision 10123)
++++ src/plugins/contrib/FileManager/FileExplorer.cpp	(working copy)
+@@ -1,22 +1,35 @@
+-#include "FileExplorer.h"
+-#include <wx/dir.h>
+-#include <wx/filename.h>
++#include <sdk.h> // Code::Blocks SDK
++
++#include <list>
++#include <vector>
++#include <iostream>
++
++#ifndef WX_PRECOMP
++    // wxWidgets header in wx/wx.h; but, not in sdk_common.h.
++    #include <wx/defs.h>    // Including wx/defs.h before any other wx Header prevents some weird wx bugs.
++    #include <wx/dirdlg.h>
++#endif
++
++// wxWidgets header not in sdk_common.h or wx/wx.h
+ #include <wx/aui/aui.h>
++#include <wx/dnd.h>
+ 
+-#include <sdk.h>
+ #ifndef CB_PRECOMP
+-    #include <wx/dnd.h>
++    // wxWidgets header in sdk_common.h
++    #include <wx/dir.h>
++    #include <wx/filename.h>
+     #include <wx/imaglist.h>
++    #include <wx/menu.h>
++    #include <wx/textdlg.h>
+ 
+     #include <cbproject.h>
+     #include <configmanager.h>
++    #include <editorbase.h>
++    #include <editormanager.h>
+     #include <projectmanager.h>
+ #endif
+ 
+-#include <list>
+-#include <vector>
+-#include <iostream>
+-
++#include "FileExplorer.h"
+ #include "se_globals.h"
+ #include "CommitBrowser.h"
+ 
+Index: src/plugins/contrib/FileManager/FileExplorer.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorer.h	(revision 10123)
++++ src/plugins/contrib/FileManager/FileExplorer.h	(working copy)
+@@ -1,7 +1,7 @@
+ #ifndef FILEEXPLORER_H
+ #define FILEEXPLORER_H
+ 
+-#include <wx/wx.h>
++
+ #include <wx/treectrl.h>
+ #include <wx/combobox.h>
+ #include <wx/dynarray.h>
+@@ -11,10 +11,15 @@
+ #include "FileExplorerUpdater.h"
+ #include "directorymonitor.h"
+ 
++class wxBoxSizer;
++class wxCheckBox;
++class wxStaticText;
++
+ class UpdateQueue;
+ 
+ class Expansion;
+ 
++
+ typedef std::vector<Expansion*> ExpList;
+ 
+ class VCSstate
+Index: src/plugins/contrib/FileManager/FileExplorerSettings.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(revision 10123)
++++ src/plugins/contrib/FileManager/FileExplorerSettings.cpp	(working copy)
+@@ -1,15 +1,24 @@
+-#include "FileExplorerSettings.h"
++#include <sdk.h> // Code::Blocks SDK
+ 
+-#include <sdk.h>
++#ifndef WX_PRECOMP
++    // wxWidgets header in wx/wx.h; but, not in sdk_common.h.
++    #include <wx/defs.h>    // Including wx/defs.h before any other wx Header prevents some weird wx bugs.
++    #include <wx/dirdlg.h>
++#endif
++
+ #ifndef CB_PRECOMP
+-  #include <wx/xrc/xmlres.h>
+-  #include <wx/checkbox.h>
+-  #include <wx/choice.h>
++    // wxWidgets header in sdk_common.h
++    #include <wx/checkbox.h>
++    #include <wx/choice.h>
++    #include <wx/listbox.h>
++    #include <wx/xrc/xmlres.h>
+ 
+-  #include "cbproject.h"
++    #include "cbproject.h"
+ #endif
+ 
++#include "FileExplorerSettings.h"
+ 
++
+ #include <wx/arrimpl.cpp> // this is a magic incantation which must be done!
+ WX_DEFINE_OBJARRAY(FavoriteDirs);
+ 
+Index: src/plugins/contrib/FileManager/FileExplorerSettings.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerSettings.h	(revision 10123)
++++ src/plugins/contrib/FileManager/FileExplorerSettings.h	(working copy)
+@@ -1,11 +1,14 @@
+ #ifndef FILEEXPLORERSETTINGS_H
+ #define FILEEXPLORERSETTINGS_H
+ 
+-#include <wx/wx.h>
+ 
+ #include <wx/button.h>
++#include <wx/dialog.h>
+ 
++class wxListBox;
++class wxTextCtrl;
+ 
++
+ class FavoriteDir
+ {
+ public:
+Index: src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(revision 10123)
++++ src/plugins/contrib/FileManager/FileExplorerUpdater.cpp	(working copy)
+@@ -1,9 +1,24 @@
+-#include <sdk.h>
++#include <sdk.h> // Code::Blocks SDK
+ 
+-#include <wx/sstream.h>
+-#include <wx/regex.h>
+ #include <set>
+ 
++#ifndef WX_PRECOMP
++    // wxWidgets header in wx/wx.h; but, not in sdk_common.h.
++    #include <wx/defs.h>    // Including wx/defs.h before any other wx Header prevents some weird wx bugs.
++#endif
++
++// wxWidgets header not in sdk_common.h or wx/wx.h
++#include <wx/sstream.h>
++
++#ifndef CB_PRECOMP
++    // wxWidgets header in sdk_common.h
++    #include <wx/checkbox.h>
++    #include <wx/dir.h>
++    #include <wx/regex.h>
++    #include <wx/stattext.h>
++    #include <wx/timer.h>
++#endif
++
+ #include "FileExplorerUpdater.h"
+ #include "FileExplorer.h"
+ #include "se_globals.h"
+Index: src/plugins/contrib/FileManager/FileExplorerUpdater.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileExplorerUpdater.h	(revision 10123)
++++ src/plugins/contrib/FileManager/FileExplorerUpdater.h	(working copy)
+@@ -1,7 +1,7 @@
+ #ifndef FILEEXPLORERUPDATER_H_INCLUDED
+ #define FILEEXPLORERUPDATER_H_INCLUDED
+ 
+-#include <wx/wx.h>
++
+ #include <wx/treectrl.h>
+ #include <wx/thread.h>
+ #include <wx/process.h>
+@@ -11,6 +11,8 @@
+ class VCSstatearray;
+ class FileExplorer;
+ class wxStringOutputStream;
++class wxTimer;
++class wxTimerEvent;
+ 
+ // SIMPLE wxCommandEvent DERIVED CUSTOM EVENTS THAT USE THE BUILTIN EVT_COMMAND EVENT TABLE ENTRY
+ BEGIN_DECLARE_EVENT_TYPES()
+Index: src/plugins/contrib/FileManager/FileManager.cbp
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.cbp	(revision 10123)
++++ src/plugins/contrib/FileManager/FileManager.cbp	(working copy)
+@@ -47,6 +47,7 @@
+ 			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="../../../include/mozilla_chardet" />
+Index: src/plugins/contrib/FileManager/FileManager.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.cpp	(revision 10123)
++++ src/plugins/contrib/FileManager/FileManager.cpp	(working copy)
+@@ -1,6 +1,16 @@
++#include <sdk.h> // Code::Blocks SDK
++
++#ifndef WX_PRECOMP
++    // wxWidgets header in wx/wx.h; but, not in sdk_common.h.
++    #include <wx/defs.h>    // Including wx/defs.h before any other wx Header prevents some weird wx bugs.
++#endif
++
++// wxWidgets header not in sdk_common.h or wx/wx.h
+ #include <wx/aui/aui.h>
+-#include <sdk.h> // Code::Blocks SDK
++
+ #ifndef CB_PRECOMP
++    #include <wx/menu.h>
++
+     #include <cbauibook.h>
+     #include <cbproject.h>
+     #include <projectmanager.h>
+Index: src/plugins/contrib/FileManager/FileManager.h
+===================================================================
+--- src/plugins/contrib/FileManager/FileManager.h	(revision 10123)
++++ src/plugins/contrib/FileManager/FileManager.h	(working copy)
+@@ -10,13 +10,7 @@
+ #ifndef FILEMANAGER_H_INCLUDED
+ #define FILEMANAGER_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // for "class cbPlugin"
+ 
+ #include "FileExplorer.h" // provides the FileExplorer class
+Index: src/plugins/contrib/FileManager/directorymonitor.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/directorymonitor.cpp	(revision 10123)
++++ src/plugins/contrib/FileManager/directorymonitor.cpp	(working copy)
+@@ -1,8 +1,11 @@
++#include <sdk.h> // Code::Blocks SDK
++
++#include <iostream>
++#include <vector>
++
+ #include "directorymonitor.h"
+-#include <vector>
+ #include "se_globals.h"
+ 
+-#include <iostream>
+ 
+ DEFINE_EVENT_TYPE(wxEVT_MONITOR_NOTIFY)
+ DEFINE_EVENT_TYPE(wxEVT_MONITOR_NOTIFY2)
+Index: src/plugins/contrib/FileManager/directorymonitor.h
+===================================================================
+--- src/plugins/contrib/FileManager/directorymonitor.h	(revision 10123)
++++ src/plugins/contrib/FileManager/directorymonitor.h	(working copy)
+@@ -2,9 +2,8 @@
+ #define WXFILESYSTEMMONITOR_H
+ 
+ 
++#include <wx/event.h>
+ 
+-#include <wx/wx.h>
+-
+ #define MONITOR_TERMINATE 0x010000
+ #define MONITOR_TOO_MANY_CHANGES 0x020000
+ #define MONITOR_ERROR 0x040000
+Index: src/plugins/contrib/FileManager/se_globals.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/se_globals.cpp	(revision 10123)
++++ src/plugins/contrib/FileManager/se_globals.cpp	(working copy)
+@@ -1,3 +1,9 @@
++#include <sdk.h> // Code::Blocks SDK
++#ifndef CB_PRECOMP
++    #include <editorbase.h>
++    #include <editormanager.h>
++#endif
++
+ #include "se_globals.h"
+ 
+ wxString GetParentDir(const wxString &path)
+Index: src/plugins/contrib/FileManager/se_globals.h
+===================================================================
+--- src/plugins/contrib/FileManager/se_globals.h	(revision 10123)
++++ src/plugins/contrib/FileManager/se_globals.h	(working copy)
+@@ -1,24 +1,12 @@
+ #ifndef IL_GLOBALS_H
+ #define IL_GLOBALS_H
+ 
+-#include <wx/wxprec.h>
++#include <wx/filename.h>
+ 
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
++#include <globals.h>
++#include <logmanager.h>
++#include <manager.h>
+ 
+-#include <sdk.h>
+-#ifndef CB_PRECOMP
+-    #include <wx/dir.h>
+-    #include <wx/filename.h>
+-    #include <wx/txtstrm.h>
+-
+-    #include <editorbase.h>
+-    #include <editormanager.h>
+-    #include <logmanager.h>
+-    #include <manager.h>
+-#endif
+-
+ wxString GetParentDir(const wxString &path);
+ 
+ bool DirIsChildOf(const wxString &path, const wxString &child);
