@@ -1,4 +1,4 @@
-Things that fail when using a PCH properly under Windows MinGW GGC and Linux GCC
+Using a PCH properly under Windows MinGW GGC and Linux GCC
 
 I. Required rules for using CB PCH properly
    A. CB Project rules
