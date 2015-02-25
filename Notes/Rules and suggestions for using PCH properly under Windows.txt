@@ -1,19 +1,27 @@
+Things that fail when using a PCH properly under Windows MinGW GGC and Linux GCC
+
+I. Required rules for using CB PCH properly
+   A. CB Project rules
+      1. Should have "-Winvalid-pch" warning set.
+      2. Must have the folder containing sdk.h and sdk.h.gch in the search path!
+         NOTE: The search for the folder containing sdk.h.gch must before the sdk.h search folder.
+   B. Source file rules
+      1. The sdk_common.h file should only be included by sdk.h and sdk_precomp.h
+      2. Use sdk.h instead of sdk_precomp.h in CB Plugins
+   
+
 Things that fail when using a PCH properly under Windows MinGW GCC
    1. Have CB set to put PCH in object directly fails to work 
       if pch file in compiler working folder
       it reads the normal header file instead
 
 Required rules for using CB PCH properly under Windows MinGW GCC
-   1. The sdk_common.h file should only be included by sdk.h and sdk_precomp.h
-   2. Use sdk.h instead of sdk_precomp.h in CB Plugins
    3. Do NOT include wx.h inside header files (unless that header is making a PCH).
    4. Do NOT include sdk.h from inside header files (unless that header is making a PCH).
    5. Do NOT include wxprec.h inside header files (unless that header is making a PCH).
    6. Do NOT include a header file before include sdk.h.
    6. Do NOT do a pragma before include sdk.h.
    8. Should have "-Winvalid-pch" warning set.
-   9. Must have the folder containing sdk.h and sdk.h.gch in the search path!
-      NOTE: The folder containing sdk.h.gch must before the sdk.h folder.
    10.When using CB_PRECOMP in a c++ non header file; include the correct PCH before it.
 
 Suggested rules for using PCH properly under Windows
