@@ -1,3 +1,30 @@
+Index: src/plugins/contrib/wxSmith/wxSmith.cbp
+===================================================================
+--- src/plugins/contrib/wxSmith/wxSmith.cbp	(revision 10127)
++++ src/plugins/contrib/wxSmith/wxSmith.cbp	(working copy)
+@@ -15,6 +15,13 @@
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Option projectIncludeDirsRelation="2" />
++				<Compiler>
++					<Add option='-include &quot;sdk.h&quot;' />
++					<Add option="-DCB_PRECOMP" />
++					<Add option="-DWX_PRECOMP" />
++					<Add directory="../../../.objs/include" />
++				</Compiler>
+ 			</Target>
+ 			<Target title="wxSmith">
+ 				<Option platforms="Windows;" />
+@@ -50,8 +57,6 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
 Index: src/plugins/contrib/wxSmith/wxSmith-unix.cbp
 ===================================================================
 --- src/plugins/contrib/wxSmith/wxSmith-unix.cbp	(revision 10123)
