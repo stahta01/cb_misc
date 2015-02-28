@@ -1,15 +1,3 @@
-Index: src/plugins/contrib/envvars/envvars-unix.cbp
-===================================================================
---- src/plugins/contrib/envvars/envvars-unix.cbp	(revision 10130)
-+++ src/plugins/contrib/envvars/envvars-unix.cbp	(working copy)
-@@ -41,6 +41,7 @@
- 			<Add option="-fPIC" />
- 			<Add option="-DCB_PRECOMP" />
- 			<Add option="-DcbDEBUG" />
-+			<Add directory="../../../.objs/include" />
- 			<Add directory="../../../include" />
- 			<Add directory="../../../include/scripting/include" />
- 			<Add directory="../../../include/scripting/sqplus" />
 Index: src/plugins/contrib/envvars/envvars.cbp
 ===================================================================
 --- src/plugins/contrib/envvars/envvars.cbp	(revision 10130)
@@ -50,3 +38,15 @@ Index: src/plugins/contrib/envvars/envvars_wx30-unix.cbp
  			<Add option="-DcbDEBUG" />
  			<Add directory="../../../include" />
  			<Add directory="../../../include/scripting/include" />
+Index: src/plugins/contrib/envvars/envvars-unix.cbp
+===================================================================
+--- src/plugins/contrib/envvars/envvars-unix.cbp	(revision 10130)
++++ src/plugins/contrib/envvars/envvars-unix.cbp	(working copy)
+@@ -41,6 +41,7 @@
+ 			<Add option="-fPIC" />
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../include/scripting/include" />
+ 			<Add directory="../../../include/scripting/sqplus" />
