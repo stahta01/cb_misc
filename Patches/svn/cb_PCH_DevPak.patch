@@ -1,0 +1,269 @@
+Index: src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+===================================================================
+--- src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp	(revision 10130)
++++ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp	(working copy)
+@@ -20,13 +20,15 @@
+ 					<Add option="-mthreads" />
+ 				</Linker>
+ 			</Target>
+-			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\devpakupdater.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\devpak_plugin" />
++			<Target title="pch plugin">
++				<Option output="../../../devel/share/CodeBlocks/plugins/devpakupdater.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/devpak_plugin" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
++				<Option projectIncludeDirsRelation="2" />
+ 				<Option projectResourceIncludeDirsRelation="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+@@ -34,6 +36,7 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-mthreads" />
+ 					<Add option="-fexceptions" />
++					<Add option='-include &quot;sdk.h&quot;' />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DWX_PRECOMP" />
+@@ -42,12 +45,13 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
++					<Add directory="../../../.objs/include" />
++					<Add directory="../../../include" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
+ 					<Add library="bz2" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip ..\..\..\devel\share\CodeBlocks\devpakupdater.zip manifest.xml *.xrc" />
+@@ -54,18 +58,53 @@
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+ 			</Target>
++			<Target title="no_pch plugin">
++				<Option output="../../../devel/share/CodeBlocks/plugins/devpakupdater.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/devpak_plugin" />
++				<Option type="3" />
++				<Option compiler="gcc" />
++				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
++				<Option projectCompilerOptionsRelation="2" />
++				<Option projectResourceIncludeDirsRelation="0" />
++				<Compiler>
++					<Add option="-Wall" />
++					<Add option="$(#CB_RELEASE_TYPE)" />
++					<Add option="-Winvalid-pch" />
++					<Add option="-mthreads" />
++					<Add option="-fexceptions" />
++					<Add option="-DBUILDING_PLUGIN" />
++					<Add option="-DNOPCH" />
++					<Add option="-DHAVE_W32API_H" />
++					<Add option="-D__WXMSW__" />
++					<Add option="-DWXUSINGDLL" />
++					<Add option="-DcbDEBUG" />
++					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../include" />
++				</Compiler>
++				<Linker>
++					<Add option="-mthreads" />
++					<Add library="bz2" />
++					<Add directory="../../../devel" />
++				</Linker>
++				<ExtraCommands>
++					<Add after="zip ..\..\..\devel\share\CodeBlocks\devpakupdater.zip manifest.xml *.xrc" />
++					<Mode after="always" />
++				</ExtraCommands>
++			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="libbz2;default;" />
++			<Add alias="All" targets="libbz2;pch plugin;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add directory="bzip2" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+@@ -75,95 +114,113 @@
+ 			<Add library="codeblocks" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="bzip2" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+-		<Unit filename="bzip2\blocksort.c">
++		<Unit filename="bzip2/blocksort.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib.c">
++		<Unit filename="bzip2/bzlib.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib.h">
++		<Unit filename="bzip2/bzlib.h">
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib_private.h">
++		<Unit filename="bzip2/bzlib_private.h">
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\compress.c">
++		<Unit filename="bzip2/compress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\crctable.c">
++		<Unit filename="bzip2/crctable.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\decompress.c">
++		<Unit filename="bzip2/decompress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\huffman.c">
++		<Unit filename="bzip2/huffman.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\randtable.c">
++		<Unit filename="bzip2/randtable.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+ 		<Unit filename="cbiniparser.cpp">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="cbiniparser.h">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="cbnetwork.cpp">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="cbnetwork.h">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="conf.cpp">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="conf.h">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="crc32.cpp">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="crc32.h">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="devpakinstaller.cpp">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="devpakinstaller.h">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="devpakupdater.cpp">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="devpakupdater.h">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="manifest.xml">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="mytar.cpp">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="mytar.h">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="update.xrc">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="updatedlg.cpp">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Unit filename="updatedlg.h">
+-			<Option target="default" />
++			<Option target="pch plugin" />
++			<Option target="no_pch plugin" />
+ 		</Unit>
+ 		<Extensions>
+ 			<code_completion />
+Index: src/plugins/contrib/devpak_plugin/devpakupdater.h
+===================================================================
+--- src/plugins/contrib/devpak_plugin/devpakupdater.h	(revision 10130)
++++ src/plugins/contrib/devpak_plugin/devpakupdater.h	(working copy)
+@@ -1,17 +1,7 @@
+ #ifndef DEVPAKUPDATER_H
+ #define DEVPAKUPDATER_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+ #include <cbplugin.h> // the base class we 're inheriting
+ #include <settings.h> // needed to use the Code::Blocks SDK
+ 
