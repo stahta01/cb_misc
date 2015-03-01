@@ -1,8 +1,10 @@
-// sdk.h must be the first include in the file to work as a PCH
-#include "sdk.h" // Code::Blocks SDK PCH
+#ifndef SDK_H
+    // sdk.h must be the first include in the file to work as a PCH
+    #include "sdk.h" // Code::Blocks SDK PCH
+#endif // #ifndef SDK_H
 
 #ifndef WX_PRECOMP
-    // compiler detection; includes setup.h
+    // wx/defs.h include needed to prevent weird wxWidgets errors.
     #include "wx/defs.h"
 
     // wxWidgets headers in wx/wx.h; but, not in sdk_common.h
