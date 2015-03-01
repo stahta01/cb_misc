@@ -1,14 +1,17 @@
 // sdk.h must be the first include in the file to work as a PCH
-#include <sdk.h>
+#include "sdk.h" // Code::Blocks SDK PCH
 
-#if !defined(WX_PRECOMP)
+#ifndef WX_PRECOMP
+    // compiler detection; includes setup.h
+    #include "wx/defs.h"
+
     // wxWidgets headers in wx/wx.h; but, not in sdk_common.h
 //    #include <wx/dataobj.h>
 //    #include <wx/dirdlg.h>
 //    #include <wx/gauge.h>
 //    #include <wx/gdicmn.h>
 //    #include <wx/settings.h>
-#endif // #if !defined(WX_PRECOMP)
+#endif // #ifndef WX_PRECOMP
 
 #ifndef CB_PRECOMP
     // wxWidgets non GUI headers in sdk_common.h
