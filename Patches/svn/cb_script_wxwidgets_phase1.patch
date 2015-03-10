@@ -32,16 +32,12 @@ Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
          // we need the compiler selection before wx settings, because we 'll have
          // to validate the settings. To do this we must know the compiler beforehand...
          Wizard.AddBuildTargetPage(_T(""), false, true, _T(""), _T("*"), true);
-@@ -214,22 +219,53 @@
+@@ -214,22 +219,49 @@
      if (fwd)
      {
          local dir         = Wizard.GetTextControlValue(_T("txtFolder"));
 -        local dir_nomacro = ReplaceMacros(dir, true);
 -        if (!IO.FileExists(dir_nomacro + _T("/include/wx/wx.h")))
-+//        local dir_nomacro = VerifyDirectory(dir);
-+
-+//        if (dir_nomacro.IsEmpty())
-+//            return false;
 +
 +        if (dir.Matches(WxPathDefault))
          {
@@ -96,7 +92,7 @@ Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
      }
      return true;
  }
-@@ -296,7 +332,7 @@
+@@ -296,7 +328,7 @@
          local lib_wxver;
          local lib_unic_suffix;
          local lib_suffix;
@@ -105,7 +101,7 @@ Index: src/plugins/scriptedwizard/resources/wxwidgets/wizard.script
          if (GetCompilerFactory().CompilerInheritsFrom(Wizard.GetCompilerID(), _T("gcc*")))
          {
              lib = lib + _T("gcc_");
-@@ -632,8 +668,8 @@
+@@ -632,8 +664,8 @@
      }
      else
      {
