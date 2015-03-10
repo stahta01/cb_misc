@@ -1,4 +1,16 @@
+git config --system core.eol
+git config --local  core.eol
 git config --global core.eol
+
+git config --global core.safecrlf false
+git config --global core.autocrlf false
+
+git config --system core.safecrlf
+git config --system core.autocrlf false
+
+git config --local core.eol crlf
+git config --local core.autocrlf true
+git config --local core.safecrlf true
 
 $ git config core.eol lf
 $ git config core.autocrlf input
