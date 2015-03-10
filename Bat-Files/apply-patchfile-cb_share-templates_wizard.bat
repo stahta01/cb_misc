@@ -1,0 +1,9 @@
+SET PATH=C:\Program Files\Git\bin;%SystemRoot%\system32
+
+setlocal
+
+CD C:\Users\stahta01\AppData\Roaming\codeblocks\share\codeblocks\templates\wizard
+
+patch --unified --strip=4 --ignore-whitespace --forward --input=C:/SourceCode/OpenSourceCode/Apps/IDE/Codeblocks/cb_misc-git/Patches/svn/cb_script_wxwidgets_phase1.patch
+
+PAUSE
