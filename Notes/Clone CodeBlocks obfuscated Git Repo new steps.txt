@@ -24,15 +24,15 @@ $ git config core.safecrlf
 false
 
 Step 1: Create clone Mirror as local Repo
-note: You can replace repo_folder_name with another folder name
+note: You can replace cb_obfuscated with another folder name
 
 Step 1A: Clone Git Mirror Obf
 
 Use the next line for Git Mirrors by Obf
-$ git clone --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git repo_folder_name
+$ git clone --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git cb_obfuscated
 
 Step 1B: Change current directory and check status
-$ cd repo_folder_name
+$ cd cb_obfuscated
 $ git status
 
 Step 1C1: Force branch master to use rebase.
@@ -142,7 +142,7 @@ Step 9D: Verify hash code was created/changed
 Note: Replace git-svn-stuff or ??? with the correct folder name.
 $ git show remotes/git-svn-stuff/trunk | head -n 1
 
-Step 5: Test git svn info
+Step 10: Test git svn info
 Takes about a minute to return results.
 Note: If it does NOT work no results are ever returned in some cases.
 $ git svn info
