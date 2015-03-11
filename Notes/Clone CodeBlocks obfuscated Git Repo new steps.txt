@@ -1,0 +1,148 @@
+Based on the idea from  http://trac.parrot.org/parrot/wiki/git-svn-tutorial
+
+Warning: I am a Git Newbie; these steps created via trial and error.
+
+NOTE: TODO: Combine these two files into this one
+Clone CodeBlocks Git Repo steps.txt
+git svn rebase test 1.txt
+
+Welcome to Git (version 1.9.5-preview20141217)
+$ git --version
+git version 1.9.5.msysgit.0
+
+I changed my Global config settings to get the result below:
+The important one is core.eol set to "lf"
+The other two was done to reduce weird error messages in using Git under Windows.
+
+$ git config core.eol
+lf
+
+$ git config core.autocrlf
+false
+
+$ git config core.safecrlf
+false
+
+Step 1: Create clone Mirror as local Repo
+note: You can replace repo_folder_name with another folder name
+
+Step 1A: Clone Git Mirror Obf
+
+Use the next line for Git Mirrors by Obf
+$ git clone --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git repo_folder_name
+
+Step 1B: Change current directory and check status
+$ cd repo_folder_name
+$ git status
+
+Step 1C1: Force branch master to use rebase.
+SVN does not like git merge so set to use git rebase.
+Note: Moved this step to here in hopes it helps; I have not tested it, yet.
+$ git config master.rebase true 
+
+Step 1C2: Create local .git file
+
+Step 1C3: Change the local git config.
+$ git status
+$ git config core.safecrlf warn
+$ git status
+$ git config core.autocrlf true
+$ git status
+
+Step 1D: Get Hash code and URL
+$ git log --grep=^git-svn-id: --first-parent -1
+$ q
+commit 9917537e16a7e2a26685009f863c35025c657084
+Author: asmwarrior <asmwarrior@codeblocks.org>
+Date:   Tue Mar 10 02:54:42 2015 +0000
+
+    - CC: remove unused local variable.
+
+    Cppcheck reported this issue.
+    [nativeparser_base.cpp:869]: (style) Unused variable: autualTypeResult
+    Thanks blauzahn.
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10146 2a5c6006-c
+
+Step 2: Create SVN config and folder 
+Step 2A: Set svn-remote "svn" URL in info git config file
+Use the next line for Git Mirrors by Obf
+$ git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+
+Step 2B: Set svn-remote "svn" fetch and branch info in git config file
+Use the next 3 lines for all Git Mirrors
+$ git config svn-remote.svn.fetch trunk:refs/remotes/git-svn-stuff/trunk
+$ git config svn-remote.svn.branches branches/*:refs/remotes/git-svn-stuff/*
+$ git config svn-remote.svn.tags tags/*:refs/remotes/git-svn-stuff/tags/*
+
+Step 2C: Create git-svn-stuff folder needed by svn-remote "svn"
+$ mkdir .git/refs/remotes/git-svn-stuff
+
+Step 3: get hash code of current local commit
+$ git show heads/master | head -n 1
+commit 9917537e16a7e2a26685009f863c35025c657084
+
+Step 4: Create remotes trunk using hash code
+Replace hash with value returned by the above command
+$ echo 9917537e16a7e2a26685009f863c35025c657084 > .git/refs/remotes/git-svn-stuff/trunk
+
+Step 5: Verify hash code was created
+$ git show remotes/git-svn-stuff/trunk | head -n 1
+
+Step 6: SVN find-rev
+Note: When, I have long output for this command, it is a good sign.
+$ git svn find-rev r1
+
+NOTE: Avoid using "git svn fetch" and "git svn rebase" commands.
+
+Step 7A: Check value of HEAD
+$ git svn find-rev HEAD
+10146
+
+Step 7B: If value of HEAD lower than it should be do a pull rebase.
+$ git pull --rebase upstream master
+
+Step 8A: Find parent folder name
+$ ls .git/refs/remotes/*/trunk
+.git/refs/remotes/git-svn-stuff/trunk
+
+Step 8B: Find trunk hash code
+$ git show upstream/master | head -n 1
+commit 9917537e16a7e2a26685009f863c35025c657084
+
+Step 8C: Get svn rev for above trunk hash code
+$ git svn find-rev 9917537e16a7e2a26685009f863c35025c657084
+10146
+
+Step 8D: Verify hash code foldername
+Note: Replace git-svn-stuff or ??? with the correct folder name.
+$ git show remotes/git-svn-stuff/trunk | head -n 1
+commit 9917537e16a7e2a26685009f863c35025c657084
+
+Step 8E: Get svn rev for above hash code
+$ git svn find-rev 9917537e16a7e2a26685009f863c35025c657084
+10146
+
+NOTE: I think that step 9A to 9D should be done instead of git svn rebase or fetch 
+
+Step 9A: Get hash code needed to be used later.
+$ git log --grep=^git-svn-id: --first-parent -1 | head -n 1
+commit 9917537e16a7e2a26685009f863c35025c657084
+
+Step 9B: Get svn rev for above hash code
+$ git svn find-rev 9917537e16a7e2a26685009f863c35025c657084
+10146
+
+Step 9C: Create/updates remotes trunk using hash code
+Note: Replace hash with value returned by the above command
+Note: Replace git-svn-stuff or ??? with the correct folder name.
+$ echo 9917537e16a7e2a26685009f863c35025c657084 > .git/refs/remotes/git-svn-stuff/trunk
+
+Step 9D: Verify hash code was created/changed
+Note: Replace git-svn-stuff or ??? with the correct folder name.
+$ git show remotes/git-svn-stuff/trunk | head -n 1
+
+Step 5: Test git svn info
+Takes about a minute to return results.
+Note: If it does NOT work no results are ever returned in some cases.
+$ git svn info
