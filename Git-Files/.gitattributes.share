@@ -1,0 +1,150 @@
+## Declare files you want to always be converted
+# to native line endings on checkout.
+*.c text
+*.cbp text
+*.cpp text
+*.cxx text
+*.fbp text
+*.h text
+*.hxx text
+*.m4 text
+*.script text
+*.xpm text
+*.workspace text
+
+## Declare files that will always have CRLF line endings on checkout.
+*.sln text eol=crlf
+*.bat text eol=crlf
+
+## Declare files that will always have LF line endings on checkout.
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.sh text eol=lf
+Makefile.am text eol=lf
+
+## Raster Image Files Types and Formats
+# Bitmap Image File
+*.BMP binary
+*.bmp binary
+# Graphical Interchange Format File
+*.gif binary
+# Mac OS X Icon Resource File
+*.icns binary
+# computer icons
+*.ico binary
+# JPEG Image File
+*.jpg binary
+# Portable Network Graphic
+*.png binary
+# Adobe Photoshop Document
+*.psd binary
+# PaintShop Pro Image
+*.pspimage binary
+# Thumbnail Image File
+*.thm binary
+# Tagged Image File
+*.tif binary
+# YUV Encoded Image File
+*.yuv binary
+# native image format of the GIMP
+*.xcf binary
+
+## Font Files Types and Formats
+# Windows Font File
+*.fnt binary
+# Generic Font File
+*.fon binary
+# OpenType Font
+*.otf binary
+# Printer Font Binary File
+*.pfb binary
+# True Type Font
+*.ttf binary
+
+## Document Files Types and Formats
+# Microsoft Word Document
+*.doc binary
+
+## Page Layout Files Types and Formats
+# Portable Document Format File
+*.pdf binary
+
+## Video Files Types and Formats
+# 3GPP2 Multimedia File
+*.3g2 binary
+# 3GPP Multimedia File
+*.3gp binary
+# Advanced Systems Format File
+*.asf binary
+# Microsoft ASF Redirector File
+*.asx binary
+# Audio Video Interleave File
+*.avi binary
+# Flash Video File
+*.flv binary
+# Apple QuickTime Movie
+*.mov binary
+# MPEG-4 Video File
+*.mp4 binary
+# MPEG Video File
+*.mpg binary
+# Real Media File
+*.rm  binary
+# Shockwave Flash Movie
+*.swf binary
+# DVD Video Object File
+*.vob binary
+# Windows Metafile
+*.wmf binary
+# Windows Media Video File
+*.wmv binary
+
+## System Files Types and Formats
+# Windows Cabinet File
+*.cab binary
+# Windows Control Panel Item
+*.cpl binary
+# Windows Cursor
+*.cur binary
+# Dynamic Link Library
+*.dll binary
+# Windows Memory Dump
+*.dmp binary
+# Device Driver
+*.drv binary
+# File Shortcut
+*.lnk binary
+# Windows System File
+*.sys binary
+
+## Compressed Files Types and Formats
+# 7-Zip Compressed File
+*.7z binary
+# Debian Software Package
+*.deb binary
+# Gnu Zipped Archive
+*.gz binary
+# Mac OS X Installer Package
+*.pkg binary
+# WinRAR Compressed Archive
+*.rar binary
+# Red Hat Package Manager File
+*.rpm binary
+# StuffIt Archive
+*.sit binary
+# StuffIt X Archive
+*.sitx binary
+# Tarball File
+*.tar.gz binary
+# Zipped File
+*.zip binary
+# Extended Zip File
+*.zipx binary
+
+## Misc binary files
+# GNU Gettext Machine Object File
+*.mo binary
+# stedit related
+*.wdr binary
+# font related
+*.z binary

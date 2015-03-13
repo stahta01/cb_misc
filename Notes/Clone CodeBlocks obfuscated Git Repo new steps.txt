@@ -27,9 +27,8 @@ Step 1: Create clone Mirror as local Repo
 note: You can replace cb_obfuscated with another folder name
 
 Step 1A: Clone Git Mirror Obf
-
 Use the next line for Git Mirrors by Obf
-$ git clone --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git cb_obfuscated
+$ git clone --no-checkout  --origin upstream --branch master http://github.com/obfuscated/codeblocks_sf.git cb_obfuscated
 
 Step 1B: Change current directory and check status
 $ cd cb_obfuscated
@@ -40,7 +39,8 @@ SVN does not like git merge so set to use git rebase.
 Note: Moved this step to here in hopes it helps; I have not tested it, yet.
 $ git config master.rebase true 
 
-Step 1C2: Create local .git file
+Step 1C2: Create local .gitattributes file
+
 
 Step 1C3: Change the local git config.
 $ git status
@@ -48,6 +48,8 @@ $ git config core.safecrlf warn
 $ git status
 $ git config core.autocrlf true
 $ git status
+
+Step 1C4: Revert the delete checkout caused by git clone --no-checkout
 
 Step 1D: Get Hash code and URL
 $ git log --grep=^git-svn-id: --first-parent -1
