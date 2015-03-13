@@ -22,16 +22,28 @@ Step 1B: Change current directory and check status
 $ cd repo_folder_name
 $ git status
 
+Step 1B2: Force branch master to use rebase.
+SVN does not like git merge so set to use git rebase.
+Note: Moved this step to here in hopes it helps; I have not tested it, yet.
+$ git config master.rebase true 
+
 Step 1C: Get Hash code and URL
-$ git log --grep=^git-svn-id: --first-parent -1 | head -n 7
-commit 4f4016ab24fabcaa6ca851bcf06bc96c46a3efde
+$ git log --grep=^git-svn-id: --first-parent -1 | head -n 12
+commit 1d602e1d33ffc1b637ba3fb7a82fcde0394ae9be
 Author: T Petrov <tpetrov@codeblocks.org>
-Date:   Sun Oct 12 15:32:47 2014 +0000
+Date:   Mon Mar 9 19:10:56 2015 +0000
 
-    - build: noPCH fixes
+    * CC: Fix infinite loop when traversing headers and there are loops caused b
+y symlinks (ticket #14)
 
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@9957 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    > Use a set to store all paths that have already being traversed.
+    > Detect when we are at a symbolic link path and resolve it to its original
+      path.
+    > Use the set to prevent traversing a path that has already being traversed.
 
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10137 2a5c6006-c
+6dd-42ca-98ab-0921f2732cef
 Step 2: Create SVN config and folder 
 Step 2A: Set svn-remote "svn" URL in info git config file
 Use the next line for Git Mirrors by biplab
@@ -51,11 +63,11 @@ $ mkdir .git/refs/remotes/git-svn-stuff
 
 Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
-commit c9f7553a2ca477869361006f73ce1c8ad117b1c9
+commit 1d602e1d33ffc1b637ba3fb7a82fcde0394ae9be
 
 Step 4: Create remotes trunk using hash code
 Replace hash with value returned by the above command
-$ echo c9f7553a2ca477869361006f73ce1c8ad117b1c9 > .git/refs/remotes/git-svn-stuff/trunk
+$ echo 1d602e1d33ffc1b637ba3fb7a82fcde0394ae9be > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 5: Verify hash code was created
 $ git show remotes/git-svn-stuff/trunk | head -n 1
@@ -65,17 +77,21 @@ Note: When, I have long output for this command, it is a good sign.
 $ git svn find-rev r1
 $ git svn find-rev HEAD
 
+NOTE: The steps below likely need work to make them better.
+Try to follow steps in file "git svn rebase test 1.txt" next time.
+
 Step 7: SVN fetch
+Note: This step can take a very long time as in many hours to finish.
 $ git svn fetch
+
+git config master.rebase true
+
+git log --grep=^git-svn-id: --first-parent -1
 
 Step 8: Test git svn info
 Takes about a minute to return results.
 Note: If it does NOT work no results are ever returned in some cases.
 $ git svn info
-
-Step 9: Force branch master to use rebase.
-SVN does not like git merge so set to use git rebase.
-$ git config master.rebase true 
 
 Step 10: Test "git pull" and "git svn rebase"
 Note: I am guessing that the "git svn rebase" should be done after all "git pull" commands.

@@ -48,3 +48,7 @@ From http://viget.com/extend/only-you-can-prevent-git-merge-commits
 ~/.gitconfig
 [branch]  
   autosetuprebase = always
+
+
+git branch --set-upstream-to=origin/master
+git branch --set-upstream-to=upstream/master

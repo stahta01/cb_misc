@@ -1,3 +1,8 @@
+git config core.eol
+git config core.autocrlf
+git config core.safecrlf
+
+
 git config --system core.eol
 git config --local  core.eol
 git config --global core.eol
