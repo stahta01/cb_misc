@@ -1,0 +1,16 @@
+Before adding any files.
+
+git status
+
+git config --local core.eol crlf
+git config --local core.autocrlf true
+git config --local core.safecrlf true
+
+git status
+
+The first file to add to the repo should be an good .gitattributes
+git add .gitattributes
+git add .gitignore
+
+git commit --message="Initial Commit"
+

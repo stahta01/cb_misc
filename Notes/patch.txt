@@ -1,0 +1,2 @@
+patch --unified --strip=0 --ignore-whitespace --forward --input=../cb_misc-git/Patches/svn/cb_PCH_EnvVar.patch
+svn diff > ../cb_misc-git/Patches/svn/cb_PCH_EnvVar.patch
