@@ -1,0 +1,15 @@
+CB Core Plugin best to copy to add new CB Plugin.txt
+Default MIME Handler
+
+Duplicate target "Default MIME Handler" as EnvVars
+Remove all files from new target
+Rename output filename to envvars
+Re-Order EnvVars
+Fix Virtual Targets
+Add files to new target
+Edit Post build steps
+Fix Build Errors 
+  by adding Compiler search follows
+    include\scripting\include
+    include\scripting\sqplus
+    include\scripting\bindings

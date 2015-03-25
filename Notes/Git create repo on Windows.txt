@@ -1,4 +1,4 @@
-Before adding any files.
+# Before adding any files.
 
 git status
 
@@ -8,9 +8,11 @@ git config --local core.safecrlf true
 
 git status
 
-The first file to add to the repo should be an good .gitattributes
+# The first file to add to the folder should be an good .gitattributes
 git add .gitattributes
-git add .gitignore
+
+git status
 
 git commit --message="Initial Commit"
 
+# Then add the other files

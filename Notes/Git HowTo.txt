@@ -1,3 +1,22 @@
+$ git svn find-rev r10127
+44f7585f65fd9559e99fba21112af9c8c4e7aa96
+
+$ git reset --hard 44f7585f65fd9559e99fba21112af9c8c4e7aa96
+
+$ git svn info
+Path: .
+URL: https://svn.code.sf.net/p/codeblocks/code/trunk
+Repository Root: https://svn.code.sf.net/p/codeblocks/code
+Repository UUID: 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+Revision: 10127
+Node Kind: directory
+Schedule: normal
+Last Changed Author: asmwarrior
+Last Changed Rev: 10127
+Last Changed Date: 2015-02-24 21:49:39 -0500 (Tue, 24 Feb 2015)
+
+
+
 git diff --diff-filter=M HEAD~2..HEAD > git.diff
 
 git diff --name-status HEAD~2..HEAD
