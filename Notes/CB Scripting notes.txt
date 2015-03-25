@@ -1,0 +1,3 @@
+CB Scripting notes.txt
+
+http://forums.codeblocks.org/index.php/topic,20135.0.html
