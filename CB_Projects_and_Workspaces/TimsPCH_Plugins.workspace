@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Tims CB PCH plugins">
+		<Project filename="plugins/contrib/CppCheck/CppCheck.cbp" />
+		<Project filename="plugins/contrib/Cscope/Cscope.cbp" />
+		<Project filename="plugins/contrib/help_plugin/help-plugin.cbp" />
+		<Project filename="plugins/contrib/regex_testbed/RegExTestbed.cbp" />
+		<Project filename="plugins/contrib/symtab/symtab.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
