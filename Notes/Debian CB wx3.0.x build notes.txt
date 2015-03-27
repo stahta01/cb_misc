@@ -1,0 +1,78 @@
+
+cd ~/devel/wxwidgets-git
+git checkout -b WX_3_0_BRANCH origin/WX_3_0_BRANCH
+
+git status
+git pull
+git status
+# On branch WX_3_0_BRANCH
+
+
+
+cd ~/devel/wxwidgets-git
+mkdir build_wx3.0.x_gtk2_shared_multilib_unicode
+cd build_wx3.0.x_gtk2_shared_multilib_unicode
+../configure --prefix=/opt/wx3.0.x/wx \
+       --with-gtk=2 \
+       --enable-xrc \
+       --enable-unicode
+
+###
+Configured wxWidgets 3.0.3 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.6      no
+                                       wxWidgets 2.8      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
+
+
+###
+
+make
+su
+make install
+exit
+
+update-alternatives --list wx-config
+
+which wx-config
+
+
+su --command "update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.0.x/wx/bin/wx-config 99"
+su --command "update-alternatives --set wx-config /opt/wx3.0.x/wx/bin/wx-config"
+
+update-alternatives --list wx-config
+
+wx-config --list
+
+wx-config --version=3.0 --prefix
+
+
+which wx-config
+
+$ cd ~/devel/codeblocks-svn
+$ ./bootstrap
+$ ./configure --prefix=/opt/wx3.0.x/cb --with-contrib-plugins=all --disable-pch
+$ make clean
+$ make
+su
+make install
+exit
+
+
+
+
+

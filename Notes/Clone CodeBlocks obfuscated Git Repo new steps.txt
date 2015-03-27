@@ -54,17 +54,19 @@ Step 1C4: Revert the delete checkout caused by git clone --no-checkout
 Step 1D: Get Hash code and URL
 $ git log --grep=^git-svn-id: --first-parent -1
 $ q
-commit 9917537e16a7e2a26685009f863c35025c657084
+commit f5152973db91460d6a646ad1fa65b8ec04515355
 Author: asmwarrior <asmwarrior@codeblocks.org>
-Date:   Tue Mar 10 02:54:42 2015 +0000
+Date:   Wed Mar 18 15:00:15 2015 +0000
 
-    - CC: remove unused local variable.
-
-    Cppcheck reported this issue.
-    [nativeparser_base.cpp:869]: (style) Unused variable: autualTypeResult
-    Thanks blauzahn.
-
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10146 2a5c6006-c
+    * Thread Search Plugin: fix thread safety issue in ThreadSearchEvent class.
+    
+    I notices the class ThreadSearchEvent which carries information from worker
+    thread to GUI main thread does not clone it self correctly, which leads to
+    crash. This is the same issue we have introduced a fix in revision 9311 and
+    revision 9403. See further discussions in:
+    http://forums.codeblocks.org/index.php/topic,20104.0.html
+    
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10157 2a5c6006-c
 
 Step 2: Create SVN config and folder 
 Step 2A: Set svn-remote "svn" URL in info git config file
@@ -82,11 +84,11 @@ $ mkdir .git/refs/remotes/git-svn-stuff
 
 Step 3: get hash code of current local commit
 $ git show heads/master | head -n 1
-commit 9917537e16a7e2a26685009f863c35025c657084
+commit f5152973db91460d6a646ad1fa65b8ec04515355
 
 Step 4: Create remotes trunk using hash code
 Replace hash with value returned by the above command
-$ echo 9917537e16a7e2a26685009f863c35025c657084 > .git/refs/remotes/git-svn-stuff/trunk
+$ echo f5152973db91460d6a646ad1fa65b8ec04515355 > .git/refs/remotes/git-svn-stuff/trunk
 
 Step 5: Verify hash code was created
 $ git show remotes/git-svn-stuff/trunk | head -n 1

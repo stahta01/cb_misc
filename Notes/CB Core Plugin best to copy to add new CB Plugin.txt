@@ -10,6 +10,6 @@ Add files to new target
 Edit Post build steps
 Fix Build Errors 
   by adding Compiler search follows
-    include\scripting\include
-    include\scripting\sqplus
-    include\scripting\bindings
+    include/scripting/include
+    include/scripting/sqplus
+    include/scripting/bindings
