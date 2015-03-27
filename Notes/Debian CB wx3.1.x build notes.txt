@@ -1,32 +1,36 @@
+TODO: Needs full re-write for wx3.1.x build
+
 
 cd ~/devel/wxwidgets-git
-git checkout -b WX_3_0_BRANCH origin/WX_3_0_BRANCH
+git status
+
+git checkout master
 
 git status
 git pull
 git status
-# On branch WX_3_0_BRANCH
-
+# On branch master
 
 
 cd ~/devel/wxwidgets-git
-mkdir build_wx3.0.x_gtk2_shared_multilib_unicode
-cd build_wx3.0.x_gtk2_shared_multilib_unicode
-../configure --prefix=/opt/wx3.0.x \
+mkdir build_wx3.1.x_gtk2_shared_multilib_unicode
+cd build_wx3.1.x_gtk2_shared_multilib_unicode
+../configure --prefix=/opt/wx3.1.x \
+       --enable-compat28 \
        --with-gtk=2 \
        --enable-xrc \
        --enable-unicode
 
 ###
-Configured wxWidgets 3.0.3 for `x86_64-unknown-linux-gnu'
+Configured wxWidgets 3.1.0 for `x86_64-unknown-linux-gnu'
 
-  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing
   Should wxWidgets be compiled into single library?       no
   Should wxWidgets be linked as a shared library?         yes
   Should wxWidgets support Unicode?                       yes (using wchar_t)
   What level of wxWidgets compatibility should be enabled?
-                                       wxWidgets 2.6      no
                                        wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
   Which libraries should wxWidgets use?
                                        STL                no
                                        jpeg               sys
@@ -45,8 +49,8 @@ make
 su --command "make install"
 which wx-config
 su
-update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.0.x/bin/wx-config 99
-update-alternatives --set wx-config /opt/wx3.0.x/bin/wx-config
+update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.1.x/bin/wx-config 99
+update-alternatives --set wx-config /opt/wx3.1.x/bin/wx-config
 exit
 
 update-alternatives --list wx-config
@@ -55,16 +59,27 @@ update-alternatives --list wx-config
 
 wx-config --list
 
-wx-config --version=3.0 --prefix
+wx-config --version=3.1 --prefix
+
+# make distclean
+
+from http://forums.codeblocks.org/index.php/topic,15840.msg106624.html#msg106624
+cd /path/to/codeblocks-source
+./bootstrap (if any of the *.am-files or configure.in have changed)
+mkdir -p /path/to/build-directory ( -p also creates missing parent-folders)
+cd /path/to/build-directory
+/path/to/codeblocks-source/configure --prefix=/path/to/installation/dir/if/not/usr/local --<any_other_parameters_like_with-contrib-plugins=all>
+make && make install
 
 
 cd ~/devel/codeblocks-svn
 ./bootstrap
-./configure --prefix=/opt/wx3.0.x --with-contrib-plugins=all --disable-pch
+rm -fr build_wx3.1.x_gtk2_shared_multilib_unicode
+./configure --prefix=/opt/wx3.1.x --with-contrib-plugins=all --disable-pch
 make clean
 make
 su --command "make install"
 
 
-/opt/wx3.0.x/bin/codeblocks
+/opt/wx3.1.x/bin/codeblocks -v
 

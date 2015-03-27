@@ -1,24 +1,24 @@
 
-cd ~/devel/wxwidgets-git
-git checkout -b WX_3_0_BRANCH origin/WX_3_0_BRANCH
-
-git status
-git pull
-git status
-# On branch WX_3_0_BRANCH
+cd ~/devel/wxwidgets
+mkdir wxWidgets-3.0.2
+cd wxWidgets-3.0.2
+7za x ~/Downloads/wxWidgets-3.0.2.7z
 
 
+cd ~/devel/wxwidgets/wxWidgets-3.0.2
+mkdir build_wx3.0.2_gtk2_shared_multilib_unicode
+cd build_wx3.0.2_gtk2_shared_multilib_unicode
 
-cd ~/devel/wxwidgets-git
-mkdir build_wx3.0.x_gtk2_shared_multilib_unicode
-cd build_wx3.0.x_gtk2_shared_multilib_unicode
-../configure --prefix=/opt/wx3.0.x \
+# Added --disable-stc to try to stop building error on building stc
+../configure --prefix=/opt/wx3.0.2 \
+       --disable-stc \
+       --without-subdirs \
        --with-gtk=2 \
        --enable-xrc \
        --enable-unicode
 
 ###
-Configured wxWidgets 3.0.3 for `x86_64-unknown-linux-gnu'
+Configured wxWidgets 3.0.2 for `x86_64-unknown-linux-gnu'
 
   Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
   Should wxWidgets be compiled into single library?       no
@@ -40,14 +40,11 @@ Configured wxWidgets 3.0.3 for `x86_64-unknown-linux-gnu'
 
 ###
 
-make
+make    # Make errors out with gen_iface.py
 
 su --command "make install"
 which wx-config
-su
-update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.0.x/bin/wx-config 99
-update-alternatives --set wx-config /opt/wx3.0.x/bin/wx-config
-exit
+su --command "update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.0.2/bin/wx-config 99"
 
 update-alternatives --list wx-config
 
@@ -59,12 +56,15 @@ wx-config --version=3.0 --prefix
 
 
 cd ~/devel/codeblocks-svn
+su --command "update-alternatives --set wx-config /opt/wx3.0.2/bin/wx-config"
 ./bootstrap
-./configure --prefix=/opt/wx3.0.x --with-contrib-plugins=all --disable-pch
+./configure --prefix=/opt/wx3.0.2 --with-contrib-plugins=all --disable-pch
 make clean
 make
 su --command "make install"
 
 
-/opt/wx3.0.x/bin/codeblocks
+/opt/wx3.0.2/bin/codeblocks
+
+# See if it fails to run http://forums.codeblocks.org/index.php/topic,18172.45.html
 
