@@ -1,0 +1,64 @@
+Debian 
+
+Desktop Environment
+  The GNOME project provides two things: The GNOME desktop environment, an intuitive and attractive desktop for users, and the GNOME development platform, an extensive framework for building applications that integrate into the rest of the desktop.
+
+  KDE is a powerful open source graphical desktop environment for Unix workstations. It combines ease of use, contemporary functionality, and outstanding graphical design with the technological superiority of the Unix operating system.
+
+  Xfce is a lightweight desktop environment for various *NIX systems. Designed for productivity, it loads and executes applications quickly, while conserving system resources.
+
+  LXDE is designed to work well with computers on the low end of the performance spectrum such as older resource-constrained machines, new generation netbooks, and other small computers. 
+
+* mate-desktop-environment-core (MATE Desktop Environment) 
+
+Window Manager
+  Openbox is a lightweight and highly configurable window manager with extensive standards support. It is well known for its minimalistic appearance.
+
+  FluxBox is a windowmanager for X that was based on the Blackbox 0.61.1 code. It is very light on resources and easy to handle yet full of features to make an easy, and extremely fast, desktop experience.
+
+  Compiz is a compositing window manager for the X Window System that uses 3D graphics hardware to create fast compositing desktop effects for window management.
+	
+  Wmii is a dynamic window manager for X11. It supports classic and tiling window management with extended keyboard, mouse, and filesystem-based remote control. It replaces the workspace paradigm with a new tagging approach.
+
+  Awesome is a dynamic window manager for X11. It supports tiling window management with extended keyboard, mouse, and it is scriptable in Lua. It includes many add-ons which can make it very powerful. It replaces the workspace paradigm with a new tiling approach of non-overlaping windows.
+
+* marco (lightweight GTK+ window manager for MATE)
+
+X display managers
+  gdm - Gnome Display Manager
+
+  kdm - KDE Display Manager
+
+* lightdm - desktop-independent customizable display manager
+    https://wiki.debian.org/LightDM
+
+  lxdm - LXDE display manager (currently in sid)
+
+  slim - desktop-independent graphical login manager for X11
+
+  wdm - WINGs Display Manager (using the WINGs widget-set used in Window Maker)
+
+  xdm - Xorg's default display manager.
+
+Installed as of 30Mar2015
+  lightdm
+  xfwm4
+  xfdesktop4
+  (Xfce4 Session Manager)
+  mate-desktop-environment-core (MATE Desktop Environment)
+  marco (lightweight GTK+ window manager for MATE)
+
+Not Installed as of 30Mar2015
+  gdm
+  kdm
+  lxdm
+  slim
+  wdm
+  xdm
+  Openbox
+  FluxBox
+  Compiz
+  Wmii
+  Awesome
+
+
