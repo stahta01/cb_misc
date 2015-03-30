@@ -46,7 +46,6 @@ file manager
 
 Installed as of 30Mar2015
   Caja (file manager for the MATE desktop)
-  Thunar (File Manager for Xfce)
   lightdm
   mate-session-manager (Session manager of the MATE desktop environment)
   mate-desktop-environment-core (MATE Desktop Environment)
@@ -56,6 +55,7 @@ Removed on 30Mar2015
   xfwm4
   xfce4-session (Xfce4 Session Manager)
   xfdesktop4
+  Thunar (File Manager for Xfce)
 
 Not Installed as of 30Mar2015
   gdm
