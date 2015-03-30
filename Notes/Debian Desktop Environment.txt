@@ -40,11 +40,18 @@ X display managers
 
   xdm - Xorg's default display manager.
 
+file manager
+  Caja (file manager for the MATE desktop)
+  Thunar (File Manager for Xfce)
+
 Installed as of 30Mar2015
+  Caja (file manager for the MATE desktop)
+  Thunar (File Manager for Xfce)
   lightdm
   xfwm4
   xfdesktop4
   (Xfce4 Session Manager)
+  mate-session-manager (Session manager of the MATE desktop environment)
   mate-desktop-environment-core (MATE Desktop Environment)
   marco (lightweight GTK+ window manager for MATE)
 
