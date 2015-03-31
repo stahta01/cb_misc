@@ -1,0 +1,67 @@
+
+cd ~/devel/wxwidgets
+tar zxf ~/Downloads/wxWidgets-2.8.12.tar.gz
+
+
+cd ~/devel/wxwidgets/wxWidgets-2.8.12
+mkdir build_wx2.8.12_gtk2_shared_multilib_unicode
+cd build_wx2.8.12_gtk2_shared_multilib_unicode
+
+../configure --prefix=/opt/wx2.8.12 \
+       --without-subdirs \
+       --with-gtk=2 \
+       --enable-xrc \
+       --enable-unicode
+
+###
+Configured wxWidgets 2.8.12 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be compiled in debug mode?             no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets be compiled in Unicode mode?           yes
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.4      no
+                                       wxWidgets 2.6      yes
+  Which libraries should wxWidgets use?
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               sys
+                                       odbc               no
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
+
+###
+
+make # Got note about running out of space stopped building then.
+
+su --command "make install"
+which wx-config
+su --command "update-alternatives --install /usr/bin/wx-config wx-config /opt/wx2.8.12/bin/wx-config 99"
+
+update-alternatives --list wx-config
+
+
+
+wx-config --list
+
+wx-config --version=2.8 --prefix
+
+
+cd ~/devel/codeblocks-svn
+su --command "update-alternatives --set wx-config /opt/wx2.8.12/bin/wx-config"
+./bootstrap
+./configure --prefix=/opt/wx2.8.12 --with-contrib-plugins=all --disable-pch
+make clean
+make
+su --command "make install"
+
+
+/opt/wx2.8.12/bin/codeblocks
+
+# See if it fails to run http://forums.codeblocks.org/index.php/topic,18172.45.html
+
