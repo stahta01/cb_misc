@@ -1,3 +1,13 @@
+
+git status
+git diff # shows many mode changes.
+git config core.filemode false
+git status # if no changes shown safe to do reset hard.
+git reset --hard
+git config core.filemode true
+
+
+
 $ git svn find-rev r10127
 44f7585f65fd9559e99fba21112af9c8c4e7aa96
 
