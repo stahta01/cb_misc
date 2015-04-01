@@ -2,18 +2,23 @@
 cd ~/devel/wxwidgets
 tar zxf ~/Downloads/wxWidgets-2.8.12.tar.gz
 
+# Needs libgtk2.0-dev package
+pkg-config gtk+-2.0 --libs
+
 
 cd ~/devel/wxwidgets/wxWidgets-2.8.12
 mkdir build_wx2.8.12_gtk2_shared_multilib_unicode
 cd build_wx2.8.12_gtk2_shared_multilib_unicode
 
 ../configure --prefix=/opt/wx2.8.12 \
+       --disable-compat26 \
        --without-subdirs \
        --with-gtk=2 \
        --enable-xrc \
        --enable-unicode
 
 ###
+
 Configured wxWidgets 2.8.12 for `x86_64-unknown-linux-gnu'
 
   Which GUI toolkit should wxWidgets use?                 GTK+ 2
@@ -23,9 +28,9 @@ Configured wxWidgets 2.8.12 for `x86_64-unknown-linux-gnu'
   Should wxWidgets be compiled in Unicode mode?           yes
   What level of wxWidgets compatibility should be enabled?
                                        wxWidgets 2.4      no
-                                       wxWidgets 2.6      yes
+                                       wxWidgets 2.6      no
   Which libraries should wxWidgets use?
-                                       jpeg               sys
+                                       jpeg               builtin
                                        png                sys
                                        regex              builtin
                                        tiff               builtin
@@ -37,7 +42,8 @@ Configured wxWidgets 2.8.12 for `x86_64-unknown-linux-gnu'
 
 ###
 
-make # Got note about running out of space stopped building then.
+make clean
+make
 
 su --command "make install"
 which wx-config
@@ -46,15 +52,21 @@ su --command "update-alternatives --install /usr/bin/wx-config wx-config /opt/wx
 update-alternatives --list wx-config
 
 
-
 wx-config --list
 
 wx-config --version=2.8 --prefix
 
-
+# subversion, libtool, and automake packages needed
 cd ~/devel/codeblocks-svn
 su --command "update-alternatives --set wx-config /opt/wx2.8.12/bin/wx-config"
+export ACLOCAL_FLAGS="-I `wx-config --version=2.8 --prefix`/share/aclocal"
 ./bootstrap
+#
+# Contrib. Plugin      Package Needed
+# NassiShneiderman     libboost ??dev??
+# SpellChecker         libhunspell-dev and ???
+# File Manager         USES EITHER GAMIN OR FAM libgamin-dev
+#
 ./configure --prefix=/opt/wx2.8.12 --with-contrib-plugins=all --disable-pch
 make clean
 make
