@@ -1,0 +1,18 @@
+Check Line-Ending in SVN.txt
+
+This seems to no longer work because git config core.eol crlf has issues on Windows try under Debian.
+
+$ git config --local core.eol crlf
+
+$ git reset --hard
+
+$ git config core.eol
+crlf
+
+git config core.filemode false
+
+svn export --ignore-keywords --ignore-externals --native-eol CRLF codeblocks-svn codeblocks-svn-export
+
+# Copy exported files over git repo.
+
+git status
