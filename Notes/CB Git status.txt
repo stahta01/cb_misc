@@ -1,3 +1,26 @@
+The ones reported as Modified on Debian no idea if any of these were really changed or just my Git Repo is behind the SVN Repo.
+
+	modified:   debian/changelog
+	modified:   src/CodeBlocks-unix.cbp
+	modified:   src/CodeBlocks.cbp
+	modified:   src/CodeBlocks_wx30-unix.cbp
+	modified:   src/CodeBlocks_wx30.cbp
+	modified:   src/CodeBlocks_wx30_64.cbp
+	modified:   src/Makefile.am
+	modified:   src/base/Makefile.am
+	modified:   src/plugins/contrib/BrowseTracker/BrowseTrackerToolbar.xrc
+	modified:   src/plugins/contrib/IncrementalSearch/IncrementalSearch.cpp
+	modified:   src/plugins/contrib/SpellChecker/SpellCheckSettingsPanel.xrc
+	modified:   src/plugins/contrib/wxSmithSTC/stedit/src/stedit.xrc
+	modified:   src/plugins/scriptedwizard/compilerpanel.cpp
+	modified:   src/plugins/scriptedwizard/resources/mcs51/wizard.xrc
+	modified:   src/sdk/filemanager.cpp
+	modified:   src/update.bat
+	modified:   src/update30.bat
+	modified:   src/update30_64.bat
+
+
+
 src/plugins/contrib/IncrementalSearch/IncrementalSearch.cpp
 src/sdk/filemanager.cpp
 src/plugins/scriptedwizard/compilerpanel.cpp
