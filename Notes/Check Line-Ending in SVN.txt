@@ -1,27 +1,40 @@
 Check Line-Ending in SVN.txt
 
-This seems to no longer work because git config core.eol crlf has issues on Windows try under Debian.
-Now, changing commands to work under Debian.
+$ git --version
+git version 1.9.5.msysgit.1
 
-$ git config --local core.eol lf
+Now, Re-tesing the commands under Windows after cloning git repo again.
 
-$ git reset --hard
+git config --system core.eol
+# NO Result Returned
+git config --local  core.eol
+# lf
+git config --global core.eol
+# lf
+git config core.eol
+#lf
 
-$ git config core.eol
-lf
+git remote update
+# the double hyphen ensures that upstream/master is
+# considered as a revision and not confused as a path
+git reset --hard upstream/master --
+
 
 git config core.filemode false
-
-svn export --ignore-keywords --ignore-externals --native-eol LF codeblocks-svn codeblocks-svn-export
-
-# Copy exported files over git repo.
 
 git status
 
 
+# Do blow line in different shell
+# svn export --ignore-keywords --ignore-externals --native-eol LF codeblocks-svn codeblocks-svn-export
 
-# Undo the changes
+# Copy exported files over git repo.
+
+git status > ../status.txt
+
+
+
+# Undo the changes on Linux; but, leave false on Windows
 git config core.filemode true
 
-git reset --hard
-
+git reset --hard upstream/master --

@@ -1,3 +1,4 @@
+svn propget svn:eol-style *
 
 git status
 git diff # shows many mode changes.
