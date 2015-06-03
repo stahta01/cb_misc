@@ -1,15 +1,45 @@
+Welcome to Git (version 1.9.5-preview20150319)
+
+
+Run 'git help git' to display the help index.
+Run 'git help <command>' to display help for specific commands.
+
+stahta01@LAPTOP2-TIM /c/SourceCode/OpenSourceCode/Apps/IDEs/CodeBlocks
+$ git --version
+git version 1.9.5.msysgit.1
+
+stahta01@LAPTOP2-TIM /c/SourceCode/OpenSourceCode/Apps/IDEs/CodeBlocks
+$
+
+Step 0: Clone and config obfuscated repo
+
+git clone --origin upstream https://github.com/obfuscated/codeblocks_sf.git codeblocks_obfuscated-git
+
+cd codeblocks_obfuscated-git
+Note: SVN does not like git merge so set to use git rebase by default (most of the time).
+git config master.rebase true 
+
+
+
 Step 1: Get svn revision and Git hash code to be used later
 git log --grep=^git-svn-id:.https: --first-parent -1
+q
 
-commit 6af34e7ef2136a5525e33d9dfb42168cc07f7255
-Author: T Petrov <tpetrov@codeblocks.org>
-Date:   Sun May 24 05:44:33 2015 +0000
+commit 388ec5de1d1ef40bce3ec8b5434111b09885b0db
+Author: asmwarrior <asmwarrior@codeblocks.org>
+Date:   Tue Jun 2 00:30:14 2015 +0000
 
-    * EnvVar: Apply the same fix as the one for compiler variables to the env var settings
-    
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10309 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    * CC: fix bug #137 Code completion - code without "using namespace" - don't
 
+    We can handling three cases:
+    (1) using namespace A;
+    (2) using namespace A::B;
+    (3) using A::B;
+    Before this commit, we can only handle case (1) and (2)
+    Patch contributed by sf user jat1. See:
+    https://sourceforge.net/p/codeblocks/tickets/137/
 
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10316 2a5c6006-c
 
 Step 2. Setup Git config
 NOTE: svn-remote.SVN-NAME the git-svn default is "svn" in place of "SVN-NAME"
@@ -25,27 +55,28 @@ git config svn-remote.svn.fetch trunk:refs/remotes/git-svn-stuff_svn/trunk
 git config svn-remote.svn.branches branches/*:refs/remotes/git-svn-stuff_svn/*
 
 Step 3. Fetch 
-git svn fetch SVN-NAME -r 10309
+git svn fetch SVN-NAME -r 10316
 
 The commands I use are:
-git svn fetch svn -r 10309
+git svn fetch svn -r 10316
+
 
 Step 4. Changed the hash code used by git svn to a good starting value.
 NOTE: Use Git Hash from step 1.
 ls .git/refs/remotes/GIT-SVN-PREFIX_SVN-NAME/trunk
 cat .git/refs/remotes/GIT-SVN-PREFIX_SVN-NAME/trunk
-echo 6af34e7ef2136a5525e33d9dfb42168cc07f7255 > .git/refs/remotes/GIT-SVN-PREFIX_SVN-NAME/trunk
+echo 388ec5de1d1ef40bce3ec8b5434111b09885b0db > .git/refs/remotes/GIT-SVN-PREFIX_SVN-NAME/trunk
 
 The commands I use are
 ls .git/refs/remotes/git-svn-stuff_svn/trunk
 cat .git/refs/remotes/git-svn-stuff_svn/trunk
-echo 6af34e7ef2136a5525e33d9dfb42168cc07f7255 > .git/refs/remotes/git-svn-stuff_svn/trunk
+echo 388ec5de1d1ef40bce3ec8b5434111b09885b0db > .git/refs/remotes/git-svn-stuff_svn/trunk
 
 Step 5. Get svn information to test that this process worked.
 git svn info
 
 
-Step 6. Updating the svn information
+Step 6. Updating the svn information This steps may NOT be save or correct for Windows in the past the "git svn rebase" command cause issues.
 git status
 git checkout master
 git pull upstream master
