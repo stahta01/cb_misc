@@ -1,15 +1,14 @@
+########################
+Windows Test info begin
+
 Welcome to Git (version 1.9.5-preview20150319)
 
-
-Run 'git help git' to display the help index.
-Run 'git help <command>' to display help for specific commands.
-
-stahta01@LAPTOP2-TIM /c/SourceCode/OpenSourceCode/Apps/IDEs/CodeBlocks
 $ git --version
 git version 1.9.5.msysgit.1
 
-stahta01@LAPTOP2-TIM /c/SourceCode/OpenSourceCode/Apps/IDEs/CodeBlocks
-$
+Windows Test info End
+########################
+
 
 Step 0: Clone and config obfuscated repo
 
@@ -20,24 +19,24 @@ Note: SVN does not like git merge so set to use git rebase by default (most of t
 git config master.rebase true 
 git config core.safecrlf warn  # true causes more issues than it is worth doing
 git config core.autocrlf input # true causes more issues than it is worth doing
-
-
-git checkout master
-git config master.rebase true
 git config branch.autosetuprebase always
 
+
 Step 1: Get svn revision and Git hash code to be used later
+git checkout master
+git pull upstream master
 git log --grep=^git-svn-id: --first-parent -1
+Note: Likely need to enter q to stop above command.
 
 commit 4cab593ef24f38e97436876e11d93bbe4496f497
 Author: ollydbg <ollydbg@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
 Date:   Wed Jun 10 07:49:16 2015 +0000
 
     * CC: SF ticket 175, solve typedef declarations in class templates.
-    
+
     This patch is contributed by SF user jat1.
-    
-    git-svn-id: http://svn.code.sf.net/p/codeblocks/code/trunk@10328 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+    git-svn-id: http://svn.code.sf.net/p/codeblocks/code/trunk@10328 2a5c6006-c6
 
 Step 2. Setup Git config
 NOTE: svn-remote.SVN-NAME the git-svn default is "svn" in place of "SVN-NAME"
@@ -71,11 +70,12 @@ ls .git/refs/remotes/git-svn-stuff_svn/trunk
 cat .git/refs/remotes/git-svn-stuff_svn/trunk
 echo 4cab593ef24f38e97436876e11d93bbe4496f497 > .git/refs/remotes/git-svn-stuff_svn/trunk
 
+
 Step 5. Get svn information to test that this process worked.
 git svn info
 
 
-Step 6. Updating the svn information This steps may NOT be save or correct for Windows in the past the "git svn rebase" command cause issues.
+Step 6. Updating the svn information This steps may NOT be safe or correct for Windows in the past the "git svn rebase" command caused issues.
 git status
 git checkout master
 git pull upstream master
