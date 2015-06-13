@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Tools Plus Plugin wx2.8.x debug" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/codeblocks/plugins/ToolsPlus" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Compiler>
+					<Add option="$(#CB_RELEASE_TYPE)" />
+				</Compiler>
+				<Linker>
+					<Add library="codeblocks" />
+					<Add library="wxmsw28$(WX_SUFFIX)" />
+					<Add library="gdi32" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+				</Linker>
+			</Target>
+			<Environment>
+				<Variable name="WX_CFG" value="" />
+				<Variable name="WX_SUFFIX" value="ud" />
+				<Variable name="WX_VERSION" value="28" />
+			</Environment>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-fmessage-length=0" />
+			<Add option="-fexceptions" />
+			<Add option="-Winvalid-pch" />
+			<Add option="-DWXUSINGDLL" />
+			<Add option="-DHAVE_W32API_H" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-D__WXDEBUG__" />
+			<Add option="-DcbDEBUG" />
+			<Add option="-DNOPCH" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add option="-DBUILDING_PLUGIN" />
+			<Add directory="../src/include" />
+			<Add directory="../src/sdk/wxscintilla/include" />
+			<Add directory="$(#wx.include)" />
+			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+		</Compiler>
+		<Linker>
+			<Add option="-mthreads" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="cmd /c zip -j9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\ToolsPlus.zip ..\src\plugins\contrib\ToolsPlus\manifest.xml" />
+			<Add after="cmd /c copy ..\src\plugins\contrib\ToolsPlus\Resources\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings\ &gt; nul 2&gt;&amp;1" />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="../src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/CmdConfigDialog.h" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/Resources/dialogs.fbp" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/ShellCtrlBase.h" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/ToolsPlus.cpp" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/ToolsPlus.h" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/manifest.xml" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/se_globals.cpp" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/se_globals.h" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/shellproperties.cpp" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/shellproperties.h" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/update" />
+		<Unit filename="../src/plugins/contrib/ToolsPlus/update.bat" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

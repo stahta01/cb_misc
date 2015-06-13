@@ -1,0 +1,2484 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="CB_core_plugins_wx28ud" />
+		<Option default_target="src" />
+		<Option compiler="gcc-win32" />
+		<Build>
+			<Target title="Abbreviations">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/abbreviations" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+					<Add directory="../src/include/scripting/include" />
+					<Add directory="../src/include/scripting/sqplus" />
+					<Add directory="../src/include/scripting/bindings" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\abbreviations.zip ..\src\plugins\abbreviations\resources\manifest.xml ..\src\plugins\abbreviations\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="AStyle">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/astyle" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add option="-DASTYLE_LIB" />
+					<Add directory="../src/include" />
+					<Add directory="../src/plugins/astyle/astyle" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\astyle.zip ..\src\plugins\astyle\resources\manifest.xml ..\src\plugins\astyle\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Autosave">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/autosave" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\autosave.zip ..\src\plugins\autosave\manifest.xml ..\src\plugins\autosave\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Compiler depslib">
+				<Option output="../src/plugins/compilergcc/depslib/depslib" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option type="2" />
+				<Option compiler="gcc-win32" />
+				<Compiler>
+					<Add option="-DDEPSLIB_WINDOWS" />
+				</Compiler>
+				<Linker>
+					<Add option="-r" />
+					<Add option="-mthreads" />
+				</Linker>
+			</Target>
+			<Target title="Compiler">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/compiler" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;../src/plugins/compilergcc/depslib/libdepslib.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+					<Add directory="../src/plugins/compilergcc/depslib/src" />
+					<Add directory="../src/include/scripting/include" />
+					<Add directory="../src/include/scripting/sqplus" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add library="depslib" />
+					<Add library="wxpropgrid" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="../src/plugins/compilergcc/depslib" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compiler.zip ..\src\plugins\compilergcc\resources\manifest.xml ..\src\plugins\compilergcc\resources\*.xrc" />
+					<Add after="cmd /c cd ..\src\plugins\compilergcc\resources &amp; zip -0 -q ..\..\..\..\TimS_build\bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compiler.zip images\*.png images\16x16\*.png" />
+					<Add after="cmd /c xcopy /D /Y ..\src\plugins\compilergcc\resources\compilers\*.* bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compilers\" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Debugger">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/debugger" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+					<Add directory="../src/include/scripting/include" />
+					<Add directory="../src/include/scripting/sqplus" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\debugger.zip ..\src\plugins\debuggergdb\resources\manifest.xml ..\src\plugins\debuggergdb\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Code-completion">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/codecompletion" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+					<Add directory="../src/include/mozilla_chardet" />
+					<Add directory="../src/include/mozilla_chardet/mfbt" />
+					<Add directory="../src/include/mozilla_chardet/nsprpub/pr/include" />
+					<Add directory="../src/include/mozilla_chardet/xpcom" />
+					<Add directory="../src/include/mozilla_chardet/xpcom/base" />
+					<Add directory="../src/include/mozilla_chardet/xpcom/glue" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\codecompletion.zip ..\src\plugins\codecompletion\resources\manifest.xml ..\src\plugins\codecompletion\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Class wizard">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/classwizard" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\classwizard.zip ..\src\plugins\classwizard\resources\manifest.xml ..\src\plugins\classwizard\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Default MIME handler">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/defaultmimehandler" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\defaultmimehandler.zip ..\src\plugins\defaultmimehandler\resources\manifest.xml ..\src\plugins\defaultmimehandler\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Occurrences Highlighting">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/OccurrencesHighlighting" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -j9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\OccurrencesHighlighting.zip ..\src\plugins\occurrenceshighlighting\resources\manifest.xml ..\src\plugins\occurrenceshighlighting\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Open files list">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/openfileslist" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\openfileslist.zip ..\src\plugins\openfileslist\manifest.xml" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Projects-workspaces importer">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/projectsimporter" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+					<Add directory="../src/include/mozilla_chardet" />
+					<Add directory="../src/include/mozilla_chardet/mfbt" />
+					<Add directory="../src/include/mozilla_chardet/nsprpub/pr/include" />
+					<Add directory="../src/include/mozilla_chardet/xpcom" />
+					<Add directory="../src/include/mozilla_chardet/xpcom/base" />
+					<Add directory="../src/include/mozilla_chardet/xpcom/glue" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\projectsimporter.zip ..\src\plugins\projectsimporter\resources\manifest.xml ..\src\plugins\projectsimporter\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Scripted wizard">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/scriptedwizard" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+					<Add directory="../src/include/scripting/include" />
+					<Add directory="../src/include/scripting/sqplus" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scriptedwizard.zip ..\src\plugins\scriptedwizard\resources\manifest.xml" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="To-do">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/todo" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+					<Add directory="../src/include/mozilla_chardet" />
+					<Add directory="../src/include/mozilla_chardet/mfbt" />
+					<Add directory="../src/include/mozilla_chardet/nsprpub/pr/include" />
+					<Add directory="../src/include/mozilla_chardet/xpcom" />
+					<Add directory="../src/include/mozilla_chardet/xpcom/base" />
+					<Add directory="../src/include/mozilla_chardet/xpcom/glue" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\todo.zip ..\src\plugins\todo\resources\manifest.xml plugins\todo\resources\*.xrc" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="XP look &amp; feel">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/xpmanifest" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
+				<Option type="3" />
+				<Option compiler="gcc-win32" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="./codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add directory="../src/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-Wl,--no-undefined" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\xpmanifest.zip ..\src\plugins\xpmanifest\manifest.xml" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Environment>
+				<Variable name="WX_CFG" value="" />
+				<Variable name="WX_SUFFIX" value="ud" />
+				<Variable name="WX_VERSION" value="28" />
+			</Environment>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
+			<Add alias="Core app &amp; plugins" targets="AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
+			<Add alias="Third-party libs" targets="Compiler depslib;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-g" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-fmessage-length=0" />
+			<Add option="-fexceptions" />
+			<Add option="-Winvalid-pch" />
+			<Add option="-DHAVE_W32API_H" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-D__WXDEBUG__" />
+			<Add option="-DWXUSINGDLL" />
+			<Add option="-DcbDEBUG" />
+			<Add option="-DCB_PRECOMP" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add directory=".objs$(WX_VERSION)$(WX_SUFFIX)/src/include" />
+			<Add directory="$(#WX.include)" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+			<Add directory="../src/sdk/wxscintilla/include" />
+			<Add directory="../src/sdk/wxpropgrid/include" />
+			<Add directory="../src/include/tinyxml" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(#WX.include)" />
+			<Add directory="$(#WX)/lib/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+		</ResourceCompiler>
+		<Linker>
+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+			<Add directory="../src/base/tinyxml" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+		</Linker>
+		<ExtraCommands>
+			<Add before="cmd /c if not exist lib$(WX_VERSION)$(WX_SUFFIX) mkdir lib$(WX_VERSION)$(WX_SUFFIX)" />
+			<Add before="cmd /c if not exist .objs$(WX_VERSION)$(WX_SUFFIX)\src\include mkdir .objs$(WX_VERSION)$(WX_SUFFIX)\src\include" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks mkdir bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compilers md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compilers\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\codecompletion md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\codecompletion\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\plugins md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\plugins\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts\" />
+			<Add after="cmd /c xcopy /D /y ..\src\sdk\resources\lexers\lexer_* bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\settings\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\16x16\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\plugins\codecompletion\resources\images\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\codecompletion &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\plugins\compilergcc\resources\compilers\*.xml bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compilers &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\tools\ConsoleRunner\cb_console_runner.exe bin$(WX_VERSION)$(WX_SUFFIX)\ &gt; nul" />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="../src/include/annoyingdialog.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/autodetectcompilers.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/backgroundthread.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/base64.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/blockallocated.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbauibook.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbcolourmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbdebugger_interfaces.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbeditor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbeditorprintout.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbexception.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbfunctor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbplugin.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbproject.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbstatusbar.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbstyledtextctrl.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbthreadedtask.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbthreadpool.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbtool.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbtreectrl.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/cbworkspace.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/ccmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/compileoptionsbase.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/compiler.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/compilercommandgenerator.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/compilerfactory.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/compileroptions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/compiletargetbase.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/configmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/configurationpanel.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/configuretoolsdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/confirmreplacedlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/crc32.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/debuggermanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editarrayfiledlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editarrayorderdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editarraystringdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editor_hooks.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editorbase.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editorcolourset.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editorlexerloader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editormanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editpairdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/editpathdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/edittooldlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/encodingdetector.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/externaldepsdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/filefilters.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/filegroupsandmasks.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/filemanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/findreplacebase.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/findreplacedlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/genericmultilinenotesdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/globals.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/ibaseloader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/ibaseworkspaceloader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/id.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/importers_globals.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/incrementalselectlistdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/infowindow.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/licenses.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/logger.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/loggers.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/logmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/macrosmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/managedthread.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/manager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/menuitemsmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/misctreeitemdata.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/CharDistribution.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/JpCntx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/Alignment.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/Assertions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/Attributes.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/Compiler.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/Likely.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/NullPtr.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/TypedEnum.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/Types.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/mfbt/mozilla/Util.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsBig5Prober.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsCharSetProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsCodingStateMachine.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsEUCJPProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsEUCKRProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsEUCTWProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsEscCharsetProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsGB2312Prober.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsHebrewProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsLatin1Prober.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsMBCSGroupProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsPkgInt.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsSBCSGroupProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsSBCharSetProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsSJISProber.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsUTF8Prober.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsUniversalDetector.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_darwin.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_linux.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_openbsd.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_win95.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsprpub/pr/include/prcpucfg_winnt.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsprpub/pr/include/prmem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/nsprpub/pr/include/prtypes.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/xpcom/base/ErrorList.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/xpcom/base/nsError.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/xpcom/base/nscore.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/xpcom/glue/nsDebug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/mozilla_chardet/xpcom/glue/nsMemory.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/multiselectdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/newfromtemplatedlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/personalitymanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/pipedprocess.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/pluginmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/pluginsconfigurationdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/prep.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/printing_types.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projectbuildtarget.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projectfile.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projectfileoptionsdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projectlayoutloader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projectloader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projectloader_hooks.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projectmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projectsfilemasksdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/projecttemplateloader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/safedelete.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/bindings/sc_base_types.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/bindings/sc_plugin.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/bindings/scriptbindings.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqdbgserver.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqrdbg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdaux.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdblob.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdmath.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdstring.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdsystem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/squirrel.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SqPlusConst.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SquirrelBindingsUtils.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SquirrelBindingsUtilsWin32.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SquirrelObject.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SquirrelVM.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/sqplus.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/sqplusWin32.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqstdlib/sqstdblobimpl.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqstdlib/sqstdstream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqarray.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqclass.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqclosure.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqcompiler.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqfuncproto.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqfuncstate.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqlexer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqmem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqobject.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqopcodes.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqpcheader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqstate.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqstring.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqtable.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/squserdata.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/squtils.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqvm.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scriptingmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scriptsecuritywarningdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scrollingdialog.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/sdk.h">
+			<Option compile="1" />
+			<Option weight="1" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/sdk_common.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/sdk_events.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/sdk_precomp.h">
+			<Option compile="1" />
+			<Option weight="0" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/searchresultslog.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/selecttargetdlg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/settings.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/templatemanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/tinyxml/tinystr.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/tinyxml/tinywxuni.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/tinyxml/tinyxml.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/toolsmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/uservarmanager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/workspaceloader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/xtra_res.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/plugins/abbreviations/abbreviations.cpp">
+			<Option target="Abbreviations" />
+		</Unit>
+		<Unit filename="../src/plugins/abbreviations/abbreviations.h">
+			<Option target="Abbreviations" />
+		</Unit>
+		<Unit filename="../src/plugins/abbreviations/abbreviationsconfigpanel.cpp">
+			<Option target="Abbreviations" />
+		</Unit>
+		<Unit filename="../src/plugins/abbreviations/abbreviationsconfigpanel.h">
+			<Option target="Abbreviations" />
+		</Unit>
+		<Unit filename="../src/plugins/abbreviations/resources/abbreviationsconfigpanel.xrc">
+			<Option target="Abbreviations" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/asstreamiterator.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/asstreamiterator.h">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyle/ASBeautifier.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyle/ASEnhancer.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyle/ASFormatter.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyle/ASResource.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyle/astyle.h">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyle/astyle_main.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyle/astyle_main.h">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyleconfigdlg.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyleconfigdlg.h">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyleplugin.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astyleplugin.h">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/astylepredefinedstyles.h">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/dlgformattersettings.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/dlgformattersettings.h">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/formattersettings.cpp">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/formattersettings.h">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/resources/configuration.xrc">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/astyle/resources/manifest.xml">
+			<Option target="AStyle" />
+		</Unit>
+		<Unit filename="../src/plugins/autosave/autosave.cpp">
+			<Option target="Autosave" />
+		</Unit>
+		<Unit filename="../src/plugins/autosave/autosave.h">
+			<Option target="Autosave" />
+		</Unit>
+		<Unit filename="../src/plugins/autosave/autosave.xrc">
+			<Option target="Autosave" />
+		</Unit>
+		<Unit filename="../src/plugins/autosave/manifest.xml">
+			<Option target="Autosave" />
+		</Unit>
+		<Unit filename="../src/plugins/classwizard/classwizard.cpp">
+			<Option target="Class wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/classwizard/classwizard.h">
+			<Option target="Class wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/classwizard/classwizarddlg.cpp">
+			<Option target="Class wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/classwizard/classwizarddlg.h">
+			<Option target="Class wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/classwizard/resources/manifest.xml">
+			<Option target="Class wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/classwizard/resources/new_class.xrc">
+			<Option target="Class wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/ccoptionsdlg.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/ccoptionsdlg.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/ccoptionsprjdlg.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/ccoptionsprjdlg.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/cctreectrl.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/cctreectrl.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/classbrowser.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/classbrowser.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/classbrowserbuilderthread.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/classbrowserbuilderthread.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/codecompletion.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/codecompletion.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/coderefactoring.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/coderefactoring.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/doxygen_parser.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/doxygen_parser.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/insertclassmethoddlg.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/insertclassmethoddlg.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/nativeparser.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/nativeparser.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/nativeparser_base.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/nativeparser_base.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/ccdebuginfo.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/ccdebuginfo.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/cclogger.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/cclogger.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/expression.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/expression.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/parser.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/parser.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/parser_base.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/parser_base.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/parserthread.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/parserthread.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/parserthreadedtask.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/parserthreadedtask.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/profiletimer.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/profiletimer.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/searchtree.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/searchtree.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/token.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/token.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/tokenizer.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/tokenizer.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/tokentree.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/parser/tokentree.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/resources/classbrowser.xrc">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/resources/codecompletion_toolbar.xrc">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/resources/insert_class_method.xrc">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/resources/manifest.xml">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/resources/project_settings.xrc">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/resources/selectincludefile.xrc">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/resources/settings.xrc">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/selectincludefile.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/selectincludefile.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/systemheadersthread.cpp">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/codecompletion/systemheadersthread.h">
+			<Option target="Code-completion" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/advancedcompileroptionsdlg.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/advancedcompileroptionsdlg.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerCYGWIN.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerCYGWIN.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerG95.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerG95.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerGDC.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerGDC.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerGNUARM.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerGNUARM.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerGNUFortran.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerGNUFortran.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerIAR.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerIAR.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerICC.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerICC.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerKeilC51.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerKeilC51.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerLCC.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerLCC.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMINGW.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMINGW.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMINGWgenerator.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMINGWgenerator.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMSVC.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMSVC.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMSVC10.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMSVC10.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMSVC8.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerMSVC8.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerOW.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerOW.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerOWgenerator.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerOWgenerator.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerXML.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerXML.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compiler_defs.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compiler_defs.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilererrors.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilererrors.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerflagdlg.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilerflagdlg.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilergcc.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilergcc.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilermessages.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compilermessages.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compileroptionsdlg.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/compileroptionsdlg.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/alloc.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/alloc.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/cache.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/cache.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/depslib.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/depslib.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/filent.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/filesys.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/fileunix.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/hash.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/hash.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/headers.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/headers.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/jam.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/lists.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/lists.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/newstr.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/newstr.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/pathsplit.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/pathsplit.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/pathsys.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/pathunix.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/regexp.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/regexp.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/search.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/search.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/timestamp.c">
+			<Option compilerVar="CC" />
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/depslib/src/timestamp.h">
+			<Option target="Compiler depslib" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/directcommands.cpp">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/directcommands.h">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/advanced_compiler_options.xrc">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compiler_flag.xrc">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compiler_menu.xrc">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compiler_options.xrc">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compiler_toolbar.xrc">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compiler_toolbar_16x16.xrc">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_avr-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_bcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_clang.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_dmc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_dmd.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_ldc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_msp430-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_null.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_pgifortran.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_ppc-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_sdcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_tcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/compiler_tricore-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_arm-elf-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_avr-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_bcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_clang.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_architecture.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_cmds.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_codegen.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_optimization.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_optimize-msvc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_re-gf.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_re-iar.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_re-msvc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_re.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_runtime.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_sort.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_warnings-msvc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_common_warnings.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_cygwin.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_dmc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_dmd.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_g95.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_gdc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_gfortran.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_iar8051.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_iararm.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_icc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_keilc51.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_keilcx51.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_lcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_ldc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_msp430-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_msvc10.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_msvc8.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_msvctk.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_null.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_ow.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_pgifortran.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_ppc-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_sdcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_tcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/compilers/options_tricore-gcc.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/compilergcc/resources/manifest.xml">
+			<Option target="Compiler" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/cdb_commands.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/cdb_driver.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/cdb_driver.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/databreakpointdlg.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/databreakpointdlg.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debugger_defs.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debugger_defs.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggerdriver.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggerdriver.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggergdb.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggergdb.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggeroptionsdlg.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggeroptionsdlg.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggeroptionsprjdlg.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggeroptionsprjdlg.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggerstate.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/debuggerstate.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/editbreakpointdlg.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/editbreakpointdlg.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/editwatchdlg.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/editwatchdlg.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/gdb_commands.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/gdb_driver.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/gdb_driver.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/parsewatchvalue.cpp">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/parsewatchvalue.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/remotedebugging.h">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/resources/breakpoints.xrc">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/resources/debugger_options_dlg.xrc">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/resources/debugger_project_options_dlg.xrc">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/debuggergdb/resources/edit_watches_dlg.xrc">
+			<Option target="Debugger" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/EmbeddedHtmlPanel.cpp">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/EmbeddedHtmlPanel.h">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/defaultmimehandler.cpp">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/defaultmimehandler.h">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/editmimetypesdlg.cpp">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/editmimetypesdlg.h">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/mimetypesarray.h">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/resources/edit_files_handling.xrc">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/defaultmimehandler/resources/manifest.xml">
+			<Option target="Default MIME handler" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/highlighter.cpp">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/highlighter.h">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/occurrenceshighlighting.h">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/occurrenceshighlightingconfigurationpanel.cpp">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/occurrenceshighlightingconfigurationpanel.h">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/occurrencespanel.cpp">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/occurrencespanel.h">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/occurrenceshighlighting/resources/occurrenceshighlightingconfigurationpanel.xrc">
+			<Option target="Occurrences Highlighting" />
+		</Unit>
+		<Unit filename="../src/plugins/openfileslist/manifest.xml">
+			<Option target="Open files list" />
+		</Unit>
+		<Unit filename="../src/plugins/openfileslist/openfileslistplugin.cpp">
+			<Option target="Open files list" />
+		</Unit>
+		<Unit filename="../src/plugins/openfileslist/openfileslistplugin.h">
+			<Option target="Open files list" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/devcpploader.cpp">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/devcpploader.h">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvc10loader.cpp">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvc10loader.h">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvc7loader.cpp">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvc7loader.h">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvc7workspaceloader.cpp">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvc7workspaceloader.h">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvcloader.cpp">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvcloader.h">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvcworkspacebase.cpp">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvcworkspacebase.h">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvcworkspaceloader.cpp">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/msvcworkspaceloader.h">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/projectsimporter.cpp">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/projectsimporter/projectsimporter.h">
+			<Option target="Projects-workspaces importer" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/buildtargetpanel.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/buildtargetpanel.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/compilerpanel.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/compilerpanel.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/filepathpanel.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/filepathpanel.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/genericselectpath.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/genericselectpath.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/genericsinglechoicelist.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/genericsinglechoicelist.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/infopanel.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/infopanel.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/projectpathpanel.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/projectpathpanel.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/arm/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/avr/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/avr/wizard.xrc">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/c_file/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/common_functions.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/config.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/console/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/d/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/directx/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/dll/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/empty/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/empty_file/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/fltk/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/fortran/app/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/fortran/dll/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/fortran/file/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/fortran/lib/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/glfw/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/glut/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/gtk/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/h_file/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/irrlicht/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/lf/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/lf/wizard.xrc">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/manifest.xml">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/matlab_csf/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/matlab_csf/wizard.xrc">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/mcs51/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/mcs51/wizard.xrc">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/ogre/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/opengl/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/plugins/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/plugins/wizard.xrc">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/ppc/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/qt4/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/sdl/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/sfml/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/sharedlib/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/smartwin/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/staticlib/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/stlport/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/sys/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/tricore/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/tricore/wizard.xrc">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/win32gui/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/wxwidgets/wizard.script">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/resources/wxwidgets/wizard.xrc">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/wiz.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/wiz.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/wizpage.cpp">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/scriptedwizard/wizpage.h">
+			<Option target="Scripted wizard" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/addtododlg.cpp">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/addtododlg.h">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/asktypedlg.cpp">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/asktypedlg.h">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/resources/add_todo.xrc">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/resources/ask_type.xrc">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/resources/manifest.xml">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/resources/settings.xrc">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/todolist.cpp">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/todolist.h">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/todolistview.cpp">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/todolistview.h">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/todosettingsdlg.cpp">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/todo/todosettingsdlg.h">
+			<Option target="To-do" />
+		</Unit>
+		<Unit filename="../src/plugins/xpmanifest/windowsxplooknfeel.cpp">
+			<Option target="XP look &amp; feel" />
+		</Unit>
+		<Unit filename="../src/plugins/xpmanifest/windowsxplooknfeel.h">
+			<Option target="XP look &amp; feel" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/advprops.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/editors.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/extras.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/manager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/odcombo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/propdev.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/propgrid.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/props.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxpropgrid/include/wx/propgrid/xh_propgrid.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/include/wx/wxscintilla.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/PlatWX.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/ScintillaWX.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/include/ILexer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/include/Platform.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/include/SciLexer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/include/Scintilla.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/include/ScintillaWidget.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/Accessor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/CharacterCategory.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/CharacterSet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/LexAccessor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/LexerBase.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/LexerModule.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/LexerNoExceptions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/LexerSimple.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/OptionSet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/PropSetSimple.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/SparseState.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/StringCopy.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/StyleContext.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/SubStyles.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/lexlib/WordList.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/AutoComplete.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/CallTip.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/CaseConvert.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/CaseFolder.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/Catalogue.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/CellBuffer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/CharClassify.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/ContractionState.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/Decoration.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/Document.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/EditModel.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/EditView.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/Editor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/ExternalLexer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/FontQuality.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/Indicator.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/KeyMap.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/LineMarker.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/MarginView.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/Partitioning.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/PerLine.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/PositionCache.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/RESearch.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/RunStyles.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/ScintillaBase.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/Selection.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/SplitVector.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/Style.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/UniConversion.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/UnicodeFromUTF8.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/ViewStyle.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/wxscintilla/src/scintilla/src/XPM.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/wxsmith/debuggersettingscommonpanel.wxs">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/wxsmith/debuggersettingsdlg.wxs">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/wxsmith/debuggersettingspanel.wxs">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<wxsmith version="1">
+				<resources>
+					<wxScrollingDialog wxs="wxsmith/VirtualBuildTargetsDlg.wxs" src="src/virtualbuildtargetsdlg.cpp" hdr="src/virtualbuildtargetsdlg.h" xrc="src/resources/virtualbuildtargetsdlg.xrc" fwddecl="0" i18n="1" name="VirtualBuildTargetsDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/databreakpointdlg.wxs" src="plugins/debuggergdb/databreakpointdlg.cpp" hdr="plugins/debuggergdb/databreakpointdlg.h" fwddecl="0" i18n="1" name="DataBreakpointDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/CCDebugInfo.wxs" src="plugins/codecompletion/parser/ccdebuginfo.cpp" hdr="plugins/codecompletion/parser/ccdebuginfo.h" fwddecl="0" i18n="1" name="CCDebugInfo" language="CPP" />
+					<wxPanel wxs="wxsmith/ScriptConsole.wxs" src="src/scriptconsole.cpp" hdr="src/scriptconsole.h" fwddecl="0" i18n="1" name="ScriptConsole" language="CPP" />
+					<wxPanel wxs="wxsmith/BuildTargetPanel.wxs" src="plugins/scriptedwizard/buildtargetpanel.cpp" hdr="plugins/scriptedwizard/buildtargetpanel.h" fwddecl="0" i18n="1" name="BuildTargetPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/CompilerPanel.wxs" src="plugins/scriptedwizard/compilerpanel.cpp" hdr="plugins/scriptedwizard/compilerpanel.h" fwddecl="0" i18n="1" name="CompilerPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/FilePathPanel.wxs" src="plugins/scriptedwizard/filepathpanel.cpp" hdr="plugins/scriptedwizard/filepathpanel.h" fwddecl="0" i18n="1" name="FilePathPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/GenericSelectPath.wxs" src="plugins/scriptedwizard/genericselectpath.cpp" hdr="plugins/scriptedwizard/genericselectpath.h" fwddecl="0" i18n="1" name="GenericSelectPath" language="CPP" />
+					<wxPanel wxs="wxsmith/GenericSingleChoiceList.wxs" src="plugins/scriptedwizard/genericsinglechoicelist.cpp" hdr="plugins/scriptedwizard/genericsinglechoicelist.h" fwddecl="0" i18n="1" name="GenericSingleChoiceList" language="CPP" />
+					<wxPanel wxs="wxsmith/InfoPanel.wxs" src="plugins/scriptedwizard/infopanel.cpp" hdr="plugins/scriptedwizard/infopanel.h" fwddecl="0" i18n="1" name="InfoPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/ProjectPathPanel.wxs" src="plugins/scriptedwizard/projectpathpanel.cpp" hdr="plugins/scriptedwizard/projectpathpanel.h" fwddecl="0" i18n="1" name="ProjectPathPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/EmbeddedHtmlPanel.wxs" src="plugins/defaultmimehandler/EmbeddedHtmlPanel.cpp" hdr="plugins/defaultmimehandler/EmbeddedHtmlPanel.h" fwddecl="1" i18n="1" name="EmbeddedHtmlPanel" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/debuggersettingsdlg.wxs" src="src/debuggersettingsdlg.cpp" hdr="src/debuggersettingsdlg.h" fwddecl="0" i18n="1" name="DebuggerSettingsDlg" language="CPP" />
+					<wxPanel wxs="wxsmith/debuggersettingspanel.wxs" src="src/debuggersettingspanel.cpp" hdr="src/debuggersettingspanel.h" fwddecl="0" i18n="1" name="DebuggerSettingsPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/debuggersettingscommonpanel.wxs" src="src/debuggersettingscommonpanel.cpp" hdr="src/debuggersettingscommonpanel.h" fwddecl="0" i18n="1" name="DebuggerSettingsCommonPanel" language="CPP" />
+				</resources>
+			</wxsmith>
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
