@@ -432,7 +432,7 @@
 					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\todo.zip ..\src\plugins\todo\resources\manifest.xml plugins\todo\resources\*.xrc" />
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\todo.zip ..\src\plugins\todo\resources\manifest.xml ..\src\plugins\todo\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -491,8 +491,6 @@
 			<Add option="-DwxUSE_UNICODE" />
 			<Add directory="$(#WX30.include)" />
 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
-			<Add directory="../src/sdk/wxscintilla/include" />
-			<Add directory="../src/include/tinyxml" />
 		</Compiler>
 		<ResourceCompiler>
 			<Add directory="$(#WX30.include)" />
@@ -516,6 +514,13 @@
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts\" />
+			<Add after="cmd /c xcopy /D /y ..\src\sdk\resources\lexers\lexer_* bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\settings\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\16x16\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\plugins\codecompletion\resources\images\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\codecompletion &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\plugins\compilergcc\resources\compilers\*.xml bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compilers &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\tools\ConsoleRunner\cb_console_runner.exe bin$(WX_VERSION)$(WX_SUFFIX)\ &gt; nul" />
 		</ExtraCommands>
 		<Unit filename="../src/include/annoyingdialog.h">
 			<Option target="&lt;{~None~}&gt;" />
