@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="CB_non_GUI_support" />
+		<Option default_target="src" />
+		<Option compiler="gcc-win32" />
+		<Build>
+			<Target title="tinyXML">
+				<Option output="../src/base/tinyxml/txml$(WX_VERSION)$(WX_SUFFIX)" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option type="2" />
+				<Option compiler="gcc-win32" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
+				<Option projectResourceIncludeDirsRelation="1" />
+				<Option projectLibDirsRelation="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add option="-Winvalid-pch" />
+					<Add directory="../src/include/tinyxml" />
+				</Compiler>
+			</Target>
+			<Target title="AutoRevision">
+				<Option output="../src/build_tools/autorevision/autorevision" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".objs_autorevision" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
+				<Option projectResourceIncludeDirsRelation="1" />
+				<Option projectLibDirsRelation="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add option="-Winvalid-pch" />
+					<Add directory="../src/include" />
+					<Add directory="../src/include/tinyxml" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Squirrel">
+				<Option output="../src/sdk/scripting/lib/squirrel" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option type="2" />
+				<Option compiler="gcc-win32" />
+				<Compiler>
+					<Add option="-fno-inline" />
+					<Add directory="../src/include/scripting/include" />
+					<Add directory="../src/include/scripting/squirrel" />
+				</Compiler>
+			</Target>
+			<Target title="Squirrel std lib">
+				<Option output="../src/sdk/scripting/lib/sqstdlib" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option external_deps="../src/sdk/scripting/lib/libsquirrel$(WX_VERSION)$(WX_SUFFIX).a;" />
+				<Option type="2" />
+				<Option compiler="gcc-win32" />
+				<Compiler>
+					<Add option="-fno-inline" />
+					<Add directory="../src/include/scripting/include" />
+					<Add directory="../src/include/scripting/sqstdlib" />
+				</Compiler>
+			</Target>
+			<Target title="SqPlus">
+				<Option output="../src/sdk/scripting/lib/sqplus" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option external_deps="../src/sdk/scripting/lib/libsquirrel$(WX_VERSION)$(WX_SUFFIX).a;../src/sdk/scripting/lib/libsqstdlib$(WX_VERSION)$(WX_SUFFIX).a;" />
+				<Option type="2" />
+				<Option compiler="gcc-win32" />
+				<Compiler>
+					<Add option="-fno-inline" />
+					<Add directory="../src/include/scripting/include" />
+					<Add directory="../src/include/scripting/sqplus" />
+				</Compiler>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="tinyXML;AutoRevision;Squirrel;Squirrel std lib;SqPlus;" />
+			<Add alias="Third-party libs" targets="tinyXML;AutoRevision;Squirrel;Squirrel std lib;SqPlus;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-g" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-fmessage-length=0" />
+			<Add option="-fexceptions" />
+			<Add option="-Winvalid-pch" />
+			<Add option="-DHAVE_W32API_H" />
+			<Add option="-DcbDEBUG" />
+			<Add directory="../src/sdk/wxscintilla/include" />
+			<Add directory="../src/sdk/wxpropgrid/include" />
+			<Add directory="../src/include/tinyxml" />
+		</Compiler>
+		<Linker>
+			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+			<Add directory="../src/base/tinyxml" />
+		</Linker>
+		<Unit filename="../src/base/tinyxml/tinystr.cpp">
+			<Option target="tinyXML" />
+			<Option target="AutoRevision" />
+		</Unit>
+		<Unit filename="../src/base/tinyxml/tinyxml.cpp">
+			<Option target="tinyXML" />
+			<Option target="AutoRevision" />
+		</Unit>
+		<Unit filename="../src/base/tinyxml/tinyxmlerror.cpp">
+			<Option target="tinyXML" />
+			<Option target="AutoRevision" />
+		</Unit>
+		<Unit filename="../src/base/tinyxml/tinyxmlparser.cpp">
+			<Option target="tinyXML" />
+			<Option target="AutoRevision" />
+		</Unit>
+		<Unit filename="../src/build_tools/autorevision/autorevision.cpp">
+			<Option target="AutoRevision" />
+		</Unit>
+		<Unit filename="../src/include/scripting/bindings/sc_base_types.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/bindings/sc_plugin.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/bindings/scriptbindings.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqdbgserver.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqrdbg.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdaux.h">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdblob.h">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdio.h">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdmath.h">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdstring.h">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/sqstdsystem.h">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/include/scripting/include/squirrel.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SqPlusConst.h">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SquirrelBindingsUtils.h">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SquirrelBindingsUtilsWin32.h">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SquirrelObject.h">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/SquirrelVM.h">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/sqplus.h">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqplus/sqplusWin32.h">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqstdlib/sqstdblobimpl.h">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/include/scripting/sqstdlib/sqstdstream.h">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqarray.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqclass.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqclosure.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqcompiler.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqfuncproto.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqfuncstate.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqlexer.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqmem.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqobject.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqopcodes.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqpcheader.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqstate.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqstring.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqtable.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/squserdata.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/squtils.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/scripting/squirrel/sqvm.h">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/include/tinyxml/tinystr.h">
+			<Option target="tinyXML" />
+			<Option target="AutoRevision" />
+		</Unit>
+		<Unit filename="../src/include/tinyxml/tinyxml.h">
+			<Option target="tinyXML" />
+			<Option target="AutoRevision" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/sc_consts.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/sc_dialog.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/sc_globals.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/sc_io.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/sc_plugin.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/sc_progress.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/sc_util_dialogs.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/sc_wxtypes.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/bindings/scriptbindings.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqplus/SqPlus.cpp">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqplus/SquirrelBindingsUtils.cpp">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqplus/SquirrelBindingsUtilsWin32.cpp">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqplus/SquirrelObject.cpp">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqplus/SquirrelVM.cpp">
+			<Option target="SqPlus" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdaux.cpp">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdblob.cpp">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdio.cpp">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdmath.cpp">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdrex.cpp">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdstream.cpp">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdstring.cpp">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdsystem.cpp">
+			<Option target="Squirrel std lib" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqapi.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqbaselib.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqclass.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqcompiler.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqdebug.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqfuncstate.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqlexer.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqmem.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqobject.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqstate.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqtable.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/sdk/scripting/squirrel/sqvm.cpp">
+			<Option target="Squirrel" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<wxsmith version="1">
+				<resources>
+					<wxScrollingDialog wxs="wxsmith/VirtualBuildTargetsDlg.wxs" src="src/virtualbuildtargetsdlg.cpp" hdr="src/virtualbuildtargetsdlg.h" xrc="src/resources/virtualbuildtargetsdlg.xrc" fwddecl="0" i18n="1" name="VirtualBuildTargetsDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/databreakpointdlg.wxs" src="plugins/debuggergdb/databreakpointdlg.cpp" hdr="plugins/debuggergdb/databreakpointdlg.h" fwddecl="0" i18n="1" name="DataBreakpointDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/CCDebugInfo.wxs" src="plugins/codecompletion/parser/ccdebuginfo.cpp" hdr="plugins/codecompletion/parser/ccdebuginfo.h" fwddecl="0" i18n="1" name="CCDebugInfo" language="CPP" />
+					<wxPanel wxs="wxsmith/ScriptConsole.wxs" src="src/scriptconsole.cpp" hdr="src/scriptconsole.h" fwddecl="0" i18n="1" name="ScriptConsole" language="CPP" />
+					<wxPanel wxs="wxsmith/BuildTargetPanel.wxs" src="plugins/scriptedwizard/buildtargetpanel.cpp" hdr="plugins/scriptedwizard/buildtargetpanel.h" fwddecl="0" i18n="1" name="BuildTargetPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/CompilerPanel.wxs" src="plugins/scriptedwizard/compilerpanel.cpp" hdr="plugins/scriptedwizard/compilerpanel.h" fwddecl="0" i18n="1" name="CompilerPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/FilePathPanel.wxs" src="plugins/scriptedwizard/filepathpanel.cpp" hdr="plugins/scriptedwizard/filepathpanel.h" fwddecl="0" i18n="1" name="FilePathPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/GenericSelectPath.wxs" src="plugins/scriptedwizard/genericselectpath.cpp" hdr="plugins/scriptedwizard/genericselectpath.h" fwddecl="0" i18n="1" name="GenericSelectPath" language="CPP" />
+					<wxPanel wxs="wxsmith/GenericSingleChoiceList.wxs" src="plugins/scriptedwizard/genericsinglechoicelist.cpp" hdr="plugins/scriptedwizard/genericsinglechoicelist.h" fwddecl="0" i18n="1" name="GenericSingleChoiceList" language="CPP" />
+					<wxPanel wxs="wxsmith/InfoPanel.wxs" src="plugins/scriptedwizard/infopanel.cpp" hdr="plugins/scriptedwizard/infopanel.h" fwddecl="0" i18n="1" name="InfoPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/ProjectPathPanel.wxs" src="plugins/scriptedwizard/projectpathpanel.cpp" hdr="plugins/scriptedwizard/projectpathpanel.h" fwddecl="0" i18n="1" name="ProjectPathPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/EmbeddedHtmlPanel.wxs" src="plugins/defaultmimehandler/EmbeddedHtmlPanel.cpp" hdr="plugins/defaultmimehandler/EmbeddedHtmlPanel.h" fwddecl="1" i18n="1" name="EmbeddedHtmlPanel" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/debuggersettingsdlg.wxs" src="src/debuggersettingsdlg.cpp" hdr="src/debuggersettingsdlg.h" fwddecl="0" i18n="1" name="DebuggerSettingsDlg" language="CPP" />
+					<wxPanel wxs="wxsmith/debuggersettingspanel.wxs" src="src/debuggersettingspanel.cpp" hdr="src/debuggersettingspanel.h" fwddecl="0" i18n="1" name="DebuggerSettingsPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/debuggersettingscommonpanel.wxs" src="src/debuggersettingscommonpanel.cpp" hdr="src/debuggersettingscommonpanel.h" fwddecl="0" i18n="1" name="DebuggerSettingsCommonPanel" language="CPP" />
+				</resources>
+			</wxsmith>
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
