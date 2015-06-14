@@ -11,8 +11,19 @@
 				<Option working_dir="" />
 				<Option type="2" />
 				<Option compiler="gcc" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
+				<Option projectResourceIncludeDirsRelation="1" />
+				<Option projectLibDirsRelation="1" />
 				<Compiler>
-					<Add directory="include/tinyxml" />
+					<Add option="-Wall" />
+					<Add option="$(#CB_RELEASE_TYPE)" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add directory="../src/include/tinyxml" />
 				</Compiler>
 			</Target>
 			<Target title="AutoRevision">
@@ -20,9 +31,20 @@
 				<Option object_output=".objs_autorevision" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option projectCompilerOptionsRelation="1" />
 				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
+				<Option projectResourceIncludeDirsRelation="1" />
+				<Option projectLibDirsRelation="1" />
 				<Compiler>
+					<Add option="-Wall" />
+					<Add option="$(#CB_RELEASE_TYPE)" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
 					<Add directory="../src/include" />
+					<Add directory="../src/include/tinyxml" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,6 +58,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
 				<Compiler>
 					<Add option="-Os" />
 				</Compiler>
@@ -233,8 +256,6 @@
 			<Add option="-DwxUSE_UNICODE" />
 			<Add directory="$(#WX30.include)" />
 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
-			<Add directory="../src/sdk/wxscintilla/include" />
-			<Add directory="../src/include/tinyxml" />
 		</Compiler>
 		<ResourceCompiler>
 			<Add directory="$(#WX30.include)" />
@@ -258,6 +279,11 @@
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts\" />
+			<Add after="cmd /c xcopy /D /y ..\src\sdk\resources\lexers\lexer_* bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\settings\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\16x16\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\tools\ConsoleRunner\cb_console_runner.exe bin$(WX_VERSION)$(WX_SUFFIX)\ &gt; nul" />
 		</ExtraCommands>
 		<Unit filename="../src/base/tinyxml/tinystr.cpp">
 			<Option target="tinyXML" />
