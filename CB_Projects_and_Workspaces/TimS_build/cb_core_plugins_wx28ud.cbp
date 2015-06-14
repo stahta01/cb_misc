@@ -441,7 +441,7 @@
 					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\todo.zip ..\src\plugins\todo\resources\manifest.xml plugins\todo\resources\*.xrc" />
+					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\todo.zip ..\src\plugins\todo\resources\manifest.xml ..\src\plugins\todo\resources\*.xrc" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
