@@ -48,7 +48,7 @@
 			<Target title="sdk">
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/codeblocks" imp_lib="lib$(WX_VERSION)$(WX_SUFFIX)/$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="base/tinyxml/libtxml30.a;sdk/scripting/lib/libsquirrel30.a;sdk/scripting/lib/libsqstdlib30.a;sdk/scripting/lib/libsqplus30.a;devel30/libwxscintilla_cb.a;" />
+				<Option external_deps="../src/base/tinyxml/libtxml.a;../src/sdk/scripting/lib/libsquirrel.a;../src/sdk/scripting/lib/libsqstdlib.a;../src/sdk/scripting/lib/libsqplus.a;../src/sdk/wxscintilla/lib/libwxscintilla_cb$(WX_VERSION)$(WX_SUFFIX).a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --verbose -p debug" />
@@ -101,7 +101,7 @@
 			<Target title="src">
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/codeblocks" prefix_auto="1" extension_auto="1" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -190,10 +190,14 @@
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16\" />
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts\" />
 			<Add after="cmd /c xcopy /D /y ..\src\sdk\resources\lexers\lexer_* bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\settings\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\16x16\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\scripts\*.gdb  bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\scripts\*.script  bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts &gt; nul" />
+			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="../src/base/tinyxml/tinystr.cpp">
 			<Option target="&lt;{~None~}&gt;" />

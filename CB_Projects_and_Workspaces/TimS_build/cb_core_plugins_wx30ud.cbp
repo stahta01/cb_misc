@@ -10,7 +10,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/abbreviations" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -43,7 +43,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/astyle" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -75,7 +75,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/autosave" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -122,7 +122,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/compiler" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;plugins/compilergcc/depslib/libdepslib30.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;../src/plugins/compilergcc/depslib/libdepslib$(WX_VERSION)$(WX_SUFFIX).a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -159,7 +159,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/debugger" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -191,7 +191,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/codecompletion" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -225,7 +225,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/classwizard" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -255,7 +255,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/defaultmimehandler" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -285,7 +285,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/OccurrencesHighlighting" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -315,7 +315,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/openfileslist" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -345,7 +345,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/projectsimporter" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -378,7 +378,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/scriptedwizard" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -410,7 +410,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/todo" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
@@ -443,7 +443,7 @@
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/xpmanifest" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="devel30/libcodeblocks.a;" />
+				<Option external_deps="lib$(WX_VERSION)$(WX_SUFFIX)/libcodeblocks.a;" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
