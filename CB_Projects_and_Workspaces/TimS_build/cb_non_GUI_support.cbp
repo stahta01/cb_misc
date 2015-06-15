@@ -87,6 +87,33 @@
 					<Add directory="../src/include/scripting/sqplus" />
 				</Compiler>
 			</Target>
+			<Target title="CbLauncher">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/CbLauncher" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc-win32" />
+				<Option use_console_runner="0" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
+				<Option projectResourceIncludeDirsRelation="1" />
+				<Option projectLibDirsRelation="1" />
+				<Compiler>
+					<Add option="-Os" />
+					<Add option="-pedantic" />
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-fexceptions" />
+					<Add option="-D_UNICODE" />
+					<Add option="-DUNICODE" />
+					<Add option="-DWINVER=0x0500" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-mwindows" />
+					<Add library="gdi32" />
+					<Add library="oleaut32" />
+				</Linker>
+			</Target>
 		</Build>
 		<VirtualTargets>
 			<Add alias="All" targets="tinyXML;AutoRevision;Squirrel;Squirrel std lib;SqPlus;" />
@@ -316,6 +343,40 @@
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqvm.cpp">
 			<Option target="Squirrel" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/doc/CBicon.png">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/doc/README.txt">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/doc/doxyfile">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/doc/gpl-3.0.txt">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/icon.rc">
+			<Option compilerVar="WINDRES" />
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/icons/README_4_icon.txt">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/icons/hires.ico">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/icons/launcher.ico">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/icons/lores.ico">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/launcher.cpp">
+			<Option target="CbLauncher" />
+		</Unit>
+		<Unit filename="../src/tools/CBLauncher/mainpage.h">
+			<Option target="CbLauncher" />
 		</Unit>
 		<Extensions>
 			<code_completion />
