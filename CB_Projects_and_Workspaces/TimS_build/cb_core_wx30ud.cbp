@@ -6,54 +6,8 @@
 		<Option default_target="src" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="tinyXML">
-				<Option output="../src/base/tinyxml/txml$(WX_VERSION)$(WX_SUFFIX)" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="" />
-				<Option type="2" />
-				<Option compiler="gcc" />
-				<Option projectCompilerOptionsRelation="1" />
-				<Option projectLinkerOptionsRelation="1" />
-				<Option projectIncludeDirsRelation="1" />
-				<Option projectResourceIncludeDirsRelation="1" />
-				<Option projectLibDirsRelation="1" />
-				<Compiler>
-					<Add option="-Wall" />
-					<Add option="$(#CB_RELEASE_TYPE)" />
-					<Add option="-pipe" />
-					<Add option="-mthreads" />
-					<Add option="-fmessage-length=0" />
-					<Add option="-fexceptions" />
-					<Add directory="../src/include/tinyxml" />
-				</Compiler>
-			</Target>
-			<Target title="AutoRevision">
-				<Option output="../src/build_tools/autorevision/autorevision" prefix_auto="1" extension_auto="1" />
-				<Option object_output=".objs_autorevision" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Option projectCompilerOptionsRelation="1" />
-				<Option projectLinkerOptionsRelation="1" />
-				<Option projectIncludeDirsRelation="1" />
-				<Option projectResourceIncludeDirsRelation="1" />
-				<Option projectLibDirsRelation="1" />
-				<Compiler>
-					<Add option="-Wall" />
-					<Add option="$(#CB_RELEASE_TYPE)" />
-					<Add option="-pipe" />
-					<Add option="-mthreads" />
-					<Add option="-fmessage-length=0" />
-					<Add option="-fexceptions" />
-					<Add directory="../src/include" />
-					<Add directory="../src/include/tinyxml" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-					<Add directory="base/tinyxml" />
-				</Linker>
-			</Target>
 			<Target title="ConsoleRunner">
-				<Option output="../src/tools/ConsoleRunner/cb_console_runner30" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../src/tools/ConsoleRunner" />
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/cb_console_runner" prefix_auto="1" extension_auto="1" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -61,44 +15,6 @@
 				<Option projectIncludeDirsRelation="1" />
 				<Compiler>
 					<Add option="-Os" />
-				</Compiler>
-			</Target>
-			<Target title="Squirrel">
-				<Option output="../src/sdk/scripting/lib/squirrel$(WX_VERSION)$(WX_SUFFIX)" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="" />
-				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option type="2" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-fno-inline" />
-					<Add directory="../src/include/scripting/include" />
-					<Add directory="../src/include/scripting/squirrel" />
-				</Compiler>
-			</Target>
-			<Target title="Squirrel std lib">
-				<Option output="../src/sdk/scripting/lib/sqstdlib$(WX_VERSION)$(WX_SUFFIX)" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="" />
-				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="sdk/scripting/lib/libsquirrel30.a;" />
-				<Option type="2" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-fno-inline" />
-					<Add directory="../src/include/scripting/include" />
-					<Add directory="../src/include/scripting/sqstdlib" />
-				</Compiler>
-			</Target>
-			<Target title="SqPlus">
-				<Option output="../src/sdk/scripting/lib/sqplus$(WX_VERSION)$(WX_SUFFIX)" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="" />
-				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
-				<Option external_deps="sdk/scripting/lib/libsquirrel30.a;sdk/scripting/lib/libsqstdlib30.a;" />
-				<Option type="2" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-fno-inline" />
-					<Add directory="../src/include/scripting/include" />
-					<Add directory="../src/include/scripting/sqplus" />
 				</Compiler>
 			</Target>
 			<Target title="scintilla">
@@ -116,6 +32,7 @@
 					<Add directory="../src/sdk/wxscintilla/src/scintilla/include" />
 					<Add directory="../src/sdk/wxscintilla/src/scintilla/src" />
 					<Add directory="../src/sdk/wxscintilla/src/scintilla/lexlib" />
+					<Add directory="../src/sdk/wxscintilla/include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="sdk/wxscintilla/include" />
@@ -130,7 +47,6 @@
 			</Target>
 			<Target title="sdk">
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/codeblocks" imp_lib="lib$(WX_VERSION)$(WX_SUFFIX)/$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
 				<Option external_deps="base/tinyxml/libtxml30.a;sdk/scripting/lib/libsquirrel30.a;sdk/scripting/lib/libsqstdlib30.a;sdk/scripting/lib/libsqplus30.a;devel30/libwxscintilla_cb.a;" />
 				<Option type="3" />
@@ -143,6 +59,7 @@
 					<Add option="-DEXPORT_LIB" />
 					<Add option="-DEXPORT_EVENTS" />
 					<Add option="-DWXMAKINGDLL_SCI" />
+					<Add option="-DCB_PRECOMP" />
 					<Add directory="../src/include" />
 					<Add directory="../src/include/tinyxml" />
 					<Add directory="../src/include/scripting/bindings" />
@@ -162,11 +79,11 @@
 					<Add option="-Wl,--enable-auto-import" />
 					<Add option="-Wl,--no-undefined" />
 					<Add library="shfolder" />
-					<Add library="txml$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add library="txml" />
 					<Add library="wxscintilla_cb$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add library="sqplus$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add library="sqstdlib$(WX_VERSION)$(WX_SUFFIX)" />
-					<Add library="squirrel$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add library="sqplus" />
+					<Add library="sqstdlib" />
+					<Add library="squirrel" />
 					<Add library="gdi32" />
 					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
 					<Add directory="../src/sdk/wxscintilla/lib" />
@@ -183,7 +100,6 @@
 			</Target>
 			<Target title="src">
 				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/codeblocks" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="devel30" />
 				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
 				<Option external_deps="devel30/libcodeblocks.a;" />
 				<Option type="0" />
@@ -192,6 +108,7 @@
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
 					<Add option="-DBUILDING_PLUGIN" />
+					<Add option="-DCB_PRECOMP" />
 					<Add directory="../src/include" />
 					<Add directory="../src/include/scripting/include" />
 					<Add directory="../src/include/scripting/sqplus" />
@@ -237,8 +154,8 @@
 			</Environment>
 		</Build>
 		<VirtualTargets>
-			<Add alias="All" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;sdk;src;" />
-			<Add alias="Third-party libs" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;" />
+			<Add alias="All" targets="ConsoleRunner;scintilla;sdk;src;" />
+			<Add alias="Third-party libs" targets="ConsoleRunner;scintilla;" />
 		</VirtualTargets>
 		<Compiler>
 			<Add option="-Wall" />
@@ -247,12 +164,12 @@
 			<Add option="-mthreads" />
 			<Add option="-fmessage-length=0" />
 			<Add option="-fexceptions" />
+			<Add option="-Winvalid-pch" />
 			<Add option="-DHAVE_W32API_H" />
 			<Add option="-D__WXMSW__" />
 			<Add option="-D__WXDEBUG__" />
 			<Add option="-DWXUSINGDLL" />
 			<Add option="-DcbDEBUG" />
-			<Add option="-DNOPCH" />
 			<Add option="-DwxUSE_UNICODE" />
 			<Add directory="$(#WX30.include)" />
 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
@@ -269,43 +186,32 @@
 			<Add before="cmd /c if not exist lib$(WX_VERSION)$(WX_SUFFIX) mkdir lib$(WX_VERSION)$(WX_SUFFIX)" />
 			<Add before="cmd /c if not exist .objs$(WX_VERSION)$(WX_SUFFIX)\src\include mkdir .objs$(WX_VERSION)$(WX_SUFFIX)\src\include" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks mkdir bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks" />
-			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compilers md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compilers\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings\" />
 			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16\" />
-			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\codecompletion md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\codecompletion\" />
-			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\plugins md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\plugins\" />
-			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\" />
-			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard\" />
-			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts\" />
 			<Add after="cmd /c xcopy /D /y ..\src\sdk\resources\lexers\lexer_* bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\lexers &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\settings\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\16x16\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 &gt; nul" />
-			<Add after="cmd /c xcopy /D /y ..\src\tools\ConsoleRunner\cb_console_runner.exe bin$(WX_VERSION)$(WX_SUFFIX)\ &gt; nul" />
 		</ExtraCommands>
 		<Unit filename="../src/base/tinyxml/tinystr.cpp">
-			<Option target="tinyXML" />
-			<Option target="AutoRevision" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/base/tinyxml/tinywxuni.cpp">
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="../src/base/tinyxml/tinyxml.cpp">
-			<Option target="tinyXML" />
-			<Option target="AutoRevision" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/base/tinyxml/tinyxmlerror.cpp">
-			<Option target="tinyXML" />
-			<Option target="AutoRevision" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/base/tinyxml/tinyxmlparser.cpp">
-			<Option target="tinyXML" />
-			<Option target="AutoRevision" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/build_tools/autorevision/autorevision.cpp">
-			<Option target="AutoRevision" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/annoyingdialog.h">
 			<Option target="sdk" />
@@ -701,109 +607,109 @@
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/sqdbgserver.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/sqrdbg.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/sqstdaux.h">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/sqstdblob.h">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/sqstdio.h">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/sqstdmath.h">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/sqstdstring.h">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/sqstdsystem.h">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/include/squirrel.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqplus/SqPlusConst.h">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqplus/SquirrelBindingsUtils.h">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqplus/SquirrelBindingsUtilsWin32.h">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqplus/SquirrelObject.h">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqplus/SquirrelVM.h">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqplus/sqplus.h">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqplus/sqplusWin32.h">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqstdlib/sqstdblobimpl.h">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/sqstdlib/sqstdstream.h">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqarray.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqclass.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqclosure.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqcompiler.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqfuncproto.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqfuncstate.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqlexer.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqmem.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqobject.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqopcodes.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqpcheader.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqstate.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqstring.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqtable.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/squserdata.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/squtils.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scripting/squirrel/sqvm.h">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/scriptingmanager.h">
 			<Option target="sdk" />
@@ -815,6 +721,7 @@
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="../src/include/sdk.h">
+			<Option compile="1" />
 			<Option weight="1" />
 			<Option target="src" />
 		</Unit>
@@ -825,6 +732,7 @@
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="../src/include/sdk_precomp.h">
+			<Option compile="1" />
 			<Option weight="0" />
 			<Option target="sdk" />
 		</Unit>
@@ -841,15 +749,13 @@
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="../src/include/tinyxml/tinystr.h">
-			<Option target="tinyXML" />
-			<Option target="AutoRevision" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/tinyxml/tinywxuni.h">
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="../src/include/tinyxml/tinyxml.h">
-			<Option target="tinyXML" />
-			<Option target="AutoRevision" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/include/toolsmanager.h">
 			<Option target="sdk" />
@@ -1573,79 +1479,79 @@
 			<Option target="sdk" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqplus/SqPlus.cpp">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqplus/SquirrelBindingsUtils.cpp">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqplus/SquirrelBindingsUtilsWin32.cpp">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqplus/SquirrelObject.cpp">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqplus/SquirrelVM.cpp">
-			<Option target="SqPlus" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdaux.cpp">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdblob.cpp">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdio.cpp">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdmath.cpp">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdrex.cpp">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdstream.cpp">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdstring.cpp">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqstdlib/sqstdsystem.cpp">
-			<Option target="Squirrel std lib" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqapi.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqbaselib.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqclass.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqcompiler.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqdebug.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqfuncstate.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqlexer.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqmem.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqobject.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqstate.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqtable.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/squirrel/sqvm.cpp">
-			<Option target="Squirrel" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scriptingmanager.cpp">
 			<Option target="sdk" />

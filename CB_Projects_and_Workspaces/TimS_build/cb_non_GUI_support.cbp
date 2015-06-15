@@ -7,7 +7,7 @@
 		<Option compiler="gcc-win32" />
 		<Build>
 			<Target title="tinyXML">
-				<Option output="../src/base/tinyxml/txml$(WX_VERSION)$(WX_SUFFIX)" prefix_auto="1" extension_auto="1" />
+				<Option output="../src/base/tinyxml/txml" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option type="2" />
 				<Option compiler="gcc-win32" />
@@ -129,15 +129,6 @@
 		<Unit filename="../src/build_tools/autorevision/autorevision.cpp">
 			<Option target="AutoRevision" />
 		</Unit>
-		<Unit filename="../src/include/scripting/bindings/sc_base_types.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/include/scripting/bindings/sc_plugin.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/include/scripting/bindings/scriptbindings.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="../src/include/scripting/include/sqdbgserver.h">
 			<Option target="Squirrel" />
 		</Unit>
@@ -250,33 +241,6 @@
 		<Unit filename="../src/include/tinyxml/tinyxml.h">
 			<Option target="tinyXML" />
 			<Option target="AutoRevision" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/sc_consts.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/sc_dialog.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/sc_globals.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/sc_io.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/sc_plugin.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/sc_progress.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/sc_util_dialogs.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/sc_wxtypes.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="../src/sdk/scripting/bindings/scriptbindings.cpp">
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../src/sdk/scripting/sqplus/SqPlus.cpp">
 			<Option target="SqPlus" />

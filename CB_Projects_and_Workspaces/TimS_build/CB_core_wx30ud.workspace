@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="CB_core_wx30ud">
+		<Project filename="cb_non_GUI_support.cbp" />
+		<Project filename="cb_core_wx30ud.cbp" />
+		<Project filename="cb_core_plugins_wx30ud.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
