@@ -406,6 +406,12 @@
 				</Linker>
 				<ExtraCommands>
 					<Add after="cmd /c zip -jq9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scriptedwizard.zip ..\src\plugins\scriptedwizard\resources\manifest.xml" />
+					<Add after="cmd /c echo Makefile.am &gt; excludes$(WX_VERSION)$(WX_SUFFIX).txt" />
+					<Add after="cmd /c echo Makefile.in &gt;&gt; excludes$(WX_VERSION)$(WX_SUFFIX).txt" />
+					<Add after="cmd /c echo \.svn\      &gt;&gt; excludes$(WX_VERSION)$(WX_SUFFIX).txt" />
+					<Add after="cmd /c echo *.gdb       &gt;&gt; excludes$(WX_VERSION)$(WX_SUFFIX).txt" />
+					<Add after="cmd /c xcopy /D /y /s /EXCLUDE:excludes$(WX_VERSION)$(WX_SUFFIX).txt ..\src\plugins\scriptedwizard\resources\* bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\templates\wizard &gt; nul" />
+					<Add after="cmd /c del excludes$(WX_VERSION)$(WX_SUFFIX).txt" />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
