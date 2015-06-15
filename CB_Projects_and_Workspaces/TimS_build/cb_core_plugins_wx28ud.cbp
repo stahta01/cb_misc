@@ -537,7 +537,6 @@
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\16x16\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\plugins\codecompletion\resources\images\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\codecompletion &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\plugins\compilergcc\resources\compilers\*.xml bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\compilers &gt; nul" />
-			<Add after="cmd /c xcopy /D /y ..\src\tools\ConsoleRunner\cb_console_runner.exe bin$(WX_VERSION)$(WX_SUFFIX)\ &gt; nul" />
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="../src/include/annoyingdialog.h">
