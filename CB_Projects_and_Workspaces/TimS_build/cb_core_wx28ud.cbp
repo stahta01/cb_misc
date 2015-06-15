@@ -226,7 +226,9 @@
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\settings\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\settings &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\src\resources\images\16x16\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\16x16 &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\scripts\*.gdb  bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\scripts\*.gdb  bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts &gt; nul" />
 			<Add after="cmd /c xcopy /D /y ..\src\scripts\*.script  bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\scripts &gt; nul" />
+			<Add after="cmd /c xcopy /D /y ..\src\tips.txt bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks &gt; nul" />
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="../src/base/tinyxml/tinystr.cpp">
