@@ -66,7 +66,7 @@
 			<Target title="Squirrel std lib">
 				<Option output="../src/sdk/scripting/lib/sqstdlib" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option external_deps="../src/sdk/scripting/lib/libsquirrel$(WX_VERSION)$(WX_SUFFIX).a;" />
+				<Option external_deps="../src/sdk/scripting/lib/libsquirrel.a;" />
 				<Option type="2" />
 				<Option compiler="gcc-win32" />
 				<Compiler>
@@ -78,7 +78,7 @@
 			<Target title="SqPlus">
 				<Option output="../src/sdk/scripting/lib/sqplus" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option external_deps="../src/sdk/scripting/lib/libsquirrel$(WX_VERSION)$(WX_SUFFIX).a;../src/sdk/scripting/lib/libsqstdlib$(WX_VERSION)$(WX_SUFFIX).a;" />
+				<Option external_deps="../src/sdk/scripting/lib/libsquirrel.a;../src/sdk/scripting/lib/libsqstdlib.a;" />
 				<Option type="2" />
 				<Option compiler="gcc-win32" />
 				<Compiler>
