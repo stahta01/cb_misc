@@ -1,0 +1,1260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wxSmith wx2.8.x debug" />
+		<Option pch_mode="0" />
+		<Option default_target="wxSmith" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="wxSmithLib">
+				<Option platforms="Windows;" />
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/wxsmithlib" imp_lib="lib$(WX_VERSION)$(WX_SUFFIX)/$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createStaticLib="1" />
+			</Target>
+			<Target title="wxSmith">
+				<Option platforms="Windows;" />
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/wxsmith" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Linker>
+					<Add library="wxsmithlib" />
+				</Linker>
+			</Target>
+			<Environment>
+				<Variable name="WX_CFG" value="" />
+				<Variable name="WX_SUFFIX" value="ud" />
+				<Variable name="WX_VERSION" value="28" />
+			</Environment>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="wxSmithLib;wxSmith;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="$(#CB_RELEASE_TYPE)" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-fmessage-length=0" />
+			<Add option="-fexceptions" />
+			<Add option="-Winvalid-pch" />
+			<Add option='[[if (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;)) print(_T(&quot;-Wno-attributes&quot;));]]' />
+			<Add option="-DHAVE_W32API_H" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-D__WXDEBUG__" />
+			<Add option="-DWXUSINGDLL" />
+			<Add option="-DcbDEBUG" />
+			<Add option="-DCB_PRECOMP" />
+			<Add option="-DWX_PRECOMP" />
+			<Add option="-DBUILDING_PLUGIN" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+			<Add directory="$(#WX.include)" />
+			<Add directory="../src/include" />
+			<Add directory="../src/sdk/wxpropgrid/include" />
+			<Add directory="../src/include/scripting/include" />
+			<Add directory="../src/include/scripting/squirrel" />
+			<Add directory="../src/include/scripting/sqplus" />
+			<Add directory="../src/include/scripting/bindings" />
+			<Add directory="../src/include/mozilla_chardet" />
+			<Add directory="../src/include/mozilla_chardet/mfbt" />
+			<Add directory="../src/include/mozilla_chardet/xpcom/base" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(#WX.include)" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-Wl,--enable-auto-image-base" />
+			<Add option="-Wl,--export-all-symbols" />
+			<Add option="-Wl,--add-stdcall-alias" />
+			<Add option="-Wl,--enable-auto-import" />
+			<Add option="-mthreads" />
+			<Add library="wxpropgrid" />
+			<Add library="wxmsw28$(WX_SUFFIX)" />
+			<Add library="codeblocks" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+			<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+		</Linker>
+		<ExtraCommands>
+			<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\wxsmith md bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\wxsmith\" />
+			<Add after="zip bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks ..\src\plugins\contrib\wxSmith\manifest.xml" />
+			<Add after="CMD /C copy  ..\src\plugins\contrib\wxSmith\wxwidgets\icons\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\wxsmith\" />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="../src/plugins/contrib/wxSmith/plugin/wxsmithpluginregistrants.cpp">
+			<Option target="wxSmith" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsarraystringeditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsarraystringeditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsarraystringproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsarraystringproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsboolproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsboolproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxscustomeditorproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxscustomeditorproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxseditenumproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxseditenumproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsemptyproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsemptyproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsenumproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsenumproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsflagsproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsflagsproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsfloatproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsfloatproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxslongproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxslongproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsproperties.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxspropertycontainer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxspropertycontainer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxspropertygridmanager.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxspropertygridmanager.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxspropertystream.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxspropertystream.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsquickpropspanel.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsquickpropspanel.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsstringproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/properties/wxsstringproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsadvqpp.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsadvqpp.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsadvqppchild.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsadvqppchild.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsautoresourcetreeimage.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsautoresourcetreeimage.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxscoder.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxscoder.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxscodinglang.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxscodinglang.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxseditor.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxseditor.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsextresmanager.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsextresmanager.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsgui.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsgui.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsguifactory.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsguifactory.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsmith.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsmith.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsmithmime.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsmithmime.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsproject.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsproject.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsresource.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsresource.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsresourcefactory.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsresourcefactory.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsresourcetree.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsresourcetree.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsresourcetreeitemdata.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsresourcetreeitemdata.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxssettings.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxssettings.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsstoringsplitterwindow.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsstoringsplitterwindow.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsversionconverter.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxsversionconverter.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsanimationctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsanimationctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsbitmapbutton.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsbitmapbutton.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsbitmapcombobox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsbitmapcombobox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsboxsizer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsboxsizer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsbutton.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsbutton.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscalendarctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscalendarctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscheckbox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscheckbox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxschecklistbox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxschecklistbox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxschoice.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxschoice.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxschoicebook.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxschoicebook.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscolourdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscolourdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscolourpickerctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscolourpickerctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscombobox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscombobox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscontexthelpbutton.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscontexthelpbutton.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscustomwidget.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxscustomwidget.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdatepickerctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdatepickerctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdialupmanager.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdialupmanager.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdirdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdirdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdirpickerctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsdirpickerctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfiledialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfiledialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfilepickerctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfilepickerctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfindreplacedialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfindreplacedialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsflexgridsizer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsflexgridsizer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfontdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfontdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfontpickerctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsfontpickerctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsframe.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsframe.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsgauge.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsgauge.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsgenericdirctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsgenericdirctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsglcanvas.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsglcanvas.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsgrid.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsgrid.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsgridsizer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsgridsizer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxshtmleasyprinting.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxshtmleasyprinting.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxshtmlwindow.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxshtmlwindow.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxshyperlinkctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxshyperlinkctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsimage.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsimage.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsimagelist.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsimagelist.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxslistbook.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxslistbook.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxslistbox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxslistbox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxslistctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxslistctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxslistview.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxslistview.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmediactrl.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmediactrl.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmenu.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmenu.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmenubar.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmenubar.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmenueditor.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmenueditor.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmenuitem.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmenuitem.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmessagedialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmessagedialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmultichoicedialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsmultichoicedialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsnotebook.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsnotebook.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxspagesetupdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxspagesetupdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxspanel.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxspanel.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxspasswordentrydialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxspasswordentrydialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsprintdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsprintdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsprogressdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsprogressdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsradiobox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsradiobox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsradiobutton.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsradiobutton.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextformattingdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextformattingdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextstylecomboctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextstylecomboctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextstylelistbox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextstylelistbox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextstylelistctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextstylelistctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextstyleorganiserdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsrichtextstyleorganiserdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssashlayoutwindow.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssashlayoutwindow.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssashwindow.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssashwindow.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsscrollbar.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsscrollbar.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsscrolledwindow.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsscrolledwindow.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsscrollingdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsscrollingdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssearchctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssearchctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssimplehtmllistbox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssimplehtmllistbox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssinglechoicedialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssinglechoicedialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssingleinstancechecker.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssingleinstancechecker.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsslider.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsslider.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsspacer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsspacer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsspinbutton.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsspinbutton.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsspinctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsspinctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssplitterwindow.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssplitterwindow.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstaticbitmap.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstaticbitmap.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstaticbox.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstaticbox.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstaticboxsizer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstaticboxsizer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstaticline.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstaticline.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstatictext.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstatictext.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstatusbar.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstatusbar.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstddialogbuttonsizer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstddialogbuttonsizer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstopwatch.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxsstopwatch.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssymbolpickerdialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxssymbolpickerdialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstextctrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstextctrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstextentrydialog.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstextentrydialog.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstimer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstimer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstogglebutton.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstogglebutton.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbar.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbar.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbaritem.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbaritem.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstreebook.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstreebook.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstreectrl.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstreectrl.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsarraystringcheckeditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsarraystringcheckeditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsarraystringcheckproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsarraystringcheckproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsbitmapiconeditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsbitmapiconeditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsbitmapiconproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsbitmapiconproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxscolourproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxscolourproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsdimensionproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsdimensionproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfonteditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfonteditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagecomboeditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagecomboeditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagecomboproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagecomboproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagelisteditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagelisteditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagelistproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagelistproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimageproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimageproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagetreeeditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagetreeeditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagetreeproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsimagetreeproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxspositionsizeproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxspositionsizeproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxssimplefonteditordlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxssimplefonteditordlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxssizerflagsproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxssizerflagsproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsstyleproperty.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/properties/wxsstyleproperty.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsbaseproperties.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsbaseproperties.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxscodegenerator.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxscodegenerator.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxscodercontext.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxscodercontext.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxscontainer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxscontainer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxscorrector.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxscorrector.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsdeleteitemres.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsdeleteitemres.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsdialogres.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsdialogres.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsdrawingwindow.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsdrawingwindow.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsevents.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsevents.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxseventseditor.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxseventseditor.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsexproperties.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsflags.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsframeres.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsframeres.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsgridpanel.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsgridpanel.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitem.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitem.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemeditor.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemeditor.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemeditorcontent.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemeditorcontent.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemeditordragassist.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemeditordragassist.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemfactory.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemfactory.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsiteminfo.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemres.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemres.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemresdata.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemresdata.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemresdataobject.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemresdataobject.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemrestreedata.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemrestreedata.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemundobuffer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsitemundobuffer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsnewwindowdlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsnewwindowdlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxspanelres.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxspanelres.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsparent.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsparent.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxspredefinedids.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxspredefinedids.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsscrollingdialogres.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsscrollingdialogres.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxssizer.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxssizer.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxssizerparentqp.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxssizerparentqp.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsstyle.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxsstyle.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxstool.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxstool.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxstoolspace.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxstoolspace.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxswidget.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxswidget.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsgui.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsgui.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsguiappadoptingdlg.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsguiappadoptingdlg.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsguiconfigpanel.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsguiconfigpanel.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsres.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsres.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsresfactory.cpp">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/wxSmith/wxwidgets/wxwidgetsresfactory.h">
+			<Option target="wxSmithLib" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxScrollingDialog wxs="wxsmith/wxWidgetsGUIAppAdoptingDlg.wxs" src="wxwidgets/wxwidgetsguiappadoptingdlg.cpp" hdr="wxwidgets/wxwidgetsguiappadoptingdlg.h" fwddecl="0" i18n="1" name="wxWidgetsGUIAppAdoptingDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsNewWindowDlg.wxs" src="wxwidgets/wxsnewwindowdlg.cpp" hdr="wxwidgets/wxsnewwindowdlg.h" fwddecl="0" i18n="1" name="wxsNewWindowDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsArrayStringEditorDlg.wxs" src="properties/wxsarraystringeditordlg.cpp" hdr="properties/wxsarraystringeditordlg.h" fwddecl="0" i18n="1" name="wxsArrayStringEditorDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsArrayStringCheckEditorDlg.wxs" src="wxwidgets/properties/wxsarraystringcheckeditordlg.cpp" hdr="wxwidgets/properties/wxsarraystringcheckeditordlg.h" fwddecl="0" i18n="1" name="wxsArrayStringCheckEditorDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsBitmapIconEditorDlg.wxs" src="wxwidgets/properties/wxsbitmapiconeditordlg.cpp" hdr="wxwidgets/properties/wxsbitmapiconeditordlg.h" fwddecl="0" i18n="1" name="wxsBitmapIconEditorDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsFontEditorDlg.wxs" src="wxwidgets/properties/wxsfonteditordlg.cpp" hdr="wxwidgets/properties/wxsfonteditordlg.h" fwddecl="0" i18n="1" name="wxsFontEditorDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsFontFaceEditorDlg.wxs" src="wxwidgets/properties/wxsfontfaceeditordlg.cpp" hdr="wxwidgets/properties/wxsfontfaceeditordlg.h" fwddecl="0" i18n="1" name="wxsFontFaceEditorDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsSimpleFontEditorDlg.wxs" src="wxwidgets/properties/wxssimplefonteditordlg.cpp" hdr="wxwidgets/properties/wxssimplefonteditordlg.h" fwddecl="0" i18n="1" name="wxsSimpleFontEditorDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsImageListEditorDlg.wxs" src="wxwidgets/properties/wxsimagelisteditordlg.cpp" hdr="wxwidgets/properties/wxsimagelisteditordlg.h" fwddecl="0" i18n="1" name="wxsImageListEditorDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsImageComboEditorDlg.wxs" src="wxwidgets/properties/wxsimagecomboeditordlg.cpp" hdr="wxwidgets/properties/wxsimagecomboeditordlg.h" fwddecl="0" i18n="1" name="wxsImageComboEditorDlg" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsImageTreeEditorDlg.wxs" src="wxwidgets/properties/wxsimagetreeeditordlg.cpp" hdr="wxwidgets/properties/wxsimagetreeeditordlg.h" fwddecl="0" i18n="1" name="wxsImageTreeEditorDlg" language="CPP" />
+					<wxPanel wxs="wxsmith/wxWidgetsGUIConfigPanel.wxs" src="wxwidgets/wxwidgetsguiconfigpanel.cpp" hdr="wxwidgets/wxwidgetsguiconfigpanel.h" fwddecl="0" i18n="1" name="wxWidgetsGUIConfigPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/wxsSizerParentQP.wxs" src="wxwidgets/wxssizerparentqp.cpp" hdr="wxwidgets/wxssizerparentqp.h" fwddecl="0" i18n="1" name="wxsSizerParentQP" language="CPP" />
+					<wxPanel wxs="wxsmith/wxsNotebookParentQP.wxs" src="wxwidgets/defitems/wxsnotebook.cpp" hdr="wxwidgets/defitems/wxsnotebook.cpp" fwddecl="0" i18n="1" name="wxsNotebookParentQP" language="CPP" />
+					<wxPanel wxs="wxsmith/wxsChoicebookParentQP.wxs" src="wxwidgets/defitems/wxschoicebook.cpp" hdr="wxwidgets/defitems/wxschoicebook.cpp" fwddecl="0" i18n="1" name="wxsChoicebookParentQP" language="CPP" />
+					<wxPanel wxs="wxsmith/wxsListbookParentQP.wxs" src="wxwidgets/defitems/wxslistbook.cpp" hdr="wxwidgets/defitems/wxslistbook.cpp" fwddecl="0" i18n="1" name="wxsListbookParentQP" language="CPP" />
+					<wxPanel wxs="wxsmith/wxsSettings.wxs" src="wxssettings.cpp" hdr="wxssettings.h" fwddecl="0" i18n="1" name="wxsSettings" language="CPP" />
+					<wxPanel wxs="wxsmith/wxsmenueditor.wxs" src="wxwidgets/defitems/wxsmenueditor.cpp" hdr="wxwidgets/defitems/wxsmenueditor.h" fwddecl="0" i18n="1" name="wxsMenuEditor" language="CPP" />
+					<wxPanel wxs="wxsmith/wxstoolbareditor.wxs" src="wxwidgets/defitems/wxstoolbareditor.cpp" hdr="wxwidgets/defitems/wxstoolbareditor.h" fwddecl="0" i18n="1" name="wxsToolBarEditor" language="CPP" />
+					<wxScrollingDialog wxs="wxsmith/wxsDeleteItemRes.wxs" src="wxwidgets/wxsdeleteitemres.cpp" hdr="wxwidgets/wxsdeleteitemres.h" fwddecl="0" i18n="1" name="wxsDeleteItemRes" language="CPP" />
+				</resources>
+			</wxsmith>
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

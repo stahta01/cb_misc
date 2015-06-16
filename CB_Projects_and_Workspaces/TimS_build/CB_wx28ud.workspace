@@ -8,5 +8,6 @@
 		<Project filename="DoxyBlocks_wx28ud.cbp" />
 		<Project filename="envvars_wx28ud.cbp" />
 		<Project filename="ToolsPlus_wx28ud.cbp" />
+		<Project filename="wxSmith_wx28ud.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
