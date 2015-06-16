@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="DoxyBlocks wx2.8.x debug" />
+		<Option platforms="Windows;" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option platforms="Windows;" />
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/DoxyBlocks" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Compiler>
+					<Add option="$(#CB_RELEASE_TYPE)" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add option="-DHAVE_W32API_H" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D__WXDEBUG__" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DcbDEBUG" />
+					<Add option="-DCB_PRECOMP" />
+					<Add option="-DWX_PRECOMP" />
+					<Add option="-DwxUSE_UNICODE" />
+					<Add directory="../src/include" />
+					<Add directory="$(#wx.include)" />
+					<Add directory="$(#wx.lib)" />
+					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(#wx.include)" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-Wl,--enable-auto-import" />
+					<Add option="-mthreads" />
+					<Add library="codeblocks" />
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="$(#wx.lib)" />
+					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\DoxyBlocks\16x16\ mkdir bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\DoxyBlocks\16x16\" />
+					<Add after="zip -j9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\DoxyBlocks.zip ..\src\plugins\contrib\DoxyBlocks\manifest.xml" />
+					<Add after="zip -9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\DoxyBlocks.zip ..\src\plugins\contrib\DoxyBlocks\images\*.png ..\src\plugins\contrib\DoxyBlocks\images\16x16\*.png" />
+					<Add after="cmd /c xcopy /D /Y ..\src\plugins\contrib\DoxyBlocks\images\*.png       bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\DoxyBlocks\ &gt; nul 2&gt;&amp;1" />
+					<Add after="cmd /c xcopy /D /Y ..\src\plugins\contrib\DoxyBlocks\images\16x16\*.png bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\images\DoxyBlocks\16x16\  &gt; nul 2&gt;&amp;1" />
+					<Mode after="always" />
+				</ExtraCommands>
+				<Environment>
+					<Variable name="WX_CFG" value="" />
+					<Variable name="WX_SUFFIX" value="ud" />
+					<Variable name="WX_VERSION" value="28" />
+				</Environment>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/AutoDoc.cpp" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/ChangeLog.txt" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/Config.cpp" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/Config.h" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/ConfigPanel.h" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/DoxyBlocks.h" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/DoxyBlocks.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/DoxyBlocksLogger.cpp" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/DoxyBlocksLogger.h" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/Expressions.h" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/ExtractDocs.cpp" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/manifest.xml" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/update" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/update.bat" />
+		<Unit filename="../src/plugins/contrib/DoxyBlocks/version.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<AutoVersioning>
+				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+				<Settings autoincrement="1" date_declarations="1" use_define="0" update_manifest="1" do_auto_increment="1" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
+				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangeLog.txt" />
+				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="" />
+			</AutoVersioning>
+			<DoxyBlocks>
+				<comment_style block="3" line="1" />
+				<doxyfile_project project_number="1.7.655" use_auto_version="1" />
+				<doxyfile_build extract_private="1" extract_static="1" />
+				<doxyfile_warnings warn_if_undocumented="1" />
+				<doxyfile_output html_help="1" />
+				<doxyfile_dot class_diagrams="1" have_dot="1" />
+				<general />
+			</DoxyBlocks>
+			<wxsmith version="1">
+				<resources>
+					<wxPanel wxs="wxsmith/ConfigPanel.wxs" src="ConfigPanel.cpp" hdr="ConfigPanel.h" fwddecl="0" i18n="1" name="ConfigPanel" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="CB_wx28ud">
+		<Project filename="cb_non_GUI_support.cbp" />
+		<Project filename="cb_core_wx28ud.cbp" />
+		<Project filename="cb_core_plugins_wx28ud.cbp" />
+		<Project filename="CppCheck_wx28ud.cbp" />
+		<Project filename="DoxyBlocks_wx28ud.cbp" />
+		<Project filename="envvars_wx28ud.cbp" />
+		<Project filename="ToolsPlus_wx28ud.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
