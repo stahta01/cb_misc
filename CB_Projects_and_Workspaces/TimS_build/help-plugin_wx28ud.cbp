@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Help wx2.8.x debug" />
+		<Option pch_mode="0" />
+		<Option default_target="help_plugin" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="bzip2">
+				<Option output="lib$(WX_VERSION)$(WX_SUFFIX)/help_plugin/bzip2/libbzip2.a" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-mthreads" />
+				</Compiler>
+				<Linker>
+					<Add option="-mthreads" />
+				</Linker>
+			</Target>
+			<Target title="zlib">
+				<Option output="lib$(WX_VERSION)$(WX_SUFFIX)/help_plugin/zlib/libz.a" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-mthreads" />
+				</Compiler>
+				<Linker>
+					<Add option="-mthreads" />
+				</Linker>
+			</Target>
+			<Target title="help_plugin">
+				<Option output="bin$(WX_VERSION)$(WX_SUFFIX)/share/CodeBlocks/plugins/help_plugin.dll" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".objs$(WX_VERSION)$(WX_SUFFIX)" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+				<Option host_application="../../../devel/codeblocks.exe" />
+				<Option run_host_application_in_terminal="0" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="$(#CB_RELEASE_TYPE)" />
+					<Add option="-Winvalid-pch" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add option="-DBUILDING_PLUGIN" />
+					<Add option="-DCB_PRECOMP" />
+					<Add option="-DHAVE_W32API_H" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D__WXDEBUG__" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DcbDEBUG" />
+					<Add option="-DwxUSE_UNICODE" />
+					<Add directory="../src/plugins/contrib/help_plugin/bzip2" />
+					<Add directory="../src/plugins/contrib/help_plugin/zlib" />
+				</Compiler>
+				<Linker>
+					<Add option="-mthreads" />
+					<Add library="libbzip2.a" />
+					<Add library="libz.a" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)/help_plugin/bzip2" />
+					<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)/help_plugin/zlib" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="cmd /c if not exist bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\docs mkdir bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\docs" />
+					<Add after="zip -j9 bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\help_plugin.zip ..\src\plugins\contrib\help_plugin\manifest.xml ..\src\plugins\contrib\help_plugin\*.xrc ..\src\plugins\contrib\help_plugin\*.png" />
+					<Add after="xcopy /Y ..\src\plugins\contrib\help_plugin\index.ini bin$(WX_VERSION)$(WX_SUFFIX)\share\CodeBlocks\docs" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Environment>
+				<Variable name="WX_CFG" value="" />
+				<Variable name="WX_SUFFIX" value="ud" />
+				<Variable name="WX_VERSION" value="28" />
+			</Environment>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="bzip2;zlib;help_plugin;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add directory="$(#WX.include)" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+			<Add directory=".objs$(WX_VERSION)$(WX_SUFFIX)/src/include" />
+			<Add directory="../src/include" />
+			<Add directory="../src/include/scripting/bindings" />
+			<Add directory="../src/include/scripting/include" />
+			<Add directory="../src/include/scripting/sqplus" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(#WX.include)" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-Wl,--enable-auto-image-base" />
+			<Add option="-Wl,--add-stdcall-alias" />
+			<Add option="-Wl,--enable-auto-import" />
+			<Add library="wxmsw28$(WX_SUFFIX)" />
+			<Add library="codeblocks" />
+			<Add directory="lib$(WX_VERSION)$(WX_SUFFIX)" />
+			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+		</Linker>
+		<Unit filename="../src/plugins/contrib/help_plugin/HelpConfigDialog.cpp">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/HelpConfigDialog.h">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/MANFrame.cpp">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/MANFrame.h">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/blocksort.c">
+			<Option compilerVar="CC" />
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/bzlib.c">
+			<Option compilerVar="CC" />
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/bzlib.h">
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/bzlib_private.h">
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/compress.c">
+			<Option compilerVar="CC" />
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/crctable.c">
+			<Option compilerVar="CC" />
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/decompress.c">
+			<Option compilerVar="CC" />
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/huffman.c">
+			<Option compilerVar="CC" />
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/bzip2/randtable.c">
+			<Option compilerVar="CC" />
+			<Option target="bzip2" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/defs.h">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/help_common.cpp">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/help_common.h">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/help_plugin.cpp">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/help_plugin.h">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/help_plugin.xrc">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/man2html.cpp">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/man2html.h">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/manifest.xml">
+			<Option target="help_plugin" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/adler32.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/compress.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/crc32.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/crc32.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/deflate.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/deflate.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/gzclose.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/gzguts.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/gzlib.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/gzread.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/gzwrite.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/infback.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/inffast.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/inffast.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/inffixed.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/inflate.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/inflate.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/inftrees.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/inftrees.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/trees.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/trees.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/uncompr.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/zconf.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/zlib.h">
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/zutil.c">
+			<Option compilerVar="CC" />
+			<Option target="zlib" />
+		</Unit>
+		<Unit filename="../src/plugins/contrib/help_plugin/zlib/zutil.h">
+			<Option target="zlib" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
