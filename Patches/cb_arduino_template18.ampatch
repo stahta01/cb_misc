@@ -1,0 +1,25 @@
+From cd073485544c3182f38cf7088606ef06986c2afe Mon Sep 17 00:00:00 2001
+From: oBFusCATed <fuscated@gmail.com>
+Date: Thu, 26 Jun 2014 02:40:34 +0300
+Subject: [PATCH] Use the latest ARDUINO define, should be made an option
+
+---
+ wizard.script | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/wizard.script b/wizard.script
+index c58fc69..54d3b6c 100644
+--- a/wizard.script
++++ b/wizard.script
+@@ -295,7 +295,7 @@ function SetupProject(project)
+ {
+     project.SetCompilerID(GetCompilerID());
+     project.AddCompilerOption(_T("-DF_CPU=16000000L"));
+-    project.AddCompilerOption(_T("-DARDUINO=101"));
++    project.AddCompilerOption(_T("-DARDUINO=105"));
+     project.AddCompilerOption(_T("-fno-exceptions"));
+     project.AddCompilerOption(_T("-ffunction-sections"));
+     project.AddCompilerOption(_T("-fdata-sections"));
+-- 
+1.9.5.msysgit.1
+

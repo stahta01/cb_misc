@@ -1,0 +1,51 @@
+From 2a1763129dc2f85d890582e81d89658309cd9d86 Mon Sep 17 00:00:00 2001
+From: oBFusCATed <fuscated@gmail.com>
+Date: Sun, 6 Jul 2014 17:05:39 +0300
+Subject: [PATCH] Fix a bit the processor choice page
+
+---
+ wizard.xrc | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/wizard.xrc b/wizard.xrc
+index bc3851c..fce2792 100644
+--- a/wizard.xrc
++++ b/wizard.xrc
+@@ -31,7 +31,7 @@
+ 						<object class="wxStaticText" name="textChoice1">
+ 							<label>Operating Frequency</label>
+ 						</object>
+-						<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
++						<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+ 						<border>5</border>
+ 					</object>
+ 					<object class="sizeritem">
+@@ -85,7 +85,7 @@
+ 						<object class="wxStaticText" name="ID_STATICTEXT1">
+ 							<label>Port</label>
+ 						</object>
+-						<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
++						<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+ 						<border>5</border>
+ 					</object>
+ 					<object class="sizeritem">
+@@ -107,8 +107,6 @@
+ 					</object>
+ 				</object>
+ 				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+-				<border>5</border>
+-				<option>1</option>
+ 			</object>
+ 			<object class="sizeritem">
+ 				<object class="wxStaticLine" name="m_staticline11" />
+@@ -145,6 +143,7 @@
+ 				</object>
+ 				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+ 				<border>5</border>
++				<option>1</option>
+ 			</object>
+ 		</object>
+ 	</object>
+-- 
+1.9.5.msysgit.1
+

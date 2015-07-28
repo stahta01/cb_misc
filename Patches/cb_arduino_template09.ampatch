@@ -1,0 +1,46 @@
+From 98b9d4077981057377a158e30a4165d7532b342d Mon Sep 17 00:00:00 2001
+From: oBFusCATed <fuscated@gmail.com>
+Date: Sat, 5 Jul 2014 14:19:37 +0300
+Subject: [PATCH] Allow the user to type in the upload port field
+
+---
+ README.md     | 4 ++--
+ wizard.script | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/README.md b/README.md
+index 4250a7d..e7ed260 100644
+--- a/README.md
++++ b/README.md
+@@ -23,7 +23,7 @@ Its main goal is to provide easy to use standalone template, which can be used i
+ 
+ ## Requires
+ 
+-Code::Blocks SVN rev 9832, because there are some changes in the Scripted wizard plugin.
++Code::Blocks SVN rev 9842, because there are some changes in the Scripted wizard plugin.
+ 
+ ## Install
+ 
+@@ -36,4 +36,4 @@ On Linux this is /home/$USER/.codeblocks/
+ 
+ ## Notes
+ 
+-Tested only on Linux. If you test it on Windows or OSX and make changes please provide patches.
+\ No newline at end of file
++Tested only on Linux. If you test it on Windows or OSX and make changes please provide patches.
+diff --git a/wizard.script b/wizard.script
+index d48a5d4..c4b8120 100644
+--- a/wizard.script
++++ b/wizard.script
+@@ -58,7 +58,7 @@ function OnLeave_processorChoice(fwd)
+     if (fwd)
+     {
+         AvrUpload = Wizard.IsCheckboxChecked(_T("checkboxUpload"));
+-        AvrPort = Wizard.GetComboboxStringSelection(_T("uploadPort"));
++        AvrPort = Wizard.GetComboboxValue(_T("uploadPort"));
+         AvrMap = Wizard.IsCheckboxChecked(_T("checkboxMap"));
+         AvrLss = Wizard.IsCheckboxChecked(_T("checkboxLss"));
+         AvrExtMem = Wizard.IsCheckboxChecked(_T("checkboxExtMem"));
+-- 
+1.9.5.msysgit.1
+

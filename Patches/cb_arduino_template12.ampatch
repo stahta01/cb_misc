@@ -1,0 +1,104 @@
+From 92872d6c10387a1ac2bbad2195a3040e25d25dea Mon Sep 17 00:00:00 2001
+From: oBFusCATed <fuscated@gmail.com>
+Date: Thu, 26 Jun 2014 04:02:33 +0300
+Subject: [PATCH] Add UI for selecting the enabled libraries
+
+---
+ wizard.script | 39 ++++++++++++++++++++++++++-------------
+ wizard.xrc    |  3 ++-
+ 2 files changed, 28 insertions(+), 14 deletions(-)
+
+diff --git a/wizard.script b/wizard.script
+index 8d5b9b9..7b0baa0 100644
+--- a/wizard.script
++++ b/wizard.script
+@@ -17,6 +17,7 @@ AvrExtMemAddr <- ""      // The external memory address
+ BaudRate <- _T("57600");
+ Libs <- _T("");
+ SelectedTargets <- wxArrayString();
++SelectedLibraries <- wxArrayString();
+ SelectedCompiler <- _T("");
+ AddSimTargets <- false;
+ ComboboxFreq <- 0;
+@@ -66,6 +67,9 @@ function OnLeave_processorChoice(fwd)
+ 
+         if (IsNull(AvrPort))
+             AvrUpload = false;
++
++        local libraries = Wizard.GetCheckListboxStringChecked(_T("listLibraries"));
++        SelectedLibraries = GetArrayFromString(libraries, _(";"), true);
+     }
+     return true;
+ }
+@@ -141,6 +145,14 @@ function AddCoreSourceCode(project, targetName)
+     AddSourceFile(project, targetName, _T("sketch.cpp"));
+ }
+ 
++function AddLibrary(project, name, define)
++{
++    if (SelectedLibraries.Index(name) == -1)
++        project.AddCompilerOption(_T("-DUSE_") + define + _T("=0"));
++    else
++        project.AddCompilerOption(_T("-DUSE_") + define + _T("=1"));
++}
++
+ function SetTargetFreq(target)
+ {
+     if (ComboboxFreq == 2)
+@@ -337,19 +349,20 @@ function SetupProject(project)
+     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire"));
+     project.AddIncludeDir(_T("$(ARDUINO_DIR)/libraries/Wire/utility"));
+ 
+-    project.AddCompilerOption(_T("-DUSE_EEPROM=0"));
+-    project.AddCompilerOption(_T("-DUSE_ETHERNET=0"));
+-    project.AddCompilerOption(_T("-DUSE_FIRMATA=0"));
+-    project.AddCompilerOption(_T("-DUSE_LCD=0"));
+-    project.AddCompilerOption(_T("-DUSE_LCD4884=0"));
+-    project.AddCompilerOption(_T("-DUSE_OBD=0"));
+-    project.AddCompilerOption(_T("-DUSE_SD=0"));
+-    project.AddCompilerOption(_T("-DUSE_SERVO=0"));
+-    project.AddCompilerOption(_T("-DUSE_SOFTSERIAL=0"));
+-    project.AddCompilerOption(_T("-DUSE_SPI=0"));
+-    project.AddCompilerOption(_T("-DUSE_STEPPER=0"));
+-    project.AddCompilerOption(_T("-DUSE_TINYGPS=0"));
+-    project.AddCompilerOption(_T("-DUSE_WIRE=0"));
++    AddLibrary(project, _T("EEPROM"), _T("EEPROM"));
++    AddLibrary(project, _T("Ethernet"), _T("ETHERNET"));
++    AddLibrary(project, _T("Firmata"), _T("FIRMATA"));
++    AddLibrary(project, _T("Flash"), _T("FLASH"));
++    AddLibrary(project, _T("SevenSegment"), _T("LCD"));
++    AddLibrary(project, _T("LCD4884"), _T("LCD4884"));
++    AddLibrary(project, _T("OBD"), _T("OBD"));
++    AddLibrary(project, _T("SD"), _T("SD"));
++    AddLibrary(project, _T("Servo"), _T("SERVO"));
++    AddLibrary(project, _T("SoftwareSerial"), _T("SOFTSERIAL"));
++    AddLibrary(project, _T("SPI"), _T("SPI"));
++    AddLibrary(project, _T("Stepoer"), _T("STEPPER"));
++    AddLibrary(project, _T("TinyGPS"), _T("TINYGPS"));
++    AddLibrary(project, _T("Wire"), _T("WIRE"));
+ 
+     WarningsOn(project, GetCompilerID());
+ 
+diff --git a/wizard.xrc b/wizard.xrc
+index 7bae55d..b37c0b7 100644
+--- a/wizard.xrc
++++ b/wizard.xrc
+@@ -119,13 +119,14 @@
+ 				<border>5</border>
+ 			</object>
+ 			<object class="sizeritem">
+-				<object class="wxCheckListBox" name="m_checkList1">
++				<object class="wxCheckListBox" name="listLibraries">
+ 					<content>
+ 						<item>EEPROM</item>
+ 						<item>Ethernet</item>
+ 						<item>Firmata</item>
+ 						<item>Flash</item>
+ 						<item>LCD4884</item>
++						<item>OBD</item>
+ 						<item>SD</item>
+ 						<item>Servo</item>
+ 						<item>SevenSegment</item>
+-- 
+1.9.5.msysgit.1
+

@@ -1,0 +1,145 @@
+From 3eb645c636a26a08c255e41497277b38f1a004f9 Mon Sep 17 00:00:00 2001
+From: oBFusCATed <fuscated@gmail.com>
+Date: Sun, 6 Jul 2014 16:35:15 +0300
+Subject: [PATCH] Initial support for adding targets to an existing project
+ (requires rev9843)
+
+---
+ README.md     |  2 +-
+ wizard.script | 73 +++++++++++++++++++++++++++++++++++++++++++++++++++--------
+ 2 files changed, 64 insertions(+), 11 deletions(-)
+
+diff --git a/README.md b/README.md
+index e7ed260..f5258b4 100644
+--- a/README.md
++++ b/README.md
+@@ -23,7 +23,7 @@ Its main goal is to provide easy to use standalone template, which can be used i
+ 
+ ## Requires
+ 
+-Code::Blocks SVN rev 9842, because there are some changes in the Scripted wizard plugin.
++Code::Blocks SVN rev 9843, because there are some changes in the Scripted wizard plugin.
+ 
+ ## Install
+ 
+diff --git a/wizard.script b/wizard.script
+index cdfdf9e..93baba2 100644
+--- a/wizard.script
++++ b/wizard.script
+@@ -53,6 +53,19 @@ AppendTargetInfos(TargetInfos, _T("Arduino Mega 8"), _T("atmega8"), _T("standard
+ AppendTargetInfos(TargetInfos, _T("Microduino Core+ (644P)"), _T("atmega644p"), _T("plus"), _T("115200"), _T("uduino644p"));
+ AppendTargetInfos(TargetInfos, _T("Freematics OBD-II Adapter"), _T("atmega644p"), _T("plus"), _T("115200"), _T("uduino644p"));
+ 
++function MakeIntroMessage(type)
++{
++    local str = _T(" Welcome to the ") + type + _T(" Wizard\n\n") +
++                _T("This wizard will guide you to create a new ") + type + _T(".\n") +
++                _T("If you want to be able to upload the built binary to your board,\n") +
++                _T("be sure to choose a correct serial port which your board is connected on.\n\n") +
++                _T("When you're ready to proceed, please click \"Next\"\n\n") +
++                _T("The original author of this wizard is Stanley Huang.\n") +
++                _T("Scott Daniels made it work in vanilla Code::blocks.\n") +
++                _T("Currently maintained by Teodor Petrov.\n") +
++                _T("For updates, please visit https://github.com/obfuscated/cb_arduino_template\n");
++    return str;
++}
+ 
+ function BeginWizard()
+ {
+@@ -60,18 +73,19 @@ function BeginWizard()
+ 
+     if (wiz_type == wizProject)
+     {
+-        local intro_msg = _T(" Welcome to the Arduino Project Wizard\n\n" +
+-                             "This wizard will guide you to create a new Arduino project.\nIf you want to be able to upload the built binary to your board,\nbe sure to choose a correct serial port which your board is connected on.\n\n" +
+-                             "When you 're ready to proceed, please click \"Next\"\n\n" +
+-                             "This wizard is created by Stanley Huang.\nFor updates, please visit http://cb.arduinodev.com\nFor suggestions and bug reports, please send to\n<stanleyhuangyc@gmail.com>");
+-
+-        Wizard.AddInfoPage(_T("Intro"), intro_msg);
++        Wizard.AddInfoPage(_T("Intro"), MakeIntroMessage(_T("Arduino Project")));
+         Wizard.AddPage(_T("targetChoice"));
+         Wizard.AddPage(_T("processorChoice"));
+         Wizard.AddProjectPathPage();
+     }
++    else if (wiz_type == wizTarget)
++    {
++        Wizard.AddInfoPage(_T("Intro"), MakeIntroMessage(_T("Arduino Target")));
++        Wizard.AddPage(_T("targetChoice"));
++        Wizard.AddPage(_T("processorChoice"));
++    }
+     else
+-        print(wiz_type);
++        ::ShowError(_T("Unsupported wizard type started!"));
+ }
+ 
+ function GetFilesDir()
+@@ -113,7 +127,8 @@ function OnEnter_targetChoice(fwd)
+ {
+     if (!fwd)
+         return true;
+-    //Wizard.FillComboboxWithCompilers(_T("m_listCompilers"));
++    if (Wizard.GetWizardType() == wizTarget)
++        Wizard.EnableWindow(_T("m_checkSimulator"), false);
+     Wizard.FillContainerWithCompilers(_T("m_listCompilers"), _T("GNU AVR GCC Compiler"), _T("avr*"));
+     return true;
+ }
+@@ -126,12 +141,18 @@ function OnLeave_targetChoice(fwd)
+     SelectedTargets = GetArrayFromString(targets, _(";"), true);
+     if (SelectedTargets.GetCount() == 0)
+     {
+-        ::ShowMessage(_T("Please choose at least one target!"));
++        ::ShowError(_T("Please choose at least one target!"));
++        return false;
++    }
++    else if (Wizard.GetWizardType() == wizTarget && SelectedTargets.GetCount() > 1)
++    {
++        ::ShowError(_T("Please choose at most one target!"));
+         return false;
+     }
+ 
+     SelectedCompiler = Wizard.GetItemContainerStringSelection(_T("m_listCompilers"));
+-    AddSimTargets = Wizard.IsCheckboxChecked(_T("m_checkSimulator"));
++    if (Wizard.GetWizardType() == wizProject)
++        AddSimTargets = Wizard.IsCheckboxChecked(_T("m_checkSimulator"));
+     return true;
+ }
+ 
+@@ -453,3 +474,35 @@ function SetupProject(project)
+ 
+     return true;
+ }
++
++function GetTargetName()
++{
++    if (SelectedTargets.GetCount() != 0)
++        return SelectedTargets.Item(0);
++    else
++        return _T("");
++}
++
++function SetupTarget(target, is_debug)
++{
++    local targetName = GetTargetName();
++    local l = TargetInfos.len();
++
++    local targetInfo = null;
++    foreach (info in TargetInfos)
++    {
++        if (info.name.Matches(targetName))
++        {
++            targetInfo = info;
++            break;
++        }
++    }
++    if (targetInfo == null)
++    {
++        ::ShowError(_T("Can't find target: ") + targetName);
++        return false;
++    }
++
++    FillTargetData(target.GetParentProject(), target, targetInfo);
++    return true;
++}
+-- 
+1.9.5.msysgit.1
+

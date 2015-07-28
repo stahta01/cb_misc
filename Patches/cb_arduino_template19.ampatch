@@ -1,0 +1,24 @@
+From 9153e3bed6f7d08f40e282735560950bff920f09 Mon Sep 17 00:00:00 2001
+From: oBFusCATed <fuscated@gmail.com>
+Date: Thu, 26 Jun 2014 02:40:06 +0300
+Subject: [PATCH] Link to libm to prevent linking problems
+
+---
+ wizard.script | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/wizard.script b/wizard.script
+index 7ba6a19..c58fc69 100644
+--- a/wizard.script
++++ b/wizard.script
+@@ -242,6 +242,7 @@ function CreateTarget(project, targetName, processor, variant, baudrate, boardID
+             target.AddCommandsAfterBuild(pb_lss);
+ 
+         target.AddLinkerOption(_T("-s"));
++        target.AddLinkerOption(_T("-lm"));
+ 
+         OptimizationsOn(target, GetCompilerID());
+         target.SetTargetType(ttConsoleOnly);
+-- 
+1.9.5.msysgit.1
+

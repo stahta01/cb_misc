@@ -1,0 +1,30 @@
+From f694cee6ea7fb46c7c968cd0190203e6782d8bf9 Mon Sep 17 00:00:00 2001
+From: oBFusCATed <fuscated@gmail.com>
+Date: Sun, 6 Jul 2014 15:37:26 +0300
+Subject: [PATCH] Use wxString instead of string, to prevent odd problems
+
+---
+ wizard.script | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/wizard.script b/wizard.script
+index 51d5064..8c623ee 100644
+--- a/wizard.script
++++ b/wizard.script
+@@ -9,11 +9,11 @@
+ 
+ // Global Vars
+ AvrUpload <- false;
+-AvrPort <- ""
++AvrPort <- _T("")
+ AvrLss <- false;         // produce extended list file from ELF output?
+ AvrMap <- false;         // produce Symbol Map file from ELF output?
+ AvrExtMem <- false;      // Locate .data in on-board SRAM, or external SRAM
+-AvrExtMemAddr <- ""      // The external memory address
++AvrExtMemAddr <- _T("")      // The external memory address
+ BaudRate <- _T("57600");
+ Libs <- _T("");
+ SelectedTargets <- wxArrayString();
+-- 
+1.9.5.msysgit.1
+
