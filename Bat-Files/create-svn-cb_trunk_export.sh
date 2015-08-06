@@ -1,6 +1,6 @@
 cd ..
 cd ..
 
-svn export --ignore-keywords --native-eol LF codeblocks-svn codeblocks-svn-export
+svn export --ignore-keywords --ignore-externals codeblocks-svn codeblocks_svn-export
 
 

@@ -15,11 +15,13 @@ Step 0: Clone and config biplab repo
 git clone --origin upstream git://cb.biplab.in/codeblocks.git codeblocks_biplab-git
 
 cd codeblocks_biplab-git
+git status
 Note: SVN does not like git merge so set to use git rebase by default (most of the time).
 git config master.rebase true  # I think this is correct for master
-git config branch.autosetuprebase always # I no idea if this is correct for all branches
+git config branch.autosetuprebase always # I have no idea if this is correct for all branches
 git config core.safecrlf warn  # true causes more issues than it is worth doing
 git config core.autocrlf input # true causes more issues than it is worth doing
+git status
 
 
 Step 1: Get svn revision and Git hash code to be used later
@@ -83,5 +85,9 @@ git pull upstream master
 git svn fetch
 git svn rebase
 git svn info
+
+git svn find-rev r1
+git svn find-rev HEAD
+
 
 
