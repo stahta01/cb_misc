@@ -11,11 +11,13 @@ git config core.autocrlf
 git config core.safecrlf
 
 # Safest settings for repos NOT under full control of user
+# Or the user has an Editor with good line-feed type control.
 git config --local core.eol crlf
-git config --local core.safecrlf warn
 git config --local core.autocrlf input
+git config --local core.safecrlf warn
 
 # Safest settings for repos under full control of user
+# Or the user has an Editor with BAD line-feed type control.
 git config --local core.eol crlf
 git config --local core.autocrlf true
-git config --local core.safecrlf true
+git config --local core.safecrlf warn
