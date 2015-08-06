@@ -1,38 +1,36 @@
 ########################
-Windows Test info begin
+# Windows Test info begin
 
 Welcome to Git (version 1.9.5-preview20150319)
 
 $ git --version
 git version 1.9.5.msysgit.1
 
-Windows Test info End
+# Windows Test info End
 ########################
 
 
-Step 0: Clone and config biplab repo
-
-git clone --single-branch --origin upstream https://github.com/obfuscated/codeblocks_sf codeblocks_obfuscated-git
+# Step 0: Clone and config biplab repo
+# The "--config core.eol=crlf" is for on Windows.
+# I set up my Windows PC to use lf by default; because it helps with some git clones.
+# Do NOT use crlf on Linux or Mac.
+git clone --config core.eol=crlf --single-branch --origin upstream https://github.com/obfuscated/codeblocks_sf codeblocks_obfuscated-git
 
 cd codeblocks_obfuscated-git
 git status
-Note: SVN does not like git merge so set to use git rebase by default (most of the time).
+# Note: SVN does not like git merge so set to use git rebase by default (most of the time).
 git config master.rebase true  # I think this is correct for master
 git config core.safecrlf warn  # true causes more issues than it is worth doing
 git config core.autocrlf input # true causes more issues than it is worth doing
 git status
 
-# I believe if the "git svn info" fails then the rest of these steps are NOT worth doing.
-# I was wrong it appears to lockup git running this command this early
-git svn info
 
-
-Step 1: Get svn revision and Git hash code to be used later
+# Step 1: Get svn revision and Git hash code to be used later
 git checkout master
 git pull upstream master
 git log --grep=^git-svn-id: --first-parent -1
-Note: Likely need to enter q to stop above command.
-
+# Note: Likely need to enter q to stop above command.
+# Start of result on next line
 commit b70a732477ade89b3058dbe2a054a905eb8a4b8c
 Author: T Petrov <tpetrov@codeblocks.org>
 Date:   Wed Aug 5 19:00:27 2015 +0000
@@ -40,51 +38,53 @@ Date:   Wed Aug 5 19:00:27 2015 +0000
     - SqPlus: Fix out of bounds bug reported by the address sanitizer
     
     git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10381 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+# End of result on prior line
+# Step 2. Setup Git config
+# NOTE: svn-remote.SVN-NAME the git-svn default is "svn" in place of "SVN-NAME"
+# NOTE: I Replaced "GIT-SVN-PREFIX" with "git-svn-stuff" as a likely name that will NOT have a name clash
 
-Step 2. Setup Git config
-NOTE: svn-remote.SVN-NAME the git-svn default is "svn" in place of "SVN-NAME"
-NOTE: I Replaced "GIT-SVN-PREFIX" with "git-svn-stuff" as a likely name that will NOT have a name clash
+# git config svn-remote.SVN_NAME.url https://svn.code.sf.net/p/codeblocks/code
+# git config svn-remote.SVN_NAME.fetch trunk:refs/remotes/GIT-SVN-PREFIX/trunk
+# git config svn-remote.SVN_NAME.branches branches/*:refs/remotes/GIT-SVN-PREFIX/*
 
-git config svn-remote.SVN_NAME.url https://svn.code.sf.net/p/codeblocks/code
-git config svn-remote.SVN_NAME.fetch trunk:refs/remotes/GIT-SVN-PREFIX/trunk
-git config svn-remote.SVN_NAME.branches branches/*:refs/remotes/GIT-SVN-PREFIX/*
-
-The commands I use are:
-Note: The url protocal needs to match that in step 1.
+# The commands I use are:
+# Note: The url protocal needs to match that in step 1.
 git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
 git config svn-remote.svn.fetch trunk:refs/remotes/git-svn-stuff/trunk
 git config svn-remote.svn.branches branches/*:refs/remotes/git-svn-stuff/*
 
-Step 3. Fetch
-Note: The svn rev needs to match that in step 1.
+# Step 3. Fetch
+# Note: The svn rev needs to match that in step 1.
 git svn fetch SVN-NAME -r 10381
 
-The commands I use are:
+# The commands I use are:
 git svn fetch svn -r 10381
 
+# The result I got once in the past ended with these 4 lines; not sure what caused it.
 Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/release-13.12
 Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/scintilla_3_5_0
 Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/xml_compiler
 r10381 = 57ca886f0d367b3571a6e71c47991c3b16eee322 (refs/remotes/git-svn-stuff/trunk)
 
 
-Step 4. Changed the hash code used by git svn to a good starting value.
-NOTE: Use Git Hash from step 1.
-ls .git/refs/remotes/GIT-SVN-PREFIX/trunk
-cat .git/refs/remotes/GIT-SVN-PREFIX/trunk
-echo b70a732477ade89b3058dbe2a054a905eb8a4b8c > .git/refs/remotes/GIT-SVN-PREFIX/trunk
+# Step 4. Changed the hash code used by git svn to a good starting value.
+# NOTE: Use Git Hash from step 1.
+# ls .git/refs/remotes/GIT-SVN-PREFIX/trunk
+# cat .git/refs/remotes/GIT-SVN-PREFIX/trunk
+# echo b70a732477ade89b3058dbe2a054a905eb8a4b8c > .git/refs/remotes/GIT-SVN-PREFIX/trunk
 
-The commands I use are
+# The commands I use are
+# NOTE: Use Git Hash from step 1.
 ls .git/refs/remotes/git-svn-stuff/trunk
 cat .git/refs/remotes/git-svn-stuff/trunk
 echo b70a732477ade89b3058dbe2a054a905eb8a4b8c > .git/refs/remotes/git-svn-stuff/trunk
 
 
-Step 5. Get svn information to test that this process worked.
+# Step 5. Get svn information to test that this process worked.
 git svn info
 
 
-Step 6. Updating the svn information This steps may NOT be safe or correct for Windows in the past the "git svn rebase" command caused issues.
+# Step 6. Updating the svn information This steps may NOT be safe or correct for Windows in the past the "git svn rebase" command caused issues.
 git status
 git checkout master
 git pull upstream master
@@ -92,11 +92,11 @@ git svn fetch
 git svn rebase
 git svn info
 
-Step 7. Some things I test to see if they work or not.
+# Step 7. Some things I test to see if they work or not.
 git svn find-rev r1
 git svn find-rev HEAD
 
-Step 8. Steps ONLY I need to do.
+# Step 8. Steps ONLY I need to do.
 git remote add origin https://stahta01@github.com/stahta01/codeblocks_obfuscated.git
 git fetch origin
 git push origin master
