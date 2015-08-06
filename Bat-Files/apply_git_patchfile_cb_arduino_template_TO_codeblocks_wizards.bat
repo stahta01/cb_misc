@@ -28,7 +28,7 @@ if errorlevel 1 (
 
 git.exe checkout master --
 
-git am --directory=templates/wizard/cb_arduino_template %PATCHES%\cb_arduino_template19.ampatch
+git am %PATCHES%\cb_arduino_template19.ampatch
 
 PAUSE
 GOTO EOF
