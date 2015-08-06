@@ -1,0 +1,21 @@
+
+# Setting that works best with git-svn
+git config master.rebase true
+
+# Normal windows setting; because the file perm. cause commit diff issues.
+git config core.filemode false
+
+# check the currect line-feed settings
+git config core.eol
+git config core.autocrlf
+git config core.safecrlf
+
+# Safest settings for repos NOT under full control of user
+git config --local core.eol crlf
+git config --local core.safecrlf warn
+git config --local core.autocrlf input
+
+# Safest settings for repos under full control of user
+git config --local core.eol crlf
+git config --local core.autocrlf true
+git config --local core.safecrlf true
