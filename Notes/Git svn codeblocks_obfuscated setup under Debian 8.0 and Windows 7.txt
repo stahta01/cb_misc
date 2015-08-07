@@ -10,24 +10,31 @@ git version 1.9.5.msysgit.1
 ########################
 
 
-# Step 0: Clone and config biplab repo
-# The "--config core.eol=crlf" is for on Windows.
-# I set up my Windows PC to use lf by default; because it helps with some git clones.
-# Do NOT use crlf on Linux or Mac.
-git clone --config core.eol=crlf --single-branch --origin upstream https://github.com/obfuscated/codeblocks_sf codeblocks_obfuscated-git
+# Step 0: Clone and config obfuscated repo
+# Do NOT use "--config core.eol=crlf" unless on MS Windows OS.
+git clone --config core.eol=crlf --origin upstream https://github.com/obfuscated/codeblocks_sf codeblocks_obfuscated-git
+
+# Non-MS Windows OS
+git clone --origin upstream https://github.com/obfuscated/codeblocks_sf codeblocks_obfuscated-git
 
 cd codeblocks_obfuscated-git
 git status
+# Verify the correct line-ending type
+git config core.eol
+git config core.safecrlf warn  # true causes more issues than it is worth doing
+# On Windows I use core.autocrlf=true
+git config core.autocrlf true  # true is needed because core.eol=crlf
+# On other OS I use often use
+git config core.autocrlf input # true causes more issues than it is worth doing 
+git status # The above setting can give errors in the wrong combinations.
 # Note: SVN does not like git merge so set to use git rebase by default (most of the time).
 git config master.rebase true  # I think this is correct for master
-git config core.safecrlf warn  # true causes more issues than it is worth doing
-git config core.autocrlf input # true causes more issues than it is worth doing
 git status
 
 
 # Step 1: Get svn revision and Git hash code to be used later
 git checkout master
-git pull upstream master
+git pull --ff-only upstream master
 git log --grep=^git-svn-id: --first-parent -1
 # Note: Likely need to enter q to stop above command.
 # Start of result on next line
@@ -55,12 +62,12 @@ git config svn-remote.svn.branches branches/*:refs/remotes/git-svn-stuff/*
 
 # Step 3. Fetch
 # Note: The svn rev needs to match that in step 1.
-git svn fetch SVN-NAME -r 10381
-
+# git svn fetch SVN-NAME -r 10381
 # The commands I use are:
 git svn fetch svn -r 10381
 
 # The result I got once in the past ended with these 4 lines; not sure what caused it.
+# Removed option "--single-branch" and still had this message.
 Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/release-13.12
 Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/scintilla_3_5_0
 Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/xml_compiler
@@ -87,9 +94,9 @@ git svn info
 # Step 6. Updating the svn information This steps may NOT be safe or correct for Windows in the past the "git svn rebase" command caused issues.
 git status
 git checkout master
-git pull upstream master
+git pull --ff-only upstream master
 git svn fetch
-git svn rebase
+git svn rebase # Not certain if safe to do on Windows; I do it on Debian Linux.
 git svn info
 
 # Step 7. Some things I test to see if they work or not.
@@ -97,11 +104,14 @@ git svn find-rev r1
 git svn find-rev HEAD
 
 # Step 8. Steps ONLY I need to do.
+git status
+git checkout master
 git remote add origin https://stahta01@github.com/stahta01/codeblocks_obfuscated.git
 git fetch origin
 git push origin master
-
-
-
-
-
+git branch --list
+git.exe checkout -b dev/PCH_and_related_fixes remotes/origin/dev/PCH_and_related_fixes
+git status
+git checkout TimS/cb_push_candidate
+git pull --rebase upstream master
+git pull --rebase cb_push TimS/cb_push_candidate
