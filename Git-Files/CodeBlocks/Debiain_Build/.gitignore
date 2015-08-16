@@ -41,8 +41,7 @@ codeblocks.plist
 codeblocks.spec
 config.log
 config.status
-/debian/stamp-autotools
-/debian/stamp-autotools-files
-/m4/libtool.m4
 /src/include/config.h
 /src/include/stamp-h1
+/src/plugins/contrib/SmartIndent/manifest.xml
+/src/tools/cb_share_config/cb_share_config

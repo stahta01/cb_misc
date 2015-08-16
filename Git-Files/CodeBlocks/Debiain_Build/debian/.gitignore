@@ -1,0 +1,30 @@
+# files to ignore
+/codeblocks-headers.install
+/files
+/stamp-autotools
+/stamp-autotools-files
+/stamp-makefile-build
+/stamp-makefile-install
+# Wildcard files to ignore
+*.debhelper
+*.log
+*.substvars
+# Folders to ignore
+/codeblocks-common/
+/codeblocks-contrib-common/
+/codeblocks-contrib-dbg/
+/codeblocks-contrib/
+/codeblocks-dbg/
+/codeblocks-dev/
+/codeblocks-headers/
+/codeblocks-libwxcontrib0/
+/codeblocks-wxcontrib-dev/
+/codeblocks-wxcontrib-headers/
+/codeblocks/
+/libcodeblocks0/
+/libwxsmithlib0-dev/
+/libwxsmithlib0/
+/tmp/
+/wxsmith-dev/
+/wxsmith-headers/
+# End of File
