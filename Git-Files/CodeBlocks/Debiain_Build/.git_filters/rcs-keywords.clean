@@ -1,0 +1,21 @@
+#!/usr/bin/perl -p
+#
+# @brief  Git filter to implement rcs keyword expansion as seen in cvs and svn.
+# @author Martin Turon
+# @author Kimmo R. M. Hovi
+#
+# Copyright (c) 2009-2011 Turon Technologies, Inc.  All rights reserved.
+# Copyright (c) 2012 Fair Warning, Inc.
+
+s/\$(
+   Id
+ | Date
+ | Author
+ | Source
+ | File
+ | Revision
+ | Header
+ | Commit
+ | Name
+ | HeadURL
+  )[^\$]*\$/\$$1\$/x;

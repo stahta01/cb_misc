@@ -1,0 +1,26 @@
+# .gitattributes
+
+# Unknown text endings; but needs filtered.
+/src/plugins/contrib/help_plugin/zlib/ChangeLog                        filter=rcs-keywords
+/src/plugins/contrib/SpellChecker/hunspell/src/tools/ispellaff2myspell filter=rcs-keywords
+
+# Declare files you want to always be converted 
+# to native line endings on checkout.
+*.S   text filter=rcs-keywords
+*.h   text filter=rcs-keywords
+*.c   text filter=rcs-keywords
+*.cpp text filter=rcs-keywords
+*.cxx text filter=rcs-keywords
+*.hxx text filter=rcs-keywords
+*.m4  text filter=rcs-keywords
+*.rc  text filter=rcs-keywords
+*.xml text filter=rcs-keywords
+*.script text filter=rcs-keywords
+
+# Declare files that will always have CRLF line endings on checkout.
+
+# Declare files that will always have LF line endings on checkout.
+*.sh text eol=lf filter=rcs-keywords
+configure.ac text eol=lf filter=rcs-keywords
+Makefile     text eol=lf filter=rcs-keywords
+
