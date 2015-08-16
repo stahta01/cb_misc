@@ -1,0 +1,16 @@
+*.lo
+*.la
+.deps/
+.libs/
+.dirstamp
+*.pc
+*.zip
+*.o
+/src/codeblocks
+
+
+
+
+
+
+
