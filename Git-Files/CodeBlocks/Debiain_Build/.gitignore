@@ -24,7 +24,6 @@ Makefile.in
 /install-sh
 /ltmain.sh
 /missing
-/revision.m4
 /depcomp
 *build_log.html
 /src/include/config.h.in
@@ -41,7 +40,3 @@ codeblocks.plist
 codeblocks.spec
 config.log
 config.status
-/src/include/config.h
-/src/include/stamp-h1
-/src/plugins/contrib/SmartIndent/manifest.xml
-/src/tools/cb_share_config/cb_share_config

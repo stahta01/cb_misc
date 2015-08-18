@@ -7,10 +7,7 @@
 *.zip
 *.o
 /src/codeblocks
-
-
-
-
-
-
-
+/include/config.h
+/include/stamp-h1
+/plugins/contrib/SmartIndent/manifest.xml
+/tools/cb_share_config/cb_share_config
