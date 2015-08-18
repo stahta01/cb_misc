@@ -1,0 +1,20 @@
+# http://www.troyhunt.com/2014/08/migrating-from-subversion-to-git-with.html
+
+
+mkdir -p ~/devel/codeblocks_svn2git_no_metadata
+cd ~/devel/codeblocks_svn2git_no_metadata
+svn2git https://svn.code.sf.net/p/codeblocks/code/
+
+cd ~/devel/codeblocks_svn2git_no_metadata
+git svn info
+
+git status
+git config master.rebase true
+git status
+git config core.eol lf
+git status
+git config core.safecrlf warn
+git status
+git config core.autocrlf false
+git status
+git svn info
