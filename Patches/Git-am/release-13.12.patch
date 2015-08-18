@@ -5770,7 +5770,7 @@ index 1674e6c..855ecbb 100644
 2.1.4
 
 
-From b915bf551d7cf8142f0c385a74477f7fad3a127d Mon Sep 17 00:00:00 2001
+From 343c9aef62c0d9466739d613f0afef27d96cde70 Mon Sep 17 00:00:00 2001
 From: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
 Date: Fri, 27 Dec 2013 17:56:23 +0000
 Subject: [PATCH 5/5] * wxScintilla related build-fix for the Mac * removed
@@ -5778,6 +5778,7 @@ Subject: [PATCH 5/5] * wxScintilla related build-fix for the Mac * removed
  as already included in codeblocks lib) - some clean-up and harmonisation in
  unix project files
 
+git-svn-id: https://svn.code.sf.net/p/codeblocks/code/branches/release-13.12@9503 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 ---
  src/CodeBlocks-unix.cbp                                          | 4 ++--
  src/plugins/contrib/DoxyBlocks/DoxyBlocks-unix.cbp               | 2 +-
