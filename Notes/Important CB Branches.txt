@@ -1,0 +1,14 @@
+release-10.05
+release-12.11
+release-13.12
+release-8.02
+scintilla_3_5_0
+xml_compiler
+codecompletion_refactoring
+
+
+git log --grep=svn.code.sf.net/p/codeblocks/code/branches
+
+
+
+
