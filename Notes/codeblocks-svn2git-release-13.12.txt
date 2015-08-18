@@ -1,0 +1,107 @@
+# Notes Start
+
+# From https://github.com/nirvdrum/svn2git#readme
+
+# You need to migrate starting at a specific svn revision number.
+
+$ svn2git http://svn.example.com/path/to/repo --revision <<starting_revision_number>>
+
+# You need to migrate starting at a specific svn revision number, ending at a specific revision number.
+
+$ svn2git http://svn.example.com/path/to/repo --revision <<starting_revision_number>>:<<ending_revision_number>>
+
+# The svn repo actually tracks several projects and you only want to migrate one of them.
+$ svn2git http://svn.example.com/path/to/repo/nested_project --no-minimize-url
+
+# To find what version to start at
+
+git log --grep=http://svn.code.sf.net/p/codeblocks/code/trunk
+
+commit 1ad8097922602df3ac1bdbed7fb38655201d7d99
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Sun Dec 22 16:29:36 2013 +0000
+
+    * cbEditor: Fixed "no folding with new file" as reported here: http://forums.codeblocks.org/index.php/topic,18015.0.html
+    
+    git-svn-id: http://svn.code.sf.net/p/codeblocks/code/trunk@9495 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+
+commit ec6d1e1e0063039a73ca75fa28b7dea730b525cd
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Fri Dec 27 17:56:23 2013 +0000
+
+    * wxScintilla related build-fix for the Mac
+    * removed linking against wxScintilla for ToolsPlus plugin (not needed, even dangerous as already included in codeblocks lib)
+    - some clean-up and harmonisation in unix project files
+    
+    git-svn-id: http://svn.code.sf.net/p/codeblocks/code/branches/release-13.12@9503 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+
+
+
+git status
+git checkout master
+git branch -b release-13.12
+git reset --hard ?????
+git am ../cb_misc-git/Patches/Git-am/release-13.12.patch
+
+# Warnings during svn2git that I saw.
+Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/xml_compiler
+
+# Notes End
+
+
+mkdir -p /home/stahta01/devel/codeblocks_svn2git_release_13.12-git
+cd /home/stahta01/devel/codeblocks_svn2git_release_13.12-git
+ls -al
+svn2git https://svn.code.sf.net/p/codeblocks/code --revision 9495:9503
+
+git status
+
+git log
+
+git remote -v
+
+git remote add origin https://github.com/stahta01/codeblocks_svn_rebase.git
+
+git status
+git checkout master
+git pull --rebase=true origin
+
+git svn info # Unable to determine upstream SVN information from working tree history
+
+git status
+
+git checkout release-13.12
+
+git log
+
+# Log earliest result begin
+commit 6cd20c45be0938de817e90ba3e464957a30eab7f
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Mon Dec 23 15:40:00 2013 +0000
+
+    * merged trunk into branch
+# Log earliest result end
+# Log lastest  result begin
+commit b915bf551d7cf8142f0c385a74477f7fad3a127d
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Fri Dec 27 17:56:23 2013 +0000
+
+    * wxScintilla related build-fix for the Mac
+    * removed linking against wxScintilla for ToolsPlus plugin (not needed, even dangerous as already included in codeblocks lib)
+    - some clean-up and harmonisation in unix project files
+
+# Log lastest  result end
+
+git format-patch 6cd20c45be0938de817e90ba3e464957a30eab7f..b915bf551d7cf8142f0c385a74477f7fad3a127d     --stdout > ../cb_misc-git/Patches/Git-am/release-13.12.patch
+
+git commit --amend # Add the next line with a blank line above it to the message
+git-svn-id: https://svn.code.sf.net/p/codeblocks/code/branches/release-13.12@9503 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+git format-patch 6cd20c45be0938de817e90ba3e464957a30eab7f..343c9aef62c0d9466739d613f0afef27d96cde70     --stdout > ../cb_misc-git/Patches/Git-am/release-13.12.patch
+
+git push --set-upstream origin release-13.12
+
+
+

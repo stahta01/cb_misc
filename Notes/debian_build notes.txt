@@ -1,0 +1,155 @@
+
+
+
+git  svn find-rev r10396 4c46dc90cc867faef034b81fab7c25701263c61f
+
+commit 6254aa87b4756618ce78fe7d3e733806e2030361
+Author: Jens Lody <jens@codeblocks.org>
+Date:   Sat Aug 15 08:49:35 2015 +0000
+
+    * Fix bug in debian install file, thanks Tim (stahta01); see http://forums.codeblocks.org/index.php/topic,20507.msg139520.html
+    
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10396 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+
+git reset --hard 6254aa87b4756618ce78fe7d3e733806e2030361 
+
+origin/debian_build
+
+git checkout master
+
+git reset --hard upstream/master
+
+git branch --set-upstream-to=upstream/master
+
+git checkout -b debian_master
+
+git push --set-upstream origin debian_master
+
+git push --force-with-lease origin
+
+
+
+# Update master branch
+
+git status
+
+git checkout master
+
+git pull --ff-only upstream master
+
+# git rebase upstream/master
+
+# git reset --hard upstream/master
+
+git push origin
+
+# git push --force-with-lease origin
+
+
+# Update debian_master branch
+
+git status
+
+git checkout debian_master
+
+git pull --ff-only upstream master
+
+git log --grep=trunk@10405 # should be 10406
+
+git reset --hard 261a93c93ca2206f3f84af5a8b06afc9117ea14e # 10405
+
+git push origin
+
+
+# Update debian_build branch
+
+git branch --list
+
+git status
+
+git checkout debian_build
+
+git rebase origin/debian_master
+
+# git rebase --skip
+
+# git push --set-upstream origin debian_build
+
+# git push --force-with-lease origin debian_build
+
+
+# Update svn/trunk branch
+git fetch
+git branch --list
+git status
+
+git checkout svn/trunk
+
+git branch --list
+
+git svn fetch
+
+git svn rebase
+
+git svn info    # 10406
+
+git rebase upstream/master
+
+git svn info    # 10309
+
+git push
+
+# git branch --unset-upstream
+# git push --set-upstream origin svn/trunk
+
+#
+origin	https://stahta01@github.com/stahta01/codeblocks_sf_tims.git (fetch)
+origin	https://stahta01@github.com/stahta01/codeblocks_sf_tims.git (push)
+upstream	https://github.com/obfuscated/codeblocks_sf.git (fetch)
+upstream	https://github.com/obfuscated/codeblocks_sf.git (push)
+
+
+
+
+
+dpkg-deb --extract libcodeblocks0_13.12svn10406-1_amd64.deb libcodeblocks0
+dpkg-deb --control libcodeblocks0_13.12svn10406-1_amd64.deb libcodeblocks0
+
+
+https://github.com/stahta01/codeblocks_sf_tims.git
+
+git submodule add https://github.com/stahta01/codeblocks_sf_tims.git codeblocks
+cd codeblocks
+git status
+git branch --list
+git branch --all
+
+git checkout -b debian_build origin/debian_build
+git branch --set-upstream-to=origin/debian_build
+git fetch origin
+git status
+
+
+git remote add svn_import https://stahta01@github.com/stahta01/codeblocks_svn_import.git
+
+
+git remote add [-t <branch>] [-m <master>] [-f] [--[no-]tags] [--mirror=<fetch|push>] <name> <url>
+
+
+git remote remove svn_import
+git remote add svn_rebase https://stahta01@github.com/stahta01/codeblocks_svn_rebase.git
+
+svn2git and git svn rebase of branches from https://svn.code.sf.net/p/codeblocks/code
+
+git checkout -b release-13.12 remotes/origin/release-13.12
+
+
+http://wiki.codeblocks.org/index.php?title=Installing_a_supported_compiler#Mac_OS_X
+http://www.mkyong.com/mac/how-to-install-gcc-compiler-on-mac-os-x/
+
+http://gdcproject.org/
+
+git-svn-id: http://svn.code.sf.net/p/codeblocks/code/branches/release-13.12@9471 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+

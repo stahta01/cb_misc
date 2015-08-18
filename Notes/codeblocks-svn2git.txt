@@ -1,0 +1,149 @@
+# Notes Start
+
+# From https://github.com/nirvdrum/svn2git#readme
+
+# You need to migrate starting at a specific svn revision number.
+
+$ svn2git http://svn.example.com/path/to/repo --revision <<starting_revision_number>>
+
+# You need to migrate starting at a specific svn revision number, ending at a specific revision number.
+
+$ svn2git http://svn.example.com/path/to/repo --revision <<starting_revision_number>>:<<ending_revision_number>>
+
+# The svn repo actually tracks several projects and you only want to migrate one of them.
+$ svn2git http://svn.example.com/path/to/repo/nested_project --no-minimize-url
+
+# Notes End
+
+
+
+mkdir -p /home/stahta01/devel/codeblocks-svn2git
+cd /home/stahta01/devel/codeblocks-svn2git
+svn2git https://svn.code.sf.net/p/codeblocks/code/ --metadata
+
+# Started above on 17Aug15 15:00
+
+cd ~/devel/codeblocks-svn2git
+git svn info
+
+
+git status
+git remote remove origin
+git remote add origin https://stahta01@github.com/stahta01/codeblocks-svn2git.git
+git push --set-upstream origin master
+
+git status
+git config master.rebase true
+git status
+git config core.eol lf
+git status
+git config core.safecrlf true
+git status
+git config core.autocrlf true
+git status
+git svn info
+
+
+
+git checkout -b devel/cross_compile
+git push --set-upstream origin devel/cross_compile
+
+git clone https://stahta01@github.com/stahta01/codeblocks-svn2git.git codeblocks-svn2git
+git status
+
+
+git log --grep=^git-svn-id: --first-parent -1 | head -n 12
+
+git config master.rebase true
+
+
+cd ~/devel/codeblocks-svn2git
+git status
+git config core.filemode   # True on Linux; False on Windows
+git config master.rebase   # True for Code::Blocks repos or other repos that the upstream is an SVN repo.
+git config core.eol        # lf on Linux; crlf on Windows
+git config core.safecrlf   # ?? the goal is to be true; but, it causes issues.
+git config core.autocrlf   # ?? the goal is to be true; but, it causes issues without having an good .gitattributes file
+git svn info
+
+git config core.whitespace
+http://stackoverflow.com/questions/13819764/indentation-configuration-only-for-some-files
+https://git-scm.com/book/tr/v2/Customizing-Git-Git-Configuration
+http://blog.bigballofwax.co.nz/2011/12/15/fixing-whitespace-when-apply-patches-with-git/
+
+
+Index: src/plugins/debuggergdb/debuggergdb.cpp
+===================================================================
+--- src/plugins/debuggergdb/debuggergdb.cpp	(revision 10315)
++++ src/plugins/debuggergdb/debuggergdb.cpp	(working copy)
+@@ -59,7 +59,7 @@
+ 
+ // function pointer to DebugBreakProcess under windows (XP+)
+ #if defined(_WIN32_WINNT) && (_WIN32_WINNT >= 0x0501)
+-#include "Tlhelp32.h"
++#include "tlhelp32.h"
+ typedef BOOL WINAPI   (*DebugBreakProcessApiCall)       (HANDLE);
+ typedef HANDLE WINAPI (*CreateToolhelp32SnapshotApiCall)(DWORD  dwFlags,   DWORD             th32ProcessID);
+ typedef BOOL WINAPI   (*Process32FirstApiCall)          (HANDLE hSnapshot, LPPROCESSENTRY32W lppe);
+
+git status
+git svn info
+git checkout devel/win-wx-config
+
+
+-------------- Build: tinyXML in Code::Blocks wx2.8.x Win32 (compiler: GNU GCC Compiler)---------------
+
+mingw32-g++.exe -Wall -g -pipe -mthreads -fmessage-length=0 -fexceptions -Winvalid-pch -mthreads -DHAVE_W32API_H -D__WXMSW__ -D__WXDEBUG__ -D_UNICODE -IC:\wxMSW\wxMSW-3.0\wxWidgets-3.0.2\lib\gcc_dll\mswud -IC:\wxMSW\wxMSW-3.0\wxWidgets-3.0.2\include -DWXUSINGDLL -Wno-ctor-dtor-privacy -pipe -fmessage-length=0 -std=gnu++11-fno-keep-inline-dllexport 3.0.2 -DHAVE_W32API_H -D__WXMSW__ -DWXUSINGDLL -DcbDEBUG -DCB_PRECOMP -DWX_PRECOMP -DwxUSE_UNICODE -Wno-unused-local-typedefs -std=gnu++11 -iquote.objs\include -I.objs\include -I. -Isdk\wxscintilla\include -Isdk\wxpropgrid\include -Iinclude\tinyxml -Iinclude\tinyxml -c C:\SourceCode\OpenSourceCode\Apps\IDE\Codeblocks\codeblocks-svn2git\src\base\tinyxml\tinystr.cpp -o .objs\base\tinyxml\tinystr.o
+mingw32-g++.exe: error: 3.0.2: No such file or directory
+mingw32-g++.exe: error: unrecognized command line option '-std=gnu++11-fno-keep-inline-dllexport'
+Process terminated with status 1 (0 minute(s), 1 second(s))
+2 error(s), 0 warning(s) (0 minute(s), 1 second(s))
+
+`$(WX_CONFIG) --cflags`
+
+
+devel/win-wx-config
+
+git checkout -b devel/win-wx-config
+
+cp CodeBlocks_wx30_64.cbp CodeBlocks_wx30_Win64-wx-config.cbp
+cp CodeBlocks_wx30.cbp CodeBlocks_wx30_Win32-wx-config.cbp
+cp CodeBlocks.cbp CodeBlocks_wx28_Win32-wx-config.cbp
+
+
+"WX_CONFIG" value="wx-config --version=3.0"
+`$(WX_CONFIG) --cflags`
+`$(WX_CONFIG) --libs`
+`$(WX_CONFIG) --cppflags`
+`$(WX_CONFIG) --rcflags`
+
+cmd /c $(WX_CONFIG) --rcflags
+cmd /c $(WX_CONFIG) --cppflags
+cmd /c $(WX_CONFIG) --cflags
+cmd /c $(WX_CONFIG) --cxxflags
+
+Changes needed in win-wx-config
+   Change po["cflags"] to po["cppflags"].
+
+
+cfg["CFLAGS"]
+cfg["CPPFLAGS"]
+cfg["CXXFLAGS"]
+
+
+class BuildFileOptions : public Options
+
+Running project pre-build steps
+cmd /c wx-config --version=2.8 --rcflags
+--use-temp-file --define __WXMSW__ --define _UNICODE --include-dir C:/wxMSW/wxMSW-3.0/wxWidgets-3.0.2/lib/gcc_dll/mswu --include-dir C:/wxMSW/wxMSW-3.0/wxWidgets-3.0.2/include --define WXUSINGDLL 
+cmd /c wx-config --version=2.8 --cppflags
+-mthreads -DHAVE_W32API_H -D__WXMSW__ -DNDEBUG -D_UNICODE -IC:/wxMSW/wxMSW-3.0/wxWidgets-3.0.2/lib/gcc_dll/mswu -IC:/wxMSW/wxMSW-3.0/wxWidgets-3.0.2/include -DWXUSINGDLL -Wno-ctor-dtor-privacy -pipe -fmessage-length=0  
+cmd /c wx-config --version=2.8 --cflags
+-mthreads -DHAVE_W32API_H -D__WXMSW__ -DNDEBUG -D_UNICODE -IC:/wxMSW/wxMSW-3.0/wxWidgets-3.0.2/lib/gcc_dll/mswu -IC:/wxMSW/wxMSW-3.0/wxWidgets-3.0.2/include -DWXUSINGDLL -Wno-ctor-dtor-privacy -pipe -fmessage-length=0    
+cmd /c wx-config --version=2.8 --cxxflags
+-mthreads -DHAVE_W32API_H -D__WXMSW__ -DNDEBUG -D_UNICODE -IC:/wxMSW/wxMSW-3.0/wxWidgets-3.0.2/lib/gcc_dll/mswu -IC:/wxMSW/wxMSW-3.0/wxWidgets-3.0.2/include -DWXUSINGDLL -Wno-ctor-dtor-privacy -pipe -fmessage-length=0    
+
+||warning: command line option '-Wno-ctor-dtor-privacy' is valid for C++/ObjC++ but not for C|
+
+
+git push --set-upstream origin devel/win-wx-config
