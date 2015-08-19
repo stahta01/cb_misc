@@ -1,0 +1,26 @@
+From fb42131f6b1dab78aba305a0cd073b60e250cd16 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 15 Jun 2015 23:38:28 -0400
+Subject: [PATCH] * sdk: changed the value of CMD_NULL for windows to be "NUL"
+ instead of "cmd /c NUL" (thanks stahta01).
+
+---
+ src/sdk/macrosmanager.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/sdk/macrosmanager.cpp b/src/sdk/macrosmanager.cpp
+index 52c7888..e1de465 100644
+--- a/src/sdk/macrosmanager.cpp
++++ b/src/sdk/macrosmanager.cpp
+@@ -134,7 +134,7 @@ void MacrosManager::ClearProjectKeys()
+         m_Macros[_T("CMD_CP")]    = cmd + _T("copy");
+         m_Macros[_T("CMD_RM")]    = cmd + _T("del");
+         m_Macros[_T("CMD_MV")]    = cmd + _T("move");
+-        m_Macros[_T("CMD_NULL")]  = cmd + _T("NUL");
++        m_Macros[_T("CMD_NULL")]  = _T("NUL");
+         m_Macros[_T("CMD_MKDIR")] = cmd + _T("md");
+         m_Macros[_T("CMD_RMDIR")] = cmd + _T("rd");
+     }
+-- 
+1.9.5.msysgit.1
+

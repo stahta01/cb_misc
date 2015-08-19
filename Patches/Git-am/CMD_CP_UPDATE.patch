@@ -1,0 +1,37 @@
+From a4228a8fd7e8e6304ec071efed21d2745012d771 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 15 Jun 2015 23:50:14 -0400
+Subject: [PATCH] * sdk: Added macros CMD_CP_UPDATE and CMD_IGNORERR (thanks
+ stahta01).
+
+CMD_CP_UPDATE is to copy files only if file is newer.
+CMD_IGNORERR is to reset the OS error value to the no error value.
+---
+ src/sdk/macrosmanager.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/sdk/macrosmanager.cpp b/src/sdk/macrosmanager.cpp
+index e1de465..3aaa230 100644
+--- a/src/sdk/macrosmanager.cpp
++++ b/src/sdk/macrosmanager.cpp
+@@ -137,6 +137,8 @@ void MacrosManager::ClearProjectKeys()
+         m_Macros[_T("CMD_NULL")]  = _T("NUL");
+         m_Macros[_T("CMD_MKDIR")] = cmd + _T("md");
+         m_Macros[_T("CMD_RMDIR")] = cmd + _T("rd");
++        m_Macros[_T("CMD_CP_UPDATE")]   = cmd + _T("xcopy /D /y");
++        m_Macros[_T("CMD_IGNORERR")]    = _T("|| CMD /C EXIT 0");
+     }
+     else
+     {
+@@ -146,6 +148,8 @@ void MacrosManager::ClearProjectKeys()
+         m_Macros[_T("CMD_NULL")]   = _T("/dev/null");
+         m_Macros[_T("CMD_MKDIR")]  = _T("mkdir -p");
+         m_Macros[_T("CMD_RMDIR")]  = _T("rmdir");
++        m_Macros[_T("CMD_CP_UPDATE")]   = _T("cp --update --preserve=timestamps");
++        m_Macros[_T("CMD_IGNORERR")]    = _T("|| true");
+     }
+ 
+     cbWorkspace* wksp = Manager::Get()->GetProjectManager()->GetWorkspace();
+-- 
+1.9.5.msysgit.1
+
