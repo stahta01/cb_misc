@@ -1,0 +1,7 @@
+Changes to test CB Wiki Page "Creating_a_new_project"
+
+Changed "Folder to create project in" from "C:\" to "C:\CB_WIKI_PROJECTS"
+
+
+Path I used to add file: C:\CB_WIKI_PROJECTS\Helloworld\hello.cpp
+
