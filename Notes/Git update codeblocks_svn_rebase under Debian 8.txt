@@ -1,0 +1,33 @@
+# Notes Start
+git svn rebase with Metadata of https://svn.code.sf.net/p/codeblocks/code
+
+These directions are to be followed on Linux (unlikely to work correctly on windows)
+
+# Notes End
+
+cd ~/devel/codeblocks_svn_rebase-git
+
+git status
+git checkout master
+git status
+git fetch
+git svn info		# 10413
+git pull --rebase origin
+git svn rebase
+git svn info		# 10413
+git pull --rebase origin
+git svn info		# 10413
+git status
+git push origin
+
+# checkout another branch from upstream
+git branch --all
+git branch --list
+git checkout -b release-13.12 upstream/release-13.12
+git svn info		# 9503
+git svn rebase
+git svn info		# 9503
+git status
+git push -u origin
+git status
+
