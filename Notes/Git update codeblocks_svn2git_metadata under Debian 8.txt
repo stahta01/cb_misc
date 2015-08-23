@@ -1,0 +1,33 @@
+# Notes Start
+
+# https://github.com/nirvdrum/svn2git
+
+These directions are to be followed on Linux (unlikely to work correctly on windows)
+
+# Notes End
+
+
+
+cd ~/devel/codeblocks_svn2git_metadata-git
+
+git status
+git checkout master
+git status
+git svn info # 10406
+
+svn2git --rebase
+
+git svn info # 10413
+
+git remote -v
+
+git push --all
+
+
+
+
+
+
+
+
+
