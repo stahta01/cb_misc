@@ -6,15 +6,20 @@ cd ~/devel/codeblocks_svn2git_no_metadata
 svn2git https://svn.code.sf.net/p/codeblocks/code/
 
 cd ~/devel/codeblocks_svn2git_no_metadata
-git svn info
 
-git status
-git config master.rebase true
-git status
-git config core.eol lf
-git status
-git config core.safecrlf warn
-git status
-git config core.autocrlf false
-git status
-git svn info
+git remote add origin https://github.com/stahta01/codeblocks_svn2git_no_metadata.git
+git push -u origin master
+
+git svn info # it should fail; but, check it to be sure
+
+
+On webpage set description to this
+Copy of Code::Blocks without metadata on Debian 8.0 using svn2git with https://svn.code.sf.net/p/codeblocks/code
+
+
+# Wait on this till I have more bandwidth at night
+git push -u origin --all
+
+
+
+

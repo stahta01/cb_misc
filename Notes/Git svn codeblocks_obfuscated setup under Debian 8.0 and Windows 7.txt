@@ -38,13 +38,13 @@ git pull --ff-only upstream master
 git log --grep=^git-svn-id: --first-parent -1
 # Note: Likely need to enter q to stop above command.
 # Start of result on next line
-commit 499b0fa95c80518608c2efd7ff7b85e8ba31d4ce
-Author: T Petrov <tpetrov@codeblocks.org>
-Date:   Sat Aug 8 08:38:00 2015 +0000
+commit 3354bc09eb5a4aa2497d3aea47a56174bbf36c3e
+Author: jenslody <jenslody@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Sat Aug 15 18:52:40 2015 +0000
 
-    - wx3: Fix another assert when deleting the last target in the Project -> Properties dialog
-
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10386 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    * make-dist fix for new test-scripts.
+    
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10406 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # End of result on prior line
 # Step 2. Setup Git config
 # NOTE: svn-remote.SVN-NAME the git-svn default is "svn" in place of "SVN-NAME"
@@ -61,20 +61,18 @@ git config svn-remote.svn.fetch trunk:refs/remotes/git-svn-stuff/trunk
 git config svn-remote.svn.branches branches/*:refs/remotes/git-svn-stuff/*
 
 # This set of config is NOT needed trying to do more than trunk.
-git config svn-remote.svn_release-13.12.url https://svn.code.sf.net/p/codeblocks/code
-git config svn-remote.svn_release-13.12.fetch branches/release-13.12:refs/remotes/git-svn-stuff/release-13.12
-git config svn-remote.svn_release-13.12.branches branches/*:refs/remotes/git-svn-stuff/*
+# Tried this once; not sure if it is a good or worth while idea.
+# git config svn-remote.svn_release-13.12.url https://svn.code.sf.net/p/codeblocks/code
+# git config svn-remote.svn_release-13.12.fetch branches/release-13.12:refs/remotes/git-svn-stuff/release-13.12
+# git config svn-remote.svn_release-13.12.branches branches/*:refs/remotes/git-svn-stuff/*
 
 # Step 3. Fetch
 # Note: The svn rev needs to match that in step 1.
 # git svn fetch SVN-NAME -r 10386
 # The commands I use are:
-# This svn fetch is NOT needed trying to do more than trunk.
-git svn fetch svn_release-13.12 -r 9501
-# Last line of result below
-# r9501 = eba7dcf8299ca174cf0c5bf966202952b4fecee8 (refs/remotes/git-svn-stuff/release-13.12)
 
-git svn fetch svn               -r 10386
+git svn fetch svn -r 10406
+
 # Last line of result below
 # r10386 = 3e2c0e98012c2715402b1a4509674cfdaa1e382f (refs/remotes/git-svn-stuff/trunk)
 
