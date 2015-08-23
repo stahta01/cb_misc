@@ -3,12 +3,6 @@ git svn rebase with Metadata of https://svn.code.sf.net/p/codeblocks/code
 
 To be written: "Git clone codeblocks_svn_rebase setup under Windows 7.txt"
 
-To be written: "Git create codeblocks_svn2git_metadata_temp under Debian 8.txt"
-
-To be written: "Git update codeblocks_svn_rebase under Debian 8.txt"
-
-Change name of this file to "Git create codeblocks_svn_rebase under Debian 8.txt"
-
 These directions are to be followed on Linux (unlikely to work correctly on windows)
 
 # Notes End
