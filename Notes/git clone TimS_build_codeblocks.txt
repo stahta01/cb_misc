@@ -1,0 +1,60 @@
+#
+# These steps are for use under the Windows OS; tested under Windows 7
+# 
+
+git clone --config core.eol=crlf --origin upstream https://github.com/stahta01/TimS_build_codeblocks.git TimS_build_codeblocks-git
+cd TimS_build_codeblocks-git
+
+git status
+# Verify the correct line-ending type
+git config core.eol
+git config core.safecrlf warn  # true causes more issues than it is worth doing
+git config core.autocrlf false # true and input causes more issues than it is worth doing 
+git status # The above setting can give errors in the wrong combinations.
+# Note: SVN does not like git merge so set to use git rebase by default (most of the time).
+git config master.rebase true  # I think this is correct for master
+git status
+
+# Setup SVN using Metadata and URL=https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
+git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
+git config svn-remote.svn.noMetadata 0
+
+
+# Step 2. Look for git-svn-id in log.
+git log --grep=^git-svn-id: --first-parent -1
+# Log message begins
+commit 6d63428883842f1626a246a13390978fc6687a9c
+Author: pecanh <pecanh@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Sat Aug 22 17:33:36 2015 +0000
+
+    KeyBinder - Incorporate wx3.0 negative menu id's. Old key definitions from wx2.x cannot be transfered to wx3.x.
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10413 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+# Log message ends
+
+# Step 3. Use SVN rev from log message "trunk@10413"
+git svn fetch svn -r 10413
+
+# Step 4. Changed the hash code used by git svn to a good starting value.
+ls .git/refs/remotes/svn/trunk
+cat .git/refs/remotes/svn/trunk
+echo 6d63428883842f1626a246a13390978fc6687a9c > .git/refs/remotes/svn/trunk
+
+# Started at 8:24 PM 23Aug15
+git svn info # 
+
+# I do NOT recommend use "git svn rebase"; I have had it lock up my PC.
+# But, my PC is old and has a slow internet connection.
+# If you decide to do so; please use "git svn fetch" 
+# with no rev number prior to doing "git svn rebase"
+# The reason is the first part of rebase call fetch with no rev number.
+# And, fetch gives feedback that it is working when called directly;
+# But, fetch gives NO feedback when called by rebase.
+
+
+# Example checkout of one of my branches
+git status
+git branch --all
+git checkout -b win32_pch_fixes upstream/win32_pch_fixes
