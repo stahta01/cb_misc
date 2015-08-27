@@ -1,0 +1,137 @@
+Linux PCH on branch unix_pch_fixes
+
+git checkout -b win32_pch_fixes
+git push
+
+Minor changes on branch TimS_changes
+   Fix CMD_NULL CMD_NULL.patch
+      git am ../cb_misc-git/Patches/Git-am/CMD_NULL.patch 
+   Fix Template bug  CB_mods2_build_template_bugs.patch
+      git apply ../cb_misc-git/Patches/Git/CB_mods2_build_template_bugs.patch
+   Remove #include "sdk_precomp.h" from configmanager-revision.cpp
+   Rename sdk.h header guard to CB_SDK_HEADER_INCLUDED
+   Remove sdk from virtual target "Core app & plugins" in all windows CB Projects
+
+Median changes on branch TimS_changes
+   Remove templates folder
+   Fix wx28/Win32 CB Projects for PCH build issue using $(CB_OBJ) 
+      $(CB_OBJ)\include
+      -Winvalid-pch
+ ToDo
+   Add use of these CB custom vars to wx30/Win32 CB Projects
+      $(CB_LIB)\
+      $(CB_BIN)
+      $(CB_OBJ)
+Temp needs squashed. Added CB_LIB, CB_BIN, and CB_OBJ.
+      $(CMD_IGNORE_ERROR)
+      $(CMD_CP_UPDATE)
+git clone https://github.com/stahta01/TimS_build_codeblocks.git TimS_build_codeblocks-git
+cd TimS_build_codeblocks-git
+git checkout -b TimS_changes origin/TimS_changes
+
+diff --git a/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp b/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp
+index 0301457..15959c9 100644
+@@ -77,7 +77,7 @@
+ 			</Target>
+ 			<Environment>
+ 				<Variable name="CB_BIN" value="../../../devel30" />
+-				<Variable name="CB_LIB" value="../../../lib30" />
++				<Variable name="CB_LIB" value="../../../devel30" />
+ 				<Variable name="CB_OBJ" value="../../../.objs30" />
+ 				<Variable name="WX_CONFIG" value="wx-config --version=3.0" />
+ 			</Environment>
+
+
+On windows: Replace repo codeblocks_svn_rebase with codeblocks_svn2git_metadata in git remotes
+
+   Test wx28/Unix&Win32 CB Project for PCH build issue under Linux.
+   Fix wx30/Unix CB Projects for PCH build issue using $(CB_OBJ)
+
+Major changes on branch TimS_major_changes
+   MSys2/Cygwin build shell (on new branch TimS_MSys2_shell)
+   Add PCH back to wx30/Win32 CB Projects
+   Remove two includes from sdk_common.h
+   Fix PCH build using -include "sdk.h"
+      DevPak
+   Fix PCH build using -include "wx_pch.h"
+      wxWidgets - Contrib Items
+   Fix PCH build using -include "sdk.h" and -include "wx_pch.h"
+      Exporter
+   Add use of these CB custom vars
+      $(CB_SRC)\
+      $(CB_BIN_FROM_SRC)\
+   Add version number to CB DLL and EXE 
+      http://wiki.codeblocks.org/index.php?title=FAQ-Compiling_%28general%29#Q:_How_do_I_add_version_information_to_windows_executables_and_dll.27s.3F
+
+object_output=".objs30"
+object_output="$(CB_OBJ)"
+
+external_deps="devel30/
+external_deps="$(CB_LIB)/
+
+$(CB_LIB)\
+
+
+My build related fork of Code::Blocks (codeblocks.org)
+
+
+https://github.com/stahta01/TimS_custom_codeblocks
+   Module:codeblocks https://github.com/stahta01/TimS_build_codeblocks
+      Copy filters from https://github.com/stahta01/git_rcs_keywords
+      Module:wx-config-win https://github.com/stahta01/wx-config-win
+      Module:non_contrib https://github.com/stahta01/codeblocks_non_contrib_plugins
+         Module:cbInno https://github.com/stahta01/cbInno
+         
+         
+cd /c/SourceCode/OpenSourceCode/Apps/IDE/Codeblocks
+cd codeblocks_non_contrib_plugins-git
+git submodule add https://github.com/stahta01/cbInno cbInno
+cd cbInno
+git status
+cd ..
+git commit -m "Added gitmodule cbInno."
+git push origin
+
+cd ..
+ls
+cd TimS_build_codeblocks-git
+git status
+git checkout -b git_rcs_keywords
+git config core.autocrlf false
+git status
+# Copy and commit filters
+git push --set-upstream origin git_rcs_keywords
+git checkout -b TimS_build
+git submodule add https://github.com/stahta01/codeblocks_non_contrib_plugins src/plugins/non_contrib
+git submodule add https://github.com/stahta01/wx-config-win src/build_tools/wx-config-win
+git status
+git commit -m "Added gitmodules wx-config-win and non_contrib."
+git push --set-upstream origin TimS_build
+
+cd ..
+cd TimS_custom_codeblocks-git
+git submodule add https://github.com/stahta01/TimS_build_codeblocks codeblocks
+git status
+cd codeblocks
+git status
+git checkout -b TimS_build origin/TimS_build
+git status
+cd ..
+git add codeblocks
+git commit -m "Added gitmodule codeblocks branch TimS_build"
+git push --set-upstream origin master
+
+
+
+
+Use these repos to update the above repos
+   https://github.com/stahta01/codeblocks_svn_rebase
+
+Copy Ideas from
+   https://github.com/stahta01/build_codeblocks
+
+   https://github.com/stahta01/codeblocks_wizards
+   
+   https://github.com/stahta01/cb_projects_for_wxWidgets
+
+   https://github.com/stahta01/codeblocks_plugins

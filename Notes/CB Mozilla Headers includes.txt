@@ -1,0 +1,7 @@
+nsUniversalDetector.h   $(CB_SRC)\include\mozilla_chardet
+nscore.h                $(CB_SRC)\include\mozilla_chardet\xpcom\base
+mozilla/Likely.h        $(CB_SRC)\include\mozilla_chardet\mfbt
+
+nsMemory.h              $(CB_SRC)\include\mozilla_chardet\xpcom\glue
+
+prmem.h                 $(CB_SRC)\include\mozilla_chardet\nsprpub\pr\include
