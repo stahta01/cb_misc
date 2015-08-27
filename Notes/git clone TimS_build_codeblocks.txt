@@ -2,14 +2,15 @@
 # These steps are for use under the Windows OS; tested under Windows 7
 # 
 
-git clone --config core.eol=crlf --origin upstream https://github.com/stahta01/TimS_build_codeblocks.git TimS_build_codeblocks-git
+# I have found that line feed of lf works better than crlf over all.
+git clone --config core.eol=lf --origin upstream https://github.com/stahta01/TimS_build_codeblocks.git TimS_build_codeblocks-git
 cd TimS_build_codeblocks-git
 
 git status
 # Verify the correct line-ending type
-git config core.eol
-git config core.safecrlf warn  # true causes more issues than it is worth doing
-git config core.autocrlf false # true and input causes more issues than it is worth doing 
+git config core.eol lf
+git config core.safecrlf true  # true causes more issues; but, it is worth doing
+git config core.autocrlf input # input is recommended by most internet sources
 git status # The above setting can give errors in the wrong combinations.
 # Note: SVN does not like git merge so set to use git rebase by default (most of the time).
 git config master.rebase true  # I think this is correct for master
@@ -25,22 +26,22 @@ git config svn-remote.svn.noMetadata 0
 # Step 2. Look for git-svn-id in log.
 git log --grep=^git-svn-id: --first-parent -1
 # Log message begins
-commit 6d63428883842f1626a246a13390978fc6687a9c
+commit a82232e0e581d91aa267c24e6d30032f621a4cda
 Author: pecanh <pecanh@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Sat Aug 22 17:33:36 2015 +0000
+Date:   Sun Aug 23 18:21:22 2015 +0000
 
-    KeyBinder - Incorporate wx3.0 negative menu id's. Old key definitions from wx2.x cannot be transfered to wx3.x.
+    KeyBinder - place another guard around logging
 
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10413 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10415 2a5c6006-c6dd-42ca-98ab-0921f2
 # Log message ends
 
-# Step 3. Use SVN rev from log message "trunk@10413"
-git svn fetch svn -r 10413
+# Step 3. Use SVN rev from log message "trunk@10415"
+git svn fetch svn -r 10415
 
 # Step 4. Changed the hash code used by git svn to a good starting value.
 ls .git/refs/remotes/svn/trunk
 cat .git/refs/remotes/svn/trunk
-echo 6d63428883842f1626a246a13390978fc6687a9c > .git/refs/remotes/svn/trunk
+echo a82232e0e581d91aa267c24e6d30032f621a4cda > .git/refs/remotes/svn/trunk
 
 # Started at 8:24 PM 23Aug15
 git svn info # 
