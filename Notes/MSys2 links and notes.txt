@@ -1,0 +1,23 @@
+MSys2 links and notes.txt
+
+http://sourceforge.net/p/msys2/wiki/Porting/
+http://sourceforge.net/p/msys2/wiki/Contributing%20to%20MSYS2/
+
+http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
+http://sourceforge.net/p/msys2/wiki/Packages/
+
+Compiler defines
+_WIN32
+_WIN64
+__CYGWIN__
+__MSYS__
+
+Host names
+x86_64-pc-msys2
+i686-pc-msys2
+x86_64-w64-mingw32
+i686-w64-mingw32
+
+Useful Packages and Tools
+   mingw-w64-{i686,x86_64}-codelite-git
+   mingw-w64-{i686,x86_64}-gedit
