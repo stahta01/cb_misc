@@ -1,0 +1,56 @@
+Building sdk annoyingdialog.cpp info.txt
+
+mingw32-g++.exe 
+-Wall 
+-g 
+-pipe 
+-mthreads 
+-fmessage-length=0 
+-fexceptions 
+-DHAVE_W32API_H 
+-D__WXMSW__ 
+-DWXUSINGDLL 
+-DcbDEBUG 
+-DNOPCH 
+-DwxUSE_UNICODE 
+-Woverloaded-virtual 
+-DEXPORT_LIB 
+-DEXPORT_EVENTS 
+-DWXMAKINGDLL_SCI 
+-Wno-unused-local-typedefs 
+-IC:\wxMSW\wxMSW-3.0\wxWidgets-3.0.2\include 
+-IC:\wxMSW\wxMSW-3.0\wxWidgets-3.0.2\lib\gcc_dll\mswu 
+-Isdk\wxscintilla\include -Iinclude\tinyxml -Iinclude -Iinclude\tinyxml 
+-Iinclude\scripting\bindings -Iinclude\scripting\include -Iinclude\scripting\sqplus 
+-Iinclude\mozilla_chardet -Iinclude\mozilla_chardet\mfbt -Iinclude\mozilla_chardet\nsprpub\pr\include 
+-Iinclude\mozilla_chardet\xpcom -Iinclude\mozilla_chardet\xpcom\base -Iinclude\mozilla_chardet\xpcom\glue 
+-c C:\SourceCode\OpenSourceCode\Apps\IDE\Codeblocks\TimS_build_codeblocks-git\src\sdk\annoyingdialog.cpp 
+-o .objs30\sdk\annoyingdialog.o
+
+g++ 
+-Wall 
+-ansi 
+-g 
+-fmessage-length=0 
+-fexceptions 
+-Winvalid-pch 
+-fPIC 
+-I/usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 
+-I/usr/include/wx-3.0 
+-D_FILE_OFFSET_BITS=64 
+-DWXUSINGDLL 
+-D__WXGTK__ 
+-pthread 
+-DcbDEBUG 
+-DCB_PRECOMP 
+-I/usr/include/glib-2.0 
+-I/usr/lib/x86_64-linux-gnu/glib-2.0/include 
+-iquote.objs30/include -I.objs30/include 
+-I. -Isdk/wxscintilla/include -Iinclude/tinyxml -Iinclude -Iinclude/tinyxml 
+-Iinclude/scripting/bindings -Iinclude/scripting/include -Iinclude/scripting/sqplus 
+-Iinclude/mozilla_chardet -Iinclude/mozilla_chardet/mfbt -Iinclude/mozilla_chardet/nsprpub/pr/include 
+-Iinclude/mozilla_chardet/xpcom -Iinclude/mozilla_chardet/xpcom/base -Iinclude/mozilla_chardet/xpcom/glue 
+-c /home/stahta01/devel/TimS_build_codeblocks-git/src/sdk/annoyingdialog.cpp 
+-o .objs30/sdk/annoyingdialog.o
+
+

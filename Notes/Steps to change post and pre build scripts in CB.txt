@@ -1,0 +1,60 @@
+Steps to change post and pre build scripts in CB.txt
+
+Add Custom var.
+   $(CB_LIB)         CB_LIB               devel30              ../../../devel30
+   $(CB_BIN)         CB_BIN               bin30                ../../../devel30
+   $(CB_OBJ)         CB_OBJ               .objs30              ../../../.objs30
+
+   $(CMD_MKDIR)
+   CMD_IGNORE_ERROR     || exit 0            
+   CMD_CP_UPDATE        cmd /c xcopy /D /Y   
+
+   CB_SRC               ..\codeblocks\src    
+   CB_BIN_FROM_SRC      ..\..\build\bin30    
+
+$(CB_OBJ)/include
+
+..\..\..\sdk\wxscintilla\include
+
+Fix source code or CBP needed for PCH
+   HeaderFixup                      code fix needed on most files.
+   Games                            code fix needed on one file.
+   wxWidgets - Contrib Items        Needs Prep Work for all 3 windows projects.
+   Library finder
+   wxSmith                          Not sure how to fix.
+   Exporter             find past fix
+   Tools Plus Plugin                Needs OK to remove message to NOT edit files
+   CC Test                          Not worth fixing to last
+
+Move to 
+BUILDING_PLUGIN
+wxUSE_UNICODE
+WXUSINGDLL
+NOPCH
+
+
+
+SDK_H
+CB_SDK_HEADER_INCLUDED
+CB_PRECOMP
+
+* cbp_build: Fixed Linux PCH building (Thanks stahta01).
+
+Added CB custom var CB_OBJ
+Added compiler option "-Winvalid-pch" and [-include "sdk.h"].
+And, added include search path of "$(CB_OBJ)/include".
+Moved some project level defines to windows target.
+Needed to do code change with the compiler option [-include "sdk.h"],
+added an guard around the include of "sdk.h" header.
+
+
+||=== Build: default in BrowseTracker wx3.0.x (Unix) (compiler: GNU GCC Compiler) ===|
+/home/stahta01/devel/TimS_build_codeblocks-git/src/plugins/contrib/BrowseTracker/BrowseMarks.cpp|21|warning: ../../../.objs30/include/sdk.h.gch: not used because `cbDEBUG' not defined [-Winvalid-pch]|
+||=== Build failed: 0 error(s), 1 warning(s) (0 minute(s), 14 second(s)) ===|
+
+- PCH cbp fixes: Fixed some CB contrib Projects to use PCH (Thanks stahta01).
+
+Added CB custom var of CB_OBJ to help change.
+Added "$(CB_OBJ)/include" to include search paths
+Added "-Winvalid-pch" if it was missing.
+
