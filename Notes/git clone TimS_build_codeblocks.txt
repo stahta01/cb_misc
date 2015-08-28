@@ -8,8 +8,8 @@ cd TimS_build_codeblocks-git
 
 git status
 # Verify the correct line-ending type
-git config core.eol lf
-git config core.safecrlf true  # true causes more issues; but, it is worth doing
+git config core.eol
+git config core.safecrlf true  # true causes more issues; but, it is worth trying it once more
 git config core.autocrlf input # input is recommended by most internet sources
 git status # The above setting can give errors in the wrong combinations.
 # Note: SVN does not like git merge so set to use git rebase by default (most of the time).
@@ -26,17 +26,17 @@ git config svn-remote.svn.noMetadata 0
 # Step 2. Look for git-svn-id in log.
 git log --grep=^git-svn-id: --first-parent -1
 # Log message begins
-commit a82232e0e581d91aa267c24e6d30032f621a4cda
-Author: pecanh <pecanh@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Sun Aug 23 18:21:22 2015 +0000
+commit 6ae18e778f463cbbe11aeb83f211c8c3a12a9b57
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Thu Aug 27 09:42:35 2015 +0000
 
-    KeyBinder - place another guard around logging
+    - no need to explicitly name base libs differently for wx30 projects if they use the same compiler and do not use wx libs at all
 
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10415 2a5c6006-c6dd-42ca-98ab-0921f2
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10416 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Log message ends
 
-# Step 3. Use SVN rev from log message "trunk@10415"
-git svn fetch svn -r 10415
+# Step 3. Use SVN rev from log message "trunk@10416"
+git svn fetch svn -r 10416
 
 # Step 4. Changed the hash code used by git svn to a good starting value.
 ls .git/refs/remotes/svn/trunk
@@ -58,4 +58,5 @@ git svn info #
 # Example checkout of one of my branches
 git status
 git branch --all
+git branch --list
 git checkout -b win32_pch_fixes upstream/win32_pch_fixes
