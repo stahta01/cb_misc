@@ -49,6 +49,8 @@ echo 6ae18e778f463cbbe11aeb83f211c8c3a12a9b57 > .git/refs/remotes/svn/trunk
 
 
 # Step 5. run git svn info for first time
+# After doing steps 3 and 4 this step should start giving results in only a few seconds.
+# But, could take minutes to finish.
 git svn info # Should return the rev from step 2
 
 # Under windows, I do NOT recommend use "git svn rebase"; I have had it lock up my PC.
