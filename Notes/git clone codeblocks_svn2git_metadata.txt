@@ -1,5 +1,7 @@
 #
 # These steps are for use under the Windows OS; tested under Windows 7
+#
+# Based on directions from http://trac.parrot.org/parrot/wiki/git-svn-tutorial
 # 
 
 # I have found that line feed of lf works better than crlf over all.
@@ -8,10 +10,10 @@ cd codeblocks_svn2git_metadata-git
 
 git status
 # Verify the correct line-ending type
-git config core.eol lf
+git config core.eol
 git config core.safecrlf true  # true causes more issues; but, it is worth trying.
 git config core.autocrlf input # input is recommended by most internet sources
-git status # The above setting can give errors in the wrong combinations.
+git status # The above three setting can give errors in the wrong combinations.
 # Note: SVN does not like git merge so set to use git rebase by default (most of the time).
 git config master.rebase true  # I think this is correct for master
 git status
@@ -25,28 +27,31 @@ git config svn-remote.svn.noMetadata 0  # Step I added not really needed in most
 
 # Step 2. Look for git-svn-id in log.
 git log --grep=^git-svn-id: --first-parent -1
+# Likely need to enter q to stop displaying the log
 # Log message begins
-commit a82232e0e581d91aa267c24e6d30032f621a4cda
-Author: pecanh <pecanh@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Sun Aug 23 18:21:22 2015 +0000
+commit 6ae18e778f463cbbe11aeb83f211c8c3a12a9b57
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Thu Aug 27 09:42:35 2015 +0000
 
-    KeyBinder - place another guard around logging
+    - no need to explicitly name base libs differently for wx30 projects if they use the same compiler an
 
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10415 2a5c6006-c6dd-42ca-98ab-0921f2
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10416 2a5c6006-c6dd-42ca-98ab-0921f2732ce
 # Log message ends
 
-# Step 3. Use SVN rev from log message "trunk@10415"
-git svn fetch svn -r 10415
+# Step 3. Use SVN rev from log message in step 2 "trunk@10416"
+git svn fetch svn -r 10416
 
 # Step 4. Changed the hash code used by git svn to a good starting value.
+# Use the hash code from step 2
 ls .git/refs/remotes/svn/trunk    # Verify folder exists; stop if missing
 cat .git/refs/remotes/svn/trunk   # display value
-echo a82232e0e581d91aa267c24e6d30032f621a4cda > .git/refs/remotes/svn/trunk
+echo 6ae18e778f463cbbe11aeb83f211c8c3a12a9b57 > .git/refs/remotes/svn/trunk
 
-# Started at 8:24 PM 23Aug15
-git svn info # 
 
-# I do NOT recommend use "git svn rebase"; I have had it lock up my PC.
+# Step 5. run git svn info for first time
+git svn info # Should return the rev from step 2
+
+# Under windows, I do NOT recommend use "git svn rebase"; I have had it lock up my PC.
 # But, my PC is old and has a slow internet connection.
 # If you decide to do so; please use "git svn fetch" 
 # with no rev number prior to doing "git svn rebase"
