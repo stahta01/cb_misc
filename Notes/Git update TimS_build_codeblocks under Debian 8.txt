@@ -1,0 +1,50 @@
+# Notes Start
+
+# https://github.com/nirvdrum/svn2git
+
+These directions are to be followed on Linux (unlikely to work correctly on windows)
+
+# Notes End
+
+
+
+cd ~/devel/TimS_build_codeblocks-git
+
+git remote -v
+
+git fetch upstream
+git status
+git checkout master
+git status
+git svn info #
+
+git pull upstream
+
+git svn info # 10413
+
+git log 
+
+git svn fetch
+git svn info # 10413
+
+git status
+git svn rebase
+git status
+
+git svn info # 10443
+
+git log
+
+git push origin
+
+# git push origin --force-with-lease
+
+
+
+
+
+
+
+
+
+
