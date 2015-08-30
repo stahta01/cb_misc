@@ -30,23 +30,30 @@ git config svn-remote.svn.noMetadata 0  # Step I added not really needed in most
 git log --grep=^git-svn-id: --first-parent -1
 # Likely need to enter q to stop displaying the log
 # Top log message begins
-commit 6ae18e778f463cbbe11aeb83f211c8c3a12a9b57
-Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Thu Aug 27 09:42:35 2015 +0000
+commit 43326060bd34d14aa13876132d73ee238bc00182
+Author: jenslody <jenslody@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Sat Aug 29 08:47:57 2015 +0000
 
-    - no need to explicitly name base libs differently for wx30 projects if they use the same compiler an
+    * do not use wxALIGN_NOT, because it can not be parsed by xrc-handler of wxWidgets unfortunately.
 
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10416 2a5c6006-c6dd-42ca-98ab-0921f2732ce
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10433 2a5c6006-c6dd-42ca-98ab-0921f2732ce
 # Log message ends
 
-# Step 3. Use SVN rev from log message in step 2 "trunk@10416"
-git svn fetch svn -r 10416
+# Step 3. Use SVN rev from log message in step 2 "trunk@10433"
+git svn fetch svn -r 10433
+
+#
+Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/release-13.12
+Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/scintilla_3_5_0
+Couldn't find revmap for https://svn.code.sf.net/p/codeblocks/code/branches/xml_compiler
+r10433 = 51190d91f375115c7c56f0f4e50d6f6eea4c4908 (refs/remotes/svn/trunk)
+#
 
 # Step 4. Changed the hash code used by git svn to a good starting value.
 # Use the hash code from step 2
 ls .git/refs/remotes/svn/trunk    # Verify folder exists; stop if missing
 cat .git/refs/remotes/svn/trunk   # record value to see if it is the same
-echo 6ae18e778f463cbbe11aeb83f211c8c3a12a9b57 > .git/refs/remotes/svn/trunk
+echo 43326060bd34d14aa13876132d73ee238bc00182 > .git/refs/remotes/svn/trunk
 
 
 # Step 5. run git svn info for first time
@@ -65,5 +72,3 @@ git svn fetch
 
 # Step 7. git svn rebase (this can run a long time)
 git svn rebase
-
-
