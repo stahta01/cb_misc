@@ -5,18 +5,19 @@ These directions are to be followed on Linux (unlikely to work correctly on wind
 
 # Notes End
 
-cd ~/devel/codeblocks_svn_rebase-git
+cd ~/devel/version_control/codeblocks_svn_rebase-git
 
 git status
 git checkout master
 git status
-git fetch
-git svn info		# 10413
+git fetch origin
+git fetch upstream
+git svn info		# 10433
 git pull --rebase origin
 git svn rebase
-git svn info		# 10413
+git svn info		# 10474
 git pull --rebase origin
-git svn info		# 10413
+git svn info		# 10474
 git status
 git push origin
 

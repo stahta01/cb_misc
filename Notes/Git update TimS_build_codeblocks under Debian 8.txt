@@ -8,36 +8,36 @@ These directions are to be followed on Linux (unlikely to work correctly on wind
 
 
 
-cd ~/devel/TimS_build_codeblocks-git
+cd ~/devel/version_control/TimS_build_codeblocks-git
+
+git config master.rebase true
 
 git remote -v
+
+# git remote remove upstream
+# git remote add upstream https://github.com/stahta01/codeblocks_svn_rebase.git
+
 
 git fetch upstream
 git status
 git checkout master
 git status
-git svn info #
+git svn info # 10433
 
-git pull upstream
+git rebase upstream/master
 
-git svn info # 10413
-
-git log 
-
+git svn info # 10411
 git svn fetch
-git svn info # 10413
-
-git status
 git svn rebase
-git status
+git svn info # 10474
 
-git svn info # 10443
 
 git log
 
+git rebase origin/master
+git status
 git push origin
 
-# git push origin --force-with-lease
 
 
 
