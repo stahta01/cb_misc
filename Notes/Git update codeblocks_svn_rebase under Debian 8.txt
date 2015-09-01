@@ -12,7 +12,7 @@ git checkout master
 git status
 git fetch origin
 git fetch upstream
-git svn info		# 10433
+git svn info		# 10474
 git pull --rebase origin
 git svn rebase
 git svn info		# 10474

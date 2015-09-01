@@ -22,7 +22,7 @@ git fetch upstream
 git status
 git checkout master
 git status
-git svn info # 10433
+git svn info # 10474
 
 git rebase upstream/master
 
