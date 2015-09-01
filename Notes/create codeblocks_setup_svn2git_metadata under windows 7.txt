@@ -1,0 +1,29 @@
+# http://www.troyhunt.com/2014/08/migrating-from-subversion-to-git-with.html
+# https://github.com/nirvdrum/svn2git
+
+# svn2git copy of Code::Blocks setup with metadata from http://svn.code.sf.net/p/codeblocks/code/setup/
+
+$ git --version
+git version 1.9.5.msysgit.1
+
+mkdir -p codeblocks_setup_svn2git_metadata
+cd codeblocks_setup_svn2git_metadata
+svn2git https://svn.code.sf.net/p/codeblocks/code/setup --rootistrunk --metadata
+
+git status
+# Verify the correct line-ending type
+git config core.eol      lf    # Try using crlf for Windows setup repo.
+git config core.safecrlf true  # true causes more issues; but, it is worth trying. (warn, true or false)
+git config core.autocrlf input # input is recommended by most internet sources (input, true or false)
+git status # The above three setting can give errors in the wrong combinations.
+# Note: SVN does not like git merge so set to use git rebase by default (most of the time).
+git config master.rebase true  # Force master to automatically use rebase
+git status
+
+git svn info
+
+git remote add origin https://stahta01@github.com/stahta01/codeblocks_setup_svn2git_metadata.git
+git push -u origin master
+
+
+
