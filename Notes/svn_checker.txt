@@ -3,6 +3,7 @@ setup.nsi
 gpl-3.0.txt
 lgpl-3.0.txt
 
+http://linux.die.net/man/3/exec
 
 svn proplist src\sdk\resources\images\closebutton.png
 svn propget svn:eol-style TODO
