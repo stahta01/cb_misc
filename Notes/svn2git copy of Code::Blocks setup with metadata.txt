@@ -1,0 +1,23 @@
+# https://github.com/nirvdrum/svn2git
+# Successfully installed svn2git-2.3.2
+# Tested under Debian Linux
+
+# svn2git copy of Code::Blocks setup with metadata from http://svn.code.sf.net/p/codeblocks/code/setup/
+
+# https://github.com/stahta01/codeblocks_setup_svn2git_metadata
+
+
+mkdir -p codeblocks_setup_svn2git_metadata-git
+cd codeblocks_setup_svn2git_metadata-git
+svn2git http://svn.code.sf.net/p/codeblocks/code --metadata --trunk setup --nobranches --notags
+
+
+git status
+git config master.rebase true
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+git status
+git config core.safecrlf true
+git config core.autocrlf true
+git status
+git svn info
+
