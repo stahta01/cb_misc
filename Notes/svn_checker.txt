@@ -1,0 +1,20 @@
+index.ini
+setup.nsi
+gpl-3.0.txt
+lgpl-3.0.txt
+
+
+svn proplist src\sdk\resources\images\closebutton.png
+svn propget svn:eol-style TODO
+svn propget svn:eol-style update_revision.sh
+svn propget svn:eol-style src/batch_build_all.bat
+svn propget svn:mime-type src\sdk\resources\images\closebutton.png
+
+set PATH=C:\GreenApps32\Apache-Subversion-1.8.14\bin;%PATH%
+
+
+svn propget svn:eol-style --recursive
+
+svn propget svn:mime-type --recursive
+
+svn list --recursive
