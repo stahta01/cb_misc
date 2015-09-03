@@ -1,0 +1,26 @@
+From a61d69062e2d3f23c9941374f429ddf050d4ddb0 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 7 Jun 2015 16:33:14 -0400
+Subject: [PATCH] =- Removed -fPIC for MinGW builds (thanks stahta01)
+
+---
+ configure.ac | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/configure.ac b/configure.ac
+index d5b81a4..866e5b2 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -323,6 +323,9 @@ case `uname` in
+             PIC_FLAGS="-KPIC -DPIC"
+         fi
+     ;;
++    MINGW*)
++        PIC_FLAGS="-DPIC"
++    ;;
+     *)
+         PIC_FLAGS="-fPIC -DPIC"
+     ;;
+-- 
+1.9.5.msysgit.1
+
