@@ -1,0 +1,11 @@
+codeblocks_windows.txt
+
+update https://github.com/stahta01/codeblocks_svn_rebase.git under Linux
+
+Under windows CB 13.12 do save-as like operation to reformat windows cbp files.
+Warning wxSmithAUI projects need special care to be sure it still works under Linux.
+Remember to do all of CodeBlocks.workspace
+
+Search for "..\.objs" in *.cbp files
+
+Add CB_OBJ, CB_LIB, and CB_BIN cb custom vars
