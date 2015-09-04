@@ -15,9 +15,9 @@ git fetch upstream
 git svn info		# 10474
 git pull --rebase origin
 git svn rebase
-git svn info		# 10474
+git svn info		# 10479
 git pull --rebase origin
-git svn info		# 10474
+git svn info		# 10479
 git status
 git push origin
 
