@@ -58,3 +58,17 @@ Added CB custom var of CB_OBJ to help change.
 Added "$(CB_OBJ)/include" to include search paths
 Added "-Winvalid-pch" if it was missing.
 
+
+
+CodeBlocks.cbp
+cb_share_config.cbp
+cb_koders.cbp
+DevPakPlugin.cbp
+help-plugin.cbp
+Exporter.cbp
+SpellChecker.cbp
+ToolsPlus.cbp
+wxContribItems.cbp
+wxSmith.cbp
+wxSmithAui.cbp
+wxsSmithPlot.cbp
