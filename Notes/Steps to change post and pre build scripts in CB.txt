@@ -65,6 +65,18 @@ exchndl_fix
 "Delete pre-build step in src target in CB windows core projects"
 Added library search of "exchndl\*\lib" before "devel*" in src target in CB windows core projects.
 
+
+CodeBlocks_wx30_64.cbp
+cb_share_config_wx30_64.cbp
+cb_koders_wx30_64.cbp
+DevPakPlugin_wx30_64.cbp
+help-plugin_wx30_64.cbp
+RegExTestbed_wx30_64.cbp
+Exporter_wx30_64.cbp
+SpellChecker_wx30_64.cbp
+wxSmith_wx30_64.cbp
+wxContribItems_wx30v.cbp
+
 CodeBlocks_wx30.cbp
 cb_share_config_wx30.cbp
 cb_koders_wx30.cbp
