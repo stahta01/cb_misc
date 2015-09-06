@@ -36,3 +36,35 @@ lib
     |-- libsqstdlib.a
     |-- libsquirrel.a
     `-- libwxscintilla_cb.a
+
+lib30
+|-- base
+|   `-- libtxml.a
+|-- libcodeblocks.a
+|-- libwxchartctrl.a
+|-- libwxcustombutton.a
+|-- libwxflatnotebook.a
+|-- libwximagepanel.a
+|-- libwxkwic.a
+|-- libwxled.a
+|-- libwxsmithlib.a
+|-- libwxspeedbutton.a
+|-- plugins
+|   |-- compilergcc
+|   |   `-- libdepslib.a
+|   `-- contrib
+|       |-- SpellChecker
+|       |   |-- libhunspell.a
+|       |   `-- libwxSpellChecker.a
+|       |-- devpak_plugin
+|       |   `-- libbz2.a
+|       |-- help_plugin
+|       |   |-- libbzip2.a
+|       |   `-- libz.a
+|       `-- source_exporter
+|           `-- libwxPdfDocument.a
+`-- sdk
+    |-- libsqplus.a
+    |-- libsqstdlib.a
+    |-- libsquirrel.a
+    `-- libwxscintilla_cb.a
