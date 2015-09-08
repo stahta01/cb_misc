@@ -66,36 +66,33 @@ src/lib30
 5 directories, 21 files
 
 
-lib30_64
-|-- base
-|   `-- libtxml.a
+$ tree src/lib30_64
+src/lib30_64
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   `-- source_exporter
+|       `-- libwxPdfDocument.a
 |-- libcodeblocks.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
 |-- libwxchartctrl.a
 |-- libwxcustombutton.a
 |-- libwxflatnotebook.a
 |-- libwximagepanel.a
 |-- libwxkwic.a
 |-- libwxled.a
+|-- libwxscintilla_cb.a
 |-- libwxsmithlib.a
-|-- libwxspeedbutton.a
-|-- plugins
-|   |-- compilergcc
-|   |   `-- libdepslib.a
-|   `-- contrib
-|       |-- SpellChecker
-|       |   |-- libhunspell.a
-|       |   `-- libwxSpellChecker.a
-|       |-- devpak_plugin
-|       |   `-- libbz2.a
-|       |-- help_plugin
-|       |   |-- libbzip2.a
-|       |   `-- libz.a
-|       `-- source_exporter
-|           `-- libwxPdfDocument.a
-`-- sdk
-    |-- libsqplus.a
-    |-- libsqstdlib.a
-    |-- libsquirrel.a
-    `-- libwxscintilla_cb.a
+`-- libwxspeedbutton.a
 
-9 directories, 21 files
+5 directories, 21 files
