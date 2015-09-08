@@ -1,7 +1,16 @@
 lib
-|-- base
-|   `-- libtxml.a
+|-- libMathPlot.a
+|-- libbz2.a
+|-- libbzip2.a
 |-- libcodeblocks.a
+|-- libdepslib.a
+|-- libhunspell.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxPdfDocument.a
+|-- libwxSpellChecker.a
 |-- libwxchartctrl.a
 |-- libwxcustombutton.a
 |-- libwxflatnotebook.a
@@ -9,67 +18,39 @@ lib
 |-- libwxkwic.a
 |-- libwxled.a
 |-- libwxpropgrid.a
+|-- libwxscintilla_cb.a
 |-- libwxsmithlib.a
 |-- libwxspeedbutton.a
 |-- libwxtreelist.a
-|-- plugins
-|   |-- compilergcc
-|   |   `-- libdepslib.a
-|   `-- contrib
-|       |-- SpellChecker
-|       |   |-- libhunspell.a
-|       |   `-- libwxSpellChecker.a
-|       |-- devpak_plugin
-|       |   `-- libbz2.a
-|       |-- help_plugin
-|       |   |-- libbzip2.a
-|       |   `-- libz.a
-|       |-- source_exporter
-|       |   `-- libwxPdfDocument.a
-|       `-- wxSmithPlot
-|           `-- libMathPlot.a
-`-- sdk
-    |-- libsqplus.a
-    |-- libsqstdlib.a
-    |-- libsquirrel.a
-    `-- libwxscintilla_cb.a
+`-- libz.a
 
-10 directories, 24 files
+0 directories, 24 files
 
 
 lib30
-|-- base
-|   `-- libtxml.a
+|-- libbz2.a
+|-- libbzip2.a
 |-- libcodeblocks.a
+|-- libdepslib30.a
+|-- libhunspell.a
+|-- libsqplus30.a
+|-- libsqstdlib30.a
+|-- libsquirrel30.a
+|-- libtxml30.a
+|-- libwxPdfDocument.a
+|-- libwxSpellChecker.a
 |-- libwxchartctrl.a
 |-- libwxcustombutton.a
 |-- libwxflatnotebook.a
 |-- libwximagepanel.a
 |-- libwxkwic.a
 |-- libwxled.a
+|-- libwxscintilla_cb.a
 |-- libwxsmithlib.a
 |-- libwxspeedbutton.a
-|-- plugins
-|   |-- compilergcc
-|   |   `-- libdepslib.a
-|   `-- contrib
-|       |-- SpellChecker
-|       |   |-- libhunspell.a
-|       |   `-- libwxSpellChecker.a
-|       |-- devpak_plugin
-|       |   `-- libbz2.a
-|       |-- help_plugin
-|       |   |-- libbzip2.a
-|       |   `-- libz.a
-|       `-- source_exporter
-|           `-- libwxPdfDocument.a
-`-- sdk
-    |-- libsqplus.a
-    |-- libsqstdlib.a
-    |-- libsquirrel.a
-    `-- libwxscintilla_cb.a
+`-- libz.a
 
-9 directories, 21 files
+0 directories, 21 files
 
 
 lib30_64
