@@ -1,4 +1,4 @@
-From 308490df586d49e28a47f4eded40bae066b584fb Mon Sep 17 00:00:00 2001
+From 9f96e2b3ade2bf3ae188f9df4fc760f0f02479d4 Mon Sep 17 00:00:00 2001
 From: Tim Stahlhut <tim.stahlhut@gmail.com>
 Date: Fri, 4 Sep 2015 15:23:28 -0400
 Subject: [PATCH] * cbp: Added lib folders to some CB projects. (Thanks
@@ -10,7 +10,7 @@ Removed some unneeded libs.
 ---
  src/CodeBlocks.cbp                                 | 60 +++++++++----------
  src/CodeBlocks_wx30.cbp                            | 56 +++++++++---------
- src/CodeBlocks_wx30_64.cbp                         | 69 +++++++++++-----------
+ src/CodeBlocks_wx30_64.cbp                         | 68 +++++++++++-----------
  src/plugins/contrib/SpellChecker/SpellChecker.cbp  |  5 +-
  .../contrib/SpellChecker/SpellChecker_wx30.cbp     |  5 +-
  .../contrib/SpellChecker/SpellChecker_wx30_64.cbp  |  5 +-
@@ -40,7 +40,7 @@ Removed some unneeded libs.
  src/tools/cb_share_config/cb_share_config.cbp      |  2 +-
  src/tools/cb_share_config/cb_share_config_wx30.cbp |  2 +-
  .../cb_share_config/cb_share_config_wx30_64.cbp    |  4 +-
- 32 files changed, 170 insertions(+), 167 deletions(-)
+ 32 files changed, 169 insertions(+), 167 deletions(-)
 
 diff --git a/src/CodeBlocks.cbp b/src/CodeBlocks.cbp
 index 6b8b55a..dfa3bc6 100644
@@ -544,7 +544,7 @@ index 3f63122..0857d1b 100644
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
 diff --git a/src/CodeBlocks_wx30_64.cbp b/src/CodeBlocks_wx30_64.cbp
-index afea144..ea0b0b6 100644
+index afea144..481b8a4 100644
 --- a/src/CodeBlocks_wx30_64.cbp
 +++ b/src/CodeBlocks_wx30_64.cbp
 @@ -7,7 +7,7 @@
@@ -552,7 +552,7 @@ index afea144..ea0b0b6 100644
  		<Build>
  			<Target title="tinyXML">
 -				<Option output="base/tinyxml/txml30_64" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30_64/base/txml" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30_64/txml" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30_64" />
  				<Option type="2" />
@@ -563,7 +563,7 @@ index afea144..ea0b0b6 100644
 -					<Add library="txml30_64" />
 -					<Add directory="base/tinyxml" />
 +					<Add library="txml" />
-+					<Add directory="lib30_64/base" />
++					<Add directory="lib30_64" />
  				</Linker>
  			</Target>
  			<Target title="ConsoleRunner">
@@ -572,7 +572,7 @@ index afea144..ea0b0b6 100644
  			</Target>
  			<Target title="Squirrel">
 -				<Option output="sdk/scripting/lib/squirrel30_64" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30_64/sdk/squirrel" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30_64/squirrel" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30_64" />
  				<Option type="2" />
@@ -581,11 +581,11 @@ index afea144..ea0b0b6 100644
  			</Target>
  			<Target title="Squirrel std lib">
 -				<Option output="sdk/scripting/lib/sqstdlib30_64" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30_64/sdk/sqstdlib" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30_64/sqstdlib" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30_64" />
 -				<Option external_deps="sdk/scripting/lib/libsquirrel30_64.a;" />
-+				<Option external_deps="lib30_64/sdk/libsquirrel.a;" />
++				<Option external_deps="lib30_64/libsquirrel.a;" />
  				<Option type="2" />
  				<Option compiler="gcc" />
  				<Compiler>
@@ -594,11 +594,11 @@ index afea144..ea0b0b6 100644
  			</Target>
  			<Target title="SqPlus">
 -				<Option output="sdk/scripting/lib/sqplus30_64" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30_64/sdk/sqplus" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30_64/sqplus" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30_64" />
 -				<Option external_deps="sdk/scripting/lib/libsquirrel30_64.a;sdk/scripting/lib/libsqstdlib30_64.a;" />
-+				<Option external_deps="lib30_64/sdk/libsquirrel.a;lib30_64/sdk/libsqstdlib.a;" />
++				<Option external_deps="lib30_64/libsquirrel.a;lib30_64/libsqstdlib.a;" />
  				<Option type="2" />
  				<Option compiler="gcc" />
  				<Compiler>
@@ -607,7 +607,7 @@ index afea144..ea0b0b6 100644
  			</Target>
  			<Target title="scintilla">
 -				<Option output="devel30_64/wxscintilla_cb" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30_64/sdk/wxscintilla_cb" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30_64/wxscintilla_cb" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30_64" />
  				<Option type="2" />
@@ -620,11 +620,11 @@ index afea144..ea0b0b6 100644
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
 -				<Option external_deps="base/tinyxml/libtxml30_64.a;sdk/scripting/lib/libsquirrel30_64.a;sdk/scripting/lib/libsqstdlib30_64.a;sdk/scripting/lib/libsqplus30_64.a;devel30_64/libwxscintilla_cb.a;" />
-+				<Option external_deps="lib30_64/base/libtxml.a;lib30_64/sdk/libsquirrel.a;lib30_64/sdk/libsqstdlib.a;lib30_64/sdk/libsqplus.a;lib30_64/sdk/libwxscintilla_cb.a;" />
++				<Option external_deps="lib30_64/libtxml.a;lib30_64/libsquirrel.a;lib30_64/libsqstdlib.a;lib30_64/libsqplus.a;lib30_64/libwxscintilla_cb.a;" />
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --verbose -p debug" />
-@@ -141,14 +141,15 @@
+@@ -141,14 +141,14 @@
  					<Add option="-Wl,--enable-auto-import" />
  					<Add option="-Wl,--no-undefined" />
  					<Add library="shfolder" />
@@ -638,14 +638,13 @@ index afea144..ea0b0b6 100644
 +					<Add library="sqstdlib" />
 +					<Add library="squirrel" />
  					<Add library="gdi32" />
-+					<Add directory="lib30_64/base" />
-+					<Add directory="lib30_64/sdk" />
++					<Add directory="lib30_64" />
  					<Add directory="devel30_64" />
 -					<Add directory="sdk/scripting/lib" />
  				</Linker>
  				<ExtraCommands>
  					<Add before="build_tools/autorevision/autorevision30_64 +wx +int +t . include/autorevision.h" />
-@@ -162,7 +163,7 @@
+@@ -162,7 +162,7 @@
  				<Option output="devel30_64/codeblocks" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -654,7 +653,7 @@ index afea144..ea0b0b6 100644
  				<Option type="0" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -218,7 +219,7 @@
+@@ -218,7 +218,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/abbreviations" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -663,7 +662,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -252,7 +253,7 @@
+@@ -252,7 +252,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/astyle" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -672,7 +671,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -285,7 +286,7 @@
+@@ -285,7 +285,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/autosave" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -681,25 +680,25 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -313,7 +314,7 @@
+@@ -313,7 +313,7 @@
  				</ExtraCommands>
  			</Target>
  			<Target title="Compiler depslib">
 -				<Option output="plugins/compilergcc/depslib/depslib30_64" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30_64/plugins/compilergcc/depslib" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30_64/depslib" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30_64" />
  				<Option type="2" />
-@@ -330,7 +331,7 @@
+@@ -330,7 +330,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/compiler" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
 -				<Option external_deps="devel30_64/libcodeblocks.a;plugins/compilergcc/depslib/libdepslib30_64.a;" />
-+				<Option external_deps="lib30_64/libcodeblocks.a;lib30_64/plugins/compilergcc/libdepslib.a;" />
++				<Option external_deps="lib30_64/libcodeblocks.a;lib30_64/libdepslib.a;" />
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -352,9 +353,9 @@
+@@ -352,9 +352,9 @@
  					<Add option="-mthreads" />
  					<Add library="codeblocks" />
  					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
@@ -707,11 +706,11 @@ index afea144..ea0b0b6 100644
 +					<Add library="depslib" />
  					<Add directory="devel30_64" />
 -					<Add directory="plugins/compilergcc/depslib" />
-+					<Add directory="lib30_64/plugins/compilergcc" />
++					<Add directory="lib30_64" />
  				</Linker>
  				<ExtraCommands>
  					<Add after="cmd /c if not exist devel30_64\share\CodeBlocks mkdir devel30_64\share\CodeBlocks" />
-@@ -369,7 +370,7 @@
+@@ -369,7 +369,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/debugger" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -720,7 +719,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -402,7 +403,7 @@
+@@ -402,7 +402,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/codecompletion" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -729,7 +728,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -440,7 +441,7 @@
+@@ -440,7 +440,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/classwizard" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -738,7 +737,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -471,7 +472,7 @@
+@@ -471,7 +471,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/defaultmimehandler" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -747,7 +746,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -502,7 +503,7 @@
+@@ -502,7 +502,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/OccurrencesHighlighting" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -756,7 +755,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -533,7 +534,7 @@
+@@ -533,7 +533,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/openfileslist" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -765,7 +764,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -564,7 +565,7 @@
+@@ -564,7 +564,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/projectsimporter" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -774,7 +773,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -601,7 +602,7 @@
+@@ -601,7 +601,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/scriptedwizard" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -783,7 +782,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -634,7 +635,7 @@
+@@ -634,7 +634,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/todo" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -792,7 +791,7 @@ index afea144..ea0b0b6 100644
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -671,7 +672,7 @@
+@@ -671,7 +671,7 @@
  				<Option output="devel30_64/share/CodeBlocks/plugins/xpmanifest" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="devel30_64" />
  				<Option object_output=".objs30_64" />
@@ -862,7 +861,7 @@ index 446189c..7c7d2c6 100644
  					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
  				</Linker>
 diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
-index 36597d4..17943b5 100644
+index 36597d4..2d62842 100644
 --- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
 +++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
 @@ -8,7 +8,7 @@
@@ -870,7 +869,7 @@ index 36597d4..17943b5 100644
  		<Build>
  			<Target title="hunspell">
 -				<Option output="../../../devel30_64/hunspell" prefix_auto="1" extension_auto="1" />
-+				<Option output="../../../lib30_64/plugins/contrib/SpellChecker/hunspell" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../lib30_64/contrib/SpellChecker/hunspell" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30_64/plugins/contrib/SpellChecker/hunspell" />
  				<Option type="2" />
@@ -879,7 +878,7 @@ index 36597d4..17943b5 100644
  			</Target>
  			<Target title="wxSpellChecker">
 -				<Option output="../../../devel30_64/wxSpellChecker" prefix_auto="1" extension_auto="1" />
-+				<Option output="../../../lib30_64/plugins/contrib/SpellChecker/wxSpellChecker" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../lib30_64/contrib/SpellChecker/wxSpellChecker" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30_64/plugins/contrib/SpellChecker/wxSpellChecker" />
  				<Option type="2" />
@@ -887,7 +886,7 @@ index 36597d4..17943b5 100644
  					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add directory="../../../devel30_64" />
  					<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)" />
-+					<Add directory="../../../lib30_64/plugins/contrib/SpellChecker" />
++					<Add directory="../../../lib30_64/contrib/SpellChecker" />
  				</Linker>
  				<ExtraCommands>
  					<Add after="cmd /c if not exist ..\..\..\devel30_64\share\CodeBlocks\SpellChecker mkdir ..\..\..\devel30_64\share\CodeBlocks\SpellChecker" />
@@ -1009,7 +1008,7 @@ index d1587c0..db7e802 100644
  		</Linker>
  		<Unit filename="bzip2/blocksort.c">
 diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
-index 7f43620..85a66fa 100644
+index 7f43620..a4a80d5 100644
 --- a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
 +++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
 @@ -8,7 +8,7 @@
@@ -1017,25 +1016,25 @@ index 7f43620..85a66fa 100644
  		<Build>
  			<Target title="libbz2">
 -				<Option output="bzip2/libbz2_64.a" prefix_auto="0" extension_auto="0" />
-+				<Option output="../../../lib30_64/plugins/contrib/devpak_plugin/libbz2.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib30_64/contrib/devpak_plugin/libbz2.a" prefix_auto="0" extension_auto="0" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30_64/plugins/contrib/devpak_plugin" />
  				<Option type="2" />
-@@ -46,7 +46,7 @@
+@@ -46,7 +46,8 @@
  				</Compiler>
  				<Linker>
  					<Add option="-mthreads" />
 -					<Add library="bz2_64" />
 +					<Add library="bz2" />
++					<Add directory="../../../lib30_64/contrib/devpak_plugin" />
  					<Add directory="../../../devel30_64" />
  				</Linker>
  				<ExtraCommands>
-@@ -75,7 +75,7 @@
+@@ -75,7 +76,6 @@
  			<Add option="-Wl,--enable-auto-import" />
  			<Add library="codeblocks" />
  			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
 -			<Add directory="bzip2" />
-+			<Add directory="../../../lib30_64/plugins/contrib/devpak_plugin" />
  			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)" />
  		</Linker>
  		<Unit filename="bzip2/blocksort.c">
@@ -1108,7 +1107,7 @@ index 54a8521..669f4e7 100644
  				<ExtraCommands>
  					<Add after="zip -j9 ..\..\..\devel30\share\CodeBlocks\help_plugin.zip manifest.xml *.xrc *.png" />
 diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
-index a58b339..dfd7019 100644
+index a58b339..9ebb6df 100644
 --- a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
 +++ b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
 @@ -8,7 +8,7 @@
@@ -1116,7 +1115,7 @@ index a58b339..dfd7019 100644
  		<Build>
  			<Target title="bzip2">
 -				<Option output="bzip2/libbzip2_64.a" prefix_auto="0" extension_auto="0" />
-+				<Option output="../../../lib30_64/plugins/contrib/help_plugin/libbzip2.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib30_64/contrib/help_plugin/libbzip2.a" prefix_auto="0" extension_auto="0" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30_64/plugins/contrib/help_plugin/bzip2" />
  				<Option type="2" />
@@ -1125,7 +1124,7 @@ index a58b339..dfd7019 100644
  			</Target>
  			<Target title="zlib">
 -				<Option output="zlib/libz_64.a" prefix_auto="0" extension_auto="0" />
-+				<Option output="../../../lib30_64/plugins/contrib/help_plugin/libz.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib30_64/contrib/help_plugin/libz.a" prefix_auto="0" extension_auto="0" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30_64/plugins/contrib/help_plugin/zlib" />
  				<Option type="2" />
@@ -1137,7 +1136,7 @@ index a58b339..dfd7019 100644
 -					<Add library="zlib\libz_64.a" />
 +					<Add library="libbzip2.a" />
 +					<Add library="libz.a" />
-+					<Add directory="../../../lib30_64/plugins/contrib/help_plugin" />
++					<Add directory="../../../lib30_64/contrib/help_plugin" />
  				</Linker>
  				<ExtraCommands>
  					<Add after="zip -j9 ..\..\..\devel30_64\share\CodeBlocks\help_plugin.zip manifest.xml *.xrc *.png" />
@@ -1245,7 +1244,7 @@ index 98abb1a..9f69674 100644
  				<ExtraCommands>
  					<Add after="zip -j9 ..\..\..\devel30\share\CodeBlocks\Exporter.zip manifest.xml" />
 diff --git a/src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp b/src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp
-index 961b603..dbb4bd0 100644
+index 961b603..5cfac51 100644
 --- a/src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp
 +++ b/src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp
 @@ -8,7 +8,7 @@
@@ -1253,7 +1252,7 @@ index 961b603..dbb4bd0 100644
  		<Build>
  			<Target title="wxPdfDocument">
 -				<Option output="wxPdfDocument/lib30_64/wxPdfDocument" prefix_auto="1" extension_auto="1" />
-+				<Option output="../../../lib30_64/plugins/contrib/source_exporter/wxPdfDocument" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../lib30_64/contrib/source_exporter/wxPdfDocument" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30_64/plugins/contrib/source_exporter" />
  				<Option type="2" />
@@ -1262,7 +1261,7 @@ index 961b603..dbb4bd0 100644
  				<Option output="../../../devel30_64/share/CodeBlocks/plugins/Exporter" prefix_auto="0" extension_auto="1" />
  				<Option object_output="../../../.objs30_64/plugins/contrib/source_exporter" />
 -				<Option external_deps="wxPdfDocument/lib30_64/libwxPdfDocument.a;" />
-+				<Option external_deps="../../../lib30_64/plugins/contrib/source_exporter/libwxPdfDocument.a;" />
++				<Option external_deps="../../../lib30_64/contrib/source_exporter/libwxPdfDocument.a;" />
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
@@ -1271,7 +1270,7 @@ index 961b603..dbb4bd0 100644
  					<Add library="gdi32" />
  					<Add directory="../../../devel30_64" />
 -					<Add directory="wxPdfDocument/lib30_64" />
-+					<Add directory="../../../lib30_64/plugins/contrib/source_exporter" />
++					<Add directory="../../../lib30_64/contrib/source_exporter" />
  				</Linker>
  				<ExtraCommands>
  					<Add after="zip -j9 ..\..\..\devel30_64\share\CodeBlocks\Exporter.zip manifest.xml" />
@@ -1594,7 +1593,7 @@ index 23a0b97..14ef096 100644
  		<Unit filename="app.cpp" />
  		<Unit filename="app.h" />
 diff --git a/src/tools/cb_share_config/cb_share_config_wx30_64.cbp b/src/tools/cb_share_config/cb_share_config_wx30_64.cbp
-index b093e3e..4dd854a 100644
+index b093e3e..9c4d1b5 100644
 --- a/src/tools/cb_share_config/cb_share_config_wx30_64.cbp
 +++ b/src/tools/cb_share_config/cb_share_config_wx30_64.cbp
 @@ -46,10 +46,10 @@
@@ -1606,10 +1605,10 @@ index b093e3e..4dd854a 100644
  			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)" />
 -			<Add directory="../../base/tinyxml" />
-+			<Add directory="../../lib30_64/base" />
++			<Add directory="../../lib30_64" />
  		</Linker>
  		<Unit filename="app.cpp" />
  		<Unit filename="app.h" />
 -- 
-1.9.5.msysgit.1
+2.5.1.windows.1
 
