@@ -1,16 +1,24 @@
-lib
-|-- libMathPlot.a
-|-- libbz2.a
-|-- libbzip2.a
+$ tree src/lib
+src/lib
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   |-- source_exporter
+|   |   `-- libwxPdfDocument.a
+|   `-- wxSmithPlot
+|       `-- libMathPlot.a
 |-- libcodeblocks.a
 |-- libdepslib.a
-|-- libhunspell.a
 |-- libsqplus.a
 |-- libsqstdlib.a
 |-- libsquirrel.a
 |-- libtxml.a
-|-- libwxPdfDocument.a
-|-- libwxSpellChecker.a
 |-- libwxchartctrl.a
 |-- libwxcustombutton.a
 |-- libwxflatnotebook.a
@@ -21,24 +29,30 @@ lib
 |-- libwxscintilla_cb.a
 |-- libwxsmithlib.a
 |-- libwxspeedbutton.a
-|-- libwxtreelist.a
-`-- libz.a
+`-- libwxtreelist.a
 
-0 directories, 24 files
+6 directories, 24 files
 
 
-lib30
-|-- libbz2.a
-|-- libbzip2.a
+$ tree src/lib30
+src/lib30
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   `-- source_exporter
+|       `-- libwxPdfDocument.a
 |-- libcodeblocks.a
-|-- libdepslib30.a
-|-- libhunspell.a
-|-- libsqplus30.a
-|-- libsqstdlib30.a
-|-- libsquirrel30.a
-|-- libtxml30.a
-|-- libwxPdfDocument.a
-|-- libwxSpellChecker.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
 |-- libwxchartctrl.a
 |-- libwxcustombutton.a
 |-- libwxflatnotebook.a
@@ -47,10 +61,9 @@ lib30
 |-- libwxled.a
 |-- libwxscintilla_cb.a
 |-- libwxsmithlib.a
-|-- libwxspeedbutton.a
-`-- libz.a
+`-- libwxspeedbutton.a
 
-0 directories, 21 files
+5 directories, 21 files
 
 
 lib30_64
