@@ -1,0 +1,14 @@
+libdepslib30.a
+libsqplus30.a
+libsqstdlib30.a
+libsquirrel30.a
+libtxml30.a
+
+libbz2_64.a
+libbzip2_64.a
+libdepslib30_64.a
+libsqplus30_64.a
+libsqstdlib30_64.a
+libsquirrel30_64.a
+libtxml30_64.a
+libz_64.a
