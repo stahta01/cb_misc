@@ -1,4 +1,4 @@
-From 736d131bed9dd981f7a40df04168013ea6f3864b Mon Sep 17 00:00:00 2001
+From 308490df586d49e28a47f4eded40bae066b584fb Mon Sep 17 00:00:00 2001
 From: Tim Stahlhut <tim.stahlhut@gmail.com>
 Date: Fri, 4 Sep 2015 15:23:28 -0400
 Subject: [PATCH] * cbp: Added lib folders to some CB projects. (Thanks
@@ -9,7 +9,7 @@ Removed some unneeded search folders.
 Removed some unneeded libs.
 ---
  src/CodeBlocks.cbp                                 | 60 +++++++++----------
- src/CodeBlocks_wx30.cbp                            | 68 ++++++++++-----------
+ src/CodeBlocks_wx30.cbp                            | 56 +++++++++---------
  src/CodeBlocks_wx30_64.cbp                         | 69 +++++++++++-----------
  src/plugins/contrib/SpellChecker/SpellChecker.cbp  |  5 +-
  .../contrib/SpellChecker/SpellChecker_wx30.cbp     |  5 +-
@@ -38,9 +38,9 @@ Removed some unneeded libs.
  src/plugins/contrib/wxSmith/wxSmith_wx30_64.cbp    |  2 +-
  src/plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp   |  3 +-
  src/tools/cb_share_config/cb_share_config.cbp      |  2 +-
- src/tools/cb_share_config/cb_share_config_wx30.cbp |  4 +-
+ src/tools/cb_share_config/cb_share_config_wx30.cbp |  2 +-
  .../cb_share_config/cb_share_config_wx30_64.cbp    |  4 +-
- 32 files changed, 177 insertions(+), 174 deletions(-)
+ 32 files changed, 170 insertions(+), 167 deletions(-)
 
 diff --git a/src/CodeBlocks.cbp b/src/CodeBlocks.cbp
 index 6b8b55a..dfa3bc6 100644
@@ -301,7 +301,7 @@ index 6b8b55a..dfa3bc6 100644
  		</Linker>
  		<Unit filename="base/tinyxml/tinystr.cpp">
 diff --git a/src/CodeBlocks_wx30.cbp b/src/CodeBlocks_wx30.cbp
-index 3f63122..f96258c 100644
+index 3f63122..0857d1b 100644
 --- a/src/CodeBlocks_wx30.cbp
 +++ b/src/CodeBlocks_wx30.cbp
 @@ -7,7 +7,7 @@
@@ -309,17 +309,15 @@ index 3f63122..f96258c 100644
  		<Build>
  			<Target title="tinyXML">
 -				<Option output="base/tinyxml/txml" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30/txml30" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30/txml" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30" />
  				<Option type="2" />
-@@ -27,8 +27,8 @@
- 				</Compiler>
+@@ -28,7 +28,7 @@
  				<Linker>
  					<Add option="-s" />
--					<Add library="txml" />
+ 					<Add library="txml" />
 -					<Add directory="base/tinyxml" />
-+					<Add library="txml30" />
 +					<Add directory="lib30" />
  				</Linker>
  			</Target>
@@ -329,7 +327,7 @@ index 3f63122..f96258c 100644
  			</Target>
  			<Target title="Squirrel">
 -				<Option output="sdk/scripting/lib/squirrel" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30/squirrel30" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30/squirrel" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30" />
  				<Option type="2" />
@@ -338,11 +336,11 @@ index 3f63122..f96258c 100644
  			</Target>
  			<Target title="Squirrel std lib">
 -				<Option output="sdk/scripting/lib/sqstdlib" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30/sqstdlib30" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30/sqstdlib" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30" />
 -				<Option external_deps="sdk/scripting/lib/libsquirrel.a;" />
-+				<Option external_deps="lib30/libsquirrel30.a;" />
++				<Option external_deps="lib30/libsquirrel.a;" />
  				<Option type="2" />
  				<Option compiler="gcc" />
  				<Compiler>
@@ -351,11 +349,11 @@ index 3f63122..f96258c 100644
  			</Target>
  			<Target title="SqPlus">
 -				<Option output="sdk/scripting/lib/sqplus" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30/sqplus30" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30/sqplus" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30" />
 -				<Option external_deps="sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;" />
-+				<Option external_deps="lib30/libsquirrel30.a;lib30/libsqstdlib30.a;" />
++				<Option external_deps="lib30/libsquirrel.a;lib30/libsqstdlib.a;" />
  				<Option type="2" />
  				<Option compiler="gcc" />
  				<Compiler>
@@ -377,23 +375,13 @@ index 3f63122..f96258c 100644
  				<Option working_dir="devel30" />
  				<Option object_output=".objs30" />
 -				<Option external_deps="base/tinyxml/libtxml.a;sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;sdk/scripting/lib/libsqplus.a;devel30/libwxscintilla_cb.a;" />
-+				<Option external_deps="lib30/libtxml30.a;lib30/libsquirrel30.a;lib30/libsqstdlib30.a;lib30/libsqplus30.a;lib30/libwxscintilla_cb.a;" />
++				<Option external_deps="lib30/libtxml.a;lib30/libsquirrel.a;lib30/libsqstdlib.a;lib30/libsqplus.a;lib30/libwxscintilla_cb.a;" />
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --verbose -p debug" />
-@@ -141,14 +141,14 @@
- 					<Add option="-Wl,--enable-auto-import" />
- 					<Add option="-Wl,--no-undefined" />
- 					<Add library="shfolder" />
--					<Add library="txml" />
-+					<Add library="txml30" />
- 					<Add library="wxscintilla_cb" />
--					<Add library="sqplus" />
--					<Add library="sqstdlib" />
--					<Add library="squirrel" />
-+					<Add library="sqplus30" />
-+					<Add library="sqstdlib30" />
-+					<Add library="squirrel30" />
+@@ -147,8 +147,8 @@
+ 					<Add library="sqstdlib" />
+ 					<Add library="squirrel" />
  					<Add library="gdi32" />
 +					<Add directory="lib30" />
  					<Add directory="devel30" />
@@ -442,7 +430,7 @@ index 3f63122..f96258c 100644
  			</Target>
  			<Target title="Compiler depslib">
 -				<Option output="plugins/compilergcc/depslib/depslib" prefix_auto="1" extension_auto="1" />
-+				<Option output="lib30/depslib30" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30/depslib" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output=".objs30" />
  				<Option type="2" />
@@ -451,16 +439,14 @@ index 3f63122..f96258c 100644
  				<Option working_dir="devel30" />
  				<Option object_output=".objs30" />
 -				<Option external_deps="devel30/libcodeblocks.a;plugins/compilergcc/depslib/libdepslib.a;" />
-+				<Option external_deps="lib30/libcodeblocks.a;lib30/libdepslib30.a;" />
++				<Option external_deps="lib30/libcodeblocks.a;lib30/libdepslib.a;" />
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
-@@ -352,9 +352,9 @@
- 					<Add option="-mthreads" />
+@@ -353,8 +353,8 @@
  					<Add library="codeblocks" />
  					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
--					<Add library="depslib" />
-+					<Add library="depslib30" />
+ 					<Add library="depslib" />
 +					<Add directory="lib30" />
  					<Add directory="devel30" />
 -					<Add directory="plugins/compilergcc/depslib" />
@@ -846,7 +832,7 @@ index 241ae47..ae48302 100644
  					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
  				</Linker>
 diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
-index 446189c..439fd96 100644
+index 446189c..7c7d2c6 100644
 --- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
 +++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
 @@ -8,7 +8,7 @@
@@ -854,7 +840,7 @@ index 446189c..439fd96 100644
  		<Build>
  			<Target title="hunspell">
 -				<Option output="../../../devel30/hunspell" prefix_auto="1" extension_auto="1" />
-+				<Option output="../../../lib30/hunspell" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../lib30/contrib/SpellChecker/hunspell" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30/plugins/contrib/SpellChecker/hunspell" />
  				<Option type="2" />
@@ -863,7 +849,7 @@ index 446189c..439fd96 100644
  			</Target>
  			<Target title="wxSpellChecker">
 -				<Option output="../../../devel30/wxSpellChecker" prefix_auto="1" extension_auto="1" />
-+				<Option output="../../../lib30/wxSpellChecker" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../lib30/contrib/SpellChecker/wxSpellChecker" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30/plugins/contrib/SpellChecker/wxSpellChecker" />
  				<Option type="2" />
@@ -871,7 +857,7 @@ index 446189c..439fd96 100644
  					<Add library="hunspell" />
  					<Add library="codeblocks" />
  					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
-+					<Add directory="../../../lib30" />
++					<Add directory="../../../lib30/contrib/SpellChecker" />
  					<Add directory="../../../devel30" />
  					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
  				</Linker>
@@ -994,7 +980,7 @@ index a691278..433f320 100644
  		</Linker>
  		<Unit filename="bzip2/blocksort.c">
 diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
-index d1587c0..6ab5f6a 100644
+index d1587c0..db7e802 100644
 --- a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
 +++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
 @@ -8,7 +8,7 @@
@@ -1002,7 +988,7 @@ index d1587c0..6ab5f6a 100644
  		<Build>
  			<Target title="libbz2">
 -				<Option output="bzip2/libbz2.a" prefix_auto="0" extension_auto="0" />
-+				<Option output="../../../lib30/libbz2.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib30/contrib/devpak_plugin/libbz2.a" prefix_auto="0" extension_auto="0" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30/plugins/contrib/devpak_plugin" />
  				<Option type="2" />
@@ -1010,7 +996,7 @@ index d1587c0..6ab5f6a 100644
  				<Linker>
  					<Add option="-mthreads" />
  					<Add library="bz2" />
-+					<Add directory="../../../lib30" />
++					<Add directory="../../../lib30/contrib/devpak_plugin" />
  					<Add directory="../../../devel30" />
  				</Linker>
  				<ExtraCommands>
@@ -1088,7 +1074,7 @@ index 7015570..1b7197a 100644
  				<ExtraCommands>
  					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\help_plugin.zip manifest.xml *.xrc *.png" />
 diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
-index 54a8521..80c5f0c 100644
+index 54a8521..669f4e7 100644
 --- a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
 +++ b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
 @@ -8,7 +8,7 @@
@@ -1096,7 +1082,7 @@ index 54a8521..80c5f0c 100644
  		<Build>
  			<Target title="bzip2">
 -				<Option output="bzip2/libbzip2.a" prefix_auto="0" extension_auto="0" />
-+				<Option output="../../../lib30/libbzip2.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib30/contrib/help_plugin/libbzip2.a" prefix_auto="0" extension_auto="0" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30/plugins/contrib/help_plugin/bzip2" />
  				<Option type="2" />
@@ -1105,7 +1091,7 @@ index 54a8521..80c5f0c 100644
  			</Target>
  			<Target title="zlib">
 -				<Option output="zlib/libz.a" prefix_auto="0" extension_auto="0" />
-+				<Option output="../../../lib30/libz.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib30/contrib/help_plugin/libz.a" prefix_auto="0" extension_auto="0" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30/plugins/contrib/help_plugin/zlib" />
  				<Option type="2" />
@@ -1117,7 +1103,7 @@ index 54a8521..80c5f0c 100644
 -					<Add library="zlib\libz.a" />
 +					<Add library="libbzip2.a" />
 +					<Add library="libz.a" />
-+					<Add directory="../../../lib30" />
++					<Add directory="../../../lib30/contrib/help_plugin" />
  				</Linker>
  				<ExtraCommands>
  					<Add after="zip -j9 ..\..\..\devel30\share\CodeBlocks\help_plugin.zip manifest.xml *.xrc *.png" />
@@ -1227,7 +1213,7 @@ index 7d2dfe9..39c7b20 100644
  				<ExtraCommands>
  					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\Exporter.zip manifest.xml" />
 diff --git a/src/plugins/contrib/source_exporter/Exporter_wx30.cbp b/src/plugins/contrib/source_exporter/Exporter_wx30.cbp
-index 98abb1a..a9be6e3 100644
+index 98abb1a..9f69674 100644
 --- a/src/plugins/contrib/source_exporter/Exporter_wx30.cbp
 +++ b/src/plugins/contrib/source_exporter/Exporter_wx30.cbp
 @@ -8,7 +8,7 @@
@@ -1235,7 +1221,7 @@ index 98abb1a..a9be6e3 100644
  		<Build>
  			<Target title="wxPdfDocument">
 -				<Option output="wxPdfDocument/lib30/wxPdfDocument" prefix_auto="1" extension_auto="1" />
-+				<Option output="../../../lib30/wxPdfDocument" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../lib30/contrib/source_exporter/wxPdfDocument" prefix_auto="1" extension_auto="1" />
  				<Option working_dir="" />
  				<Option object_output="../../../.objs30/plugins/contrib/source_exporter" />
  				<Option type="2" />
@@ -1244,7 +1230,7 @@ index 98abb1a..a9be6e3 100644
  				<Option output="../../../devel30/share/CodeBlocks/plugins/Exporter" prefix_auto="0" extension_auto="1" />
  				<Option object_output="../../../.objs30/plugins/contrib/source_exporter" />
 -				<Option external_deps="wxPdfDocument/lib30/libwxPdfDocument.a;" />
-+				<Option external_deps="../../../lib30/libwxPdfDocument.a;" />
++				<Option external_deps="../../../lib30/contrib/source_exporter/libwxPdfDocument.a;" />
  				<Option type="3" />
  				<Option compiler="gcc" />
  				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
@@ -1252,7 +1238,7 @@ index 98abb1a..a9be6e3 100644
  					<Add library="wxPdfDocument" />
  					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
  					<Add library="gdi32" />
-+					<Add directory="../../../lib30" />
++					<Add directory="../../../lib30/contrib/source_exporter" />
  					<Add directory="../../../devel30" />
 -					<Add directory="wxPdfDocument/lib30" />
  				</Linker>
@@ -1595,15 +1581,11 @@ index 44881f1..5dada02 100644
  		<Unit filename="app.cpp" />
  		<Unit filename="app.h" />
 diff --git a/src/tools/cb_share_config/cb_share_config_wx30.cbp b/src/tools/cb_share_config/cb_share_config_wx30.cbp
-index 23a0b97..bf4eb97 100644
+index 23a0b97..14ef096 100644
 --- a/src/tools/cb_share_config/cb_share_config_wx30.cbp
 +++ b/src/tools/cb_share_config/cb_share_config_wx30.cbp
-@@ -43,10 +43,10 @@
- 		</ResourceCompiler>
- 		<Linker>
- 			<Add option="-mthreads" />
--			<Add library="txml" />
-+			<Add library="txml30" />
+@@ -46,7 +46,7 @@
+ 			<Add library="txml" />
  			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
  			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
 -			<Add directory="../../base/tinyxml" />
