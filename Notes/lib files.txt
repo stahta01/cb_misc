@@ -1,67 +1,70 @@
-$ tree src/lib
+# Upgraded from MSysGit 1.9.5 to "Git for windows" version 2.5.1.windows.1
+# Manually copied tree.exe from MSys2 installation to Git/usr/bin.
+
+$ "C:/Program Files/Git/usr/bin/tree.exe" src/lib
 src/lib
-|-- contrib
-|   |-- SpellChecker
-|   |   |-- libhunspell.a
-|   |   `-- libwxSpellChecker.a
-|   |-- devpak_plugin
-|   |   `-- libbz2.a
-|   |-- help_plugin
-|   |   |-- libbzip2.a
-|   |   `-- libz.a
-|   |-- source_exporter
-|   |   `-- libwxPdfDocument.a
-|   `-- wxSmithPlot
-|       `-- libMathPlot.a
-|-- libcodeblocks.a
-|-- libdepslib.a
-|-- libsqplus.a
-|-- libsqstdlib.a
-|-- libsquirrel.a
-|-- libtxml.a
-|-- libwxchartctrl.a
-|-- libwxcustombutton.a
-|-- libwxflatnotebook.a
-|-- libwximagepanel.a
-|-- libwxkwic.a
-|-- libwxled.a
-|-- libwxpropgrid.a
-|-- libwxscintilla_cb.a
-|-- libwxsmithlib.a
-|-- libwxspeedbutton.a
-`-- libwxtreelist.a
++-- contrib
+¦   +-- devpak_plugin
+¦   ¦   +-- libbz2.a
+¦   +-- help_plugin
+¦   ¦   +-- libbzip2.a
+¦   ¦   +-- libz.a
+¦   +-- source_exporter
+¦   ¦   +-- libwxPdfDocument.a
+¦   +-- SpellChecker
+¦   ¦   +-- libhunspell.a
+¦   ¦   +-- libwxSpellChecker.a
+¦   +-- wxSmithPlot
+¦       +-- libMathPlot.a
++-- libcodeblocks.a
++-- libdepslib.a
++-- libsqplus.a
++-- libsqstdlib.a
++-- libsquirrel.a
++-- libtxml.a
++-- libwxchartctrl.a
++-- libwxcustombutton.a
++-- libwxflatnotebook.a
++-- libwximagepanel.a
++-- libwxkwic.a
++-- libwxled.a
++-- libwxpropgrid.a
++-- libwxscintilla_cb.a
++-- libwxsmithlib.a
++-- libwxspeedbutton.a
++-- libwxtreelist.a
 
 6 directories, 24 files
 
 
-$ tree src/lib30
+$ "C:/Program Files/Git/usr/bin/tree.exe" src/lib30
 src/lib30
-|-- contrib
-|   |-- SpellChecker
-|   |   |-- libhunspell.a
-|   |   `-- libwxSpellChecker.a
-|   |-- devpak_plugin
-|   |   `-- libbz2.a
-|   |-- help_plugin
-|   |   |-- libbzip2.a
-|   |   `-- libz.a
-|   `-- source_exporter
-|       `-- libwxPdfDocument.a
-|-- libcodeblocks.a
-|-- libdepslib.a
-|-- libsqplus.a
-|-- libsqstdlib.a
-|-- libsquirrel.a
-|-- libtxml.a
-|-- libwxchartctrl.a
-|-- libwxcustombutton.a
-|-- libwxflatnotebook.a
-|-- libwximagepanel.a
-|-- libwxkwic.a
-|-- libwxled.a
-|-- libwxscintilla_cb.a
-|-- libwxsmithlib.a
-`-- libwxspeedbutton.a
++-- contrib
+¦   +-- devpak_plugin
+¦   ¦   +-- libbz2.a
+¦   +-- help_plugin
+¦   ¦   +-- libbzip2.a
+¦   ¦   +-- libz.a
+¦   +-- source_exporter
+¦   ¦   +-- libwxPdfDocument.a
+¦   +-- SpellChecker
+¦       +-- libhunspell.a
+¦       +-- libwxSpellChecker.a
++-- libcodeblocks.a
++-- libdepslib.a
++-- libsqplus.a
++-- libsqstdlib.a
++-- libsquirrel.a
++-- libtxml.a
++-- libwxchartctrl.a
++-- libwxcustombutton.a
++-- libwxflatnotebook.a
++-- libwximagepanel.a
++-- libwxkwic.a
++-- libwxled.a
++-- libwxscintilla_cb.a
++-- libwxsmithlib.a
++-- libwxspeedbutton.a
 
 5 directories, 21 files
 
