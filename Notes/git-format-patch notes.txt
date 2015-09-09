@@ -1,0 +1,40 @@
+git format-patch [-k] [(-o|--output-directory) <dir> | --stdout]
+                   [--no-thread | --thread[=<style>]]
+                   [(--attach|--inline)[=<boundary>] | --no-attach]
+                   [-s | --signoff]
+                   [--signature=<signature> | --no-signature]
+                   [-n | --numbered | -N | --no-numbered]
+                   [--start-number <n>] [--numbered-files]
+                   [--in-reply-to=Message-Id] [--suffix=.<sfx>]
+                   [--ignore-if-in-upstream]
+                   [--subject-prefix=Subject-Prefix] [(--reroll-count|-v) <n>]
+                   [--to=<email>] [--cc=<email>]
+                   [--[no-]cover-letter] [--quiet] [--notes[=<ref>]]
+                   [<common diff options>]
+                   [ <since> | <revision range> ]
+
+
+
+Extract three topmost commits from the current branch and format them as e-mailable patches:
+
+$ git format-patch -3
+
+
+
+--ignore-all-space   Ignore whitespace when comparing lines. This ignores differences even if one line has whitespace where the other line has none. 
+
+--minimal            Spend extra time to make sure the smallest possible diff is produced.
+
+--function-context   Show whole surrounding functions of changes.
+
+--no-numbered        Name output in [PATCH] format.
+
+git format-patch -2 --no-numbered --minimal --ignore-all-space 
+
+$ svn revert -R *
+
+patch  --forward  --strip=1 --input=../cb_misc-git/Patches/Git-am/0001-cbp-reformatted-some-CB-Windows-project-files.-Thank.patch
+patch  --forward  --strip=1 --input=../cb_misc-git/Patches/Git-am/0002-cbp-Added-lib-folders-to-some-CB-projects.-Thanks-st.patch
+
+
+git rebase -i  376af27a3dc53ec6e73e9c247626eb2c1c516cbb

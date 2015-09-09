@@ -58,3 +58,47 @@ Added CB custom var of CB_OBJ to help change.
 Added "$(CB_OBJ)/include" to include search paths
 Added "-Winvalid-pch" if it was missing.
 
+lib30\sdk\
+
+exchndl_fix
+
+"Delete pre-build step in src target in CB windows core projects"
+Added library search of "exchndl\*\lib" before "devel*" in src target in CB windows core projects.
+
+
+CodeBlocks_wx30_64.cbp
+cb_share_config_wx30_64.cbp
+cb_koders_wx30_64.cbp
+DevPakPlugin_wx30_64.cbp
+help-plugin_wx30_64.cbp
+RegExTestbed_wx30_64.cbp
+Exporter_wx30_64.cbp
+SpellChecker_wx30_64.cbp
+wxSmith_wx30_64.cbp
+wxContribItems_wx30v.cbp
+
+CodeBlocks_wx30.cbp
+cb_share_config_wx30.cbp
+cb_koders_wx30.cbp
+DevPakPlugin_wx30.cbp
+help-plugin_wx30.cbp
+RegExTestbed_wx30.cbp
+Exporter_wx30.cbp
+SpellChecker_wx30.cbp
+wxSmith_wx30.cbp
+wxContribItems_wx30.cbp
+
+CodeBlocks.cbp
+cb_share_config.cbp
+cb_koders.cbp
+DevPakPlugin.cbp
+help-plugin.cbp
+RegExTestbed.cbp
+Exporter.cbp
+SpellChecker.cbp
+ToolsPlus.cbp
+wxContribItems.cbp
+wxSmith.cbp
+wxSmithAui.cbp
+wxsSmithPlot.cbp
+

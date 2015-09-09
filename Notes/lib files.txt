@@ -1,0 +1,98 @@
+$ tree src/lib
+src/lib
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   |-- source_exporter
+|   |   `-- libwxPdfDocument.a
+|   `-- wxSmithPlot
+|       `-- libMathPlot.a
+|-- libcodeblocks.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxchartctrl.a
+|-- libwxcustombutton.a
+|-- libwxflatnotebook.a
+|-- libwximagepanel.a
+|-- libwxkwic.a
+|-- libwxled.a
+|-- libwxpropgrid.a
+|-- libwxscintilla_cb.a
+|-- libwxsmithlib.a
+|-- libwxspeedbutton.a
+`-- libwxtreelist.a
+
+6 directories, 24 files
+
+
+$ tree src/lib30
+src/lib30
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   `-- source_exporter
+|       `-- libwxPdfDocument.a
+|-- libcodeblocks.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxchartctrl.a
+|-- libwxcustombutton.a
+|-- libwxflatnotebook.a
+|-- libwximagepanel.a
+|-- libwxkwic.a
+|-- libwxled.a
+|-- libwxscintilla_cb.a
+|-- libwxsmithlib.a
+`-- libwxspeedbutton.a
+
+5 directories, 21 files
+
+
+$ tree src/lib30_64
+src/lib30_64
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   `-- source_exporter
+|       `-- libwxPdfDocument.a
+|-- libcodeblocks.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxchartctrl.a
+|-- libwxcustombutton.a
+|-- libwxflatnotebook.a
+|-- libwximagepanel.a
+|-- libwxkwic.a
+|-- libwxled.a
+|-- libwxscintilla_cb.a
+|-- libwxsmithlib.a
+`-- libwxspeedbutton.a
+
+5 directories, 21 files
