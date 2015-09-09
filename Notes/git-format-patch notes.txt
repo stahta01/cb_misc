@@ -36,5 +36,3 @@ $ svn revert -R *
 patch  --forward  --strip=1 --input=../cb_misc-git/Patches/Git-am/0001-cbp-reformatted-some-CB-Windows-project-files.-Thank.patch
 patch  --forward  --strip=1 --input=../cb_misc-git/Patches/Git-am/0002-cbp-Added-lib-folders-to-some-CB-projects.-Thanks-st.patch
 
-
-git rebase -i  376af27a3dc53ec6e73e9c247626eb2c1c516cbb
