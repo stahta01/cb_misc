@@ -5,21 +5,27 @@ These directions are to be followed on Linux (unlikely to work correctly on wind
 
 # Notes End
 
+
+
 cd ~/devel/version_control/codeblocks_svn_rebase-git
 
 git status
 git checkout master
 git status
+git remote -v
+git branch --set-upstream-to=origin/master
+git status
 git fetch origin
 git fetch upstream
-git svn info		# 10474
+git svn info		# 10479
 git pull --rebase origin
 git svn rebase
-git svn info		# 10479
+git svn info		# 10495
 git pull --rebase origin
-git svn info		# 10479
+git svn info		# 10495
 git status
 git push origin
+
 
 # checkout another branch from upstream
 git branch --all
@@ -31,4 +37,12 @@ git svn info		# 9503
 git status
 git push -u origin
 git status
+
+
+# Backup all branches 
+# git remote add backup https://stahta01@github.com/stahta01/codeblocks_backup.git
+git branch --list
+git push --all backup
+
+git push backup HEAD   # A handy way to push the current branch to the same name on the remote.
 
