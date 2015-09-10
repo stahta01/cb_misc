@@ -3,6 +3,8 @@
 #
 # Based on directions from http://trac.parrot.org/parrot/wiki/git-svn-tutorial
 # 
+# These steps failed to work with git version 2.5.1.windows.1
+#
 
 # I have found that line feed of lf works better than crlf for both windows and linux.
 git clone --config core.eol=lf --origin upstream https://stahta01@github.com/stahta01/codeblocks_svn_rebase.git codeblocks_svn_rebase-git
