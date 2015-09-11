@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="CodeBlocks Third-party libs">
+		<Project filename="CodeBlocks.cbp" />
+		<Project filename="CodeBlocks_wx30.cbp" />
+		<Project filename="tools/cb_share_config/cb_share_config.cbp" />
+		<Project filename="tools/cb_share_config/cb_share_config_wx30.cbp" />
+		<Project filename="plugins/contrib/help_plugin/help-plugin.cbp" />
+		<Project filename="plugins/contrib/help_plugin/help-plugin_wx30.cbp" />
+		<Project filename="plugins/contrib/SpellChecker/SpellChecker.cbp" />
+		<Project filename="plugins/contrib/SpellChecker/SpellChecker_wx30.cbp" />
+		<Project filename="plugins/contrib/source_exporter/Exporter.cbp" />
+		<Project filename="plugins/contrib/source_exporter/Exporter_wx30.cbp" />
+		<Project filename="plugins/contrib/wxSmithPlot/wxsSmithPlot.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
