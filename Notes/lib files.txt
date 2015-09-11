@@ -22,6 +22,7 @@ src/devel30
 0 directories, 12 files
 
 # Windows with only 3rd party libs being built; after lib design changes.
+# Missed building devpak_plugin
 $ /c/Apps32/GnuWin32/bin/tree src/lib src/lib30
 src/lib
 |-- contrib
@@ -61,9 +62,76 @@ src/lib30
 
 9 directories, 24 files
 
+# Windows with all libs being built; after lib design changes.
+$ /c/Apps32/GnuWin32/bin/tree src/lib
+src/lib
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   |-- source_exporter
+|   |   `-- libwxPdfDocument.a
+|   `-- wxSmithPlot
+|       `-- libMathPlot.a
+|-- libcodeblocks.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxchartctrl.a
+|-- libwxcustombutton.a
+|-- libwxflatnotebook.a
+|-- libwximagepanel.a
+|-- libwxkwic.a
+|-- libwxled.a
+|-- libwxpropgrid.a
+|-- libwxscintilla_cb.a
+|-- libwxsmithlib.a
+|-- libwxspeedbutton.a
+`-- libwxtreelist.a
+
+6 directories, 24 files
+
+# Windows with all libs being built; after lib design changes.
+$ /c/Apps32/GnuWin32/bin/tree src/lib30
+src/lib30
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   `-- source_exporter
+|       `-- libwxPdfDocument.a
+|-- libcodeblocks.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxchartctrl.a
+|-- libwxcustombutton.a
+|-- libwxflatnotebook.a
+|-- libwximagepanel.a
+|-- libwxkwic.a
+|-- libwxled.a
+|-- libwxscintilla_cb.a
+|-- libwxsmithlib.a
+`-- libwxspeedbutton.a
+
+5 directories, 21 files
 
 
-
+# Windows with all libs being built; after lib design changes.
 $ tree src/lib30_64
 src/lib30_64
 |-- contrib
