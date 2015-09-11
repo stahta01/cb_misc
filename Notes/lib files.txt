@@ -102,22 +102,35 @@ src/lib30_64
 5 directories, 21 files
 
 # Linux results below
-$ tree src/lib
+$ tree src/lib src/lib28 src/lib30
 src/lib
 +-- contrib
-|Â Â  +-- help_plugin
-|Â Â  |Â Â  +-- libbzip2.a
-|Â Â  |Â Â  +-- libz.a
-|Â Â  +-- source_exporter
-|Â Â  |Â Â  +-- libwxPdfDocument.a
-|Â Â  +-- SpellChecker
-|Â Â      +-- libwxSpellChecker.a
+|   +-- help_plugin
+|       +-- libbzip2.a
+|       +-- libz.a
 +-- libdepslib.a
 +-- libsqplus.a
 +-- libsqstdlib.a
 +-- libsquirrel.a
 +-- libtxml.a
+src/lib28
++-- contrib
+|   +-- source_exporter
+|   |   +-- libwxPdfDocument.a
+|   +-- SpellChecker
+|       +-- libwxSpellChecker.a
++-- libwxscintilla_cb.a
+src/lib30
++-- contrib
+|   +-- source_exporter
+|   |   +-- libwxPdfDocument.a
+|   +-- SpellChecker
+|       +-- libwxSpellChecker.a
 +-- libwxscintilla_cb.a
 
-4 directories, 10 files
+8 directories, 13 files
+
+
+
+
 
