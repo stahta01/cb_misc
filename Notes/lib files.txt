@@ -1,74 +1,137 @@
 # Upgraded from MSysGit 1.9.5 to "Git for windows" version 2.5.1.windows.1
 # Manually copied tree.exe from MSys2 installation to Git/usr/bin.
+# Downgraded back to MSysGit 1.9.5 because of git svn bugs.
 
-$ "C:/Program Files/Git/usr/bin/tree.exe" src/lib
+# Windows with only 3rd party libs being built; before lib design changes.
+$ /c/Apps32/GnuWin32/bin/tree src/devel src/devel30
+src/devel
+|-- cb_share_config.exe
+|-- libMathPlot.a
+|-- libhunspell.a
+|-- libwxSpellChecker.a
+|-- libwxpropgrid.a
+|-- libwxscintilla_cb.a
+|-- wxmsw28u_gcc_cb.dll
+`-- wxpropgrid.dll
+src/devel30
+|-- cb_share_config.exe
+|-- libhunspell.a
+|-- libwxSpellChecker.a
+`-- libwxscintilla_cb.a
+
+0 directories, 12 files
+
+# Windows with only 3rd party libs being built; after lib design changes.
+# Missed building devpak_plugin
+$ /c/Apps32/GnuWin32/bin/tree src/lib src/lib30
 src/lib
-+-- contrib
-¦   +-- devpak_plugin
-¦   ¦   +-- libbz2.a
-¦   +-- help_plugin
-¦   ¦   +-- libbzip2.a
-¦   ¦   +-- libz.a
-¦   +-- source_exporter
-¦   ¦   +-- libwxPdfDocument.a
-¦   +-- SpellChecker
-¦   ¦   +-- libhunspell.a
-¦   ¦   +-- libwxSpellChecker.a
-¦   +-- wxSmithPlot
-¦       +-- libMathPlot.a
-+-- libcodeblocks.a
-+-- libdepslib.a
-+-- libsqplus.a
-+-- libsqstdlib.a
-+-- libsquirrel.a
-+-- libtxml.a
-+-- libwxchartctrl.a
-+-- libwxcustombutton.a
-+-- libwxflatnotebook.a
-+-- libwximagepanel.a
-+-- libwxkwic.a
-+-- libwxled.a
-+-- libwxpropgrid.a
-+-- libwxscintilla_cb.a
-+-- libwxsmithlib.a
-+-- libwxspeedbutton.a
-+-- libwxtreelist.a
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   |-- source_exporter
+|   |   `-- libwxPdfDocument.a
+|   `-- wxSmithPlot
+|       `-- libMathPlot.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxpropgrid.a
+`-- libwxscintilla_cb.a
+src/lib30
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   `-- source_exporter
+|       `-- libwxPdfDocument.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+`-- libwxscintilla_cb.a
+
+9 directories, 24 files
+
+# Windows with all libs being built; after lib design changes.
+$ /c/Apps32/GnuWin32/bin/tree src/lib
+src/lib
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   |-- source_exporter
+|   |   `-- libwxPdfDocument.a
+|   `-- wxSmithPlot
+|       `-- libMathPlot.a
+|-- libcodeblocks.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxchartctrl.a
+|-- libwxcustombutton.a
+|-- libwxflatnotebook.a
+|-- libwximagepanel.a
+|-- libwxkwic.a
+|-- libwxled.a
+|-- libwxpropgrid.a
+|-- libwxscintilla_cb.a
+|-- libwxsmithlib.a
+|-- libwxspeedbutton.a
+`-- libwxtreelist.a
 
 6 directories, 24 files
 
-
-$ "C:/Program Files/Git/usr/bin/tree.exe" src/lib30
+# Windows with all libs being built; after lib design changes.
+$ /c/Apps32/GnuWin32/bin/tree src/lib30
 src/lib30
-+-- contrib
-¦   +-- devpak_plugin
-¦   ¦   +-- libbz2.a
-¦   +-- help_plugin
-¦   ¦   +-- libbzip2.a
-¦   ¦   +-- libz.a
-¦   +-- source_exporter
-¦   ¦   +-- libwxPdfDocument.a
-¦   +-- SpellChecker
-¦       +-- libhunspell.a
-¦       +-- libwxSpellChecker.a
-+-- libcodeblocks.a
-+-- libdepslib.a
-+-- libsqplus.a
-+-- libsqstdlib.a
-+-- libsquirrel.a
-+-- libtxml.a
-+-- libwxchartctrl.a
-+-- libwxcustombutton.a
-+-- libwxflatnotebook.a
-+-- libwximagepanel.a
-+-- libwxkwic.a
-+-- libwxled.a
-+-- libwxscintilla_cb.a
-+-- libwxsmithlib.a
-+-- libwxspeedbutton.a
+|-- contrib
+|   |-- SpellChecker
+|   |   |-- libhunspell.a
+|   |   `-- libwxSpellChecker.a
+|   |-- devpak_plugin
+|   |   `-- libbz2.a
+|   |-- help_plugin
+|   |   |-- libbzip2.a
+|   |   `-- libz.a
+|   `-- source_exporter
+|       `-- libwxPdfDocument.a
+|-- libcodeblocks.a
+|-- libdepslib.a
+|-- libsqplus.a
+|-- libsqstdlib.a
+|-- libsquirrel.a
+|-- libtxml.a
+|-- libwxchartctrl.a
+|-- libwxcustombutton.a
+|-- libwxflatnotebook.a
+|-- libwximagepanel.a
+|-- libwxkwic.a
+|-- libwxled.a
+|-- libwxscintilla_cb.a
+|-- libwxsmithlib.a
+`-- libwxspeedbutton.a
 
 5 directories, 21 files
 
 
+# Windows with all libs being built; after lib design changes.
 $ tree src/lib30_64
 src/lib30_64
 |-- contrib
@@ -99,3 +162,37 @@ src/lib30_64
 `-- libwxspeedbutton.a
 
 5 directories, 21 files
+
+# Linux results below
+$ tree src/lib src/lib28 src/lib30
+src/lib
++-- contrib
+|   +-- help_plugin
+|       +-- libbzip2.a
+|       +-- libz.a
++-- libdepslib.a
++-- libsqplus.a
++-- libsqstdlib.a
++-- libsquirrel.a
++-- libtxml.a
+src/lib28
++-- contrib
+|   +-- source_exporter
+|   |   +-- libwxPdfDocument.a
+|   +-- SpellChecker
+|       +-- libwxSpellChecker.a
++-- libwxscintilla_cb.a
+src/lib30
++-- contrib
+|   +-- source_exporter
+|   |   +-- libwxPdfDocument.a
+|   +-- SpellChecker
+|       +-- libwxSpellChecker.a
++-- libwxscintilla_cb.a
+
+8 directories, 13 files
+
+
+
+
+
