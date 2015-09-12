@@ -5,3 +5,8 @@ https://github.com/git-for-windows/git/wiki/Issue-reporting-guidelines
 # git version 
 # Started about 8:15 AM on 10Sep15
 git svn clone --stdlayout --prefix=git-svn-clone/ http://svn.code.sf.net/p/sdcc/code sdcc_svn_git_clone
+
+git svn clone --stdlayout --prefix=git-svn-clone/  http://svn.code.sf.net/p/codeblocks/code cb_svn_git_clone
+ 
+# svn protocal worked 
+git svn clone --stdlayout   svn://svn.code.sf.net/p/codeblocks/code cb_svn_git_clone
