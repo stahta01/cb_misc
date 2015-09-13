@@ -169,7 +169,6 @@ src/lib
 +-- contrib
 |   +-- help_plugin
 |       +-- libbzip2.a
-|       +-- libz.a
 +-- libdepslib.a
 +-- libsqplus.a
 +-- libsqstdlib.a
@@ -190,9 +189,6 @@ src/lib30
 |       +-- libwxSpellChecker.a
 +-- libwxscintilla_cb.a
 
-8 directories, 13 files
-
-
-
+8 directories, 12 files
 
 
