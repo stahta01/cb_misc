@@ -8,23 +8,25 @@ These directions are to be followed on Linux
 
 
 
-cd ~/devel/version_control/codeblocks_svn2git_metadata-git
+cd ~/devel/version_control/codeblocks_svn2git_https_metadata-git
 
 git fetch
 git status
 git checkout master
 git status
-git svn info # 10474
+git svn info # 10479
 
 git svn fetch --all
 git svn rebase
 git status
 
-git svn info # 10479
+git svn info # 10499
 
 svn2git --rebase
-git svn info # 10479
+git svn info # 10499
 git status
+
+git pull --rebase origin master
 
 git push --all
 
