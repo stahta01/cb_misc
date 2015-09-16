@@ -1,3 +1,6 @@
 /Patches/svn/cb_trunk.patch
 /Patches/svn/codeblocks-svn-trunk.patch
 *.bak
+/codeblocks_setup-svn
+/svn-codeblocks-docs
+/svn-codeblocks-trunk
