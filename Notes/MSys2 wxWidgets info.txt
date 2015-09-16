@@ -1,0 +1,33 @@
+wx-config --help
+ wx-config [--prefix[=DIR]] [--exec-prefix[=DIR]] [--release] [--version-full]
+           [--list] [--selected-config] [--host=HOST] [--toolkit=TOOLKIT]
+           [--universal[=yes|no]] [--unicode[=yes|no]] [--static[=yes|no]]
+           [--debug[=yes|no]] [--version[=VERSION]] [--basename] [--cc] [--cxx]
+           [--cppflags [base]] [--cxxflags [base]] [--cflags]
+           [--rescomp] [--linkdeps] [--ld] [--utility=UTIL]
+           [--libs [LIBS...]] [--optional-libs [LIBS...]]
+
+ --query-{host,toolkit,widgetset,chartype,debugtype,version,linkage}.
+
+wx-config --query-toolkit 		# msw
+wx-config --query-chartype    # unicode
+wx-config --query-debugtype   # release
+wx-config --query-version     # 3.0
+wx-config --version-full      # 3.0.2.0
+
+wx-config --libs     # -L/mingw64/lib   -pipe -Wl,--subsystem,windows -mwindows -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0
+wx-config --rescomp  # windres --include-dir /mingw64/include/wx-3.0 --define __WIN32__ --define __GNUWIN32__ --define WX_CPU_AMD64
+wx-config --cflags   # -I/mingw64/lib/wx/include/msw-unicode-3.0 -I/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -fpermissive
+wx-config --cppflags # -I/mingw64/lib/wx/include/msw-unicode-3.0 -I/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__
+wx-config --cxxflags # -I/mingw64/lib/wx/include/msw-unicode-3.0 -I/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -fpermissive
+wx-config --cxx      # x86_64-w64-mingw32-g++
+
+
+ ./configure --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=`wx-config --host=x86_64-w64-mingw32`
+
+ *** Error: Bad config delegation
+
+ to: /mingw64/lib/wx/config/x86_64-w64-mingw32-msw-unicode-3.0
+ (msw-unicode-3.0) cannot satisfy:
+ /mingw64/lib/wx/config/x86_64-w64-mingw32-msw-unicode-3.0 --host=x86_64-w64-mingw32
+ Someone has been terribly careless.

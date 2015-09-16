@@ -1,0 +1,8 @@
+http://forums.codeblocks.org/index.php/topic,20520.msg139608.html#msg139608
+http://github.com/msys2/MINGW-packages
+http://msys2.github.io/
+http://sourceforge.net/p/msys2/wiki/Contributing%20to%20MSYS2/
+http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
+http://sourceforge.net/p/msys2/wiki/Porting/
+http://wiki.qt.io/MSYS2
+http://wiki.qt.io/MinGW-64-bit

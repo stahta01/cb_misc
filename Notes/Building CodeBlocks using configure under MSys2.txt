@@ -1,0 +1,52 @@
+Please do steps in "Setting up MSys2 for building CodeBlocks.txt"
+
+Please read thread http://forums.codeblocks.org/index.php/topic,20520.msg139608.html#msg139608
+
+Steps to configure/make C::B
+A0)  mkdir devel; cd devel						# I like my development stuff under a single top folder.
+A1a) git clone --config core.eol=lf https://github.com/stahta01/codeblocks_windows.git codeblocks_msys2-git
+A1b) cd codeblocks_msys2-git
+A2a) git config core.eol 						# Confirm value is lf
+A2b) git config core.autocrlf input	# True seems to cause more work than it saves.
+A2c) git config core.safecrlf warn  # True seems to cause more work than it saves.
+A2d) git status											# Verify no with settings
+A3a) git config master.rebase true  # Force master to automatically use rebase
+A3b) git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+A3c) git config push.default simple # set to push only current branch
+A3d) git status
+A4)  git checkout -b msys2_configure origin/msys2_configure
+B1a) export CPPFLAGS="-DWXMAKINGDLL_SCI -D_POSIX -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
+B1b) export CXXFLAGS="-Wno-deprecated-declarations -fmessage-length=0"
+B1c) export LDFLAGS=
+B2)  ./bootstrap
+C1)  ./configure --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=/mingw64/bin/wx-config  
+D1)  make clean
+D2)  make
+D3)  make install
+
+# Configure/make appears to change these two files; not sure which step or why.
+# These two steps revert the changes.
+git checkout -- debian/changelog
+git checkout -- src/sdk/wxscintilla/Readme
+
+
+Important defines that I might need to try defining in the future.
+
+WXUSINGDLL
+WXMAKINGDLL_SCI
+_WIN64
+EXPORT_LIB 
+EXPORT_EVENTS
+SCI_NAMESPACE
+
+__WX__
+WINVER=0x0501
+LINK_LEXERS
+SCI_LEXER
+WXMAKINGDLL_SCI
+
+__WX__
+GTK
+LINK_LEXERS
+SCI_LEXER
+WXMAKINGDLL_SCI
