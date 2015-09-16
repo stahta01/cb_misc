@@ -19,6 +19,7 @@ git status # The above three setting can give errors in the wrong combinations.
 # Note: SVN does not like git merge so set to use git rebase by default (most of the time).
 git config master.rebase true  # Force master to automatically use rebase
 git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+git config --global push.default simple
 git status
 
 # Step 2A. Setup SVN configuration

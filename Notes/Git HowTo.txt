@@ -1,3 +1,5 @@
+git config --global core.editor "C:/Apps32/wscite/scite.exe"
+
 git status -uno                   # Looks useful while building project.
 git log --reverse                 # Looks useful
 git log --merges
