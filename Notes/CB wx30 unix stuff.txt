@@ -1,0 +1,49 @@
+
+$ pkg-config gtk+-2.0 --cflags
+-D_REENTRANT 
+-I/usr/include/gtk-2.0 
+-I/usr/lib/gtk-2.0/include 
+-I/usr/include/pango-1.0 
+-I/usr/include/gio-unix-2.0/ 
+-I/usr/include/cairo 
+-I/usr/include/atk-1.0 
+-I/usr/include/cairo 
+-I/usr/include/pixman-1 
+-I/usr/include/gdk-pixbuf-2.0 
+-I/usr/include/libpng15 
+-I/usr/include/pango-1.0 
+-I/usr/include/harfbuzz 
+-I/usr/include/pango-1.0 
+-I/usr/include/glib-2.0 
+-I/usr/lib/glib-2.0/include 
+-I/usr/include/freetype2 
+-I/usr/include/libpng15 
+-I/usr/include/freetype2 
+-I/usr/include/libpng15
+
+$ pkg-config gtk+-2.0 --libs
+-lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -lgio-2.0 -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -latk-1.0 -lcairo -lz -lGL -lpixman-1 -lEGL -lm -lpthread -lGL -lm -lpthread -lXdamage -lXfixes -lX11-xcb -lxcb-glx -lxcb-shm -lxcb-render -lXrender -lXext -lX11 -lxcb -lXau -lXdmcp -lgdk_pixbuf-2.0 -lm -lpng15 -lm -lz -lgio-2.0 -lz -lpangoft2-1.0 -lharfbuzz -lpango-1.0 -lm -lgmodule-2.0 -lgobject-2.0 -lffi -lglib-2.0 -lintl -lpcre -lintl -liconv -lpcre -lfontconfig -lexpat -lfreetype -lbz2 -lpng15 -lm -lz -lexpat -lfreetype -lbz2 -lz -lpng15 -lm -lz
+
+
+/usr/local/cb/gtk2/bin/wx-config --libs std,aui,propgrid
+
+/usr/local/cb/gtk2/bin/wx-config --cflags
+
+/usr/local/cb/gtk2/bin/wx-config --static --list
+
+$ /usr/local/cb/gtk2/bin/wx-config --static --cflags
+-I/usr/local/cb/gtk2/lib/wx/include/gtk2-unicode-static-3.1 -I/usr/local/cb/gtk2/include/wx-3.1 -D_FILE_OFFSET_BITS=64 -D__WXGTK__
+
+$ /usr/local/cb/gtk2/bin/wx-config --static --libs std,aui,propgrid
+-L/usr/local/cb/gtk2/lib    /usr/local/cb/gtk2/lib/libwx_gtk2u_aui-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_propgrid-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_xrc-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_qa-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu_net-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_html-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_adv-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_core-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu_xml-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu-3.1.a -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -latk-1.0 -lcairo -lpixman-1 -lEGL -lGL -lXdamage -lXfixes -lX11-xcb -lxcb-glx -lxcb-shm -lxcb-render -lXrender -lXext -lxcb -lXau -lXdmcp -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lharfbuzz -lpango-1.0 -lgmodule-2.0 -lgobject-2.0 -lffi -lfontconfig -lfreetype -lbz2 -lpng15 -lm -lgthread-2.0 -lglib-2.0 -lintl -lpcre -lX11 -lpng -lexpat -lwxregexu-3.1 -lwxtiff-3.1 -lwxjpeg-3.1 -lz -lpthread -liconv
+
+`$(WX_CONFIG) --libs std,aui,propgrid`
+`$(WX_CONFIG) --cflags`
+wx-config --version=3.0
+
+
+
+$(WX_CONFIG) --libs std,propgrid
+
+
+$(WX_VERSION_DOT)

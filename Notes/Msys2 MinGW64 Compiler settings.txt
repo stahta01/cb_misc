@@ -1,0 +1,32 @@
+Msys2 MinGW64 Compiler settings.txt
+
+git --version # Git Bash git version 2.5.2.windows.2
+
+git --version # MSys2 MingGW64 git version 2.5.0
+
+
+C:/Apps64/msys64/mingw64/include/c++/5.2.0/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+
+
+C:\Apps64\msys64\mingw64
+  C:\Program Files\Git\cmd
+
+x86_64-w64-mingw32-gcc.exe
+
+-std=gnu++11
+-Wno-deprecated-declarations
+
+_POSIX
+
+-libcodeblocks_la_LDFLAGS = -no-undefined -version-info @CODEBLOCKS_VERSION_INFO@
++libcodeblocks_la_LDFLAGS = --dll --add-stdcall-alias --enable-auto-import -no-undefined -version-info @CODEBLOCKS_VERSION_INFO@
+
+git checkout -- src/sdk/Makefile.am
+
+
+git config user.email "stahta01@users.sourceforge.net"
+git config user.name "Tim S"
+
+git reset --hard 92e61282371be73d27a0e278832e0ac6d6a54559
+
+git checkout -b msys2_mingw64 origin/msys2_mingw64

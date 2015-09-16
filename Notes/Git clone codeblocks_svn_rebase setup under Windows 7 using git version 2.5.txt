@@ -1,0 +1,51 @@
+#
+# These steps are for use under the Windows OS; tested under Windows 7
+#
+# Based on directions from http://trac.parrot.org/parrot/wiki/git-svn-tutorial
+# 
+# These steps tested with git version 2.5.2.windows.1
+#
+
+# I have found that line feed of lf works better than crlf for both windows and linux.
+git clone --config core.eol=lf --origin upstream https://stahta01@github.com/stahta01/codeblocks_svn_rebase.git codeblocks_svn_rebase-git
+cd codeblocks_svn_rebase-git
+
+git status
+# Verify the correct line-ending type
+git config core.eol
+git config core.safecrlf true  # true causes more issues; but, it is worth trying. (warn, true or false)
+git config core.autocrlf input # input is recommended by most internet sources (input, true or false)
+git status # The above three setting can give errors in the wrong combinations.
+# Note: SVN does not like git merge so set to use git rebase by default (most of the time).
+git config master.rebase true  # Force master to automatically use rebase
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+git status
+
+# git version 2.5.1.windows.1 works with svn; but, fails with https protocol.
+# Setup SVN using Metadata and URL=https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
+git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
+git config svn-remote.svn.noMetadata 0  # Step I added not really needed in most cases.
+
+
+# Step 2. SVN Fetch
+git svn fetch # Started  12Sep15 9:45 AM to guess around 10pm
+
+# Last few lines from "svn fetch"
+# end of Last few lines from "svn fetch"
+
+git svn info  # Started  7:46 AM Killed 10 minutes later
+git svn rebase # Started  7:57 AM Killed 10 minutes later
+
+#
+# Steps below are optional and can take a long time to finish
+#
+
+# Step 7. git svn fetch (this can run a long time)
+git svn fetch
+git svn info
+
+# Step 8. git svn rebase (this can run a long time)
+git svn rebase
+git svn info

@@ -1,0 +1,172 @@
+####
+# Requires Cygwin packages:
+#   libgtk2.0-devel
+#
+####
+
+$ pkg-config gtk+-2.0 --libs
+
+$   	i686-pc-cygwin-g++ --version
+#
+$   	i686-pc-cygwin-g++ -pthread
+### Good Result
+i686-pc-cygwin-g++: fatal error: no input files
+compilation terminated.
+###
+### Bad Result
+i686-pc-cygwin-g++: error: unrecognized command line option ‘-pthread’
+i686-pc-cygwin-g++: fatal error: no input files
+compilation terminated.
+##  CB Build Error
+i686-pc-cygwin-g++: error: unrecognized command line option '-pthread'
+Makefile:610: recipe for target 'codeblocks.exe' failed
+
+##### Git Section Begin
+$  cd ~/devel/wxWidgets/wxWidgets
+
+git status
+git checkout -b WX_3_0_BRANCH upstream WX_3_0_BRANCH
+
+##### Git Section End
+
+$  cd ~/devel/wxWidgets/wxWidgets
+
+$  mkdir build_cb_gtk2_wx3.0.x_static_unicode
+$  cd build_cb_gtk2_wx3.0.x_static_unicode
+$  export CPPFLAGS=""
+$  export CXXFLAGS="-Wno-attributes"
+# Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
+$  ../configure --prefix=/usr/local/cb/gtk2 \
+      --with-gtk=2 \
+      --disable-monolithic \
+      --disable-shared \
+      --enable-xrc \
+      --with-libjpeg=builtin \
+      --with-regex=builtin \
+      --with-tiff=builtin \
+      --without-gtkprint \
+      --without-gnomeprint \
+      --disable-universal \
+      --disable-precomp-headers \
+      --enable-unicode
+
+###
+Configured wxWidgets 3.0.0 for `i686-pc-cygwin'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for libnotify
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         no
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      no
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                sys
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
+
+###
+
+make uninstall
+
+make clean
+
+make
+
+make install
+
+###
+ The installation of wxWidgets is finished.  On certain
+ platforms (e.g. Linux) you'll now have to run ldconfig
+ if you installed a shared library and also modify the
+ LD_LIBRARY_PATH (or equivalent) environment variable.
+###
+
+#########
+
+/usr/local/cb/gtk2/bin/wx-config --list
+
+/usr/local/cb/gtk2/bin/wx-config --libs std,aui,propgrid
+
+## Git clone code begin
+git://cb.biplab.in/codeblocks.git
+
+cd ~/devel
+mkdir codeblocks
+cd ~/devel/codeblocks
+git clone git://cb.biplab.in/codeblocks.git codeblocks-git
+
+git config core.eol lf
+
+git reset --hard
+
+## Git clone code end
+
+####
+# Requires Cygwin packages:
+#   libtool 2.4-1
+#		automake
+#   zip
+#   gcc 4.9.2-1 does not work "g++: error: unrecognized command line option '-pthread'"
+#   gcc 4.8.3-2	seems to be working great.
+#      
+####
+
+
+cd ~/devel/codeblocks/codeblocks-git
+
+/usr/local/cb/gtk2/bin/wx-config --list
+
+export ACLOCAL_FLAGS="-I `/usr/local/cb/gtk2/bin/wx-config --prefix`/share/aclocal"
+echo $ACLOCAL_FLAGS
+
+./bootstrap
+export CPPFLAGS="-U__STRICT_ANSI__"
+export CXXFLAGS="-Wno-attributes"
+echo $CXXFLAGS
+
+# export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
+
+ ./configure --prefix=/usr/local/cb/gtk2 --enable-static --enable-debug --enable-scripted-wizard --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/usr/local/cb/gtk2/bin/wx-config
+
+
+#  --disable-dependency-tracking
+# --with-wx-prefix=/usr/local/cb/gtk2
+# --with-platform=PLATFORM #the platform to build, win32, macosx or gtk(default)
+# X features:
+#  --x-includes=DIR    X include files are in DIR
+#  --x-libraries=DIR   X library files are in DIR
+
+make uninstall
+
+make clean
+
+make
+
+make install
+
+
+
+In order to run Code::Blocks 
+####
+# Requires Cygwin packages:
+#   These packages where suggested as good ones to add to get GNU Octave to run; I am hoping it workes for getting CB to run.
+#   xinit
+#   xlaunch
+#		??gnuplot
+####
+
+$		startxwin /usr/local/cb/bin/codeblocks.exe --prefix="/usr/local/cb"
+
+C:\Apps32\Cygwin1_7\bin\mintty.exe /bin/sh -lc 'startxwin /usr/local/cb/bin/codeblocks.exe --prefix="/usr/local/cb"'
+
+
+
+C:\Apps32\Cygwin1_7\usr\local\cb\gtk2\lib\wx\include\gtk2-unicode-static-3.0
+C:\Apps32\Cygwin1_7\usr\local\cb\gtk2\lib\wx\include\gtk2-unicode-3.0

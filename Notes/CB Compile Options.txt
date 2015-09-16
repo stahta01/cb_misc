@@ -1,0 +1,36 @@
+															Win64 Build				MSys2 Make						Linux64 Build
+-DCB_AUTOCONF 								No									Yes
+-DDLL_EXPORT 									No									Yes
+-DEXPORT_EVENTS								Yes 								Added to Makefile
+-DEXPORT_LIB 									Yes									Added to Makefile
+-DHAVE_CONFIG_H 							No									Yes 
+-DHAVE_W32API_H               Yes									Added
+-DNOPCH                       Yes									Added
+-DPIC 												No									Yes
+-DTIXML_USE_STL  																	Yes 
+-DWXMAKINGDLL_SCI             Yes									Added 
+-DWXUSINGDLL                  Yes									Yes
+-D_FILE_OFFSET_BITS=64 														Yes 
+-D_POSIX                      Yes									Added
+-D_WIN64                      Yes						      Added
+-D__WXMSW__                   Yes									Yes
+-DcbDEBUG                     Yes									Added
+-DwxUSE_UNICODE               Yes
+-MD 																							Yes 
+-MF .deps/annoyingdialog.Tpo 											Yes
+-MP 																							Yes
+-MT annoyingdialog.lo 														Yes 
+-O2 																							Yes 
+-Wno-deprecated-declarations 	Added								Added
+-ansi 																						Yes 
+-fPIC 																						Yes 
+-fexceptions                  Yes									Yes
+-ffast-math 																			Yes
+-fmessage-length=0            Yes									Added
+-fno-keep-inline-dllexport    Yes
+-fpermissive 									No									Yes 
+-g                            Yes
+-m64                          Yes
+-mthreads                     Removed							NO  
+-pipe                         Yes
+-std=gnu++11 									Yes									NO 

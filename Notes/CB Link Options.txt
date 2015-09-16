@@ -1,0 +1,33 @@
+																Win64 Build				MSys2 Make						Linux64 Build
+-O2																								?
+-Wl,--add-stdcall-alias 				Yes
+-Wl,--dll 											Yes
+-Wl,--enable-auto-image-base 		Yes								Yes
+-Wl,--enable-auto-import 				Yes								Added
+-Wl,--export-all-symbols 				Yes
+-Wl,--no-undefined 							Yes								Added
+-Wl,--subsystem -Wl,windows												Yes																		
+-ladvapi32
+-lgcc
+-lgcc_s
+-lgdi32 												Yes
+-lkernel32
+-lmingw32
+-lmingwex
+-lmoldname
+-lmsvcrt
+-lpthread
+-lshell32
+-lshfolder 											Yes
+-lstdc++
+-luser32
+-mwindows																					Yes
+-shared  												Yes								Yes
+libsqbindings.a																		Yes; seems correct
+-nostdlib 
+C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib/../lib/dllcrt2.o 
+C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtbegin.o
+
+C:\Apps64\msys64\mingw64\x86_64-w64-mingw32\lib/dllcrt2.o
+C:\Apps64\msys64\mingw64\lib\gcc\x86_64-w64-mingw32\5.2.0/crtbegin.o
+C:\Apps64\msys64\mingw64\x86_64-w64-mingw32\lib/crtbegin.o

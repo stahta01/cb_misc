@@ -1,0 +1,7 @@
+									Files
+_POSIX						10
+_POSIX_SOURCE			 6
+_POSIX_C_SOURCE		 3
+_ISOC99_SOURCE		 1
+_GNU_SOURCE       17
+ 
