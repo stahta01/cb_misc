@@ -27,7 +27,7 @@ B2)  ./bootstrap
 
 C)   # Configure/make/install of Code::Blocks
 C1)  ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=/mingw64/bin/wx-config  
-C2)  make clean; make         #
+C2)  make clean; make         # Errors out building src folder
 C3)  make install             #
 
 
@@ -42,7 +42,3 @@ Files that I think were in the wrong Makefile.am to build on Windows
 Important defines that I might need to try defining in the future.
 SCI_NAMESPACE
 WINVER=0x0501
-
-* DO NOT APPLY UPSTREAM:
-- code_warning_fix: Removed an 64 bit compiler warning. (Thanks stahta01)
-* code_warning_fix: Removed an 64 bit compiler warning. (Thanks stahta01)
