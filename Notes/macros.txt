@@ -1,7 +1,12 @@
-									Files
-_POSIX						10
-_POSIX_SOURCE			 6
-_POSIX_C_SOURCE		 3
-_ISOC99_SOURCE		 1
-_GNU_SOURCE       17
- 
+                    Files
+_POSIX              10
+_POSIX_SOURCE        6
+_POSIX_C_SOURCE      3                  _POSIX_C_SOURCE=200809L
+_ISOC99_SOURCE       1
+_GNU_SOURCE         17
+_XOPEN_SOURCE                           _XOPEN_SOURCE=700
+_POSIX_VERSION
+_POSIX2_C_VERSION
+HAVE_POSIX_PRINTF
+USE_POSIX_THREADS
+USE_WIN32_THREADS
