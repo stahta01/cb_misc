@@ -1,4 +1,4 @@
-From fb44523050d623aad7df0055a337ba86fd420a40 Mon Sep 17 00:00:00 2001
+From a55ed6ccdca964c41a37160e22869f1749aa9876 Mon Sep 17 00:00:00 2001
 From: Tim Stahlhut <tim.stahlhut@gmail.com>
 Date: Fri, 4 Sep 2015 15:23:28 -0400
 Subject: [PATCH 2/3] * win-cbp: Added lib folders to some CB projects. (Thanks
