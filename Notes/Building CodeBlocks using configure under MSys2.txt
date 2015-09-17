@@ -16,15 +16,22 @@ A3c) git config push.default simple # set to push only current branch
 A3d) git status
 A4)  git checkout -b msys2_configure origin/msys2_configure
 
+Edit .am for SDK and scintilla; to add -DWXMAKINGDLL_SCI to them; removed it from CPPFLAGS below.
+NOTE: Testing with CBP says -DWXMAKINGDLL_SCI and etc. needs added to sqbindings .am file.
 
-B1a) export CPPFLAGS="-DWXMAKINGDLL_SCI -D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
+B1a) export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
 B1b) export CXXFLAGS="-Wno-deprecated-declarations -fmessage-length=0"
 B1c) export LDFLAGS=
 B2)  ./bootstrap
-C1)  ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=/mingw64/bin/wx-config  
+C1)  ./configure --prefix=/mingw64/ --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=/mingw64/bin/wx-config  
 D1)  make clean
 D2)  make         # Paste current error at bottom of this file.
 D3)  make install # DO NOT DO; till I figure out what prefix is correct. Likely /mingw64
+
+
+Files that I think are in the wrong Makefile.am to build on Windows
+	tinywxuni.cpp
+
 
 # Configure/make appears to change two files; not sure which step or why.
 # These two steps revert those changes.
@@ -54,6 +61,7 @@ GTK
 LINK_LEXERS
 SCI_LEXER
 WXMAKINGDLL_SCI
+
 
 # The prior edited error below
 
