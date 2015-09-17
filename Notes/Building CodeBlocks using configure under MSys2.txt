@@ -19,7 +19,10 @@ A4)  git checkout -b msys2_configure origin/msys2_configure
 
 
 B)   # Bootstrap building of configure
+     # -DHAVE_W32API_H -D_WIN64 no idea if needed was added to try to fix some error
 B1a) export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
+     # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
+     # -fmessage-length=0 no idea if needed was added to try to fix some error
 B1b) export CXXFLAGS="-Wno-deprecated-declarations -fmessage-length=0"
 B1c) export LDFLAGS="-lgdi32"
 B2)  ./bootstrap
