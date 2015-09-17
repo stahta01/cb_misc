@@ -30,7 +30,7 @@ B2)  ./bootstrap
 
 C)   # Configure/make/install of Code::Blocks
 C1)  ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=/mingw64/bin/wx-config  
-C2)  make clean; make         # Errors out building src folder
+C2)  make clean; make         # Errors out building src folder; app.cpp:71:83: fatal error: exchndl.h: No such file or directory
 C3)  make install             #
 
 
