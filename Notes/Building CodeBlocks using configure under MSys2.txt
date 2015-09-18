@@ -26,14 +26,16 @@ git config branch.autosetuprebase always # Force all new branches to automatical
 git config push.default simple # set to push only current branch
 # Step A3d
 git status
-# Step A4
+# Step A4a
 git checkout -b msys2_configure origin/msys2_configure
-
+# Step A4b
+git pull
 
 # Step B: Bootstrap building of configure
      # -DHAVE_W32API_H -D_WIN64 no idea if needed was added to try to fix some error
 # Step B1a
-export CPPFLAGS="-DWXUSINGDLL -D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
+# cd ~/devel/codeblocks_msys2-git 
+export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
      # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
      # -fmessage-length=0 no idea if needed was added to try to fix some error
 # Step B1b
@@ -69,6 +71,8 @@ rm src/sdk/.libs/libcodeblocks-0.dll
 # One line to test building CB exe target
 cd src/src; make clean && make; cd ..; cd ..
 cd src/src; make; cd ..; cd ..
+
+
 
 # One line test to try to fix linking errors
 ./bootstrap && ./configure --disable-pch && make
