@@ -1,0 +1,28 @@
+# Some info from these URLs
+# http://viget.com/extend/only-you-can-prevent-git-merge-commits
+# http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/
+# http://aaronbonner.io/post/78444674979/only-allow-git-fast-forward-merges-to-avoid-ugly
+# http://stackoverflow.com/questions/25430600/difference-between-git-pull-rebase-and-git-pull-ff-only
+
+git config --global merge.ff only
+git config branch.master.rebase true
+git config --global branch.autosetuprebase always
+
+git config --global core.editor "C:/Apps32/wscite/scite.exe"
+
+git config core.filemode false # Best value for Windows
+git config core.filemode true  # Best value for Linux
+
+
+# Output the Current Configuration
+git config core.eol
+git config core.autocrlf
+git config core.safecrlf
+git config core.filemode
+
+git config branch.autosetuprebase
+git config branch.master.rebase
+git config merge.ff only
+
+git config core.editor
+
