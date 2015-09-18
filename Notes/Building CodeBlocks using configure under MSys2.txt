@@ -24,8 +24,8 @@ B1a) export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W
      # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
      # -fmessage-length=0 no idea if needed was added to try to fix some error
 B1b) export CXXFLAGS="-Wno-deprecated-declarations -fmessage-length=0"
-B1c) export LDFLAGS="-lgdi32"
-export LDFLAGS="-lexchndl -lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lwsock32"
+B1c) export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32"
+export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lwsock32"
 B2)  ./bootstrap
 
 echo $CPPFLAGS
@@ -36,31 +36,25 @@ rm src/sdk/libcodeblocks.la
 rm src/sdk/.libs/libcodeblocks-0.dll
 
 # One line test to try to fix linking errors
-export LDFLAGS="-lgdi32 -lcomctl32"; ./bootstrap && ./configure --disable-pch && make
+export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32"; ./bootstrap && ./configure --disable-pch && make
 
 -Wl,--no-undefined              # Added to CB sdk DLL Makefile.am
--Wl,--export-all-symbols        # ?Added to CB sdk DLL Makefile.am
--Wl,--add-stdcall-alias         # ?Added to CB sdk DLL Makefile.am
+-Wl,--export-all-symbols        # Added to CB sdk DLL Makefile.am
+-Wl,--add-stdcall-alias         # 
 
 -Wl,--enable-auto-image-base    
--Wl,--enable-auto-import        # ?Added to CB sdk DLL Makefile.am
+-Wl,--enable-auto-import        # 
 
-Re-write patches using "if CODEBLOCKS_NT"
-
-if CODEBLOCKS_LINUX
-AM_CPPFLAGS += -DENABLE_BINRELOC -DAPP_PREFIX="\"@prefix@\"" $(WX_GTK2_CFLAGS) $(GTK_NOTEBOOK_FLAGS)
-endif
-
-if CODEBLOCKS_NT
-TEMPLATES = win32
-else
-TEMPLATES = unix
-endif
-
-git checkout --   src/sdk/Makefile.am
-git checkout --     src/src/Makefile.am
+Removing these 4 linker options from sdk causes src to not link.
+-Wl,--enable-auto-image-base
+-Wl,--enable-auto-import
+-Wl,--export-all-symbols        # This one is NEEDED
+-Wl,--add-stdcall-alias         #
 
 
+DEXPORT_LIB
+DWXMAKINGDLL_SCI
+DWXUSINGDLL
 -mwindows
 
 
