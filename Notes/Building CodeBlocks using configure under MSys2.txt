@@ -3,29 +3,60 @@ Please do steps in "Setting up MSys2 for building CodeBlocks.txt"
 Please read thread http://forums.codeblocks.org/index.php/topic,20520.msg139608.html#msg139608
 
 Steps to configure/make C::B
-A)   # Get the Code::Blocks source code
-A0)  mkdir devel; cd devel            # I like my development stuff under a single top folder.
-A1a) git clone --config core.eol=lf https://github.com/stahta01/codeblocks_windows.git codeblocks_msys2-git
-A1b) cd codeblocks_msys2-git
-A2a) git config core.eol            # Confirm value is lf
-A2b) git config core.autocrlf input # True seems to cause more work than it saves.
-A2c) git config core.safecrlf warn  # True seems to cause more work than it saves.
-A2d) git status                     # Verify no problem with settings
-A3a) git config master.rebase true  # Force master to automatically use rebase
-A3b) git config branch.autosetuprebase always # Force all new branches to automatically use rebase
-A3c) git config push.default simple # set to push only current branch
-A3d) git status
-A4)  git checkout -b msys2_configure origin/msys2_configure
+# Step A: Get the Code::Blocks source code
+# Step A0  
+mkdir devel; cd devel          # I like my development stuff under a single top folder.
+# Step A1a
+git clone --config core.eol=lf https://github.com/stahta01/codeblocks_windows.git codeblocks_msys2-git
+# Step A1b
+cd codeblocks_msys2-git
+# Step A2a
+git config core.eol            # Confirm value is lf
+# Step A2b
+git config core.autocrlf input # True seems to cause more work than it saves.
+# Step A2c
+git config core.safecrlf warn  # True seems to cause more work than it saves.
+# Step A2d
+git status                     # Verify no problem with settings
+# Step A3a
+git config master.rebase true  # Force master to automatically use rebase
+# Step A3b
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+# Step A3c
+git config push.default simple # set to push only current branch
+# Step A3d
+git status
+# Step A4
+git checkout -b msys2_configure origin/msys2_configure
 
 
-B)   # Bootstrap building of configure
+# Step B: Bootstrap building of configure
      # -DHAVE_W32API_H -D_WIN64 no idea if needed was added to try to fix some error
-B1a) export CPPFLAGS="-DWXUSINGDLL -D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
+# Step B1a
+export CPPFLAGS="-DWXUSINGDLL -D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
      # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
      # -fmessage-length=0 no idea if needed was added to try to fix some error
-B1b) export CXXFLAGS="-Wno-deprecated-declarations -fmessage-length=0"
-B1c) export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -lrpcrt4 -ladvapi32 -lwsock32"
-B2)  ./bootstrap
+# Step B1b
+export CXXFLAGS="-Wno-deprecated-declarations -fmessage-length=0"
+# Step B1c
+export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -lrpcrt4 -ladvapi32 -lwsock32"
+# Step B2
+./bootstrap
+
+
+# Step C: Configure/make/install of Code::Blocks
+# Step C1
+./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=/mingw64/bin/wx-config
+# Step C2  
+make clean; make         # Errors out building src folder; Linker error.
+# Step C3  
+make install             #
+
+# Configure/make appears to change these files; not sure which step or why.
+# These two steps revert those changes.
+git checkout -- debian/changelog
+git checkout -- src/sdk/wxscintilla/Readme
+
 
 echo $CPPFLAGS
 echo $CXXFLAGS
@@ -34,12 +65,14 @@ echo $LDFLAGS
 rm src/sdk/libcodeblocks.la
 rm src/sdk/.libs/libcodeblocks-0.dll
 
-# One line test to try to fix linking errors
-./bootstrap && ./configure --disable-pch && make
 
 # One line to test building CB exe target
 cd src/src; make clean && make; cd ..; cd ..
 cd src/src; make; cd ..; cd ..
+
+# One line test to try to fix linking errors
+./bootstrap && ./configure --disable-pch && make
+
 
 -Wl,--no-undefined              # Added to CB sdk DLL Makefile.am
 -Wl,--export-all-symbols        # Added to CB sdk DLL Makefile.am
@@ -56,29 +89,7 @@ Removing these 4 linker options from sdk causes src to not link.
 
 # Windows DLL Import/Export Macros
 BUILDING_PLUGIN
-DEXPORT_LIB
+EXPORT_LIB
 EXPORT_EVENTS
-DWXMAKINGDLL_SCI
-DWXUSINGDLL
-
-
-C)   # Configure/make/install of Code::Blocks
-C1)  ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=/mingw64/bin/wx-config  
-C2)  make clean; make         # Errors out building src folder; Linker error.
-C3)  make install             #
-
-clear; make
-
-
-# Configure/make appears to change two files; not sure which step or why.
-# These two steps revert those changes.
-git checkout -- debian/changelog
-git checkout -- src/sdk/wxscintilla/Readme
-
-Files that I think were in the wrong Makefile.am to build on Windows
-  tinywxuni.cpp
-
-Important defines that I might need to try defining in the future.
-SCI_NAMESPACE
-WINVER=0x0501
-
+WXMAKINGDLL_SCI
+WXUSINGDLL
