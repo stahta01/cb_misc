@@ -7,3 +7,4 @@ http://sourceforge.net/p/msys2/wiki/Porting/
 http://wiki.qt.io/MSYS2
 http://wiki.qt.io/MinGW-64-bit
 http://kicad-pcb.org/contribute/build-windows/
+https://wiki.allegro.cc/index.php?title=Building_with_msys2
