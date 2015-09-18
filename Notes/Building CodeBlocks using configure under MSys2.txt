@@ -29,12 +29,16 @@ git status
 # Step A4a
 git checkout -b msys2_configure origin/msys2_configure
 # Step A4b
-git pull
+
+
+cd ~/devel/codeblocks_msys2-git
+git status
+git pull 
+
 
 # Step B: Bootstrap building of configure
      # -DHAVE_W32API_H -D_WIN64 no idea if needed was added to try to fix some error
 # Step B1a
-# cd ~/devel/codeblocks_msys2-git 
 export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
      # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
      # -fmessage-length=0 no idea if needed was added to try to fix some error
@@ -70,7 +74,8 @@ rm src/sdk/.libs/libcodeblocks-0.dll
 
 # One line to test building CB exe target
 cd src/src; make clean && make; cd ..; cd ..
-cd src/src; make; cd ..; cd ..
+#
+cd src/src; make codeblocks.exe; cd ..; cd ..
 
 
 
@@ -91,9 +96,13 @@ Removing these 4 linker options from sdk causes src to not link.
 -Wl,--export-all-symbols        # This one is NEEDED
 -Wl,--add-stdcall-alias         #
 
-# Windows DLL Import/Export Macros
+# Windows DLL Import/Export Setup Macros
 BUILDING_PLUGIN
 EXPORT_LIB
 EXPORT_EVENTS
 WXMAKINGDLL_SCI
 WXUSINGDLL
+
+# Windows DLL Import/Export usage Macros
+PLUGIN_EXPORT    # For use inside CB Plugins; but, no sign of usage.
+DLLIMPORT        #include "settings.h"
