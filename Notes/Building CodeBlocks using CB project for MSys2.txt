@@ -1,0 +1,20 @@
+Building CodeBlocks using CB project for MSys2.txt
+
+Add Library sqbindings to see what linker options are needed
+
+
+"CB wx28 GCC MSYS2 x64" -p msys2_mingw64
+
+GCC Toolchain Setting
+C:\Apps64\msys64\mingw64
+
+C Compiler		: x86_64-w64-mingw32-gcc.exe
+C++ Compiler	: x86_64-w64-mingw32-g++.exe
+
+Other Compiler Options: -Wno-deprecated-declarations
+
+CB Project: CodeBlocks_wx30_64-msys.cbp think about changing "-msys.cbp" to "-msys2.cbp"
+
+CB GV: wx30_64
+base: 		C:/Apps64/msys64/mingw64
+include: 	C:/Apps64/msys64/mingw64/include/wx-3.0

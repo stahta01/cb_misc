@@ -1,7 +1,7 @@
-From 9f96e2b3ade2bf3ae188f9df4fc760f0f02479d4 Mon Sep 17 00:00:00 2001
+From a55ed6ccdca964c41a37160e22869f1749aa9876 Mon Sep 17 00:00:00 2001
 From: Tim Stahlhut <tim.stahlhut@gmail.com>
 Date: Fri, 4 Sep 2015 15:23:28 -0400
-Subject: [PATCH] * cbp: Added lib folders to some CB projects. (Thanks
+Subject: [PATCH 2/3] * win-cbp: Added lib folders to some CB projects. (Thanks
  stahta01)
 
 Made sure that all the .a files are under lib folder using contrib sub-folder and sub-folders.
@@ -1610,5 +1610,5 @@ index b093e3e..9c4d1b5 100644
  		<Unit filename="app.cpp" />
  		<Unit filename="app.h" />
 -- 
-2.5.1.windows.1
+2.5.2.windows.2
 

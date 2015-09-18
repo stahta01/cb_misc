@@ -1,0 +1,996 @@
+From 9d890306bf61c9d2988308d9829777b3e493b95c Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Thu, 10 Sep 2015 22:21:34 -0400
+Subject: [PATCH 3/3] * unix-cbp: Added lib, lib28 and lib30 folders to some CB
+ projects. (Thanks stahta01)
+
+Made sure that all the .a files are under lib* folders using contrib sub-folder and sub-folders.
+Removed some unneeded search folders.
+Changed to using object folder .objs28 or .objs for some targets.
+Moved "$(WX_CONFIG) --cflags" from project to target level in core cb projects.
+Changed targets below to use less project settings:
+ tinyXML
+ Squirrel
+ Squirrel std lib
+ SqPlus
+ Compiler depslib
+Removed zlib from Virtual target "All" in help_plugin.
+---
+ src/CodeBlocks-unix.cbp                            | 96 ++++++++++++++++++----
+ src/CodeBlocks_wx30-unix.cbp                       | 76 ++++++++++++-----
+ .../contrib/SpellChecker/SpellChecker-unix.cbp     |  7 +-
+ .../SpellChecker/SpellChecker_wx30-unix.cbp        |  3 +-
+ .../contrib/help_plugin/help-plugin-unix.cbp       | 14 ++--
+ .../contrib/help_plugin/help-plugin_wx30-unix.cbp  | 26 +++---
+ .../contrib/source_exporter/Exporter-unix.cbp      | 10 +--
+ .../contrib/source_exporter/Exporter_wx30-unix.cbp |  6 +-
+ src/tools/cb_share_config/cb_share_config-unix.cbp |  2 +-
+ .../cb_share_config/cb_share_config_wx30-unix.cbp  |  2 +-
+ 10 files changed, 173 insertions(+), 69 deletions(-)
+
+diff --git a/src/CodeBlocks-unix.cbp b/src/CodeBlocks-unix.cbp
+index 86da78f..8767a21 100644
+--- a/src/CodeBlocks-unix.cbp
++++ b/src/CodeBlocks-unix.cbp
+@@ -7,11 +7,16 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="tinyXML">
+-				<Option output="base/tinyxml/libtxml" prefix_auto="0" extension_auto="1" />
++				<Option output="lib/libtxml" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
++					<Add option="-fPIC" />
+ 					<Add directory="include/tinyxml" />
+ 				</Compiler>
+ 			</Target>
+@@ -20,6 +25,9 @@
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add directory="include" />
+ 				</Compiler>
+@@ -27,7 +35,7 @@
+ 					<Add option="-s" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add library="txml" />
+-					<Add directory="base/tinyxml" />
++					<Add directory="lib" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="ConsoleRunner">
+@@ -36,6 +44,9 @@
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-Os" />
+ 				</Compiler>
+@@ -44,46 +55,63 @@
+ 				</Linker>
+ 			</Target>
+ 			<Target title="Squirrel">
+-				<Option output="sdk/scripting/lib/libsquirrel" prefix_auto="0" extension_auto="1" />
++				<Option output="lib/libsquirrel" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fno-inline" />
++					<Add option="-fPIC" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/squirrel" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="Squirrel std lib">
+-				<Option output="sdk/scripting/lib/libsqstdlib" prefix_auto="0" extension_auto="1" />
++				<Option output="lib/libsqstdlib" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option external_deps="sdk/scripting/lib/libsquirrel.a;" />
++				<Option external_deps="lib/libsquirrel.a;" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fno-inline" />
++					<Add option="-fPIC" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqstdlib" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="SqPlus">
+-				<Option output="sdk/scripting/lib/libsqplus" prefix_auto="0" extension_auto="1" />
++				<Option output="lib/libsqplus" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option external_deps="sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;" />
++				<Option external_deps="lib/libsquirrel.a;lib/libsqstdlib.a;" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fno-inline" />
++					<Add option="-fPIC" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqplus" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="scintilla">
+-				<Option output="devel/libwxscintilla_cb" prefix_auto="0" extension_auto="1" />
++				<Option output="lib28/libwxscintilla_cb" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
++				<Option object_output=".objs28" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="-D__WX__" />
+ 					<Add option="-DGTK" />
+ 					<Add option="-DLINK_LEXERS" />
+@@ -100,10 +128,12 @@
+ 			<Target title="wxpropgrid">
+ 				<Option output="devel/libwxpropgrid" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="-DEXPORT_LIB" />
+ 					<Add option="-DwxPG_SUPPORT_TOOLTIPS" />
+ 					<Add directory="sdk/wxpropgrid/include" />
+@@ -113,13 +143,15 @@
+ 			<Target title="sdk">
+ 				<Option output="devel/libcodeblocks" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel" />
+-				<Option external_deps="base/tinyxml/libtxml.a;sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;sdk/scripting/lib/libsqplus.a;devel/libwxscintilla_cb.a;" />
++				<Option object_output=".objs28" />
++				<Option external_deps="lib/libtxml.a;lib/libsquirrel.a;lib/libsqstdlib.a;lib/libsqplus.a;lib28/libwxscintilla_cb.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ni -p debug" />
+ 				<Option createStaticLib="1" />
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="`pkg-config glib-2.0 --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/tinyxml" />
+@@ -142,8 +174,8 @@
+ 					<Add library="sqstdlib" />
+ 					<Add library="squirrel" />
+ 					<Add directory="devel" />
+-					<Add directory="sdk/scripting/lib" />
+-					<Add directory="sdk/propgrid" />
++					<Add directory="lib28" />
++					<Add directory="lib" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add before="build_tools/autorevision/autorevision +wx +int +t . include/autorevision.h" />
+@@ -153,11 +185,13 @@
+ 			<Target title="src">
+ 				<Option output="devel/codeblocks" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel" />
++				<Option object_output=".objs28" />
+ 				<Option type="0" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -v -p debug" />
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="`pkg-config gtk+-2.0 --cflags`" />
+ 					<Add option="-DENABLE_BINRELOC" />
+ 					<Add option="-DUSE_GTK_NOTEBOOK" />
+@@ -181,10 +215,12 @@
+ 			<Target title="Abbreviations">
+ 				<Option output="devel/share/codeblocks/plugins/libabbreviations" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqplus" />
+@@ -200,10 +236,12 @@
+ 			<Target title="AStyle">
+ 				<Option output="devel/share/codeblocks/plugins/libastyle" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="plugins/astyle/astyle" />
+ 				</Compiler>
+@@ -217,10 +255,12 @@
+ 			<Target title="Autosave">
+ 				<Option output="devel/share/codeblocks/plugins/libautosave" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -231,19 +271,25 @@
+ 				</Linker>
+ 			</Target>
+ 			<Target title="Compiler depslib">
+-				<Option output="plugins/compilergcc/depslib/libdepslib" prefix_auto="0" extension_auto="1" />
++				<Option output="lib/libdepslib" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fno-strict-aliasing" />
++					<Add option="-fPIC" />
+ 					<Add option="-DDEPSLIB_UNIX" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="Compiler">
+ 				<Option output="devel/share/codeblocks/plugins/libcompiler" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel" />
+-				<Option external_deps="plugins/compilergcc/depslib/libdepslib.a;" />
++				<Option object_output=".objs28" />
++				<Option external_deps="lib/libdepslib.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -v -p debug" />
+@@ -251,6 +297,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="plugins/compilergcc/depslib/src" />
+ 					<Add directory="include/scripting/include" />
+@@ -263,12 +310,13 @@
+ 					<Add library="depslib" />
+ 					<Add library="wxpropgrid" />
+ 					<Add directory="devel" />
+-					<Add directory="plugins/compilergcc/depslib" />
++					<Add directory="lib" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="Debugger">
+ 				<Option output="devel/share/codeblocks/plugins/libdebugger" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -v -p debug" />
+@@ -276,6 +324,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqplus" />
+@@ -290,10 +339,12 @@
+ 			<Target title="Code-completion">
+ 				<Option output="devel/share/codeblocks/plugins/libcodecompletion" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/mozilla_chardet" />
+ 					<Add directory="include/mozilla_chardet/mfbt" />
+@@ -312,10 +363,12 @@
+ 			<Target title="Class wizard">
+ 				<Option output="devel/share/codeblocks/plugins/libclasswizard" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -328,10 +381,12 @@
+ 			<Target title="Default MIME handler">
+ 				<Option output="devel/share/codeblocks/plugins/libdefaultmimehandler" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -344,10 +399,12 @@
+ 			<Target title="Occurrences Highlighting">
+ 				<Option output="devel/share/codeblocks/plugins/liboccurrenceshighlighting" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -360,10 +417,12 @@
+ 			<Target title="Open files list">
+ 				<Option output="devel/share/codeblocks/plugins/libopenfileslist" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -376,10 +435,12 @@
+ 			<Target title="Projects-workspaces importer">
+ 				<Option output="devel/share/codeblocks/plugins/libprojectsimporter" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/mozilla_chardet" />
+ 					<Add directory="include/mozilla_chardet/mfbt" />
+@@ -398,10 +459,12 @@
+ 			<Target title="Scripted wizard">
+ 				<Option output="devel/share/codeblocks/plugins/libscriptedwizard" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqplus" />
+@@ -416,10 +479,12 @@
+ 			<Target title="To-do">
+ 				<Option output="devel/share/codeblocks/plugins/libtodo" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel/share/codeblocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/mozilla_chardet" />
+ 					<Add directory="include/mozilla_chardet/mfbt" />
+@@ -439,6 +504,7 @@
+ 				<Option platforms="Windows;" />
+ 				<Option output="devel/share/CodeBlocks/plugins/xpmanifest" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="devel/share/CodeBlocks/plugins" />
++				<Option object_output=".objs28" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option projectLinkerOptionsRelation="1" />
+@@ -464,6 +530,7 @@
+ 			</Target>
+ 			<Environment>
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_CONFIG" value="wx-config --version=2.8" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_VERSION" value="28" />
+ 			</Environment>
+@@ -481,7 +548,6 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-fPIC" />
+-			<Add option="`wx-config --version=2.8 --cflags`" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add directory="sdk/wxscintilla/include" />
+diff --git a/src/CodeBlocks_wx30-unix.cbp b/src/CodeBlocks_wx30-unix.cbp
+index 4d1f749..989fc90 100644
+--- a/src/CodeBlocks_wx30-unix.cbp
++++ b/src/CodeBlocks_wx30-unix.cbp
+@@ -7,12 +7,16 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="tinyXML">
+-				<Option output="base/tinyxml/txml" prefix_auto="1" extension_auto="1" />
++				<Option output="lib/txml" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output=".objs30" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
++					<Add option="-fPIC" />
+ 					<Add directory="include/tinyxml" />
+ 				</Compiler>
+ 			</Target>
+@@ -29,7 +33,7 @@
+ 					<Add option="-s" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add library="txml" />
+-					<Add directory="base/tinyxml" />
++					<Add directory="lib" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="ConsoleRunner">
+@@ -47,50 +51,59 @@
+ 				</Linker>
+ 			</Target>
+ 			<Target title="Squirrel">
+-				<Option output="sdk/scripting/lib/squirrel" prefix_auto="1" extension_auto="1" />
++				<Option output="lib/squirrel" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output=".objs30" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+-					<Add option="-fno-inline" />
++					<Add option="-fPIC" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/squirrel" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="Squirrel std lib">
+-				<Option output="sdk/scripting/lib/sqstdlib" prefix_auto="1" extension_auto="1" />
++				<Option output="lib/sqstdlib" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output=".objs30" />
+-				<Option external_deps="sdk/scripting/lib/libsquirrel.a;" />
++				<Option external_deps="lib/libsquirrel.a;" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+-					<Add option="-fno-inline" />
++					<Add option="-fPIC" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqstdlib" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="SqPlus">
+-				<Option output="sdk/scripting/lib/sqplus" prefix_auto="1" extension_auto="1" />
++				<Option output="lib/sqplus" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output=".objs30" />
+-				<Option external_deps="sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;" />
++				<Option external_deps="lib/libsquirrel.a;lib/libsqstdlib.a;" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+-					<Add option="-fno-inline" />
++					<Add option="-fPIC" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqplus" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="scintilla">
+-				<Option output="devel30/wxscintilla_cb" prefix_auto="1" extension_auto="1" />
++				<Option output="lib30/wxscintilla_cb" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+ 				<Option object_output=".objs30" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="-D__WX__" />
+ 					<Add option="-DGTK" />
+ 					<Add option="-DLINK_LEXERS" />
+@@ -108,7 +121,7 @@
+ 				<Option output="devel30/libcodeblocks" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="devel30" />
+ 				<Option object_output=".objs30" />
+-				<Option external_deps="base/tinyxml/libtxml.a;sdk/scripting/lib/libsquirrel.a;sdk/scripting/lib/libsqstdlib.a;sdk/scripting/lib/libsqplus.a;devel30/libwxscintilla_cb.a;" />
++				<Option external_deps="lib/libtxml.a;lib/libsquirrel.a;lib/libsqstdlib.a;lib/libsqplus.a;lib30/libwxscintilla_cb.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -v -p debug" />
+@@ -117,6 +130,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="`pkg-config glib-2.0 --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/tinyxml" />
+@@ -137,8 +151,9 @@
+ 					<Add library="sqplus" />
+ 					<Add library="sqstdlib" />
+ 					<Add library="squirrel" />
++					<Add directory="lib30" />
++					<Add directory="lib" />
+ 					<Add directory="devel30" />
+-					<Add directory="sdk/scripting/lib" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add before="build_tools/autorevision/autorevision30 +wx +int +t . include/autorevision.h" />
+@@ -154,6 +169,7 @@
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -v -p debug" />
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="`pkg-config gtk+-2.0 --cflags`" />
+ 					<Add option="-DENABLE_BINRELOC" />
+ 					<Add option="-DUSE_GTK_NOTEBOOK" />
+@@ -184,6 +200,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqplus" />
+@@ -207,6 +224,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="plugins/astyle/astyle" />
+ 				</Compiler>
+@@ -228,6 +246,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -238,13 +257,17 @@
+ 				</Linker>
+ 			</Target>
+ 			<Target title="Compiler depslib">
+-				<Option output="plugins/compilergcc/depslib/depslib" prefix_auto="1" extension_auto="1" />
++				<Option output="lib/depslib" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output=".objs30" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fno-strict-aliasing" />
++					<Add option="-fPIC" />
+ 					<Add option="-DDEPSLIB_UNIX" />
+ 				</Compiler>
+ 			</Target>
+@@ -252,7 +275,7 @@
+ 				<Option output="devel30/share/codeblocks/plugins/compiler" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="devel30" />
+ 				<Option object_output=".objs30" />
+-				<Option external_deps="plugins/compilergcc/depslib/libdepslib.a;" />
++				<Option external_deps="lib/libdepslib.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -v -p debug" />
+@@ -260,6 +283,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="plugins/compilergcc/depslib/src" />
+ 					<Add directory="include/scripting/include" />
+@@ -271,7 +295,7 @@
+ 					<Add library="codeblocks" />
+ 					<Add library="depslib" />
+ 					<Add directory="devel30" />
+-					<Add directory="plugins/compilergcc/depslib" />
++					<Add directory="lib" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="Debugger">
+@@ -285,6 +309,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqplus" />
+@@ -307,6 +332,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="-DCC_NO_COLLAPSE_ITEM" />
+ 					<Add directory="include" />
+ 					<Add directory="include/mozilla_chardet" />
+@@ -334,6 +360,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -354,6 +381,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -374,6 +402,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -394,6 +423,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -414,6 +444,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/mozilla_chardet" />
+ 					<Add directory="include/mozilla_chardet/mfbt" />
+@@ -440,6 +471,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/scripting/include" />
+ 					<Add directory="include/scripting/sqplus" />
+@@ -462,6 +494,7 @@
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="1" />
+ 				<Compiler>
++					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add directory="include" />
+ 					<Add directory="include/mozilla_chardet" />
+ 					<Add directory="include/mozilla_chardet/mfbt" />
+@@ -525,7 +558,6 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-fPIC" />
+-			<Add option="`$(WX_CONFIG) --cflags`" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add directory="sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker-unix.cbp b/src/plugins/contrib/SpellChecker/SpellChecker-unix.cbp
+index 21859c9..0c0e034 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker-unix.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker-unix.cbp
+@@ -9,9 +9,9 @@
+ 		<Build>
+ 			<Target title="wxSpellChecker">
+ 				<Option platforms="Unix;" />
+-				<Option output="../../../devel/libwxSpellChecker" prefix_auto="0" extension_auto="1" />
++				<Option output="../../../lib28/contrib/SpellChecker/libwxSpellChecker" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output="../../../.objs/plugins/contrib/SpellChecker" />
++				<Option object_output="../../../.objs28/plugins/contrib/SpellChecker" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Option createDefFile="1" />
+@@ -41,7 +41,7 @@
+ 			<Target title="plugin">
+ 				<Option platforms="Unix;" />
+ 				<Option output="../../../devel/share/codeblocks/plugins/libSpellChecker" prefix_auto="0" extension_auto="1" />
+-				<Option object_output="../../../.objs/plugins/contrib/SpellChecker" />
++				<Option object_output="../../../.objs28/plugins/contrib/SpellChecker" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -p debug" />
+@@ -66,6 +66,7 @@
+ 					<Add option="-lwxSpellChecker" />
+ 					<Add option="`pkg-config hunspell --libs`" />
+ 					<Add library="codeblocks" />
++					<Add directory="../../../lib28/contrib/SpellChecker" />
+ 					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30-unix.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30-unix.cbp
+index c1f710d..a857f54 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30-unix.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30-unix.cbp
+@@ -8,7 +8,7 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="wxSpellChecker">
+-				<Option output="../../../devel30/wxSpellChecker" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../lib30/contrib/SpellChecker/wxSpellChecker" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/SpellChecker" />
+ 				<Option type="2" />
+@@ -65,6 +65,7 @@
+ 					<Add option="`pkg-config hunspell --libs`" />
+ 					<Add library="wxSpellChecker" />
+ 					<Add library="codeblocks" />
++					<Add directory="../../../lib30/contrib/SpellChecker" />
+ 					<Add directory="../../../devel30" />
+ 				</Linker>
+ 				<ExtraCommands>
+diff --git a/src/plugins/contrib/help_plugin/help-plugin-unix.cbp b/src/plugins/contrib/help_plugin/help-plugin-unix.cbp
+index 8cfe855..bec04e5 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin-unix.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin-unix.cbp
+@@ -8,7 +8,7 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="bzip2">
+-				<Option output="bzip2/libbzip2" prefix_auto="0" extension_auto="1" />
++				<Option output="../../../lib/contrib/help_plugin/libbzip2" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+ 				<Option object_output="../../../.objs/plugins/contrib/help_plugin/bzip2" />
+ 				<Option type="2" />
+@@ -20,7 +20,7 @@
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="zlib">
+-				<Option output="zlib/libz" prefix_auto="0" extension_auto="1" />
++				<Option output="../../../lib/contrib/help_plugin/libz" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+ 				<Option object_output="../../../.objs/plugins/contrib/help_plugin/zlib" />
+ 				<Option type="2" />
+@@ -46,13 +46,14 @@
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 				</Compiler>
+ 				<Linker>
+-					<Add library="bzip2/libbzip2.a" />
+-					<Add library="zlib/libz.a" />
++					<Add library="libbzip2.a" />
++					<Add library="libz.a" />
++					<Add directory="../../../lib/contrib/help_plugin" />
+ 				</Linker>
+ 			</Target>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="bzip2;zlib;help_plugin;" />
++			<Add alias="All" targets="bzip2;help_plugin;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add option="-Wextra" />
+@@ -77,9 +78,6 @@
+ 			<Add option="-Wl,--no-undefined" />
+ 			<Add library="libcodeblocks.a" />
+ 			<Add directory="../../../devel" />
+-			<Add directory="../../../sdk/scripting/lib" />
+-			<Add directory="bzip2" />
+-			<Add directory="zlib" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ../../../devel/share/codeblocks/help_plugin.zip manifest.xml *.xrc *.png" />
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
+index 12ebaf3..1ee1c68 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
+@@ -8,25 +8,33 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="bzip2">
+-				<Option output="bzip2/libbzip2.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib/contrib/help_plugin/libbzip2.a" prefix_auto="0" extension_auto="0" />
+ 				<Option working_dir="" />
+-				<Option object_output="../../../.objs30/plugins/contrib/help_plugin" />
++				<Option object_output="../../../.objs/plugins/contrib/help_plugin" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Option createDefFile="1" />
+ 				<Option projectCompilerOptionsRelation="1" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fPIC" />
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="zlib">
+-				<Option output="zlib/libz.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib/contrib/help_plugin/libz.a" prefix_auto="0" extension_auto="0" />
+ 				<Option working_dir="" />
+-				<Option object_output="../../../.objs30/plugins/contrib/help_plugin" />
++				<Option object_output="../../../.objs/plugins/contrib/help_plugin" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Option createDefFile="1" />
+ 				<Option projectCompilerOptionsRelation="1" />
++				<Option projectLinkerOptionsRelation="1" />
++				<Option projectIncludeDirsRelation="1" />
++				<Option projectResourceIncludeDirsRelation="1" />
++				<Option projectLibDirsRelation="1" />
+ 				<Compiler>
+ 					<Add option="-fPIC" />
+ 				</Compiler>
+@@ -46,8 +54,9 @@
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 				</Compiler>
+ 				<Linker>
+-					<Add library="bzip2/libbzip2.a" />
+-					<Add library="zlib/libz.a" />
++					<Add library="libbzip2.a" />
++					<Add library="libz.a" />
++					<Add directory="../../../lib/contrib/help_plugin" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+@@ -55,7 +64,7 @@
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="bzip2;zlib;help_plugin;" />
++			<Add alias="All" targets="bzip2;help_plugin;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add option="-Wextra" />
+@@ -80,9 +89,6 @@
+ 			<Add option="-Wl,--no-undefined" />
+ 			<Add library="codeblocks" />
+ 			<Add directory="../../../devel30" />
+-			<Add directory="../../../sdk/scripting/lib" />
+-			<Add directory="bzip2" />
+-			<Add directory="zlib" />
+ 		</Linker>
+ 		<ExtraCommands>
+ 			<Add after="zip -j9 ../../../devel30/share/codeblocks/help_plugin.zip manifest.xml *.xrc *.png" />
+diff --git a/src/plugins/contrib/source_exporter/Exporter-unix.cbp b/src/plugins/contrib/source_exporter/Exporter-unix.cbp
+index f2347e0..1ff255c 100644
+--- a/src/plugins/contrib/source_exporter/Exporter-unix.cbp
++++ b/src/plugins/contrib/source_exporter/Exporter-unix.cbp
+@@ -8,9 +8,9 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="wxPdfDocument">
+-				<Option output="wxPdfDocument/lib/libwxPdfDocument" prefix_auto="0" extension_auto="1" />
++				<Option output="../../../lib28/contrib/source_exporter/libwxPdfDocument" prefix_auto="0" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
++				<Option object_output="../../../.objs28/plugins/contrib/source_exporter" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+ 				<Option projectCompilerOptionsRelation="2" />
+@@ -26,8 +26,8 @@
+ 			</Target>
+ 			<Target title="default">
+ 				<Option output="../../../devel/share/codeblocks/plugins/libexporter" prefix_auto="0" extension_auto="1" />
+-				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+-				<Option external_deps="wxPdfDocument/lib/libwxPdfDocument.a;" />
++				<Option object_output="../../../.objs28/plugins/contrib/source_exporter" />
++				<Option external_deps="../../../lib28/contrib/source_exporter/libwxPdfDocument.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -p debug" />
+@@ -39,7 +39,7 @@
+ 					<Add option="`pkg-config --libs fontconfig`" />
+ 					<Add library="libcodeblocks.a" />
+ 					<Add library="wxPdfDocument" />
+-					<Add directory="wxPdfDocument/lib" />
++					<Add directory="../../../lib28/contrib/source_exporter" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ../../../devel/share/codeblocks/exporter.zip manifest.xml" />
+diff --git a/src/plugins/contrib/source_exporter/Exporter_wx30-unix.cbp b/src/plugins/contrib/source_exporter/Exporter_wx30-unix.cbp
+index 358cc6b..19587ea 100644
+--- a/src/plugins/contrib/source_exporter/Exporter_wx30-unix.cbp
++++ b/src/plugins/contrib/source_exporter/Exporter_wx30-unix.cbp
+@@ -8,7 +8,7 @@
+ 		<Option compiler="gcc" />
+ 		<Build>
+ 			<Target title="wxPdfDocument">
+-				<Option output="wxPdfDocument/lib30/libwxPdfDocument.a" prefix_auto="0" extension_auto="0" />
++				<Option output="../../../lib30/contrib/source_exporter/libwxPdfDocument.a" prefix_auto="0" extension_auto="0" />
+ 				<Option working_dir="" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/source_exporter" />
+ 				<Option type="2" />
+@@ -22,7 +22,7 @@
+ 			<Target title="default">
+ 				<Option output="../../../devel30/share/codeblocks/plugins/exporter" prefix_auto="1" extension_auto="1" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/source_exporter" />
+-				<Option external_deps="wxPdfDocument/lib30/libwxPdfDocument.a;" />
++				<Option external_deps="../../../lib30/contrib/source_exporter/libwxPdfDocument.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -ns -ni -p debug" />
+@@ -31,7 +31,7 @@
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Linker>
+ 					<Add library="libwxPdfDocument.a" />
+-					<Add directory="wxPdfDocument/lib30" />
++					<Add directory="../../../lib30/contrib/source_exporter" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="zip -j9 ../../../devel30/share/codeblocks/exporter.zip manifest.xml" />
+diff --git a/src/tools/cb_share_config/cb_share_config-unix.cbp b/src/tools/cb_share_config/cb_share_config-unix.cbp
+index 39d4df7..5157f37 100644
+--- a/src/tools/cb_share_config/cb_share_config-unix.cbp
++++ b/src/tools/cb_share_config/cb_share_config-unix.cbp
+@@ -38,7 +38,7 @@
+ 			<Add option="`pkg-config glib-2.0 --libs`" />
+ 			<Add library="txml" />
+ 			<Add library="wxpropgrid" />
+-			<Add directory="../../base/tinyxml" />
++			<Add directory="../../lib" />
+ 			<Add directory="../../devel" />
+ 		</Linker>
+ 		<Unit filename="app.cpp" />
+diff --git a/src/tools/cb_share_config/cb_share_config_wx30-unix.cbp b/src/tools/cb_share_config/cb_share_config_wx30-unix.cbp
+index c5408af..6e276bb 100644
+--- a/src/tools/cb_share_config/cb_share_config_wx30-unix.cbp
++++ b/src/tools/cb_share_config/cb_share_config_wx30-unix.cbp
+@@ -40,8 +40,8 @@
+ 			<Add option="-Wl,--no-undefined" />
+ 			<Add option="`pkg-config glib-2.0 --libs`" />
+ 			<Add library="txml" />
+-			<Add directory="../../base/tinyxml" />
+ 			<Add directory="../../devel30" />
++			<Add directory="../../lib" />
+ 		</Linker>
+ 		<Unit filename="app.cpp" />
+ 		<Unit filename="app.h" />
+-- 
+2.5.2.windows.2
+
