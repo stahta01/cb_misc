@@ -20,11 +20,11 @@ A4)  git checkout -b msys2_configure origin/msys2_configure
 
 B)   # Bootstrap building of configure
      # -DHAVE_W32API_H -D_WIN64 no idea if needed was added to try to fix some error
-B1a) export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
+B1a) export CPPFLAGS="-DWXUSINGDLL -D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
      # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
      # -fmessage-length=0 no idea if needed was added to try to fix some error
 B1b) export CXXFLAGS="-Wno-deprecated-declarations -fmessage-length=0"
-B1c) export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lwsock32"
+B1c) export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -lrpcrt4 -ladvapi32 -lwsock32"
 B2)  ./bootstrap
 
 echo $CPPFLAGS
@@ -35,7 +35,11 @@ rm src/sdk/libcodeblocks.la
 rm src/sdk/.libs/libcodeblocks-0.dll
 
 # One line test to try to fix linking errors
-export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32"; ./bootstrap && ./configure --disable-pch && make
+./bootstrap && ./configure --disable-pch && make
+
+# One line to test building CB exe target
+cd src/src; make clean && make; cd ..; cd ..
+cd src/src; make; cd ..; cd ..
 
 -Wl,--no-undefined              # Added to CB sdk DLL Makefile.am
 -Wl,--export-all-symbols        # Added to CB sdk DLL Makefile.am
@@ -50,11 +54,12 @@ Removing these 4 linker options from sdk causes src to not link.
 -Wl,--export-all-symbols        # This one is NEEDED
 -Wl,--add-stdcall-alias         #
 
-
+# Windows DLL Import/Export Macros
+BUILDING_PLUGIN
 DEXPORT_LIB
+EXPORT_EVENTS
 DWXMAKINGDLL_SCI
 DWXUSINGDLL
--mwindows
 
 
 C)   # Configure/make/install of Code::Blocks
