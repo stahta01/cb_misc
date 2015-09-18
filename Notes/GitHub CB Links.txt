@@ -1,0 +1,28 @@
+Source Mirrors
+   https://github.com/jenslody/codeblocks
+
+OS Shell Scripts
+   https://github.com/palcu/codeblocks-project-creator
+
+Custom Built CB Binaries (these binaries were NOT tested by me.)
+   https://github.com/fresearchgroup/Simplifying-Cross-platform-Code--Blocks-IDE
+   https://github.com/Distrotech/codeblocks
+   https://github.com/miniBloq/CodeBlocks-RG
+
+CB Wizards or Templates
+   https://github.com/provideyourown/CodeBlocks-Arduino
+
+CB Plugins
+   https://github.com/eranif/wxCrafterCB
+   https://github.com/spillz/codeblocks-python
+   https://github.com/ywx/cbDiff
+   https://github.com/zmj64351508/cbvike
+   https://github.com/obfuscated/cb_gdbmi
+   https://github.com/editorconfig/editorconfig-codeblocks
+   https://github.com/Katona/cbGit
+
+Projects that use CB as their IDE
+   https://github.com/cqljj123/codeblocks
+   https://github.com/RTOSkit/ClasSQL-cb
+   https://github.com/garyclin/CodeBlocks
+   https://github.com/edu-plvlml/cpp_lection12.1_codeblocks
