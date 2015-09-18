@@ -1,3 +1,4 @@
+git remote prune origin # Removed from local list the branches that no longer exist in origin remote
 
 git config --global merge.ff only # http://aaronbonner.io/post/78444674979/only-allow-git-fast-forward-merges-to-avoid-ugly
 
