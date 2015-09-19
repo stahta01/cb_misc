@@ -22,7 +22,7 @@ CB Plugins
    https://github.com/Katona/cbGit
 
 CB Third-party libs
-   
+   https://github.com/jrfonseca/drmingw
 
 Projects that use CB as their IDE
    https://github.com/cqljj123/codeblocks
