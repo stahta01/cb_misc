@@ -54,9 +54,14 @@ export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lw
 
 # Step C: Configure/make/install of Code::Blocks
 # Step C1
-./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch --with-wx-config=/mingw64/bin/wx-config
+./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
+   --with-wx-config=/mingw64/bin/wx-config \
+   --disable-debugger --disable-code-completion --disable-projects-importer
+
+# --with-contrib-plugins=envvars,help,ProjectOptionsManipulator,ToolsPlus,wxcontrib
+
 # Step C2  
-make clean; make         # Errors out building src folder; Linker error.
+make clean; make         # errors out in ConsoleRunner
 # Step C3  
 make install             #
 
@@ -64,9 +69,6 @@ make install             #
 # These two steps revert those changes.
 git checkout -- debian/changelog
 git checkout -- src/sdk/wxscintilla/Readme
-
-git checkout -- src/sdk/Makefile.am
-
 
 
 echo $CPPFLAGS
@@ -111,8 +113,64 @@ DLL_EXPORT             "Added most likely by libtool"
 
 
 # Windows DLL Import/Export usage Macros
-PLUGIN_EXPORT    # For use inside CB Plugins; but, no sign of usage.
-DLLIMPORT        #include "settings.h"
-SQUIRREL_API
-CB_SCRIPT_CLASS_EXPORT
+PLUGIN_EXPORT               # For use inside CB Plugins; but, no sign of usage.
+DLLIMPORT                   #include "settings.h"
+CB_EXPIMP_TEMPLATE          #include "settings.h"
+SQUIRREL_API                #include "squirrel.h"
+CB_EXPIMP_SCRIPT_CLASS      #include "squirrel.h"
 
+- code_fix_dll_export: Added DLLIMPORT. (Thanks stahta01)
+And, added include "settings.h" if needed.
+
+- code_fix_dll_export: Added CB_EXPIMP_TEMPLATE. (Thanks stahta01)
+And, added include "settings.h" if needed.
+
+- code_fix_dll_export: Added SQUIRREL_API. (Thanks stahta01)
+
+- code_fix_dll_export: Added CB_EXPIMP_SCRIPT_CLASS. (Thanks stahta01)
+
+- Makefile.am: Added DLL export/import defines. (Thanks stahta01)
+
+
+* DO NOT APPLY UPSTREAM: Makefile.am:
+
+
+* DO NOT APPLY UPSTREAM: Makefile.am: Removed plugins below from build list
+
+Some of the configure help info below:
+  --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
+                          compiler's sysroot if not specified).
+  --with-platform=PLATFORM
+                          the platform to build, win32, macosx or gtk(default)
+  --with-contrib-plugins=<list>     compile contrib plugins in <list>.
+                          plugins may be separated with commas.
+                          "all", "yes" or just "--with-contrib-plugins" compiles all contrib plugins
+                          "all,-help" or "yes,-help" compiles all contrib plugins except the help plugin
+                          "none", "no", "--without-contrib-plugins" or skipping the parameter at all,
+                          compiles none of the contrib-plugins
+                          Plugin names are: AutoVersioning, BrowseTracker, byogames, Cccc, CppCheck, cbkoders, codesnippets,
+                          		     codestat, copystrings, Cscope, DoxyBlocks, dragscroll, EditorConfig, EditorTweaks, envvars,
+                          		     FileManager, headerfixup, help, hexeditor, incsearch, keybinder, libfinder, MouseSap,
+                          		     NassiShneiderman, ProjectOptionsManipulator, profiler, regex, ReopenEditor, exporter, smartindent, spellchecker,
+                          		     symtab, ThreadSearch, ToolsPlus, Valgrind, wxcontrib, wxsmith, wxsmithcontrib, wxsmithaui
+  --with-wxdir=PATH       Use uninstalled version of wxWidgets in PATH
+  --with-wx-config=CONFIG wx-config script to use (optional)
+  --with-wx-prefix=PREFIX Prefix where wxWidgets is installed (optional)
+  --with-wx-exec-prefix=PREFIX
+                          Exec prefix where wxWidgets is installed (optional)
+  --with-x                use the X Window System
+
+Some influential environment variables:
+  CC          C compiler command
+  CFLAGS      C compiler flags
+  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+              nonstandard directory <lib dir>
+  LIBS        libraries to pass to the linker, e.g. -l<library>
+  CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
+              you have headers in a nonstandard directory <include dir>
+  LT_SYS_LIBRARY_PATH
+              User-defined run-time library search path.
+  CPP         C preprocessor
+  CXX         C++ compiler command
+  CXXFLAGS    C++ compiler flags
+  CXXCPP      C++ preprocessor
