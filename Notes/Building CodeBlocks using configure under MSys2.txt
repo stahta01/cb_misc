@@ -33,7 +33,8 @@ git checkout -b msys2_configure origin/msys2_configure
 
 
 cd ~/devel/codeblocks_msys2-git
-git status
+git fetch
+git status -uno
 git pull 
 
 
@@ -64,50 +65,54 @@ make install             #
 git checkout -- debian/changelog
 git checkout -- src/sdk/wxscintilla/Readme
 
+git checkout -- src/sdk/Makefile.am
+
+
 
 echo $CPPFLAGS
 echo $CXXFLAGS
 echo $LDFLAGS
 
 
-
 # One line to test building CB exe target
 cd src/src; make clean && make; cd ..; cd ..;
-#
-cd src/src; make codeblocks.exe; cd ..; cd ..;
 
+#
+cd src/src; make codeblocks.exe; cd ..; cd ..; # 155 lines after edit
+
+# Clean and make compilergcc
 cd src/plugins/compilergcc; make clean && make; cd ..; cd ..; cd ..;
+
+# to show just the linking errors
+cd src/plugins/compilergcc; make libcompiler.la; cd ..; cd ..; cd ..;
 
 # Delete CB DLL and then do make
 cd ~/devel/codeblocks_msys2-git; rm src/sdk/libcodeblocks.la; rm src/sdk/.libs/libcodeblocks-0.dll
 make
 
+NEED TO TRY REMOVING usage of --export-all-symbols in CB Projects
 
-# One line test to try to fix linking errors
-./bootstrap && ./configure --disable-pch && make
+-Xlinker --export-all-symbols
+
+No idea if this change is needed in src\sdk\scripting\bindings\Makefile.am
+if CODEBLOCKS_NT
+AM_CPPFLAGS += -DEXPORT_LIB -DWXMAKINGDLL_SCI
+endif
 
 
--Wl,--no-undefined              # Added to CB sdk DLL Makefile.am
--Wl,--export-all-symbols        # Added to CB sdk DLL Makefile.am
--Wl,--add-stdcall-alias         # 
+# Windows DLL Import/Export setup Macros and defined inside Makefile.am files.
+CB_SDK_DLL_IMPORT      src
+BUILDING_PLUGIN        "Not used in any Makefile.am"
+EXPORT_LIB             SDK, bindings, wxpropgrid, sqplus
+EXPORT_EVENTS          SDK
+WXMAKINGDLL_SCI        SDK, bindings, wxscintilla
+WXUSINGDLL             SDK, src, wxscintilla
+DLL_EXPORT             "Added most likely by libtool"
 
--Wl,--enable-auto-image-base    
--Wl,--enable-auto-import        # 
-
-Removing these 4 linker options from sdk causes src to not link.
--Wl,--enable-auto-image-base
--Wl,--enable-auto-import
--Wl,--export-all-symbols        # This one is NEEDED
--Wl,--add-stdcall-alias         #
-
-# Windows DLL Import/Export Setup Macros
-BUILDING_PLUGIN
-EXPORT_LIB
-EXPORT_EVENTS
-WXMAKINGDLL_SCI
-WXUSINGDLL
 
 # Windows DLL Import/Export usage Macros
 PLUGIN_EXPORT    # For use inside CB Plugins; but, no sign of usage.
 DLLIMPORT        #include "settings.h"
 SQUIRREL_API
+CB_SCRIPT_CLASS_EXPORT
+
