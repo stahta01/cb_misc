@@ -2,6 +2,7 @@ Please do steps in "Setting up MSys2 for building CodeBlocks.txt"
 
 Please read thread http://forums.codeblocks.org/index.php/topic,20520.msg139608.html#msg139608
 
+
 Steps to configure/make C::B
 # Step A: Get the Code::Blocks source code
 # Step A0  
@@ -68,15 +69,18 @@ echo $CPPFLAGS
 echo $CXXFLAGS
 echo $LDFLAGS
 
-rm src/sdk/libcodeblocks.la
-rm src/sdk/.libs/libcodeblocks-0.dll
 
 
 # One line to test building CB exe target
-cd src/src; make clean && make; cd ..; cd ..
+cd src/src; make clean && make; cd ..; cd ..;
 #
-cd src/src; make codeblocks.exe; cd ..; cd ..
+cd src/src; make codeblocks.exe; cd ..; cd ..;
 
+cd src/plugins/compilergcc; make clean && make; cd ..; cd ..; cd ..;
+
+# Delete CB DLL and then do make
+cd ~/devel/codeblocks_msys2-git; rm src/sdk/libcodeblocks.la; rm src/sdk/.libs/libcodeblocks-0.dll
+make
 
 
 # One line test to try to fix linking errors
@@ -106,3 +110,4 @@ WXUSINGDLL
 # Windows DLL Import/Export usage Macros
 PLUGIN_EXPORT    # For use inside CB Plugins; but, no sign of usage.
 DLLIMPORT        #include "settings.h"
+SQUIRREL_API
