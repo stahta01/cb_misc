@@ -21,6 +21,9 @@ CB Plugins
    https://github.com/editorconfig/editorconfig-codeblocks
    https://github.com/Katona/cbGit
 
+CB Third-party libs
+   
+
 Projects that use CB as their IDE
    https://github.com/cqljj123/codeblocks
    https://github.com/RTOSkit/ClasSQL-cb
