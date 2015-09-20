@@ -22,7 +22,7 @@ Useful Packages and Tools
    mingw-w64-{i686,x86_64}-codelite-git
    mingw-w64-{i686,x86_64}-gedit
 
-
+mingw-w64-x86_64-codelite-git
 
 http://sourceforge.net/projects/cbp2make
 https://github.com/stahta01/cbp2make.git

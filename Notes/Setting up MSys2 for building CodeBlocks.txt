@@ -13,10 +13,11 @@ pacman -Su
 # Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 # Here -S means "sync" (Add). And -U means add or upgrade; it requires an URL-like option I have yet to learn
 
-# Install programs that are know to be needed
+# Install programs that are known to be needed
 pacman -S wget mingw-w64-x86_64-toolchain
 pacman -S unzip zip
 pacman -S base-devel # Not sure if this is needed
 pacman -S mingw-w64-x86_64-wxWidgets
 pacman -S mingw-w64-winpthreads-git 
 pacman -S git
+pacman -S mingw-w64-x86_64-drmingw

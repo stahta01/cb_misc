@@ -37,18 +37,32 @@ git fetch
 git status -uno
 git pull 
 
+Defines that looks to be useful
+_WINMM_
+WINMMAPI  #include "mmsystem.h"
+__CYGWIN__
+__MSYS__
+
+Link options to add to CB Project
+-shared -nostdlib
+C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib/../lib/dllcrt2.o 
+C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtbegin.o
+
 
 # Step B: Bootstrap building of configure
-     # -DHAVE_W32API_H -D_WIN64 no idea if needed was added to try to fix some error
-# Step B1a
-export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DcbDEBUG -DNOPCH -DHAVE_W32API_H -D_WIN64"
-     # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
-     # -fmessage-length=0 no idea if needed was added to try to fix some error
+# Step B1a # Build both with and without -D_POSIX
+export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DNOPCH"
 # Step B1b
-export CXXFLAGS="-Wno-deprecated-declarations -fmessage-length=0"
+# -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
+export CXXFLAGS="-Wno-deprecated-declarations"
 # Step B1c
 export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -lrpcrt4 -ladvapi32 -lwsock32"
 # Step B2
+
+echo $CPPFLAGS
+echo $CXXFLAGS
+echo $LDFLAGS
+
 ./bootstrap
 
 
@@ -70,9 +84,6 @@ make clean; make         # errors out because of tinyXML link issues in
 make install             #
 
 # Step D Run Program
-# Work Around of config bug
-mkdir -p /mingw64/share/share
-mv /mingw64/share/codeblocks /mingw64/share/share/codeblocks
 # Fails to find the wxWidgets DLLs unless I do a cd from build location
 cd ~; codeblocks; cd ~/devel/codeblocks_msys2-git
 
@@ -82,40 +93,15 @@ git checkout -- debian/changelog
 git checkout -- src/sdk/wxscintilla/Readme
 
 
-echo $CPPFLAGS
-echo $CXXFLAGS
-echo $LDFLAGS
-
-
-# One line to test building CB exe target
-cd src/src; make clean && make; cd ..; cd ..;
-
-#
-cd src/src; make codeblocks.exe; cd ..; cd ..; # 155 lines after edit
-
-
 # Clean and make ConsoleRunner
 cd src/tools/ConsoleRunner; make clean && make; cd ..; cd ..; cd ..;
-
 
 # Clean and make compilergcc
 cd src/plugins/compilergcc; make clean && make; cd ..; cd ..; cd ..;
 
-# to show just the linking errors
-cd src/plugins/compilergcc; make libcompiler.la; cd ..; cd ..; cd ..;
-
-# Delete CB DLL and then do make
-cd ~/devel/codeblocks_msys2-git; rm src/sdk/libcodeblocks.la; rm src/sdk/.libs/libcodeblocks-0.dll
-make
 
 NEED TO TRY REMOVING usage of --export-all-symbols in CB Projects
-
 -Xlinker --export-all-symbols
-
-No idea if this change is needed in src\sdk\scripting\bindings\Makefile.am
-if CODEBLOCKS_NT
-AM_CPPFLAGS += -DEXPORT_LIB -DWXMAKINGDLL_SCI
-endif
 
 
 # Windows DLL Import/Export setup Macros and defined inside Makefile.am files.
@@ -154,8 +140,6 @@ And, added include "settings.h" if needed.
 * DO NOT APPLY UPSTREAM: Makefile.am: Removed plugins below from build list
 
 Some of the configure help info below:
-  --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
-                          compiler's sysroot if not specified).
   --with-platform=PLATFORM
                           the platform to build, win32, macosx or gtk(default)
   --with-contrib-plugins=<list>     compile contrib plugins in <list>.
@@ -171,22 +155,3 @@ Some of the configure help info below:
                           		     symtab, ThreadSearch, ToolsPlus, Valgrind, wxcontrib, wxsmith, wxsmithcontrib, wxsmithaui
   --with-wxdir=PATH       Use uninstalled version of wxWidgets in PATH
   --with-wx-config=CONFIG wx-config script to use (optional)
-  --with-wx-prefix=PREFIX Prefix where wxWidgets is installed (optional)
-  --with-wx-exec-prefix=PREFIX
-                          Exec prefix where wxWidgets is installed (optional)
-  --with-x                use the X Window System
-
-Some influential environment variables:
-  CC          C compiler command
-  CFLAGS      C compiler flags
-  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
-              nonstandard directory <lib dir>
-  LIBS        libraries to pass to the linker, e.g. -l<library>
-  CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
-              you have headers in a nonstandard directory <include dir>
-  LT_SYS_LIBRARY_PATH
-              User-defined run-time library search path.
-  CPP         C preprocessor
-  CXX         C++ compiler command
-  CXXFLAGS    C++ compiler flags
-  CXXCPP      C++ preprocessor
