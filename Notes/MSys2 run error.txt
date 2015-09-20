@@ -8,3 +8,14 @@ or try re-installing the application...
 ---------------------------
 OK   
 ---------------------------
+
+---------------------------
+
+---------------------------
+Cannot find resources...
+Code::Blocks was configured to be installed in 'C:\Apps64\msys64\mingw64\bin\share\codeblocks'.
+Please use the command-line switch '--prefix' or set the CODEBLOCKS_DATA_DIR environment variable to point where Code::Blocks is installed,
+or try re-installing the application...
+---------------------------
+OK   
+---------------------------

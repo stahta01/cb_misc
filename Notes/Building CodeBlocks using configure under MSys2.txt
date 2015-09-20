@@ -58,12 +58,14 @@ export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lw
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
    --disable-debugger --disable-code-completion --disable-projects-importer \
-   --with-contrib-plugins=envvars,help,ProjectOptionsManipulator,ToolsPlus,wxcontrib
+   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus
 
-# --with-contrib-plugins=envvars,help,ProjectOptionsManipulator,ToolsPlus,wxcontrib
-
-# Step C2  
-make clean; make         # errors out in debugger, code-completion, projects-importer
+# Step C2
+make clean; make         # errors out because of tinyXML link issues in
+                         # debugger, code-completion, projects-importer, and envvars
+                         #
+                         # errors out for other reasons
+                         # wxcontrib 
 # Step C3  
 make install             #
 
@@ -72,7 +74,7 @@ make install             #
 mkdir -p /mingw64/share/share
 mv /mingw64/share/codeblocks /mingw64/share/share/codeblocks
 # Fails to find the wxWidgets DLLs unless I do a cd from build location
-cd ~; codeblocks
+cd ~; codeblocks; cd ~/devel/codeblocks_msys2-git
 
 # Configure/make appears to change these files; not sure which step or why.
 # These two steps revert those changes.
