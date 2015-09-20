@@ -54,16 +54,27 @@ export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lw
 
 # Step C: Configure/make/install of Code::Blocks
 # Step C1
+# cd ~/devel/codeblocks_msys2-git
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
+   --datarootdir=/mingw64/share \
    --disable-debugger --disable-code-completion --disable-projects-importer
 
 # --with-contrib-plugins=envvars,help,ProjectOptionsManipulator,ToolsPlus,wxcontrib
+# --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+# --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
 
 # Step C2  
 make clean; make         # errors out in ConsoleRunner
 # Step C3  
 make install             #
+
+# Step D Run Program
+# Work Around of config bug
+mkdir -p /mingw64/share/share
+mv /mingw64/share/codeblocks /mingw64/share/share/codeblocks
+# Fails to find the wxWidgets DLLs unless I do a cd from build location
+cd ~; codeblocks
 
 # Configure/make appears to change these files; not sure which step or why.
 # These two steps revert those changes.
