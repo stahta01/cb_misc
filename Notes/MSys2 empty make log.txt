@@ -1,0 +1,521 @@
+stahta01@Laptop2-tim MINGW64 ~/devel/codeblocks_msys2-git
+$ make
+Making all in src
+make[1]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+Making all in include
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make  all-recursive
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+Making all in scripting
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+Making all in squirrel
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/squirrel'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/squirrel'
+Making all in sqstdlib
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqstdlib'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqstdlib'
+Making all in sqplus
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqplus'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqplus'
+Making all in bindings
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/bindings'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/bindings'
+Making all in include
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/include'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/include'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+Making all in tinyxml
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/tinyxml'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/tinyxml'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+Making all in base
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+Making all in tinyxml
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/base/tinyxml'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/base/tinyxml'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+Making all in build_tools
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+Making all in autorevision
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools/autorevision'
+./auto_revision +int +wx +t ../../.. ../../../src/include/autorevision.h
+svn: E155007: 'C:\Apps64\msys64\home\stahta01\devel\codeblocks_msys2-git' is not a working copy
+Can't locate SVN/Core.pm in @INC (you may need to install the SVN::Core module) (@INC contains: /usr/share/perl5/site_perl /usr/lib/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /usr/share/perl5/vendor_perl/Git/SVN/Utils.pm line 6.
+BEGIN failed--compilation aborted at /usr/share/perl5/vendor_perl/Git/SVN/Utils.pm line 6.
+Compilation failed in require at /usr/share/perl5/vendor_perl/Git/SVN.pm line 32.
+BEGIN failed--compilation aborted at /usr/share/perl5/vendor_perl/Git/SVN.pm line 32.
+Compilation failed in require at /usr/lib/git-core/git-svn line 21.
+BEGIN failed--compilation aborted at /usr/lib/git-core/git-svn line 21.
+svn: E155007: 'C:\Apps64\msys64\home\stahta01\devel\codeblocks_msys2-git' is not a working copy
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools/autorevision'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+Making all in mime
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
+Making all in sdk
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+Making all in scripting
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+Making all in squirrel
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/squirrel'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/squirrel'
+Making all in sqstdlib
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqstdlib'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqstdlib'
+Making all in sqplus
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqplus'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqplus'
+Making all in bindings
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/bindings'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/bindings'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+Making all in wxscintilla
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/wxscintilla'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/wxscintilla'
+Making all in resources
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+Making all in lexers
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources/lexers'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources/lexers'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+Making all in src
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+Making all in resources
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+Making all in icons
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/icons'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/icons'
+Making all in images
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+Making all in 16x16
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/16x16'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/16x16'
+Making all in settings
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/settings'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/settings'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+Making all in plugins
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+Making all in astyle
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+Making all in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle/resources'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+Making all in autosave
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/autosave'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/autosave'
+Making all in classwizard
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+Making all in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard/resources'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+Making all in compilergcc
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+Making all in depslib
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+Making all in src
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib/src'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib/src'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+Making all in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/resources'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+Making all in defaultmimehandler
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+Making all in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler/resources'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+Making all in scriptedwizard
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+Making all in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+Making all in arm
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/arm'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/arm'
+Making all in avr
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/avr'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/avr'
+Making all in c_file
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/c_file'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/c_file'
+Making all in console
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/console'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/console'
+Making all in d
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/d'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/d'
+Making all in directx
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/directx'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/directx'
+Making all in dll
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/dll'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/dll'
+Making all in empty
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty'
+Making all in empty_file
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty_file'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty_file'
+Making all in fltk
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fltk'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fltk'
+Making all in fortran
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fortran'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fortran'
+Making all in glfw
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glfw'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glfw'
+Making all in glut
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glut'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glut'
+Making all in gtk
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/gtk'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/gtk'
+Making all in h_file
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/h_file'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/h_file'
+Making all in irrlicht
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/irrlicht'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/irrlicht'
+Making all in lf
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/lf'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/lf'
+Making all in mcs51
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/mcs51'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/mcs51'
+Making all in matlab_csf
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+Making all in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/files'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/files'
+Making all in lccstub
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/lccstub'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/lccstub'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+Making all in ogre
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+Making all in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre/files'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+Making all in opencv
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opencv'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opencv'
+Making all in opengl
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+Making all in files_unix
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_unix'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_unix'
+Making all in files_win
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_win'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_win'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+Making all in plugins
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+Making all in templates
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins/templates'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins/templates'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+Making all in ppc
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ppc'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ppc'
+Making all in qt4
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+Making all in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4/files'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+Making all in sdl
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+Making all in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl/files'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+Making all in sfml
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sfml'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sfml'
+Making all in smartwin
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+Making all in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin/files'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+Making all in staticlib
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+Making all in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib/files'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+Making all in stlport
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+Making all in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport/files'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+Making all in sharedlib
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+Making all in c
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/c'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/c'
+Making all in cpp
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/cpp'
+make[6]: Nothing to be done for 'all'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/cpp'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+Making all in sys
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sys'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sys'
+Making all in tricore
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/tricore'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/tricore'
+Making all in win32gui
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/win32gui'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/win32gui'
+Making all in wxwidgets
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/wxwidgets'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/wxwidgets'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+Making all in openfileslist
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/openfileslist'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/openfileslist'
+Making all in occurrenceshighlighting
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+Making all in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting/resources'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+Making all in todo
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+Making all in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo/resources'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+Making all in abbreviations
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+Making all in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations/resources'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+Making all in xpmanifest
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/xpmanifest'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/xpmanifest'
+Making all in contrib
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+Making all in tools
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+Making all in cb_share_config
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/cb_share_config'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/cb_share_config'
+Making all in ConsoleRunner
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/ConsoleRunner'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/ConsoleRunner'
+Making all in CBLauncher
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/CBLauncher'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/CBLauncher'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+Making all in templates
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+Making all in common
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/common'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/common'
+Making all in win32
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/win32'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/win32'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+Making all in scripts
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/scripts'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/scripts'
+Making all in wxsmith
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/wxsmith'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/wxsmith'
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+make[1]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+make[1]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git'
+cp ./debian/codeblocks-headers.install.wx30 ./debian/codeblocks-headers.install
+make[1]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git'

@@ -57,15 +57,13 @@ export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lw
 # cd ~/devel/codeblocks_msys2-git
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
-   --datarootdir=/mingw64/share \
-   --disable-debugger --disable-code-completion --disable-projects-importer
+   --disable-debugger --disable-code-completion --disable-projects-importer \
+   --with-contrib-plugins=envvars,help,ProjectOptionsManipulator,ToolsPlus,wxcontrib
 
 # --with-contrib-plugins=envvars,help,ProjectOptionsManipulator,ToolsPlus,wxcontrib
-# --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
-# --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
 
 # Step C2  
-make clean; make         # errors out in ConsoleRunner
+make clean; make         # errors out in debugger, code-completion, projects-importer
 # Step C3  
 make install             #
 
@@ -92,6 +90,11 @@ cd src/src; make clean && make; cd ..; cd ..;
 
 #
 cd src/src; make codeblocks.exe; cd ..; cd ..; # 155 lines after edit
+
+
+# Clean and make ConsoleRunner
+cd src/tools/ConsoleRunner; make clean && make; cd ..; cd ..; cd ..;
+
 
 # Clean and make compilergcc
 cd src/plugins/compilergcc; make clean && make; cd ..; cd ..; cd ..;
