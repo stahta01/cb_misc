@@ -38,10 +38,10 @@ git status -uno
 git pull 
 
 Defines that looks to be useful
-_WINMM_
-WINMMAPI  #include "mmsystem.h"
 __CYGWIN__
 __MSYS__
+__MINGW64_VERSION_MAJOR    from "_mingw_mac.h" headers that include it is _mingw.h 
+CB_AUTOCONF
 
 Link options to add to CB Project
 -shared -nostdlib
@@ -51,13 +51,16 @@ C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtbegin.o
 
 # Step B: Bootstrap building of configure
 # Step B1a # Build both with and without -D_POSIX
-export CPPFLAGS="-D_POSIX -DHAVE_TR1_TYPE_TRAITS -DNOPCH"
+export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH"
 # Step B1b
 # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
 export CXXFLAGS="-Wno-deprecated-declarations"
 # Step B1c
-export LDFLAGS="-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -lrpcrt4 -ladvapi32 -lwsock32"
+export LDFLAGS=
+# "-lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -lrpcrt4 -ladvapi32 -lwsock32"
 # Step B2
+
+# START COPY HERE
 
 echo $CPPFLAGS
 echo $CXXFLAGS
@@ -69,10 +72,11 @@ echo $LDFLAGS
 # Step C: Configure/make/install of Code::Blocks
 # Step C1
 # cd ~/devel/codeblocks_msys2-git
+# make uninstall
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
-   --disable-debugger --disable-code-completion --disable-projects-importer \
-   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus
+   --disable-debugger --disable-code-completion --disable-projects-importer
+#   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus
 
 # Step C2
 make clean; make         # errors out because of tinyXML link issues in
@@ -81,6 +85,9 @@ make clean; make         # errors out because of tinyXML link issues in
                          # errors out for other reasons
                          # wxcontrib 
 # Step C3  
+# which codeblocks
+# make uninstall
+# which codeblocks
 make install             #
 
 # Step D Run Program
@@ -133,6 +140,7 @@ And, added include "settings.h" if needed.
 
 - Makefile.am: Added DLL export/import defines. (Thanks stahta01)
 
+- Makefile.am: Added Libs to LDFLAGS. (Thanks stahta01)
 
 * DO NOT APPLY UPSTREAM: Makefile.am:
 
