@@ -49,13 +49,21 @@ export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
 export CXXFLAGS="-Wno-deprecated-declarations"
 export LDFLAGS=
 
+export ACLOCAL_FLAGS="-I `/usr/local/mingw64/bin/wx-config --prefix`/share/aclocal"
+
+# Step B2
+./bootstrap
+
 ./configure --host=x86_64-w64-mingw32 --build=x86_64-pc-cygwin --disable-pch \
    --prefix=/usr/local/mingw64 \
    --with-wx-config=/usr/local/mingw64/bin/wx-config \
-   --disable-debugger --disable-code-completion  --d isable-projects-importer \
+   --disable-debugger --disable-code-completion  --disable-projects-importer \
 #   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus \
    --with-platform=win32
 
 # make clean
 make
 make install
+
+cd ~; codeblocks; cd ~/devel/codeblocks/codeblocks_msys2-git
+
