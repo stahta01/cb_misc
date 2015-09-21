@@ -1,0 +1,83 @@
+http://forums.codeblocks.org/index.php/topic,18525.30.html
+
+cd ~/devel/wxWidgets
+
+git clone --config core.eol=lf --origin=upstream https://github.com/wxWidgets/wxWidgets.git wxWidgets-git
+cd wxWidgets-git
+git status
+
+
+# Step A2a 
+# These A3 steps are optional for the wxWidgets repo; 
+# but, highly recommended to at least know what the values are even if you do NOT change then.
+git config core.eol            # Confirm value is lf
+# Step A2b
+git config core.autocrlf input # True seems to cause more work than it saves.
+# Step A2c
+git config core.safecrlf warn  # True seems to cause more work than it saves.
+# Step A2d
+git status                     # Verify no problem with settings
+
+# Step A3a These A3 steps are optional for the wxWidgets repo.
+git config master.rebase true  # Force master to automatically use rebase
+# Step A3b
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+# Step A3c
+# Not certain of the pros and cons of push.default possible setting.
+# Possible values are nothing, current, upstream, simple, matching
+git config push.default current # set to push only current branch to branch of same name on the receiving end.
+# Step A3d
+git status
+
+# Step A4a
+git checkout -b WX_3_0_BRANCH upstream/WX_3_0_BRANCH
+# Step A4b
+git branch --list
+
+#  cd ~/devel/wxWidgets/wxWidgets-git
+git fetch
+git status
+git pull 
+
+echo $CPPFLAGS
+echo $CXXFLAGS
+echo $LDFLAGS
+
+# -DNOPCH
+
+#  cd ~/devel/wxWidgets/wxWidgets-git/
+mkdir build_msw_shared_mingw64
+cd build_msw_shared_mingw64
+
+export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS"
+export CXXFLAGS="-Wno-deprecated-declarations"
+export LDFLAGS=
+../configure --host=x86_64-w64-mingw32 --build=x86_64-pc-cygwin \
+        --prefix=/usr/local/mingw64 \
+        --disable-universal --enable-tooltips --enable-dnd \
+        --enable-shared
+
+# make clean
+make
+make install
+
+# Output from configure
+Configured wxWidgets 3.0.3 for `x86_64-w64-mingw32'
+
+  Which GUI toolkit should wxWidgets use?                 msw
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.6      no
+                                       wxWidgets 2.8      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               sys
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
