@@ -72,10 +72,9 @@ echo $LDFLAGS
 # make uninstall
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
-   --disable-debugger --disable-code-completion  --disable-projects-importer
-#   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus
-
-# --with-platform=win32
+   --disable-debugger --disable-code-completion  --disable-projects-importer \
+#   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus \
+   --with-platform=win32
 
 make
 
@@ -91,23 +90,28 @@ make clean; make         # errors out because of tinyXML link issues in
 # which codeblocks
 make install             #
 
-# Step D Run Program
+# Step D Fix install issues and Run Program
+# Step D1: Fix DLL file names.
 cd /mingw64/lib/codeblocks/plugins
-ls -al lib*.dll
-mv libabbreviations.dll abbreviations.dll
-mv libastyle.dll astyle.dll
-mv libautosave.dll autosave.dll
-mv libclasswizard.dll classwizard.dll
-mv libcompiler.dll compiler.dll
-mv libdefaultmimehandler.dll defaultmimehandler.dll
-mv liboccurrenceshighlighting.dll occurrenceshighlighting.dll
-mv libopenfileslist.dll openfileslist.dll
-mv libscriptedwizard.dll scriptedwizard.dll
-mv libtodo.dll todo.dll
-mv libxpmanifest.dll xpmanifest.dll
 
+mv -f libabbreviations.dll abbreviations.dll
+mv -f libastyle.dll astyle.dll
+mv -f libautosave.dll autosave.dll
+mv -f libclasswizard.dll classwizard.dll
+mv -f libcompiler.dll compiler.dll
+mv -f libdefaultmimehandler.dll defaultmimehandler.dll
+mv -f liboccurrenceshighlighting.dll occurrenceshighlighting.dll
+mv -f libopenfileslist.dll openfileslist.dll
+mv -f libscriptedwizard.dll scriptedwizard.dll
+mv -f libtodo.dll todo.dll
+mv -f libxpmanifest.dll xpmanifest.dll
+
+# Check for DLLs that need renamed in order to be found by CB.
+ls -1 lib*.dll
+
+# Step D2 Run Program
 # Fails to find the wxWidgets DLLs unless I do a cd from build location
-cd ~; codeblocks; cd ~/devel/codeblocks_msys2-git  # No Plugins seemed to have been found.
+cd ~; codeblocks; cd ~/devel/codeblocks_msys2-git  # Using the normal windows config location; need to fix this!
 
 # Configure/make appears to change these files; not sure which step or why.
 # These two steps revert those changes.
