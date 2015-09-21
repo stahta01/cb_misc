@@ -1,0 +1,1303 @@
+Making install in src
+make[1]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+Making install in include
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make  install-recursive
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+Making install in scripting
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+Making install in squirrel
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/squirrel'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/squirrel'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/squirrel'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/squirrel'
+Making install in sqstdlib
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqstdlib'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqstdlib'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqstdlib'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqstdlib'
+Making install in sqplus
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqplus'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqplus'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/include/codeblocks/scripting/sqplus'
+ /usr/bin/install -c -m 644 SqPlusConst.h SquirrelBindingsUtils.h SquirrelVM.h sqplus.h SquirrelObject.h '/mingw64/include/codeblocks/scripting/sqplus'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqplus'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/sqplus'
+Making install in bindings
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/bindings'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/bindings'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/include/codeblocks/scripting/bindings'
+ /usr/bin/install -c -m 644 sc_base_types.h sc_plugin.h '/mingw64/include/codeblocks/scripting/bindings'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/bindings'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/bindings'
+Making install in include
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/include'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/include'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/include/codeblocks/scripting/include'
+ /usr/bin/install -c -m 644 sqdbgserver.h sqstdaux.h sqstdio.h sqstdstring.h squirrel.h sqrdbg.h sqstdblob.h sqstdmath.h sqstdsystem.h '/mingw64/include/codeblocks/scripting/include'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/include'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting/include'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/scripting'
+Making install in tinyxml
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/tinyxml'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/tinyxml'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/include/codeblocks/tinyxml'
+ /usr/bin/install -c -m 644 tinyxml.h tinywxuni.h tinystr.h '/mingw64/include/codeblocks/tinyxml'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/tinyxml'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include/tinyxml'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/include/codeblocks'
+ /usr/bin/install -c -m 644 annoyingdialog.h autodetectcompilers.h backgroundthread.h base64.h blockallocated.h cbauibook.h cbcolourmanager.h cbdebugger_interfaces.h cbeditor.h cbeditorprintout.h cbexception.h cbfunctor.h cbplugin.h cbproject.h cbstatusbar.h cbstyledtextctrl.h cbthreadedtask.h cbthreadpool.h cbtool.h cbtreectrl.h cbworkspace.h ccmanager.h compileoptionsbase.h compiler.h compilercommandgenerator.h compilerfactory.h compileroptions.h compiletargetbase.h configmanager.h configurationpanel.h configuretoolsdlg.h confirmreplacedlg.h crc32.h debuggermanager.h editarrayfiledlg.h editarrayorderdlg.h editarraystringdlg.h editorbase.h editorcolourset.h editorlexerloader.h '/mingw64/include/codeblocks'
+ /usr/bin/install -c -m 644 editormanager.h editor_hooks.h editpairdlg.h editpathdlg.h edittooldlg.h encodingdetector.h externaldepsdlg.h filefilters.h filegroupsandmasks.h filemanager.h findreplacedlg.h findreplacebase.h genericmultilinenotesdlg.h globals.h ibaseloader.h ibaseworkspaceloader.h id.h importers_globals.h incrementalselectlistdlg.h infowindow.h licenses.h logger.h loggers.h logmanager.h macrosmanager.h managedthread.h manager.h menuitemsmanager.h misctreeitemdata.h multiselectdlg.h newfromtemplatedlg.h personalitymanager.h pipedprocess.h pluginmanager.h pluginsconfigurationdlg.h prep.h printing_types.h projectbuildtarget.h projectfile.h projectfileoptionsdlg.h '/mingw64/include/codeblocks'
+ /usr/bin/install -c -m 644 projectlayoutloader.h projectloader.h projectloader_hooks.h projectmanager.h projectsfilemasksdlg.h projecttemplateloader.h safedelete.h scriptingmanager.h scriptsecuritywarningdlg.h scrollingdialog.h sdk.h sdk_common.h sdk_precomp.h sdk_events.h searchresultslog.h selecttargetdlg.h settings.h templatemanager.h toolsmanager.h uservarmanager.h workspaceloader.h xtra_res.h mozilla_chardet/CharDistribution.h mozilla_chardet/JpCntx.h mozilla_chardet/nsBig5Prober.h mozilla_chardet/nsCharSetProber.h mozilla_chardet/nsCodingStateMachine.h mozilla_chardet/nsEscCharsetProber.h mozilla_chardet/nsEUCJPProber.h mozilla_chardet/nsEUCKRProber.h mozilla_chardet/nsEUCTWProber.h mozilla_chardet/nsGB2312Prober.h mozilla_chardet/nsHebrewProber.h mozilla_chardet/nsLatin1Prober.h mozilla_chardet/nsMBCSGroupProber.h mozilla_chardet/nsPkgInt.h mozilla_chardet/nsSBCharSetProber.h mozilla_chardet/nsSBCSGroupProber.h mozilla_chardet/nsSJISProber.h mozilla_chardet/nsUniversalDetector.h '/mingw64/include/codeblocks'
+ /usr/bin/install -c -m 644 mozilla_chardet/nsUTF8Prober.h mozilla_chardet/mfbt/mozilla/Alignment.h mozilla_chardet/mfbt/mozilla/Assertions.h mozilla_chardet/mfbt/mozilla/Attributes.h mozilla_chardet/mfbt/mozilla/Compiler.h mozilla_chardet/mfbt/mozilla/Likely.h mozilla_chardet/mfbt/mozilla/NullPtr.h mozilla_chardet/mfbt/mozilla/TypedEnum.h mozilla_chardet/mfbt/mozilla/Types.h mozilla_chardet/mfbt/mozilla/Util.h mozilla_chardet/nsprpub/pr/include/prcpucfg.h mozilla_chardet/nsprpub/pr/include/prcpucfg_darwin.h mozilla_chardet/nsprpub/pr/include/prcpucfg_linux.h mozilla_chardet/nsprpub/pr/include/prcpucfg_openbsd.h mozilla_chardet/nsprpub/pr/include/prcpucfg_win95.h mozilla_chardet/nsprpub/pr/include/prcpucfg_winnt.h mozilla_chardet/nsprpub/pr/include/prmem.h mozilla_chardet/nsprpub/pr/include/prtypes.h mozilla_chardet/xpcom/base/ErrorList.h mozilla_chardet/xpcom/base/nscore.h mozilla_chardet/xpcom/base/nsError.h mozilla_chardet/xpcom/glue/nsDebug.h mozilla_chardet/xpcom/glue/nsMemory.h '/mingw64/include/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/include'
+Making install in base
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+Making install in tinyxml
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/base/tinyxml'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/base/tinyxml'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/base/tinyxml'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/base/tinyxml'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/base'
+Making install in build_tools
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+Making install in autorevision
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools/autorevision'
+./auto_revision +int +wx +t ../../.. ../../../src/include/autorevision.h
+svn: E155007: 'C:\Apps64\msys64\home\stahta01\devel\codeblocks_msys2-git' is not a working copy
+Can't locate SVN/Core.pm in @INC (you may need to install the SVN::Core module) (@INC contains: /usr/share/perl5/site_perl /usr/lib/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /usr/share/perl5/vendor_perl/Git/SVN/Utils.pm line 6.
+BEGIN failed--compilation aborted at /usr/share/perl5/vendor_perl/Git/SVN/Utils.pm line 6.
+Compilation failed in require at /usr/share/perl5/vendor_perl/Git/SVN.pm line 32.
+BEGIN failed--compilation aborted at /usr/share/perl5/vendor_perl/Git/SVN.pm line 32.
+Compilation failed in require at /usr/lib/git-core/git-svn line 21.
+BEGIN failed--compilation aborted at /usr/lib/git-core/git-svn line 21.
+svn: E155007: 'C:\Apps64\msys64\home\stahta01\devel\codeblocks_msys2-git' is not a working copy
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools/autorevision'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools/autorevision'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools/autorevision'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/build_tools'
+Making install in mime
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/applications'
+ /usr/bin/install -c -m 644 ./codeblocks.desktop '/mingw64/share/applications'
+ /usr/bin/mkdir -p '/mingw64/share/icons/hicolor/48x48/mimetypes'
+ /usr/bin/install -c -m 644 ./application-x-codeblocks.png ./application-x-codeblocks-workspace.png '/mingw64/share/icons/hicolor/48x48/mimetypes'
+ /usr/bin/mkdir -p '/mingw64/share/pixmaps'
+ /usr/bin/install -c -m 644 ./codeblocks.png '/mingw64/share/pixmaps'
+ /usr/bin/mkdir -p '/mingw64/share/mime/packages'
+ /usr/bin/install -c -m 644 codeblocks.xml '/mingw64/share/mime/packages'
+make  install-data-hook
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
+ /usr/bin/mkdir -p '/mingw64/share/mime/packages'
+ /usr/bin/install -c -m 644 codeblocks.xml '/mingw64/share/mime/packages'
+if [ -f /mingw64/share/mime/packages/freedesktop.org.xml ] ; then \
+  if which update-mime-database>/dev/null 2>&1; then \
+    update-mime-database /mingw64/share/mime; \
+  fi; \
+  if which update-desktop-database>/dev/null 2>&1; then \
+        update-desktop-database; \
+  fi; \
+  if which gtk-update-icon-cache>/dev/null 2>&1; then \
+        gtk-update-icon-cache --force /mingw64/share/icons/hicolor; \
+  fi \
+fi
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
+Making install in sdk
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+Making install in scripting
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+Making install in squirrel
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/squirrel'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/squirrel'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/squirrel'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/squirrel'
+Making install in sqstdlib
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqstdlib'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqstdlib'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqstdlib'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqstdlib'
+Making install in sqplus
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqplus'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqplus'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqplus'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/sqplus'
+Making install in bindings
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/bindings'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/bindings'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/bindings'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting/bindings'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
+Making install in wxscintilla
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/wxscintilla'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/wxscintilla'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/include/codeblocks/wxscintilla/include/wx'
+ /usr/bin/install -c -m 644 include/wx/wxscintilla.h '/mingw64/include/codeblocks/wxscintilla/include/wx'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/wxscintilla'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/wxscintilla'
+Making install in resources
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+Making install in lexers
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources/lexers'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources/lexers'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/lexers'
+ /usr/bin/install -c -m 644 ./lexer_A68k.sample ./lexer_A68k.xml ./lexer_ada.sample ./lexer_ada.xml ./lexer_angelscript.sample ./lexer_angelscript.xml ./lexer_bash.sample ./lexer_bash.xml ./lexer_batch.sample ./lexer_batch.xml ./lexer_bibtex.sample ./lexer_bibtex.xml ./lexer_caml.sample ./lexer_caml.xml ./lexer_cg.sample ./lexer_cg.xml ./lexer_cmake.sample ./lexer_cmake.xml ./lexer_coffee.sample ./lexer_coffee.xml ./lexer_cpp.sample ./lexer_cpp.xml ./lexer_css.sample ./lexer_css.xml ./lexer_d.sample ./lexer_d.xml ./lexer_diff.sample ./lexer_diff.xml ./lexer_f77.sample ./lexer_f77.xml ./lexer_fortran.sample ./lexer_fortran.xml ./lexer_glsl.sample ./lexer_glsl.xml ./lexer_gm.sample ./lexer_gm.xml ./lexer_haskell.sample ./lexer_haskell.xml ./lexer_hitasm.sample ./lexer_hitasm.xml '/mingw64/share/codeblocks/lexers'
+ /usr/bin/install -c -m 644 ./lexer_html.sample ./lexer_html.xml ./lexer_ihex.sample ./lexer_ihex.xml ./lexer_java.sample ./lexer_java.xml ./lexer_javascript.sample ./lexer_javascript.xml ./lexer_latex.sample ./lexer_latex.xml ./lexer_lisp.sample ./lexer_lisp.xml ./lexer_lua.sample ./lexer_lua.xml ./lexer_make.sample ./lexer_make.xml ./lexer_masm.sample ./lexer_masm.xml ./lexer_matlab.sample ./lexer_matlab.xml ./lexer_nsis.sample ./lexer_nsis.xml ./lexer_objc.sample ./lexer_objc.xml ./lexer_OgreCompositor.sample ./lexer_OgreCompositor.xml ./lexer_OgreMaterial.sample ./lexer_OgreMaterial.xml ./lexer_pascal.sample ./lexer_pascal.xml ./lexer_perl.sample ./lexer_perl.xml ./lexer_postscript.sample ./lexer_postscript.xml ./lexer_prg.sample ./lexer_prg.xml ./lexer_properties.sample ./lexer_properties.xml ./lexer_proto.xml ./lexer_python.sample '/mingw64/share/codeblocks/lexers'
+ /usr/bin/install -c -m 644 ./lexer_python.xml ./lexer_rc.sample ./lexer_rc.xml ./lexer_registry.sample ./lexer_registry.xml ./lexer_ruby.sample ./lexer_ruby.xml ./lexer_smalltalk.sample ./lexer_smalltalk.xml ./lexer_sql.sample ./lexer_sql.xml ./lexer_squirrel.sample ./lexer_squirrel.xml ./lexer_srec.sample ./lexer_srec.xml ./lexer_tehex.sample ./lexer_tehex.xml ./lexer_vbscript.sample ./lexer_vbscript.xml ./lexer_verilog.sample ./lexer_verilog.xml ./lexer_vhdl.sample ./lexer_vhdl.xml ./lexer_xml.sample ./lexer_xml.xml '/mingw64/share/codeblocks/lexers'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources/lexers'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources/lexers'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 manager_resources.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/resources'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+ /usr/bin/mkdir -p '/mingw64/lib'
+ /bin/sh ../../libtool   --mode=install /usr/bin/install -c   libcodeblocks.la '/mingw64/lib'
+libtool: install: /usr/bin/install -c .libs/libcodeblocks.dll.a /mingw64/lib/libcodeblocks.dll.a
+libtool: install: base_file=`basename libcodeblocks.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libcodeblocks.la'i; echo libcodeblocks-0.dll'`
+libtool: install:  dldir=/mingw64/lib/`dirname ../bin/libcodeblocks-0.dll`
+libtool: install:  test -d /mingw64/lib/../bin || mkdir -p /mingw64/lib/../bin
+libtool: install:  /usr/bin/install -c .libs/libcodeblocks-0.dll /mingw64/lib/../bin/libcodeblocks-0.dll
+libtool: install:  chmod a+x /mingw64/lib/../bin/libcodeblocks-0.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/../bin/libcodeblocks-0.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libcodeblocks.lai /mingw64/lib/libcodeblocks.la
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+Making install in src
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+Making install in resources
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+Making install in icons
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/icons'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/icons'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/icons'
+ /usr/bin/install -c -m 644 ./app.xpm ./app_64.xpm ./c64.xpm ./cbp64.xpm ./cg64.xpm ./cpp64.xpm ./csd64.xpm ./d64.xpm ./dev64.xpm ./dsp64.xpm ./dsw64.xpm ./f64.xpm ./h64.xpm ./proj64.xpm ./rc64.xpm '/mingw64/share/codeblocks/icons'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/icons'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/icons'
+Making install in images
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+Making install in 16x16
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/16x16'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/16x16'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/images/16x16'
+ /usr/bin/install -c -m 644 ./bookmark_add.png ./dbginfo.png ./dbgnext.png ./dbgnexti.png ./dbgpause.png ./dbgrun.png ./dbgrunto.png ./dbgstep.png ./dbgstepi.png ./dbgstepout.png ./dbgstop.png ./dbgwindow.png ./editcopy.png ./editcut.png ./editpaste.png ./exit.png ./fileclose.png ./filefind.png ./filefindnext.png ./filefindprev.png ./filenew.png ./fileopen.png ./fileprint.png ./filequickprint.png ./filesave.png ./filesaveall.png ./filesaveas.png ./findf.png ./folder.png ./folder_new.png ./folder_open.png ./folder_yel.png ./folder_yel_open.png ./goto.png ./history_clear.png ./idea.png ./info.png ./mark.png ./mark_clear.png ./mark_next.png '/mingw64/share/codeblocks/images/16x16'
+ /usr/bin/install -c -m 644 ./mark_prev.png ./newproject.png ./next.png ./plug.png ./prev.png ./project.png ./projectnew.png ./project-readonly.png ./redo.png ./run.png ./searchreplace.png ./searchreplacef.png ./undo.png ./view_sidetree.png ./view_tree.png ./window_fullscreen.png ./workspace.png ./workspace-readonly.png '/mingw64/share/codeblocks/images/16x16'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/16x16'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/16x16'
+Making install in settings
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/settings'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/settings'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/images/settings'
+ /usr/bin/install -c -m 644 ./abbrev.png ./abbrev-off.png ./astyle-plugin.png ./astyle-plugin-off.png ./autosave.png ./autosave-off.png ./batch.png ./batch-off.png ./codecompletion.png ./codecompletion-off.png ./codestats.png ./codestats-off.png ./colours.png ./colours-off.png ./compiler.png ./compiler-off.png ./debugger.png ./debugger-off.png ./default-code.png ./default-code-off.png ./dialogs.png ./dialogs-off.png ./dragscroll.png ./dragscroll-off.png ./editor.png ./editor-off.png ./envvars.png ./envvars-off.png ./extensions.png ./extensions-off.png ./folding.png ./folding-off.png ./general-prefs.png ./general-prefs-off.png ./generic-plugin.png ./generic-plugin-off.png ./gutter-margin.png ./gutter-margin-off.png ./help-plugin.png ./help-plugin-off.png '/mingw64/share/codeblocks/images/settings'
+ /usr/bin/install -c -m 644 ./net.png ./net-off.png ./notebook-appearance.png ./notebook-appearance-off.png ./onekeytobindthem.png ./onekeytobindthem-off.png ./profiler.png ./profiler-off.png ./syntax-highlight.png ./syntax-highlight-off.png ./todo.png ./todo-off.png ./view.png ./view-off.png ./wxsmith.png ./wxsmith-off.png '/mingw64/share/codeblocks/images/settings'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/settings'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images/settings'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/images'
+ /usr/bin/install -c -m 644 ./ascii.png ./closebutton.png ./codeblocks.png ./compile.png ./compilerun.png ./contents_16x16.png ./dbginfo.png ./dbgnext.png ./dbgnexti.png ./dbgpause.png ./dbgrun.png ./dbgrunto.png ./dbgstep.png ./dbgstepi.png ./dbgstepout.png ./dbgstop.png ./dbgwindow.png ./edit_16x16.png ./editcopy.png ./editcut.png ./editpaste.png ./file.png ./filefind.png ./file-missing.png ./file-modified.png ./filenew.png ./fileopen.png ./fileprint.png ./file-readonly.png ./filesave.png ./filesaveall.png ./filesaveas.png ./flag_16x16.png ./folder.png ./folder_new.png ./folder_open.png ./misc_16x16.png ./modified_file.png ./newproject.png ./project.png '/mingw64/share/codeblocks/images'
+ /usr/bin/install -c -m 644 ./project-readonly.png ./rc-file-added.png ./rc-file-conflict.png ./rc-file-external.png ./rc-file-gotlock.png ./rc-file-lockstolen.png ./rc-file-mismatch.png ./rc-file-missing.png ./rc-file-modified.png ./rc-file-noncontrolled.png ./rc-file-outofdate.png ./rc-file-requireslock.png ./rc-file-uptodate.png ./readonly.png ./rebuild.png ./redo.png ./run.png ./searchreplace.png ./source.png ./splash.png ./splash_0802.png ./splash_1005.png ./splash_1211.png ./splash_1312.png ./stop.png ./undo.png ./vfolder_open.png ./workspace.png ./workspace-readonly.png '/mingw64/share/codeblocks/images'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources/images'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 resources.zip start_here.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+ /usr/bin/mkdir -p '/mingw64/bin'
+  /bin/sh ../../libtool   --mode=install /usr/bin/install -c codeblocks.exe '/mingw64/bin'
+libtool: install: /usr/bin/install -c .libs/codeblocks.exe /mingw64/bin/codeblocks.exe
+make  install-exec-hook
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+ /usr/bin/mkdir -p '/mingw64/share/man/man1'
+ /usr/bin/install -c -m 644 codeblocks.1 '/mingw64/share/man/man1'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+Making install in plugins
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+Making install in astyle
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+Making install in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 astyle.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libastyle.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libastyle.dll.a /mingw64/lib/codeblocks/plugins/libastyle.dll.a
+libtool: install: base_file=`basename libastyle.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libastyle.la'i; echo libastyle.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libastyle.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libastyle.dll /mingw64/lib/codeblocks/plugins/./libastyle.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libastyle.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libastyle.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libastyle.lai /mingw64/lib/codeblocks/plugins/libastyle.la
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/astyle'
+Making install in autosave
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/autosave'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/autosave'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 autosave.zip '/mingw64/share/codeblocks'
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libautosave.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libautosave.dll.a /mingw64/lib/codeblocks/plugins/libautosave.dll.a
+libtool: install: base_file=`basename libautosave.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libautosave.la'i; echo libautosave.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libautosave.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libautosave.dll /mingw64/lib/codeblocks/plugins/./libautosave.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libautosave.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libautosave.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libautosave.lai /mingw64/lib/codeblocks/plugins/libautosave.la
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/autosave'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/autosave'
+Making install in classwizard
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+Making install in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 classwizard.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libclasswizard.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libclasswizard.dll.a /mingw64/lib/codeblocks/plugins/libclasswizard.dll.a
+libtool: install: base_file=`basename libclasswizard.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libclasswizard.la'i; echo libclasswizard.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libclasswizard.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libclasswizard.dll /mingw64/lib/codeblocks/plugins/./libclasswizard.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libclasswizard.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libclasswizard.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libclasswizard.lai /mingw64/lib/codeblocks/plugins/libclasswizard.la
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/classwizard'
+Making install in compilergcc
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+Making install in depslib
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+Making install in src
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib/src'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib/src'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib/src'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib/src'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/depslib'
+Making install in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/compilers'
+ /usr/bin/install -c -m 644 ./compilers/compiler_avr-gcc.xml ./compilers/compiler_bcc.xml ./compilers/compiler_bfin-elf-gcc.xml ./compilers/compiler_clang.xml ./compilers/compiler_dmc.xml ./compilers/compiler_dmd.xml ./compilers/compiler_ldc.xml ./compilers/compiler_lm32-gcc.xml ./compilers/compiler_lm8-gcc.xml ./compilers/compiler_msp430-gcc.xml ./compilers/compiler_null.xml ./compilers/compiler_pgifortran.xml ./compilers/compiler_ppc-gcc.xml ./compilers/compiler_sdcc.xml ./compilers/compiler_tcc.xml ./compilers/compiler_tricore-gcc.xml ./compilers/compiler_zpu-gcc.xml ./compilers/options_arm-elf-gcc.xml ./compilers/options_avr-gcc.xml ./compilers/options_bcc.xml ./compilers/options_bfin-elf-gcc.xml ./compilers/options_clang.xml ./compilers/options_common_architecture.xml ./compilers/options_common_cmds.xml ./compilers/options_common_codegen.xml ./compilers/options_common_optimization.xml ./compilers/options_common_optimize-msvc.xml ./compilers/options_common_re.xml ./compilers/options_common_re-gf.xml ./compilers/options_common_re-iar.xml ./compilers/options_common_re-msvc.xml ./compilers/options_common_runtime.xml ./compilers/options_common_sort.xml ./compilers/options_common_warnings.xml ./compilers/options_common_warnings-msvc.xml ./compilers/options_cygwin.xml ./compilers/options_dmc.xml ./compilers/options_dmd.xml ./compilers/options_g95.xml ./compilers/options_gcc.xml '/mingw64/share/codeblocks/compilers'
+ /usr/bin/install -c -m 644 ./compilers/options_gdc.xml ./compilers/options_gfortran.xml ./compilers/options_iar8051.xml ./compilers/options_iararm.xml ./compilers/options_icc.xml ./compilers/options_keilc51.xml ./compilers/options_keilcx51.xml ./compilers/options_lcc.xml ./compilers/options_ldc.xml ./compilers/options_lm32-gcc.xml ./compilers/options_lm8-gcc.xml ./compilers/options_msp430-gcc.xml ./compilers/options_msvc10.xml ./compilers/options_msvc8.xml ./compilers/options_msvctk.xml ./compilers/options_null.xml ./compilers/options_ow.xml ./compilers/options_pgifortran.xml ./compilers/options_ppc-gcc.xml ./compilers/options_sdcc.xml ./compilers/options_tcc.xml ./compilers/options_tricore-gcc.xml ./compilers/options_zpu-gcc.xml '/mingw64/share/codeblocks/compilers'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 compiler.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libcompiler.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libcompiler.dll.a /mingw64/lib/codeblocks/plugins/libcompiler.dll.a
+libtool: install: base_file=`basename libcompiler.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libcompiler.la'i; echo libcompiler.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libcompiler.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libcompiler.dll /mingw64/lib/codeblocks/plugins/./libcompiler.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libcompiler.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libcompiler.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libcompiler.lai /mingw64/lib/codeblocks/plugins/libcompiler.la
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/compilergcc'
+Making install in defaultmimehandler
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+Making install in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 defaultmimehandler.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libdefaultmimehandler.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libdefaultmimehandler.dll.a /mingw64/lib/codeblocks/plugins/libdefaultmimehandler.dll.a
+libtool: install: base_file=`basename libdefaultmimehandler.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libdefaultmimehandler.la'i; echo libdefaultmimehandler.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libdefaultmimehandler.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libdefaultmimehandler.dll /mingw64/lib/codeblocks/plugins/./libdefaultmimehandler.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libdefaultmimehandler.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libdefaultmimehandler.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libdefaultmimehandler.lai /mingw64/lib/codeblocks/plugins/libdefaultmimehandler.la
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/defaultmimehandler'
+Making install in scriptedwizard
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+Making install in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+Making install in arm
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/arm'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/arm'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/ARM-eval7t/h'
+ /usr/bin/install -c -m 644 files/ARM-eval7t/h/evaluator7t.h '/mingw64/share/codeblocks/templates/wizard/arm/files/ARM-eval7t/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/ARM-eval7t/ld'
+ /usr/bin/install -c -m 644 files/ARM-eval7t/ld/target.ld '/mingw64/share/codeblocks/templates/wizard/arm/files/ARM-eval7t/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/ARM-eval7t/src'
+ /usr/bin/install -c -m 644 files/ARM-eval7t/src/main.c files/ARM-eval7t/src/vectors.S '/mingw64/share/codeblocks/templates/wizard/arm/files/ARM-eval7t/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/ek-at91sam7a3/h'
+ /usr/bin/install -c -m 644 files/ek-at91sam7a3/h/at91sam7a3.h files/ek-at91sam7a3/h/sam7a3ek.h '/mingw64/share/codeblocks/templates/wizard/arm/files/ek-at91sam7a3/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/ek-at91sam7a3/ld'
+ /usr/bin/install -c -m 644 files/ek-at91sam7a3/ld/target.ld files/ek-at91sam7a3/ld/targetRAM.ld '/mingw64/share/codeblocks/templates/wizard/arm/files/ek-at91sam7a3/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/ek-at91sam7a3/src'
+ /usr/bin/install -c -m 644 files/ek-at91sam7a3/src/main.c files/ek-at91sam7a3/src/vectors.S '/mingw64/share/codeblocks/templates/wizard/arm/files/ek-at91sam7a3/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/lpd-lh7a404/h'
+ /usr/bin/install -c -m 644 files/lpd-lh7a404/h/arm9_mm.h files/lpd-lh7a404/h/lh7a404.h files/lpd-lh7a404/h/lpd404.h '/mingw64/share/codeblocks/templates/wizard/arm/files/lpd-lh7a404/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/lpd-lh7a404/ld'
+ /usr/bin/install -c -m 644 files/lpd-lh7a404/ld/target.ld '/mingw64/share/codeblocks/templates/wizard/arm/files/lpd-lh7a404/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/lpd-lh7a404/src'
+ /usr/bin/install -c -m 644 files/lpd-lh7a404/src/lh7a404_mm.c files/lpd-lh7a404/src/main.c files/lpd-lh7a404/src/vectors.S '/mingw64/share/codeblocks/templates/wizard/arm/files/lpd-lh7a404/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-at91sam7sx/h'
+ /usr/bin/install -c -m 644 files/olimex-at91sam7sx/h/at91sam7sx.h files/olimex-at91sam7sx/h/sam7p64.h '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-at91sam7sx/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-at91sam7sx/ld'
+ /usr/bin/install -c -m 644 files/olimex-at91sam7sx/ld/target_s32.ld files/olimex-at91sam7sx/ld/target_s64.ld files/olimex-at91sam7sx/ld/target_s128.ld files/olimex-at91sam7sx/ld/target_s256.ld '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-at91sam7sx/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-at91sam7sx/src'
+ /usr/bin/install -c -m 644 files/olimex-at91sam7sx/src/main.c files/olimex-at91sam7sx/src/vectors.S '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-at91sam7sx/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-lpc213x/h'
+ /usr/bin/install -c -m 644 files/olimex-lpc213x/h/lpc213x.h files/olimex-lpc213x/h/lpc-p2138.h '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-lpc213x/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-lpc213x/ld'
+ /usr/bin/install -c -m 644 files/olimex-lpc213x/ld/target_2132.ld files/olimex-lpc213x/ld/target_2134.ld files/olimex-lpc213x/ld/target_2136.ld files/olimex-lpc213x/ld/target_2138.ld '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-lpc213x/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-lpc213x/src'
+ /usr/bin/install -c -m 644 files/olimex-lpc213x/src/main.c files/olimex-lpc213x/src/vectors.S '/mingw64/share/codeblocks/templates/wizard/arm/files/olimex-lpc213x/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-AT91M55800/h'
+ /usr/bin/install -c -m 644 files/phyCORE-AT91M55800/h/at91m55800.h '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-AT91M55800/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-AT91M55800/ld'
+ /usr/bin/install -c -m 644 files/phyCORE-AT91M55800/ld/target.ld files/phyCORE-AT91M55800/ld/targetRAM_1MB.ld files/phyCORE-AT91M55800/ld/targetRAM_512kB.ld files/phyCORE-AT91M55800/ld/targetROM.ld '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-AT91M55800/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-AT91M55800/src'
+ /usr/bin/install -c -m 644 files/phyCORE-AT91M55800/src/main.c files/phyCORE-AT91M55800/src/vectors.S '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-AT91M55800/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-LPC2294/h'
+ /usr/bin/install -c -m 644 files/phyCORE-LPC2294/h/lpc2294.h '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-LPC2294/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-LPC2294/ld'
+ /usr/bin/install -c -m 644 files/phyCORE-LPC2294/ld/target.ld files/phyCORE-LPC2294/ld/targetRAM_1MB.ld files/phyCORE-LPC2294/ld/targetROM.ld '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-LPC2294/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-LPC2294/src'
+ /usr/bin/install -c -m 644 files/phyCORE-LPC2294/src/main.c files/phyCORE-LPC2294/src/vectors.S '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-LPC2294/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-PXA255/h'
+ /usr/bin/install -c -m 644 files/phyCORE-PXA255/h/pxa255regs.h files/phyCORE-PXA255/h/pxa_mm.h '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-PXA255/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-PXA255/ld'
+ /usr/bin/install -c -m 644 files/phyCORE-PXA255/ld/target.ld '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-PXA255/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-PXA255/src'
+ /usr/bin/install -c -m 644 files/phyCORE-PXA255/src/irq.c files/phyCORE-PXA255/src/main.c files/phyCORE-PXA255/src/pxa_mm.c files/phyCORE-PXA255/src/vectors.S '/mingw64/share/codeblocks/templates/wizard/arm/files/phyCORE-PXA255/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/arm'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/arm'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/arm'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/arm'
+Making install in avr
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/avr'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/avr'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/avr/files'
+ /usr/bin/install -c -m 644 files/main.c files/FuseExt.c files/FuseFuse0to4.c files/FuseHigh.c files/FuseLow.c '/mingw64/share/codeblocks/templates/wizard/avr/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/avr'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script wizard.xrc '/mingw64/share/codeblocks/templates/wizard/avr'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/avr'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/avr'
+Making install in c_file
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/c_file'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/c_file'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/c_file'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/c_file'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/c_file'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/c_file'
+Making install in console
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/console'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/console'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/console/c'
+ /usr/bin/install -c -m 644 c/main.c '/mingw64/share/codeblocks/templates/wizard/console/c'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/console/cpp'
+ /usr/bin/install -c -m 644 cpp/main.cpp '/mingw64/share/codeblocks/templates/wizard/console/cpp'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/console'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/console'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/console'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/console'
+Making install in d
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/d'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/d'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/d/console'
+ /usr/bin/install -c -m 644 console/hello.d '/mingw64/share/codeblocks/templates/wizard/d/console'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/d'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/d'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/d'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/d'
+Making install in directx
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/directx'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/directx'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/directx/dx8'
+ /usr/bin/install -c -m 644 dx8/main.cpp '/mingw64/share/codeblocks/templates/wizard/directx/dx8'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/directx/dx9'
+ /usr/bin/install -c -m 644 dx9/main.cpp '/mingw64/share/codeblocks/templates/wizard/directx/dx9'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/directx'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/directx'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/directx'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/directx'
+Making install in dll
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/dll'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/dll'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/dll/files'
+ /usr/bin/install -c -m 644 files/main.cpp files/main.h '/mingw64/share/codeblocks/templates/wizard/dll/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/dll'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/dll'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/dll'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/dll'
+Making install in empty
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/empty'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/empty'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty'
+Making install in empty_file
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty_file'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty_file'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/empty_file'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/empty_file'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty_file'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/empty_file'
+Making install in fltk
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fltk'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fltk'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fltk/files'
+ /usr/bin/install -c -m 644 files/main.cpp '/mingw64/share/codeblocks/templates/wizard/fltk/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fltk/fluid'
+ /usr/bin/install -c -m 644 fluid/main.cpp fluid/main.h fluid/main.fld '/mingw64/share/codeblocks/templates/wizard/fltk/fluid'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fltk'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/fltk'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fltk'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fltk'
+Making install in fortran
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fortran'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fortran'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fortran/app'
+ /usr/bin/install -c -m 644 app/logo.png app/wizard.png app/wizard.script '/mingw64/share/codeblocks/templates/wizard/fortran/app'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fortran/app/files'
+ /usr/bin/install -c -m 644 app/files/main.f95 '/mingw64/share/codeblocks/templates/wizard/fortran/app/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fortran/dll'
+ /usr/bin/install -c -m 644 dll/logo.png dll/wizard.png dll/wizard.script '/mingw64/share/codeblocks/templates/wizard/fortran/dll'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fortran/dll/files'
+ /usr/bin/install -c -m 644 dll/files/main.f95 '/mingw64/share/codeblocks/templates/wizard/fortran/dll/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fortran/file'
+ /usr/bin/install -c -m 644 file/logo.png file/wizard.png file/wizard.script '/mingw64/share/codeblocks/templates/wizard/fortran/file'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fortran/lib'
+ /usr/bin/install -c -m 644 lib/logo.png lib/wizard.png lib/wizard.script '/mingw64/share/codeblocks/templates/wizard/fortran/lib'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/fortran/lib/files'
+ /usr/bin/install -c -m 644 lib/files/main.f95 '/mingw64/share/codeblocks/templates/wizard/fortran/lib/files'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fortran'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/fortran'
+Making install in glfw
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glfw'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glfw'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/glfw/files'
+ /usr/bin/install -c -m 644 files/main.cpp '/mingw64/share/codeblocks/templates/wizard/glfw/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/glfw'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/glfw'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glfw'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glfw'
+Making install in glut
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glut'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glut'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/glut/files'
+ /usr/bin/install -c -m 644 files/main.cpp '/mingw64/share/codeblocks/templates/wizard/glut/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/glut'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/glut'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glut'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/glut'
+Making install in gtk
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/gtk'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/gtk'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/gtk/files'
+ /usr/bin/install -c -m 644 files/main.c '/mingw64/share/codeblocks/templates/wizard/gtk/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/gtk'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/gtk'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/gtk'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/gtk'
+Making install in h_file
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/h_file'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/h_file'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/h_file'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/h_file'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/h_file'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/h_file'
+Making install in irrlicht
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/irrlicht'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/irrlicht'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/irrlicht/files'
+ /usr/bin/install -c -m 644 files/main.cpp '/mingw64/share/codeblocks/templates/wizard/irrlicht/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/irrlicht'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/irrlicht'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/irrlicht'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/irrlicht'
+Making install in lf
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/lf'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/lf'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/lf/files/quick'
+ /usr/bin/install -c -m 644 files/quick/main.cpp '/mingw64/share/codeblocks/templates/wizard/lf/files/quick'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/lf/files/structured'
+ /usr/bin/install -c -m 644 files/structured/CMain.cpp files/structured/CMain.h files/structured/main.cpp '/mingw64/share/codeblocks/templates/wizard/lf/files/structured'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/lf'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script wizard.xrc '/mingw64/share/codeblocks/templates/wizard/lf'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/lf'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/lf'
+Making install in mcs51
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/mcs51'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/mcs51'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/mcs51/files'
+ /usr/bin/install -c -m 644 files/main.c '/mingw64/share/codeblocks/templates/wizard/mcs51/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/mcs51'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script wizard.xrc '/mingw64/share/codeblocks/templates/wizard/mcs51'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/mcs51'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/mcs51'
+Making install in matlab_csf
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+Making install in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/files'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/files'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/matlab_csf/files'
+ /usr/bin/install -c -m 644 mexversion.rc sfuntmpl.c '/mingw64/share/codeblocks/templates/wizard/matlab_csf/files'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/files'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/files'
+Making install in lccstub
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/lccstub'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/lccstub'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/matlab_csf/files'
+ /usr/bin/install -c -m 644 lccstub.c '/mingw64/share/codeblocks/templates/wizard/matlab_csf/files'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/lccstub'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf/lccstub'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/matlab_csf'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script wizard.xrc '/mingw64/share/codeblocks/templates/wizard/matlab_csf'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/matlab_csf'
+Making install in ogre
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+Making install in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre/files'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre/files'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ogre/files'
+ /usr/bin/install -c -m 644 main.cpp '/mingw64/share/codeblocks/templates/wizard/ogre/files'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre/files'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ogre'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/ogre'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ogre'
+Making install in opencv
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opencv'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opencv'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/opencv/files'
+ /usr/bin/install -c -m 644 files/main.cpp files/lena.jpg '/mingw64/share/codeblocks/templates/wizard/opencv/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/opencv'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script wizard.xrc '/mingw64/share/codeblocks/templates/wizard/opencv'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opencv'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opencv'
+Making install in opengl
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+Making install in files_unix
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_unix'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_unix'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/opengl/files_unix'
+ /usr/bin/install -c -m 644 main.c '/mingw64/share/codeblocks/templates/wizard/opengl/files_unix'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_unix'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_unix'
+Making install in files_win
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_win'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_win'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/opengl/files_win'
+ /usr/bin/install -c -m 644 main.c '/mingw64/share/codeblocks/templates/wizard/opengl/files_win'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_win'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl/files_win'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/opengl'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/opengl'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/opengl'
+Making install in plugins
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+Making install in templates
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins/templates'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins/templates'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/plugins/templates'
+ /usr/bin/install -c -m 644 ./generic_template.cpp ./mime_template.cpp ./tool_template.cpp ./wizard_template.cpp ./generic_template.h ./mime_template.h ./tool_template.h ./wizard_template.h ./manifest_template.xml '/mingw64/share/codeblocks/templates/wizard/plugins/templates'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins/templates'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins/templates'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/plugins'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.xrc wizard.script '/mingw64/share/codeblocks/templates/wizard/plugins'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/plugins'
+Making install in ppc
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ppc'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ppc'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC5200/h'
+ /usr/bin/install -c -m 644 files/MPC5200/h/mpc5200.h '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC5200/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC5200/ld'
+ /usr/bin/install -c -m 644 files/MPC5200/ld/target.ld '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC5200/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC5200/src'
+ /usr/bin/install -c -m 644 files/MPC5200/src/crt0.S files/MPC5200/src/main.c files/MPC5200/src/traptable.S '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC5200/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC565/h'
+ /usr/bin/install -c -m 644 files/MPC565/h/mpc555.h '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC565/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC565/ld'
+ /usr/bin/install -c -m 644 files/MPC565/ld/target.ld '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC565/ld'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC565/src'
+ /usr/bin/install -c -m 644 files/MPC565/src/crt0.S files/MPC565/src/main.c '/mingw64/share/codeblocks/templates/wizard/ppc/files/MPC565/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/ppc'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/ppc'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ppc'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/ppc'
+Making install in qt4
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+Making install in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4/files'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4/files'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/qt4/files'
+ /usr/bin/install -c -m 644 main.cpp '/mingw64/share/codeblocks/templates/wizard/qt4/files'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4/files'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/qt4'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/qt4'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/qt4'
+Making install in sdl
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+Making install in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl/files'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl/files'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sdl/files'
+ /usr/bin/install -c -m 644 main.cpp cb.bmp '/mingw64/share/codeblocks/templates/wizard/sdl/files'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl/files'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sdl'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/sdl'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sdl'
+Making install in sfml
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sfml'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sfml'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sfml'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/sfml'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sfml/sfml1'
+ /usr/bin/install -c -m 644 sfml1/cb.bmp sfml1/main.cpp '/mingw64/share/codeblocks/templates/wizard/sfml/sfml1'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sfml/sfml2'
+ /usr/bin/install -c -m 644 sfml2/cb.bmp sfml2/main.cpp '/mingw64/share/codeblocks/templates/wizard/sfml/sfml2'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sfml'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sfml'
+Making install in smartwin
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+Making install in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin/files'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin/files'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/smartwin/files'
+ /usr/bin/install -c -m 644 main.cpp '/mingw64/share/codeblocks/templates/wizard/smartwin/files'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin/files'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/smartwin'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/smartwin'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/smartwin'
+Making install in staticlib
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+Making install in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib/files'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib/files'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/staticlib/files'
+ /usr/bin/install -c -m 644 main.c '/mingw64/share/codeblocks/templates/wizard/staticlib/files'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib/files'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/staticlib'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/staticlib'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/staticlib'
+Making install in stlport
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+Making install in files
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport/files'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport/files'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/stlport/files'
+ /usr/bin/install -c -m 644 main.cpp '/mingw64/share/codeblocks/templates/wizard/stlport/files'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport/files'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport/files'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/stlport'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/stlport'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/stlport'
+Making install in sharedlib
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+Making install in c
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/c'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/c'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sharedlib/c'
+ /usr/bin/install -c -m 644 main.c '/mingw64/share/codeblocks/templates/wizard/sharedlib/c'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/c'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/c'
+Making install in cpp
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/cpp'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/cpp'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sharedlib/cpp'
+ /usr/bin/install -c -m 644 main.cpp '/mingw64/share/codeblocks/templates/wizard/sharedlib/cpp'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/cpp'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib/cpp'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+make[7]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+make[7]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sharedlib'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/sharedlib'
+make[7]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sharedlib'
+Making install in sys
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sys'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sys'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sys/files'
+ /usr/bin/install -c -m 644 files/driver.c '/mingw64/share/codeblocks/templates/wizard/sys/files'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/sys'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/sys'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sys'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/sys'
+Making install in tricore
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/tricore'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/tricore'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script wizard.xrc '/mingw64/share/codeblocks/templates/wizard/tricore'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1766'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1766/target.ld templates/TriBoard-TC1766/targetIntResources.ld '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1766'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1775'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1775/memoryROM.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1775'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1775/h'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1775/h/triboard_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1775/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1775/src'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1775/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1775/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1792'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1792/memoryROM.x templates/TriBoard-TC1792/memoryROM-intern.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1792'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1792/h'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1792/h/triboard_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1792/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1792/src'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1792/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1792/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1796'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1796/memoryROM.x templates/TriBoard-TC1796/memoryROM-intern.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1796'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1796/h'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1796/h/triboard_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1796/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1796/src'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1796/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1796/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1797'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1797/memoryROM.x templates/TriBoard-TC1797/memoryROM-intern.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1797'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1797/h'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1797/h/triboard_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1797/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1797/src'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1797/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1797/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1920'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1920/memoryROM.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1920'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1920/h'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1920/h/triboard_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1920/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1920/src'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1920/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1920/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/EasyKit-TC1767'
+ /usr/bin/install -c -m 644 templates/EasyKit-TC1767/target.ld templates/EasyKit-TC1767/targetIntResources.ld '/mingw64/share/codeblocks/templates/wizard/tricore/templates/EasyKit-TC1767'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/EasyRun-TC1796'
+ /usr/bin/install -c -m 644 templates/EasyRun-TC1796/memoryROM.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/EasyRun-TC1796'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/EasyRun-TC1796/h'
+ /usr/bin/install -c -m 644 templates/EasyRun-TC1796/h/easyrun_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/EasyRun-TC1796/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/EasyRun-TC1796/src'
+ /usr/bin/install -c -m 644 templates/EasyRun-TC1796/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/EasyRun-TC1796/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1130'
+ /usr/bin/install -c -m 644 templates/phyCORE-TC1130/memoryROM.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1130'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1130/h'
+ /usr/bin/install -c -m 644 templates/phyCORE-TC1130/h/phycore_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1130/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1130/src'
+ /usr/bin/install -c -m 644 templates/phyCORE-TC1130/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1130/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1775'
+ /usr/bin/install -c -m 644 templates/phyCORE-TC1775/memoryROM.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1775'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1775/h'
+ /usr/bin/install -c -m 644 templates/phyCORE-TC1775/h/phycore_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1775/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1775/src'
+ /usr/bin/install -c -m 644 templates/phyCORE-TC1775/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/phyCORE-TC1775/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1130'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1130/memoryROM.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1130'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1130/h'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1130/h/triboard_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1130/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1130/src'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1130/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1130/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1161'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1161/target.ld templates/TriBoard-TC1161/targetIntResources.ld '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1161'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1162'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1162/target.ld templates/TriBoard-TC1162/targetIntResources.ld '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1162'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1762'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1762/target.ld templates/TriBoard-TC1762/targetIntResources.ld '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1762'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1765'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1765/memoryROM.x '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1765'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1765/h'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1765/h/triboard_setup.h '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1765/h'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1765/src'
+ /usr/bin/install -c -m 644 templates/TriBoard-TC1765/src/setup.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates/TriBoard-TC1765/src'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/tricore/templates'
+ /usr/bin/install -c -m 644 templates/main.c '/mingw64/share/codeblocks/templates/wizard/tricore/templates'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/tricore'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/tricore'
+Making install in win32gui
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/win32gui'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/win32gui'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/win32gui/files/dialog'
+ /usr/bin/install -c -m 644 files/dialog/main.cpp files/dialog/manifest.xml files/dialog/resource.h files/dialog/resource.rc '/mingw64/share/codeblocks/templates/wizard/win32gui/files/dialog'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/win32gui/files/frame'
+ /usr/bin/install -c -m 644 files/frame/main.cpp '/mingw64/share/codeblocks/templates/wizard/win32gui/files/frame'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/win32gui'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script '/mingw64/share/codeblocks/templates/wizard/win32gui'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/win32gui'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/win32gui'
+Making install in wxwidgets
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/wxwidgets'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/wxwidgets'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/wxwidgets/common'
+ /usr/bin/install -c -m 644 common/app.cpp common/app.h common/main.cpp common/main.h '/mingw64/share/codeblocks/templates/wizard/wxwidgets/common'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/wxwidgets/pch'
+ /usr/bin/install -c -m 644 pch/wx_pch.h '/mingw64/share/codeblocks/templates/wizard/wxwidgets/pch'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/wxwidgets'
+ /usr/bin/install -c -m 644 logo.png wizard.png wizard.script wizard.xrc '/mingw64/share/codeblocks/templates/wizard/wxwidgets'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/wxwidgets/rc'
+ /usr/bin/install -c -m 644 rc/resource.rc '/mingw64/share/codeblocks/templates/wizard/wxwidgets/rc'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/wxwidgets/wxfb/dialog'
+ /usr/bin/install -c -m 644 wxfb/dialog/GUIDialog.cpp wxfb/dialog/GUIDialog.h wxfb/dialog/WxWizDialog.fbp '/mingw64/share/codeblocks/templates/wizard/wxwidgets/wxfb/dialog'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/wxwidgets/wxfb/frame'
+ /usr/bin/install -c -m 644 wxfb/frame/GUIFrame.cpp wxfb/frame/GUIFrame.h wxfb/frame/WxWizFrame.fbp '/mingw64/share/codeblocks/templates/wizard/wxwidgets/wxfb/frame'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard/wxwidgets/wxsmith'
+ /usr/bin/install -c -m 644 wxsmith/app.cpp wxsmith/main.cpp wxsmith/main.h wxsmith/resource.wxs '/mingw64/share/codeblocks/templates/wizard/wxwidgets/wxsmith'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/wxwidgets'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources/wxwidgets'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+make[6]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+make[6]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates/wizard'
+ /usr/bin/install -c -m 644 common_functions.script config.script '/mingw64/share/codeblocks/templates/wizard'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 scriptedwizard.zip '/mingw64/share/codeblocks'
+make[6]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libscriptedwizard.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libscriptedwizard.dll.a /mingw64/lib/codeblocks/plugins/libscriptedwizard.dll.a
+libtool: install: base_file=`basename libscriptedwizard.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libscriptedwizard.la'i; echo libscriptedwizard.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libscriptedwizard.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libscriptedwizard.dll /mingw64/lib/codeblocks/plugins/./libscriptedwizard.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libscriptedwizard.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libscriptedwizard.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libscriptedwizard.lai /mingw64/lib/codeblocks/plugins/libscriptedwizard.la
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/scriptedwizard'
+Making install in openfileslist
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/openfileslist'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/openfileslist'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 openfileslist.zip '/mingw64/share/codeblocks'
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libopenfileslist.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libopenfileslist.dll.a /mingw64/lib/codeblocks/plugins/libopenfileslist.dll.a
+libtool: install: base_file=`basename libopenfileslist.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libopenfileslist.la'i; echo libopenfileslist.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libopenfileslist.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libopenfileslist.dll /mingw64/lib/codeblocks/plugins/./libopenfileslist.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libopenfileslist.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libopenfileslist.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libopenfileslist.lai /mingw64/lib/codeblocks/plugins/libopenfileslist.la
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/openfileslist'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/openfileslist'
+Making install in occurrenceshighlighting
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+Making install in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 occurrenceshighlighting.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   liboccurrenceshighlighting.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/liboccurrenceshighlighting.dll.a /mingw64/lib/codeblocks/plugins/liboccurrenceshighlighting.dll.a
+libtool: install: base_file=`basename liboccurrenceshighlighting.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'liboccurrenceshighlighting.la'i; echo liboccurrenceshighlighting.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname liboccurrenceshighlighting.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/liboccurrenceshighlighting.dll /mingw64/lib/codeblocks/plugins/./liboccurrenceshighlighting.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./liboccurrenceshighlighting.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./liboccurrenceshighlighting.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/liboccurrenceshighlighting.lai /mingw64/lib/codeblocks/plugins/liboccurrenceshighlighting.la
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/occurrenceshighlighting'
+Making install in todo
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+Making install in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 todo.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libtodo.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libtodo.dll.a /mingw64/lib/codeblocks/plugins/libtodo.dll.a
+libtool: install: base_file=`basename libtodo.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libtodo.la'i; echo libtodo.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libtodo.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libtodo.dll /mingw64/lib/codeblocks/plugins/./libtodo.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libtodo.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libtodo.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libtodo.lai /mingw64/lib/codeblocks/plugins/libtodo.la
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/todo'
+Making install in abbreviations
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+Making install in resources
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations/resources'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations/resources'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 abbreviations.zip '/mingw64/share/codeblocks'
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations/resources'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations/resources'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libabbreviations.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libabbreviations.dll.a /mingw64/lib/codeblocks/plugins/libabbreviations.dll.a
+libtool: install: base_file=`basename libabbreviations.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libabbreviations.la'i; echo libabbreviations.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libabbreviations.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libabbreviations.dll /mingw64/lib/codeblocks/plugins/./libabbreviations.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libabbreviations.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libabbreviations.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libabbreviations.lai /mingw64/lib/codeblocks/plugins/libabbreviations.la
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/abbreviations'
+Making install in xpmanifest
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/xpmanifest'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/xpmanifest'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 xpmanifest.zip '/mingw64/share/codeblocks'
+ /usr/bin/mkdir -p '/mingw64/lib/codeblocks/plugins'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libxpmanifest.la '/mingw64/lib/codeblocks/plugins'
+libtool: install: /usr/bin/install -c .libs/libxpmanifest.dll.a /mingw64/lib/codeblocks/plugins/libxpmanifest.dll.a
+libtool: install: base_file=`basename libxpmanifest.la`
+libtool: install:  dlpath=`/bin/sh 2>&1 -c '. .libs/'libxpmanifest.la'i; echo libxpmanifest.dll'`
+libtool: install:  dldir=/mingw64/lib/codeblocks/plugins/`dirname libxpmanifest.dll`
+libtool: install:  test -d /mingw64/lib/codeblocks/plugins/. || mkdir -p /mingw64/lib/codeblocks/plugins/.
+libtool: install:  /usr/bin/install -c .libs/libxpmanifest.dll /mingw64/lib/codeblocks/plugins/./libxpmanifest.dll
+libtool: install:  chmod a+x /mingw64/lib/codeblocks/plugins/./libxpmanifest.dll
+libtool: install:  if test -n '' && test -n 'strip --strip-unneeded'; then eval 'strip --strip-unneeded /mingw64/lib/codeblocks/plugins/./libxpmanifest.dll' || exit 0; fi
+libtool: install: /usr/bin/install -c .libs/libxpmanifest.lai /mingw64/lib/codeblocks/plugins/libxpmanifest.la
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/xpmanifest'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/xpmanifest'
+Making install in contrib
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins'
+Making install in tools
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+Making install in cb_share_config
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/cb_share_config'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/cb_share_config'
+ /usr/bin/mkdir -p '/mingw64/bin'
+  /bin/sh ../../../libtool   --mode=install /usr/bin/install -c cb_share_config.exe '/mingw64/bin'
+libtool: install: /usr/bin/install -c .libs/cb_share_config.exe /mingw64/bin/cb_share_config.exe
+ /usr/bin/mkdir -p '/mingw64/share/man/man1'
+ /usr/bin/install -c -m 644 cb_share_config.1 '/mingw64/share/man/man1'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/cb_share_config'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/cb_share_config'
+Making install in ConsoleRunner
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/ConsoleRunner'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/ConsoleRunner'
+ /usr/bin/mkdir -p '/mingw64/bin'
+  /bin/sh ../../../libtool   --mode=install /usr/bin/install -c cb_console_runner.exe '/mingw64/bin'
+libtool: install: /usr/bin/install -c .libs/cb_console_runner.exe /mingw64/bin/cb_console_runner.exe
+ /usr/bin/mkdir -p '/mingw64/share/man/man1'
+ /usr/bin/install -c -m 644 cb_console_runner.1 '/mingw64/share/man/man1'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/ConsoleRunner'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/ConsoleRunner'
+Making install in CBLauncher
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/CBLauncher'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/CBLauncher'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/CBLauncher'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools/CBLauncher'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/tools'
+Making install in templates
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+Making install in common
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/common'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/common'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates'
+ /usr/bin/install -c -m 644 console.cbp console-main-c.cpp console-main-cpp.cpp console.png console.template dll.png glfw-main.cpp glfw.png glfw.template glut.png glut-main.cpp irrlicht.png irr_main.cpp ogrelogo.png ogre-main.cpp qt.cbp qtlogo32.png qt-main.cpp qt.template sdccapp.cbp sdccapp-main.c sdccapp.png sdccapp.template sdlapp.template sdl-cb.bmp sdl-main.cpp sdl.png sfml.cbp sfml.png sfml.template sfml-cb.bmp sfml-main.cpp sharedlib.cbp sharedlib-sample.c sharedlib.template staticlib.cbp staticlib-sample.c staticlib.template wx-app-ash.cpp wx-app-ash.h '/mingw64/share/codeblocks/templates'
+ /usr/bin/install -c -m 644 wx-main-ash.cpp wx-main-ash.h wx-main-s.cpp wx-main-sh.cpp wx-main-sh.h wx_pch.h wxwidgets.png '/mingw64/share/codeblocks/templates'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/common'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/common'
+Making install in win32
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/win32'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/win32'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/templates'
+ /usr/bin/install -c -m 644 dll.cbp dll-main.cpp dll.template directx.png directx.template directx_gcc.cbp directx_main.cpp directx_vctk.cbp fltk.cbp fltk.png fltk.template fltk-main.cpp glfw-static.cbp glut.cbp glut.template gui.png irr_gcc.cbp irrlicht.template irr_vctk.cbp ogre.template ogre_gcc.cbp ogre_vctk.cbp opengl.cbp opengl-main.cpp opengl.png opengl.template sdlapp.cbp SmartWin.cbp SmartWin.png SmartWin.template SmartWin-main.cpp win32.cbp win32gui.template win32-main.cpp wxwidgets.cbp wxwidgets_static.cbp wxwidgets_u.cbp wxwidgets_static_u.cbp wxwidgets.template '/mingw64/share/codeblocks/templates'
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/win32'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates/win32'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/templates'
+Making install in scripts
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/scripts'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/scripts'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/scripts'
+ /usr/bin/install -c -m 644 ./edit_startup_script.script ./gdb_types.script ./make_dist.script ./plugin_find_broken_files.script ./sample_plugin.script ./startup.script ./wx_help.script stl-views-1.0.3.gdb '/mingw64/share/codeblocks/scripts'
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks/scripts/tests'
+ /usr/bin/install -c -m 644 ./tests/menu_test_plugin.script ./tests/script_test_plugin.script ./tests/test_base.script ./tests/user_dialog_test_plugin.script ./tests/wx_test.script '/mingw64/share/codeblocks/scripts/tests'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/scripts'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/scripts'
+Making install in wxsmith
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/wxsmith'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/wxsmith'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/wxsmith'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/wxsmith'
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/share/codeblocks'
+ /usr/bin/install -c -m 644 tips.txt '/mingw64/share/codeblocks'
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+make[1]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src'
+make[1]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git'
+cp ./debian/codeblocks-headers.install.wx30 ./debian/codeblocks-headers.install
+make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/mingw64/lib/pkgconfig'
+ /usr/bin/install -c -m 644 codeblocks.pc '/mingw64/lib/pkgconfig'
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git'
+make[1]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git'

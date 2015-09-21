@@ -1,3 +1,5 @@
+stahta01@Laptop2-tim MINGW64 ~/devel/codeblocks_msys2-git
+$ make
 Making all in src
 make[1]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src'
 Making all in include
@@ -72,6 +74,10 @@ make[2]: Nothing to be done for 'all'.
 make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/mime'
 Making all in sdk
 make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
+ cd ../.. && /bin/sh /home/stahta01/devel/codeblocks_msys2-git/missing --run automake-1.11 --foreign src/sdk/Makefile
+ cd ../.. && /bin/sh ./config.status src/sdk/Makefile depfiles
+config.status: creating src/sdk/Makefile
+config.status: executing depfiles commands
 Making all in scripting
 make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk/scripting'
 Making all in squirrel
@@ -114,6 +120,10 @@ make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
 make[2]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/sdk'
 Making all in src
 make[2]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src'
+ cd ../.. && /bin/sh /home/stahta01/devel/codeblocks_msys2-git/missing --run automake-1.11 --foreign src/src/Makefile
+ cd ../.. && /bin/sh ./config.status src/src/Makefile depfiles
+config.status: creating src/src/Makefile
+config.status: executing depfiles commands
 Making all in resources
 make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/src/resources'
 Making all in icons
@@ -462,26 +472,6 @@ make[3]: Nothing to be done for 'all'.
 make[3]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/xpmanifest'
 Making all in contrib
 make[3]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
-Making all in help_plugin
-make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/help_plugin'
-make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/help_plugin'
-make[5]: Nothing to be done for 'all-am'.
-make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/help_plugin'
-make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/help_plugin'
-Making all in ProjectOptionsManipulator
-make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/ProjectOptionsManipulator'
-make[4]: Nothing to be done for 'all'.
-make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/ProjectOptionsManipulator'
-Making all in ToolsPlus
-make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/ToolsPlus'
-Making all in Resources
-make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/ToolsPlus/Resources'
-make[5]: Nothing to be done for 'all'.
-make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/ToolsPlus/Resources'
-make[5]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/ToolsPlus'
-make[5]: Nothing to be done for 'all-am'.
-make[5]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/ToolsPlus'
-make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib/ToolsPlus'
 make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
 make[4]: Nothing to be done for 'all-am'.
 make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/contrib'
