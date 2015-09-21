@@ -1,0 +1,61 @@
+http://forums.codeblocks.org/index.php/topic,18525.30.html
+
+cd ~/devel/codeblocks 
+
+git clone --config core.eol=lf https://github.com/stahta01/codeblocks_windows.git codeblocks_msys2-git
+cd codeblocks_msys2-git
+git status
+
+
+# Step A2a 
+# These A3 steps are optional for the Code::Blocks repo; 
+# but, highly recommended to at least know what the values are even if you do NOT change then.
+git config core.eol            # Confirm value is lf
+# Step A2b
+git config core.autocrlf input # True seems to cause more work than it saves.
+# Step A2c
+git config core.safecrlf warn  # True seems to cause more work than it saves.
+# Step A2d
+git status                     # Verify no problem with settings
+
+# Step A3a These A3 steps are highly recommended for the Code::Blocks repo.
+git config master.rebase true  # Force master to automatically use rebase
+# Step A3b
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+# Step A3c
+# Not certain of the pros and cons of push.default possible setting.
+# Possible values are nothing, current, upstream, simple, matching
+git config push.default current # set to push only current branch to branch of same name on the receiving end.
+# Step A3d
+git status
+
+# Step A4a
+git checkout -b msys2_configure origin/msys2_configure
+# Step A4b
+git branch --list
+
+#  cd ~/devel/codeblocks/codeblocks_msys2-git
+git fetch
+git status
+git pull 
+
+echo $CPPFLAGS
+echo $CXXFLAGS
+echo $LDFLAGS
+
+#  cd ~/devel/codeblocks/codeblocks_msys2-git
+
+export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
+export CXXFLAGS="-Wno-deprecated-declarations"
+export LDFLAGS=
+
+./configure --host=x86_64-w64-mingw32 --build=x86_64-pc-cygwin --disable-pch \
+   --prefix=/usr/local/mingw64 \
+   --with-wx-config=/usr/local/mingw64/bin/wx-config \
+   --disable-debugger --disable-code-completion  --d isable-projects-importer \
+#   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus \
+   --with-platform=win32
+
+# make clean
+make
+make install
