@@ -1,0 +1,17 @@
+Making all in build_tools
+make[2]: Entering directory '/home/stahta01/devel/codeblocks/codeblocks_msys2-git/src/build_tools'
+Making all in autorevision
+make[3]: Entering directory '/home/stahta01/devel/codeblocks/codeblocks_msys2-git/src/build_tools/autorevision'
+./auto_revision +int +wx +t ../../.. ../../../src/include/autorevision.h
+C:/Apps64/Cygwin1_7x64/home/stahta01/devel/codeblocks/codeblocks_msys2-git/src/build_tools/autorevision/auto_revision.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory
+Makefile:650: recipe for target 'all-local' failed
+make[3]: *** [all-local] Error 127
+make[3]: Leaving directory '/home/stahta01/devel/codeblocks/codeblocks_msys2-git/src/build_tools/autorevision'
+Makefile:395: recipe for target 'all-recursive' failed
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory '/home/stahta01/devel/codeblocks/codeblocks_msys2-git/src/build_tools'
+Makefile:455: recipe for target 'all-recursive' failed
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory '/home/stahta01/devel/codeblocks/codeblocks_msys2-git/src'
+Makefile:495: recipe for target 'all-recursive' failed
+make: *** [all-recursive] Error 1

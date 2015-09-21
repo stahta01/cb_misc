@@ -29,6 +29,13 @@ git config push.default current # set to push only current branch to branch of s
 # Step A3d
 git status
 
+# These steps seems to be needed; but, I would like to skip them in the future.
+# Likely need to re-write or comment out auto_revision to avoid setting up svn-remote.
+git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
+git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
+git config svn-remote.svn.noMetadata 1  # 1 disables metadata
+
 # Step A4a
 git checkout -b msys2_configure origin/msys2_configure
 # Step A4b
@@ -49,7 +56,7 @@ export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
 export CXXFLAGS="-Wno-deprecated-declarations"
 export LDFLAGS=
 
-export ACLOCAL_FLAGS="-I `/usr/local/mingw64/bin/wx-config --prefix`/share/aclocal"
+export ACLOCAL_FLAGS="-I /usr/local/mingw64/share/aclocal"
 
 # Step B2
 ./bootstrap
