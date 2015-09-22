@@ -2,6 +2,9 @@ Please do steps in "Setting up MSys2 for building CodeBlocks.txt"
 
 Please read thread http://forums.codeblocks.org/index.php/topic,20520.msg139608.html#msg139608
 
+https://github.com/rjpcomputing/ticpp
+
+Try adding define of TIXML_API to do DLL import/export
 
 Steps to configure/make C::B
 # Step A: Get the Code::Blocks source code
@@ -58,12 +61,11 @@ export CXXFLAGS="-Wno-deprecated-declarations"
 # Step B1c
 export LDFLAGS=
 # Step B2
-./bootstrap
-
-
 echo $CPPFLAGS
 echo $CXXFLAGS
 echo $LDFLAGS
+./bootstrap
+
 
 
 # Step C: Configure/make/install of Code::Blocks
@@ -72,9 +74,12 @@ echo $LDFLAGS
 # make uninstall
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
-   --disable-debugger --disable-code-completion  --disable-projects-importer \
-#   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus \
+   --disable-code-completion  --disable-projects-importer \
+   --disable-debugger \
    --with-platform=win32
+
+#   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus \
+   
 
 make
 
@@ -105,6 +110,7 @@ mv -f libopenfileslist.dll openfileslist.dll
 mv -f libscriptedwizard.dll scriptedwizard.dll
 mv -f libtodo.dll todo.dll
 mv -f libxpmanifest.dll xpmanifest.dll
+
 
 # Check for DLLs that need renamed in order to be found by CB.
 ls -1 lib*.dll

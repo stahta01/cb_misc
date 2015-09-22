@@ -125,3 +125,56 @@ collect2.exe: error: ld returned 1 exit status
 Makefile:515: recipe for target 'libprojectsimporter.la' failed
 make[4]: *** [libprojectsimporter.la] Error 1
 make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/projectsimporter'
+
+
+make[4]: Entering directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/debuggergdb'
+/bin/sh ../../../libtool  --tag=CXX   --mode=link x86_64-w64-mingw32-g++  -O2 -ffast-math -DCB_AUTOCONF -Wno-deprecated-declarations  -DPIC -fexceptions -module -version-info 0:1:0 -shared -no-undefined -avoid-version -Wl,--no-undefined  -o libdebugger.la -rpath /mingw64/lib/codeblocks/plugins cdb_driver.lo databreakpointdlg.lo debugger_defs.lo debuggerdriver.lo debuggergdb.lo debuggeroptionsdlg.lo debuggeroptionsprjdlg.lo debuggerstate.lo editbreakpointdlg.lo editwatchdlg.lo gdb_driver.lo parsewatchvalue.lo ../../sdk/libcodeblocks.la -L/mingw64/lib   -pipe -Wl,--subsystem,windows -mwindows -lwx_mswu_aui-3.0 -lwx_mswu_propgrid-3.0 -lwx_mswu_richtext-3.0 -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0   -lpthread
+libtool: link: rm -fr  .libs/libdebugger.dll.a
+libtool: link: x86_64-w64-mingw32-g++ -shared -nostdlib C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib/../lib/dllcrt2.o C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtbegin.o  .libs/cdb_driver.o .libs/databreakpointdlg.o .libs/debugger_defs.o .libs/debuggerdriver.o .libs/debuggergdb.o .libs/debuggeroptionsdlg.o .libs/debuggeroptionsprjdlg.o .libs/debuggerstate.o .libs/editbreakpointdlg.o .libs/editwatchdlg.o .libs/gdb_driver.o .libs/parsewatchvalue.o   ../../sdk/.libs/libcodeblocks.dll.a -L/mingw64/lib -lgdi32 -lwx_mswu_aui-3.0 -lwx_mswu_propgrid-3.0 -lwx_mswu_richtext-3.0 -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0 -lpthread -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0 -LC:/Apps64/msys64/mingw64/bin/../lib/gcc -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../lib -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../.. -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtend.o  -O2 -Wl,--no-undefined -Wl,--subsystem -Wl,windows -mwindows   -o .libs/libdebugger.dll -Wl,--enable-auto-image-base -Xlinker --out-implib -Xlinker .libs/libdebugger.dll.a
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb4c8): undefined reference to `TiXmlNode::FirstChildElement(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb4e3): undefined reference to `TiXmlNode::FirstChildElement(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb54a): undefined reference to `TiXmlNode::NextSiblingElement(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb561): undefined reference to `TiXmlElement::Attribute(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb575): undefined reference to `TiXmlElement::Attribute(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb5bb): undefined reference to `TiXmlNode::FirstChildElement(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb61b): undefined reference to `TiXmlElement::Attribute(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb646): undefined reference to `TiXmlNode::FirstChildElement(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb7fb): undefined reference to `TiXmlElement::Attribute(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb80f): undefined reference to `TiXmlElement::Attribute(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb82d): undefined reference to `TiXmlElement::Attribute(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb841): undefined reference to `TiXmlElement::Attribute(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb88f): undefined reference to `TiXmlElement::Attribute(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xb8a3): more undefined references to `TiXmlElement::Attribute(char const*) const' follow
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbcaa): undefined reference to `TiXmlNode::NextSiblingElement(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbcfb): undefined reference to `TiXmlNode::FirstChildElement(char const*) const'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbd17): undefined reference to `TiXmlNode::Clear()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbd63): undefined reference to `TiXmlElement::SetAttribute(char const*, char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbdba): undefined reference to `TiXmlElement::TiXmlElement(char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbdc5): undefined reference to `TiXmlNode::InsertEndChild(TiXmlNode const&)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbdd9): undefined reference to `TiXmlElement::~TiXmlElement()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbe71): undefined reference to `TiXmlElement::TiXmlElement(char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbe7c): undefined reference to `TiXmlNode::InsertEndChild(TiXmlNode const&)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbe90): undefined reference to `TiXmlElement::~TiXmlElement()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbe98): undefined reference to `TiXmlNode::Clear()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbf4e): undefined reference to `TiXmlElement::TiXmlElement(char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbf59): undefined reference to `TiXmlNode::InsertEndChild(TiXmlNode const&)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbf6d): undefined reference to `TiXmlElement::~TiXmlElement()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbfa5): undefined reference to `TiXmlElement::SetAttribute(char const*, char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbfbc): undefined reference to `TiXmlElement::TiXmlElement(char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbfc7): undefined reference to `TiXmlNode::InsertEndChild(TiXmlNode const&)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbfdb): undefined reference to `TiXmlElement::~TiXmlElement()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xbfee): undefined reference to `TiXmlElement::SetAttribute(char const*, int)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc099): undefined reference to `TiXmlElement::SetAttribute(char const*, char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc0d3): undefined reference to `TiXmlElement::SetAttribute(char const*, char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc10d): undefined reference to `TiXmlElement::SetAttribute(char const*, char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc14a): undefined reference to `TiXmlElement::SetAttribute(char const*, char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc187): undefined reference to `TiXmlElement::SetAttribute(char const*, char const*)'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc1c8): more undefined references to `TiXmlElement::SetAttribute(char const*, char const*)' follow
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc2a8): undefined reference to `TiXmlElement::~TiXmlElement()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc2bb): undefined reference to `TiXmlElement::~TiXmlElement()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc2e1): undefined reference to `TiXmlElement::~TiXmlElement()'
+.libs/debuggergdb.o:debuggergdb.cpp:(.text+0xc40a): undefined reference to `TiXmlElement::~TiXmlElement()'
+collect2.exe: error: ld returned 1 exit status
+Makefile:531: recipe for target 'libdebugger.la' failed
+make[4]: *** [libdebugger.la] Error 1
+make[4]: Leaving directory '/home/stahta01/devel/codeblocks_msys2-git/src/plugins/debuggergdb'
