@@ -79,9 +79,6 @@ echo $LDFLAGS
    --with-platform=win32
 
 #   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus \
-   
-
-make
 
 # Step C2
 make clean; make         # errors out because of tinyXML link issues in
@@ -124,6 +121,8 @@ cd ~; codeblocks; cd ~/devel/codeblocks_msys2-git  # Using the normal windows co
 git checkout -- debian/changelog
 git checkout -- src/sdk/wxscintilla/Readme
 
+# Clean and make CB exe
+cd src/src; make clean && make; cd ..; cd ..;
 
 # Clean and make ConsoleRunner
 cd src/tools/ConsoleRunner; make clean && make; cd ..; cd ..; cd ..;

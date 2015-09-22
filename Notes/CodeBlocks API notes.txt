@@ -1,0 +1,32 @@
+module_CLASS_EXPIMP
+module_CLASS_FWD_EXPIMP
+module_CLASS_TEMPLATE_API
+module_API
+
+
+# Windows DLL Import/Export setup Macros and defined inside Makefile.am files.
+CB_SDK_DLL_IMPORT      src
+BUILDING_PLUGIN        "Not used in any Makefile.am"
+EXPORT_LIB             SDK, bindings, sqplus, sqstdlib, wxpropgrid
+EXPORT_EVENTS          SDK
+WXMAKINGDLL_SCI        SDK, bindings, wxscintilla
+WXUSINGDLL             SDK, src, wxscintilla
+DLL_EXPORT             "Added most likely by libtool"
+
+
+# Windows DLL Import/Export usage Macros
+PLUGIN_EXPORT               # For use inside CB Plugins; but, no sign of usage.
+DLLIMPORT                   #include "settings.h"
+CB_EXPIMP_TEMPLATE          #include "settings.h"
+SQUIRREL_API                #include "squirrel.h"
+CB_EXPIMP_SCRIPT_CLASS      #include "squirrel.h"
+
+
+SQUIRREL_DLLIMPEXP_CLASS      replaces CB_EXPIMP_SCRIPT_CLASS
+CB_DLLIMPEXP_CLASS_TEMPLATE   replaces CB_EXPIMP_TEMPLATE
+
+#define CB_DLLIMPEXP_CLASS_TEMPLATE ????
+#define CB_DLLIMPEXP_FUNCTION DLLIMPORT
+#define CB_DLLIMPEXP_CLASS DLLIMPORT
+#define CB_DLLIMPEXP_FWD_CLASS
+#define CB_DLLIMPEXP_DATA(type) DLLIMPORT type
