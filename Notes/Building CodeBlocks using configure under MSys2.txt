@@ -22,6 +22,8 @@ git config core.autocrlf input # True seems to cause more work than it saves.
 git config core.safecrlf warn  # True seems to cause more work than it saves.
 # Step A2d
 git status                     # Verify no problem with settings
+
+
 # Step A3a
 git config master.rebase true  # Force master to automatically use rebase
 # Step A3b
