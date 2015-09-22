@@ -17,16 +17,13 @@ DLL_EXPORT             "Added most likely by libtool"
 # Windows DLL Import/Export usage Macros
 PLUGIN_EXPORT               # For use inside CB Plugins; but, no sign of usage.
 DLLIMPORT                   #include "settings.h"
-CB_EXPIMP_TEMPLATE          #include "settings.h"
+CB_EXPIMP_CLASS_TEMPLATE    #include "settings.h"
 SQUIRREL_API                #include "squirrel.h"
-CB_EXPIMP_SCRIPT_CLASS      #include "squirrel.h"
+CB_SQUIRREL_EXPIMP_CLASS    #include "squirrel.h"
 
 
-SQUIRREL_DLLIMPEXP_CLASS      replaces CB_EXPIMP_SCRIPT_CLASS
-CB_DLLIMPEXP_CLASS_TEMPLATE   replaces CB_EXPIMP_TEMPLATE
-
-#define CB_DLLIMPEXP_CLASS_TEMPLATE ????
-#define CB_DLLIMPEXP_FUNCTION DLLIMPORT
-#define CB_DLLIMPEXP_CLASS DLLIMPORT
-#define CB_DLLIMPEXP_FWD_CLASS
-#define CB_DLLIMPEXP_DATA(type) DLLIMPORT type
+#define CB_EXPIMP_CLASS_TEMPLATE ????
+#define CB_EXPIMP_FUNCTION DLLIMPORT
+#define CB_EXPIMP_CLASS DLLIMPORT
+#define CB_EXPIMP_FWD_CLASS
+#define CB_EXPIMP_DATA(type) DLLIMPORT type
