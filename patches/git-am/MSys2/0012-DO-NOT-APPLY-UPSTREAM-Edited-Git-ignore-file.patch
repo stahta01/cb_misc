@@ -1,0 +1,39 @@
+From da8956d919e4eb7fb77498a643f849951094a5d3 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 17 Sep 2015 08:32:24 -0400
+Subject: [PATCH 12/19] * DO NOT APPLY UPSTREAM: Edited Git ignore file.
+
+---
+ .gitignore | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/.gitignore b/.gitignore
+index 90a7510..eceb8f5 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -32,3 +32,22 @@ Makefile.in
+ /config.guess
+ /config.sub
+ *.cbTemp
++Makefile
++.dirstamp
++.deps/
++.libs/
++*.la
++*.lo
++*.pc
++*.zip
++*.o
++/m4/
++/codeblocks.plist
++/codeblocks.spec
++/compile
++/config.log
++/config.status
++/libtool
++/src/include/config.h
++/src/include/stamp-h1
++/debian/codeblocks-headers.install
+-- 
+2.5.0
+

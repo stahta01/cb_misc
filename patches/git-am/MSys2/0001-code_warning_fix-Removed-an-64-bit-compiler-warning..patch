@@ -1,0 +1,112 @@
+From d1d80048520bdf36c4a167313f11dbfa5cad602e Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 16 Sep 2015 01:02:41 -0400
+Subject: [PATCH 01/19] * code_warning_fix: Removed an 64 bit compiler warning.
+ (Thanks stahta01)
+
+Added test for _POSIX in WIN64 code sections.
+And, if true fixed format warnings by using lld instead of I64d.
+---
+ src/plugins/compilergcc/depslib/src/cache.c | 8 ++++++++
+ src/plugins/compilergcc/depslib/src/hash.c  | 4 ++++
+ src/sdk/scripting/squirrel/sqdebug.cpp      | 4 ++++
+ src/sdk/scripting/squirrel/sqfuncstate.cpp  | 4 ++++
+ src/sdk/scripting/squirrel/sqvm.cpp         | 6 +++++-
+ 5 files changed, 25 insertions(+), 1 deletion(-)
+
+diff --git a/src/plugins/compilergcc/depslib/src/cache.c b/src/plugins/compilergcc/depslib/src/cache.c
+index 3b830a7..5b70b11 100644
+--- a/src/plugins/compilergcc/depslib/src/cache.c
++++ b/src/plugins/compilergcc/depslib/src/cache.c
+@@ -137,7 +137,11 @@ void cache_read(const char *path)
+ 
+ 		/* C::B patch: Compatibility with 64 bit compiler / OS */
+ 		#if defined(_WIN64)
++		#if defined(_POSIX)
++		sscanf(buf, "%lld %n", &timeval, &n);
++		#else
+ 		sscanf(buf, "%I64d %n", &timeval, &n);
++		#endif // _POSIX
+ 		#else
+ 		sscanf(buf, "%ld %n", &timeval, &n);
+ 		#endif
+@@ -168,7 +172,11 @@ void cache_write(const char *path)
+ 		LIST *l;
+ 		/* C::B patch: Compatibility with 64 bit compiler / OS */
+ 		#if defined(_WIN64)
++		#if defined(_POSIX)
++		fprintf(f, "%lld %s\n", h->time, h->file);
++		#else
+ 		fprintf(f, "%I64d %s\n", h->time, h->file);
++		#endif // _POSIX
+ 		#else
+ 		fprintf(f, "%ld %s\n", h->time, h->file);
+ 		#endif
+diff --git a/src/plugins/compilergcc/depslib/src/hash.c b/src/plugins/compilergcc/depslib/src/hash.c
+index 78823e4..8ca88c1 100644
+--- a/src/plugins/compilergcc/depslib/src/hash.c
++++ b/src/plugins/compilergcc/depslib/src/hash.c
+@@ -267,7 +267,11 @@ hashstat( struct hash *hp )
+ 	printf( "%s table: %d+%d+%d (%dK+%luK) items+table+hash, %f density\n",
+ /* C::B patch: Compatibility with 64 bit compiler / OS*/
+ #elif defined(_WIN64)
++	#if defined(_POSIX)
++	printf( "%s table: %d+%d+%d (%dK+%lldK) items+table+hash, %f density\n",
++	#else
+ 	printf( "%s table: %d+%d+%d (%dK+%I64dK) items+table+hash, %f density\n",
++	#endif // _POSIX
+ #else
+ 	printf( "%s table: %d+%d+%d (%dK+%dK) items+table+hash, %f density\n",
+ #endif
+diff --git a/src/sdk/scripting/squirrel/sqdebug.cpp b/src/sdk/scripting/squirrel/sqdebug.cpp
+index 7f96c4f..48fd729 100644
+--- a/src/sdk/scripting/squirrel/sqdebug.cpp
++++ b/src/sdk/scripting/squirrel/sqdebug.cpp
+@@ -76,7 +76,11 @@ SQString *SQVM::PrintObjVal(const SQObject &o)
+ 	case OT_INTEGER:
+ 		// C::B patch: Support for Windows 64 bit
+ 		#if defined(_WIN64)
++		#if defined(_POSIX)
++		scsprintf(_sp(rsl(NUMBER_MAX_CHAR+1)), _SC("%lld"), _integer(o));
++		#else
+ 		scsprintf(_sp(rsl(NUMBER_MAX_CHAR+1)), _SC("%I64d"), _integer(o));
++		#endif // _POSIX
+ 		// C::B patch: Support for Linux 64 bit
+ 		#elif defined(_SQ64)
+ 		scsprintf(_sp(rsl(NUMBER_MAX_CHAR+1)), _SC("%ld"), _integer(o));
+diff --git a/src/sdk/scripting/squirrel/sqfuncstate.cpp b/src/sdk/scripting/squirrel/sqfuncstate.cpp
+index f98c757..2135a75 100644
+--- a/src/sdk/scripting/squirrel/sqfuncstate.cpp
++++ b/src/sdk/scripting/squirrel/sqfuncstate.cpp
+@@ -82,7 +82,11 @@ void DumpLiteral(SQObjectPtr &o)
+ 		case OT_INTEGER:
+ 			// C::B patch: Support for Windows 64 bit
+             #if defined(_WIN64)
++            #if defined(_POSIX)
++            scprintf(_SC("{%lld}"),_integer(o));
++            #else
+             scprintf(_SC("{%I64d}"),_integer(o));
++            #endif // _POSIX
+ 			// C::B patch: Support for Linux 64 bit
+             #elif defined(_SQ64)
+             scprintf(_SC("{%ld}"),_integer(o));
+diff --git a/src/sdk/scripting/squirrel/sqvm.cpp b/src/sdk/scripting/squirrel/sqvm.cpp
+index b1e91b5..004216c 100644
+--- a/src/sdk/scripting/squirrel/sqvm.cpp
++++ b/src/sdk/scripting/squirrel/sqvm.cpp
+@@ -251,7 +251,11 @@ void SQVM::ToString(const SQObjectPtr &o,SQObjectPtr &res)
+ 	case OT_INTEGER:
+ 		// C::B patch: Support for Windows 64 bit
+         #if defined(_WIN64)
+-		scsprintf(_sp(rsl(NUMBER_MAX_CHAR+1)),_SC("%I64d"),_integer(o));
++        #if defined (_POSIX)
++        scsprintf(_sp(rsl(NUMBER_MAX_CHAR+1)),_SC("%lld"),_integer(o));
++        #else
++        scsprintf(_sp(rsl(NUMBER_MAX_CHAR+1)),_SC("%I64d"),_integer(o));
++        #endif // _POSIX
+ 		// C::B patch: Support for Linux 64 bit
+ 		#elif  defined(_SQ64)
+ 		scsprintf(_sp(rsl(NUMBER_MAX_CHAR+1)),_SC("%ld"),_integer(o));
+-- 
+2.5.0
+

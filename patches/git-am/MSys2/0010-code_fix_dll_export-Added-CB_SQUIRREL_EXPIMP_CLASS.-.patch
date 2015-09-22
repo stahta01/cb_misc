@@ -1,0 +1,82 @@
+From 439f162e04e7a7cb2979440906356f31cf08d495 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Sep 2015 11:41:32 -0400
+Subject: [PATCH 10/19] * code_fix_dll_export: Added CB_SQUIRREL_EXPIMP_CLASS.
+ (Thanks stahta01)
+
+Added CB_SQUIRREL_EXPIMP_CLASS to export CB scripting classes.
+---
+ src/include/scripting/include/squirrel.h      | 14 ++++++++++++++
+ src/include/scripting/sqplus/SquirrelObject.h |  2 +-
+ src/include/scripting/sqplus/SquirrelVM.h     |  3 ++-
+ src/sdk/scripting/sqplus/SquirrelVM.cpp       |  2 +-
+ 4 files changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/src/include/scripting/include/squirrel.h b/src/include/scripting/include/squirrel.h
+index 9b1b6e9..9924a1f 100644
+--- a/src/include/scripting/include/squirrel.h
++++ b/src/include/scripting/include/squirrel.h
+@@ -35,6 +35,20 @@ to the following restrictions:
+ extern "C" {
+ #endif
+ 
++// C::B patch: to export functions from CB DLL
++#if defined(DLL_EXPORT) || defined(CB_SDK_DLL_IMPORT)
++    #if defined(EXPORT_LIB)
++        #define SQUIRREL_API __declspec (dllexport)
++        #define CB_SQUIRREL_EXPIMP_CLASS __declspec (dllexport)
++    #else
++        #define SQUIRREL_API __declspec (dllimport)
++        #define CB_SQUIRREL_EXPIMP_CLASS __declspec (dllimport)
++    #endif // EXPORT_LIB
++#else
++    #define CB_SCRIPT_CLASS_EXPORT
++#endif
++// C::B patch end
++
+ #ifndef SQUIRREL_API
+ #define SQUIRREL_API extern
+ #endif
+diff --git a/src/include/scripting/sqplus/SquirrelObject.h b/src/include/scripting/sqplus/SquirrelObject.h
+index 5370014..02ff65d 100644
+--- a/src/include/scripting/sqplus/SquirrelObject.h
++++ b/src/include/scripting/sqplus/SquirrelObject.h
+@@ -4,7 +4,7 @@
+ // C::B patch: Include required, so references are found
+ #include "sqplus.h"
+ 
+-class SquirrelObject
++class CB_SQUIRREL_EXPIMP_CLASS SquirrelObject
+ {
+ 	friend class SquirrelVM;
+ public:
+diff --git a/src/include/scripting/sqplus/SquirrelVM.h b/src/include/scripting/sqplus/SquirrelVM.h
+index 340e261..d1f56f1 100644
+--- a/src/include/scripting/sqplus/SquirrelVM.h
++++ b/src/include/scripting/sqplus/SquirrelVM.h
+@@ -23,7 +23,8 @@ enum SquirrelInitFlags
+     sqifAll    = 0xFF
+ };
+ 
+-class SquirrelVM
++// C::B patch: added SQUIRREL_API needed in windows DLL export.
++class CB_SQUIRREL_EXPIMP_CLASS SquirrelVM
+ {
+ 	friend class SquirrelObject;
+ 	friend struct SquirrelError;
+diff --git a/src/sdk/scripting/sqplus/SquirrelVM.cpp b/src/sdk/scripting/sqplus/SquirrelVM.cpp
+index 388900c..c88ea35 100644
+--- a/src/sdk/scripting/sqplus/SquirrelVM.cpp
++++ b/src/sdk/scripting/sqplus/SquirrelVM.cpp
+@@ -18,7 +18,7 @@
+ #define STRLEN(n) strlen(n)
+ #endif
+ 
+-HSQUIRRELVM SquirrelVM::_VM = NULL;
++HSQUIRRELVM CB_SQUIRREL_EXPIMP_CLASS SquirrelVM::_VM = NULL;
+ SQInteger SquirrelVM::_CallState = -1;
+ SquirrelObject * SquirrelVM::_root = NULL;
+ 
+-- 
+2.5.0
+

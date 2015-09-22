@@ -1,7 +1,8 @@
-From a61d69062e2d3f23c9941374f429ddf050d4ddb0 Mon Sep 17 00:00:00 2001
+From 01591ce0feb98bf7222e96e41313039493693c35 Mon Sep 17 00:00:00 2001
 From: Tim S <stahta01@users.sourceforge.net>
-Date: Sun, 7 Jun 2015 16:33:14 -0400
-Subject: [PATCH] =- Removed -fPIC for MinGW builds (thanks stahta01)
+Date: Thu, 17 Sep 2015 08:27:10 -0400
+Subject: [PATCH 04/19] * configure.ac: Removed -fPIC for MinGW builds (thanks
+ stahta01)
 
 ---
  configure.ac | 3 +++
@@ -22,5 +23,5 @@ index d5b81a4..866e5b2 100644
          PIC_FLAGS="-fPIC -DPIC"
      ;;
 -- 
-1.9.5.msysgit.1
+2.5.0
 

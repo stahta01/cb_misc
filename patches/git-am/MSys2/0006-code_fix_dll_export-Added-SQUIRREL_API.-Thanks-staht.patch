@@ -1,0 +1,51 @@
+From 177b72e16d104cfe9bab3e6d2457de458b414b31 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 19 Sep 2015 18:38:33 -0400
+Subject: [PATCH 06/19] - code_fix_dll_export: Added SQUIRREL_API. (Thanks
+ stahta01)
+
+---
+ src/include/scripting/sqplus/SquirrelBindingsUtils.h | 2 +-
+ src/include/scripting/sqplus/sqplus.h                | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/include/scripting/sqplus/SquirrelBindingsUtils.h b/src/include/scripting/sqplus/SquirrelBindingsUtils.h
+index a924caa..9e824c8 100644
+--- a/src/include/scripting/sqplus/SquirrelBindingsUtils.h
++++ b/src/include/scripting/sqplus/SquirrelBindingsUtils.h
+@@ -145,7 +145,7 @@ BOOL_T CreateStaticClass(HSQUIRRELVM v,SquirrelClassDecl *cd);
+ BOOL_T CreateStaticNamespace(HSQUIRRELVM v,ScriptNamespaceDecl *sn);
+ BOOL_T CreateClass(HSQUIRRELVM v,SquirrelClassDecl *cd);
+ BOOL_T InitScriptClasses(HSQUIRRELVM v);
+-BOOL_T CreateNativeClassInstance(HSQUIRRELVM v,const SQChar *classname,SQUserPointer ud,SQRELEASEHOOK hook);
++SQUIRREL_API BOOL_T CreateNativeClassInstance(HSQUIRRELVM v,const SQChar *classname,SQUserPointer ud,SQRELEASEHOOK hook);
+ 
+ #endif // SQUIRREL_BINDINGS_UTILS_H
+ 
+diff --git a/src/include/scripting/sqplus/sqplus.h b/src/include/scripting/sqplus/sqplus.h
+index 609a515..8371f9a 100644
+--- a/src/include/scripting/sqplus/sqplus.h
++++ b/src/include/scripting/sqplus/sqplus.h
+@@ -338,8 +338,8 @@ inline void getVarNameTag(SQChar * buff,INT_T maxSize,const SQChar * scriptName)
+ } // getVarNameTag
+ 
+ // Internal use only.
+-SQInteger setVarFunc(HSQUIRRELVM v);
+-SQInteger getVarFunc(HSQUIRRELVM v);
++SQUIRREL_API SQInteger setVarFunc(HSQUIRRELVM v);
++SQUIRREL_API SQInteger getVarFunc(HSQUIRRELVM v);
+ SQInteger setInstanceVarFunc(HSQUIRRELVM v);
+ SQInteger getInstanceVarFunc(HSQUIRRELVM v);
+ 
+@@ -1599,7 +1599,7 @@ struct ReleaseClassPtr {
+   } // release
+ };
+ 
+-BOOL_T CreateClass(HSQUIRRELVM v,SquirrelObject & newClass,SQUserPointer classType,const SQChar * name,const SQChar * baseName=0);
++SQUIRREL_API BOOL_T CreateClass(HSQUIRRELVM v,SquirrelObject & newClass,SQUserPointer classType,const SQChar * name,const SQChar * baseName=0);
+ 
+ #define SQ_ANCESTOR_CLASS_INDEX sqT("__ci")
+ 
+-- 
+2.5.0
+

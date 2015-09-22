@@ -1,0 +1,99 @@
+From 24c069c11cad6dd0d8a424566f201b980846defd Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Sep 2015 11:39:11 -0400
+Subject: [PATCH 09/19] * Added use of CB_EXPIMP_CLASS_TEMPLATE. (Thanks
+ stahta01)
+
+Reformatted the settings file to use 4 spaces instead of tab.
+Used CB_EXPIMP_CLASS_TEMPLATE to export templates.
+---
+ src/include/logmanager.h      |  4 ++++
+ src/include/settings.h        | 39 +++++++++++++++++++++++----------------
+ src/include/templatemanager.h |  5 +++++
+ 3 files changed, 32 insertions(+), 16 deletions(-)
+
+diff --git a/src/include/logmanager.h b/src/include/logmanager.h
+index 2eee25d..6a86394 100644
+--- a/src/include/logmanager.h
++++ b/src/include/logmanager.h
+@@ -51,6 +51,10 @@ struct DLLIMPORT LogSlot
+ };
+ 
+ 
++class LogManager;
++
++CB_EXPIMP_CLASS_TEMPLATE template class DLLIMPORT Mgr<LogManager>;
++
+ class DLLIMPORT LogManager : public Mgr<LogManager>
+ {
+ public:
+diff --git a/src/include/settings.h b/src/include/settings.h
+index 1f0da6e..6bb8493 100644
+--- a/src/include/settings.h
++++ b/src/include/settings.h
+@@ -11,23 +11,30 @@ Exclude VC++, because it has silly constraints on importing/exporting classes
+ from DLLs. Instead, we build "sdk" as a static library
+ */
+ #if defined(__WXMSW__)
+-	#ifndef DLLIMPORT
+-		#if defined(EXPORT_LIB)
+-			#define DLLIMPORT __declspec (dllexport)
+-		#else
+-			#define DLLIMPORT __declspec (dllimport)
+-		#endif // EXPORT_LIB
+-	#endif // DLLIMPORT
+-	#ifndef EVTIMPORT
+-		#if defined(EXPORT_EVENTS)
+-			#define EVTIMPORT __declspec (dllexport)
+-		#else
+-			#define EVTIMPORT __declspec (dllimport)
+-		#endif // EXPORT_EVENTS
+-	#endif // EVTIMPORT
++    #ifndef CB_EXPIMP_CLASS_TEMPLATE
++        #ifdef EXPORT_LIB
++            #define CB_EXPIMP_CLASS_TEMPLATE
++        #else
++            #define CB_EXPIMP_CLASS_TEMPLATE extern
++        #endif // EXPORT_LIB
++    #endif // CB_EXPIMP_CLASS_TEMPLATE
++    #ifndef DLLIMPORT
++        #if defined(EXPORT_LIB)
++            #define DLLIMPORT __declspec (dllexport)
++        #else
++            #define DLLIMPORT __declspec (dllimport)
++        #endif // EXPORT_LIB
++    #endif // DLLIMPORT
++    #ifndef EVTIMPORT
++        #if defined(EXPORT_EVENTS)
++            #define EVTIMPORT __declspec (dllexport)
++        #else
++            #define EVTIMPORT __declspec (dllimport)
++        #endif // EXPORT_EVENTS
++    #endif // EVTIMPORT
+ #else
+-	#define DLLIMPORT
+-	#define EVTIMPORT
++    #define DLLIMPORT
++    #define EVTIMPORT
+ #endif
+ 
+ #endif // SETTINGS_H
+diff --git a/src/include/templatemanager.h b/src/include/templatemanager.h
+index 14166bf..be82aa9 100644
+--- a/src/include/templatemanager.h
++++ b/src/include/templatemanager.h
+@@ -20,6 +20,11 @@ class wxMenu;
+ class cbProject;
+ class NewFromTemplateDlg;
+ 
++
++class TemplateManager;
++
++CB_EXPIMP_CLASS_TEMPLATE template class DLLIMPORT Mgr<TemplateManager>;
++
+ class DLLIMPORT TemplateManager : public Mgr<TemplateManager>, public wxEvtHandler
+ {
+         friend class Mgr<TemplateManager>;
+-- 
+2.5.0
+

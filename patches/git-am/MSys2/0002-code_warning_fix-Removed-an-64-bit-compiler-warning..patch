@@ -1,0 +1,27 @@
+From 300aaf58f6187c5735974b40cca3988bbd3e2ea9 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 16 Sep 2015 01:04:18 -0400
+Subject: [PATCH 02/19] - code_warning_fix: Removed an 64 bit compiler warning.
+ (Thanks stahta01)
+
+Warning happened when doing 64 bit compile on Windows under MSys2.
+---
+ src/plugins/compilergcc/depslib/src/filent.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/plugins/compilergcc/depslib/src/filent.c b/src/plugins/compilergcc/depslib/src/filent.c
+index 8ec9d92..42b343e 100644
+--- a/src/plugins/compilergcc/depslib/src/filent.c
++++ b/src/plugins/compilergcc/depslib/src/filent.c
+@@ -280,7 +280,7 @@ file_archscan(
+ 	    if( ( c = strrchr( name, '\\' ) ) ) /* TNB */
+ 		name = c + 1;
+ 
+-	    sprintf( buf, "%s(%.*s)", archive, endname - name, name );
++	    sprintf( buf, "%s(%.*s)", archive, (int)(endname - name), name );
+ 	    (*func)( closure, buf, 1 /* time valid */, (time_t)lar_date );
+ 
+ 	    offset += SARHDR + lar_size;
+-- 
+2.5.0
+
