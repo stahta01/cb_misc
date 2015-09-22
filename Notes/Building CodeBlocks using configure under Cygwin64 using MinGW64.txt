@@ -34,6 +34,7 @@ git status
 git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
 git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
 git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
+# In the past I used 0 to enable Metadata; I want to see what happens when I disable it.
 git config svn-remote.svn.noMetadata 1  # 1 disables metadata
 
 # Step A4a
@@ -46,10 +47,6 @@ git fetch
 git status
 git pull 
 
-echo $CPPFLAGS
-echo $CXXFLAGS
-echo $LDFLAGS
-
 #  cd ~/devel/codeblocks/codeblocks_msys2-git
 
 export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
@@ -59,6 +56,10 @@ export LDFLAGS=
 export ACLOCAL_FLAGS="-I /usr/local/mingw64/share/aclocal"
 
 # Step B2
+echo $CPPFLAGS
+echo $CXXFLAGS
+echo $LDFLAGS
+
 ./bootstrap
 
 ./configure --host=x86_64-w64-mingw32 --build=x86_64-pc-cygwin --disable-pch \
