@@ -37,9 +37,41 @@ git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
 # In the past I used 0 to enable Metadata; I want to see what happens when I disable it.
 git config svn-remote.svn.noMetadata 1  # 1 disables metadata
 
+# Step 2B. Look for git-svn-id in log.
+# Likely need to use same protocol as in Step 2A
+git log --grep="^git-svn-id: https:" --first-parent -1
+# Likely need to enter q to stop displaying the log
+# Top log message begins
+commit 8d698faa87632d084546e468f730eda5e0e3e064
+
+git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10499 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+# Log message ends
+
+# Step 3. 
+# Use SVN rev from log message in step 2B "trunk@10499" 
+git svn fetch svn -r 10499
+
+# Last few lines from "svn fetch"
+# end of Last few lines from "svn fetch"
+
+# Step 4. Changed the hash code used by git svn to a good starting value.
+# Use the hash code from step 2B
+ls .git/refs/remotes/svn/trunk    # Verify folder exists; stop if missing
+cat .git/refs/remotes/svn/trunk   # 
+echo 8d698faa87632d084546e468f730eda5e0e3e064 > .git/refs/remotes/svn/trunk
+
+# Step 5. run git svn info for first time
+# After doing steps 3 and 4 this step should start giving results in only a few seconds.
+# But, could take minutes to finish.
+git svn info # Should return the rev from step 2B
+
+add to ingnore list .deps
+
 # Step A4a
 git checkout -b msys2_configure origin/msys2_configure
 # Step A4b
+# git checkout msys2_configure
 git branch --list
 
 #  cd ~/devel/codeblocks/codeblocks_msys2-git
