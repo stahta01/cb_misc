@@ -1,7 +1,7 @@
-From 300aaf58f6187c5735974b40cca3988bbd3e2ea9 Mon Sep 17 00:00:00 2001
+From 2582e894c808660f80d5300bac3ee8bc89afd17b Mon Sep 17 00:00:00 2001
 From: Tim S <stahta01@users.sourceforge.net>
 Date: Wed, 16 Sep 2015 01:04:18 -0400
-Subject: [PATCH 02/19] - code_warning_fix: Removed an 64 bit compiler warning.
+Subject: [PATCH 11/15] - code_warning_fix: Removed an 64 bit compiler warning.
  (Thanks stahta01)
 
 Warning happened when doing 64 bit compile on Windows under MSys2.

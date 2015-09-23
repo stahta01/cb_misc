@@ -1,7 +1,7 @@
-From d1d80048520bdf36c4a167313f11dbfa5cad602e Mon Sep 17 00:00:00 2001
+From 1379051ae182add3a8df840852420bfdea339f63 Mon Sep 17 00:00:00 2001
 From: Tim S <stahta01@users.sourceforge.net>
 Date: Wed, 16 Sep 2015 01:02:41 -0400
-Subject: [PATCH 01/19] * code_warning_fix: Removed an 64 bit compiler warning.
+Subject: [PATCH 10/15] * code_warning_fix: Removed an 64 bit compiler warning.
  (Thanks stahta01)
 
 Added test for _POSIX in WIN64 code sections.

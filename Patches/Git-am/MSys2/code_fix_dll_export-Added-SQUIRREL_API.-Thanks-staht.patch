@@ -1,7 +1,7 @@
-From 177b72e16d104cfe9bab3e6d2457de458b414b31 Mon Sep 17 00:00:00 2001
+From f952e533cc49075d6d4c3c87b79fceac0bd71d24 Mon Sep 17 00:00:00 2001
 From: Tim S <stahta01@users.sourceforge.net>
 Date: Sat, 19 Sep 2015 18:38:33 -0400
-Subject: [PATCH 06/19] - code_fix_dll_export: Added SQUIRREL_API. (Thanks
+Subject: [PATCH 13/15] - code_fix_dll_export: Added SQUIRREL_API. (Thanks
  stahta01)
 
 ---

@@ -1,7 +1,7 @@
-From 24c069c11cad6dd0d8a424566f201b980846defd Mon Sep 17 00:00:00 2001
+From 827bfb699f996e62ce4cb24fa1bd0b508a55d1d2 Mon Sep 17 00:00:00 2001
 From: Tim S <stahta01@users.sourceforge.net>
 Date: Tue, 22 Sep 2015 11:39:11 -0400
-Subject: [PATCH 09/19] * Added use of CB_EXPIMP_CLASS_TEMPLATE. (Thanks
+Subject: [PATCH 14/15] * Added use of CB_EXPIMP_CLASS_TEMPLATE. (Thanks
  stahta01)
 
 Reformatted the settings file to use 4 spaces instead of tab.

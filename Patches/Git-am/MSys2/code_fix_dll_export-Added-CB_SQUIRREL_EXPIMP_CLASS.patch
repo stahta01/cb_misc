@@ -1,7 +1,7 @@
-From 439f162e04e7a7cb2979440906356f31cf08d495 Mon Sep 17 00:00:00 2001
+From 83de4dd7e109362cb0124a5097385b3cef6c0721 Mon Sep 17 00:00:00 2001
 From: Tim S <stahta01@users.sourceforge.net>
 Date: Tue, 22 Sep 2015 11:41:32 -0400
-Subject: [PATCH 10/19] * code_fix_dll_export: Added CB_SQUIRREL_EXPIMP_CLASS.
+Subject: [PATCH 15/15] * code_fix_dll_export: Added CB_SQUIRREL_EXPIMP_CLASS.
  (Thanks stahta01)
 
 Added CB_SQUIRREL_EXPIMP_CLASS to export CB scripting classes.

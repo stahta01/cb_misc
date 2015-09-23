@@ -1,7 +1,7 @@
-From 400efb525485c8f4e61584476fcbed9796881fe3 Mon Sep 17 00:00:00 2001
+From 06ee9cde9b3c231d719275b840d6c542530808c7 Mon Sep 17 00:00:00 2001
 From: Tim S <stahta01@users.sourceforge.net>
 Date: Fri, 18 Sep 2015 18:52:48 -0400
-Subject: [PATCH 05/19] * code_fix_dll_export: Added DLLIMPORT. (Thanks
+Subject: [PATCH 12/15] * code_fix_dll_export: Added DLLIMPORT. (Thanks
  stahta01)
 
 And, added include "settings.h" if needed.
