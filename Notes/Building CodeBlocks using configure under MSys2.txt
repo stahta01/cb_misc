@@ -36,6 +36,7 @@ git status
 git checkout -b msys2_configure origin/msys2_configure
 # Step A4b
 
+# git checkout msys2_configure
 
 cd ~/devel/codeblocks_msys2-git
 git fetch
