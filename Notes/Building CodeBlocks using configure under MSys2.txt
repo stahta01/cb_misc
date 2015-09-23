@@ -2,18 +2,18 @@ Please do steps in "Setting up MSys2 for building CodeBlocks.txt"
 
 Please read thread http://forums.codeblocks.org/index.php/topic,20520.msg139608.html#msg139608
 
-https://github.com/rjpcomputing/ticpp
-
-Try adding define of TIXML_API to do DLL import/export
 
 Steps to configure/make C::B
 # Step A: Get the Code::Blocks source code
-# Step A0  
+# Step A0
 mkdir devel; cd devel          # I like my development stuff under a single top folder.
 # Step A1a
-git clone --config core.eol=lf https://github.com/stahta01/codeblocks_windows.git codeblocks_msys2-git
+# I have less problems with core.eol=lf under Windows
+git clone --config core.eol=lf https://github.com/stahta01/msys2_codeblocks.git msys2_codeblocks-git
 # Step A1b
-cd codeblocks_msys2-git
+cd msys2_codeblocks-git
+git status
+
 # Step A2a
 git config core.eol            # Confirm value is lf
 # Step A2b
@@ -29,34 +29,21 @@ git config master.rebase true  # Force master to automatically use rebase
 # Step A3b
 git config branch.autosetuprebase always # Force all new branches to automatically use rebase
 # Step A3c
+# No idea what is the best push.default I am trying "simple" or "current" most of the time.
 git config push.default simple # set to push only current branch
 # Step A3d
 git status
-# Step A4a
-git checkout -b msys2_configure origin/msys2_configure
-# Step A4b
 
-# git checkout msys2_configure
+# git branch --list
 
-cd ~/devel/codeblocks_msys2-git
+cd ~/devel/msys2_codeblocks-git
 git fetch
 git status -uno
-git pull 
-
-Defines that looks to be useful
-__CYGWIN__
-__MSYS__
-__MINGW64_VERSION_MAJOR    from "_mingw_mac.h" headers that include it is _mingw.h 
-CB_AUTOCONF
-
-Link options to add to CB Project
--shared -nostdlib
-C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib/../lib/dllcrt2.o 
-C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtbegin.o
+git pull
 
 
 # Step B: Bootstrap building of configure
-# Step B1a # 
+# Step B1a # Set build flags
 export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
 # Step B1b
 # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
@@ -64,37 +51,45 @@ export CXXFLAGS="-Wno-deprecated-declarations"
 # Step B1c
 export LDFLAGS=
 # Step B2
+# Step B2a Edit configure.ac to remove -ansi compiler flag
+# Before edit CPPFLAGS="$CPPFLAGS -ansi -DTIXML_USE_STL"
+#  After edit CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
+#
+# If you forget the error looks something like this
+# .libs/filemanager.o:filemanager.cpp:(.text+0xb38): undefined reference to `__imp__Z13wxMSLU__wstatPKwP7_stat64'
+# .libs/filemanager.o:filemanager.cpp:(.text+0x3da4): undefined reference to `__imp__Z13wxMSLU__wstatPKwP7_stat64'
+#
+# If you forget, you have to do a "make clean" to remove the object files compiled with -ansi
+#
+# Step B2b
 echo $CPPFLAGS
 echo $CXXFLAGS
 echo $LDFLAGS
 ./bootstrap
 
 
-
 # Step C: Configure/make/install of Code::Blocks
 # Step C1
-# cd ~/devel/codeblocks_msys2-git
+# cd ~/devel/msys2_codeblocks-git
 # make uninstall
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
-   --with-contrib-plugins=envvars,help,ProjectOptionsManipulator,ToolsPlus \
+   --with-contrib-plugins=AutoVersioning,BrowseTracker,byogames,Cccc,CppCheck,cbkoders,codesnippets,codestat,copystrings,Cscope,DoxyBlocks,dragscroll,EditorConfig,EditorTweaks,envvars,FileManager,headerfixup,help,hexeditor,incsearch,MouseSap,NassiShneiderman,ProjectOptionsManipulator,profiler,regex,ReopenEditor,exporter,smartindent,spellchecker,symtab,ToolsPlus,wxsmith,wxsmithaui \
    --with-platform=win32
+
+# Plugins that errors out:
+#   keybinder,wxcontrib,
 #
-#  --disable-code-completion  --disable-projects-importer \
-#  --disable-debugger \
-#   
+# Plugins that need wxcontrib:
+#   libfinder,ThreadSearch,wxsmithcontrib,
 
 # Step C2
-make clean; make         # errors out because of tinyXML link issues in
-                         # debugger, code-completion, projects-importer, and envvars
-                         #
-                         # errors out for other reasons
-                         # wxcontrib 
-# Step C3  
-# which codeblocks
-# make uninstall
-# which codeblocks
-make install             #
+# make clean
+make
+
+
+# Step C3
+make install
 
 # Step D Fix install issues and Run Program
 # Step D1: Fix DLL file names.
@@ -118,77 +113,5 @@ ls -1 lib*.dll
 
 # Step D2 Run Program
 # Fails to find the wxWidgets DLLs unless I do a cd from build location
-cd ~; codeblocks; cd ~/devel/codeblocks_msys2-git  # Using the normal windows config location; need to fix this!
+cd ~; codeblocks; cd ~/devel/msys2_codeblocks-git  # Using the normal windows config location; need to fix this!
 
-# Configure/make appears to change these files; not sure which step or why.
-# These two steps revert those changes.
-git checkout -- debian/changelog
-git checkout -- src/sdk/wxscintilla/Readme
-
-# Clean and make CB exe
-cd src/src; make clean && make; cd ..; cd ..;
-
-# Clean and make ConsoleRunner
-cd src/tools/ConsoleRunner; make clean && make; cd ..; cd ..; cd ..;
-
-# Clean and make compilergcc
-cd src/plugins/compilergcc; make clean && make; cd ..; cd ..; cd ..;
-
-# Clean and make tinyxml
-cd src/base/tinyxml; make clean && make; cd ..; cd ..; cd ..;
-
-
-NEED TO TRY REMOVING usage of --export-all-symbols in CB Projects
--Xlinker --export-all-symbols
-
-
-# Windows DLL Import/Export setup Macros and defined inside Makefile.am files.
-CB_SDK_DLL_IMPORT      src
-BUILDING_PLUGIN        "Not used in any Makefile.am"
-EXPORT_LIB             SDK, bindings, sqplus, sqstdlib, wxpropgrid
-EXPORT_EVENTS          SDK
-WXMAKINGDLL_SCI        SDK, bindings, wxscintilla
-WXUSINGDLL             SDK, src, wxscintilla
-DLL_EXPORT             "Added most likely by libtool"
-
-
-# Windows DLL Import/Export usage Macros
-PLUGIN_EXPORT               # For use inside CB Plugins; but, no sign of usage.
-DLLIMPORT                   #include "settings.h"
-CB_EXPIMP_TEMPLATE          #include "settings.h"
-SQUIRREL_API                #include "squirrel.h"
-CB_EXPIMP_SCRIPT_CLASS      #include "squirrel.h"
-
-- code_fix_dll_export: Added DLLIMPORT. (Thanks stahta01)
-And, added include "settings.h" if needed.
-
-- code_fix_dll_export: Added CB_EXPIMP_TEMPLATE. (Thanks stahta01)
-And, added include "settings.h" if needed.
-
-- code_fix_dll_export: Added SQUIRREL_API. (Thanks stahta01)
-
-- code_fix_dll_export: Added CB_EXPIMP_SCRIPT_CLASS. (Thanks stahta01)
-
-- Makefile.am: Added DLL export/import defines. (Thanks stahta01)
-
-- Makefile.am: Added Libs to LDFLAGS. (Thanks stahta01)
-
-* DO NOT APPLY UPSTREAM: Makefile.am:
-
-
-Some of the configure help info below:
-  --with-platform=PLATFORM
-                          the platform to build, win32, macosx or gtk(default)
-  --with-contrib-plugins=<list>     compile contrib plugins in <list>.
-                          plugins may be separated with commas.
-                          "all", "yes" or just "--with-contrib-plugins" compiles all contrib plugins
-                          "all,-help" or "yes,-help" compiles all contrib plugins except the help plugin
-                          "none", "no", "--without-contrib-plugins" or skipping the parameter at all,
-                          compiles none of the contrib-plugins
-                          Plugin names are: AutoVersioning, BrowseTracker, byogames, Cccc, CppCheck, cbkoders, codesnippets,
-                          		     codestat, copystrings, Cscope, DoxyBlocks, dragscroll, EditorConfig, EditorTweaks, envvars,
-                          		     FileManager, headerfixup, help, hexeditor, incsearch, keybinder, libfinder, MouseSap,
-                          		     NassiShneiderman, ProjectOptionsManipulator, profiler, regex, ReopenEditor, exporter, smartindent, spellchecker,
-                          		     symtab, ThreadSearch, ToolsPlus, Valgrind, wxcontrib, wxsmith, wxsmithcontrib, wxsmithaui
-  --with-wxdir=PATH       Use uninstalled version of wxWidgets in PATH
-  --with-wx-config=CONFIG wx-config script to use (optional)
