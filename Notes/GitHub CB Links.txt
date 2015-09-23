@@ -23,6 +23,7 @@ CB Plugins
 
 CB Third-party libs
    https://github.com/jrfonseca/drmingw
+   https://github.com/rjpcomputing/ticpp
 
 Projects that use CB as their IDE
    https://github.com/cqljj123/codeblocks

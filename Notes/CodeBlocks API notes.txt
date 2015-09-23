@@ -27,3 +27,15 @@ CB_SQUIRREL_EXPIMP_CLASS    #include "squirrel.h"
 #define CB_EXPIMP_CLASS DLLIMPORT
 #define CB_EXPIMP_FWD_CLASS
 #define CB_EXPIMP_DATA(type) DLLIMPORT type
+
+
+Defines that looks to be useful
+__CYGWIN__
+__MSYS__
+__MINGW64_VERSION_MAJOR    from "_mingw_mac.h" headers that include it is _mingw.h 
+CB_AUTOCONF
+
+Link options to add to CB Project
+-shared -nostdlib
+C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib/../lib/dllcrt2.o 
+C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtbegin.o
