@@ -55,7 +55,7 @@ C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtbegin.o
 
 
 # Step B: Bootstrap building of configure
-# Step B1a # Build both with and without -D_POSIX
+# Step B1a # 
 export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
 # Step B1b
 # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
@@ -76,11 +76,12 @@ echo $LDFLAGS
 # make uninstall
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
-   --disable-code-completion  --disable-projects-importer \
-   --disable-debugger \
+   --with-contrib-plugins=envvars,help,ProjectOptionsManipulator,ToolsPlus \
    --with-platform=win32
-
-#   --with-contrib-plugins=help,ProjectOptionsManipulator,ToolsPlus \
+#
+#  --disable-code-completion  --disable-projects-importer \
+#  --disable-debugger \
+#   
 
 # Step C2
 make clean; make         # errors out because of tinyXML link issues in
