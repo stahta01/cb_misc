@@ -44,8 +44,10 @@ git pull
 
 # Step B: Bootstrap building of configure
 # Step B1a # Set build flags
-export HUNSPELL_LIBS="-L/mingw64/lib -lhunspell-1.3"
-export HUNSPELL_CFLAGS="-DHUNSPELL_STATIC"
+# `pkg-config hunspell --libs`
+export HUNSPELL_LIBS=
+# ` pkg-config hunspell --cflags`
+export HUNSPELL_CFLAGS=
 export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
 # Step B1b
 # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
@@ -64,6 +66,8 @@ export LDFLAGS=
 # If you forget, you have to do a "make clean" to remove the object files compiled with -ansi
 #
 # Step B2b
+echo $HUNSPELL_LIBS
+echo $HUNSPELL_CFLAGS
 echo $CPPFLAGS
 echo $CXXFLAGS
 echo $LDFLAGS
@@ -77,7 +81,7 @@ echo $LDFLAGS
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
    --enable-debug \
-   --with-contrib-plugins=AutoVersioning,BrowseTracker,byogames,Cccc,CppCheck,cbkoders,codesnippets,codestat,copystrings,Cscope,DoxyBlocks,dragscroll,EditorConfig,EditorTweaks,envvars,FileManager,headerfixup,hexeditor,incsearch,MouseSap,NassiShneiderman,ProjectOptionsManipulator,profiler,regex,ReopenEditor,smartindent,symtab,ToolsPlus,exporter,wxcontrib,wxsmith,libfinder,ThreadSearch,wxsmithcontrib,wxsmithaui,spellchecker,help \
+   --with-contrib-plugins=AutoVersioning,BrowseTracker,byogames,Cccc,CppCheck,cbkoders,codesnippets,codestat,copystrings,Cscope,DoxyBlocks,dragscroll,EditorConfig,EditorTweaks,envvars,FileManager,headerfixup,hexeditor,incsearch,MouseSap,NassiShneiderman,ProjectOptionsManipulator,profiler,regex,ReopenEditor,smartindent,symtab,ToolsPlus,exporter,wxcontrib,wxsmith,libfinder,ThreadSearch,wxsmithcontrib,wxsmithaui,help \
    --with-platform=win32
 #
 # make uninstall
@@ -85,34 +89,32 @@ echo $LDFLAGS
 # Plugins that crash CB:
 #   help
 # Plugins that errors out while building:
-#   spellchecker NOT sure what the real problem is that needs fixed.
+#   spellchecker linker error about hunspell
 #   keybinder needs header file "wx/msw/private/keyboard.h"
 #
 # Plugins that need wxcontrib:
-#   libfinder,ThreadSearch,wxsmithcontrib,
-# Plugins that need wxsmith:
-#   wxsmithaui,wxsmithcontrib
+#   libfinder,ThreadSearch,wxsmithcontrib
+#   C:/Apps64/msys64/mingw64/lib/codeblocks/plugins\lib_finder.dll: not loaded (missing symbols?)
+#   C:/Apps64/msys64/mingw64/lib/codeblocks/plugins\ThreadSearch.dll: not loaded (missing symbols?)
+#   C:/Apps64/msys64/mingw64/lib/codeblocks/plugins\wxsmithcontribitems.dll: not loaded (missing symbols?)
 
 # SpellChecker
 # Clean
-cd src/plugins/contrib/wxSmithContribItems; make clean; cd ..; cd ..; cd ..; cd ..;
+cd src/plugins/contrib/SpellChecker && make clean; cd ..; cd ..; cd ..; cd ..;
 # Do reset on MinTTY
 # Make
-cd src/plugins/contrib/wxSmithContribItems; make; cd ..; cd ..; cd ..; cd ..;
+cd src/plugins/contrib/SpellChecker && make; cd ..; cd ..; cd ..; cd ..;
 
-#### Code snippets used to fix Makefile.am begin:
-#
 
-if CODEBLOCKS_NT
-AM_CPPFLAGS += -DWXUSINGDLL
-endif
+# wxContribItems
+# Clean
+cd src/plugins/contrib/wxContribItems && make clean; cd ..; cd ..; cd ..; cd ..;
+# Do reset on MinTTY
+# Make
+cd src/plugins/contrib/wxContribItems && make; cd ..; cd ..; cd ..; cd ..;
+# Make install
+cd src/plugins/contrib/wxContribItems && make install; cd ..; cd ..; cd ..; cd ..;
 
-if CODEBLOCKS_NT
-LDFLAGS += -shared -no-undefined
-endif
-
-#
-#### Code snippets used to fix Makefile.am end.
 
 # Step C2
 # make clean
@@ -123,7 +125,8 @@ make install
 
 
 # Step D Fix install issues and Run Program
-# Step D1: Fix DLL file names.
+
+# Step D1a: Fix DLL file names.
 cd /mingw64/lib/codeblocks/plugins
 
 # rm help_plugin.dll
@@ -176,10 +179,13 @@ mv -f libSmartIndentPython.dll SmartIndentPython.dll
 mv -f libSmartIndentXML.dll SmartIndentXML.dll
 mv -f libSymTab.dll SymTab.dll
 mv -f libToolsPlus.dll ToolsPlus.dll
+mv -f libexporter.dll exporter.dll
+mv -f liblib_finder.dll lib_finder.dll
+mv -f libThreadSearch.dll ThreadSearch.dll
+mv -f libwxsmith.dll wxsmith.dll
+mv -f libwxSmithAui.dll wxSmithAui.dll
+mv -f libwxsmithcontribitems.dll wxsmithcontribitems.dll
 
-
-# Check for DLLs that need renamed in order to be found by CB.
-ls -1 lib*.dll
 
 # Step D2 Run Program
 # Fails to find the wxWidgets DLLs unless I do a cd from build location

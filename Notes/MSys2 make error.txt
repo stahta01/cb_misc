@@ -28,3 +28,30 @@ collect2.exe: error: ld returned 1 exit status
 Makefile:546: recipe for target 'libSpellChecker.la' failed
 make[5]: *** [libSpellChecker.la] Error 1
 make[5]: Leaving directory '/home/stahta01/devel/msys2_codeblocks-git/src/plugins/contrib/SpellChecker'
+
+
+
+make[5]: Entering directory '/home/stahta01/devel/msys2_codeblocks-git/src/plugins/contrib/SpellChecker/wxspellchecker'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/home/stahta01/devel/msys2_codeblocks-git/src/plugins/contrib/SpellChecker/wxspellchecker'
+make[5]: Entering directory '/home/stahta01/devel/msys2_codeblocks-git/src/plugins/contrib/SpellChecker'
+/bin/sh ../../../../libtool  --tag=CXX   --mode=link x86_64-w64-mingw32-g++  -g -DDEBUG -DCB_AUTOCONF -Wno-deprecated-declarations  -DPIC -fexceptions -module -version-info 0:1:0 -shared -no-undefined -avoid-version -Wl,--no-undefined  -o libSpellChecker.la -rpath /mingw64/lib/codeblocks/plugins DictionariesNeededDialog.lo MySpellingDialog.lo OnlineSpellChecker.lo SpellCheckHelper.lo SpellCheckSettingsPanel.lo SpellCheckerConfig.lo SpellCheckerPlugin.lo StatusField.lo Thesaurus.lo ThesaurusDialog.lo mythes.lo wxThes.lo ../../../sdk/libcodeblocks.la wxspellchecker/libwxSpellChecker.la -L/mingw64/lib   -pipe -Wl,--subsystem,windows -mwindows -lwx_mswu_aui-3.0 -lwx_mswu_propgrid-3.0 -lwx_mswu_richtext-3.0 -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0   -lpthread
+libtool: link: rm -fr  .libs/libSpellChecker.dll.a
+libtool: link: x86_64-w64-mingw32-g++ -shared -nostdlib C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib/../lib/dllcrt2.o C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtbegin.o  .libs/DictionariesNeededDialog.o .libs/MySpellingDialog.o .libs/OnlineSpellChecker.o .libs/SpellCheckHelper.o .libs/SpellCheckSettingsPanel.o .libs/SpellCheckerConfig.o .libs/SpellCheckerPlugin.o .libs/StatusField.o .libs/Thesaurus.o .libs/ThesaurusDialog.o .libs/mythes.o .libs/wxThes.o  -Wl,--whole-archive wxspellchecker/.libs/libwxSpellChecker.a -Wl,--no-whole-archive  ../../../sdk/.libs/libcodeblocks.dll.a -L/mingw64/lib -lgdi32 -lwx_mswu_aui-3.0 -lwx_mswu_propgrid-3.0 -lwx_mswu_richtext-3.0 -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0 -lpthread -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0 -LC:/Apps64/msys64/mingw64/bin/../lib/gcc -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../lib -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../../../x86_64-w64-mingw32/lib -LC:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/../../.. -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Apps64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/5.2.0/crtend.o  -g -Wl,--no-undefined -Wl,--subsystem -Wl,windows -mwindows   -o .libs/libSpellChecker.dll -Wl,--enable-auto-image-base -Xlinker --out-implib -Xlinker .libs/libSpellChecker.dll.a
+wxspellchecker/.libs/libwxSpellChecker.a(HunspellInterface.o): In function `HunspellInterface::InitializeSpellCheckEngine()':
+C:\Apps64\msys64\home\stahta01\devel\msys2_codeblocks-git\src\plugins\contrib\SpellChecker\wxspellchecker/../HunspellInterface.cpp:63: undefined reference to `Hunspell::Hunspell(char const*, char const*, char const*)'
+wxspellchecker/.libs/libwxSpellChecker.a(HunspellInterface.o): In function `HunspellInterface::GetSuggestions(wxString const&)':
+C:\Apps64\msys64\home\stahta01\devel\msys2_codeblocks-git\src\plugins\contrib\SpellChecker\wxspellchecker/../HunspellInterface.cpp:200: undefined reference to `Hunspell::suggest(char***, char const*)'
+wxspellchecker/.libs/libwxSpellChecker.a(HunspellInterface.o): In function `HunspellInterface::IsWordInDictionary(wxString const&)':
+C:\Apps64\msys64\home\stahta01\devel\msys2_codeblocks-git\src\plugins\contrib\SpellChecker\wxspellchecker/../HunspellInterface.cpp:221: undefined reference to `Hunspell::spell(char const*, int*, char**)'
+wxspellchecker/.libs/libwxSpellChecker.a(HunspellInterface.o): In function `HunspellInterface::GetCharacterEncoding()':
+C:\Apps64\msys64\home\stahta01\devel\msys2_codeblocks-git\src\plugins\contrib\SpellChecker\wxspellchecker/../HunspellInterface.cpp:440: undefined reference to `Hunspell::get_dic_encoding()'
+wxspellchecker/.libs/libwxSpellChecker.a(HunspellInterface.o): In function `void wxDELETE<Hunspell>(Hunspell*&)':
+C:/Apps64/msys64/mingw64/include/wx-3.0/wx/defs.h:705: undefined reference to `Hunspell::~Hunspell()'
+collect2.exe: error: ld returned 1 exit status
+Makefile:546: recipe for target 'libSpellChecker.la' failed
+make[5]: *** [libSpellChecker.la] Error 1
+make[5]: Leaving directory '/home/stahta01/devel/msys2_codeblocks-git/src/plugins/contrib/SpellChecker'
+Makefile:691: recipe for target 'all-recursive' failed
+make[4]: *** [all-recursive] Error 1
+make[4]: Leaving directory '/home/stahta01/devel/msys2_codeblocks-git/src/plugins/contrib/SpellChecker'
