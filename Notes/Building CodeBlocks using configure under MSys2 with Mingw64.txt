@@ -9,7 +9,7 @@ Steps to configure/make C::B
 mkdir devel; cd devel          # I like my development stuff under a single top folder.
 # Step A1a
 # I have less problems with core.eol=lf under Windows
-git clone --config core.eol=lf https://github.com/stahta01/msys2_codeblocks.git msys2_codeblocks-git
+git clone --config core.eol=lf --origin=upstream https://github.com/stahta01/msys2_codeblocks.git msys2_codeblocks-git
 # Step A1b
 cd msys2_codeblocks-git
 git status
