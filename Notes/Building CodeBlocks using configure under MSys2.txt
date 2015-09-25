@@ -44,6 +44,8 @@ git pull
 
 # Step B: Bootstrap building of configure
 # Step B1a # Set build flags
+export HUNSPELL_LIBS="-L/mingw64/lib -lhunspell-1.3"
+export HUNSPELL_CFLAGS="-DHUNSPELL_STATIC"
 export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
 # Step B1b
 # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
@@ -55,7 +57,7 @@ export LDFLAGS=
 # Before edit CPPFLAGS="$CPPFLAGS -ansi -DTIXML_USE_STL"
 #  After edit CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
 #
-# If you forget the error looks something like this
+# If you forget the linker error looks something like this
 # .libs/filemanager.o:filemanager.cpp:(.text+0xb38): undefined reference to `__imp__Z13wxMSLU__wstatPKwP7_stat64'
 # .libs/filemanager.o:filemanager.cpp:(.text+0x3da4): undefined reference to `__imp__Z13wxMSLU__wstatPKwP7_stat64'
 #
@@ -65,36 +67,67 @@ export LDFLAGS=
 echo $CPPFLAGS
 echo $CXXFLAGS
 echo $LDFLAGS
+# make uninstall
 ./bootstrap
 
 
 # Step C: Configure/make/install of Code::Blocks
 # Step C1
 # cd ~/devel/msys2_codeblocks-git
-# make uninstall
 ./configure --prefix=/mingw64 --host=x86_64-w64-mingw32 --disable-pch \
    --with-wx-config=/mingw64/bin/wx-config \
-   --with-contrib-plugins=AutoVersioning,BrowseTracker,byogames,Cccc,CppCheck,cbkoders,codesnippets,codestat,copystrings,Cscope,DoxyBlocks,dragscroll,EditorConfig,EditorTweaks,envvars,FileManager,headerfixup,help,hexeditor,incsearch,MouseSap,NassiShneiderman,ProjectOptionsManipulator,profiler,regex,ReopenEditor,exporter,smartindent,spellchecker,symtab,ToolsPlus,wxsmith,wxsmithaui \
+   --enable-debug \
+   --with-contrib-plugins=AutoVersioning,BrowseTracker,byogames,Cccc,CppCheck,cbkoders,codesnippets,codestat,copystrings,Cscope,DoxyBlocks,dragscroll,EditorConfig,EditorTweaks,envvars,FileManager,headerfixup,hexeditor,incsearch,MouseSap,NassiShneiderman,ProjectOptionsManipulator,profiler,regex,ReopenEditor,smartindent,symtab,ToolsPlus,exporter,wxcontrib,wxsmith,libfinder,ThreadSearch,wxsmithcontrib,wxsmithaui,spellchecker,help \
    --with-platform=win32
-
-# Plugins that errors out:
-#   keybinder,wxcontrib,
+#
+# make uninstall
+#
+# Plugins that crash CB:
+#   help
+# Plugins that errors out while building:
+#   spellchecker NOT sure what the real problem is that needs fixed.
+#   keybinder needs header file "wx/msw/private/keyboard.h"
 #
 # Plugins that need wxcontrib:
 #   libfinder,ThreadSearch,wxsmithcontrib,
+# Plugins that need wxsmith:
+#   wxsmithaui,wxsmithcontrib
+
+# SpellChecker
+# Clean
+cd src/plugins/contrib/wxSmithContribItems; make clean; cd ..; cd ..; cd ..; cd ..;
+# Do reset on MinTTY
+# Make
+cd src/plugins/contrib/wxSmithContribItems; make; cd ..; cd ..; cd ..; cd ..;
+
+#### Code snippets used to fix Makefile.am begin:
+#
+
+if CODEBLOCKS_NT
+AM_CPPFLAGS += -DWXUSINGDLL
+endif
+
+if CODEBLOCKS_NT
+LDFLAGS += -shared -no-undefined
+endif
+
+#
+#### Code snippets used to fix Makefile.am end.
 
 # Step C2
 # make clean
 make
 
-
 # Step C3
 make install
+
 
 # Step D Fix install issues and Run Program
 # Step D1: Fix DLL file names.
 cd /mingw64/lib/codeblocks/plugins
 
+# rm help_plugin.dll
+# mv -f libhelp_plugin.dll help_plugin.dll
 mv -f libabbreviations.dll abbreviations.dll
 mv -f libastyle.dll astyle.dll
 mv -f libautosave.dll autosave.dll
@@ -106,6 +139,43 @@ mv -f libopenfileslist.dll openfileslist.dll
 mv -f libscriptedwizard.dll scriptedwizard.dll
 mv -f libtodo.dll todo.dll
 mv -f libxpmanifest.dll xpmanifest.dll
+mv -f libAutoVersioning.dll AutoVersioning.dll
+mv -f libBrowseTracker.dll BrowseTracker.dll
+mv -f libbyogames.dll byogames.dll
+mv -f libcb_koders.dll cb_koders.dll
+mv -f libCccc.dll Cccc.dll
+mv -f libcodecompletion.dll codecompletion.dll
+mv -f libcodesnippets.dll codesnippets.dll
+mv -f libcodestat.dll codestat.dll
+mv -f libcopystrings.dll copystrings.dll
+mv -f libCppCheck.dll CppCheck.dll
+mv -f libCscope.dll Cscope.dll
+mv -f libdebugger.dll debugger.dll
+mv -f libDoxyBlocks.dll DoxyBlocks.dll
+mv -f libdragscroll.dll dragscroll.dll
+mv -f libEditorConfig.dll EditorConfig.dll
+mv -f libEditorTweaks.dll EditorTweaks.dll
+mv -f libenvvars.dll envvars.dll
+mv -f libFileManager.dll FileManager.dll
+mv -f libheaderfixup.dll headerfixup.dll
+mv -f libHexEditor.dll HexEditor.dll
+mv -f libIncrementalSearch.dll IncrementalSearch.dll
+mv -f libMouseSap.dll MouseSap.dll
+mv -f libNassiShneiderman.dll NassiShneiderman.dll
+mv -f libProfiler.dll Profiler.dll
+mv -f libProjectOptionsManipulator.dll ProjectOptionsManipulator.dll
+mv -f libprojectsimporter.dll projectsimporter.dll
+mv -f libRegExTestbed.dll RegExTestbed.dll
+mv -f libReopenEditor.dll ReopenEditor.dll
+mv -f libSmartIndentCpp.dll SmartIndentCpp.dll
+mv -f libSmartIndentFortran.dll SmartIndentFortran.dll
+mv -f libSmartIndentHDL.dll SmartIndentHDL.dll
+mv -f libSmartIndentLua.dll SmartIndentLua.dll
+mv -f libSmartIndentPascal.dll SmartIndentPascal.dll
+mv -f libSmartIndentPython.dll SmartIndentPython.dll
+mv -f libSmartIndentXML.dll SmartIndentXML.dll
+mv -f libSymTab.dll SymTab.dll
+mv -f libToolsPlus.dll ToolsPlus.dll
 
 
 # Check for DLLs that need renamed in order to be found by CB.

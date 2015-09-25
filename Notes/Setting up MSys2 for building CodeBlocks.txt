@@ -21,3 +21,4 @@ pacman -S mingw-w64-x86_64-wxWidgets
 pacman -S mingw-w64-winpthreads-git 
 pacman -S git
 pacman -S mingw-w64-x86_64-drmingw
+pacman -S mingw-w64-x86_64-hunspell
