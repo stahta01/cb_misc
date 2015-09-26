@@ -45,9 +45,10 @@ git pull
 # Step B: Bootstrap building of configure
 # Step B1a # Set build flags
 # `pkg-config hunspell --libs`
-export HUNSPELL_LIBS=
+# export HUNSPELL_LIBS=
 # ` pkg-config hunspell --cflags`
-export HUNSPELL_CFLAGS=
+# export HUNSPELL_CFLAGS=
+#
 export CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS -DNOPCH -DcbDEBUG"
 # Step B1b
 # -Wno-deprecated-declarations was added to reduce the warnings to a more readable level
@@ -105,17 +106,6 @@ cd src/plugins/contrib/SpellChecker && make clean; cd ..; cd ..; cd ..; cd ..;
 # Make
 cd src/plugins/contrib/SpellChecker && make; cd ..; cd ..; cd ..; cd ..;
 
-
-# wxContribItems
-# Clean
-cd src/plugins/contrib/wxContribItems && make clean; cd ..; cd ..; cd ..; cd ..;
-# Do reset on MinTTY
-# Make
-cd src/plugins/contrib/wxContribItems && make; cd ..; cd ..; cd ..; cd ..;
-# Make install
-cd src/plugins/contrib/wxContribItems && make install; cd ..; cd ..; cd ..; cd ..;
-
-
 # Step C2
 # make clean
 make
@@ -126,7 +116,7 @@ make install
 
 # Step D Fix install issues and Run Program
 
-# Step D1a: Fix DLL file names.
+# Step D1: Fix DLL file names.
 cd /mingw64/lib/codeblocks/plugins
 
 # rm help_plugin.dll
@@ -188,6 +178,6 @@ mv -f libwxsmithcontribitems.dll wxsmithcontribitems.dll
 
 
 # Step D2 Run Program
-# Fails to find the wxWidgets DLLs unless I do a cd from build location
-cd ~; codeblocks; cd ~/devel/msys2_codeblocks-git  # Using the normal windows config location; need to fix this!
+# Fails to find the wxContibItems DLLs unless I change to the folder that holds them.
+cd /mingw64/lib/codeblocks/bin; codeblocks; cd ~/devel/msys2_codeblocks-git  # Using the normal windows config location; need to fix this!
 
