@@ -1,0 +1,26 @@
+Create codeblocks_svn2git_no_metadata.txt
+
+mkdir codeblocks_svn2git_no_metadata
+cd codeblocks_svn2git_no_metadata
+svn2git http://svn.code.sf.net/p/codeblocks/code
+
+git remote add origin https://github.com/stahta01/codeblocks_svn2git_no_metadata.git
+git push -u origin master
+git branch --list
+
+git push -u origin codeblocks_console
+git push -u origin release-13.12
+git push -u origin release-15.xx
+
+
+Branches worth pushing
+master
+release-13.12
+release-15.xx
+codeblocks_console
+
+
+ 
+# svn2git --rebase
+
+
