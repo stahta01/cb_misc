@@ -1,0 +1,63 @@
+# Do "Update codeblocks_svn2git_no_metadata-git on Linux.txt" before these steps
+
+
+# $ cd ~/devel/version_control/msys2_codeblocks-git
+
+
+
+# $ git-sh 
+# $ git remote -v
+# $ git branch --list
+
+# git remote add upstream https://github.com/obfuscated/codeblocks_sf
+git fetch upstream
+git status
+# git checkout -b master upstream/master
+git checkout master
+git pull upstream master
+git status
+git push origin
+git log 
+###
+commit b10e430978b0116429f57893a4753433121de494
+Author: T Petrov <tpetrov@codeblocks.org>
+Date:   Sat Sep 26 21:15:02 2015 +0000
+
+    * compiler: Add support for multi-line error messages for gfortran (thanks Darmar, http://forums.codeblocks.org/index.php/topic,20265.0.html)
+    
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10506 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+###
+
+git fetch noMetaData
+git status
+git checkout no_metadata/master
+git pull noMetaData master
+git status
+git push
+git log 
+###
+commit ae437bb4cf38559778f286a4522e73d256ee518e
+Author: fuscated <fuscated@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Sat Sep 26 21:15:02 2015 +0000
+
+    * compiler: Add support for multi-line error messages for gfortran (thanks Darmar, http://forums.codeblocks.org/index.php/topic,20265.0.html)
+###
+
+git checkout msys2
+git rebase master
+git status
+git push --force-with-lease
+
+git checkout msys2_inwork
+git rebase msys2
+
+git status
+
+git push --force-with-lease
+
+
+# $ git log
+# Enter q to quit log might be needed.
+
+
+
