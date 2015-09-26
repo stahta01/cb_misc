@@ -1,0 +1,62 @@
+URL																		fork 	clone	Submodule	Metadata			Description
+https://github.com/stahta01/codeblocks_windows      					No		Yes					https			
+https://github.com/stahta01/cb_misc										No		No					no
+https://github.com/stahta01/msys2_codeblocks							Yes     Yes					https
+https://github.com/stahta01/codeblocks_backup							No		Yes					Varies
+https://github.com/stahta01/codeblocks_svn2git_https_metadata   		No		Yes					https
+https://github.com/stahta01/cb_boost_library							No		?					no
+https://github.com/stahta01/codeblocks_svn_rebase               		No		Yes					https
+https://github.com/stahta01/codeblocks_setup_svn2git_https_metadata									https
+https://github.com/stahta01/codeblocks_fortran_plugin
+https://github.com/stahta01/stahta01.github.io
+https://github.com/stahta01/TimS_build_codeblocks
+https://github.com/stahta01/TimS_build_codeblocks_old
+https://github.com/stahta01/TimS_custom_codeblocks
+https://github.com/stahta01/codeblocks_non_contrib_plugins
+https://github.com/stahta01/build_codeblocks
+https://github.com/stahta01/codeblocks_svn2git_http_metadata
+https://github.com/stahta01/codeblocks_obfuscated
+https://github.com/stahta01/git_rcs_keywords
+https://github.com/stahta01/codeblocks_wizards
+https://github.com/stahta01/cb_projects_for_wxWidgets
+https://github.com/stahta01/codeblocks_biplab
+https://github.com/stahta01/codeblocks_core
+https://github.com/stahta01/codeblocks_plugins
+https://github.com/stahta01/CB_windows_release
+https://github.com/stahta01/book-kollection
+https://github.com/stahta01/cbp2make
+https://github.com/stahta01/wxspellchecker
+https://github.com/stahta01/cb_code_paks
+https://github.com/stahta01/cbInno
+https://github.com/stahta01/wx-config-win
+https://github.com/stahta01/aptoncd
+https://github.com/stahta01/UmlBlocks
+https://github.com/stahta01/tims_codeblocks_fork
+https://github.com/stahta01/cb_share
+https://github.com/stahta01/cb_release
+https://github.com/stahta01/colinux_codeblocks
+https://github.com/stahta01/wxWidgets
+https://github.com/stahta01/Cygwin_folder_mods
+https://github.com/stahta01/codeblocks_git_merge
+https://github.com/stahta01/Big3DSolitaire
+https://github.com/stahta01/contiki
+https://github.com/stahta01/codeblocks_mods
+https://github.com/stahta01/Eagle2Kicad
+https://github.com/stahta01/codeblocks_sf_fork
+https://github.com/stahta01/windows-games
+https://github.com/stahta01/codeblocks_devpaks
+https://github.com/stahta01/squirrel3-dll-port
+https://github.com/stahta01/douml
+https://github.com/stahta01/bindiff
+https://github.com/stahta01/EmBlocks
+https://github.com/stahta01/cpu_simulator
+https://github.com/stahta01/TerminalWx
+https://github.com/stahta01/RapidSVN
+https://github.com/stahta01/tic-tac-toe
+
+
+
+
+
+
+
