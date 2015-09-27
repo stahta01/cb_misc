@@ -30,6 +30,6 @@ pacman -S mingw-w64-x86_64-hunspell # Not sure if this is needed
 
 # MinGW 32 bit
 pacman -S mingw-w64-i686-toolchain  # Not sure how much of this is needed
-pacman -S mingw-w64-i686-wxWidgets  # Errored out
-pacman -S mingw-w64-i686-drmingw    # Errored out
-pacman -S mingw-w64-i686-hunspell   # Errored out; Not sure if this is needed
+pacman -S mingw-w64-i686-wxWidgets  # Errored out; till I redid the initial steps
+pacman -S mingw-w64-i686-drmingw    # Errored out; till I redid the initial steps
+pacman -S mingw-w64-i686-hunspell   # Not sure if this is needed
