@@ -33,3 +33,6 @@ pacman -S mingw-w64-i686-toolchain  # Not sure how much of this is needed
 pacman -S mingw-w64-i686-wxWidgets  # Errored out; till I redid the initial steps
 pacman -S mingw-w64-i686-drmingw    # Errored out; till I redid the initial steps
 pacman -S mingw-w64-i686-hunspell   # Not sure if this is needed
+
+
+pacman -Qqe > package_list.txt
