@@ -34,6 +34,12 @@ git config push.default simple # set to push only current branch
 # Step A3d
 git status
 
+Step 2: Create svn-remote "svn" in git config file
+$
+git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
+git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
+
 # git branch --list
 
 cd ~/devel/msys2_codeblocks-git
@@ -41,6 +47,8 @@ git fetch
 git status -uno
 git pull
 
+git svn fetch # Takes several hours on my slow PC the first time ran.
+git svn info
 
 # Step B: Bootstrap building of configure
 # Step B1a # Set build flags
@@ -107,6 +115,7 @@ cd src/plugins/contrib/SpellChecker && make clean; cd ..; cd ..; cd ..; cd ..;
 cd src/plugins/contrib/SpellChecker && make; cd ..; cd ..; cd ..; cd ..;
 
 # Step C2
+# If using a Git repo then "git svn info" must work or make will lock up.
 # make clean
 make
 

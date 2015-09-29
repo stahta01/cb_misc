@@ -16,10 +16,24 @@ pacman -Su
 
 # Install programs that are known to be needed
 pacman -S wget                      # Not sure if this is needed
-pacman -S unzip zip
+pacman -S unzip                     # Not sure if this is needed
+pacman -S zip
 pacman -S git
+pacman -S subversion                # Not needed at the current time
+Optional dependencies for subversion
+ python2: for some hook scripts
+    ruby: for some hook scripts
 pacman -S base-devel                # Not sure if this is needed
 pacman -S mingw-w64-winpthreads-git # Not sure if this is needed
+
+
+pacman -S libtool                   # Fixes "libtoolize: command not found"
+pacman -S automake-wrapper          # Fixes "aclocal: command not found"
+pacman -S autoconf                  # Not sure if this is needed
+pacman -S autogen                   # Not sure if this is needed
+pacman -S make 
+
+
 
 # MinGW 64 bit
 pacman -S mingw-w64-x86_64-toolchain

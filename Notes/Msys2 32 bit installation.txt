@@ -1,0 +1,54 @@
+Msys2 32 bit installation.txt
+
+pacman howto https://wiki.manjaro.org/index.php?title=Pacman_Tips
+
+Download installer from 
+https://msys2.github.io/ or http://sourceforge.net/projects/msys2/files/Base/i686/
+
+Installer used: msys2-i686-20150916.exe
+
+Installation Path: C:\Apps32\MSys2
+
+Run MSys2 Shell and update the system packages with
+pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime
+Exit out of MSys2 Shell
+
+Run MSys2 Shell and finish update with
+pacman -Su
+Exit out of MSys2 Shell
+
+Run MSys2 Shell and install needed programs
+pacman -S mingw-w64-i686-gcc
+pacman -S mingw-w64-i686-make
+Exit out of MSys2 Shell
+
+
+# Building wxWidgets 3.0.2
+Open up cmd.exe window
+SET PATH=C:\Apps32\MSys2\mingw32\bin
+cd /D C:\wxMSW\wxMSW-3.0\wxWidgets-3.0.2_msys2_win32
+cd build/msw
+
+REM Clean
+mingw32-make -f makefile.gcc CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS" CXXFLAGS="-Wno-deprecated-declarations -Wno-unused-local-typedefs -fno-keep-inline-dllexport" SHARED=1 MONOLITHIC=1 BUILD=release UNICODE=1 clean
+REM Build release
+mingw32-make -f makefile.gcc CPPFLAGS="-DHAVE_TR1_TYPE_TRAITS" CXXFLAGS="-Wno-deprecated-declarations -Wno-unused-local-typedefs -fno-keep-inline-dllexport" SHARED=1 MONOLITHIC=1 BUILD=release UNICODE=1
+
+
+
+Run CB with this option "-p msys2_win32"
+Compiler Settings
+Installation Directory  : C:\Apps32\MSys2\mingw32
+C Compiler              : i686-w64-mingw32-gcc.exe
+C++ Compiler            : i686-w64-mingw32-g++.exe
+Linker for Dynamic Libs : i686-w64-mingw32-g++.exe
+Linker for Static Libs  : ar.exe
+Resource Compiler       : windres.exe
+Make Program            : mingw32-make.exe
+
+#defines
+   HAVE_TR1_TYPE_TRAITS
+
+Other compiler options
+   -Wno-deprecated-declarations
+   -Wno-unused-local-typedefs
