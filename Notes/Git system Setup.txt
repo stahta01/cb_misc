@@ -1,0 +1,21 @@
+git config --system core.eol       crlf
+git config --system core.safecrlf  true
+git config --system core.autocrlf  true
+git status
+
+# On Windows computers set filemode to false; set to true on Linux
+# git config --system core.filemode false
+
+git config --system master.rebase true  # Force master to automatically use rebase
+git config --system branch.autosetuprebase always # Force all new branches to automatically use rebase
+git config --system push.default simple # set to push only to upstream branch
+git config --system rebase.autosquash true # https://hamberg.no/erlend/posts/2013-11-29-git-autosquash.html
+git status
+
+# This related to the git gc command
+git config --system pack.windowMemory "100m"
+git config --system pack.packSizeLimit "100m"
+git config --system pack.threads "1"
+git status
+
+git gc

@@ -1,0 +1,37 @@
+git config core.eol       # crlf or lf
+git config core.safecrlf  # warn, true, or false
+git config core.autocrlf  # input,true, or false
+git status
+
+git config core.eol       crlf # crlf or lf
+git config core.safecrlf  true # warn, true, or false
+git config core.autocrlf  true # input,true, or false
+git status
+
+
+# Step A3a
+git config master.rebase true  # Force master to automatically use rebase
+# Step A3b
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+# Step A3c
+# No idea what is the best push.default I am trying "simple" or "current" most of the time.
+git config push.default simple # set to push only current branch
+# Step A3d
+git status
+
+
+git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
+git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
+
+
+
+Git Repo Info.txt
+git config branch.build/wxContribItems.description "Branch to reduce the build time for CB Project wxContribItems without using PCH."
+git config branch.`git rev-parse --abbrev-ref HEAD`.description
+git config branch.<branch name>.description "describe branch"
+git config --global pull.rebase true
+git config --list
+
+git config pull.rebase
+

@@ -1,0 +1,37 @@
+156449
+55774
+
+C:\SourceCode\OpenSourceCode\Apps\IDE\Codeblocks\codeblocks-svn
+
+Other Things to Uninstall
+
+
+GitHub URL to do work under
+https://github.com/stahta01/TimS_custom_codeblocks
+
+TimS_custom_codeblocks           Top Git Repo
+TimS_modular_codeblocks          Git Sub-Module cloned from CB but with many things changed to Sub-Modules
+TimS_codeblocks_compilers        Git Sub-Module with compilers (src/plugins/compilergcc/resources/compilers)
+TimS_CB_scriptedwizard_resources Git Sub-Module with wizards (src/plugins/scriptedwizard/resources)
+TimS_codeblocks_templates        Git Sub-Module with compilers (src/templates)
+codeblocks_fortran_plugin        Git Sub-Module with fortran_plugin
+codeblocks_non_contrib_plugins   Git Sub-Module with CB Non Contrib Plugins
+cbInno                           Git Sub-Module with cbInno Plugin
+wx-config-win                    Git Sub-Module with wx-config build tool
+
+TimS_modular_codeblocks
+   Remove folders
+      src/plugins/compilergcc/resources/compilers
+      src/plugins/scriptedwizard/resources
+      src/templates
+
+
+TimS_codeblocks_compilers
+TimS_codeblocks_wizard_resources
+TimS_codeblocks_templates
+
+Added Compiler XML files from SVN Rev. 10508.
+
+Git for Windows System Config locations (On Vista and Newer OS)
+   %PROGRAMDATA%\Git\config or 
+   $prefix/etc/gitconfig as in C:\Program Files\Git/mingw32/etc/gitconfig

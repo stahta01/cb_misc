@@ -1,0 +1,38 @@
+Files with mixed line endings
+svn proplist src/plugins/compilergcc/resources/compilers/options_bfin-elf-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/options_lm32-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/options_lm8-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/options_zpu-gcc.xml
+svn proplist src/plugins/contrib/BrowseTracker/BrowseTrackerToolbar.xrc
+
+Files that likely need to always be LF
+svn proplist -v src/plugins/contrib/help_plugin/zlib/zlib.pc.in
+svn proplist -v src/plugins/contrib/help_plugin/zlib/zconf.h.in
+
+Files that likely need to have native line endings
+svn proplist src/plugins/codecompletion/testing/cc_complex_declaration.cpp
+svn proplist src/plugins/codecompletion/testing/cc_function_return_enum.cpp
+svn proplist src/plugins/codecompletion/testing/cc_macro_expansion_infinite_loop.cpp
+svn proplist src/plugins/codecompletion/testing/cc_preprocessor.cpp
+svn proplist src/plugins/codecompletion/testing/cc_stl_container_template_.cpp 
+svn proplist src/plugins/codecompletion/testing/cc_type_alias.cpp
+svn proplist src/plugins/codecompletion/testing/cc_typedef_declaration.cpp
+svn proplist src/plugins/compilergcc/resources/compilers/compiler_bfin-elf-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/compiler_lm32-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/compiler_lm8-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/compiler_zpu-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/options_bfin-elf-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/options_lm32-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/options_lm8-gcc.xml
+svn proplist src/plugins/compilergcc/resources/compilers/options_zpu-gcc.xml
+svn proplist src/plugins/contrib/BrowseTracker/BrowseTrackerToolbar.xrc
+svn proplist src/plugins/contrib/FileManager/CommitBrowser.cpp
+svn proplist src/scripts/tests/menu_test_plugin.script
+svn proplist src/scripts/tests/script_test_plugin.script
+svn proplist src/scripts/tests/test_base.script
+svn proplist src/scripts/tests/user_dialog_test_plugin.script
+svn proplist src/scripts/tests/wx_test.script
+svn proplist src/wxsmith/GenericSingleChoiceList.wxs
+svn proplist src/plugins/contrib/FileManager/CommitBrowser.h
+svn proplist src/plugins/contrib/FileManager/Resources/CommitBrowser.xrc
+svn proplist src/plugins/debuggergdb/debuggergdb_test_parse_locals.cpp
