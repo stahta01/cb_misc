@@ -1,5 +1,5 @@
 Source Mirrors
-   https://github.com/jenslody/codeblocks
+   https://github.com/jenslody/codeblocks # This mirror is rarely updated!
 
 OS Shell Scripts
    https://github.com/palcu/codeblocks-project-creator
