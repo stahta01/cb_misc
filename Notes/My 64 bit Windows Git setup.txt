@@ -1,0 +1,29 @@
+Microsoft Windows 7 64-bit Home Premium SP1 [Version 6.1.7601]
+
+git version 2.6.0.windows.1
+
+TortoiseGit 1.8.15.0 
+
+Contents: C:\ProgramData\Git\config
+[core]
+	symlinks = false
+	autocrlf = true
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = true
+[pack]
+	packSizeLimit = 2g
+[help]
+	format = html
+[http]
+	sslCAInfo = C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+[sendemail]
+	smtpserver = /bin/msmtp.exe
+
+[diff "astextplain"]
+	textconv = astextplain
+[rebase]
+	autosquash = true
+
