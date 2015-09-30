@@ -1,0 +1,21 @@
+svn export --ignore-keywords --ignore-externals codeblocks-svn codeblocks-svn-export
+
+fatal: CRLF would be replaced by LF in src/plugins/compilergcc/resources/compilers/options_bfin-elf-gcc.xml.
+
+git checkout -- src/plugins/compilergcc/resources/compilers/options_bfin-elf-gcc.xml
+
+git checkout -- src/plugins/compilergcc/resources/compilers/options_lm32-gcc.xml
+git checkout -- src/plugins/compilergcc/resources/compilers/options_lm8-gcc.xml
+git checkout -- src/plugins/compilergcc/resources/compilers/options_zpu-gcc.xml
+git checkout -- src/plugins/contrib/BrowseTracker/BrowseTrackerToolbar.xrc
+
+
+git config core.safecrlf true
+git config core.autocrlf input
+
+fatal: LF would be replaced by CRLF in src/plugins/contrib/SpellChecker/hunspell/src/win_api/Hunspell.sln
+
+
+fatal: CRLF would be replaced by LF in src/plugins/contrib/source_exporter/wxPdfDocument/samples/minimal/indic-assamese.txt.
+
+
