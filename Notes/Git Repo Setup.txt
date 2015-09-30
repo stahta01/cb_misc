@@ -5,7 +5,8 @@ git status
 
 git config core.eol       crlf # crlf or lf
 git config core.safecrlf  true # warn, true, or false
-git config core.autocrlf  true # input,true, or false
+# When using an ".gitattributes" file, you should NOT use autocrlf=true
+git config core.autocrlf  input # input,true, or false
 git status
 
 
