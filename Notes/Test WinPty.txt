@@ -1,0 +1,3 @@
+SET PATH=C:\Apps64\msys64\usr\bin;C:\Apps64\msys64\mingw64\bin;%PATH%
+
+winpty x86_64-w64-mingw32-gcc -v

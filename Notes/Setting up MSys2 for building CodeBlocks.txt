@@ -50,3 +50,6 @@ pacman -S mingw-w64-i686-hunspell   # Not sure if this is needed
 
 
 pacman -Qqe # List Packages Installed
+
+
+pacman -S winpty # console
