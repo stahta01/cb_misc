@@ -1,0 +1,26 @@
+Index: src/plugins/contrib/help_plugin/zlib/zconf.h.in
+===================================================================
+--- src/plugins/contrib/help_plugin/zlib/zconf.h.in	(revision 10512)
++++ src/plugins/contrib/help_plugin/zlib/zconf.h.in	(working copy)
+
+Property changes on: src/plugins/contrib/help_plugin/zlib/zconf.h.in
+___________________________________________________________________
+Modified: svn:eol-style
+## -1 +1 ##
+-native
+\ No newline at end of property
++LF
+\ No newline at end of property
+Index: src/plugins/contrib/help_plugin/zlib/zlib.pc.in
+===================================================================
+--- src/plugins/contrib/help_plugin/zlib/zlib.pc.in	(revision 10512)
++++ src/plugins/contrib/help_plugin/zlib/zlib.pc.in	(working copy)
+
+Property changes on: src/plugins/contrib/help_plugin/zlib/zlib.pc.in
+___________________________________________________________________
+Modified: svn:eol-style
+## -1 +1 ##
+-native
+\ No newline at end of property
++LF
+\ No newline at end of property
