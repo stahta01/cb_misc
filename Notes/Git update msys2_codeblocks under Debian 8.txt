@@ -1,0 +1,99 @@
+# Notes Start
+
+# https://github.com/nirvdrum/svn2git
+
+These directions are to be followed on Linux
+
+# Notes End
+
+####################################################################################################
+# Setup Steps Start
+#
+
+# Step A3a
+git config master.rebase true  # Force master to automatically use rebase
+# Step A3b
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+# Step A3c
+# No idea what is the best push.default I am trying "simple" or "current" most of the time.
+git config push.default simple # set to push only to upstream
+# Step A3d
+git status
+
+# Setup SVN using Metadata and URL=https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
+git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
+
+git svn fetch
+git svn rebase
+git svn info
+
+git status
+
+git fetch
+git status
+
+git remote -v
+
+git fetch upstream
+
+git status
+git pull --rebase upstream master
+git status
+
+#
+# Setup Steps End
+####################################################################################################
+
+cd ~/devel/version_control/msys2_codeblocks-git
+# git-sh
+
+git fetch
+git status
+git checkout master
+git status
+
+git fetch upstream
+git pull --rebase upstream master
+git status
+
+
+git remote --prune # after deleting noMetaData remote
+
+git gc
+# git prune
+# git fsck --unreachable
+
+git checkout no_metadata/master
+git fetch origin
+git status
+git fetch noMetaData
+git status
+git pull --rebase noMetaData master
+git push
+
+git fetch
+git status
+git checkout msys2
+git status
+git rebase master
+git push --force-with-lease
+git status
+
+# git svn info # 10506
+
+# git svn fetch --all
+# git svn rebase
+# git status
+
+# git svn info # 10515
+
+# svn2git --rebase
+# git svn info # 10515
+git status
+
+git pull --rebase origin master
+
+git push --all
+
