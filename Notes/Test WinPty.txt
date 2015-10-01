@@ -1,3 +1,25 @@
 SET PATH=C:\Apps64\msys64\usr\bin;C:\Apps64\msys64\mingw64\bin;%PATH%
 
 winpty x86_64-w64-mingw32-gcc -v
+
+winpty sh -c  "wx-config --version=3.0 --libs"
+
+winpty sh -c  "wx-config --version=3.0 --cflags"
+
+winpty sh -c  'wx-config --version=3.0 --cflags'
+
+winpty sh -c  "C:/Apps64/msys64/mingw64/bin/wx-config --version=3.0 --libs"
+
+
+winpty sh -c "pwd"
+
+bash -c 'wx-config --version=3.0 --cflags'
+
+ConsoleZ
+ 69,632 ConsoleWow.exe
+ 
+ 
+ wxPATH_UNIX 
+ wxPATH_NATIVE
+ wxPATH_WIN
+ 
