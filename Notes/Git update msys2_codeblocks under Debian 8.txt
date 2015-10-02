@@ -1,0 +1,120 @@
+# Notes Start
+
+# https://github.com/nirvdrum/svn2git
+
+These directions are to be followed on Linux
+
+# Notes End
+
+####################################################################################################
+# Setup Steps Start
+#
+
+# Step A3a
+git config master.rebase true  # Force master to automatically use rebase
+# Step A3b
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+# Step A3c
+# No idea what is the best push.default I am trying "simple" or "current" most of the time.
+git config push.default simple # set to push only to upstream
+# Step A3d
+git status
+
+# Setup SVN using Metadata and URL=https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
+git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
+git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
+
+
+# Step 2B. Look for git-svn-id in log.
+# Likely need to use same protocol as in Step 2A
+git log --grep="^git-svn-id: https:" --first-parent -1
+# Likely need to enter q to stop displaying the log
+# Top log message begins
+commit c9e828cae1f53c623532abd1592b6c89d34d9ee4
+Author: T Petrov <tpetrov@codeblocks.org>
+Date:   Sun Sep 27 19:09:14 2015 +0000
+
+    - debugger: Small optimization
+    
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10507 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+# Log message ends
+
+
+# Step 3. 
+# Use SVN rev from log message in step 2B "trunk@10507" 
+git svn fetch svn -r 10507
+
+# Last few lines from "svn fetch"
+# end of Last few lines from "svn fetch"
+
+# Step 4. Changed the hash code used by git svn to a good starting value.
+# Use the hash code from step 2B
+ls .git/refs/remotes/svn/trunk    # Verify folder exists; stop if missing on Windows OS.
+cat .git/refs/remotes/svn/trunk   # 
+echo c9e828cae1f53c623532abd1592b6c89d34d9ee4 > .git/refs/remotes/svn/trunk
+
+# Step 5. run git svn info for first time
+# After doing steps 3 and 4 this step should start giving results in only a few seconds.
+# But, could take minutes to finish.
+git svn info # Should return the rev from step 2B
+
+# Last few lines from "svn info"
+# end of Last few lines from "svn info"
+
+
+git status
+git checkout master
+git svn fetch
+git svn info
+git svn rebase
+git svn info
+
+git status
+
+git fetch
+git status
+
+git remote -v
+
+git fetch upstream
+
+git status
+git pull --rebase upstream master
+git status
+
+#
+# Setup Steps End
+####################################################################################################
+
+cd ~/devel/version_control/msys2_codeblocks-git
+# git-sh
+
+git fetch
+git status
+git checkout master
+git status
+
+git svn rebase
+
+git fetch upstream
+git pull --rebase upstream master
+git status
+
+git fetch origin
+git pull --rebase origin master
+git status
+git push
+
+
+git fetch
+git status
+git checkout msys2
+git status
+git rebase master
+git status
+git push --force-with-lease
+git status
+
+# git svn info # 10515
+

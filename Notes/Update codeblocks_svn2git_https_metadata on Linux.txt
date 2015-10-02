@@ -1,0 +1,22 @@
+# $ cd ~/devel/version_control/codeblocks_svn2git_https_metadata-git
+
+# $ git-sh 
+# $ git remote -v
+
+git fetch
+git checkout master
+git status
+
+svn2git --rebase
+
+git status
+
+# $ git log
+# Enter q to quit log might be needed.
+
+
+git push
+
+# git branch --all
+
+

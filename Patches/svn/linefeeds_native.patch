@@ -1,0 +1,231 @@
+Index: src/plugins/codecompletion/testing/cc_complex_declaration.cpp
+===================================================================
+--- src/plugins/codecompletion/testing/cc_complex_declaration.cpp	(revision 10512)
++++ src/plugins/codecompletion/testing/cc_complex_declaration.cpp	(working copy)
+
+Property changes on: src/plugins/codecompletion/testing/cc_complex_declaration.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/codecompletion/testing/cc_function_return_enum.cpp
+===================================================================
+--- src/plugins/codecompletion/testing/cc_function_return_enum.cpp	(revision 10512)
++++ src/plugins/codecompletion/testing/cc_function_return_enum.cpp	(working copy)
+
+Property changes on: src/plugins/codecompletion/testing/cc_function_return_enum.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/codecompletion/testing/cc_macro_expansion_infinite_loop.cpp
+===================================================================
+--- src/plugins/codecompletion/testing/cc_macro_expansion_infinite_loop.cpp	(revision 10512)
++++ src/plugins/codecompletion/testing/cc_macro_expansion_infinite_loop.cpp	(working copy)
+
+Property changes on: src/plugins/codecompletion/testing/cc_macro_expansion_infinite_loop.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/codecompletion/testing/cc_preprocessor.cpp
+===================================================================
+--- src/plugins/codecompletion/testing/cc_preprocessor.cpp	(revision 10512)
++++ src/plugins/codecompletion/testing/cc_preprocessor.cpp	(working copy)
+
+Property changes on: src/plugins/codecompletion/testing/cc_preprocessor.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/codecompletion/testing/cc_stl_container_template_.cpp
+===================================================================
+--- src/plugins/codecompletion/testing/cc_stl_container_template_.cpp	(revision 10512)
++++ src/plugins/codecompletion/testing/cc_stl_container_template_.cpp	(working copy)
+
+Property changes on: src/plugins/codecompletion/testing/cc_stl_container_template_.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/codecompletion/testing/cc_type_alias.cpp
+===================================================================
+--- src/plugins/codecompletion/testing/cc_type_alias.cpp	(revision 10512)
++++ src/plugins/codecompletion/testing/cc_type_alias.cpp	(working copy)
+
+Property changes on: src/plugins/codecompletion/testing/cc_type_alias.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/codecompletion/testing/cc_typedef_declaration.cpp
+===================================================================
+--- src/plugins/codecompletion/testing/cc_typedef_declaration.cpp	(revision 10512)
++++ src/plugins/codecompletion/testing/cc_typedef_declaration.cpp	(working copy)
+
+Property changes on: src/plugins/codecompletion/testing/cc_typedef_declaration.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/compilergcc/resources/compilers/compiler_bfin-elf-gcc.xml
+===================================================================
+--- src/plugins/compilergcc/resources/compilers/compiler_bfin-elf-gcc.xml	(revision 10512)
++++ src/plugins/compilergcc/resources/compilers/compiler_bfin-elf-gcc.xml	(working copy)
+
+Property changes on: src/plugins/compilergcc/resources/compilers/compiler_bfin-elf-gcc.xml
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/compilergcc/resources/compilers/compiler_lm32-gcc.xml
+===================================================================
+--- src/plugins/compilergcc/resources/compilers/compiler_lm32-gcc.xml	(revision 10512)
++++ src/plugins/compilergcc/resources/compilers/compiler_lm32-gcc.xml	(working copy)
+
+Property changes on: src/plugins/compilergcc/resources/compilers/compiler_lm32-gcc.xml
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/compilergcc/resources/compilers/compiler_lm8-gcc.xml
+===================================================================
+--- src/plugins/compilergcc/resources/compilers/compiler_lm8-gcc.xml	(revision 10512)
++++ src/plugins/compilergcc/resources/compilers/compiler_lm8-gcc.xml	(working copy)
+
+Property changes on: src/plugins/compilergcc/resources/compilers/compiler_lm8-gcc.xml
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/compilergcc/resources/compilers/compiler_zpu-gcc.xml
+===================================================================
+--- src/plugins/compilergcc/resources/compilers/compiler_zpu-gcc.xml	(revision 10512)
++++ src/plugins/compilergcc/resources/compilers/compiler_zpu-gcc.xml	(working copy)
+
+Property changes on: src/plugins/compilergcc/resources/compilers/compiler_zpu-gcc.xml
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/contrib/FileManager/CommitBrowser.cpp
+===================================================================
+--- src/plugins/contrib/FileManager/CommitBrowser.cpp	(revision 10512)
++++ src/plugins/contrib/FileManager/CommitBrowser.cpp	(working copy)
+
+Property changes on: src/plugins/contrib/FileManager/CommitBrowser.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/contrib/FileManager/CommitBrowser.h
+===================================================================
+--- src/plugins/contrib/FileManager/CommitBrowser.h	(revision 10512)
++++ src/plugins/contrib/FileManager/CommitBrowser.h	(working copy)
+
+Property changes on: src/plugins/contrib/FileManager/CommitBrowser.h
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/contrib/FileManager/Resources/CommitBrowser.xrc
+===================================================================
+--- src/plugins/contrib/FileManager/Resources/CommitBrowser.xrc	(revision 10512)
++++ src/plugins/contrib/FileManager/Resources/CommitBrowser.xrc	(working copy)
+
+Property changes on: src/plugins/contrib/FileManager/Resources/CommitBrowser.xrc
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/plugins/debuggergdb/debuggergdb_test_parse_locals.cpp
+===================================================================
+--- src/plugins/debuggergdb/debuggergdb_test_parse_locals.cpp	(revision 10512)
++++ src/plugins/debuggergdb/debuggergdb_test_parse_locals.cpp	(working copy)
+
+Property changes on: src/plugins/debuggergdb/debuggergdb_test_parse_locals.cpp
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/scripts/tests/menu_test_plugin.script
+===================================================================
+--- src/scripts/tests/menu_test_plugin.script	(revision 10512)
++++ src/scripts/tests/menu_test_plugin.script	(working copy)
+
+Property changes on: src/scripts/tests/menu_test_plugin.script
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/scripts/tests/script_test_plugin.script
+===================================================================
+--- src/scripts/tests/script_test_plugin.script	(revision 10512)
++++ src/scripts/tests/script_test_plugin.script	(working copy)
+
+Property changes on: src/scripts/tests/script_test_plugin.script
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/scripts/tests/test_base.script
+===================================================================
+--- src/scripts/tests/test_base.script	(revision 10512)
++++ src/scripts/tests/test_base.script	(working copy)
+
+Property changes on: src/scripts/tests/test_base.script
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/scripts/tests/user_dialog_test_plugin.script
+===================================================================
+--- src/scripts/tests/user_dialog_test_plugin.script	(revision 10512)
++++ src/scripts/tests/user_dialog_test_plugin.script	(working copy)
+
+Property changes on: src/scripts/tests/user_dialog_test_plugin.script
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/scripts/tests/wx_test.script
+===================================================================
+--- src/scripts/tests/wx_test.script	(revision 10512)
++++ src/scripts/tests/wx_test.script	(working copy)
+
+Property changes on: src/scripts/tests/wx_test.script
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property
+Index: src/wxsmith/GenericSingleChoiceList.wxs
+===================================================================
+--- src/wxsmith/GenericSingleChoiceList.wxs	(revision 10512)
++++ src/wxsmith/GenericSingleChoiceList.wxs	(working copy)
+
+Property changes on: src/wxsmith/GenericSingleChoiceList.wxs
+___________________________________________________________________
+Added: svn:eol-style
+## -0,0 +1 ##
++native
+\ No newline at end of property

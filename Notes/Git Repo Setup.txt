@@ -5,6 +5,7 @@ git status
 
 git config core.eol       crlf # crlf or lf
 git config core.safecrlf  true # warn, true, or false
+# On windows use autocrlf=true; otherwise use false or input.
 git config core.autocrlf  true # input,true, or false
 git status
 
@@ -15,7 +16,7 @@ git config master.rebase true  # Force master to automatically use rebase
 git config branch.autosetuprebase always # Force all new branches to automatically use rebase
 # Step A3c
 # No idea what is the best push.default I am trying "simple" or "current" most of the time.
-git config push.default simple # set to push only current branch
+git config push.default simple # set to push only to upstream branch
 # Step A3d
 git status
 

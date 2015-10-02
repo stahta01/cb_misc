@@ -1,5 +1,7 @@
+# On Windows computers set eol to crlf; else set to lf
 git config --system core.eol       crlf
 git config --system core.safecrlf  true
+# On windows use autocrlf=true; otherwise use false or input.
 git config --system core.autocrlf  true
 git status
 
@@ -18,4 +20,3 @@ git config --system pack.packSizeLimit "100m"
 git config --system pack.threads "1"
 git status
 
-git gc

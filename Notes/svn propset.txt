@@ -1,0 +1,45 @@
+svn propset svn:eol-style CRLF src/plugins/contrib/SpellChecker/hunspell/src/win_api/Hunspell.sln
+svn propset svn:eol-style CRLF src/plugins/contrib/wxContribItems/wxchart/build/msw/wxchart.sln
+svn propset svn:eol-style CRLF src/sdk/wxpropgrid/build_wx26/propgrid.sln
+svn propset svn:eol-style CRLF src/tools/Jing/jing-20150407.bat
+
+svn proplist -v src/plugins/contrib/SpellChecker/hunspell/src/win_api/Hunspell.sln
+svn proplist -v  src/plugins/contrib/wxContribItems/wxchart/build/msw/wxchart.sln
+svn proplist -v  src/sdk/wxpropgrid/build_wx26/propgrid.sln
+svn proplist -v  src/tools/Jing/jing-20150407.bat
+
+# Do Under Linux
+svn propset svn:eol-style LF src/plugins/contrib/help_plugin/zlib/zlib.pc.in
+svn propset svn:eol-style LF src/plugins/contrib/help_plugin/zlib/zconf.h.in
+
+svn proplist -v  src/plugins/contrib/help_plugin/zlib/zconf.h.in
+
+# Do Under Linux
+svn proplist -v  src/plugins/codecompletion/testing/cc_complex_declaration.cpp
+
+svn propset svn:eol-style native src/plugins/codecompletion/testing/cc_complex_declaration.cpp             
+svn propset svn:eol-style native src/plugins/codecompletion/testing/cc_function_return_enum.cpp            
+svn propset svn:eol-style native src/plugins/codecompletion/testing/cc_macro_expansion_infinite_loop.cpp   
+svn propset svn:eol-style native src/plugins/codecompletion/testing/cc_preprocessor.cpp                    
+svn propset svn:eol-style native src/plugins/codecompletion/testing/cc_stl_container_template_.cpp         
+svn propset svn:eol-style native src/plugins/codecompletion/testing/cc_type_alias.cpp                      
+svn propset svn:eol-style native src/plugins/codecompletion/testing/cc_typedef_declaration.cpp             
+svn propset svn:eol-style native src/plugins/compilergcc/resources/compilers/compiler_bfin-elf-gcc.xml     
+svn propset svn:eol-style native src/plugins/compilergcc/resources/compilers/compiler_lm32-gcc.xml         
+svn propset svn:eol-style native src/plugins/compilergcc/resources/compilers/compiler_lm8-gcc.xml          
+svn propset svn:eol-style native src/plugins/compilergcc/resources/compilers/compiler_zpu-gcc.xml          
+svn propset svn:eol-style native src/plugins/compilergcc/resources/compilers/options_bfin-elf-gcc.xml      
+svn propset svn:eol-style native src/plugins/compilergcc/resources/compilers/options_lm32-gcc.xml          
+svn propset svn:eol-style native src/plugins/compilergcc/resources/compilers/options_lm8-gcc.xml           
+svn propset svn:eol-style native src/plugins/compilergcc/resources/compilers/options_zpu-gcc.xml           
+svn propset svn:eol-style native src/plugins/contrib/BrowseTracker/BrowseTrackerToolbar.xrc                
+svn propset svn:eol-style native src/plugins/contrib/FileManager/CommitBrowser.cpp                         
+svn propset svn:eol-style native src/plugins/contrib/FileManager/CommitBrowser.h                           
+svn propset svn:eol-style native src/plugins/contrib/FileManager/Resources/CommitBrowser.xrc               
+svn propset svn:eol-style native src/plugins/debuggergdb/debuggergdb_test_parse_locals.cpp                 
+svn propset svn:eol-style native src/scripts/tests/menu_test_plugin.script                                 
+svn propset svn:eol-style native src/scripts/tests/script_test_plugin.script                               
+svn propset svn:eol-style native src/scripts/tests/test_base.script                                        
+svn propset svn:eol-style native src/scripts/tests/user_dialog_test_plugin.script                          
+svn propset svn:eol-style native src/scripts/tests/wx_test.script                                          
+svn propset svn:eol-style native src/wxsmith/GenericSingleChoiceList.wxs                                   
