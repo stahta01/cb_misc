@@ -1,0 +1,3820 @@
+From c3780a9dc2ad084a15035e92bee134d2f525625c Mon Sep 17 00:00:00 2001
+From: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date: Tue, 7 Jul 2009 07:14:30 +0000
+Subject: [PATCH] * major improvement to CC: applied several patches and
+ improvements from patch tracker, forums and other
+
+git-svn-id: https://svn.code.sf.net/p/codeblocks/code/branches/codecompletion_refactoring@5685 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+---
+ src/plugins/codecompletion/ccdebuginfo.cpp         | 249 ++++++-----
+ src/plugins/codecompletion/ccdebuginfo.h           | 112 ++---
+ src/plugins/codecompletion/ccoptionsdlg.cpp        | 274 ++++++------
+ src/plugins/codecompletion/classbrowser.cpp        | 484 ++++++++++++---------
+ src/plugins/codecompletion/classbrowser.h          |   6 +-
+ .../codecompletion/classbrowserbuilderthread.h     |  73 +++-
+ src/plugins/codecompletion/codecompletion.cpp      | 128 ++++--
+ src/plugins/codecompletion/nativeparser.cpp        |  35 +-
+ src/plugins/codecompletion/parser/parser.cpp       |  55 ++-
+ src/plugins/codecompletion/parser/parser.h         |  70 +--
+ src/plugins/codecompletion/parser/parserthread.cpp | 163 ++++++-
+ src/plugins/codecompletion/parser/parserthread.h   |   4 +-
+ src/plugins/codecompletion/parser/token.cpp        |  12 +-
+ src/plugins/codecompletion/parser/tokenizer.cpp    | 107 ++---
+ src/plugins/codecompletion/parser/tokenizer.h      |  18 +-
+ .../codecompletion/resources/images/class.png      | Bin 311 -> 518 bytes
+ .../resources/images/class_folder.png              | Bin 452 -> 617 bytes
+ .../resources/images/class_private.png             | Bin 0 -> 539 bytes
+ .../resources/images/class_protected.png           | Bin 0 -> 544 bytes
+ .../resources/images/class_public.png              | Bin 0 -> 551 bytes
+ .../resources/images/codecompletion.xcf            | Bin 0 -> 11210 bytes
+ .../resources/images/ctor_private.png              | Bin 259 -> 438 bytes
+ .../resources/images/ctor_protected.png            | Bin 257 -> 464 bytes
+ .../resources/images/ctor_public.png               | Bin 253 -> 442 bytes
+ .../resources/images/dtor_private.png              | Bin 249 -> 383 bytes
+ .../resources/images/dtor_protected.png            | Bin 241 -> 407 bytes
+ .../resources/images/dtor_public.png               | Bin 240 -> 393 bytes
+ .../codecompletion/resources/images/enum.png       | Bin 202 -> 544 bytes
+ .../resources/images/enum_private.png              | Bin 0 -> 492 bytes
+ .../resources/images/enum_protected.png            | Bin 0 -> 536 bytes
+ .../resources/images/enum_public.png               | Bin 0 -> 547 bytes
+ .../codecompletion/resources/images/enumerator.png | Bin 226 -> 351 bytes
+ .../codecompletion/resources/images/folder.png     | Bin 0 -> 376 bytes
+ .../resources/images/folder_blue.png               | Bin 0 -> 376 bytes
+ .../resources/images/folder_blue_open.png          | Bin 0 -> 473 bytes
+ .../resources/images/folder_green.png              | Bin 0 -> 378 bytes
+ .../resources/images/folder_green_open.png         | Bin 0 -> 481 bytes
+ .../resources/images/folder_open.png               | Bin 0 -> 460 bytes
+ .../resources/images/funcs_folder.png              | Bin 0 -> 582 bytes
+ .../resources/images/method_private.png            | Bin 270 -> 568 bytes
+ .../resources/images/method_protected.png          | Bin 272 -> 564 bytes
+ .../resources/images/method_public.png             | Bin 271 -> 565 bytes
+ .../codecompletion/resources/images/namespace.png  | Bin 477 -> 470 bytes
+ .../resources/images/others_folder.png             | Bin 462 -> 559 bytes
+ .../codecompletion/resources/images/preproc.png    | Bin 188 -> 354 bytes
+ .../resources/images/preproc_folder.png            | Bin 463 -> 556 bytes
+ .../resources/images/symbols_folder.png            | Bin 450 -> 625 bytes
+ .../codecompletion/resources/images/typedef.png    | Bin 230 -> 480 bytes
+ .../resources/images/typedef_private.png           | Bin 0 -> 501 bytes
+ .../resources/images/typedef_protected.png         | Bin 0 -> 516 bytes
+ .../resources/images/typedef_public.png            | Bin 0 -> 526 bytes
+ .../resources/images/typedefs_folder.png           | Bin 479 -> 578 bytes
+ .../resources/images/var_private.png               | Bin 232 -> 330 bytes
+ .../resources/images/var_protected.png             | Bin 229 -> 356 bytes
+ .../codecompletion/resources/images/var_public.png | Bin 229 -> 337 bytes
+ .../resources/images/vars_folder.png               | Bin 0 -> 545 bytes
+ src/plugins/codecompletion/resources/settings.xrc  |   8 +
+ 57 files changed, 1124 insertions(+), 674 deletions(-)
+ create mode 100644 src/plugins/codecompletion/resources/images/class_private.png
+ create mode 100644 src/plugins/codecompletion/resources/images/class_protected.png
+ create mode 100644 src/plugins/codecompletion/resources/images/class_public.png
+ create mode 100644 src/plugins/codecompletion/resources/images/codecompletion.xcf
+ create mode 100644 src/plugins/codecompletion/resources/images/enum_private.png
+ create mode 100644 src/plugins/codecompletion/resources/images/enum_protected.png
+ create mode 100644 src/plugins/codecompletion/resources/images/enum_public.png
+ create mode 100644 src/plugins/codecompletion/resources/images/folder.png
+ create mode 100644 src/plugins/codecompletion/resources/images/folder_blue.png
+ create mode 100644 src/plugins/codecompletion/resources/images/folder_blue_open.png
+ create mode 100644 src/plugins/codecompletion/resources/images/folder_green.png
+ create mode 100644 src/plugins/codecompletion/resources/images/folder_green_open.png
+ create mode 100644 src/plugins/codecompletion/resources/images/folder_open.png
+ create mode 100644 src/plugins/codecompletion/resources/images/funcs_folder.png
+ create mode 100644 src/plugins/codecompletion/resources/images/typedef_private.png
+ create mode 100644 src/plugins/codecompletion/resources/images/typedef_protected.png
+ create mode 100644 src/plugins/codecompletion/resources/images/typedef_public.png
+ create mode 100644 src/plugins/codecompletion/resources/images/vars_folder.png
+
+diff --git a/src/plugins/codecompletion/ccdebuginfo.cpp b/src/plugins/codecompletion/ccdebuginfo.cpp
+index 9a26423..6c2a3a2 100644
+--- a/src/plugins/codecompletion/ccdebuginfo.cpp
++++ b/src/plugins/codecompletion/ccdebuginfo.cpp
+@@ -14,19 +14,11 @@
+ #include <wx/choicdlg.h> // wxGetSingleChoiceIndex
+ 
+ //(*InternalHeaders(CCDebugInfo)
+-#include <wx/bitmap.h>
+-#include <wx/font.h>
+-#include <wx/fontenum.h>
+-#include <wx/fontmap.h>
+-#include <wx/image.h>
+ #include <wx/intl.h>
+-#include <wx/settings.h>
+ #include <wx/string.h>
+ //*)
+ 
+ //(*IdInit(CCDebugInfo)
+-const long CCDebugInfo::ID_NOTEBOOK1 = wxNewId();
+-const long CCDebugInfo::ID_PANEL1 = wxNewId();
+ const long CCDebugInfo::ID_STATICTEXT29 = wxNewId();
+ const long CCDebugInfo::ID_TEXTCTRL1 = wxNewId();
+ const long CCDebugInfo::ID_BUTTON1 = wxNewId();
+@@ -71,10 +63,12 @@ const long CCDebugInfo::ID_STATICTEXT27 = wxNewId();
+ const long CCDebugInfo::ID_STATICTEXT28 = wxNewId();
+ const long CCDebugInfo::ID_STATICTEXT34 = wxNewId();
+ const long CCDebugInfo::ID_STATICTEXT35 = wxNewId();
+-const long CCDebugInfo::ID_PANEL2 = wxNewId();
++const long CCDebugInfo::ID_PANEL1 = wxNewId();
+ const long CCDebugInfo::ID_LISTBOX1 = wxNewId();
+-const long CCDebugInfo::ID_PANEL3 = wxNewId();
++const long CCDebugInfo::ID_PANEL2 = wxNewId();
+ const long CCDebugInfo::ID_LISTBOX2 = wxNewId();
++const long CCDebugInfo::ID_PANEL3 = wxNewId();
++const long CCDebugInfo::ID_NOTEBOOK1 = wxNewId();
+ const long CCDebugInfo::ID_STATICTEXT31 = wxNewId();
+ const long CCDebugInfo::ID_STATICLINE2 = wxNewId();
+ //*)
+@@ -90,156 +84,157 @@ CCDebugInfo::CCDebugInfo(wxWindow* parent, Parser* parser, Token* token)
+ {
+     int id = -1;
+ 	//(*Initialize(CCDebugInfo)
+-	wxBoxSizer* BoxSizer1;
+ 	wxBoxSizer* BoxSizer2;
+ 	wxPanel* Panel3;
+-
+-	Create(parent,id,_("Code-completion debug tool"),wxDefaultPosition,wxDefaultSize,wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER|wxTAB_TRAVERSAL,_T("wxDialog"));
++	wxBoxSizer* BoxSizer1;
++	
++	Create(parent, id, _("Code-completion debug tool"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER|wxTAB_TRAVERSAL, _T("id"));
+ 	BoxSizer1 = new wxBoxSizer(wxVERTICAL);
+-	Notebook1 = new wxNotebook(this,ID_NOTEBOOK1,wxDefaultPosition,wxDefaultSize,0,_T("ID_NOTEBOOK1"));
+-	Panel1 = new wxPanel(Notebook1,ID_PANEL1,wxDefaultPosition,wxDefaultSize,wxTAB_TRAVERSAL,_T("ID_PANEL1"));
++	Notebook1 = new wxNotebook(this, ID_NOTEBOOK1, wxDefaultPosition, wxDefaultSize, 0, _T("ID_NOTEBOOK1"));
++	Panel1 = new wxPanel(Notebook1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
+ 	BoxSizer2 = new wxBoxSizer(wxVERTICAL);
+ 	BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
+-	StaticText29 = new wxStaticText(Panel1,ID_STATICTEXT29,_("Find:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT29"));
+-	BoxSizer4->Add(StaticText29,0,wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,6);
+-	txtFilter = new wxTextCtrl(Panel1,ID_TEXTCTRL1,_("*"),wxDefaultPosition,wxSize(401,21),0,wxDefaultValidator,_T("ID_TEXTCTRL1"));
+-	BoxSizer4->Add(txtFilter,1,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	btnFind = new wxButton(Panel1,ID_BUTTON1,_("Find"),wxDefaultPosition,wxDefaultSize,0,wxDefaultValidator,_T("ID_BUTTON1"));
++	StaticText29 = new wxStaticText(Panel1, ID_STATICTEXT29, _("Find:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT29"));
++	BoxSizer4->Add(StaticText29, 0, wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 6);
++	txtFilter = new wxTextCtrl(Panel1, ID_TEXTCTRL1, _("*"), wxDefaultPosition, wxSize(401,21), 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
++	BoxSizer4->Add(txtFilter, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	btnFind = new wxButton(Panel1, ID_BUTTON1, _("Find"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
+ 	btnFind->SetDefault();
+-	BoxSizer4->Add(btnFind,0,wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,5);
+-	BoxSizer2->Add(BoxSizer4,0,wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,5);
+-	StaticLine1 = new wxStaticLine(Panel1,ID_STATICLINE1,wxDefaultPosition,wxSize(10,-1),wxLI_HORIZONTAL,_T("ID_STATICLINE1"));
+-	BoxSizer2->Add(StaticLine1,0,wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,5);
+-	FlexGridSizer1 = new wxFlexGridSizer(0,2,5,5);
++	BoxSizer4->Add(btnFind, 0, wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
++	BoxSizer2->Add(BoxSizer4, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
++	StaticLine1 = new wxStaticLine(Panel1, ID_STATICLINE1, wxDefaultPosition, wxSize(10,-1), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
++	BoxSizer2->Add(StaticLine1, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
++	FlexGridSizer1 = new wxFlexGridSizer(0, 2, 5, 5);
+ 	FlexGridSizer1->AddGrowableCol(1);
+-	StaticText17 = new wxStaticText(Panel1,ID_STATICTEXT17,_("ID:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT17"));
+-	FlexGridSizer1->Add(StaticText17,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtID = new wxStaticText(Panel1,ID_STATICTEXT18,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT18"));
+-	FlexGridSizer1->Add(txtID,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText1 = new wxStaticText(Panel1,ID_STATICTEXT1,_("Name:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT1"));
+-	FlexGridSizer1->Add(StaticText1,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtName = new wxStaticText(Panel1,ID_STATICTEXT2,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT2"));
+-	FlexGridSizer1->Add(txtName,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText9 = new wxStaticText(Panel1,ID_STATICTEXT9,_("Kind:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT9"));
+-	FlexGridSizer1->Add(StaticText9,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtKind = new wxStaticText(Panel1,ID_STATICTEXT10,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT10"));
+-	FlexGridSizer1->Add(txtKind,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText11 = new wxStaticText(Panel1,ID_STATICTEXT11,_("Scope:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT11"));
+-	FlexGridSizer1->Add(StaticText11,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtScope = new wxStaticText(Panel1,ID_STATICTEXT12,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT12"));
+-	FlexGridSizer1->Add(txtScope,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText3 = new wxStaticText(Panel1,ID_STATICTEXT3,_("Type:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT3"));
+-	FlexGridSizer1->Add(StaticText3,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtType = new wxStaticText(Panel1,ID_STATICTEXT4,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT4"));
+-	FlexGridSizer1->Add(txtType,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText5 = new wxStaticText(Panel1,ID_STATICTEXT5,_("Actual type:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT5"));
+-	FlexGridSizer1->Add(StaticText5,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtActualType = new wxStaticText(Panel1,ID_STATICTEXT6,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT6"));
+-	FlexGridSizer1->Add(txtActualType,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText7 = new wxStaticText(Panel1,ID_STATICTEXT7,_("Arguments:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT7"));
+-	FlexGridSizer1->Add(StaticText7,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtArgs = new wxStaticText(Panel1,ID_STATICTEXT8,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT8"));
+-	FlexGridSizer1->Add(txtArgs,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText13 = new wxStaticText(Panel1,ID_STATICTEXT13,_("Is operator\?"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT13"));
+-	FlexGridSizer1->Add(StaticText13,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtIsOp = new wxStaticText(Panel1,ID_STATICTEXT14,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT14"));
+-	FlexGridSizer1->Add(txtIsOp,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText15 = new wxStaticText(Panel1,ID_STATICTEXT15,_("Is local\?"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT15"));
+-	FlexGridSizer1->Add(StaticText15,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtIsLocal = new wxStaticText(Panel1,ID_STATICTEXT16,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT16"));
+-	FlexGridSizer1->Add(txtIsLocal,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText32 = new wxStaticText(Panel1,ID_STATICTEXT32,_("Is temp\?"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT32"));
+-	FlexGridSizer1->Add(StaticText32,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtIsTemp = new wxStaticText(Panel1,ID_STATICTEXT33,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT33"));
+-	FlexGridSizer1->Add(txtIsTemp,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText19 = new wxStaticText(Panel1,ID_STATICTEXT19,_("Namespace:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT19"));
+-	FlexGridSizer1->Add(StaticText19,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtNamespace = new wxStaticText(Panel1,ID_STATICTEXT20,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT20"));
+-	FlexGridSizer1->Add(txtNamespace,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText22 = new wxStaticText(Panel1,ID_STATICTEXT22,_("Parent:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT22"));
+-	FlexGridSizer1->Add(StaticText22,0,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
++	StaticText17 = new wxStaticText(Panel1, ID_STATICTEXT17, _("ID:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT17"));
++	FlexGridSizer1->Add(StaticText17, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtID = new wxStaticText(Panel1, ID_STATICTEXT18, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT18"));
++	FlexGridSizer1->Add(txtID, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText1 = new wxStaticText(Panel1, ID_STATICTEXT1, _("Name:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
++	FlexGridSizer1->Add(StaticText1, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtName = new wxStaticText(Panel1, ID_STATICTEXT2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
++	FlexGridSizer1->Add(txtName, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText9 = new wxStaticText(Panel1, ID_STATICTEXT9, _("Kind:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT9"));
++	FlexGridSizer1->Add(StaticText9, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtKind = new wxStaticText(Panel1, ID_STATICTEXT10, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT10"));
++	FlexGridSizer1->Add(txtKind, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText11 = new wxStaticText(Panel1, ID_STATICTEXT11, _("Scope:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT11"));
++	FlexGridSizer1->Add(StaticText11, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtScope = new wxStaticText(Panel1, ID_STATICTEXT12, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT12"));
++	FlexGridSizer1->Add(txtScope, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText3 = new wxStaticText(Panel1, ID_STATICTEXT3, _("Type:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT3"));
++	FlexGridSizer1->Add(StaticText3, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtType = new wxStaticText(Panel1, ID_STATICTEXT4, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT4"));
++	FlexGridSizer1->Add(txtType, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText5 = new wxStaticText(Panel1, ID_STATICTEXT5, _("Actual type:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT5"));
++	FlexGridSizer1->Add(StaticText5, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtActualType = new wxStaticText(Panel1, ID_STATICTEXT6, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT6"));
++	FlexGridSizer1->Add(txtActualType, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText7 = new wxStaticText(Panel1, ID_STATICTEXT7, _("Arguments:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT7"));
++	FlexGridSizer1->Add(StaticText7, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtArgs = new wxStaticText(Panel1, ID_STATICTEXT8, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT8"));
++	FlexGridSizer1->Add(txtArgs, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText13 = new wxStaticText(Panel1, ID_STATICTEXT13, _("Is operator\?"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT13"));
++	FlexGridSizer1->Add(StaticText13, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtIsOp = new wxStaticText(Panel1, ID_STATICTEXT14, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT14"));
++	FlexGridSizer1->Add(txtIsOp, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText15 = new wxStaticText(Panel1, ID_STATICTEXT15, _("Is local\?"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT15"));
++	FlexGridSizer1->Add(StaticText15, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtIsLocal = new wxStaticText(Panel1, ID_STATICTEXT16, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT16"));
++	FlexGridSizer1->Add(txtIsLocal, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText32 = new wxStaticText(Panel1, ID_STATICTEXT32, _("Is temp\?"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT32"));
++	FlexGridSizer1->Add(StaticText32, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtIsTemp = new wxStaticText(Panel1, ID_STATICTEXT33, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT33"));
++	FlexGridSizer1->Add(txtIsTemp, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText19 = new wxStaticText(Panel1, ID_STATICTEXT19, _("Namespace:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT19"));
++	FlexGridSizer1->Add(StaticText19, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtNamespace = new wxStaticText(Panel1, ID_STATICTEXT20, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT20"));
++	FlexGridSizer1->Add(txtNamespace, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText22 = new wxStaticText(Panel1, ID_STATICTEXT22, _("Parent:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT22"));
++	FlexGridSizer1->Add(StaticText22, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+ 	BoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
+-	txtParent = new wxStaticText(Panel1,ID_STATICTEXT24,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT24"));
+-	BoxSizer7->Add(txtParent,1,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	btnGoParent = new wxButton(Panel1,ID_BUTTON4,_("Go"),wxDefaultPosition,wxSize(36,23),0,wxDefaultValidator,_T("ID_BUTTON4"));
+-	BoxSizer7->Add(btnGoParent,0,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	FlexGridSizer1->Add(BoxSizer7,0,wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText30 = new wxStaticText(Panel1,ID_STATICTEXT30,_("Children:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT30"));
+-	FlexGridSizer1->Add(StaticText30,0,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
++	txtParent = new wxStaticText(Panel1, ID_STATICTEXT24, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT24"));
++	BoxSizer7->Add(txtParent, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	btnGoParent = new wxButton(Panel1, ID_BUTTON4, _("Go"), wxDefaultPosition, wxSize(36,23), 0, wxDefaultValidator, _T("ID_BUTTON4"));
++	BoxSizer7->Add(btnGoParent, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	FlexGridSizer1->Add(BoxSizer7, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText30 = new wxStaticText(Panel1, ID_STATICTEXT30, _("Children:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT30"));
++	FlexGridSizer1->Add(StaticText30, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+ 	BoxSizer8 = new wxBoxSizer(wxHORIZONTAL);
+-	cmbChildren = new wxComboBox(Panel1,ID_COMBOBOX3,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,0,wxCB_READONLY,wxDefaultValidator,_T("ID_COMBOBOX3"));
+-	BoxSizer8->Add(cmbChildren,1,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	btnGoChildren = new wxButton(Panel1,ID_BUTTON5,_("Go"),wxDefaultPosition,wxSize(36,23),0,wxDefaultValidator,_T("ID_BUTTON5"));
+-	BoxSizer8->Add(btnGoChildren,0,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	FlexGridSizer1->Add(BoxSizer8,0,wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText21 = new wxStaticText(Panel1,ID_STATICTEXT21,_("Ancestors:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT21"));
+-	FlexGridSizer1->Add(StaticText21,0,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
++	cmbChildren = new wxComboBox(Panel1, ID_COMBOBOX3, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_COMBOBOX3"));
++	BoxSizer8->Add(cmbChildren, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	btnGoChildren = new wxButton(Panel1, ID_BUTTON5, _("Go"), wxDefaultPosition, wxSize(36,23), 0, wxDefaultValidator, _T("ID_BUTTON5"));
++	BoxSizer8->Add(btnGoChildren, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	FlexGridSizer1->Add(BoxSizer8, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText21 = new wxStaticText(Panel1, ID_STATICTEXT21, _("Ancestors:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT21"));
++	FlexGridSizer1->Add(StaticText21, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+ 	BoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
+-	cmbAncestors = new wxComboBox(Panel1,ID_COMBOBOX2,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,0,wxCB_READONLY,wxDefaultValidator,_T("ID_COMBOBOX2"));
+-	BoxSizer6->Add(cmbAncestors,1,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	btnGoAsc = new wxButton(Panel1,ID_BUTTON3,_("Go"),wxDefaultPosition,wxSize(36,23),0,wxDefaultValidator,_T("ID_BUTTON3"));
+-	BoxSizer6->Add(btnGoAsc,0,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	FlexGridSizer1->Add(BoxSizer6,0,wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText23 = new wxStaticText(Panel1,ID_STATICTEXT23,_("Descendants:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT23"));
+-	FlexGridSizer1->Add(StaticText23,0,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
++	cmbAncestors = new wxComboBox(Panel1, ID_COMBOBOX2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_COMBOBOX2"));
++	BoxSizer6->Add(cmbAncestors, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	btnGoAsc = new wxButton(Panel1, ID_BUTTON3, _("Go"), wxDefaultPosition, wxSize(36,23), 0, wxDefaultValidator, _T("ID_BUTTON3"));
++	BoxSizer6->Add(btnGoAsc, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	FlexGridSizer1->Add(BoxSizer6, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText23 = new wxStaticText(Panel1, ID_STATICTEXT23, _("Descendants:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT23"));
++	FlexGridSizer1->Add(StaticText23, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+ 	BoxSizer5 = new wxBoxSizer(wxHORIZONTAL);
+-	cmbDescendants = new wxComboBox(Panel1,ID_COMBOBOX1,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,0,wxCB_READONLY,wxDefaultValidator,_T("ID_COMBOBOX1"));
+-	BoxSizer5->Add(cmbDescendants,1,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	btnGoDesc = new wxButton(Panel1,ID_BUTTON2,_("Go"),wxDefaultPosition,wxSize(36,23),0,wxDefaultValidator,_T("ID_BUTTON2"));
+-	BoxSizer5->Add(btnGoDesc,0,wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL,0);
+-	FlexGridSizer1->Add(BoxSizer5,0,wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText25 = new wxStaticText(Panel1,ID_STATICTEXT25,_("Decl. filename:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT25"));
+-	FlexGridSizer1->Add(StaticText25,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtDeclFile = new wxStaticText(Panel1,ID_STATICTEXT26,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT26"));
+-	FlexGridSizer1->Add(txtDeclFile,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText27 = new wxStaticText(Panel1,ID_STATICTEXT27,_("Impl. filename:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT27"));
+-	FlexGridSizer1->Add(StaticText27,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtImplFile = new wxStaticText(Panel1,ID_STATICTEXT28,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT28"));
+-	FlexGridSizer1->Add(txtImplFile,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	StaticText34 = new wxStaticText(Panel1,ID_STATICTEXT34,_("User data:"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT34"));
+-	FlexGridSizer1->Add(StaticText34,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	txtUserData = new wxStaticText(Panel1,ID_STATICTEXT35,wxEmptyString,wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT35"));
+-	FlexGridSizer1->Add(txtUserData,0,wxALL|wxALIGN_LEFT|wxALIGN_TOP,0);
+-	BoxSizer2->Add(FlexGridSizer1,0,wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,5);
++	cmbDescendants = new wxComboBox(Panel1, ID_COMBOBOX1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_COMBOBOX1"));
++	BoxSizer5->Add(cmbDescendants, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	btnGoDesc = new wxButton(Panel1, ID_BUTTON2, _("Go"), wxDefaultPosition, wxSize(36,23), 0, wxDefaultValidator, _T("ID_BUTTON2"));
++	BoxSizer5->Add(btnGoDesc, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
++	FlexGridSizer1->Add(BoxSizer5, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText25 = new wxStaticText(Panel1, ID_STATICTEXT25, _("Decl. filename:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT25"));
++	FlexGridSizer1->Add(StaticText25, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtDeclFile = new wxStaticText(Panel1, ID_STATICTEXT26, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT26"));
++	FlexGridSizer1->Add(txtDeclFile, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText27 = new wxStaticText(Panel1, ID_STATICTEXT27, _("Impl. filename:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT27"));
++	FlexGridSizer1->Add(StaticText27, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtImplFile = new wxStaticText(Panel1, ID_STATICTEXT28, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT28"));
++	FlexGridSizer1->Add(txtImplFile, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	StaticText34 = new wxStaticText(Panel1, ID_STATICTEXT34, _("User data:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT34"));
++	FlexGridSizer1->Add(StaticText34, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	txtUserData = new wxStaticText(Panel1, ID_STATICTEXT35, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT35"));
++	FlexGridSizer1->Add(txtUserData, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 0);
++	BoxSizer2->Add(FlexGridSizer1, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
+ 	Panel1->SetSizer(BoxSizer2);
+ 	BoxSizer2->Fit(Panel1);
+ 	BoxSizer2->SetSizeHints(Panel1);
+-	Panel2 = new wxPanel(Notebook1,ID_PANEL2,wxDefaultPosition,wxDefaultSize,wxTAB_TRAVERSAL,_T("ID_PANEL2"));
++	Panel2 = new wxPanel(Notebook1, ID_PANEL2, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
+ 	BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
+-	lstFiles = new wxListBox(Panel2,ID_LISTBOX1,wxDefaultPosition,wxDefaultSize,0,0,0,wxDefaultValidator,_T("ID_LISTBOX1"));
+-	BoxSizer3->Add(lstFiles,1,wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,5);
++	lstFiles = new wxListBox(Panel2, ID_LISTBOX1, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_LISTBOX1"));
++	BoxSizer3->Add(lstFiles, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
+ 	Panel2->SetSizer(BoxSizer3);
+ 	BoxSizer3->Fit(Panel2);
+ 	BoxSizer3->SetSizeHints(Panel2);
+-	Panel3 = new wxPanel(Notebook1,ID_PANEL3,wxDefaultPosition,wxDefaultSize,wxTAB_TRAVERSAL,_T("ID_PANEL3"));
++	Panel3 = new wxPanel(Notebook1, ID_PANEL3, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL3"));
+ 	BoxSizer9 = new wxBoxSizer(wxHORIZONTAL);
+-	lstDirs = new wxListBox(Panel3,ID_LISTBOX2,wxDefaultPosition,wxDefaultSize,0,0,0,wxDefaultValidator,_T("ID_LISTBOX2"));
+-	BoxSizer9->Add(lstDirs,1,wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL,5);
++	lstDirs = new wxListBox(Panel3, ID_LISTBOX2, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_LISTBOX2"));
++	BoxSizer9->Add(lstDirs, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+ 	Panel3->SetSizer(BoxSizer9);
+ 	BoxSizer9->Fit(Panel3);
+ 	BoxSizer9->SetSizeHints(Panel3);
+-	Notebook1->AddPage(Panel1,_("Tokens"),false);
+-	Notebook1->AddPage(Panel2,_("Files list"),false);
+-	Notebook1->AddPage(Panel3,_("Search dirs"),false);
+-	BoxSizer1->Add(Notebook1,1,wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,5);
+-	lblInfo = new wxStaticText(this,ID_STATICTEXT31,_("The parser contains 0 tokens found in 0 files"),wxDefaultPosition,wxDefaultSize,0,_T("ID_STATICTEXT31"));
+-	BoxSizer1->Add(lblInfo,0,wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP,5);
+-	StaticLine2 = new wxStaticLine(this,ID_STATICLINE2,wxDefaultPosition,wxSize(10,-1),wxLI_HORIZONTAL,_T("ID_STATICLINE2"));
+-	BoxSizer1->Add(StaticLine2,0,wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL,5);
++	Notebook1->AddPage(Panel1, _("Tokens"), false);
++	Notebook1->AddPage(Panel2, _("Files list"), false);
++	Notebook1->AddPage(Panel3, _("Search dirs"), false);
++	BoxSizer1->Add(Notebook1, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
++	lblInfo = new wxStaticText(this, ID_STATICTEXT31, _("The parser contains 0 tokens found in 0 files"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT31"));
++	BoxSizer1->Add(lblInfo, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
++	StaticLine2 = new wxStaticLine(this, ID_STATICLINE2, wxDefaultPosition, wxSize(10,-1), wxLI_HORIZONTAL, _T("ID_STATICLINE2"));
++	BoxSizer1->Add(StaticLine2, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+ 	StdDialogButtonSizer1 = new wxStdDialogButtonSizer();
+-	StdDialogButtonSizer1->AddButton(new wxButton(this,wxID_CANCEL,_("Close")));
++	StdDialogButtonSizer1->AddButton(new wxButton(this, wxID_CANCEL, _("Close")));
+ 	StdDialogButtonSizer1->Realize();
+-	BoxSizer1->Add(StdDialogButtonSizer1,0,wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL,5);
++	BoxSizer1->Add(StdDialogButtonSizer1, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+ 	SetSizer(BoxSizer1);
+ 	BoxSizer1->Fit(this);
+ 	BoxSizer1->SetSizeHints(this);
+ 	Center();
+-	Connect(wxID_ANY,wxEVT_INIT_DIALOG,(wxObjectEventFunction)&CCDebugInfo::OnInit);
++	
+ 	Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&CCDebugInfo::OnFindClick);
+ 	Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&CCDebugInfo::OnGoParentClick);
+ 	Connect(ID_BUTTON5,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&CCDebugInfo::OnGoChildrenClick);
+ 	Connect(ID_BUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&CCDebugInfo::OnGoAscClick);
+ 	Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&CCDebugInfo::OnGoDescClick);
++	Connect(wxID_ANY,wxEVT_INIT_DIALOG,(wxObjectEventFunction)&CCDebugInfo::OnInit);
+ 	//*)
+ }
+ 
+diff --git a/src/plugins/codecompletion/ccdebuginfo.h b/src/plugins/codecompletion/ccdebuginfo.h
+index aad37cb..33d6b5f 100644
+--- a/src/plugins/codecompletion/ccdebuginfo.h
++++ b/src/plugins/codecompletion/ccdebuginfo.h
+@@ -13,16 +13,16 @@
+ #endif
+ 
+ //(*Headers(CCDebugInfo)
+-#include <wx/button.h>
+-#include <wx/combobox.h>
+-#include <wx/dialog.h>
+-#include <wx/listbox.h>
+ #include <wx/notebook.h>
+-#include <wx/panel.h>
+ #include <wx/sizer.h>
+-#include <wx/statline.h>
+ #include <wx/stattext.h>
+ #include <wx/textctrl.h>
++#include <wx/listbox.h>
++#include <wx/statline.h>
++#include <wx/panel.h>
++#include <wx/button.h>
++#include <wx/dialog.h>
++#include <wx/combobox.h>
+ //*)
+ 
+ class Parser;
+@@ -46,8 +46,6 @@ class CCDebugInfo: public wxDialog
+ 		void FillDescendants();
+ 
+ 		//(*Identifiers(CCDebugInfo)
+-		static const long ID_NOTEBOOK1;
+-		static const long ID_PANEL1;
+ 		static const long ID_STATICTEXT29;
+ 		static const long ID_TEXTCTRL1;
+ 		static const long ID_BUTTON1;
+@@ -92,10 +90,12 @@ class CCDebugInfo: public wxDialog
+ 		static const long ID_STATICTEXT28;
+ 		static const long ID_STATICTEXT34;
+ 		static const long ID_STATICTEXT35;
+-		static const long ID_PANEL2;
++		static const long ID_PANEL1;
+ 		static const long ID_LISTBOX1;
+-		static const long ID_PANEL3;
++		static const long ID_PANEL2;
+ 		static const long ID_LISTBOX2;
++		static const long ID_PANEL3;
++		static const long ID_NOTEBOOK1;
+ 		static const long ID_STATICTEXT31;
+ 		static const long ID_STATICLINE2;
+ 		//*)
+@@ -112,65 +112,65 @@ class CCDebugInfo: public wxDialog
+ 		//*)
+ 
+ 		//(*Declarations(CCDebugInfo)
+-		wxNotebook* Notebook1;
+-		wxPanel* Panel1;
+ 		wxBoxSizer* BoxSizer4;
+-		wxStaticText* StaticText29;
+-		wxTextCtrl* txtFilter;
+-		wxButton* btnFind;
+-		wxStaticLine* StaticLine1;
+-		wxFlexGridSizer* FlexGridSizer1;
+-		wxStaticText* StaticText17;
+-		wxStaticText* txtID;
+-		wxStaticText* StaticText1;
+-		wxStaticText* txtName;
++		wxButton* btnGoChildren;
++		wxStaticText* StaticText22;
+ 		wxStaticText* StaticText9;
+-		wxStaticText* txtKind;
++		wxBoxSizer* BoxSizer6;
++		wxBoxSizer* BoxSizer5;
++		wxStaticText* StaticText29;
++		wxNotebook* Notebook1;
++		wxBoxSizer* BoxSizer7;
++		wxStaticText* txtIsTemp;
++		wxBoxSizer* BoxSizer8;
++		wxStaticText* StaticText13;
++		wxStaticText* StaticText30;
++		wxButton* btnGoAsc;
++		wxStaticText* txtType;
++		wxComboBox* cmbAncestors;
++		wxStaticText* StaticText19;
++		wxStaticText* StaticText32;
+ 		wxStaticText* StaticText11;
++		wxButton* btnGoParent;
++		wxPanel* Panel1;
++		wxStaticText* txtImplFile;
+ 		wxStaticText* txtScope;
++		wxStaticText* StaticText1;
++		wxStaticText* StaticText27;
+ 		wxStaticText* StaticText3;
+-		wxStaticText* txtType;
++		wxStaticText* txtID;
++		wxStaticText* StaticText21;
++		wxStaticLine* StaticLine2;
++		wxStaticText* StaticText23;
++		wxListBox* lstDirs;
++		wxStaticText* txtIsOp;
++		wxStaticText* lblInfo;
++		wxStaticText* StaticText34;
+ 		wxStaticText* StaticText5;
+-		wxStaticText* txtActualType;
+ 		wxStaticText* StaticText7;
+-		wxStaticText* txtArgs;
+-		wxStaticText* StaticText13;
+-		wxStaticText* txtIsOp;
+-		wxStaticText* StaticText15;
+-		wxStaticText* txtIsLocal;
+-		wxStaticText* StaticText32;
+-		wxStaticText* txtIsTemp;
+-		wxStaticText* StaticText19;
++		wxStaticText* txtActualType;
++		wxButton* btnGoDesc;
++		wxStaticText* txtDeclFile;
+ 		wxStaticText* txtNamespace;
+-		wxStaticText* StaticText22;
+-		wxBoxSizer* BoxSizer7;
++		wxStaticText* txtName;
++		wxStaticLine* StaticLine1;
++		wxStaticText* StaticText15;
++		wxStaticText* txtArgs;
++		wxBoxSizer* BoxSizer9;
+ 		wxStaticText* txtParent;
+-		wxButton* btnGoParent;
+-		wxStaticText* StaticText30;
+-		wxBoxSizer* BoxSizer8;
++		wxPanel* Panel2;
+ 		wxComboBox* cmbChildren;
+-		wxButton* btnGoChildren;
+-		wxStaticText* StaticText21;
+-		wxBoxSizer* BoxSizer6;
+-		wxComboBox* cmbAncestors;
+-		wxButton* btnGoAsc;
+-		wxStaticText* StaticText23;
+-		wxBoxSizer* BoxSizer5;
+-		wxComboBox* cmbDescendants;
+-		wxButton* btnGoDesc;
++		wxFlexGridSizer* FlexGridSizer1;
+ 		wxStaticText* StaticText25;
+-		wxStaticText* txtDeclFile;
+-		wxStaticText* StaticText27;
+-		wxStaticText* txtImplFile;
+-		wxStaticText* StaticText34;
+-		wxStaticText* txtUserData;
+-		wxPanel* Panel2;
++		wxComboBox* cmbDescendants;
+ 		wxBoxSizer* BoxSizer3;
++		wxStaticText* txtUserData;
++		wxStaticText* StaticText17;
++		wxStaticText* txtKind;
++		wxTextCtrl* txtFilter;
+ 		wxListBox* lstFiles;
+-		wxBoxSizer* BoxSizer9;
+-		wxListBox* lstDirs;
+-		wxStaticText* lblInfo;
+-		wxStaticLine* StaticLine2;
++		wxButton* btnFind;
++		wxStaticText* txtIsLocal;
+ 		wxStdDialogButtonSizer* StdDialogButtonSizer1;
+ 		//*)
+ 
+diff --git a/src/plugins/codecompletion/ccoptionsdlg.cpp b/src/plugins/codecompletion/ccoptionsdlg.cpp
+index 81fa2b2..6c5008b 100644
+--- a/src/plugins/codecompletion/ccoptionsdlg.cpp
++++ b/src/plugins/codecompletion/ccoptionsdlg.cpp
+@@ -28,94 +28,95 @@
+ #include <globals.h>
+ 
+ static const wxString g_SampleClasses =
+-	_T("class A_class"
+-	"{"
+-	"	public:"
+-	"		int someInt_A;"
+-	"	protected:"
+-	"		bool mSomeVar_A;"
+-	"	private:"
+-	"		char* mData_A;"
+-	"};"
+-	"class B_class"
+-	"{"
+-	"	public:"
+-	"		int someInt_B;"
+-	"	protected:"
+-	"		bool mSomeVar_B;"
+-	"	private:"
+-	"		char* mData_B;"
+-	"};"
+-	"class C_class : public A_class"
+-	"{"
+-	"	public:"
+-	"		int someInt_C;"
+-	"	protected:"
+-	"		bool mSomeVar_C;"
+-	"	private:"
+-	"		char* mData_C;"
+-	"};"
+-	"enum SomeEnum"
+-	"{"
+-	"	optOne,"
+-	"	optTwo,"
+-	"	optThree"
+-	"};"
+-	"int x;"
+-	"int y;"
+-	"#define SOME_DEFINITION\n"
+-	"#define SOME_DEFINITION_2\n\n");
++    _T("class A_class"
++    "{"
++    "    public:"
++    "        int someInt_A;"
++    "    protected:"
++    "        bool mSomeVar_A;"
++    "    private:"
++    "        char* mData_A;"
++    "};"
++    "class B_class"
++    "{"
++    "    public:"
++    "        int someInt_B;"
++    "    protected:"
++    "        bool mSomeVar_B;"
++    "    private:"
++    "        char* mData_B;"
++    "};"
++    "class C_class : public A_class"
++    "{"
++    "    public:"
++    "        int someInt_C;"
++    "    protected:"
++    "        bool mSomeVar_C;"
++    "    private:"
++    "        char* mData_C;"
++    "};"
++    "enum SomeEnum"
++    "{"
++    "    optOne,"
++    "    optTwo,"
++    "    optThree"
++    "};"
++    "int x;"
++    "int y;"
++    "#define SOME_DEFINITION\n"
++    "#define SOME_DEFINITION_2\n\n");
+ 
+ BEGIN_EVENT_TABLE(CCOptionsDlg, wxPanel)
+     EVT_UPDATE_UI(-1, CCOptionsDlg::OnUpdateUI)
+-	EVT_BUTTON(XRCID("btnAddRepl"), CCOptionsDlg::OnAddRepl)
+-	EVT_BUTTON(XRCID("btnEditRepl"), CCOptionsDlg::OnEditRepl)
+-	EVT_BUTTON(XRCID("btnDelRepl"), CCOptionsDlg::OnDelRepl)
+-	EVT_BUTTON(XRCID("btnColour"), CCOptionsDlg::OnChooseColour)
+-	EVT_COMMAND_SCROLL(XRCID("sliderDelay"), CCOptionsDlg::OnSliderScroll)
++    EVT_BUTTON(XRCID("btnAddRepl"), CCOptionsDlg::OnAddRepl)
++    EVT_BUTTON(XRCID("btnEditRepl"), CCOptionsDlg::OnEditRepl)
++    EVT_BUTTON(XRCID("btnDelRepl"), CCOptionsDlg::OnDelRepl)
++    EVT_BUTTON(XRCID("btnColour"), CCOptionsDlg::OnChooseColour)
++    EVT_COMMAND_SCROLL(XRCID("sliderDelay"), CCOptionsDlg::OnSliderScroll)
+ END_EVENT_TABLE()
+ 
+ CCOptionsDlg::CCOptionsDlg(wxWindow* parent, NativeParser* np, CodeCompletion* cc)
+-	: m_Parser(this),
+-	m_pNativeParsers(np),
+-	m_pCodeCompletion(cc)
++    : m_Parser(this),
++    m_pNativeParsers(np),
++    m_pCodeCompletion(cc)
+ {
+     ConfigManager* cfg = Manager::Get()->GetConfigManager(_T("code_completion"));
+ 
+-	wxXmlResource::Get()->LoadPanel(this, parent, _T("dlgCCSettings"));
+-
+-	XRCCTRL(*this, "chkLocals", wxCheckBox)->SetValue(m_Parser.Options().followLocalIncludes);
+-	XRCCTRL(*this, "chkGlobals", wxCheckBox)->SetValue(m_Parser.Options().followGlobalIncludes);
+-	XRCCTRL(*this, "chkPreprocessor", wxCheckBox)->SetValue(m_Parser.Options().wantPreprocessor);
+-	XRCCTRL(*this, "chkNoCC", wxCheckBox)->SetValue(!cfg->ReadBool(_T("/use_code_completion"), true));
+-	XRCCTRL(*this, "chkSimpleMode", wxCheckBox)->SetValue(!m_Parser.Options().useSmartSense);
+-	XRCCTRL(*this, "chkCaseSensitive", wxCheckBox)->SetValue(m_Parser.Options().caseSensitive);
+-	XRCCTRL(*this, "chkEvalTooltip", wxCheckBox)->SetValue(cfg->ReadBool(_T("/eval_tooltip"), true));
+-	XRCCTRL(*this, "chkAutoSelectOne", wxCheckBox)->SetValue(cfg->ReadBool(_T("/auto_select_one"), false));
+-	XRCCTRL(*this, "chkAutoLaunch", wxCheckBox)->SetValue(cfg->ReadBool(_T("/auto_launch"), true));
+-	XRCCTRL(*this, "spnAutoLaunchChars", wxSpinCtrl)->SetValue(cfg->ReadInt(_T("/auto_launch_chars"), 4));
+-	XRCCTRL(*this, "spnMaxMatches", wxSpinCtrl)->SetValue(cfg->ReadInt(_T("/max_matches"), 16384));
+-	XRCCTRL(*this, "chkInheritance", wxCheckBox)->SetValue(m_Parser.ClassBrowserOptions().showInheritance);
+-	XRCCTRL(*this, "chkExpandNS", wxCheckBox)->SetValue(m_Parser.ClassBrowserOptions().expandNS);
+-	XRCCTRL(*this, "spnThreadsNum", wxSpinCtrl)->SetValue(cfg->ReadInt(_T("/max_threads"), 1));
+-	XRCCTRL(*this, "spnThreadsNum", wxSpinCtrl)->Enable(false);
+-	XRCCTRL(*this, "chkFloatCB", wxCheckBox)->SetValue(cfg->ReadBool(_T("/as_floating_window"), false));
+-	XRCCTRL(*this, "chkNoSB", wxCheckBox)->SetValue(!cfg->ReadBool(_T("/use_symbols_browser"), true));
+-	XRCCTRL(*this, "txtFillupChars", wxTextCtrl)->SetValue(cfg->Read(_T("/fillup_chars"), wxEmptyString));
+-	
+-	XRCCTRL(*this, "chkKL_1", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set1"), true));
+-	XRCCTRL(*this, "chkKL_2", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set2"), true));
+-	XRCCTRL(*this, "chkKL_3", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set3"), false));
+-	XRCCTRL(*this, "chkKL_4", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set4"), false));
+-	XRCCTRL(*this, "chkKL_5", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set5"), false));
+-	XRCCTRL(*this, "chkKL_6", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set6"), false));
+-	XRCCTRL(*this, "chkKL_7", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set7"), false));
+-	XRCCTRL(*this, "chkKL_8", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set8"), false));
+-	XRCCTRL(*this, "chkKL_9", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set9"), false));
+-
+-	int timerDelay = cfg->ReadInt(_T("/cc_delay"), 500);
+-	XRCCTRL(*this, "sliderDelay", wxSlider)->SetValue(timerDelay / 100);
+-	UpdateSliderLabel();
++    wxXmlResource::Get()->LoadPanel(this, parent, _T("dlgCCSettings"));
++
++    XRCCTRL(*this, "chkLocals", wxCheckBox)->SetValue(m_Parser.Options().followLocalIncludes);
++    XRCCTRL(*this, "chkGlobals", wxCheckBox)->SetValue(m_Parser.Options().followGlobalIncludes);
++    XRCCTRL(*this, "chkPreprocessor", wxCheckBox)->SetValue(m_Parser.Options().wantPreprocessor);
++    XRCCTRL(*this, "chkNoCC", wxCheckBox)->SetValue(!cfg->ReadBool(_T("/use_code_completion"), true));
++    XRCCTRL(*this, "chkSimpleMode", wxCheckBox)->SetValue(!m_Parser.Options().useSmartSense);
++    XRCCTRL(*this, "chkCaseSensitive", wxCheckBox)->SetValue(m_Parser.Options().caseSensitive);
++    XRCCTRL(*this, "chkEvalTooltip", wxCheckBox)->SetValue(cfg->ReadBool(_T("/eval_tooltip"), true));
++    XRCCTRL(*this, "chkAutoSelectOne", wxCheckBox)->SetValue(cfg->ReadBool(_T("/auto_select_one"), false));
++    XRCCTRL(*this, "chkAutoLaunch", wxCheckBox)->SetValue(cfg->ReadBool(_T("/auto_launch"), true));
++    XRCCTRL(*this, "spnAutoLaunchChars", wxSpinCtrl)->SetValue(cfg->ReadInt(_T("/auto_launch_chars"), 4));
++    XRCCTRL(*this, "spnMaxMatches", wxSpinCtrl)->SetValue(cfg->ReadInt(_T("/max_matches"), 16384));
++    XRCCTRL(*this, "chkInheritance", wxCheckBox)->SetValue(m_Parser.ClassBrowserOptions().showInheritance);
++    XRCCTRL(*this, "chkExpandNS", wxCheckBox)->SetValue(m_Parser.ClassBrowserOptions().expandNS);
++    XRCCTRL(*this, "chkTreeMembers", wxCheckBox)->SetValue(m_Parser.ClassBrowserOptions().treeMembers);
++    XRCCTRL(*this, "spnThreadsNum", wxSpinCtrl)->SetValue(cfg->ReadInt(_T("/max_threads"), 1));
++    XRCCTRL(*this, "spnThreadsNum", wxSpinCtrl)->Enable(false);
++    XRCCTRL(*this, "chkFloatCB", wxCheckBox)->SetValue(cfg->ReadBool(_T("/as_floating_window"), false));
++    XRCCTRL(*this, "chkNoSB", wxCheckBox)->SetValue(!cfg->ReadBool(_T("/use_symbols_browser"), true));
++    XRCCTRL(*this, "txtFillupChars", wxTextCtrl)->SetValue(cfg->Read(_T("/fillup_chars"), wxEmptyString));
++
++    XRCCTRL(*this, "chkKL_1", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set1"), true));
++    XRCCTRL(*this, "chkKL_2", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set2"), true));
++    XRCCTRL(*this, "chkKL_3", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set3"), false));
++    XRCCTRL(*this, "chkKL_4", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set4"), false));
++    XRCCTRL(*this, "chkKL_5", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set5"), false));
++    XRCCTRL(*this, "chkKL_6", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set6"), false));
++    XRCCTRL(*this, "chkKL_7", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set7"), false));
++    XRCCTRL(*this, "chkKL_8", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set8"), false));
++    XRCCTRL(*this, "chkKL_9", wxCheckBox)->SetValue(cfg->ReadBool(_T("/lexer_keywords_set9"), false));
++
++    int timerDelay = cfg->ReadInt(_T("/cc_delay"), 500);
++    XRCCTRL(*this, "sliderDelay", wxSlider)->SetValue(timerDelay / 100);
++    UpdateSliderLabel();
+ 
+     const ConfigManagerContainer::StringToStringMap& repl = Tokenizer::GetTokenReplacementsMap();
+     ConfigManagerContainer::StringToStringMap::const_iterator it = repl.begin();
+@@ -125,8 +126,8 @@ CCOptionsDlg::CCOptionsDlg(wxWindow* parent, NativeParser* np, CodeCompletion* c
+         ++it;
+     }
+ 
+-//	m_Parser.ParseBuffer(g_SampleClasses, true);
+-//	m_Parser.BuildTree(*XRCCTRL(*this, "treeClasses", wxTreeCtrl));
++//    m_Parser.ParseBuffer(g_SampleClasses, true);
++//    m_Parser.BuildTree(*XRCCTRL(*this, "treeClasses", wxTreeCtrl));
+ }
+ 
+ CCOptionsDlg::~CCOptionsDlg()
+@@ -135,24 +136,36 @@ CCOptionsDlg::~CCOptionsDlg()
+ 
+ void CCOptionsDlg::UpdateSliderLabel()
+ {
+-	int position = XRCCTRL(*this, "sliderDelay", wxSlider)->GetValue();
+-	wxString lbl;
+-	if (position >= 10)
+-		lbl.Printf(_("%d.%d sec"), position / 10, position % 10);
+-	else
+-		lbl.Printf(_("%d ms"), position * 100);
+-	XRCCTRL(*this, "lblDelay", wxStaticText)->SetLabel(lbl);
++    int position = XRCCTRL(*this, "sliderDelay", wxSlider)->GetValue();
++    wxString lbl;
++    if (position >= 10)
++        lbl.Printf(_("%d.%d sec"), position / 10, position % 10);
++    else
++        lbl.Printf(_("%d ms"), position * 100);
++    XRCCTRL(*this, "lblDelay", wxStaticText)->SetLabel(lbl);
+ }
+ 
+ bool CCOptionsDlg::ValidateReplacementToken(wxString& from, wxString& to)
+ {
++    if (to.Trim().IsEmpty())
++    {
++        // Allow removing a token, but ask the user if that's OK.
++        if (cbMessageBox( _("This setup will replace the token with an empty string.\n"
++                            "This will *remove* the token and probably break CC for some cases.\n"
++                            "Do you really want to *remove* that token?"),
++                          _("Confirmation"),
++                          wxICON_QUESTION | wxYES_NO ) == wxID_YES)
++        {
++            return true;
++        }
++    }
+     wxRegEx re(_T("[A-Za-z_]+[0-9]*[A-Za-z_]*"));
+     from.Trim(true).Trim(false);
+     to.Trim(true).Trim(false);
+     if (!re.Matches(from) || !re.Matches(to))
+     {
+         cbMessageBox(_("Replacement tokens can only contain alphanumeric characters and underscores..."),
+-                    _("Error"), wxICON_ERROR);
++                     _("Error"), wxICON_ERROR);
+         return false;
+     }
+     return true;
+@@ -208,7 +221,7 @@ void CCOptionsDlg::OnDelRepl(wxCommandEvent& event)
+         return;
+ 
+     if (cbMessageBox(_("Are you sure you want to delete this replacement token?"),
+-                    _("Confirmation"), wxICON_QUESTION | wxYES_NO) == wxID_YES)
++                     _("Confirmation"), wxICON_QUESTION | wxYES_NO) == wxID_YES)
+     {
+         wxString key = XRCCTRL(*this, "lstRepl", wxListBox)->GetStringSelection();
+         key = key.BeforeFirst(_T(' '));
+@@ -219,22 +232,22 @@ void CCOptionsDlg::OnDelRepl(wxCommandEvent& event)
+ 
+ void CCOptionsDlg::OnChooseColour(wxCommandEvent& event)
+ {
+-	wxColourData data;
+-	wxWindow* sender = FindWindowById(event.GetId());
++    wxColourData data;
++    wxWindow* sender = FindWindowById(event.GetId());
+     data.SetColour(sender->GetBackgroundColour());
+ 
+-	wxColourDialog dlg(this, &data);
+-	PlaceWindow(&dlg);
++    wxColourDialog dlg(this, &data);
++    PlaceWindow(&dlg);
+     if (dlg.ShowModal() == wxID_OK)
+     {
+-    	wxColour colour = dlg.GetColourData().GetColour();
+-	    sender->SetBackgroundColour(colour);
++        wxColour colour = dlg.GetColourData().GetColour();
++        sender->SetBackgroundColour(colour);
+     }
+ }
+ 
+ void CCOptionsDlg::OnSliderScroll(wxScrollEvent& event)
+ {
+-	UpdateSliderLabel();
++    UpdateSliderLabel();
+ }
+ 
+ void CCOptionsDlg::OnUpdateUI(wxUpdateUIEvent& event)
+@@ -254,8 +267,8 @@ void CCOptionsDlg::OnUpdateUI(wxUpdateUIEvent& event)
+     XRCCTRL(*this, "txtFillupChars", wxTextCtrl)->Enable(en);
+ 
+     en = !XRCCTRL(*this, "chkNoSB", wxCheckBox)->GetValue();
+-	XRCCTRL(*this, "chkInheritance", wxCheckBox)->Enable(en);
+-	XRCCTRL(*this, "chkFloatCB", wxCheckBox)->Enable(en);
++    XRCCTRL(*this, "chkInheritance", wxCheckBox)->Enable(en);
++    XRCCTRL(*this, "chkFloatCB", wxCheckBox)->Enable(en);
+ 
+     int sel = XRCCTRL(*this, "lstRepl", wxListBox)->GetSelection();
+     XRCCTRL(*this, "btnEditRepl", wxButton)->Enable(sel != -1);
+@@ -267,40 +280,41 @@ void CCOptionsDlg::OnApply()
+     ConfigManager* cfg = Manager::Get()->GetConfigManager(_T("code_completion"));
+ 
+     // force parser to read its options that we write in the config
+-	cfg->Write(_T("/use_code_completion"), (bool)!XRCCTRL(*this, "chkNoCC", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/max_threads"), (int)XRCCTRL(*this, "spnThreadsNum", wxSpinCtrl)->GetValue());
++    cfg->Write(_T("/use_code_completion"), (bool)!XRCCTRL(*this, "chkNoCC", wxCheckBox)->GetValue());
++    cfg->Write(_T("/max_threads"), (int)XRCCTRL(*this, "spnThreadsNum", wxSpinCtrl)->GetValue());
+ 
+-	int timerDelay = XRCCTRL(*this, "sliderDelay", wxSlider)->GetValue() * 100;
+-	cfg->Write(_T("/cc_delay"), (int)timerDelay);
+-	m_Parser.ReadOptions();
++    int timerDelay = XRCCTRL(*this, "sliderDelay", wxSlider)->GetValue() * 100;
++    cfg->Write(_T("/cc_delay"), (int)timerDelay);
++    m_Parser.ReadOptions();
+ 
+     // set all other member options
+-	m_Parser.Options().followLocalIncludes = XRCCTRL(*this, "chkLocals", wxCheckBox)->GetValue();
+-	m_Parser.Options().followGlobalIncludes = XRCCTRL(*this, "chkGlobals", wxCheckBox)->GetValue();
+-	m_Parser.Options().wantPreprocessor = XRCCTRL(*this, "chkPreprocessor", wxCheckBox)->GetValue();
+-	cfg->Write(_T("/auto_select_one"), (bool)XRCCTRL(*this, "chkAutoSelectOne", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/auto_launch"), (bool)XRCCTRL(*this, "chkAutoLaunch", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/auto_launch_chars"), (int)XRCCTRL(*this, "spnAutoLaunchChars", wxSpinCtrl)->GetValue());
+-	cfg->Write(_T("/max_matches"), (int)XRCCTRL(*this, "spnMaxMatches", wxSpinCtrl)->GetValue());
+-	m_Parser.Options().caseSensitive = XRCCTRL(*this, "chkCaseSensitive", wxCheckBox)->GetValue();
+-	cfg->Write(_T("/eval_tooltip"), (bool)XRCCTRL(*this, "chkEvalTooltip", wxCheckBox)->GetValue());
+-	m_Parser.Options().useSmartSense = !XRCCTRL(*this, "chkSimpleMode", wxCheckBox)->GetValue();
+-
+-	cfg->Write(_T("/use_symbols_browser"), (bool)!XRCCTRL(*this, "chkNoSB", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/fillup_chars"), XRCCTRL(*this, "txtFillupChars", wxTextCtrl)->GetValue());
+-	m_Parser.ClassBrowserOptions().showInheritance = XRCCTRL(*this, "chkInheritance", wxCheckBox)->GetValue();
+-	m_Parser.ClassBrowserOptions().expandNS = XRCCTRL(*this, "chkExpandNS", wxCheckBox)->GetValue();
+-	cfg->Write(_T("/as_floating_window"), (bool)XRCCTRL(*this, "chkFloatCB", wxCheckBox)->GetValue());
+-
+-	cfg->Write(_T("/lexer_keywords_set1"), (bool)XRCCTRL(*this, "chkKL_1", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/lexer_keywords_set2"), (bool)XRCCTRL(*this, "chkKL_2", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/lexer_keywords_set3"), (bool)XRCCTRL(*this, "chkKL_3", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/lexer_keywords_set4"), (bool)XRCCTRL(*this, "chkKL_4", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/lexer_keywords_set5"), (bool)XRCCTRL(*this, "chkKL_5", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/lexer_keywords_set6"), (bool)XRCCTRL(*this, "chkKL_6", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/lexer_keywords_set7"), (bool)XRCCTRL(*this, "chkKL_7", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/lexer_keywords_set8"), (bool)XRCCTRL(*this, "chkKL_8", wxCheckBox)->GetValue());
+-	cfg->Write(_T("/lexer_keywords_set9"), (bool)XRCCTRL(*this, "chkKL_9", wxCheckBox)->GetValue());
++    m_Parser.Options().followLocalIncludes = XRCCTRL(*this, "chkLocals", wxCheckBox)->GetValue();
++    m_Parser.Options().followGlobalIncludes = XRCCTRL(*this, "chkGlobals", wxCheckBox)->GetValue();
++    m_Parser.Options().wantPreprocessor = XRCCTRL(*this, "chkPreprocessor", wxCheckBox)->GetValue();
++    cfg->Write(_T("/auto_select_one"), (bool)XRCCTRL(*this, "chkAutoSelectOne", wxCheckBox)->GetValue());
++    cfg->Write(_T("/auto_launch"), (bool)XRCCTRL(*this, "chkAutoLaunch", wxCheckBox)->GetValue());
++    cfg->Write(_T("/auto_launch_chars"), (int)XRCCTRL(*this, "spnAutoLaunchChars", wxSpinCtrl)->GetValue());
++    cfg->Write(_T("/max_matches"), (int)XRCCTRL(*this, "spnMaxMatches", wxSpinCtrl)->GetValue());
++    m_Parser.Options().caseSensitive = XRCCTRL(*this, "chkCaseSensitive", wxCheckBox)->GetValue();
++    cfg->Write(_T("/eval_tooltip"), (bool)XRCCTRL(*this, "chkEvalTooltip", wxCheckBox)->GetValue());
++    m_Parser.Options().useSmartSense = !XRCCTRL(*this, "chkSimpleMode", wxCheckBox)->GetValue();
++
++    cfg->Write(_T("/use_symbols_browser"), (bool)!XRCCTRL(*this, "chkNoSB", wxCheckBox)->GetValue());
++    cfg->Write(_T("/fillup_chars"), XRCCTRL(*this, "txtFillupChars", wxTextCtrl)->GetValue());
++    m_Parser.ClassBrowserOptions().showInheritance = XRCCTRL(*this, "chkInheritance", wxCheckBox)->GetValue();
++    m_Parser.ClassBrowserOptions().expandNS = XRCCTRL(*this, "chkExpandNS", wxCheckBox)->GetValue();
++    m_Parser.ClassBrowserOptions().treeMembers = XRCCTRL(*this, "chkTreeMembers", wxCheckBox)->GetValue();
++    cfg->Write(_T("/as_floating_window"), (bool)XRCCTRL(*this, "chkFloatCB", wxCheckBox)->GetValue());
++
++    cfg->Write(_T("/lexer_keywords_set1"), (bool)XRCCTRL(*this, "chkKL_1", wxCheckBox)->GetValue());
++    cfg->Write(_T("/lexer_keywords_set2"), (bool)XRCCTRL(*this, "chkKL_2", wxCheckBox)->GetValue());
++    cfg->Write(_T("/lexer_keywords_set3"), (bool)XRCCTRL(*this, "chkKL_3", wxCheckBox)->GetValue());
++    cfg->Write(_T("/lexer_keywords_set4"), (bool)XRCCTRL(*this, "chkKL_4", wxCheckBox)->GetValue());
++    cfg->Write(_T("/lexer_keywords_set5"), (bool)XRCCTRL(*this, "chkKL_5", wxCheckBox)->GetValue());
++    cfg->Write(_T("/lexer_keywords_set6"), (bool)XRCCTRL(*this, "chkKL_6", wxCheckBox)->GetValue());
++    cfg->Write(_T("/lexer_keywords_set7"), (bool)XRCCTRL(*this, "chkKL_7", wxCheckBox)->GetValue());
++    cfg->Write(_T("/lexer_keywords_set8"), (bool)XRCCTRL(*this, "chkKL_8", wxCheckBox)->GetValue());
++    cfg->Write(_T("/lexer_keywords_set9"), (bool)XRCCTRL(*this, "chkKL_9", wxCheckBox)->GetValue());
+ 
+     m_Parser.WriteOptions();
+     m_pNativeParsers->RereadParserOptions();
+diff --git a/src/plugins/codecompletion/classbrowser.cpp b/src/plugins/codecompletion/classbrowser.cpp
+index 0925968..39ffd21 100644
+--- a/src/plugins/codecompletion/classbrowser.cpp
++++ b/src/plugins/codecompletion/classbrowser.cpp
+@@ -48,12 +48,16 @@ int idCBViewModeFlat = wxNewId();
+ int idCBViewModeStructured = wxNewId();
+ int idMenuForceReparse = wxNewId();
+ int idMenuDebugSmartSense = wxNewId();
++int idCBSortByAlpabet = wxNewId();
++int idCBSortByKind = wxNewId();
++int idCBSortByScope = wxNewId();
++int idCBBottomTree = wxNewId();
+ 
+ BEGIN_EVENT_TABLE(ClassBrowser, wxPanel)
+-	EVT_TREE_ITEM_ACTIVATED(XRCID("treeMembers"), ClassBrowser::OnTreeItemDoubleClick)
++    EVT_TREE_ITEM_ACTIVATED(XRCID("treeMembers"), ClassBrowser::OnTreeItemDoubleClick)
+     EVT_TREE_ITEM_RIGHT_CLICK(XRCID("treeMembers"), ClassBrowser::OnTreeItemRightClick)
+ 
+-	EVT_TREE_ITEM_ACTIVATED(XRCID("treeAll"), ClassBrowser::OnTreeItemDoubleClick)
++    EVT_TREE_ITEM_ACTIVATED(XRCID("treeAll"), ClassBrowser::OnTreeItemDoubleClick)
+     EVT_TREE_ITEM_RIGHT_CLICK(XRCID("treeAll"), ClassBrowser::OnTreeItemRightClick)
+     EVT_TREE_ITEM_EXPANDING(XRCID("treeAll"), ClassBrowser::OnTreeItemExpanding)
+     EVT_TREE_ITEM_COLLAPSING(XRCID("treeAll"), ClassBrowser::OnTreeItemCollapsing)
+@@ -70,28 +74,34 @@ BEGIN_EVENT_TABLE(ClassBrowser, wxPanel)
+     EVT_MENU(idCBExpandNS, ClassBrowser::OnCBExpandNS)
+     EVT_MENU(idCBViewModeFlat, ClassBrowser::OnCBViewMode)
+     EVT_MENU(idMenuDebugSmartSense, ClassBrowser::OnDebugSmartSense)
++    EVT_MENU(idCBSortByAlpabet, ClassBrowser::OnSetSortType)
++    EVT_MENU(idCBSortByKind, ClassBrowser::OnSetSortType)
++    EVT_MENU(idCBSortByScope, ClassBrowser::OnSetSortType)
++    EVT_MENU(idCBBottomTree, ClassBrowser::OnCBViewMode)
+     EVT_CHOICE(XRCID("cmbView"), ClassBrowser::OnViewScope)
+     EVT_BUTTON(XRCID("btnSearch"), ClassBrowser::OnSearch)
++
+ END_EVENT_TABLE()
+ 
+ // class constructor
+ ClassBrowser::ClassBrowser(wxWindow* parent, NativeParser* np)
+     : m_NativeParser(np),
+     m_TreeForPopupMenu(0),
+-	m_pParser(0L),
+-	m_pActiveProject(0),
+-	m_Semaphore(0, 1),
+-	m_pBuilderThread(0)
++    m_pParser(0L),
++    m_pActiveProject(0),
++    m_Semaphore(0, 1),
++    m_pBuilderThread(0)
+ {
+     ConfigManager* cfg = Manager::Get()->GetConfigManager(_T("code_completion"));
+ 
+-	wxXmlResource::Get()->LoadPanel(this, parent, _T("pnlCB"));
++    wxXmlResource::Get()->LoadPanel(this, parent, _T("pnlCB"));
+     m_Search = XRCCTRL(*this, "cmbSearch", wxComboBox);
+ 
+     if (platform::windows)
+-		m_Search->SetWindowStyle(wxTE_PROCESS_ENTER); // it's a must on windows to catch EVT_TEXT_ENTER
++        m_Search->SetWindowStyle(wxTE_PROCESS_ENTER); // it's a must on windows to catch EVT_TEXT_ENTER
+ 
+-	m_Tree = XRCCTRL(*this, "treeAll", wxTreeCtrl);
++    m_Tree = XRCCTRL(*this, "treeAll", wxTreeCtrl);
++    m_TreeBottom = XRCCTRL(*this, "treeMembers", wxTreeCtrl);
+ 
+     int filter = cfg->ReadInt(_T("/browser_display_filter"), bdfWorkspace);
+     XRCCTRL(*this, "cmbView", wxChoice)->SetSelection(filter);
+@@ -123,17 +133,17 @@ ClassBrowser::~ClassBrowser()
+ 
+ void ClassBrowser::SetParser(Parser* parser)
+ {
+-	if (parser != m_pParser || m_pParser->ClassBrowserOptions().displayFilter == bdfProject)
+-	{
+-		UnlinkParser();
+-		if(parser)
+-		{
++    if (parser != m_pParser || m_pParser->ClassBrowserOptions().displayFilter == bdfProject)
++    {
++        UnlinkParser();
++        if(parser)
++        {
+ //            parser->AbortBuildingTree();
+             parser->m_pClassBrowser = this;
+             m_pParser = parser;
+             UpdateView();
+-		}
+-	}
++        }
++    }
+ }
+ 
+ void ClassBrowser::UnlinkParser()
+@@ -153,23 +163,37 @@ void ClassBrowser::UpdateView()
+ {
+     m_pActiveProject = 0;
+     m_ActiveFilename.Clear();
+-	if (m_pParser && !Manager::IsAppShuttingDown())
+-	{
+-	    m_pActiveProject = Manager::Get()->GetProjectManager()->GetActiveProject();
+-	    cbEditor* ed = Manager::Get()->GetEditorManager()->GetBuiltinActiveEditor();
+-	    if (ed)
+-	    {
++    if (m_pParser && !Manager::IsAppShuttingDown())
++    {
++        m_pActiveProject = Manager::Get()->GetProjectManager()->GetActiveProject();
++        cbEditor* ed = Manager::Get()->GetEditorManager()->GetBuiltinActiveEditor();
++        if (ed)
++        {
+             //m_ActiveFilename = ed->GetFilename().BeforeLast(_T('.'));
+             // the above line is a bug (see https://developer.berlios.de/patch/index.php?func=detailpatch&patch_id=1559&group_id=5358)
+             m_ActiveFilename = ed->GetFilename().AfterLast(wxFILE_SEP_PATH);
+             m_ActiveFilename = ed->GetFilename().BeforeLast(wxFILE_SEP_PATH) + wxFILE_SEP_PATH + m_ActiveFilename.BeforeLast(_T('.'));
+ 
+             m_ActiveFilename.Append(_T('.'));
+-	    }
+-		BuildTree();
+-	}
+-	else
+-		m_Tree->DeleteAllItems();
++        }
++
++        BuildTree();
++
++        wxSplitterWindow* splitter = XRCCTRL(*this, "splitterWin", wxSplitterWindow);
++        if (m_pParser->ClassBrowserOptions().treeMembers)
++        {
++            splitter->SplitHorizontally(m_Tree, m_TreeBottom);
++            m_TreeBottom->Show(true);
++        }
++        else
++        {
++            splitter->Unsplit();
++            m_TreeBottom->Show(false);
++        }
++
++    }
++    else
++        m_Tree->DeleteAllItems();
+ }
+ 
+ void ClassBrowser::ShowMenu(wxTreeCtrl* tree, wxTreeItemId id, const wxPoint& pt)
+@@ -187,10 +211,10 @@ void ClassBrowser::ShowMenu(wxTreeCtrl* tree, wxTreeItemId id, const wxPoint& pt
+         return;
+ 
+ #if wxUSE_MENUS
+-	wxString caption;
++    wxString caption;
+     wxMenu *menu=new wxMenu(wxEmptyString);
+ 
+-	CBTreeData* ctd = (CBTreeData*)tree->GetItemData(id);
++    CBTreeData* ctd = (CBTreeData*)tree->GetItemData(id);
+     if (ctd && ctd->m_pToken)
+     {
+         switch (ctd->m_pToken->m_TokenKind)
+@@ -206,6 +230,7 @@ void ClassBrowser::ShowMenu(wxTreeCtrl* tree, wxTreeItemId id, const wxPoint& pt
+         }
+     }
+ 
++    const BrowserOptions& options = m_pParser->ClassBrowserOptions();
+     if (tree == m_Tree)
+     {
+         // only in top tree
+@@ -229,12 +254,37 @@ void ClassBrowser::ShowMenu(wxTreeCtrl* tree, wxTreeItemId id, const wxPoint& pt
+             menu->Check(idMenuDebugSmartSense, s_DebugSmartSense);
+         }
+ 
+-        menu->Check(idCBViewInheritance, m_pParser ? m_pParser->ClassBrowserOptions().showInheritance : false);
+-        menu->Check(idCBExpandNS, m_pParser ? m_pParser->ClassBrowserOptions().expandNS : false);
++        menu->Check(idCBViewInheritance, m_pParser ? options.showInheritance : false);
++        menu->Check(idCBExpandNS, m_pParser ? options.expandNS : false);
+     }
+ 
++    menu->AppendSeparator();
++    menu->AppendCheckItem(idCBSortByAlpabet, _("Sort alphabetically"));
++    menu->AppendCheckItem(idCBSortByKind, _("Sort by kind"));
++    menu->AppendCheckItem(idCBSortByScope, _("Sort by access"));
++
++    const BrowserSortType& bst = options.sortType;
++    switch (bst)
++    {
++        case bstAlphabet:
++            menu->Check(idCBSortByAlpabet, true);
++            break;
++        case bstKind:
++            menu->Check(idCBSortByKind, true);
++            break;
++        case bstScope:
++        default:
++            menu->Check(idCBSortByScope, true);
++            break;
++    }
++
++    menu->AppendSeparator();
++    menu->AppendCheckItem(idCBBottomTree, _("Display bottom tree"));
++    menu->Check(idCBBottomTree, options.treeMembers);
++
+     if (menu->GetMenuItemCount() != 0)
+         PopupMenu(menu);
++
+     delete menu; // Prevents memory leak
+ #endif // wxUSE_MENUS
+ }
+@@ -271,26 +321,26 @@ wxTreeItemId ClassBrowser::FindNext(const wxString& search, wxTreeCtrl* tree, co
+ 
+ wxTreeItemId ClassBrowser::FindChild(const wxString& search, wxTreeCtrl* tree, const wxTreeItemId& start, bool recurse, bool partialMatch)
+ {
+-	wxTreeItemIdValue cookie;
+-	wxTreeItemId res = tree->GetFirstChild(start, cookie);
+-	while (res.IsOk())
+-	{
+-		wxString text = tree->GetItemText(res);
+-		if ((!partialMatch && text == search) ||
+-			(partialMatch && text.StartsWith(search)))
+-		{
+-			return res;
+-		}
+-		if (recurse && tree->ItemHasChildren(res))
+-		{
+-			res = FindChild(search, tree, res, true, partialMatch);
+-			if (res.IsOk())
+-				return res;
+-		}
+-		res = m_Tree->GetNextChild(start, cookie);
+-	}
+-	res.Unset();
+-	return res;
++    wxTreeItemIdValue cookie;
++    wxTreeItemId res = tree->GetFirstChild(start, cookie);
++    while (res.IsOk())
++    {
++        wxString text = tree->GetItemText(res);
++        if ((!partialMatch && text == search) ||
++            (partialMatch && text.StartsWith(search)))
++        {
++            return res;
++        }
++        if (recurse && tree->ItemHasChildren(res))
++        {
++            res = FindChild(search, tree, res, true, partialMatch);
++            if (res.IsOk())
++                return res;
++        }
++        res = m_Tree->GetNextChild(start, cookie);
++    }
++    res.Unset();
++    return res;
+ }
+ 
+ bool ClassBrowser::RecursiveSearch(const wxString& search, wxTreeCtrl* tree, const wxTreeItemId& parent, wxTreeItemId& result)
+@@ -311,9 +361,9 @@ bool ClassBrowser::RecursiveSearch(const wxString& search, wxTreeCtrl* tree, con
+     if (!child.IsOk())
+         return RecursiveSearch(search, tree, FindNext(search, tree, parent), result);
+ 
+-	while (child.IsOk())
+-	{
+-	    if (FoundMatch(search, tree, child))
++    while (child.IsOk())
++    {
++        if (FoundMatch(search, tree, child))
+         {
+             result = child;
+             return true;
+@@ -324,7 +374,7 @@ bool ClassBrowser::RecursiveSearch(const wxString& search, wxTreeCtrl* tree, con
+                 return true;
+         }
+         child = tree->GetNextChild(parent, cookie);
+-	}
++    }
+ 
+     return RecursiveSearch(search, tree, FindNext(search, tree, parent), result);
+ }
+@@ -334,15 +384,15 @@ bool ClassBrowser::RecursiveSearch(const wxString& search, wxTreeCtrl* tree, con
+ void ClassBrowser::OnTreeItemRightClick(wxTreeEvent& event)
+ {
+     wxTreeCtrl* tree = (wxTreeCtrl*)event.GetEventObject();
+-	tree->SelectItem(event.GetItem());
++    tree->SelectItem(event.GetItem());
+     ShowMenu(tree, event.GetItem(), event.GetPoint());// + tree->GetPosition());
+ }
+ 
+ void ClassBrowser::OnJumpTo(wxCommandEvent& event)
+ {
+     wxTreeCtrl* tree = m_TreeForPopupMenu;
+-	wxTreeItemId id = tree->GetSelection();
+-	CBTreeData* ctd = (CBTreeData*)tree->GetItemData(id);
++    wxTreeItemId id = tree->GetSelection();
++    CBTreeData* ctd = (CBTreeData*)tree->GetItemData(id);
+     if (ctd)
+     {
+         cbProject* prj = Manager::Get()->GetProjectManager()->GetActiveProject();
+@@ -355,26 +405,26 @@ void ClassBrowser::OnJumpTo(wxCommandEvent& event)
+             else
+                 fname.Assign(ctd->m_pToken->GetFilename());
+             NormalizePath(fname,base);
+-        	cbEditor* ed = Manager::Get()->GetEditorManager()->Open(fname.GetFullPath());
+-			if (ed)
+-			{
++            cbEditor* ed = Manager::Get()->GetEditorManager()->Open(fname.GetFullPath());
++            if (ed)
++            {
+                 int line;
+                 if (event.GetId() == idMenuJumpToImplementation)
+                     line = ctd->m_pToken->m_ImplLine - 1;
+                 else
+                     line = ctd->m_pToken->m_Line - 1;
+-				ed->GotoLine(line);
+-//				// try to move the caret on the exact token
+-//				int lineOffset = ed->GetControl()->GetCurLine().Find(ctd->m_pToken->m_Name);
+-//				if (lineOffset != wxNOT_FOUND)
+-//				{
++                ed->GotoLine(line);
++//                // try to move the caret on the exact token
++//                int lineOffset = ed->GetControl()->GetCurLine().Find(ctd->m_pToken->m_Name);
++//                if (lineOffset != wxNOT_FOUND)
++//                {
+ //                    int pos = ed->GetControl()->PositionFromLine(line) + lineOffset;
+ //                    ed->GetControl()->GotoPos(pos);
+ //                    // select the token
+ //                    int posend = ed->GetControl()->WordEndPosition(pos, true);
+ //                    ed->GetControl()->SetSelection(pos, posend);
+-//				}
+-			}
++//                }
++            }
+         }
+     }
+ }
+@@ -382,8 +432,8 @@ void ClassBrowser::OnJumpTo(wxCommandEvent& event)
+ void ClassBrowser::OnTreeItemDoubleClick(wxTreeEvent& event)
+ {
+     wxTreeCtrl* tree = (wxTreeCtrl*)event.GetEventObject();
+-	wxTreeItemId id = event.GetItem();
+-	CBTreeData* ctd = (CBTreeData*)tree->GetItemData(id);
++    wxTreeItemId id = event.GetItem();
++    CBTreeData* ctd = (CBTreeData*)tree->GetItemData(id);
+     if (ctd && ctd->m_pToken)
+     {
+         if (wxGetKeyState(WXK_CONTROL) && wxGetKeyState(WXK_SHIFT))
+@@ -396,18 +446,18 @@ void ClassBrowser::OnTreeItemDoubleClick(wxTreeEvent& event)
+         cbProject* prj = Manager::Get()->GetProjectManager()->GetActiveProject();
+         if (prj)
+         {
+-			bool toImp = false;
+-			switch (ctd->m_pToken->m_TokenKind)
+-			{
+-			case tkConstructor:
++            bool toImp = false;
++            switch (ctd->m_pToken->m_TokenKind)
++            {
++            case tkConstructor:
+             case tkDestructor:
+             case tkFunction:
+                 if (ctd->m_pToken->m_ImplLine != 0 && !ctd->m_pToken->GetImplFilename().IsEmpty())
+                     toImp = true;
+-				break;
+-			default:
+-				break;
+-			}
++                break;
++            default:
++                break;
++            }
+ 
+             wxString base = prj->GetBasePath();
+             wxFileName fname;
+@@ -417,41 +467,41 @@ void ClassBrowser::OnTreeItemDoubleClick(wxTreeEvent& event)
+                 fname.Assign(ctd->m_pToken->GetFilename());
+ 
+             NormalizePath(fname, base);
+-        	cbEditor* ed = Manager::Get()->GetEditorManager()->Open(fname.GetFullPath());
+-			if (ed)
+-			{
+-				int line;
++            cbEditor* ed = Manager::Get()->GetEditorManager()->Open(fname.GetFullPath());
++            if (ed)
++            {
++                int line;
+                 if (toImp)
+                     line = ctd->m_pToken->m_ImplLine - 1;
+                 else
+                     line = ctd->m_pToken->m_Line - 1;
+-				ed->GotoLine(line);
+-//				// try to move the caret on the exact token
+-//				int lineOffset = ed->GetControl()->GetCurLine().Find(ctd->m_pToken->m_Name);
+-//				if (lineOffset != wxNOT_FOUND)
+-//				{
++                ed->GotoLine(line);
++//                // try to move the caret on the exact token
++//                int lineOffset = ed->GetControl()->GetCurLine().Find(ctd->m_pToken->m_Name);
++//                if (lineOffset != wxNOT_FOUND)
++//                {
+ //                    int pos = ed->GetControl()->PositionFromLine(line) + lineOffset;
+ //                    ed->GetControl()->GotoPos(pos);
+ //                    // select the token
+ //                    int posend = ed->GetControl()->WordEndPosition(pos, true);
+ //                    ed->GetControl()->SetSelection(pos, posend);
+-//				}
++//                }
+ 
+-				wxFocusEvent ev(wxEVT_SET_FOCUS);
+-				ev.SetWindow(this);
++                wxFocusEvent ev(wxEVT_SET_FOCUS);
++                ev.SetWindow(this);
+ 				#if wxCHECK_VERSION(2, 9, 0)
+ 				ed->GetControl()->GetEventHandler()->AddPendingEvent(ev);
+ 				#else
+-				ed->GetControl()->AddPendingEvent(ev);
++                ed->GetControl()->AddPendingEvent(ev);
+ 				#endif
+-			}
++            }
+         }
+     }
+ }
+ 
+ void ClassBrowser::OnRefreshTree(wxCommandEvent& event)
+ {
+-	UpdateView();
++    UpdateView();
+ }
+ 
+ void ClassBrowser::OnForceReparse(wxCommandEvent& event)
+@@ -462,41 +512,47 @@ void ClassBrowser::OnForceReparse(wxCommandEvent& event)
+ 
+ void ClassBrowser::OnCBViewMode(wxCommandEvent& event)
+ {
+-	if (!m_pParser)
+-		return;
++    if (!m_pParser)
++        return;
+ 
+-	if (event.GetId() == idCBViewInheritance)
+-		m_pParser->ClassBrowserOptions().showInheritance = event.IsChecked();
++    BrowserOptions& options = m_pParser->ClassBrowserOptions();
+ 
+-	m_pParser->WriteOptions();
+-	UpdateView();
++    if (event.GetId() == idCBViewInheritance)
++        options.showInheritance = event.IsChecked();
++    if (event.GetId() == idCBExpandNS)
++        options.expandNS = event.IsChecked();
++    if (event.GetId() == idCBBottomTree)
++        options.treeMembers = event.IsChecked();
++
++    m_pParser->WriteOptions();
++    UpdateView();
+ }
+ 
+ void ClassBrowser::OnCBExpandNS(wxCommandEvent& event)
+ {
+-	if (!m_pParser)
+-		return;
++    if (!m_pParser)
++        return;
+ 
+-	if (event.GetId() == idCBExpandNS)
+-		m_pParser->ClassBrowserOptions().expandNS = event.IsChecked();
++    if (event.GetId() == idCBExpandNS)
++        m_pParser->ClassBrowserOptions().expandNS = event.IsChecked();
+ 
+-	m_pParser->WriteOptions();
+-	UpdateView();
++    m_pParser->WriteOptions();
++    UpdateView();
+ }
+ 
+ void ClassBrowser::OnViewScope(wxCommandEvent& event)
+ {
+-	if (m_pParser)
+-	{
+-		m_pParser->ClassBrowserOptions().displayFilter = (BrowserDisplayFilter)event.GetSelection();
+-		m_pParser->WriteOptions();
++    if (m_pParser)
++    {
++        m_pParser->ClassBrowserOptions().displayFilter = (BrowserDisplayFilter)event.GetSelection();
++        m_pParser->WriteOptions();
+         UpdateView();
+-	}
+-	else
+-	{
+-	    // we have no parser; just write the setting in the configuration
++    }
++    else
++    {
++        // we have no parser; just write the setting in the configuration
+         Manager::Get()->GetConfigManager(_T("code_completion"))->Write(_T("/browser_display_filter"), (int)event.GetSelection());
+-	}
++    }
+ }
+ 
+ void ClassBrowser::OnDebugSmartSense(wxCommandEvent& event)
+@@ -504,26 +560,43 @@ void ClassBrowser::OnDebugSmartSense(wxCommandEvent& event)
+     s_DebugSmartSense = !s_DebugSmartSense;
+ }
+ 
++void ClassBrowser::OnSetSortType(wxCommandEvent& event)
++{
++    BrowserSortType bst;
++    if (event.GetId() == idCBSortByAlpabet) bst = bstAlphabet;
++    else if (event.GetId() == idCBSortByKind) bst = bstKind;
++    else bst = bstScope;
++
++    if (m_pParser)
++    {
++        m_pParser->ClassBrowserOptions().sortType = bst;
++        m_pParser->WriteOptions();
++        UpdateView();
++    }
++    else
++        Manager::Get()->GetConfigManager(_T("code_completion"))->Write(_T("/browser_sort_type"), (int)bst);
++}
++
+ void ClassBrowser::OnSearch(wxCommandEvent& event)
+ {
+-	wxString search = m_Search->GetValue();
+-	if (search.IsEmpty())
+-		return;
++    wxString search = m_Search->GetValue();
++    if (search.IsEmpty())
++        return;
+ 
+-	Token* token = 0;
+-	TokenIdxSet result;
++    Token* token = 0;
++    TokenIdxSet result;
+     size_t count = m_pParser->GetTokens()->FindMatches(search, result, false, true);
+-	if (count == 0)
+-	{
+-		cbMessageBox(_("No matches were found: ") + search, _("Search failed"));
+-		return;
+-	}
+-	else if (count == 1)
+-	{
+-		token = m_pParser->GetTokens()->at(*result.begin());
+-	}
+-	else if (count > 1)
+-	{
++    if (count == 0)
++    {
++        cbMessageBox(_("No matches were found: ") + search, _("Search failed"));
++        return;
++    }
++    else if (count == 1)
++    {
++        token = m_pParser->GetTokens()->at(*result.begin());
++    }
++    else if (count > 1)
++    {
+         wxArrayString selections;
+         wxArrayInt int_selections;
+         for (TokenIdxSet::iterator it = result.begin(); it != result.end(); ++it)
+@@ -531,8 +604,8 @@ void ClassBrowser::OnSearch(wxCommandEvent& event)
+             Token* sel = m_pParser->GetTokens()->at(*it);
+             if (sel)
+             {
+-				selections.Add(sel->DisplayName());
+-				int_selections.Add(*it);
++                selections.Add(sel->DisplayName());
++                int_selections.Add(*it);
+             }
+         }
+         if (selections.GetCount() > 1)
+@@ -547,71 +620,70 @@ void ClassBrowser::OnSearch(wxCommandEvent& event)
+             // back on 1 entry no need to show a selection
+             token = m_pParser->GetTokens()->at(int_selections[0]);
+         }
+-	}
+-
+-	// time to "walk" the tree
+-	if (token)
+-	{
+-		// store the search in the combobox
+-		if (m_Search->FindString(token->m_Name) == wxNOT_FOUND)
+-			m_Search->Append(token->m_Name);
+-
+-		wxTreeCtrl* bottomTree = XRCCTRL(*this, "treeMembers", wxTreeCtrl);
+-		if (token->m_ParentIndex == -1 && !(token->m_TokenKind & tkAnyContainer))
+-		{
+-			// a global non-container: search in special folders only
+-			wxTreeItemIdValue cookie;
+-			wxTreeItemId res = m_Tree->GetFirstChild(m_Tree->GetRootItem(), cookie);
+-			while (res.IsOk())
+-			{
+-				CBTreeData* data = (CBTreeData*)m_Tree->GetItemData(res);
+-				if (data && (data->m_SpecialFolder & (sfGFuncs | sfGVars | sfPreproc | sfTypedef)))
+-				{
+-					m_Tree->SelectItem(res);
+-					wxTreeItemId srch = FindChild(token->m_Name, bottomTree, bottomTree->GetRootItem(), false, true);
+-					if (srch.IsOk())
+-					{
+-						bottomTree->SelectItem(srch);
+-						return;
+-					}
+-				}
+-				res = m_Tree->GetNextChild(m_Tree->GetRootItem(), cookie);
+-			}
+-			return;
+-		}
+-
+-		// example:
+-		//   search="cou"
+-		//   token->GetNamespace()="std::"
+-		//   token->m_Name="cout"
+-		wxTreeItemId start = m_Tree->GetRootItem();
+-		wxStringTokenizer tkz(token->GetNamespace(), _T(":"));
+-		while (tkz.HasMoreTokens())
+-		{
+-			wxString part = tkz.GetNextToken();
+-			if (!part.IsEmpty())
+-			{
+-				m_Tree->Expand(start);
+-				wxTreeItemId res = FindChild(part, m_Tree, start);
+-				if (!res.IsOk())
+-					break;
+-				start = res;
+-			}
+-		}
+-		// now the actual token
+-		m_Tree->Expand(start);
+-		m_Tree->SelectItem(start);
+-		wxTreeItemId res = FindChild(token->m_Name, m_Tree, start);
+-		if (res.IsOk())
+-			m_Tree->SelectItem(res);
+-		else
+-		{
+-			// search in bottom tree too
+-			wxTreeItemId res = FindChild(token->m_Name, bottomTree, bottomTree->GetRootItem(), true, true);
+-			if (res.IsOk())
+-				bottomTree->SelectItem(res);
+-		}
+-	}
++    }
++
++    // time to "walk" the tree
++    if (token)
++    {
++        // store the search in the combobox
++        if (m_Search->FindString(token->m_Name) == wxNOT_FOUND)
++            m_Search->Append(token->m_Name);
++
++        if (token->m_ParentIndex == -1 && !(token->m_TokenKind & tkAnyContainer))
++        {
++            // a global non-container: search in special folders only
++            wxTreeItemIdValue cookie;
++            wxTreeItemId res = m_Tree->GetFirstChild(m_Tree->GetRootItem(), cookie);
++            while (res.IsOk())
++            {
++                CBTreeData* data = (CBTreeData*)m_Tree->GetItemData(res);
++                if (data && (data->m_SpecialFolder & (sfGFuncs | sfGVars | sfPreproc | sfTypedef)))
++                {
++                    m_Tree->SelectItem(res);
++                    wxTreeItemId srch = FindChild(token->m_Name, m_TreeBottom, m_TreeBottom->GetRootItem(), false, true);
++                    if (srch.IsOk())
++                    {
++                        m_TreeBottom->SelectItem(srch);
++                        return;
++                    }
++                }
++                res = m_Tree->GetNextChild(m_Tree->GetRootItem(), cookie);
++            }
++            return;
++        }
++
++        // example:
++        //   search="cou"
++        //   token->GetNamespace()="std::"
++        //   token->m_Name="cout"
++        wxTreeItemId start = m_Tree->GetRootItem();
++        wxStringTokenizer tkz(token->GetNamespace(), _T(":"));
++        while (tkz.HasMoreTokens())
++        {
++            wxString part = tkz.GetNextToken();
++            if (!part.IsEmpty())
++            {
++                m_Tree->Expand(start);
++                wxTreeItemId res = FindChild(part, m_Tree, start);
++                if (!res.IsOk())
++                    break;
++                start = res;
++            }
++        }
++        // now the actual token
++        m_Tree->Expand(start);
++        m_Tree->SelectItem(start);
++        wxTreeItemId res = FindChild(token->m_Name, m_Tree, start);
++        if (res.IsOk())
++            m_Tree->SelectItem(res);
++        else
++        {
++            // search in bottom tree too
++            wxTreeItemId res = FindChild(token->m_Name, m_TreeBottom, m_TreeBottom->GetRootItem(), true, true);
++            if (res.IsOk())
++                m_TreeBottom->SelectItem(res);
++        }
++    }
+ }
+ 
+ void ClassBrowser::BuildTree()
+@@ -619,7 +691,8 @@ void ClassBrowser::BuildTree()
+     if (Manager::IsAppShuttingDown())
+         return;
+ 
+-    bool created_builderthread = false;
++    // tree shall only be  created in case of a new builder thread
++    bool create_tree = false;
+ 
+     // create the thread if needed
+     if (!m_pBuilderThread)
+@@ -627,28 +700,25 @@ void ClassBrowser::BuildTree()
+         m_pBuilderThread = new ClassBrowserBuilderThread(m_Semaphore, &m_pBuilderThread);
+         m_pBuilderThread->Create();
+         m_pBuilderThread->Run();
+-#ifdef __WXMSW__
+-        // workaround only needed for windows (DDE server issue)
+-        created_builderthread = true;
+-#endif
++        create_tree = true; // new builder thread - need to create new tree
+     }
+ 
+     // initialise it
+     m_pBuilderThread->Init(m_pParser,
+                             m_Tree,
+-                            XRCCTRL(*this, "treeMembers", wxTreeCtrl),
++                            m_TreeBottom,
+                             m_ActiveFilename,
+                             m_pActiveProject,
+                             m_pParser->ClassBrowserOptions(),
+                             m_pParser->GetTokens(),
+-                            created_builderthread);
++                            create_tree);
+ 
+     // and launch it
+-    if (!created_builderthread)
++    if (!create_tree)
+     {
+         m_Semaphore.Post();
+     }
+-} // end of BuildTree
++}
+ 
+ void ClassBrowser::OnTreeItemExpanding(wxTreeEvent& event)
+ {
+@@ -666,7 +736,7 @@ void ClassBrowser::OnTreeItemCollapsing(wxTreeEvent& event)
+ 
+ void ClassBrowser::OnTreeItemSelected(wxTreeEvent& event)
+ {
+-    if (m_pBuilderThread)
++    if (m_pBuilderThread && m_pParser->ClassBrowserOptions().treeMembers)
+         m_pBuilderThread->SelectItem(event.GetItem());
+     event.Allow();
+ }
+diff --git a/src/plugins/codecompletion/classbrowser.h b/src/plugins/codecompletion/classbrowser.h
+index f780c9f..2e7dd83 100644
+--- a/src/plugins/codecompletion/classbrowser.h
++++ b/src/plugins/codecompletion/classbrowser.h
+@@ -36,6 +36,8 @@ class ClassBrowser : public wxPanel
+         const Parser* GetParserPtr() { return m_pParser; }
+         void UnlinkParser();
+         void UpdateView();
++
++        void OnSize(wxSizeEvent& event);
+     private:
+         friend class myTextCtrl;
+         void OnTreeItemDoubleClick(wxTreeEvent& event);
+@@ -44,9 +46,10 @@ class ClassBrowser : public wxPanel
+         void OnRefreshTree(wxCommandEvent& event);
+         void OnForceReparse(wxCommandEvent& event);
+         void OnCBViewMode(wxCommandEvent& event);
+-		void OnCBExpandNS(wxCommandEvent& event);
++        void OnCBExpandNS(wxCommandEvent& event);
+         void OnViewScope(wxCommandEvent& event);
+         void OnDebugSmartSense(wxCommandEvent& event);
++        void OnSetSortType(wxCommandEvent& event);
+ 
+         void OnSearch(wxCommandEvent& event);
+         bool FoundMatch(const wxString& search, wxTreeCtrl* tree, const wxTreeItemId& item);
+@@ -64,6 +67,7 @@ class ClassBrowser : public wxPanel
+ 
+         NativeParser* m_NativeParser;
+         wxTreeCtrl* m_Tree;
++        wxTreeCtrl* m_TreeBottom;
+         wxComboBox* m_Search;
+         wxTreeCtrl* m_TreeForPopupMenu;
+         Parser* m_pParser;
+diff --git a/src/plugins/codecompletion/classbrowserbuilderthread.h b/src/plugins/codecompletion/classbrowserbuilderthread.h
+index 5b6b7f9..932b694 100644
+--- a/src/plugins/codecompletion/classbrowserbuilderthread.h
++++ b/src/plugins/codecompletion/classbrowserbuilderthread.h
+@@ -48,6 +48,55 @@ class CBTreeData : public wxTreeItemData
+         unsigned long m_Ticket;
+ };
+ 
++class CBExpandedItemData
++{
++	public:
++		CBExpandedItemData(const CBTreeData* data, const int level):
++			m_Data(*data),
++			m_Level(level)
++		{
++		}
++		int GetLevel() const { return m_Level; }
++		const CBTreeData& GetData() { return m_Data; }
++	private:
++		CBTreeData m_Data;	// copy of tree item data
++		int m_Level; 		// nesting level in the tree
++};
++
++class CBTreeDataCompare
++{
++	public:
++		virtual ~CBTreeDataCompare() {}
++		virtual int operator() (CBTreeData* lhs, CBTreeData* rhs) = 0;
++};
++
++class CBAlphabetCompare: public CBTreeDataCompare
++{
++	public:
++		virtual int operator() (CBTreeData* lhs, CBTreeData* rhs);
++};
++
++class CBKindCompare: public CBTreeDataCompare
++{
++	public:
++		CBKindCompare();
++		virtual int operator() (CBTreeData* lhs, CBTreeData* rhs);
++	private:
++		std::vector<TokenKind> m_KindPrior;
++		CBAlphabetCompare m_CompareEquals;
++};
++
++class CBScopeCompare: public CBTreeDataCompare
++{
++	public:
++		virtual int operator() (CBTreeData* lhs, CBTreeData* rhs);
++	private:
++		CBKindCompare m_CompareEquals;
++};
++
++typedef std::deque<CBExpandedItemData> ExpandedItemVect;
++typedef std::deque<CBTreeData> SelectedItemPath;
++
+ class ClassBrowserBuilderThread : public wxThread
+ {
+     public:
+@@ -64,29 +113,29 @@ class ClassBrowserBuilderThread : public wxThread
+                     bool build_tree);
+         void AbortBuilding();
+         void ExpandItem(wxTreeItemId item);
+-        void CollapseItem(wxTreeItemId item);
++        void CollapseItem(wxTreeItemId item, bool useLock=true);
+         void SelectItem(wxTreeItemId item);
+     protected:
+         virtual void* Entry();
+ 
+-        void BuildTree();
++        void BuildTree(bool useLock=true);
+         void RemoveInvalidNodes(wxTreeCtrl* tree, wxTreeItemId parent);
+-        wxTreeItemId AddNodeIfNotThere(wxTreeCtrl* tree, wxTreeItemId parent, const wxString& name, int imgIndex = -1, CBTreeData* data = 0, bool sorted = true);
+-        bool AddChildrenOf(wxTreeCtrl* tree, wxTreeItemId parent, int parentTokenIdx, int tokenKindMask = 0xffff);
++        wxTreeItemId AddNodeIfNotThere(wxTreeCtrl* tree, wxTreeItemId parent, const wxString& name, int imgIndex = -1, CBTreeData* data = 0);
++        bool AddChildrenOf(wxTreeCtrl* tree, wxTreeItemId parent, int parentTokenIdx, int tokenKindMask = 0xffff, bool sorted = true, int tokenScopeMask = 0);
+         bool AddAncestorsOf(wxTreeCtrl* tree, wxTreeItemId parent, int tokenIdx);
+         bool AddDescendantsOf(wxTreeCtrl* tree, wxTreeItemId parent, int tokenIdx, bool allowInheritance = true);
+-        bool AddNodes(wxTreeCtrl* tree, wxTreeItemId parent, TokenIdxSet::iterator start, TokenIdxSet::iterator end, int tokenKindMask = 0xffff, bool allowGlobals = false);
+-        void SelectNode(wxTreeItemId node);
++        bool AddNodes(wxTreeCtrl* tree, wxTreeItemId parent, const TokenIdxSet& tokens, int tokenKindMask = 0xffff, int tokenScopeMask = 0, bool allowGlobals = false, bool sorted = true);
++        void AddMembersOf(wxTreeCtrl* tree, wxTreeItemId node);
+         bool TokenMatchesFilter(Token* token);
+         bool TokenContainsChildrenOfKind(Token* token, int kind);
+         bool CreateSpecialFolders(wxTreeCtrl* tree, wxTreeItemId parent);
+-		void ExpandNamespaces(wxTreeItemId node);
++        void ExpandNamespaces(wxTreeItemId node);
+ 
+         wxSemaphore& m_Semaphore;
+         Parser* m_pParser;
+         wxTreeCtrl* m_pTreeTop;
+         wxTreeCtrl* m_pTreeBottom;
+-        wxString m_ActiveFilename;
++        wxString m_ActiveFilename;
+         void* m_pUserData; // active project
+         BrowserOptions m_Options;
+         TokensTree* m_pTokens;
+@@ -99,7 +148,15 @@ class ClassBrowserBuilderThread : public wxThread
+ 
+ 
+         wxMutex m_BuildMutex;
++        CBTreeDataCompare* m_pDataCompare;
+     private:
++        void SaveExpandedItems(wxTreeCtrl* tree, wxTreeItemId parent, int level);
++        void ExpandSavedItems(wxTreeCtrl* tree, wxTreeItemId parent, int level);
++        void SaveSelectedItem();
++        void SelectSavedItem();
++
++        ExpandedItemVect m_ExpandedVect;
++        SelectedItemPath m_SelectedPath;
+ };
+ 
+ #endif // CLASSBROWSERBUILDERTHREAD_H
+diff --git a/src/plugins/codecompletion/codecompletion.cpp b/src/plugins/codecompletion/codecompletion.cpp
+index eec84ca..6088486 100644
+--- a/src/plugins/codecompletion/codecompletion.cpp
++++ b/src/plugins/codecompletion/codecompletion.cpp
+@@ -679,6 +679,62 @@ int CodeCompletion::CodeComplete()
+     return -5;
+ }
+ 
++bool TestIncludeLine(wxString const &line)
++{
++    size_t index = line.find(_T('#'));
++    if(index == wxString::npos)
++        return false;
++    ++index;
++
++    for(; index < line.length(); ++index)
++    {
++        if(line[index] != _T(' ') && line[index] != _T('\t'))
++        {
++            if(line.Mid(index, 7) == _T("include"))
++                return true;
++            break;
++        }
++    }
++    return false;
++}
++
++wxArrayString GetIncludeDirs(cbProject &project)
++{
++    wxArrayString dirs;
++    {
++        wxArrayString target_dirs = project.GetIncludeDirs();
++
++        for(size_t ii = 0; ii < target_dirs.GetCount(); ++ii)
++        {
++            wxFileName filename;
++            NormalizePath(filename, target_dirs[ii]);
++
++            wxString fullname = filename.GetFullPath();
++            fullname.Replace(_T("\\"), _T("/"), true);
++            if(dirs.Index(fullname) == wxNOT_FOUND)
++                dirs.Add(fullname);
++        }
++    }
++
++    wxString target_name = project.GetActiveBuildTarget();
++    ProjectBuildTarget *target = project.GetBuildTarget(target_name);
++    if(target)
++    {
++        wxArrayString target_dirs = target->GetIncludeDirs();
++        for(size_t ii = 0; ii < target_dirs.GetCount(); ++ii)
++        {
++            wxFileName filename;
++            NormalizePath(filename, target_dirs[ii]);
++
++            wxString fullname = filename.GetFullPath();
++            fullname.Replace(_T("\\"), _T("/"), true);
++            if(dirs.Index(fullname) == wxNOT_FOUND)
++                dirs.Add(fullname);
++        }
++    }
++    return dirs;
++}
++
+ void CodeCompletion::CodeCompleteIncludes()
+ {
+     if (!IsAttached() || !m_InitDone)
+@@ -705,34 +761,20 @@ void CodeCompletion::CodeCompleteIncludes()
+     wxString line = ed->GetControl()->GetLine(ed->GetControl()->GetCurrentLine());
+     //Manager::Get()->GetLogManager()->DebugLog("#include cc for \"%s\"", line.c_str());
+     line.Trim();
+-    if (line.IsEmpty() || !line.StartsWith(_T("#include")))
++    if (line.IsEmpty() || !TestIncludeLine(line))
+         return;
+ 
+-    // find opening quote (" or <)
+-    int idx = pos - lineStartPos;
+-    int found = -1;
+-    wxString filename;
+-    while (idx > 0)
+-    {
+-        wxChar c = line.GetChar(idx);
+-        if (c == _T('>'))
+-            return; // the quote is closed already...
+-        else if (c == _T('"') || c == _T('<'))
+-        {
+-            if (found != -1)
+-                return; // the already found quote was the closing one...
+-            found = idx + 1;
+-        }
+-        else if (c != _T(' ') && c != _T('\t') && !found)
+-            filename << c;
+-        --idx;
+-    }
+-
+-    // take care: found might point at the end of the string (out of bounds)
+-    // in this case: #include "(<-code-completion at this point)
+-    //Manager::Get()->GetLogManager()->DebugLog("#include using \"%s\" (starting at %d)", filename.c_str(), found);
+-    if (found == -1)
++    size_t quote_pos = line.find(_T('"'));
++    if(quote_pos == wxString::npos)
++        quote_pos = line.find(_T('<'));
++    if(quote_pos == wxString::npos || quote_pos > static_cast<size_t>(pos - lineStartPos))
+         return;
++    ++quote_pos;
++
++    wxString filename = line.substr(quote_pos, pos - lineStartPos - quote_pos);
++    filename.Replace(_T("\\"), _T("/"), true);
++
++    wxArrayString include_dirs = GetIncludeDirs(*pPrj);
+ 
+     // fill a list of matching project files
+     wxArrayString files;
+@@ -741,19 +783,39 @@ void CodeCompletion::CodeCompleteIncludes()
+         ProjectFile* pf = pPrj->GetFile(i);
+         if (pf && FileTypeOf(pf->relativeFilename) == ftHeader)
+         {
+-            wxFileName fname(pf->relativeFilename);
+-            if (files.Index(pf->relativeFilename) == wxNOT_FOUND)
+-                files.Add(pf->relativeFilename);
+-            if (files.Index(fname.GetFullName()) == wxNOT_FOUND)
+-                files.Add(fname.GetFullName());
++            wxString current_filename = pf->relativeFilename;
++            current_filename.Replace(_T("\\"), _T("/"), true);
++            if(current_filename.find(filename) != wxString::npos)
++            {
++                if(include_dirs.GetCount() > 0)
++                {
++                    bool found = false;
++                    for(size_t dir_index = 0; dir_index < include_dirs.GetCount(); ++dir_index)
++                    {
++                        wxString const &dir = include_dirs[dir_index];
++                        if(current_filename.StartsWith(dir))
++                        {
++                            files.Add(current_filename.substr(dir.length()));
++                            found = true;
++                            break;
++                        }
++                    }
++
++                    if(!found)
++                        files.Add(current_filename);
++                }
++                else
++                    files.Add(current_filename);
++            }
+         }
+     }
+ 
+     if (files.GetCount() != 0)
+     {
+         files.Sort();
++        ed->GetControl()->ClearRegisteredImages();
+         ed->GetControl()->AutoCompSetIgnoreCase(!caseSens);
+-        ed->GetControl()->AutoCompShow(pos - lineStartPos - found, GetStringFromArray(files, _T(" ")));
++        ed->GetControl()->AutoCompShow(pos - lineStartPos - quote_pos, GetStringFromArray(files, _T(" ")));
+     }
+ }
+ 
+@@ -1055,7 +1117,7 @@ void CodeCompletion::OnAppDoneStartup(CodeBlocksEvent& event)
+ void CodeCompletion::OnCodeCompleteTimer(wxTimerEvent& event)
+ {
+     if (Manager::Get()->GetEditorManager()->FindPageFromEditor(m_pCodeCompletionLastEditor) == -1)
+-        return; // editor is invalid (prbably closed already)
++        return; // editor is invalid (probably closed already)
+ 
+     // ask for code-completion *only* if the editor is still after the "." or "->" operator
+     if (m_pCodeCompletionLastEditor->GetControl()->GetCurrentPos() == m_LastPosForCodeCompletion)
+@@ -1492,7 +1554,7 @@ void CodeCompletion::OnValueTooltip(CodeBlocksEvent& event)
+ 
+         EditorBase* base = event.GetEditor();
+         cbEditor* ed = base && base->IsBuiltinEditor() ? static_cast<cbEditor*>(base) : 0;
+-        if (!ed)
++        if (!ed || ed->IsContextMenuOpened())
+             return;
+ 
+         if (ed->GetControl()->CallTipActive())
+diff --git a/src/plugins/codecompletion/nativeparser.cpp b/src/plugins/codecompletion/nativeparser.cpp
+index 5907c2c..982e4c9 100644
+--- a/src/plugins/codecompletion/nativeparser.cpp
++++ b/src/plugins/codecompletion/nativeparser.cpp
+@@ -1399,6 +1399,11 @@ size_t NativeParser::AI(TokenIdxSet& result,
+         col = actual.Length() - 1;
+     }
+ 
++#ifdef DEBUG_CC_AI
++    if (s_DebugSmartSense)
++        Manager::Get()->GetLogManager()->DebugLog(F(_T("AI enter, actual: \"%s\""), actual.c_str()));
++#endif
++
+     static cbEditor* cached_editor = 0;
+     static int cached_editor_start_word = 0;
+     static wxString cached_search;
+@@ -1610,6 +1615,32 @@ size_t NativeParser::FindAIMatches(Parser* parser,
+         Manager::Get()->GetLogManager()->DebugLog(F(_T("Looping %d results"), local_result.size()));
+ #endif
+ 
++    if (local_result.size() == 1)
++    {
++        int id = *local_result.begin();
++        Token* token = tree->at(id);
++
++        if (token->m_TokenKind == tkTypedef)
++        {
++            std::queue<ParserComponent> type_components;
++            BreakUpComponents(parser, token->m_ActualType, type_components);
++
++            while(!components.empty())
++            {
++                ParserComponent comp = components.front();
++                components.pop();
++                type_components.push(comp);
++            }
++
++    #ifdef DEBUG_CC_AI
++            if (s_DebugSmartSense)
++                Manager::Get()->GetLogManager()->DebugLog(F(_T("Replacing %s to %s"), token->m_Name.c_str(), token->m_ActualType.c_str()));
++    #endif
++            return FindAIMatches(parser, type_components, result, parentTokenIdx, noPartialMatch, caseSensitive, use_inheritance, kindMask, search_scope);
++        }
++
++    }
++
+     // loop all matches, and recurse
+     for (TokenIdxSet::iterator it = local_result.begin(); it != local_result.end(); it++)
+     {
+@@ -1790,9 +1821,9 @@ size_t NativeParser::GenerateResultSet(TokensTree* tree,
+ #ifdef DEBUG_CC_AI
+     if (s_DebugSmartSense)
+     #if wxCHECK_VERSION(2, 9, 0)
+-        Manager::Get()->GetLogManager()->DebugLog(F(_T("GenerateResultSet: search '%s', parent='%s'"), search.wx_str(), parent ? parent->m_Name.wx_str() : _T("Global namespace")));
++        Manager::Get()->GetLogManager()->DebugLog(F(_T("GenerateResultSet: search '%s', parent='%s (%d), isPrefix=%d'"), search.wx_str(), parent ? parent->m_Name.wx_str() : _T("Global namespace"), parent ? parent->GetSelf() : 0, isPrefix ? 1 : 0));
+     #else
+-        Manager::Get()->GetLogManager()->DebugLog(F(_T("GenerateResultSet: search '%s', parent='%s'"), search.c_str(), parent ? parent->m_Name.c_str() : _T("Global namespace")));
++        Manager::Get()->GetLogManager()->DebugLog(F(_T("GenerateResultSet: search '%s', parent='%s (%d), isPrefix=%d'"), search.c_str(), parent ? parent->m_Name.c_str() : _T("Global namespace"), parent ? parent->GetSelf() : 0, isPrefix ? 1 : 0));
+     #endif
+ #endif
+     if (parent)
+diff --git a/src/plugins/codecompletion/parser/parser.cpp b/src/plugins/codecompletion/parser/parser.cpp
+index 2446f52..f6413f9 100644
+--- a/src/plugins/codecompletion/parser/parser.cpp
++++ b/src/plugins/codecompletion/parser/parser.cpp
+@@ -82,6 +82,12 @@ Parser::Parser(wxEvtHandler* parent)
+     m_pImageList->Add(bmp); // PARSER_IMG_CLASS_FOLDER
+     bmp = cbLoadBitmap(prefix + _T("class.png"), wxBITMAP_TYPE_PNG);
+     m_pImageList->Add(bmp); // PARSER_IMG_CLASS
++    bmp = cbLoadBitmap(prefix + _T("class_private.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_CLASS_PRIVATE
++    bmp = cbLoadBitmap(prefix + _T("class_protected.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_CLASS_PROTECTED
++    bmp = cbLoadBitmap(prefix + _T("class_public.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_CLASS_PUBLIC
+     bmp = cbLoadBitmap(prefix + _T("ctor_private.png"), wxBITMAP_TYPE_PNG);
+     m_pImageList->Add(bmp); // PARSER_IMG_CTOR_PRIVATE
+     bmp = cbLoadBitmap(prefix + _T("ctor_protected.png"), wxBITMAP_TYPE_PNG);
+@@ -110,14 +116,30 @@ Parser::Parser(wxEvtHandler* parent)
+     m_pImageList->Add(bmp); // PARSER_IMG_PREPROCESSOR
+     bmp = cbLoadBitmap(prefix + _T("enum.png"), wxBITMAP_TYPE_PNG);
+     m_pImageList->Add(bmp); // PARSER_IMG_ENUM
++    bmp = cbLoadBitmap(prefix + _T("enum_private.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_ENUM_PRIVATE
++    bmp = cbLoadBitmap(prefix + _T("enum_protected.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_ENUM_PROTECTED
++    bmp = cbLoadBitmap(prefix + _T("enum_public.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_ENUM_PUBLIC
+     bmp = cbLoadBitmap(prefix + _T("enumerator.png"), wxBITMAP_TYPE_PNG);
+     m_pImageList->Add(bmp); // PARSER_IMG_ENUMERATOR
+     bmp = cbLoadBitmap(prefix + _T("namespace.png"), wxBITMAP_TYPE_PNG);
+     m_pImageList->Add(bmp); // PARSER_IMG_NAMESPACE
+     bmp = cbLoadBitmap(prefix + _T("typedef.png"), wxBITMAP_TYPE_PNG);
+     m_pImageList->Add(bmp); // PARSER_IMG_TYPEDEF
++    bmp = cbLoadBitmap(prefix + _T("typedef_private.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_TYPEDEF_PRIVATE
++    bmp = cbLoadBitmap(prefix + _T("typedef_protected.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_TYPEDEF_PROTECTED
++    bmp = cbLoadBitmap(prefix + _T("typedef_public.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_TYPEDEF_PUBLIC
+     bmp = cbLoadBitmap(prefix + _T("symbols_folder.png"), wxBITMAP_TYPE_PNG);
+     m_pImageList->Add(bmp); // PARSER_IMG_SYMBOLS_FOLDER
++    bmp = cbLoadBitmap(prefix + _T("vars_folder.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_VARS_FOLDER
++    bmp = cbLoadBitmap(prefix + _T("funcs_folder.png"), wxBITMAP_TYPE_PNG);
++    m_pImageList->Add(bmp); // PARSER_IMG_FUNCS_FOLDER
+     bmp = cbLoadBitmap(prefix + _T("enums_folder.png"), wxBITMAP_TYPE_PNG);
+     m_pImageList->Add(bmp); // PARSER_IMG_ENUMS_FOLDER
+     bmp = cbLoadBitmap(prefix + _T("preproc_folder.png"), wxBITMAP_TYPE_PNG);
+@@ -191,14 +213,18 @@ void Parser::ReadOptions()
+     }
+ 
+     //m_Pool.SetConcurrentThreads(cfg->ReadInt(_T("/max_threads"), 1)); // Ignore it in the meanwhile
++
+     m_Options.followLocalIncludes = cfg->ReadBool(_T("/parser_follow_local_includes"), true);
+     m_Options.followGlobalIncludes = cfg->ReadBool(_T("/parser_follow_global_includes"), true);
+     m_Options.caseSensitive = cfg->ReadBool(_T("/case_sensitive"), false);
+     m_Options.useSmartSense = cfg->ReadBool(_T("/use_SmartSense"), true);
+     m_Options.wantPreprocessor = cfg->ReadBool(_T("/want_preprocessor"), true);
++
+     m_BrowserOptions.showInheritance = cfg->ReadBool(_T("/browser_show_inheritance"), false);
+     m_BrowserOptions.expandNS = cfg->ReadBool(_T("/browser_expand_ns"), false);
++    m_BrowserOptions.treeMembers = cfg->ReadBool(_T("/browser_tree_members"), true);
+     m_BrowserOptions.displayFilter = (BrowserDisplayFilter)cfg->ReadInt(_T("/browser_display_filter"), bdfWorkspace);
++    m_BrowserOptions.sortType = (BrowserSortType)cfg->ReadInt(_T("/browser_sort_type"), bstKind);
+ #endif // STANDALONE
+ }
+ 
+@@ -215,7 +241,9 @@ void Parser::WriteOptions()
+     cfg->Write(_T("/want_preprocessor"), m_Options.wantPreprocessor);
+     cfg->Write(_T("/browser_show_inheritance"), m_BrowserOptions.showInheritance);
+     cfg->Write(_T("/browser_expand_ns"), m_BrowserOptions.expandNS);
++    cfg->Write(_T("/browser_tree_members"), m_BrowserOptions.treeMembers);
+     cfg->Write(_T("/browser_display_filter"), m_BrowserOptions.displayFilter);
++    cfg->Write(_T("/browser_sort_type"), m_BrowserOptions.sortType);
+ #endif // STANDALONE
+ }
+ 
+@@ -274,15 +302,36 @@ int Parser::GetTokenKindImage(Token* token)
+     {
+         case tkPreprocessor: return PARSER_IMG_PREPROCESSOR;
+ 
+-        case tkEnum: return PARSER_IMG_ENUM;
++        case tkEnum:
++            switch (token->m_Scope)
++            {
++                case tsPublic: return PARSER_IMG_ENUM_PUBLIC;
++                case tsProtected: return PARSER_IMG_ENUM_PROTECTED;
++                case tsPrivate: return PARSER_IMG_ENUM_PRIVATE;
++                default: return PARSER_IMG_ENUM;
++            }
+ 
+         case tkEnumerator: return PARSER_IMG_ENUMERATOR;
+ 
+-        case tkClass: return PARSER_IMG_CLASS;
++        case tkClass:
++            switch (token->m_Scope)
++            {
++                case tsPublic: return PARSER_IMG_CLASS_PUBLIC;
++                case tsProtected: return PARSER_IMG_CLASS_PROTECTED;
++                case tsPrivate: return PARSER_IMG_CLASS_PRIVATE;
++                default: return PARSER_IMG_CLASS_PUBLIC;
++            }
+ 
+         case tkNamespace: return PARSER_IMG_NAMESPACE;
+ 
+-        case tkTypedef: return PARSER_IMG_TYPEDEF;
++        case tkTypedef:
++            switch (token->m_Scope)
++            {
++                case tsPublic: return PARSER_IMG_TYPEDEF_PUBLIC;
++                case tsProtected: return PARSER_IMG_TYPEDEF_PROTECTED;
++                case tsPrivate: return PARSER_IMG_TYPEDEF_PRIVATE;
++                default: return PARSER_IMG_TYPEDEF;
++            }
+ 
+         case tkConstructor:
+             switch (token->m_Scope)
+diff --git a/src/plugins/codecompletion/parser/parser.h b/src/plugins/codecompletion/parser/parser.h
+index 4bbee90..cf62831 100644
+--- a/src/plugins/codecompletion/parser/parser.h
++++ b/src/plugins/codecompletion/parser/parser.h
+@@ -20,31 +20,42 @@
+     #include <wx/imaglist.h>
+ #endif // STANDALONE
+ 
+-#define PARSER_IMG_NONE                -2
+-#define PARSER_IMG_CLASS_FOLDER        0
+-#define PARSER_IMG_CLASS            1
+-#define PARSER_IMG_CTOR_PRIVATE        2
+-#define PARSER_IMG_CTOR_PROTECTED    3
+-#define PARSER_IMG_CTOR_PUBLIC        4
+-#define PARSER_IMG_DTOR_PRIVATE        5
+-#define PARSER_IMG_DTOR_PROTECTED    6
+-#define PARSER_IMG_DTOR_PUBLIC        7
+-#define PARSER_IMG_FUNC_PRIVATE        8
+-#define PARSER_IMG_FUNC_PROTECTED    9
+-#define PARSER_IMG_FUNC_PUBLIC        10
+-#define PARSER_IMG_VAR_PRIVATE        11
+-#define PARSER_IMG_VAR_PROTECTED    12
+-#define PARSER_IMG_VAR_PUBLIC        13
+-#define PARSER_IMG_PREPROCESSOR        14
+-#define PARSER_IMG_ENUM                15
+-#define PARSER_IMG_ENUMERATOR        16
+-#define PARSER_IMG_NAMESPACE         17
+-#define PARSER_IMG_TYPEDEF         18
+-#define PARSER_IMG_SYMBOLS_FOLDER    19
+-#define PARSER_IMG_ENUMS_FOLDER        20
+-#define PARSER_IMG_PREPROC_FOLDER    21
+-#define PARSER_IMG_OTHERS_FOLDER    22
+-#define PARSER_IMG_TYPEDEF_FOLDER    23
++#define PARSER_IMG_NONE         	-2
++#define PARSER_IMG_CLASS_FOLDER     	0
++#define PARSER_IMG_CLASS            	1
++#define PARSER_IMG_CLASS_PRIVATE    	2
++#define PARSER_IMG_CLASS_PROTECTED  	3
++#define PARSER_IMG_CLASS_PUBLIC     	4
++#define PARSER_IMG_CTOR_PRIVATE     	5
++#define PARSER_IMG_CTOR_PROTECTED   	6
++#define PARSER_IMG_CTOR_PUBLIC      	7
++#define PARSER_IMG_DTOR_PRIVATE     	8
++#define PARSER_IMG_DTOR_PROTECTED   	9
++#define PARSER_IMG_DTOR_PUBLIC      	10
++#define PARSER_IMG_FUNC_PRIVATE     	11
++#define PARSER_IMG_FUNC_PROTECTED   	12
++#define PARSER_IMG_FUNC_PUBLIC      	13
++#define PARSER_IMG_VAR_PRIVATE      	14
++#define PARSER_IMG_VAR_PROTECTED    	15
++#define PARSER_IMG_VAR_PUBLIC       	16
++#define PARSER_IMG_PREPROCESSOR     	17
++#define PARSER_IMG_ENUM             	18
++#define PARSER_IMG_ENUM_PRIVATE			19
++#define PARSER_IMG_ENUM_PROTECTED		20
++#define PARSER_IMG_ENUM_PUBLIC			21
++#define PARSER_IMG_ENUMERATOR       	22
++#define PARSER_IMG_NAMESPACE        	23
++#define PARSER_IMG_TYPEDEF       		24
++#define PARSER_IMG_TYPEDEF_PRIVATE		25
++#define PARSER_IMG_TYPEDEF_PROTECTED	26
++#define PARSER_IMG_TYPEDEF_PUBLIC		27
++#define PARSER_IMG_SYMBOLS_FOLDER   	28
++#define PARSER_IMG_VARS_FOLDER     		29
++#define PARSER_IMG_FUNCS_FOLDER     	30
++#define PARSER_IMG_ENUMS_FOLDER     	31
++#define PARSER_IMG_PREPROC_FOLDER   	32
++#define PARSER_IMG_OTHERS_FOLDER		33
++#define PARSER_IMG_TYPEDEF_FOLDER   	34
+ 
+ #define PARSER_IMG_MIN PARSER_IMG_CLASS_FOLDER
+ #define PARSER_IMG_MAX PARSER_IMG_OTHERS_FOLDER
+@@ -77,11 +88,20 @@ enum BrowserDisplayFilter
+     bdfEverything,
+ };
+ 
++enum BrowserSortType
++{
++	bstAlphabet	= 0,
++	bstKind,
++	bstScope
++};
++
+ struct BrowserOptions
+ {
+     bool showInheritance; // default: false
+     bool expandNS; // default: false (auto-expand namespaces)
++    bool treeMembers; //
+     BrowserDisplayFilter displayFilter; // default: bdfWorkspace
++    BrowserSortType	sortType; //
+ };
+ 
+ class ClassBrowser;
+diff --git a/src/plugins/codecompletion/parser/parserthread.cpp b/src/plugins/codecompletion/parser/parserthread.cpp
+index 041eb93..3241b07 100644
+--- a/src/plugins/codecompletion/parser/parserthread.cpp
++++ b/src/plugins/codecompletion/parser/parserthread.cpp
+@@ -465,8 +465,10 @@ void ParserThread::DoParse()
+                 DoParse(); // time for recursion ;)
+             }
+             else
+-                SkipToOneOfChars(ParserConsts::semicolon); // skip externs
+-//                m_Tokenizer.UngetToken(); // nope, return the token back...
++            {
++                // do nothing, just skip keyword "extern", otherwise uncomment:
++                // SkipToOneOfChars(ParserConsts::semicolon); // skip externs
++            }
+             m_Str.Clear();
+         }
+         else if (token.StartsWith(ParserConsts::kw__asm))
+@@ -519,7 +521,7 @@ void ParserThread::DoParse()
+         {
+             m_Str.Clear();
+             if (m_Options.handleClasses)
+-                HandleClass();
++                HandleClass(ctClass);
+             else
+                 SkipToOneOfChars(ParserConsts::semicolonclbrace, true);
+         }
+@@ -527,7 +529,7 @@ void ParserThread::DoParse()
+         {
+             m_Str.Clear();
+             if (m_Options.handleClasses)
+-                HandleClass(false);
++                HandleClass(ctStructure);
+             else
+                 SkipToOneOfChars(ParserConsts::semicolonclbrace, true);
+         }
+@@ -541,6 +543,7 @@ void ParserThread::DoParse()
+         }
+         else if (token==ParserConsts::kw_union)
+         {
++#if 0
+             SkipToOneOfChars(ParserConsts::opbracesemicolon);
+ //            if (m_Tokenizer.GetToken() == "{")
+             {
+@@ -549,6 +552,13 @@ void ParserThread::DoParse()
+                 m_Str.Clear();
+                 m_pLastParent = oldparent;
+             }
++#endif
++
++            m_Str.Clear();
++            if (m_Options.handleClasses)
++                HandleClass(ctUnion);
++            else
++                SkipToOneOfChars(ParserConsts::semicolonclbrace, true);
+         }
+ #if 1
+         else if (token==ParserConsts::kw_operator)
+@@ -834,7 +844,9 @@ Token* ParserThread::DoAddToken(TokenKind kind, const wxString& name, int line,
+     if (!newToken && !m_Options.isTemp)
+         newToken = TokenExists(name, m_pLastParent, kind);
+ 
+-    if (newToken && newToken->m_TokenKind == kind && newToken->m_Args == args)
++
++    wxString newTokenArgs = (newToken) ? (newToken->m_Args) : _T("");
++    if (newToken && newToken->m_TokenKind == kind && newTokenArgs == args)
+     {
+         m_pTokens->m_modified = true;
+     }
+@@ -1105,7 +1117,29 @@ void ParserThread::HandleNamespace()
+     }
+ }
+ 
+-void ParserThread::HandleClass(bool isClass)
++void ParserThread::ReadVarNames()
++{
++    while (1)
++    {
++        wxString current = m_Tokenizer.GetToken();
++
++        if (current.IsEmpty())
++            break;
++        if (current==ParserConsts::comma)
++            continue;
++        else if (current==ParserConsts::semicolon)
++            break;
++        else if (wxIsalpha(current.GetChar(0)))
++        {
++//            Manager::Get()->GetLogManager()->DebugLog(F(_T("Adding variable '%s' as '%s' to '%s'"), current.c_str(), m_Str.c_str(), (m_pLastParent?m_pLastParent->m_Name.c_str():_T("<no-parent>"))));
++            DoAddToken(tkVariable, current, m_Tokenizer.GetLineNumber());
++        }
++        else // unexpected
++            break;
++    }
++}
++
++void ParserThread::HandleClass(EClassType ct)
+ {
+     // need to force the tokenizer _not_ skip anything
+     // as we 're manually parsing class decls
+@@ -1190,29 +1224,43 @@ void ParserThread::HandleClass(bool isClass)
+ //                Manager::Get()->GetLogManager()->DebugLog(F(_T("Ancestors: ") + ancestors));
+             }
+ 
+-            if (current==ParserConsts::opbrace) // unnamed class/struct
++            if (current==ParserConsts::opbrace) // unnamed class/struct/union
+             {
+                 static size_t num = 0;
+                 wxString unnamedTmp;
+-                unnamedTmp.Printf(_T("Unnamed-%s-%d"), isClass ? _T("Class") : _T("Struct"), num++);
++                unnamedTmp.Printf(_T("Unnamed-%s-%d"),
++                                  ct == ctClass ? _T("Class") :
++                                  ct == ctUnion ? _T("Union") :
++                                                  _T("Struct"), num++);
+ 
+                 Token* newToken = DoAddToken(tkClass, unnamedTmp, lineNr);
+ 
+                 Token* lastParent = m_pLastParent;
+                 TokenScope lastScope = m_LastScope;
++                bool parsingTypedef = m_ParsingTypedef;
+ 
+                 m_pLastParent = newToken;
+-                // default scope is: private for classes, public for structs
+-                m_LastScope = isClass ? tsPrivate : tsPublic;
++                // default scope is: private for classes, public for structs, public for unions
++                m_LastScope = ct == ctClass ? tsPrivate : tsPublic;
++                m_ParsingTypedef = false;
+ 
+                 DoParse();
+ 
++                m_ParsingTypedef = parsingTypedef;
+                 m_pLastParent = lastParent;
+                 m_LastScope = lastScope;
+ 
+                 m_LastUnnamedTokenName = unnamedTmp; // used for typedef'ing anonymous class/struct/union
+ 
+-                // we should now be right after the closing brace: read the var name
++                // we should now be right after the closing brace
++                // no vars are defined on a typedef, only types
++                // In the former example, aa is not part of the typedef.
++                if (m_ParsingTypedef)
++                    break;
++
++                m_Str = newToken->m_Name;
++                ReadVarNames();
++                m_Str.Clear();
+                 break;
+             }
+             else if (next==ParserConsts::opbrace)
+@@ -1230,16 +1278,28 @@ void ParserThread::HandleClass(bool isClass)
+ 
+                 Token* lastParent = m_pLastParent;
+                 TokenScope lastScope = m_LastScope;
++                bool parsingTypedef = m_ParsingTypedef;
+ 
+                 m_pLastParent = newToken;
+-                // default scope is: private for classes, public for structs
+-                m_LastScope = isClass ? tsPrivate : tsPublic;
++                // default scope is: private for classes, public for structs, public for unions
++                m_LastScope = ct == ctClass ? tsPrivate : tsPublic;
++                m_ParsingTypedef = false;
+ 
+                 DoParse();
+ 
++                m_ParsingTypedef = parsingTypedef;
+                 m_pLastParent = lastParent;
+                 m_LastScope = lastScope;
+-                m_LastUnnamedTokenName = current;
++
++                // we should now be right after the closing brace
++                // no vars are defined on a typedef, only types
++                // In the former example, aa is not part of the typedef.
++                if (m_ParsingTypedef)
++                    break;
++
++                m_Str = newToken->m_Name;
++                ReadVarNames();
++                m_Str.Clear();
+                 break;
+             }
+             else if (next==ParserConsts::semicolon) // forward decl; we don't care
+@@ -1249,6 +1309,42 @@ void ParserThread::HandleClass(bool isClass)
+                 HandleFunction(current);
+                 break;
+             }
++            else if (next.GetChar(0) != '*')
++            {
++                // might be instantiation, see the following
++                /*
++                struct HiddenStruct {
++                    int val;
++                };
++
++                struct HiddenStruct yy;
++                */
++                if (TokenExists(current, m_pLastParent, tkClass))
++                {
++                    if (!TokenExists(next, m_pLastParent, tkVariable) )
++                    {
++                        wxString farnext;
++
++                        m_Tokenizer.GetToken(); // go ahead of identifier
++                        farnext = m_Tokenizer.PeekToken();
++
++                        if (farnext==ParserConsts::semicolon)
++                        {
++                            if (m_Options.handleVars)
++                            {
++                                m_Str = current;
++                                DoAddToken(tkVariable, next, m_Tokenizer.GetLineNumber());
++                                m_Str.Clear();
++                            }
++
++                            m_Tokenizer.GetToken(); // eat semi-colon
++                            break;
++                        }
++                        else
++                            m_Tokenizer.UngetToken(); // restore the identifier
++                    }
++                }
++            }
+         }
+         else
+             break;
+@@ -1378,7 +1474,31 @@ void ParserThread::HandleEnum()
+     if (wxIsalpha(token.GetChar(0)) || token.GetChar(0) == '_')
+     {
+         if (m_Tokenizer.PeekToken().GetChar(0) != '{')
++        {
++            if (TokenExists(token, m_pLastParent, tkEnum))
++            {
++                if (!TokenExists(m_Tokenizer.PeekToken(), m_pLastParent, tkVariable) )
++                {
++                    wxString ident = m_Tokenizer.GetToken(); // go ahead of identifier
++
++                    if (m_Tokenizer.PeekToken()==ParserConsts::semicolon)
++                    {
++                        if (m_Options.handleEnums)
++                        {
++                            m_Str = token;
++                            DoAddToken(tkVariable, ident, m_Tokenizer.GetLineNumber());
++                            m_Str.Clear();
++                        }
++
++                        m_Tokenizer.GetToken(); // eat semi-colon
++                    }
++                    else
++                        m_Tokenizer.UngetToken(); // restore the identifier
++                }
++            }
++
+             return;
++        }
+ 
+         if (isUnnamed && !m_ParsingTypedef)
+         {
+@@ -1472,21 +1592,26 @@ void ParserThread::HandleTypedef()
+         if (token.IsEmpty() || token == ParserConsts::semicolon)
+             break;
+ 
++#if 0
+         if (token == ParserConsts::kw_union)
+         {
+             // "typedef union" is not supported
+             SkipToOneOfChars(ParserConsts::semicolon, true);
+             break;
+         }
+-
+-        else if (token == ParserConsts::kw_class ||
+-            token == ParserConsts::kw_struct)
++        else
++#endif
++        if (   token == ParserConsts::kw_class
++            || token == ParserConsts::kw_struct
++            || token == ParserConsts::kw_union)
+         {
+-            // "typedef struct|class"
++            // "typedef struct|class|union"
+ #if PARSER_DEBUG_OUTPUT
+             Manager::Get()->GetLogManager()->DebugLog(F(_("Before HandleClass m_LastUnnamedTokenName='%s'"), m_LastUnnamedTokenName.c_str()));
+ #endif
+-            HandleClass(token == ParserConsts::kw_class);
++            HandleClass(token == ParserConsts::kw_class ? ctClass :
++                        token == ParserConsts::kw_union ? ctUnion :
++                                                          ctStructure);
+             token = m_LastUnnamedTokenName;
+ #if PARSER_DEBUG_OUTPUT
+             Manager::Get()->GetLogManager()->DebugLog(F(_("After HandleClass m_LastUnnamedTokenName='%s'"), m_LastUnnamedTokenName.c_str()));
+diff --git a/src/plugins/codecompletion/parser/parserthread.h b/src/plugins/codecompletion/parser/parserthread.h
+index 10618b1..4baa498 100644
+--- a/src/plugins/codecompletion/parser/parserthread.h
++++ b/src/plugins/codecompletion/parser/parserthread.h
+@@ -79,6 +79,7 @@ class ParserThread : public cbThreadedTask
+         virtual void SetTokens(TokensTree* tokens);
+         const wxString& GetFilename() const { return m_Filename; }
+     protected:
++        enum EClassType { ctStructure = 0, ctClass = 1, ctUnion = 3 };
+         wxChar SkipToOneOfChars(const wxString& chars, bool supportNesting = false);
+         void DoParse();
+         void SkipBlock();
+@@ -87,7 +88,8 @@ class ParserThread : public cbThreadedTask
+         void HandleDefines();
+         void HandlePreprocessorBlocks(const wxString& preproc);
+         void HandleNamespace();
+-        void HandleClass(bool isClass = true);
++        void ReadVarNames();
++        void HandleClass(EClassType ct);
+         void HandleFunction(const wxString& name, bool isOperator = false);
+         void HandleEnum();
+         void HandleTypedef();
+diff --git a/src/plugins/codecompletion/parser/token.cpp b/src/plugins/codecompletion/parser/token.cpp
+index 2133c22..840b3a6 100644
+--- a/src/plugins/codecompletion/parser/token.cpp
++++ b/src/plugins/codecompletion/parser/token.cpp
+@@ -463,7 +463,7 @@ int TokensTree::TokenExists(const wxString& name, int parent, short int kindMask
+         Token* curtoken = m_Tokens[result];
+         if(!curtoken)
+             continue;
+-        if((parent<0 || curtoken->m_ParentIndex == parent) && curtoken->m_TokenKind & kindMask)
++        if((parent < 0 || curtoken->m_ParentIndex == parent) && curtoken->m_TokenKind & kindMask)
+             return result;
+     }
+     return -1;
+@@ -598,7 +598,14 @@ void TokensTree::RemoveToken(Token* oldToken)
+     // Step 4: Remove descendants
+     nodes = oldToken->m_Descendants; // Copy the list to avoid interference
+     for(it = nodes.begin();it!=nodes.end(); it++)
+-        RemoveToken(*it);
++    {
++        if(*it == idx) // that should not happen, we can not be our own descendant, but in fact that can happen with boost
++        {
++            Manager::Get()->GetLogManager()->DebugLog(_T("Break out the loop to remove descendants, to avoid a crash. We can not be our own descendant !!"));
++            break;
++        }
++         RemoveToken(*it);
++    }
+     // m_Descendants SHOULD be empty by now - but clear anyway.
+     oldToken->m_Descendants.clear();
+ 
+@@ -695,6 +702,7 @@ void TokensTree::RemoveFile(int index)
+         if(idx < 0 || (size_t)idx > m_Tokens.size())
+             continue;
+         Token* the_token = at(idx);
++
+         if(!the_token)
+             continue;
+ 
+diff --git a/src/plugins/codecompletion/parser/tokenizer.cpp b/src/plugins/codecompletion/parser/tokenizer.cpp
+index b8a2dbe..75da8d1 100644
+--- a/src/plugins/codecompletion/parser/tokenizer.cpp
++++ b/src/plugins/codecompletion/parser/tokenizer.cpp
+@@ -32,20 +32,20 @@ ConfigManagerContainer::StringToStringMap Tokenizer::s_Replacements;
+ 
+ Tokenizer::Tokenizer(const wxString& filename)
+     : m_Filename(filename),
+-    m_peek(_T("")),
+-    m_curtoken(_T("")),
+-    m_peekavailable(false),
+     m_BufferLen(0),
+-    m_NestLevel(0),
+-    m_UndoNestLevel(0),
++    m_Token(_T("")),
+     m_TokenIndex(0),
+-    m_UndoTokenIndex(0),
+     m_LineNumber(1),
++    m_NestLevel(0),
++    m_SavedNestingLevel(0),
++    m_UndoTokenIndex(0),
+     m_UndoLineNumber(1),
++    m_UndoNestLevel(0),
++    m_PeekAvailable(false),
++    m_PeekToken(_T("")),
+     m_PeekTokenIndex(0),
+     m_PeekLineNumber(0),
+     m_PeekNestLevel(0),
+-    m_SavedNestingLevel(0),
+     m_IsOK(false),
+     m_IsOperator(false),
+     m_LastWasPreprocessor(false),
+@@ -109,22 +109,22 @@ bool Tokenizer::InitFromBuffer(const wxString& buffer)
+ 
+ void Tokenizer::BaseInit()
+ {
+-    m_TokenIndex = 0;
+-    m_UndoTokenIndex = 0;
+-    m_LineNumber = 1;
+-    m_UndoLineNumber = 1;
+-    m_PeekTokenIndex = 0;
+-    m_PeekLineNumber = 0;
+-    m_PeekNestLevel = 0;
+-    m_NestLevel = 0;
+-    m_SavedNestingLevel = 0;
+-    m_UndoNestLevel = 0;
+-    m_IsOperator = false;
+-    m_BufferLen = 0;
++    m_BufferLen           = 0;
++    m_TokenIndex          = 0;
++    m_LineNumber          = 1;
++    m_NestLevel           = 0;
++    m_SavedNestingLevel   = 0;
++    m_UndoTokenIndex      = 0;
++    m_UndoLineNumber      = 1;
++    m_UndoNestLevel       = 0;
++    m_PeekTokenIndex      = 0;
++    m_PeekLineNumber      = 0;
++    m_PeekNestLevel       = 0;
++    m_IsOK                = false;
++    m_IsOperator          = false;
+     m_LastWasPreprocessor = false;
+     m_LastPreprocessor.Clear();
+     m_Buffer.Clear();
+-    m_IsOK = false;
+ }
+ 
+ bool Tokenizer::ReadFile()
+@@ -279,18 +279,21 @@ bool Tokenizer::SkipToEOL(bool nestBraces, bool skippingComment)
+     {
+         while (NotEOF() && CurrentChar() != '\n')
+         {
+-            if (CurrentChar() == '/' && NextChar() == '*')
++            if(!skippingComment)
+             {
+-                SkipComment(false); // don't skip whitespace after the comment
+-                if (skippingComment && CurrentChar() == '\n')
++                if (CurrentChar() == '/' && NextChar() == '*')
+                 {
+-                    continue; // early exit from the loop
++                    SkipComment(false); // don't skip whitespace after the comment
++                    if (skippingComment && CurrentChar() == '\n')
++                    {
++                        continue; // early exit from the loop
++                    }
+                 }
++                if (nestBraces && CurrentChar() == _T('{'))
++                    ++m_NestLevel;
++                else if (nestBraces && CurrentChar() == _T('}'))
++                    --m_NestLevel;
+             }
+-            if (nestBraces && CurrentChar() == _T('{'))
+-                ++m_NestLevel;
+-            else if (nestBraces && CurrentChar() == _T('}'))
+-                --m_NestLevel;
+             MoveToNextChar();
+         }
+         wxChar last = PreviousChar();
+@@ -480,50 +483,50 @@ wxString Tokenizer::GetToken()
+     m_UndoLineNumber = m_LineNumber;
+     m_UndoNestLevel  = m_NestLevel;
+ 
+-    if(m_peekavailable)
++    if(m_PeekAvailable)
+     {
+         m_TokenIndex = m_PeekTokenIndex;
+         m_LineNumber = m_PeekLineNumber;
+         m_NestLevel  = m_PeekNestLevel;
+-        m_curtoken   = m_peek;
++        m_Token      = m_PeekToken;
+     }
+     else
+-        m_curtoken = DoGetToken();
++        m_Token = DoGetToken();
+ 
+-    m_peekavailable = false;
++    m_PeekAvailable = false;
+ 
+-    return ThisOrReplacement(m_curtoken);
++    return ThisOrReplacement(m_Token);
+ }
+ 
+ wxString Tokenizer::PeekToken()
+ {
+-    if(!m_peekavailable)
++    if(!m_PeekAvailable)
+     {
+-        m_peekavailable = true;
++        m_PeekAvailable = true;
+         unsigned int undoTokenIndex = m_TokenIndex;
+         unsigned int undoLineNumber = m_LineNumber;
+-        unsigned int undoNestLevel = m_NestLevel;
+-        m_peek = DoGetToken();
+-        m_PeekTokenIndex = m_TokenIndex;
+-        m_PeekLineNumber = m_LineNumber;
+-        m_PeekNestLevel = m_NestLevel;
+-        m_TokenIndex = undoTokenIndex;
+-        m_LineNumber = undoLineNumber;
+-        m_NestLevel = undoNestLevel;
++        unsigned int undoNestLevel  = m_NestLevel;
++        m_PeekToken                 = DoGetToken();
++        m_PeekTokenIndex            = m_TokenIndex;
++        m_PeekLineNumber            = m_LineNumber;
++        m_PeekNestLevel             = m_NestLevel;
++        m_TokenIndex                = undoTokenIndex;
++        m_LineNumber                = undoLineNumber;
++        m_NestLevel                 = undoNestLevel;
+     }
+-    return m_peek;
++    return m_PeekToken;
+ }
+ 
+ void Tokenizer::UngetToken()
+ {
+     m_PeekTokenIndex = m_TokenIndex;
+     m_PeekLineNumber = m_LineNumber;
+-    m_PeekNestLevel = m_NestLevel;
+-    m_TokenIndex = m_UndoTokenIndex;
+-    m_LineNumber = m_UndoLineNumber;
+-    m_NestLevel = m_UndoNestLevel;
+-    m_peek = m_curtoken;
+-    m_peekavailable = true;
++    m_PeekNestLevel  = m_NestLevel;
++    m_TokenIndex     = m_UndoTokenIndex;
++    m_LineNumber     = m_UndoLineNumber;
++    m_NestLevel      = m_UndoNestLevel;
++    m_PeekToken      = m_Token;
++    m_PeekAvailable  = true;
+ }
+ 
+ wxString Tokenizer::DoGetToken()
+@@ -560,7 +563,7 @@ wxString Tokenizer::DoGetToken()
+         m_IsOperator = m_Str.IsSameAs(TokenizerConsts::operator_str);
+     }
+ #ifdef __WXMSW__ // This is a Windows only bug!
+-    else if (c == 178  || c == 179 || c == 185) // fetch ² and ³
++    else if (c == 178 || c == 179 || c == 185) // fetch ² and ³
+     {
+         m_Str = c;
+         MoveToNextChar();
+@@ -621,7 +624,7 @@ wxString Tokenizer::DoGetToken()
+         {
+             //skip spaces before '=' and ','
+             if (tmp.GetChar(i) == ' ' && (tmp.GetChar(i + 1) == ',' || tmp.GetChar(i + 1) == '='))
+-				continue;
++                continue;
+ 
+             if (tmp.GetChar(i) == '/' && tmp.GetChar(i + 1) == '*')
+             {
+diff --git a/src/plugins/codecompletion/parser/tokenizer.h b/src/plugins/codecompletion/parser/tokenizer.h
+index fb1bbd0..f215586 100644
+--- a/src/plugins/codecompletion/parser/tokenizer.h
++++ b/src/plugins/codecompletion/parser/tokenizer.h
+@@ -207,22 +207,24 @@ private:
+ 
+     wxString m_Filename;
+     wxString m_Buffer;
+-    wxString m_peek;
+-    wxString m_curtoken;
+-    bool m_peekavailable;
+     unsigned int m_BufferLen;
+-    unsigned int m_NestLevel; // keep track of block nesting { }
+-    unsigned int m_UndoNestLevel;
++
++    wxString     m_Token;
+     unsigned int m_TokenIndex;
+-    unsigned int m_UndoTokenIndex;
+     unsigned int m_LineNumber;
++    unsigned int m_NestLevel; // keep track of block nesting { }
++    unsigned int m_SavedNestingLevel;
++
++    unsigned int m_UndoTokenIndex;
+     unsigned int m_UndoLineNumber;
++    unsigned int m_UndoNestLevel;
++
++    bool         m_PeekAvailable;
++    wxString     m_PeekToken;
+     unsigned int m_PeekTokenIndex;
+     unsigned int m_PeekLineNumber;
+     unsigned int m_PeekNestLevel;
+ 
+-    unsigned int m_SavedNestingLevel;
+-
+     bool m_IsOK;
+     bool m_IsOperator;
+     bool m_LastWasPreprocessor;
+diff --git a/src/plugins/codecompletion/resources/images/class.png b/src/plugins/codecompletion/resources/images/class.png
+index aee11018afa6929f68561c88e947f66c7e849446..96c30bb1447017fdf3fdba8c61754599fc27a76a 100644
+GIT binary patch
+delta 492
+zcmV<I0TceW0)_;TB!2;OQb$4nuFf3k00006VoOIv0Hy$@0H)+*_C^2z010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*bE348v`4w-q`>E0ftFLK~y-)&5|*0Q&A8_&qu5P
+zi4IYvv8W>9guTE9SP8AsmkSqR18jhf5{V5^P`Mxok>EIr{eS;^GjoUH|HKZahbuk3
+z*UWkMUJd+fHMfuXe4g%(nNdoi)=I6FQVM29+qTW$01pA$w$17EIUy15*a!*_%nf&^
+z)|!jO;sEjhz}?AA5>O^2G&CeYLMBM!+v#a8CzCvIP;159ArmQ43Z+J90!e1_czQxy
+zUh-wT&B=1v+<yT|DLWTR6haayks5|2q3bo;Zt0rlz5{p1&4#~}NP%KJ3M3H`#IF^(
+zxuKWt14=2F2QWlPX(&`d#Na3*(8UGWb@YFBP)fng0EQSTA~Z(XIneuO)b5<k=MG-&
+z0cNvVV`d3M+qVPmes`bEo?`tEGR0nk0WdC71MuSbQ)M0<Jz=vctk)gutB#K!&anO`
+z?$<<YDK!rPyWRZGYW0ZH8=H;Mbw=sVfgt<_uUCv_@2~Q{PL3DpVf3BR_m#JA-jOtv
+ilGG|*zW&<q-{?2STxLRl)r6P;0000<MNUMnLSTZ6H`!?b
+
+delta 284
+zcmV+%0ptFL1h)c^B!35VNliru)BzO<D=*Egfja;I010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E0072GL_t(|+Kp2I5`!QNYx$V<XZu;}%Q6aXD;1pKI7O2*
+zl!HL)ArRdC_fcqp9XsN4g>olet?vyy*91(AM+ST_X&n*9Mt}5rl0bUYXp+Udj0sB?
+z$0RFpG$}Lj7mL`@q~xaIB~yXewT3sg9Lz+jiJg<!g<{5?Sa%7Z4I*9!a?ZL1^nhO8
+zK9t6(;x@fah=pTuC2)^=V2t-;4aYd&{iPejs%&SK3=Q8w+mr)RZV9r9PE50ji_e#E
+ieTn{FUvFGozZC(Pzo7o;zy(+U0000<MNUMnLSTY@Bz9*2
+
+diff --git a/src/plugins/codecompletion/resources/images/class_folder.png b/src/plugins/codecompletion/resources/images/class_folder.png
+index 5e2044e7c7c5e1442eaf68face28a0ae65bd97b2..172693d12e9b8516a00b7c207ecd8d22f3a07a0c 100644
+GIT binary patch
+literal 617
+zcmV-v0+#)WP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;$7$rU0hoWcEe?000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb<
+z7aRq>iR~)@00HSqL_t(I%dL{XOO;_1$3L&=KM+Ps;Ns$DftXq(1cJ2I5)lnexwSgv
+za+exJ$~%NhjzvQdNkb$>t1W?ZgE$yTq4&Pe^PKZN4R6}@x-@j)Jck3%`JA5>eX_E$
+z5~UPUO5~i$Ig?VNu4~%ucGdrXu-92$UXH1mX{;1Vuja<)oMUZm?F3|?*U35KW=KJV
+z2n7*9aP*v#W57m>NGVZr!HVG~BoPt{5dul<OisqPv9UM-*k}=Rx1VBW<dQMVxEn6V
+z<w!!|xI4q+<D8qAV0&aF`eradN(sva0U_aX%$h)VHFj^0$c1iIog89#O<mU%GlFQc
+zdINEHA_8|ud*6vtsHHxDb$GmRmiv!hGc+`W)MPZXW4qqIfR|BH+GX#<54h6<kk?d*
+z)d$0b3V3Gr?kz?~&vST~`1!Mo+ba|qWTYIYD+rqP5ys}5RUY1Way+4>ms{j|mr%j%
+z7p0s6bfE&m*?jwq+3O3)I>-)@9k9ejKCk~B`I-Jply`yP<Gbfvoxg{yLnwiok}plo
+zpmJ~w3{Pyd_TxkgpWeUV^0k|IIe-wMLMZ>y0&)lgIbXK-nO~$?=0>Zz)9EX7Pz^#g
+zKt&KTLJ4_Ic(-Y(blCd3!~7x@G+omR`4>3~{x9+ySoDqT_0;{Q00000NkvXXu0mjf
+D<nRv-
+
+delta 433
+zcmV;i0Z#tu1jGX~iBL{Q4GJ0x0000DNk~Le0000H0000H2nGNE06T3*`Tzg`24YJ`
+zL;(K){{a7>y{D6rKpub81quii4W%(qoB#j;QAtEWRCwBz)4xi?P!z}U?@1+~po6pE
+zAd1i6;;o?MNd%{E&V39iZaUUk!J${WICK;;=qBRQKZ=;NRdXDYwrQG__P|{(+|T`;
+zlU$fnMvbyS$s&LiD@!AJ3Fbjgc0*N*TF`|Nc@P>jvMHci+|GX#q9$%54P^miW|KMq
+zuIK9rNGB=+vXJ9?z7G0l`8nsbkcOPW?f&%iswV%C)xu$m1wB-Sa(U8<wYZ+2iyidi
+zORW{a09M2%+6Wo}&Dsu~Q0aU}bONOvM0A6Q%Zs<!pUtMezln#;)737$Q0ayd?I5C^
+zK;2O31reWp<!g1Qgg;8FQpY(-#dbZP*ZLlaf`BHzh#(>}<7idt0I~w$KmJmwKJ#(2
+z4GdUcg{@U!Gy6hH$%3_w>v;3;6mdOY0q)M<S+tIhU&a7{xSr4OzNsu%V_@=%OSR>Q
+b6aerK3caELxZ84W00000NkvXXu0mjf*fhg4
+
+diff --git a/src/plugins/codecompletion/resources/images/class_private.png b/src/plugins/codecompletion/resources/images/class_private.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..c9e0ecde83642c9f692f89221c24817b9538f844
+GIT binary patch
+literal 539
+zcmV+$0_6RPP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;&#sH2^jE1R=@*000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb<
+z77Y>gNN{lg00EmxL_t(I%gvIpYF0rIg};qHfnaATNU%y_Vi_d*0D%;uFW{3{TUzJ~
+z_yVGZrC=l^5U{XHVMI(!{*b+UcXnrv#f_Tex7Py$!?N>n<}mQDm3}pw8yjL_fmACh
+zg)oC*pt)ncb8mY){S9yx;N$wbme$sgJIVtwWXPGw8J*Re-t}O2cMh@uKm=+X+<_n|
+zKo>ts;>*g4_7)d4=OD~b$w+`z)E#+)-jO?mLj>3FEaQiVd>RHV?(L=D0L+LyfHV!&
+z3T*-;ccKS!Cr)O>Fi=vu<X{-kX(lBR?j&nOtzdO>*Bf%je;lEF${2AGpw_0)l8^^#
+zZF(CGSw&{3HR9j^mBM&AgX%sdk5Ei&V1~?~)~SGabsH=D<PQZNp98FJZKb#Fn$o@k
+z;m8eo$6JF4RyQBg#&1Z$xed-j1n%$bB!Ih1?{)Lm4RWr`W`)^t;oa*OwDCK=pWr@F
+zP4j?1xA~Q$qifW$k#nPzMlJh*<NcIw$F!#TQ$DZdrRVD27)xUujb~3^A`-O<v*6K_
+d&x!v=KLJ=+M_u{1wtWBq002ovPDHLkV1nii<l_JU
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/class_protected.png b/src/plugins/codecompletion/resources/images/class_protected.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..009ab149a5f260f674514d3268472f458cd357e7
+GIT binary patch
+literal 544
+zcmV+*0^j|KP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;yShGyv2;PPKUe000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb<
+z77P~!FysXQ00E#$L_t(I%gxfOZdFkb#_|6qJOK#~S-}aaf)<acCMf{|FTj(akqFQb
+zUI2$A!JtUFh2(^^n3nc5d+oK>ToH%MX-++SYR3FBGa2~T8GaW#yL%}bv~H+W!YAAc
+zwJEhZ-`?LI&I2w2+`P4y_jaz*n=uw+9EDPhGAd<U_O(9G!>@POkP85+&NL~aL3ok@
+z1Y{;j0t4>J{`PjxXR}<JpjM?6BRmmxR0B1~JPA+2gUsae^)3A9h`njb*?d0y0o)7Y
+zC=j3?NOQUb`U^7;%pgt|#57Td;p_whg)%BIU>2x2y$8~QE{;gzuK15*vW&Edvw%or
+zDn@4Fo~R|gJH0v59Ti6u;_#5Hm3H0@#&HQmCaQ^v)5U4cY2vs$@$wo{4=8UdJXis~
+zyxSdWeUShji5bgP)ajC#8PlhaXfrZ{l?|2v!2X9j1Hg^VH@UHKg;F|;MP+ePdHw1s
+z+7z=>+$Xx^I`H>5zjJ(iiQbe_lv<Tu4*<t)#N-6kTz}=&Y;8VCbEQ?KHR182XCwo?
+iCnCZ9ho1-joBRZJ@@yQeA1Ai}0000<MNUMnLSTYZW#Bge
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/class_public.png b/src/plugins/codecompletion/resources/images/class_public.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..f99e9169b793cb1d1e1e247838520ab0d16987dc
+GIT binary patch
+literal 551
+zcmV+?0@(eDP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;&#sH2^jE1R=@*000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb<
+z77ZMW`3%ee00E~-L_t(I%gvHIYm{LSg`ZFS1%jPrn#C%DiM?PcB3Nl<XDwI=Lcqe>
+z(n9}$b->O_1PehBEEbC`5|Jb(``zBl+$^%I8`oYB40D*`;mk1buhlHgjon+JZWJj*
+zZ}{kFQi>F^7N(CsHGcz~2e`g_GwxiuP4P-EJ#Fpjq@%4Jou2k_XN<j_=^EtR(gXnk
+z5dkc!Ih`%Fx4j*+$t2bis41;<co@|MaYe(ha16u4hzKrT-NKHJ_%e<$na!GCfLbbD
+z?Qx81m12cz6>&jbQD1=CIX;f0ra7B{K4_&S2*i|Pg=Cqmg<=))f{9{3j)|csyPpNb
+zXp01ag;K1NEt4%%tWaFgF#Pb4NQwOC4Qduz=?DS~qna!riDVgd#oX}Mm#Jx=;X{IZ
+zD}av=-!=26^YCyK!^}_<stamLXmIf8K9au^;jC=1xB>9>$>#>(+UEP%*to<n6z229
+z{3P-A%}XR7pxR<KQfjONe*fk-j*l-;vM>xnN<vBdfMMFB^#qYvf8|weZN3OKAtxc{
+p%JXNh2pUQWYIW{Dm^S=3`U!tYV)oCpVKe{$002ovPDHLkV1h5%>c9X1
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/codecompletion.xcf b/src/plugins/codecompletion/resources/images/codecompletion.xcf
+new file mode 100644
+index 0000000000000000000000000000000000000000..8e9cf614ea92dc05f58fe28b86fce8411f596032
+GIT binary patch
+literal 11210
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/ctor_private.png b/src/plugins/codecompletion/resources/images/ctor_private.png
+index 848e0f1011d4afa8ba60e2b322a4ddb17de4ff6d..4de5299ed4352c04b14d122e57c5a78dfa1cb1b5 100644
+GIT binary patch
+delta 412
+zcmV;N0b~Ay0=5H?B!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yNI~qP=LoomV0X9iQK~y-)?U6l7LqQaUzY(z-
+z9x<RBh=R41Td=gtQj%q)lPn?|QS2n(7N*F&$;*2$nLGDdM1MlW6xQN_Tbx@Q&JX;<
+z9h1pqVj%>)_snK9_ZxxpV-jNoV6|Eue%sNVsczA>#WounVC@{Y>$N*Lm`<k_V?;y{
+z5pvGtoT;jc=g|$;wrE}NFGaMj`FMHdJ|%Y!5JJGrP*qAPs4A*T2m!si#ze53u~I-4
+zR53FE&H%jk<bRwG4n%}f3d7+LO*OVoSl2<{W7`ZO=&2IN<FTnKBEn*^aLIeSczVKA
+zvE2^34&7|9rr~|L<e_QY*|9)XRpgu*3<dzy&Y^Li-BQAu25Vca>*$>Oxx#!t|K_L#
+zE>i>pM6lf!>wC2A=ubsBg*Wf5IEMlP?0_D4{F?C(;1v@ni`C7_g^!T{0000<MNUMn
+GLSTY2$Fsoz
+
+delta 231
+zcmV<D02u$a1A_vPB!35VNliru)BzO<E&}xgDGLAq010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E005FnL_t(|+QpLr3V<LCMK|qUQ5Um|3Dv!FX=QAqND^v8
+z#OZ(gC?WwtO_(b6_kgaa_kb*JC8P|XJ2Qv?Sg@3aI2`C)^I#1FhKd|a)&h7h#nT9m
+zJK&u|Ozk8?v^Yg0+{V0%IYPQPJ5}ER3oMwO@U;$iQG2|Dmck8euM0rxeAQh;viNwK
+h@*EIJ*YNk>xB@MGRt=_(pSJ)2002ovPDHLkV1nV$Sg8O2
+
+diff --git a/src/plugins/codecompletion/resources/images/ctor_protected.png b/src/plugins/codecompletion/resources/images/ctor_protected.png
+index adbe50c02ccbeba7ed2b4ddc01ad18182c9f196e..d7fdeb65a382637ea83a6e1af4aa45407c7af950 100644
+GIT binary patch
+delta 438
+zcmV;n0ZIOW0?-4HB!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO01^$#P7DA50Z>UqK~y-)?UO%h8&MF(e{0JS
+zkTyc#Dkhk?2`0zU8PcVZI^QFp#)a;n1Eeze2CfXL47Q(9_J8ea-@kcpTo?-(xkw%I
+z!4xyheDlo=1OHL&I<whKjWLWyBNmHA^*02AU8iXp0M_gEHum*%t1)^8M~@7S?x_wR
+zQEj-n{a$Sq%;$4$ng$WsT1tt!t~oirq}zDfrpLApYaP~l?jNrBefOgp02pIXRZ1!3
+zoXI&;O2HVz$A1rw5QHQd5hWKz%S$f60l;uLeAE4vWHOo1T2H_6c$bJFk)n`NCTHDW
+z;&eLI*W%S`Rh@tNrRU$yD3S?LaDAkAfvyXfr)wVm%&UW4g1W8|5ys>33;W>{t#!1m
+zr|SZnKH~a>_lcBr{|d|H@{J<ZHP$+`C`p9ih2Rs;MK5BE`y;%E(@#HDRmoBiDa2Ta
+gF|tV))j#qJ&(9j}P0N-|mjD0&07*qoM6N<$f@yfdwEzGB
+
+delta 229
+zcmV<B02=?$1AzjNB!35VNliru)BzO<EjIt1j(q?C010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E0059lL_t(|+QpL#3V<LCKsWVXQ5Um|71g<_rIg<V4T9Q8
+zbnxD05fTu*3H6HpT+lWAzG6XuYl%ouL;1N77%=3Yyhd9Nr(UfBMWP9`o?#eEc$z(C
+z(*$|v-DN#Vl9cet3PbC~t!)8E!3ryeN!;DynTKVS$9J$pgZFidOyE1;b+07>zCMgR
+f5qe^^-~Yw~%>+^x$oteU00000NkvXXu0mjf{a9S)
+
+diff --git a/src/plugins/codecompletion/resources/images/ctor_public.png b/src/plugins/codecompletion/resources/images/ctor_public.png
+index a207684d54a9025346bec177633cf030c3b9b8cc..0146ae4c546fe4cb6077a8f2ae0ef87a6a10ab37 100644
+GIT binary patch
+delta 416
+zcmV;R0bl<80lEW_B!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO05UeDZo~ip0Xj)UK~y-)?UOxj6G0Tme-ov%
+zSF%q)iD<Y26%DtsBhhdK4zR5|AHdh3NFB-qrI~1VVrOS}=6`)q0FEP5P)9uJU%XfR
+z-Z%WWaO$j9D~~ZUpU-LAHv9|V^3+Kw0nl~bG4^5i$xRFyD>4doUl=5Fv%U_;3fAkj
+zr<4$pqiU@*O~c!(_dMExzV>vIeyR4{f4k-G^G&z_h%r)1K}1khR24HL#z^)Fb;WSp
+z9ozuNe>ZpmFn^oPUS$6RSuU6KwP!DTvW*lk6c@w=!=3?c+lK9S8%`m+-7b9p_=8S*
+zl00(I1A}Hp8=0&iCg($JnuZu7i^T$f`c&wo$J{7h88kEKK(@@}<s7itY+kHxEE8Q#
+z7>;;h)QKm{44RpAI=_Rz*_*HL+=C;g2tu(!){*JULm7A_zwi@`vGZsyvt``?0000<
+KMNUMnLSTZBy0ldQ
+
+delta 225
+zcmV<703QFk1N{MzB!35VNliru)BzO<EiUZw7ApV%010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E004|hL_t(|+QpM=3Iibwgh$hpc`@08E!czU?AqcIA5dGN
+zJK~Q7=9>`F5X6e?lKbxf7ae~F6mtui0<<PwR{()9U)^Km@LHKHET<-rr(i#iR*(RA
+zH9?!))e54`S&!KzW(XWA^96{ArX=gSlkZy}caU5f!qWEcSAd*6N^c>>{1U%7#v69M
+b+kfK$tRYwu9vRWP00000NkvXXu0mjf5uaFc
+
+diff --git a/src/plugins/codecompletion/resources/images/dtor_private.png b/src/plugins/codecompletion/resources/images/dtor_private.png
+index 045aecc45994db817e9b67d8b9d10ac42b6640ca..87f65855d9b95332366619b59f0e08a09ea999a5 100644
+GIT binary patch
+delta 356
+zcmV-q0h|8$0sjJ!B!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO3KM`LmJk2{0RKruK~y-)?U6lB#6S#2-=K(U
+z6p2M}fdz@0iYrj=arTU$?a&?~O(uVn#2%Ys5go7+9pcrNzkknu@XxOaKMgF~2RB==
+zX~M^m0q8^EzV8D-1+d@my=_}m6;(w<5E1ISrrO@&(}bmjr9|De#FRL^y!vC;g$kf)
+z8r&T-qm+V~VP-T<gWcTXs<;SV3YdWz?he2OK#UO)`D~!7lv3DiHdvSNzQc2ddBzt3
+zRqUJ}bTRtnZe53);p+-HW8;Vq18>J8Ps4CJ;VV)IT(=2#0})sjJZC&-ayVswyI=yY
+zx)vNz#n%O&XKc#M=W0B}=p_UUP+$dS;Q2%2AK)F!?6u`k`nb^m0000<MNUMnLSTYO
+C(3i^q
+
+delta 221
+zcmV<303!eY0{H=uB!35VNliru)BzO<EhT#+&!YeU010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E004+dL_t(|+QpLr3V<LCMgO#WMO|!Ntf=l~OQXV;kQLNq
+z$cFzpzDNSWn=r4`-vi28o&z?qg5&}8%~5>~aIzncDF#Ne09J#wK-V6{Ll2H8u&@%6
+zKud15hG=n!;_PaAsL?|zzq9Hu00&1oUUH&$=|PDp3Foz+^^6+AaV<Ai;|<n5`u#V~
+XpE*evwg|Js00000NkvXXu0mjfU!qu0
+
+diff --git a/src/plugins/codecompletion/resources/images/dtor_protected.png b/src/plugins/codecompletion/resources/images/dtor_protected.png
+index 0284e1f6f9faa59376577958122c25c450f37409..c0103d9287b642bb5095c9b10526f076d61ea299 100644
+GIT binary patch
+delta 380
+zcmV-?0fYYW0ha@iB!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO3l`~9Q{Dgo0T)R`K~y-)?UKz(13?gkzcm{O
+zh6q6q8WDdk5_~Rio^ta&@;+XD15bh{L9;=3Hp$L(&rEv=3V$9nf;X|CZ$(viRl`4i
+zjbanw{HQSzPuZPOcAqFZGt6r4?k@{~5@0f!SY6k|7(Yf;84Ly-?)6wKp{aLq%{I>M
+z<DBPYG_{AvtD*#`stPkB=S)h8loB~-s;XkA*AhZRV<JW)WyA8C3$O*y@Ap5szl#iq
+zLmKB<Ej_+fBy}h%5!FOWwmF0G>5Yvq&d4zlB+{;gRU23=0@eJM=hw;lgfA2B%xT;K
+zIb}o>-YdRUyjN7$8+<EZ_JVUQmJN-O;3L5+Z7Yb#&uTm#P0h?mF%x4(BqJg$^}6^Y
+aulxqsB+S);89r420000<MNUMnLSTZ{)0gr9
+
+delta 213
+zcmV;`04o2N1MvZnB!35VNliru)BzO<Ege%KcRc_A010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E004kVL_t(|+QpLr3V<LCMgLs)lDe2(tf=l~D~U=|Xdu)?
+z(ZPG@2T35PDN{v%F6eCjUbWzapAwbe3B~7Ef%q7{w+2R30#4=`!<fR;958p^fWcCl
+zxg>={HQErFmwjy$_!4+{(rH}QdCg#jrE=eqN>GxVFpg~XgV0OX`~5d=sj*2Lyo8^<
+P00000NkvXXu0mjfM%h<I
+
+diff --git a/src/plugins/codecompletion/resources/images/dtor_public.png b/src/plugins/codecompletion/resources/images/dtor_public.png
+index 792f26fbb60e9344230a6ed0e19f5425b67d4dfa..8cfd2ac2fc2c23b5518a98599f21d3c7de1c9fea 100644
+GIT binary patch
+delta 366
+zcmV-!0g?Xj0f_^UB!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO3o6DuFIfNp0SQS&K~y-)?UFrC13?UhzeQ9;
+zDbgdQ0z^YgiD)@a3L0(z2T08sxCnJ>%0<~FWM{_X9||A{34atMI>eJ+XMMJx4gdPJ
+znr#JVcNgL6Xs&2h>Pi?iv6$UA0J{LQ*)00LM^!hjwK5)$IhvmE<j-`qW2ybCYsdce
+zVLV(enjL_)Z4nVv6*I%kaCh3aB}Ku)aDs?{a3F}c*>?a&qtU1C?~uu4LRULhx*~Z-
+zLXc226vx@DFlV37zs%zF_B;-B4+|qlVX#E@OmRV7KLFpUu7#y`csLT3!4iWFBu|u(
+z?SL$WW$keS4Ix`$?TNt>#mdjlIK4TJXaaRZQN)F0nR4~m{E=6F0fDE|N)`1*#Q*>R
+M07*qoM6N<$g8vnk6951J
+
+delta 212
+zcmV;_04x8A1MmTmB!35VNliru)BzO<EfgyK&zS%K010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E004hUL_t(|+QpM?3V<LGL`S!ic`@l=fgMbzFA7tkt)OP{
+zhYRl^yJ!gFP3$ZBbAgMFj|DqiN>qXp%I}u~MmE=EVW|?xC`}mV$`d32K6`;c*g7pq
+z4ln7nLtG?qIKhV?A{v#&*R9JLB$t}<)Ng&&8cWFzui=d{-mvQZ{u?KS>QNj%UH#Ai
+O0000<MNUMnLSTaK(^4D&
+
+diff --git a/src/plugins/codecompletion/resources/images/enum.png b/src/plugins/codecompletion/resources/images/enum.png
+index 2e7b5a9d4299d8f25755bf670536673c9ef0c84a..6d6d0cd6e26604fe836ab3c866365c3eb86b2a77 100644
+GIT binary patch
+delta 518
+zcmV+h0{Q*Q0iXnsB!2;OQb$4nuFf3k00006VoOIv0Du610Dwd&lT82s010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*bD~~5gkM!v$_BP0ia1lK~y-)&62T-6+sY1PfySK
+zX8jfgGk-%fGf~6^F)}bW6c#biNQ5;I6GKzOjYQbkR0Kn1W`DP;XS%8kdiFiv7id9o
+zJL%JP`xgA`N|%ST(}w|0_=4F&tut<lS;1;S)F>s;;)oje9)C$&z}e}8xOU?<L?vv(
+zeOh&FY7^n(suOM_A3qsKPrjxeAR-`U+$N4+e@9gjQA$xn1l5A-jEM2>#kgmo0leTg
+z0Wb^$T}qG=Ie&Mgl<51OoI7&Pz)!Z1UINS(!X_YibT<=`3GWCG!VGsM{Cu@_byfBO
+zmwsQq9Z*$t9bL4bT2TSf%*pYub%OjCpvpP{Y=(i9S~w|ZQcC2UTlX2F0$|?l0B$qx
+z4RCblcS|E?!V3{fxDbBP+756($LwGSsC6c6B5dT<`+w_*Dn$hqMf3`)8$>pU9&+;h
+z2kp+`4san(*tkt0rM4g`b<lO>+|zX(eV++0>mS$-FwefVaR1h4z=)_sEa3BMqYxp4
+zr)DXZ{Z;<(=4JqR(Bg}r8Z1lT?kqJ}X2ZjAn|b=|TjIZ{KXS`X<`u-fvH$=807*qo
+IM6N<$g8kUt3;+NC
+
+delta 174
+zcmZ3$a*A<+N<Djtr>`sf6-H4`U9JnCKK)`~VBjq9h%9Dc;1&X5#!GkW{s0A8(j9#r
+z85lP9bN@+X1@a?3T^vIyZYBRY|6zWk&;gf;?;H~u9{>N(_k^A4ah=-+ZV5?#g(D3)
+zC3beRIFB&wVsaI>l0TfJV!4CcVO9t0iL99ySUp&M)D50LDl+nso31Kyoau2!(6T!W
+Z3>lj=lXu$p9st_H;OXk;vd$@?2>@9jJ*)r#
+
+diff --git a/src/plugins/codecompletion/resources/images/enum_private.png b/src/plugins/codecompletion/resources/images/enum_private.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8135652de83662e21f52dcdea25fe7bb251df9b5
+GIT binary patch
+literal 492
+zcmV<I0Tcd-P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;(2!f&hYDV5G4C000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb;
+z69o_yJ{VE}00C@CL_t(I%gvI%YE)4WhrhdfcjE>EzJL#)RVq{ECG4z32-;X#*!u|S
+z1R<@J81oJRAqc7MeS-V{-ZQ_S#o4_{Bt<%%Y8W`*%y(wsUq`V^t}ovhgf$T{k<y5w
+zCt@JdK-UMuVERFHeen9-RWSpuFHijJ@C2NYS{xl#ht#6z=iITasps4GE8f2US(E^_
+z!MS5``U9E<s+vVrv8XFtRk*5gUC~_}-%-c_4Ji6tIXHl_q*yLtRl<4&dwa0iz~&K!
+zgSqJr5HVpj0O-{d>?uQ)$IlH~tPZqO;x0hyQM9Z-{l-m$w+j5F(4IfPXM)tBXdk42
+z69A!G0L7Tc1BRDN><xH{wU7N6X`EFGbx0!-w*V=P^Q!jGidn(;C^TQ6lHceC&~`$4
+zn1VfR{~&Gv<EVL!^@|pqwzpyIHMX%<Sxp1wqMkwXDS!EVWB?f~W1AE(O-2$^GSe8y
+iLNW5;<FA7MBK`n7yGy?|D&&O#0000<MNUMnLSTa0oX#@<
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/enum_protected.png b/src/plugins/codecompletion/resources/images/enum_protected.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..3041817d925a5c81984bada9f842b354fc6c23be
+GIT binary patch
+literal 536
+zcmV+z0_XjSP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;#oomH_+9#5i~W000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb;
+z6AvZ0Vl?{z00EduL_t(I%gvIljub%@Mo$my{A^gB1A)L15(EMT0tg06LcpL1Aq0ZJ
+zZqOJK#D;(Y2am9dkgVo4rf2Hj>c00wbk7X)1W@KHQ>VUDx8Pr|X0tgveJn_n9T6RU
+zU&$~coamimfx9qIiUkj!{%p2@v(rbqeB~afN70hmj=3B%T9nH%TQZh>{T@7d_NzG$
+zAPH2-X!-c*0bYd_;SOe^6fjTB;N9yRdkO;}os1TMql+;0hUpZ%!rWl75LPEt6Oe2#
+z-2fsw6fGd`-+GVaC=1FpiWQkFwADHslYPL(_vG6f+=Q7hV@%;in2Y0A*Tx3t{sQ!6
+zYyd|WU^;D>&R{kdb8m15H>kA%^#DXpc7TjZ<^Z^J^Z76hRg{ioJDpskI3ROH#K8{G
+z_Z3BpV#((pCs-NkyCuaL>W@0dFE25iS?mDok|>sY3bUE;`GmPAb~vG0Vm?f4c!Ssh
+zYR#>}?dx}eK<be?$U15`QbE}aO6vB%@|O=+1&{)zkVGHQbs{tAdePM&m1I<2y#3wq
+aU#vehK4|Wu_AeFy0000<MNUMnLSTZ<quXl$
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/enum_public.png b/src/plugins/codecompletion/resources/images/enum_public.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..1c224dd8fd795cf76105bfcc111aab0778b57db3
+GIT binary patch
+literal 547
+zcmV+;0^I$HP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;$7$rU0hoWcEe?000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb;
+z6AU|PKw4V>00E;(L_t(I%gvI#id0byfWN!W?ug2QGuT*Ji-nz~od_xxTG$GUHdYq)
+zK7$~r4`3-azQI<Duvm$We-EJI+?<@BBo_D1-C3~LRN=t+k}nDT>*&_W;r@dFC%j@-
+zX|3R<m}RVGk{US&nw_M^{YMAg1UTH^i;I`{AR6vMSRy>(F1YEGhmCKpym@=T!^iKt
+z89+op3>9yGe1WJCKb$`INJ;dyr_VyliEp>=98(woo^ewE&TTKzID;;foib<lccbQl
+z%n~|Rx-h1qYk*lLya(Xrg=<9A0qR5hLjf68)=C@)xGQeL-OukxDPg}FqJosfs;ua<
+zphfw5<K|yFXbCsjP{`<(GA}1bg|o<ZLYqP~0L(W4ZiVm!!1ME$h%kskcqO9ZUM7{H
+z{esyBptUls>fZMchzkDGkRtTCr>`<8e7Sy=;g25yBsuPb!g9Xgba#q!qKpc=6wSy^
+zBG*hr9cN%ifKq%~<Fn-gqK&uFhK)oXbu!_Z+16?TO{e_&)s+D7fbbw9Xa=<g?oMq%
+lEry5VR(SICQ^$W1e*h?Pf~Zah*EawF002ovPDHLkV1n&(?)?A&
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/enumerator.png b/src/plugins/codecompletion/resources/images/enumerator.png
+index 314e2dab434b6b9acbbe2098ae62813a9f553990..7790239773e430cc2031e08520e2280bb9b6cfad 100644
+GIT binary patch
+delta 324
+zcmV-K0lWU<0p9|UB!2;OQb$4nuFf3k00006VoOIv0Kx#e0RN9&l#c)a010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5sJ4-qtW;`{&r0N+VOK~y-)?b5wX1VIdj;dc>`
+zPy?a`njoM6ByuDQpacTyAg2LHpb3PC5GhN<?9c3u$NmT);eQTkuYhy-Nq%I@hHW+f
+zg>TQ-vTDq^Bj=7OC&n>xdiKyP0`D(3Iy^eY>nCn4VJ%)i2y3~2Dx6<D{^{9S1>BAB
+zFBApjfP;i2gx03rT@7*`aBGof6g`RwX$BR->oPFqgxem-Pz;18<O7OKM6&@fC8Aa&
+zN0CwVgeM|8N<G<M2F4-b)`R?ajqwNYgx7=3&UklwB1zO*i6~gfm}M@nUYqUbuh%!g
+WQl=e_R&t>L0000<MNUMnLSTY9hJug)
+
+delta 198
+zcmcc5^oVhSN<Djtr>`sf6-H4`T}F2W?IH#S2F?PH$YKTtZXpn6ymYtj4^WUL-O<;P
+zfnj4m_n$;oAivPl#WAGf*3rq)d<_abEW2ZTY-ir_vAoHpre>G1deVzY9|Dagi!o_T
+znbxBAOPY~=pLos&MNYjpB|+jE{>+T|oIy_amMizzM<&%69Ew|X@SUnyC+qGeA?`5N
+ySpO@plJ{J@%6D#()Sk9;r<5;P9e=;SkWuW7Yweyd&f!4Y89ZJ6T-G@yGywoiWJVDH
+
+diff --git a/src/plugins/codecompletion/resources/images/folder.png b/src/plugins/codecompletion/resources/images/folder.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..ceb2a178f8da07f200214f3d0b9e07bbae28cdfd
+GIT binary patch
+literal 376
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!61|;P_|4#%`jKx9jP7LeL$-D$|*pj^6T^L?4
+ztYZ++-xi(^6yYrJh%9Dc;1&j9Muu5)B!GhKC7!;n>^FEg#5D9)-|bxu6#C)m;uvCa
+z`syUZEM`X@*ZUIjI+{$HK}*g{2C*}}<gs&jw<*`}X<^#Z|G_<P?<QT(k#2NQ__9Qw
+z^WWa7*#<HnY(D<6eERO@zo<W7zVRBJ>MBipa5`Gyx8|LLehZjH<l^lmEUH#!@a<!q
+zlfJ=$k#9p~MWuV8Q=p>usjfvvGIe>EeH$#ks%mU-TjRi&6F7$>aiw|Wqy;v?0^2sY
+z1uRZszsV{2fTc+Cg1W)B1J^Zg9cBLgD2nw;U5I*7liQqJHc9<YNxn|3JZ2Wv;k^<2
+zjUAY`mvV}1;60^x__2xSIfw3sH{lxZsy8H;O}uwE%i{L7@O|mg_iHBqWn8lF>uuxj
+S#c9AWVDNPHb6Mw<&;$S%*Nw>l
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/folder_blue.png b/src/plugins/codecompletion/resources/images/folder_blue.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..81d534ae354ea8c4f5892d70edfdc3d2af060aaf
+GIT binary patch
+literal 376
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!61|;P_|4#%`jKx9jP7LeL$-D$|*pj^6T^NiQ
+zCNjL5x2DqqD8gCb5n0T@z%2~Ij105pNB{-dOFVsD*>CXh35w~Rvbo<66#C)m;uvCa
+z`s$>!zAT13t@|f#GqNaL#As2pkV!?O!D(CL-U~O=ME~3J&6H%k6?s<FJ8(_J&p&@s
+zetb7vd-JmAey!ujGx;BEsIjZHx!}7+U~PA}-z{cKos&mf)GHjkYWCgvd`vzx{L0#f
+zXRaa<O-nnPzCX9tQ=HZLY*FOJn3}%<+nLVAPEp{hYGAG4;_ncNRN~%b=9Zzig&`;+
+zBlI!rJOR~3TX<Ipt>pAi)U4{Mwq)M4bb<I$1A`#r7Dmp8iffMj4n1(QRl?Y<)8oS>
+zt`{e5u8AFRTj+J<P3zMaHa3!3d9ykes08t_M*iS=Ww_w-yU=~2*4JyoYnb;M{+F<p
+Sd|v?!0|rl5KbLh*2~7ZEQ;x_0
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/folder_blue_open.png b/src/plugins/codecompletion/resources/images/folder_blue_open.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..6dc2f7a2a5edab32cfab55d06f45598b436f47ae
+GIT binary patch
+literal 473
+zcmV;~0Ve*5P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;x}XkpSwRtcf@P000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb_
+z5f&q~jiWLE00CJ^L_t(I%hi*yYLr0~g}-r^<bgy5Nu^D8Q3Mfe4A=z0!dfs7AlTU1
+zh@uEuEo>9gTBxb^SrRa_&dj~{Sgim5ZzKyTY@F)C%=tL?+&l2!pVU{6<~n!t>0Y`F
+zVBCr42NOya*+eelDRW&0GVY3H70sa;xWvo-+dStlR~NYJ0l5VhP#vlZ3wW`2i=~NN
+zMQ$S3AUAQi=B@{v6%hgpC<fJ_xo8IF!b5m~$A%Vi6Y2mis;PI=0-A$`u+U~egm5LA
+zi&t;I^^dl;Mogzy|3Ef5C_%6a@b$az96Z^f_|W_N&&O-BZMc7A%y!2^22BWf^YI7I
+z9^d4oIMtxo3NX2Qou9v)v#Qnhh|z*04S*^>d^u+C;SElgjw@jyii>3%CLtgR7GD=I
+z+fAw8!o1D&&NW6?5-EYCKG4!u;%@kz`1~qAI2_{D+SNs?G@GP<_L+VIVBhl@)tAuT
+P00000NkvXXu0mjfIcLbh
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/folder_green.png b/src/plugins/codecompletion/resources/images/folder_green.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..362ef4ab0a389e680558dbc27de3401310c0f31e
+GIT binary patch
+literal 378
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!61|;P_|4#%`jKx9jP7LeL$-D$|*pj^6T^NiQ
+zCNjL5x2DqqD8gCb5n0T@z%2~Ij105pNB{-dOFVsD*>CXh2}&_5hn@Kb6#C`q;uvCa
+z`syV^KW9UpV;}2P^$s1|Xr-|6z@a08r#fCdykWue_H=i0eOkunjE7sRw5KV#di~j)
+z%=)i(&97(Qp6dDY+nLL+Rz2YBf6s2e;fe&KvVG}?v-KSFex=DXPdvDyOTeGMf6wN#
+zJC_7kFuC=*u<0F7u{ijv?(7P$&O>%=Y@%Kw4J&us%et_c_DW5i#=d5$vP+6W(Lc_`
+zuUKaE%xXK?=WzJxalYF&0gHSbPM3x4ZPw*Kq4Po1x<UEDj=Bl^VtQwl?QG`zV)^Cy
+z3@NqbfP+szA6QVVU@RG$S?M7cT4<@Oe`bN3?d+2MGLpeh@1G3c|7mN)ue0Ju&0nU-
+Vb~Nog$q5Vv22WQ%mvv4FO#s&#l(hf=
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/folder_green_open.png b/src/plugins/codecompletion/resources/images/folder_green_open.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d8a26280706cead9d81a1c1a3d9c2e45b6cfd1d4
+GIT binary patch
+literal 481
+zcmV<70UrK|P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;x}XkpSwRtcf@P000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb_
+z5gHVrg-J0000Ci1L_t(I%hi&>YEwZJhQFI!@*Xav*>qb-pTMppn}QWe7J+Vb<4Um0
+z7UELO6SQbiT(k-;E`5tcM4zEHxpQakoO4_>camVhyY;LN%={n!fB50QpR8UUyzJWQ
+z!>`dKYXZn?@%Y6X3Uvex%;KC8udN9rua~(LhzX^76y^ERGu|?`O`=tB0+d=JCPa+{
+z4Mc>&a6qXZCyu!k6zXu|0Ft}E9Eb_t0$x0o-NP!2D2kY%*yaeO`UD6X@D>Of7J!PV
+zapADq3~=HSpt6cjXYZGvIyu{qcc|<hvJr46GXTVdtMiWx4~GN|=>}gud`_ZH4qM0F
+zI6ax<YYqTz-d*zK=>fAiOHsUddi`B~$2*)jT4X5J1}p&zb$q+{%A@@~ZmZjLw5X9%
+zOXgDGr364ReqR4zdNRqfx=5WIdi`D6S(_HE1XztxPc2@n^21llD*vl~-%p#>ywUst
+XKVSu{NV7O;00000NkvXXu0mjfYOTee
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/folder_open.png b/src/plugins/codecompletion/resources/images/folder_open.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8d0c8a9c0a47ea102d0e742813eccc8050d445f8
+GIT binary patch
+literal 460
+zcmV;-0W<!IP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;&ajt^g1(wpVWe000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb<
+z7APatZ1ENV00B%%L_t(I%hi&-YFj}Ng})VgD929x3nn7CNa4<<yMXI}z@5Mk;56yn
+zx(>diFenag?Z)6IaIHqsm2`K`adGtvvQe7@3k$RJ?VOo`|6XZ&DLQyD&}z?P@2NRW
+zK0LVu8AXXTq~P4^K$`Pw0~!J)AhG}TI|UbBm9z++0USfHKpC9DX7A_><pIhiM2VtA
+zxuocHXVuLCc~Cb&8LPs|$QfHC2SQk?KUrl#F(e^uVO5|pDQb`%5E&dmtOnE-7+c^>
+z_t%f5hg;j9u`|}2fU+K{gYL~wcE5a^`2UA;pZh;IONm7Xx7wry3ngIgeqXWEIz@Sa
+zH3E%6nT-!ysOryvjuAzt=Oqh&Z?E}ya7<KvnDoLLPfi7jdO`{wpL?|0q_nt&o1YFL
+zH6b-fxNe|ED26!7+EO*(;pt_z3vaISds=tR*U~H3Z|!B65uq*s0000<MNUMnLSTXj
+CQ@LmW
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/funcs_folder.png b/src/plugins/codecompletion/resources/images/funcs_folder.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..2eb965cefd97c1628044d8836fd02c19d915136b
+GIT binary patch
+literal 582
+zcmV-M0=fN(P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;(E&-vE=QG@oDq000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb<
+z7b7gE<zIUM00G8HL_t(I%dL{XYZO5g$3JuAKd{v8{0po^qKOE~MGIlkLM$xOh#*&J
+zl|l>CAEZqqSP5H+9w`KWfEIzoLI^}5#gRfS!tL$t?e4sJ&*E~MTdq;agW>V!&G*B1
+z<_(-?#BpqK9NYi&-E0#eNfNj8X2nz#DLhgLepmtU?eSMPd#(m_Ivwlx`y@%?uD-ox
+zi)Sw)7D#2tKvL2$$v?M$aQJlJ#c^y=6w&Q=T??S!?*kAHHcVA<v}$v%&dr!=78<)P
+zhZI68DT-2QiN_-*2#TU}@6rI66iDtFgcLI<t)vJArB!&X5S2MVYqro(;71h$88Qed
+zS;)vVXB@^9Ist`)4Vwc*Q8cMS&acrQ(&L9qC1Vsu<Y9~fWhiUmRO0}8>)7T_48W^r
+z=QzLBW3$?CSiQ{|@_Wy@`{V<2W9+SC%PSAL|Kc|Qs}~ZMZ$3gLM`eUc#+Q%p=I-BK
+z!_|N*Hy!}Sr>&PPwO26>n3kC2Cm^5IKno?idq*czFv<D+{xyr&?ht$irkHw6tK;QC
+z1DJpYcK42&4gfA)z7B2yTnmR`DwvjND6lY|IPp0<-w$c8;Tj)o3i+3qiccl}0@t50
+UkX9uUwg3PC07*qoM6N<$f@vY}S^xk5
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/method_private.png b/src/plugins/codecompletion/resources/images/method_private.png
+index a340b26124e2fcff496ed016c2ffbd0ec82c838c..0bb3185a2b0fd64965eee1c5183e1964cd8e135a 100644
+GIT binary patch
+delta 543
+zcmV+)0^t3Q0=NW_B!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO1P=<J=g|NF0k}y-K~y-)&67WC+dvqHpF4Ys
+ztUwlZ$tawu8QdXsF)0XBlQAI>lNKS|ey9>KnM23mK}*RuD1Y6I=?733+ozKhThiOX
+zv5P|?YYq;M<9Yx6_`UFIPWQAcgX@93#0{<o(mm~NIStT1>x<T!AP8P86a)cUYx-w>
+z*(R{o;`=^P7%71A_*fo~jwCxg6nk(We_U67@9zsh6h_MTeXO<X4#FrDfL^Z$K-uYt
+z{xYQT`4i2nD}Ndn=d}7Cd2@2YPuJaH!zdJ;BnbeQ7ncg4%5&<4LGl7tOQfohvVyvz
+zQfh}yl7wcO*_|0HYti!=vRoor21T)cuU1sDt8toHn$Jb5tfeuVBV~!?Ig({akt0Px
+z`5#f6tv!b{O}8J#a!F%8gR)##&U3_CB+n_H1-JGbw14M$0Nj1Q69A(WGMgduIrV&j
+zEDUv;QrnEjrx7-+=Xt1&iQ4TpH{Wg)z%SR8l~RZZOQ3kVePa~B@as?}lL-$$9+U=f
+z9Ea(2%IJ0^0B?;^oy9`EGe*5PMtv|wZGuO)BbiR8IF9qriR1gRs_U9Kj$d?Q9LLmk
+h&G>$-UKqy`{sqQ{>ZYP${E+|v002ovPDHLkV1htK@Lm7_
+
+delta 242
+zcmV<O01f}R1dalbB!35VNliru)BzO<FAn9YRAB%B010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E005myL_t(|+ND!b4uBvC1=qc@ljY5{lbN`1!h}A=xrV&=
+zL?EnCVaLMkAYi5K5i};irVRmBZBIghh?mHS<Baz+V6qYsPivwgE^l9vN*-}P1EV#o
+z0xty~Y!~G$$)!N@is*@0WU|AnA&JEHO%CRF4$@CNd^HojJ@qVnb}Jn5%nY>1ZHV@c
+s@#=2d^I1~9#^Bs?bDSsB7~K7xU-hC`0h^Db_y7O^07*qoM6N<$f>b<Zxc~qF
+
+diff --git a/src/plugins/codecompletion/resources/images/method_protected.png b/src/plugins/codecompletion/resources/images/method_protected.png
+index 7a92b9f6855ee185ac4a94039c1bdb4d53579e11..2c90a6ee2fc99399a6b33e9e126b7412afa1f398 100644
+GIT binary patch
+delta 539
+zcmV+$0_6RW0<;8>B!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO12bxl4Uqr<0kla(K~y-)&6B}u6Hyd~zk8d7
+zHeHF%QqX}|+*omK9Lf+FgA1W_5esgL58yKtUqO*V=(@NpA%B_2=&E7J1B?<inVHPo
+zJNI4}X@${6w!LsRmyiE&{_`KWHLn|V-QZ~8HgSWaf$Ij{znlb!`jL}T5{BW%MqwBt
+zr6lS{4nUlII$<)IxK5|T>DN;Mu=nJ<(|QHsH$u)4at<uGym~JHjz1i`>2yl3*Ap^H
+z5(m)h^#FMB^nZtYdvJ%>Z`!<kb&tL04|)7(mk0NsvFm?sut}0QnWiZKhX;oOK&g^E
+zSE#C{t}S(KvDRIeZLn#Y(#ndwF{7~yvgH<98_KdqDTC66T3f6U4K^!sTK}3Pw|=tB
+z?o!v5s;bu_<yyoT^Pj15XS?0_5OPkotjLy%B3G;mMSodps#2qMQ($Mijr2SZfb(zX
+z*SlS?Tq^RsBF_{>t|?ZU)v87*+h9G<qviX)n9XKxJRSpZdG$^h^Tio!F~(tPi`E9E
+zEa|V00^o-AeSd9A)Q?=SAGqP!aAOjOXG0h42ks_F5@2*O64qMcINq4VIF7N_GP)Rv
+d+i`?{02F&O@AhLfFzx^V002ovPDHLkV1nNE_8R~I
+
+delta 244
+zcmV<Q01N-L1dsxdB!35VNliru)BzO<F9)1;?8N{8010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E005s!L_t(|+ND#`4#OY_JWT(q-IvWj(|s8$&1i)nSt5-O
+z%H0V^B?e<9%D5pA%gP8IQ?MAffU2G?(Fk}Qwnxn?KCM8>UTws*Bqm0;N2Jzq=kp3C
+zqlpX-1&BUq&7Soxmsk8H;6-L+i7hixM1W&TPAhn#rrGlI%*>XtQv_zb9gb;QffrG7
+u0DQh{doFucIm6I6^4affjCB}Vea>I{AXouhf+g<&0000<MNUMnLSTZ2S70ju
+
+diff --git a/src/plugins/codecompletion/resources/images/method_public.png b/src/plugins/codecompletion/resources/images/method_public.png
+index 350963d9225158f4212d8d08b50923bc634c071a..23690a508760704efe7f3b08f643dc6989c6a4ed 100644
+GIT binary patch
+delta 540
+zcmV+%0^|LU0<{E?B!2;OQb$4nuFf3k00006VoOIv0C)g+0C+Ur(3b!J010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*bD;`1twJH8k_(C0kug)K~y-)&67Qg6LAoSpZ}8T
+z?!ZFWLWDzCf;PUCBE<DvR@PX`72(RmT5N3(3;hOi5UxI~B!7ftzrqz(79r#VEJzZQ
+z?CXDLEaVPWi?lc8@C?H|{06Q~b^MO@j(WO{>mBv9<9Dt&2O#Q3>NpNT5Nur(1OblY
+z5OpI3Fejf*7>~!=Znru8dTIcke}AoF1)Epc+)}MdQkyaP@WTKczdP2+WI`B*#+gp1
+z3J``N051k_^nca<OP<|%%A<P^xqIKkeR7K%k8g7ObGyM#r&D#3Bmv;??V$k>5i%{P
+zwMI}>6;uF44GlI)5?bqY)40**mPNIo(uz!SN-ZhXV$~u@gI%W^TK`J2X~o<wsI?~7
+zg0#-aC8v-QEA~IBt-YOH*6a0EquP|r?E+Du)QYsuNPp{;Ofm{B8^e1$yEv}v0&xEA
+zTmka3U|ubm+utnhl9gStsyC!{Mo||H)^%N4p68j_Y^I~p2!NmOFU<az2dYM~Qe&}{
+zQj*m<#m8R;;F9$`@2}RV8>xTbYyYgjHHrPRzWN8gUIxhl7!HO;M2O>fYZBu)Mno76
+ehUR)a;T0bTS@`i`70Yt~0000<MNUMnLSTYsvho@L
+
+delta 243
+zcmV<P01W@N1djrcB!35VNliru)BzO<E;`)?k(B@d010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E005pzL_t(|+ND!L62u?~BTgUI{>-20zKqqK;s7gL#PL8$
+zQVa?vrjsZ-0fFbv2p&`DFqVL*jw3+>9)3(mQWt#Mfsnn3Ic(B2argHfsiCcU-a#;$
+zoxxiHd_Zk19UYyhCMISg5qZXynK(u0rjVR=u%hPW@_J@w%eTD?5?mc_@WKwfh>-t*
+tYW>o&&9~}uhk+h>be)Z{4ujL@`~|YnU;)ZKwfF!4002ovPDHLkV1k;@WUBxG
+
+diff --git a/src/plugins/codecompletion/resources/images/namespace.png b/src/plugins/codecompletion/resources/images/namespace.png
+index 39d953f57020864921c03911788cc243e0d4a90e..8309326ace988c856344fd9558dfba34ba21b437 100644
+GIT binary patch
+delta 444
+zcmV;t0Ym=X1J(nOB!2;OQb$4nuFf3k00006VoOIv0Js2Z0JSH-@m~M{010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yOE)eL$CJX=o02y>eSad^gZEa<4bO1wgWnpw>
+zWFU8GbZ8()Nlj2!fese{00A*cL_t(I%iWSaN<&c)g};d=D1QhxRwB3!1s7l=*oYYG
+z2&NE3OratE6VU|(2_j;tm}RJy3lNuJ`(EC?ckWmSAu&E%!Rcn;e9SpB@Yf~Z2an}@
+z!$5st<zY<#+H);)slz3X?YG?lO`*T(tUp+3yhL%V*b@U(o;O7bf{1W2)3jUw0u+R$
+zo8_U+s;^su2!Al3XSBajr-->+zZPu>(A(f{@z#9TlO_3p7$Z@Q<H?2%0NV2{3*E1f
+zRy$?M1MIxlB!)=T$o@#pdVtE)ruftoQqT3mmE{4>r%z3TqCq*+3mLGm@lus6b+|O&
+zLT~}~fs<}iehkqk4iU)*bORw%a?j|Jj4a8xoNW%-I5nK8TgU?H_4iLan>sQ8GpK(Y
+m2tZ?e&(tYVBTX)a|5cx*NR_pl`8$~a0000<MNUMnLSTZmVz&qY
+
+delta 451
+zcmV;!0X+WJ1Kk6VB!32COGiWi{{a60|De66lK=n!32;bRa{vGf5&!@T5&_cPe*6Fc
+z00(qQO+^RP1quf&E&`70X#fBLYDq*vRCwBjlOeByU=)U57;XkF2F%(mB#Z{x_yLaK
+z=8P8qfz56)n*0Y=Ha87!2AUS<Z=g6~x*@(d9QDJi-1}~f!+&=UFVEq8pGJ~+D2jmD
+z4A|{}Bmo=;==JcYjO>Hs0Nbs^rU}$)_+NbJcq9S277M;KpOf7#+3%B+33)#AO)rBW
+zPzG_V3PvN+G*zzI%rRK6r9jijB;kh^3uSUVs&yRz(iE7_rKMI2FpSSu+iew}PML&l
+zla-1%cRFMk@_(z6MCbsaeGx<vaJ`CIsRR@XIpZ>f4iMTj%}n8PAw5srU6;8EL!ktO
+z+O{A6pjZS312OddjQcMY3PK48brfaxLEad%a$U)Lo>0Gy@o-QEzW@31?MCXl<X5XN
+z``~^jElUb?ovhc%@mLkcvHCy|sP)&xH4RuUf$0?3?>yx&RjaE1%|^xL@|Uxar}0>5
+tp7@p}v>ya{s#bwU1F$T)4~Ihg)DHoP4&3__NIC!j002ovPDHLkV1h>e$b0|*
+
+diff --git a/src/plugins/codecompletion/resources/images/others_folder.png b/src/plugins/codecompletion/resources/images/others_folder.png
+index f330dc752d80cbac2b720dfdd889e22ffa57b608..1ecd2c2a90ec48418b1be88a7d74116e400b1874 100644
+GIT binary patch
+literal 559
+zcmV+~0?_@5P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;#ZjlK_+Xwj$^N000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb)
+z6%#qZ``!!y00FN_L_t(I%gvIpYg17a#(!7(A2?<x>0h9WQ$!n33005|8H5U2GCk~|
+zAk-k@kgXu1TLu>`7}Uk#fjU@0n?UA(Lq-1swZYfi_wM-|ZX0|WySR9!k9*Gj_`Y*K
+z_^&HT617?_9X8_t(hjAeMjMwTi599=cE@8zqY=Gc&&?v3OFQV?<t~`V!X64gNV%;S
+zpFQ7q$4n*@q`!-pI{^9x)R%8j`}&d9d*3iK9^DXEkHwKjo01ZjcF@^N_kqCL#tz<l
+z9$r6+iVQ3EP{<+<8S9(#c<<?UyHk=Q02VUVHg;I3R;g4ftlas8WIzA~Bx8MZe%fy~
+zn<`mQ$nd`G`R&UGC9mGMX70qL9aO(~6A&wRzhGvp9)HH-(iLPmSb;2O>-F<L7T9Rx
+zT-rgWFI)o&DKLEZloPe3Xh8v4jx5J4hfrYVk$Dty`h#J#U`2*QynpkUT75ZwQUEig
+z0<$72Q4!x|^an#4ZCpHK$k=-Igi~jhvEXqS+E;|azKwtsiMF=~({s9m6rNl>4=zSC
+x?#Pe@AYc|rOga4z{ZbZYM)|P%JxKptKLKOb8;GDc$cz90002ovPDHLkV1i8H=^g+8
+
+delta 443
+zcmV;s0Yv_<1kM99iBL{Q4GJ0x0000DNk~Le0000H0000H2nGNE06T3*`Tzg`24YJ`
+zL;(K){{a7>y{D6rKpub81quij4i^<t<p2NyTS-JgRCwCelRZm9Q5eU6&($s%)X*3~
+zR223hA`JxhK0uqRTXUm*1F@DU8sfSM+T@iM3#Sk+M7Bh<WG_U%#l5G&*Q>WQXz33J
+z&hR|H^M76r{2PT-NR5k;Ndcyq@@t5fgYQ6o06l8C5}Mf{VZwi2@yhFAzaF(zGaKaK
+z%0|;*N&_hfYE!vDrkJn?deKs?+`0>-0VFSN(q)H?WpjSxwCgMgdGam*Kze@(d?__j
+zPT%QJ!wLc+dH{gTb;G+S-4?5Xa`lAOzC?lIK*lmZKnA2IEG|+jRO^cBheNfdc&a%(
+z*BlO$59pB%pg(_%5r}bAp?ti`OI;zTj>As82-`dJyfqZ>Ek*rPQHmSw#&(rGt#EIw
+zfw+@J1Q8jTb}4Rv9h07u{Mj9^=|!N)OaK-Fz})a&`Z@=uXHUS634nALEw}qP@qgNi
+l-1Y$dwI7=MSPcOFOkV)8f#p;6Cs+Ug002ovPDHLkV1g46yU73m
+
+diff --git a/src/plugins/codecompletion/resources/images/preproc.png b/src/plugins/codecompletion/resources/images/preproc.png
+index 359984defef5041b99160ea2c21bd6b92dea9d14..2042b520aa8cf61cba6b081d44d5e7ccabf3877c 100644
+GIT binary patch
+delta 327
+zcmV-N0l5CW0pbFXB!2;OQb$4nuFf3k00006VoOIv0RI3}0Qs4`rlJ4<010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5sK5e54%V`%^Y0OCnRK~y-)?U5}@!%-B*A7y!A
+zSq2u<5c~#9`v{ih6~Bx{EUSVDD}u$aAu5J_1uX+jV!ijC_kRWTj~f^KXYpz0;k^CM
+z0sf}mM{ltjzQlL@Fj&Ox!A;b1cWWjqLrt34!{F}KVLRK#YWN&#3Q|Uqg2EY@3lb+}
+z&NzM@Z`5?Q8zf3lH;4&X2&@7zhMGcM+udM!^cYWvcMbFP{w%KcE}|8}{a_v*4mJJU
+zLK&n45<-!J$w0@+?+6|a`@(3N2!Vv#A<X)h8!JzH=W*6Ots-=4W}*c9@wO}(tc-uv
+ZwFW?jm!qt;St0-c002ovPDHLkV1lyIhx`Bl
+
+delta 160
+zcmaFFw1;tmN<Djtr>`sf6-H4`J^c;0OY0aI7&r?&B8wRqxP?HN@zUM8KR`j2bVpxD
+z28NCO+<y{TfqZXI7srr_TW5nE`4|*9n&RG_&y4jpkKM^CuBY{4iNc+Pn9%L!3j*iW
+zy=u58v^bO7=;KOe4F#T0U(P8z9j%LRS@ZYkJmatrl0WrR3>f3y1YB=i`yn4_E`z75
+KpUXO@geCxYc{)!3
+
+diff --git a/src/plugins/codecompletion/resources/images/preproc_folder.png b/src/plugins/codecompletion/resources/images/preproc_folder.png
+index df23acff47cce6e5b3d13941fbef9139cd1e8ce1..b8a9852501dc43049dfaa59ac75cf61760f456f0 100644
+GIT binary patch
+literal 556
+zcmV+{0@MA8P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;x-TyZ}4;{lrQD000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb<
+z7Bm2neBC(!00FE?L_t(I%gvHKYZO2bhMzsIk^Bv@vakw?QF5RhIgE$|g<u*%NMU7t
+z^%Yh&{sBJ<6SPp&BWM&1l1>}JMhhXSEYigNnBASRxZLFqPHZe3SeRw!eP(C(h5s^s
+zw)gEv>zfVtJEz~-)~S~^t+qK#`aMPkvMrRFM@4ECRh`<*4aM!X`=G|&%_T}Lq$0!|
+zi4q7B@!|;*xW0G8jRP7JX~W@@$4emQh~$KnOs+zyg`#ERrV{|G5i60C4__0+6D4rw
+z(Nkt0Z;*;0RaoA9!u&#O0&)x}9<7nxtFw3scnQ2;xyYN9B~nR95jL(|2Gi+}s5RnH
+zeDbI%RV%q>a?MB)Qck2SK%EY-;xUZHXK#76JjcxXDox<T(fRkg_gH)J9IJl>gu$O!
+zWoCVq)}`BM@o4#lmP6nUyC08*{T|lo;>Jb@fbn7L0gIhmXz`dPPysE>%`c$&a0IlP
+z==Tn6VuYRTP0n4oM$Ly{ifP7Fj#dV(U<I`D`Rf6lF3yd+@a*|ExF)y;4#Tuyn$Q}t
+u8U`a}&!;c@bh-l*x@lJaTMWhjBz^;^M<65R-5PoT0000<MNUMnLSTZq8}5(*
+
+delta 445
+zcmV;u0Yd()1kVFAiBL{Q4GJ0x0000DNk~Le0000H0000H2nGNE06T3*`Tzg`24YJ`
+zL;(K){{a7>y{D6rKpub81quijAj`vFDgXchTuDShRCwCWlD$hpQ5eR5N9}|`4sAsc
+z6h;m$O)V{f&=L)8Ez*#*wKe-Mw1u`<(GUhjfi^X?NHmpkiPA+Xg6xCHj~m|8aP#KX
+zn<O~&z=4-@&ilL{&jbG-5tL)>09PmKiIyESzX_*n4}hG}tVDmEK>MA@8BJA^W5mv?
+zxLnZXg3zG{nbu6w$$%AGg;D|0M6wp~vwvl9oR_~=yIeNtcEk0(&g{e{RKvnHj)|56
+zka;xlNjSPFJMW~n;<;g+gPde(TqhpO+CGNTHvlXy^tT|XLp+w{G&(||q$qqC6pD(c
+zqQP^~U}OCb8JvFte#B@Zk!g+0mY<iBLZCo^s*NfH^PvIW%8GYgQTkMzuO#edOYUUJ
+zCq_ZolZ6ln(P$BqfNEG+ot*6Ec-<QUD)f3`&<pf6`qKS<pvSjuDI{t}ORYZq*<91X
+nTbsmY;Et-cELum<F?<2D;C%C$s9?eX0000<MNUMnLSO-cb!*2T
+
+diff --git a/src/plugins/codecompletion/resources/images/symbols_folder.png b/src/plugins/codecompletion/resources/images/symbols_folder.png
+index 967a85f69ecd2d68ec437f45d631915007cae5e3..867b87da36308d08e51f8b83e4d9a82c91c2d85d 100644
+GIT binary patch
+delta 590
+zcmV-U0<rzV1MvhdiBL{Q4GJ0x0000DNk~Le0000G0000G2nGNE03Y-JVE_OC0drDE
+zLIAGL9O;oEFn`z#2p1><n8%BM0005;Nkl<ZILob*ziU)M5XV37a!Ei03qeFls~`ka
+z5Y+e!f{{ZlEd(1uY%B!9Ds?Jb{|AxOCPm7m2nj|I(Zbd!u}JbR_x9b+?#x)6IqyOW
+zK?j!IE#|X)mhZqnRxx<_Iyvbyn|M`GsS<K#;m!$`Z+{#|lcGtn+}qzjUnu~ZL%2qR
+ziSrlm81Z%+YnN=DJ<ax|Q<SmIu9WP?lC-+_r)B@JIESaI!efM-aWmYUtQmF1Fx(x-
+zv24SD#W{TD(QEcpdoOo7c((=-x)SI}MV-5d3E2{2(gzGEG>BD&wM*O_M6fy#Vnr!!
+zqDDfl$$zFp)_s6$m+jlY#R;%3mP$;NBgcL+viy)DMw(F=PfGZ>0c;!q<iPm7Q5w@{
+zaINsX1=3(-=`lx_?$hiFBS8ouGP*kkyd4IZc5yFI`Hp+SbPx9$kw{%fM3j^=DJf=l
+zh(ZnkX!?P>vijy704G`I>C_8eEqo@%gh)o!4}SyHeZboMI=AjV!*alKh2;(}Id?FG
+z-kPNtP^d}CS({(yX6p%-18xyaz%rMwOkt_h2f9WU=XQKZVeH!`*QOt!sRM4fCEVoq
+zN?;0}!ITeQc4*B~6#GE}xO#mCiY62d3LLkLTkL(X);*;Z*!Z+bYqmE>#bA{Gb^`aC
+c{})UB0_4PMAq&MPDgXcg07*qoM6N<$f)*SEJOBUy
+
+delta 413
+zcmV;O0b>5~1i}L$iBL{Q4GJ0x0000DNk~Le0000H0000H2nGNE06T3*`jIX$f7AsE
+z2o^6}d_ubb00B=)L_t(|+Rf8FOT%CkhT;3P5~-krqX-V7=)VYpkli03ICSkMxOLOb
+zwG?qs=^%BkTUrD`=qO~dE)FiXDq?FZ$#H0sCh3O?4ju^P<s=u+`vw2H)HHQm&(z_b
+zOai1@m2p5-20i&MK>&?P5I`vaf5UQARmV+XVh<o?SdMlpYt%%*wv#C^0jUW#b}|Lz
+z`|l}$!i@_Mg90D~BTy6om`diWiC{tuh(egefRPA3aBVr^*f<#UdinLC??Yt&xXa$o
+zH2A<(ahYaEX})_j+saehqt*5}DmZb$LSsn|PkK~J4Q@|Yc<v~If`H<0bB+jG+Y7vY
+zC~rNb^QqKx<^IA3RVg)iD6fLVe-;r$WN3HmxiYv}36t38_q<#z0bOP@u$TenlZQL)
+zKQJ?Q25wdW#IPI%xZHjG@!i_kybFQBu}>HES2r{Q{8@bgcn6DM>afAL00000NkvXX
+Hu0mjfBjK%2
+
+diff --git a/src/plugins/codecompletion/resources/images/typedef.png b/src/plugins/codecompletion/resources/images/typedef.png
+index 396aba6db75f699e8756cf90514210a842a04737..d9de22eb4613e7889acdce63b1ac32f891e6ae0f 100644
+GIT binary patch
+delta 454
+zcmV;%0XhEW0pJ6WB!2;OQb$4nuFf3k00006VoOIv0Dk~~0Dm3UkD&kn010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yF6DD3}W7Gfu0bof)K~y-))sx+Ann4gn&qhEx
+z2q-pb2{{GuKoigeH6)<`dWf5FVu>brFdw^f=jLHQ6D4v1$$v_#{hh0`cV^+gZ{@Ac
+z-EK!j5E0l$(rulYL<EP!0f2XZ2XD7qrqe02*?Ui?GnZ1FnU0X7g@?=Fm&=P+s}%r~
+z{eJJ-D%YV>uLCWjNb<wy2NWWr(LzLPD1tWjZ(qL{D3jCaQ~<8mE5k4_U(9g@g~$|{
+zhBP+VeZ<DuiGL^e%X=$CZIyOy48x@e5jTMx$3C|;3b_kB|9mb05kak$`G+~mj-EED
+z97PgkVw+5p*%2m-`NHW$5-kF?R%)$d2C`pP-h`yYDbnf!Pd}atFdmBK@)NDKTME--
+zu!K@bLYYL21b25I{fZ=s%;*FyNV<V~^<pGZCQ`gzNI#p+hV%IhV7tFrW3UuNBvPX_
+wmB+{LZ&%`az5c^#>9_NpGC3ZP|Hx<h1;qh@D7F@`vH$=807*qoM6N<$f*jevOaK4?
+
+delta 202
+zcmaFB{ETseN<CYWx4R1i82ohJT@Pe%7I;J!Gca%qfiUBxyLEqng6t)pzOL-oIE1)0
+z7@yqvFbgPD?CIhdVsUzHkR#s#1rF_F?H|AVU9)?IBHs*dWy7c=Vl0ZHqS+cz><5IH
+zSF$(+Wu7mafBNuhmWkTJoQ0p~SVy*1FG*{5?laoJzp3ci-=2vd4ga4zm?ZCI{m;ZB
+x@-IJ=|3lvG!mh8qjXOj(ubZ;_0;5Ok1Ge`YLIq~rU048eu&1k^%Q~loCII!XOIQE^
+
+diff --git a/src/plugins/codecompletion/resources/images/typedef_private.png b/src/plugins/codecompletion/resources/images/typedef_private.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..dda18c6171a603ace0d10c5cd54181275e865c47
+GIT binary patch
+literal 501
+zcmV<R0Sf+!P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;(K){{a7>y{D4^000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb;
+z5+V*YHvMA&00DJLL_t(I%hi*;YE(fK$A1I6&k#`TEfi7*(%FWjwphX5O5$!|Vd+Z<
+zauL!kSwu(|6iJttki3Ab_ulz99~Lur7bOp%1H+s%%=ypnf0%*)euVorSF05wf{5Vm
+zsOl~^Gem^0>j0SjUA$Z_na}6ExVZ4qo#M{cooGhi*5uC5)6=loY?%ExI&zB<-)<Rl
+z=A&77-gW-?{2WSwoM9NC?`uAeFpl(BSH6KTdw+Ns08&cC7&$Pdcdv)d>MBz4%xY|g
+zHR9Qun;Z9(AVz+f@!{+&6!&^_DSIIiNU6qVxO)|N*9b&}oHGYny)q2-@KmH)MOtB=
+z2wq=by8)#&?9<6fh-TGmyNyz+km{an5_sDP%nViK(L|7QEvOBuQ)EYyCJV1_Z{6L=
+zfV%Vf;e#-k?JZ2$lVBq#lfbjPyFVV&OEtb6ABS>z=>k|279cg7$(`>{o(8^sz5gXH
+r77N^c*J)MV<*JIAv0ktLk<auSM0Y;RZDHLy00000NkvXXu0mjfmC@Ub
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/typedef_protected.png b/src/plugins/codecompletion/resources/images/typedef_protected.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..212ddcc87880832bbd0e60747306060021b27d32
+GIT binary patch
+literal 516
+zcmV+f0{i`mP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;(K){{a7>y{D4^000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb;
+z5*-R^g%d^q00D$aL_t(I%hi*;YE)4ag})2KJV7Kya5}Nl!p1`K1_lKC0jILC6lTEA
+zM(`=ZG(nWXDJ_f|tSrSwD+`}sNamiOz4x*>$rWK9KsRhS>%duS?VkhxeRR7n7mEdE
+zhM6G=cOP&>U}h|r%iRR?`JC~1%<<`w6d6S(>>PQI{DO#tyyxD{&)s^xW_0WRPo)%;
+zk_bO1;&pd?dZcGhZeR|%h(3vwgHoZCpwHsXt6s3~Mu(G^9YD^RloB5M$a~DeT|)v$
+z!W<&n8DRA8`%}5qX4SVm+&k$MnOxe#QXvH9P^$<v4ABS<uRreq%#2bB?)!vq>64He
+zL2G1FSLiZpBY6Mgu^>=17Z3K{cJiKF8bJh96SZDCvgYP0Mt82g=l~+3jmsy<FR1pX
+z_F6?Q`l~OB+z7t>dNepd#=*gdE__Q$G1RVT%I?icF+gSa9?WJlHk%C}zulGOtyu~r
+zZ>lONGPfsRyR)-TyEkz<og!%%mAenv-H8ZRtJOd9nSKK)6k^M7lh-T&0000<MNUMn
+GLSTZ<yxJE4
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/typedef_public.png b/src/plugins/codecompletion/resources/images/typedef_public.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..4593d39495a11bc43ff60539aa2f7fed65837dd4
+GIT binary patch
+literal 526
+zcmV+p0`dKcP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;#im+yI@eC`w`g000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb;
+z5+)BOT?p|200E9kL_t(I%hi*;Zj(_AhMyy%5Q&TpKSRabiEBV?2yP)mZX&s!%vGd_
+zftk)7C?i4@LJUYSR3YEbImfTv;VUUaE&#mQmR>!6ZNq;b=~!{KT483G84-b`L+<XF
+z8SC}>xWIC`WIP^od3F`bh8L%H6=k8$up*Sj>6d3|yWKLHzh6XFrnQdRRQ#i-%d@L^
+z^WrTvjJC8iwWX;IZE4w;hNd=r?LG&PM$>nbG-bjxPw4v|Jr&j)j)Mm&?&<t5(ukok
+z`uX}Ms_HOfTbW&+Brl>ZEl$vTrmA9YL<q-G=w9H_`8dHCGozG(9y`_>ziUH8U@o!-
+zkt(COP&iQsp3#q2zaj$M94}(_=_Dx+1d)afWM#4n#S2oQMm>x&dU*aI0k|h5uv15!
+z(bSfR0oPpg){|8RAuH$)!OhEk-~&O(@oP)g8~d`qGtTeuD_Mn39a#l8KYj;`#e&^#
+z$My4X5pr;FcS3;|;pV71PrlF6#l?r?mpGr#iHL*Kk`B2f+?~y4^N&2!Eoa4Nc_U-u
+Q2mk;807*qoM6N<$f`$FvE&u=k
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/images/typedefs_folder.png b/src/plugins/codecompletion/resources/images/typedefs_folder.png
+index 3f7a76aeebc167a131650063f18d821b8b092ae2..28a47698c21d1b9be9cb4553be1270af593d918b 100644
+GIT binary patch
+delta 553
+zcmV+^0@nTC1HuH5B!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*bD;{5(I%t$!h=r0m4Z{K~y-)#gjd2R8bIyp9{fe
+z)A%QB?5z?^L<vh2;#O8d5X2@3sU%ydge8rQAc%;Cpb<M`vwz@65k<2L`5}Uhh{<lw
+ze7qL-W;Fr9LU5WH&f$HSIqw|!-%<VPVr{J}GsCP<N}&|P%_ya?`C@aTn*!+f(9rHu
+z4#vz*Z}4$%jmw=S!UK21Ja99@9dl=I|A)4=URMB9{T^Dl`j~|*WQ<X)^ZwCy!h_5p
+zQ;<Resmb}P(|@VM;`Wm-*nzQrt%X^^CxC2nT}y$aqX79nca~3*VGv`?40j_XGO~dr
+zk%=TS^C%!=#I1*4F?a6Wn5LA1yCWr;4Wt1@B&j&oL5$eA-a_dp3ucB5&mVCmPQM~D
+zhzQ*C_y{9b?tdd9cyP1Dl~YfdUtC6MkdD&We!IkpMt`(A2di_a-KDDfJv4V|1tg?k
+z_rpuh%q$`$C{P+oBhw(9%!0C@Fb2cj<_&yAh4}RD88hcPwMYS(NKU5LoyhBRC4=EE
+z?JiYqV~p5-^PIC6I%E_ovhh4X(TovDHE3sNNV{8aan<i3fZ6$rP}RF#+ngu^sCR&L
+rQpVu(U?L)({Dniv-^B0Ye-b|d5x#MtnSr}X00000NkvXXu0mjfX3+X?
+
+delta 453
+zcmV;$0XqJ|1m6RYB!32COGiWi000000Qp0^e*gdg32;bRa{vGf5&!@T5&_cPe*6Fc
+z00(qQO+^RR2oeh&C<I@sKmY&%Y)M2xR5;7UlEEuPQ5431=NZo>Ua~VA<Ug=tHz_r;
+zRQ6J{wXn0buvQk7jS?2@6s33zDJ5$Qnw23@X3R6!o5!)3nSW=RjL5>N)4k`ObH4BE
+z+#@I`DHZWiP4RnEP)#YIswu6%*Pk_SjGcNc5x+T4gSuMmc;i|9s;CjHS)BNet-h(L
+zf@UltJ|Yh9>LB8v>Yz$P-bcK2R`dJQaUux2xVTKRcRIw5Kg>hki*pNeIVJ`c85}Gs
+z@CKZTm(J?QRDY6g<I*B!cGhn&!1huvLD<IKGu#I+1VJmyE7t%R3>Gl88MG(hH3~V}
+z%wd4z)qV;#<gv<Z5*<8Bk;$1Pd8?E|mr@B%<~Axb&@vot<^VX~>L+rcgkq`yHhRHz
+zJ0YUtz{%_e*o=sm{`|(L-M$~~p3}1iHX{Hrz`^`2Ha@ad$p#x)Ou|$Z*!XR9><Xev
+vGk~Drjc2uReE74~x1Y^1z+cRPe+Kvf%+9ZY2I=L;00000NkvXXu0mjfzhTOt
+
+diff --git a/src/plugins/codecompletion/resources/images/var_private.png b/src/plugins/codecompletion/resources/images/var_private.png
+index b6b067451e5dc26956c7e26af8a700a02b38e944..7853f7326d54d5917595f1568e60aacbddc11621 100644
+GIT binary patch
+delta 303
+zcmV+~0nq;F0m=f9B!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO0TvUyyHo%G0Ln>3K~y-)?UBJv12Ggtp9SKS
+z3!;JuA#tV)Dj~gsC?Hj=y~N*M+kZH4BD+#jKt}qPk^a++27hh}TV{QJm3zf=MyC@$
+zz#IZE^BgV$Y`@pT#{uPx$M|<?!eiw4`NdmG|9<Yz0cs6T3H6RzLt}tDxFczmb`3DY
+zQ-m>4sZa{44SL5n>aGBzR_<a%?r2%S3>8DAGOkGwL*QwONDi$*t;h_SVIf=wWZ*GP
+zAfR`&R8$I{jVN;MjNiMRMhH02fdweQ`^Jnn!7rRDj3vy6LP`Jt002ovPDHLkV1n7|
+BckloJ
+
+delta 204
+zcmX@b^n!7MN<Djtr>`sf6-H4`J;m_kh)M<q2F?PH$YKTtZXpn6ymYtj4^WUL-O<;P
+zfnj4m_n$;oAivzx#WAGf*3rrNTn!35NAEAHPF24=J5xPcibeEyFsG?K$L#mVx3wQh
+z_;TdJ(tm6MX?6TJj<Tf`9Q9K-a@g4BP{X}JfYEZk>(QkOwvrDyE*{Z!%WmftdNsGl
+zd|mI!mE8@TK0$U|m0O#&RkSXgHGF+V@W!gk@Ant7{{CkB&oeh53+M(0Pgg&ebxsLQ
+E01o&~h5!Hn
+
+diff --git a/src/plugins/codecompletion/resources/images/var_protected.png b/src/plugins/codecompletion/resources/images/var_protected.png
+index b7fa6a070cedfcd097e8d42d7659aae2e3b71d68..4c70aafcb7ccd5e7de8fb107ddfc6c09aaa7ddfc 100644
+GIT binary patch
+delta 329
+zcmV-P0k;0-0ptRZB!2;OQb$4nuFf3k00006VoOIv0RI600RN!9r;`8x010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*b5yO0tmvM)${-W0OUzTK~y-)?b0z$13?Uh;eVCg
+zRJ0U;5FK2If(y`b0q((-I0F?D6;d`rC^Om2jO`gy!y;`CkbhTN@~0=+a7y>z@a{Ug
+zNTwgQ^uva3wZ(nM+xug;2;5#xe*ds$KV{<XK!}MD5+P(Z<0~JZPrr8hzku3-xUZCA
+zs8!6I+8l3AYi-tc1`O+w7|t;>a#ExyDu!yMR$m5I{YZ#sG^-RbQW8p0iYTge8R%AD
+z#Bf2Y4be)@N<vOb&Wh?04cxy8A>qwYGfFl}R#Fl~<hV25T)w!wQ>|gv5NU`AlRkH+
+b&!6W9=G>yafYvT}00000NkvXXu0mjfV19}4
+
+delta 201
+zcmV;)05<>R0_6daB!35VNliru)BzO<E*j=&v0VTF010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E004AJL_t(|+QpOM3V<LCgzu#H%APFWOnb7W5L7VdK&T1+
+z*l{1bi4+KCDonXQ0c_FE7(8YR5=Q3HBs!q;Gz7&3AP?mH?n0HqdMAH`C!}X?wOC7R
+z5FmEV<^*>oQ&j<im3n`t3!p(X^Cj4)Mi5Kq@4xW`|9CzAf$-(j00000NkvXXu0mjf
+DR1;3Z
+
+diff --git a/src/plugins/codecompletion/resources/images/var_public.png b/src/plugins/codecompletion/resources/images/var_public.png
+index 82ad9a8a1bb36699c61fb3becf4ae0bf503bc762..d0e7bb0430d0e11a87f7e1e589b2add8d3c28e06 100644
+GIT binary patch
+delta 310
+zcmV-60m=U50nq}GB!2;OQb$4nuFf3k00006VoOIv0Hy$@0H)+*_C^2z010qNS#tmY
+z3ljhU3ljkVnw%H_000McNliru*bE349~WgE&!7MR0MSWAK~y-)?UFr8gHaGg&r4i`
+zXl>&fL<9?6lbr~zMcjt9t%V5I77CIV;`^EVW-Nq&G4Q#7oPXxRg?pMA*parCCwCVS
+z!%-EghOG>Mr>n;_DLB2qjPv6&6oafK3uW^7$(M&`-mYJNZDyMS_aHG_yVE+iv$t7{
+zCbBY))4gFB3LzZFrv>^l79$e@EgE%HT6D}i@-Z#2Vl1>I2oy%~Mj3_bl}?`)ystjk
+z*8!10E_!szs4oQ2M*H6x4{wfQp61Af5H^ewm45q~cAx*3Z)8-7bSqAw*#H0l07*qo
+IM6N<$f`g2G5&!@I
+
+delta 201
+zcmV;)05<>80_6daB!35VNliru)BzO<E)$=$3Hbm3010qNS#tmY3labT3lag+-G2N4
+z000DMK}|sb0I`n?{9y$E004AJL_t(|+QpMm4uBvGLtEm(;AY%RJlTX84bd@F67Bxh
+z^ko}?0>OyfQ2G-<kRY!Cd)R`wUbr`j4rn|LLAeFsLd>~pB|;`3K3JiKw8BM`b;JUJ
+zM>A|ra46cg3J@<;`|;XuPH={3;mzn&UO_CMzyHP+S=2`U&)C-C00000NkvXXu0mjf
+DMtx7y
+
+diff --git a/src/plugins/codecompletion/resources/images/vars_folder.png b/src/plugins/codecompletion/resources/images/vars_folder.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..97680cb72fee81fc3ff03495eba87f3eeceb9b35
+GIT binary patch
+literal 545
+zcmV++0^a?JP)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;$7$rU0hoWcEe?000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iOb<
+z7achK`jC4700E&%L_t(I%f*sCYg9oLhM!sPAFvT?ZR~7K;zvYXSQNy<&eG05AZ%eF
+z`wy%GHWoIbh`~ZIilh*<2`Iwag@6iSZ|>eZ_s;pSxXH4Y&4PvCfnkPW&U4=P%z^(M
+z;ke7yr`O%pkSIt@q-g?R=fS726tFqM0Y+!~TseCQaV3`nCX$nDyMN#M#@@qm2a+8n
+z_wPOia~^HKB+vuwutHca73g)2y@1w2E;&;zXsjlY5Elf)u$j^YfNR7hB4uKtIk^-R
+zRuVN*dqc7YF=b_Ky#vW+04Z@GRf&ll;5g!m%4#aDh!$yRz>S3-0GLJs#;@sbPRc1f
+zfSAyDL!}W1YOMi19?&Xqe%!vv>F2N5$i|(Ax2hBTymk)PxC~IWt#)N28?%1nJ|-n5
+zQ%nk8Y`tdt<2&ZReJ~`<S*QT#{hKFT9^AvE#H|Kvz=ZQFYgj5~K-Zeh(Y|*qe0cke
+z3s>);sQ@?J5^l}mN?-~uV9J-T`wWJJFh7N>7yA%02t5Lho8VSs8gZ>!OR41Z&Mt#t
+jJ6j8*{5Nrw{7>Q!1T-7hsbE2*00000NkvXXu0mjfJ#6G}
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/plugins/codecompletion/resources/settings.xrc b/src/plugins/codecompletion/resources/settings.xrc
+index d079367..76ca314 100644
+--- a/src/plugins/codecompletion/resources/settings.xrc
++++ b/src/plugins/codecompletion/resources/settings.xrc
+@@ -393,6 +393,14 @@
+ 											<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+ 											<border>8</border>
+ 										</object>
++										<object class="sizeritem">
++											<object class="wxCheckBox" name="chkTreeMembers">
++												<label>Display member list in separate tree</label>
++											</object>
++											<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
++											<border>8</border>
++											<option>1</option>
++										</object>
+ 									</object>
+ 									<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+ 									<border>8</border>
+-- 
+2.6.0.windows.1
+
