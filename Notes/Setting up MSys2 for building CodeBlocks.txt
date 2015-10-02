@@ -40,6 +40,10 @@ pacman -S mingw-w64-x86_64-toolchain
 pacman -S mingw-w64-x86_64-wxWidgets
 pacman -S mingw-w64-x86_64-drmingw
 pacman -S mingw-w64-x86_64-hunspell # Not sure if this is needed
+# mingw-w64-scite
+# mingw-w64-tinyxml
+#  mingw-w64-tinyxml2
+# mingw-w64-tools-git
 
 
 # MinGW 32 bit
