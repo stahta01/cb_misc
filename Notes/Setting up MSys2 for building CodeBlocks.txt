@@ -19,7 +19,7 @@ pacman -S wget                      # Not sure if this is needed
 pacman -S unzip                     # Not sure if this is needed
 pacman -S zip
 pacman -S git
-pacman -S subversion                # Not needed at the current time
+pacman -S subversion                # Needed for "git svn info" to work
 Optional dependencies for subversion
  python2: for some hook scripts
     ruby: for some hook scripts
