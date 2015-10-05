@@ -95,26 +95,55 @@ git status
 git checkout master
 git status
 
+git fetch upstream
+git pull --rebase upstream master
+git status
+git push
+
+# 
+git fetch
+git status
+git checkout svn_rebase/master
+git status
+
+git svn fetch
 git svn rebase
 
 git fetch upstream
 git pull --rebase upstream master
 git status
-
-git fetch origin
-git pull --rebase origin master
-git status
 git push
-
+# git push --force-with-lease
 
 git fetch
 git status
 git checkout msys2
 git status
-git rebase master
+git svn rebase
 git status
+git fetch upstream
+git pull --rebase upstream master
+git status
+
+git log --grep="^git-svn-id: https:" --first-parent -1
+
+commit 27942cd8aef9c5d4920d157af07c923da33edd88
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Sun Oct 4 15:13:49 2015 +0000
+
+    * applied patch by (?): Support for "scope" in class wizard
+    
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10527 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+git svn fetch
+
+echo 27942cd8aef9c5d4920d157af07c923da33edd88 > .git/refs/remotes/svn/trunk
+
+git svn fetch
+
+# git svn info # 10527
+
 git push --force-with-lease
 git status
 
-# git svn info # 10515
 
