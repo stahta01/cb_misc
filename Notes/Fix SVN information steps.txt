@@ -1,0 +1,45 @@
+###############################################################################
+#
+# Steps needed to make git svn info return the correct information
+#
+###############################################################################
+#
+# Based on the idea from  http://trac.parrot.org/parrot/wiki/git-svn-tutorial
+#
+###############################################################################
+
+# You should have ran some version of "git svn fetch" before doing these steps.
+
+# Record the result of the "git log" command.
+git log --grep="^git-svn-id: " --first-parent -1
+# Git Log message begins
+commit 27942cd8aef9c5d4920d157af07c923da33edd88
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Sun Oct 4 15:13:49 2015 +0000
+
+    * applied patch by (?): Support for "scope" in class wizard
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10527 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+# Git Log message ends
+
+# Check that protocal matches that in the above step (https, http, or svn).
+git config svn-remote.svn.url
+# https://svn.code.sf.net/p/codeblocks/code
+
+# See what folder name is being used before trunk.
+git config svn-remote.svn.fetch
+# trunk:refs/remotes/svn/trunk
+
+# verify the folder exists
+ls .git/refs/remotes/svn
+# verify the file exists; not sure if the file always exists
+ls .git/refs/remotes/svn/trunk
+
+# Use the commit hash from the git log message returned in the step above.
+echo 27942cd8aef9c5d4920d157af07c923da33edd88 > .git/refs/remotes/svn/trunk
+
+# Run svn fetch to update svn info
+git svn fetch
+
+# Run svn info to verify it is working
+git svn info
