@@ -8,38 +8,41 @@
 #
 ###############################################################################
 
-# You should have ran some version of "git svn fetch" before doing these steps.
 
-# Record the result of the "git log" command.
+# Step 1: Record the result of the "git log" command.
 git log --grep="^git-svn-id: " --first-parent -1
 # Git Log message begins
-commit 27942cd8aef9c5d4920d157af07c923da33edd88
-Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Sun Oct 4 15:13:49 2015 +0000
+commit 5db852e63f6e39c4c67a558989feb6bf44019119
+Author: T Petrov <tpetrov@codeblocks.org>
+Date:   Sun Oct 4 10:05:20 2015 +0000
 
-    * applied patch by (?): Support for "scope" in class wizard
+    * wx30: Fix an assert when the project is modified externally and the user clicks on an editor (fixes issue #186)
 
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10527 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10523 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Git Log message ends
 
-# Check that protocal matches that in the above step (https, http, or svn).
+# Step 2: Verify svn configuration
+# Step 2A: Check that protocal matches that in the above step (https, http, or svn).
 git config svn-remote.svn.url
 # https://svn.code.sf.net/p/codeblocks/code
 
-# See what folder name is being used before trunk.
+# Step 2B: See what folder name is being used before trunk.
 git config svn-remote.svn.fetch
 # trunk:refs/remotes/svn/trunk
 
-# verify the folder exists
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10523"
+git svn fetch -r 10523
+
+# Step 3B: verify the folder exists
 ls .git/refs/remotes/svn
 # verify the file exists; not sure if the file always exists
 ls .git/refs/remotes/svn/trunk
 
-# Use the commit hash from the git log message returned in the step above.
-echo 27942cd8aef9c5d4920d157af07c923da33edd88 > .git/refs/remotes/svn/trunk
+# Step 4: Use the commit hash from the git log message returned in the step 1 above.
+echo 5db852e63f6e39c4c67a558989feb6bf44019119 > .git/refs/remotes/svn/trunk
 
-# Run svn fetch to update svn info
-git svn fetch
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10523" part is needed.
+git svn fetch -r 10523
 
-# Run svn info to verify it is working
+# Step 6: Run svn info to verify it is working
 git svn info
