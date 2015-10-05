@@ -23,3 +23,151 @@ ConsoleZ
  wxPATH_NATIVE
  wxPATH_WIN
  
+wx-config --version=3.0 --cflags --prefix=c:/Apps64/msys64/mingw64/
+
+echo `wx-config --version=3.0 --prefix=$(COMPILER_PREFIX)`
+
+--cflags 
+SET WXWIN=C:/SourceCode/OpenSourceCode/Libs/GUI/wxWidgets/wxWidgets-3.0.2_x64
+# SET WXWIN=C:\SourceCode\OpenSourceCode\Libs\GUI\wxWidgets\wxWidgets-3.0.2_x64
+# SET WXWIN=C:\SourceCode\OpenSourceCode\Libs\GUI\wxWidgets\wxMSW-2.8.12
+SET WXCFG=gcc_dll/mswu
+wx-config --list # Broken
+wx-config --version=3.0 --cflags
+wx-config --version=3.0 --libs std
+
+`$(WX_CONFIG) --cflags`
+
+`$(WX_CONFIG) --rcflags`
+
+`$(WX_CONFIG) --libs std`
+
+wx-config --version=3.0 --rcflags
+
+$(#WX30_64.INCLUDE)
+
+$(#WX30_64.lib)/gcc_dll$(WX_CFG)
+$(#WX30_64.lib)/gcc_dll$(WX_CFG)
+
+git checkout master
+git checkout -b win_shell
+
+msys2 branches
+wx_config               CBP changes to use wx-config
+gnuwin_forwardslash     XML and CBP changes to use gnuwin32 tools and forward slashes
+msys2_cbp_win           Combines gnuwin_forwardslash and wx_config
+win_shell               Adds windows shell setting and usage
+msys2_shell             Combines msys2_cbp_win and win_shell
+msys2_configure         Trys to build under MSys2 shell using configure/make method
+msys2                   Combines msys2_shell and msys2_configure
+msys2_inwork            Work that is planned to be placed in msys2 branch
+
+git checkout wx_config; git status
+git checkout gnuwin_forwardslash; git status
+
+git checkout msys2_cbp_win
+# git reset --hard 0978809dcfbd73075bdd07d369556fdbc4551f93
+git rebase wx_config                # git rebase --skip was needed ? times.
+git rebase gnuwin_forwardslash      # git rebase --skip was needed 0 times.
+git rebase origin/msys2_cbp_win
+git push
+
+git format-patch 0978809dcfbd73075bdd07d369556fdbc4551f93
+
+git checkout msys2_shell
+# git reset --hard 0978809dcfbd73075bdd07d369556fdbc4551f93
+git rebase win_shell
+git rebase msys2_cbp_win
+git rebase origin/msys2_shell
+git push
+
+git checkout msys2_inwork
+# git reset --hard 0978809dcfbd73075bdd07d369556fdbc4551f93
+git rebase msys2_configure
+git rebase msys2_shell
+git rebase msysup/msys2_inwork
+# git rebase msysup/msys2
+git push
+
+
+gnuwin_forwardslash     Keep
+win_shell               Keep
+wx_config               Keep
+
+msys2                   Keep
+msys2_configure         Keep
+msys2_cbp_win           Keep
+
+
+wxString shell = Manager::Get()->GetConfigManager(_T("app"))->Read(_T("/console_shell"), DEFAULT_CONSOLE_SHELL);
+
+Replaced "cmd /c" with Read("/console_shell")
+
+Added CMD_SHELL
+
+
+git checkout win_shell
+git rebase origin/win_shell
+
+git checkout gnuwin_forwardslash
+git rebase origin/gnuwin_forwardslash
+
+
+gnuwin_forwardslash
+win_shell
+wx_config
+
+msys2               old tested version of msys2_inwork
+msys2_cbp_win       modifies wx_config and gnuwin_forwardslash
+msys2_configure     modifies master
+msys2_shell         modifies win_shell and msys2_cbp_win
+msys2_inwork        modifies msys2_configure and msys2_shell
+
+
+msys2
+msys2_inwork
+
+git checkout master
+git rebase upstream/master
+
+git checkout msys2_inwork
+git rebase msysup/msys2_inwork
+git status
+git rebase master
+git status
+git push --force-with-lease
+git status
+
+git checkout msys2_inwork
+git status
+git rebase msysup/msys2
+git status
+git push --force-with-lease msysup msys2_inwork
+git status
+
+
+git checkout msys2
+git status
+git rebase msysup/msys2
+git status
+git rebase master
+git status
+git push --force-with-lease
+git status
+
+src/unix/utilsunx.cpp
+
+git checkout wx_config
+git reset --mixed 471708e21efff7fa61efe0439b94af53f6f1a7be
+# split patches into 4 sections
+deleted CB GV       #WX30_64
+deleted wx libs     wxmsw$(WX_VERSION)$(WX_SUFFIX)
+deleted wx defines  wxUSE_UNICODE WXUSINGDLL
+add WX_CONFIG
+add testing code; that echos WXWIN and WXCFG
+
+
++		<ExtraCommands>
++			<Add before="echo WXWIN:=$(WXWIN)" />
++			<Add before="echo WXCFG:=$(WXCFG)" />
++		</ExtraCommands>
