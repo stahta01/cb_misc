@@ -1,0 +1,55 @@
+wx-config testing.txt
+
+Testing using MSys2 MinGW64
+
+wx-config --list
+    Default config is msw-unicode-3.0
+
+  Default config will be used for output
+
+  Alternate matches:
+    msw-unicode-static-3.0
+
+  Also available in /mingw64:
+    x86_64-w64-mingw32-msw-unicode-3.0
+
+wx-config --version=3.0 --rcflags
+*** Error: Unrecognised option: '--rcflags'
+
+wx-config --version=3.0 --cppflags
+    -I/mingw64/lib/wx/include/msw-unicode-3.0 -I/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__
+
+wx-config --version=3.0 --cxxflags
+    -I/mingw64/lib/wx/include/msw-unicode-3.0 -I/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -fpermissive
+
+wx-config --version=3.0 --cflags
+    -I/mingw64/lib/wx/include/msw-unicode-3.0 -I/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -fpermissive
+
+wx-config --version=3.0 --libs std
+    -L/mingw64/lib   -pipe -Wl,--subsystem,windows -mwindows -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0
+
+wx-config --version=3.0 --libs base
+    -L/mingw64/lib   -lwx_baseu-3.0
+
+wx-config --version=3.0 --libs
+    -L/mingw64/lib   -pipe -Wl,--subsystem,windows -mwindows -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0
+
+wx-config --version=3.0 --libs all
+    -L/mingw64/lib   -pipe -Wl,--subsystem,windows -mwindows -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_stc-3.0 -lwx_mswu_richtext-3.0 -lwx_mswu_ribbon-3.0 -lwx_mswu_propgrid-3.0 -lwx_mswu_aui-3.0 -lwx_mswu_gl-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0
+
+
+Std wx3.0 Libs are
+    xrc, webview, html, qa, adv, core, xml, net, base
+
+All wx3.0 Libs are
+    xrc, webview, stc, richtext, ribbon, propgrid, aui, gl, html, qa, adv, core, xml, net, base
+
+
+
+Tesing using compilied program
+SET PATH=C:\Apps32\misc\bin;%PATH%
+SET WXWIN=C:/SourceCode/OpenSourceCode/Libs/GUI/wxWidgets/wxWidgets-3.0.2_x64_multilib
+SET WXCFG=gcc_dll/mswu
+wx-config --version=3.0 --libs std
+    -mthreads -LC:/SourceCode/OpenSourceCode/Libs/GUI/wxWidgets/wxWidgets-3.0.2_x64_multilib/lib/gcc_dll -lwxmsw30u_xrc -lwxmsw30u_html -lwxmsw30u_adv -lwxmsw30u_core -lwxbase30u_xml -lwxbase30u_net -lwxbase30u -lwxscintilla -lwxtiff -lwxjpeg -lwxpng -lwxzlib -lwxregexu -lwxexpat -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwxregexu -lwinspool -lwinmm -lshell32 -lcomctl32 -lole32 -loleaut32 -luuid -lrpcr
+

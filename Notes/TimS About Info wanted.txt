@@ -1,0 +1,30 @@
+TimS About Info wanted.txt
+
+
+git rev-parse --abbrev-ref HEAD
+
+
+SVN_BUILD
+
+GIT_BUILD
+
+
+git remote show origin # Shows a lot of information
+
+git rev-parse --abbrev-ref --symbolic-full-name @{u} # Shows origin/winpty
+
+git ls-remote --get-url # Shows https://stahta01@github.com/stahta01/codeblocks_windows.git
+
+git log --pretty=format:'%h' -n 1  # Shows 06c4802
+
+git log --graph | grep 'git-svn-id' | head -n 1  #  git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10506 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+git config branch.`git rev-parse --abbrev-ref HEAD`.description  # Master branch that is based on github.com/obfuscated/codeblocks_sf.
+
+git branch --edit-description
+
+
+Git abbreviated commit hash: XXXXXXX
+Git branch:
+Git description:
+Git remote URL:

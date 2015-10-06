@@ -1,24 +1,99 @@
+git checkout master
+git rebase upstream/master
+git svn info #
+# do steps in "Fix SVN information steps.txt"
+git push
+git push msysup
+
+git checkout svn_rebase/master
+git fetch upstream
+git rebase upstream/master
+git svn fetch
+# If svn info is wrong do steps in "Fix SVN information steps.txt"
+git svn info # 10528
+git fetch 
+git push --force-with-lease
+git push msysup --force-with-lease
+
+
+# wx_config                             CBP changes to use wx-config
+git checkout wx_config
+git rebase svn_rebase/master
+git rebase upstream/master
+git svn info # 10528
+git push --force-with-lease
+
+# gnuwin_forwardslash                   XML and CBP changes to use gnuwin32 tools and forward slashes
+git checkout gnuwin_forwardslash
+git rebase svn_rebase/master
+git svn info # 10528
+git push --force-with-lease
+
+# win_shell                             Adds windows shell setting and usage
+git checkout win_shell
+git rebase svn_rebase/master
+git svn info # 10528
+git push --force-with-lease
+
+# msys2_shell                           Combines gnuwin_forwardslash and win_shell
+git checkout msys2_shell
+# git reset --hard 27942cd8aef9c5d4920d157af07c923da33edd88
+git rebase win_shell
+git rebase gnuwin_forwardslash
+# git rebase origin/msys2_shell
+git rebase svn_rebase/master
+git svn info # 10528
+git push --force-with-lease
+
+# msys2_wx_config                       Combines msys2_shell and wx_config
+git checkout msys2_wx_config
+# git reset --hard 27942cd8aef9c5d4920d157af07c923da33edd88
+git rebase wx_config                    # git rebase --skip was needed ? times.
+git rebase msys2_shell                  # git rebase --skip was needed 0 times.
+# git rebase origin/msys2_wx_config
+git rebase svn_rebase/master
+git svn info # 10528
+git push --force-with-lease
+
+git format-patch --output-directory saved-patches/msys2_wx_config --no-numbered 
+
+# msys2_configure                       Trys to build under MSys2 shell using configure/make method
+git checkout msys2_configure
+git rebase svn_rebase/master
+# git rebase msysup/msys2_configure
+git svn info # 10528
+git push --force-with-lease
+
+# msys2_inwork                          Combines msys2_shell and msys2_configure
+git checkout msys2_inwork
+# git reset --hard 27942cd8aef9c5d4920d157af07c923da33edd88
+git rebase msys2_shell
+git rebase msys2_configure
+git rebase svn_rebase/master
+# git rebase msysup/msys2_inwork
+# git rebase msysup/msys2
+git svn info # 10528
+git push --force-with-lease
+
+# msys2                                 Tested version of msys2_inwork
+git checkout msys2
+git rebase svn_rebase/master
+git svn info # 10528
+# git rebase msysup/msys2_inwork
+# git rebase msysup/msys2
+git svn info # 10528
+git push --force-with-lease
+
+
 SET PATH=C:\Apps64\msys64\usr\bin;C:\Apps64\msys64\mingw64\bin;%PATH%
-
-winpty x86_64-w64-mingw32-gcc -v
-
-winpty sh -c  "wx-config --version=3.0 --libs"
-
-winpty sh -c  "wx-config --version=3.0 --cflags"
-
-winpty sh -c  'wx-config --version=3.0 --cflags'
-
-winpty sh -c  "C:/Apps64/msys64/mingw64/bin/wx-config --version=3.0 --libs"
-
-
-winpty sh -c "pwd"
-
-bash -c 'wx-config --version=3.0 --cflags'
-
-ConsoleZ
- 69,632 ConsoleWow.exe
  
- 
+CMD /c C:\Apps64\msys64\usr\bin\sh.exe '/mingw64/wx-config --version=3.0 --cflags --prefix=c:/Apps64/msys64/mingw64'
+
+C:\Apps64\msys64\usr\bin\sh.exe '/mingw64/wx-config --version=3.0 --cflags --prefix=c:/Apps64/msys64/mingw64'
+CD C:\Apps64\msys64\usr\bin
+
+sh.exe /mingw64/wx-config
+
  wxPATH_UNIX 
  wxPATH_NATIVE
  wxPATH_WIN
@@ -52,15 +127,6 @@ $(#WX30_64.lib)/gcc_dll$(WX_CFG)
 git checkout master
 git checkout -b win_shell
 
-msys2 branches
-wx_config               CBP changes to use wx-config
-gnuwin_forwardslash     XML and CBP changes to use gnuwin32 tools and forward slashes
-msys2_cbp_win           Combines gnuwin_forwardslash and wx_config
-win_shell               Adds windows shell setting and usage
-msys2_shell             Combines msys2_cbp_win and win_shell
-msys2_configure         Trys to build under MSys2 shell using configure/make method
-msys2                   Combines msys2_shell and msys2_configure
-msys2_inwork            Work that is planned to be placed in msys2 branch
 
 git checkout wx_config; git status
 git checkout gnuwin_forwardslash; git status
@@ -164,6 +230,7 @@ deleted CB GV       #WX30_64
 deleted wx libs     wxmsw$(WX_VERSION)$(WX_SUFFIX)
 deleted wx defines  wxUSE_UNICODE WXUSINGDLL
 add WX_CONFIG
+Fixes for Mulitlib wxWidgets
 add testing code; that echos WXWIN and WXCFG
 
 

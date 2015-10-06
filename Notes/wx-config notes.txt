@@ -1,0 +1,29 @@
+C:\Apps64\msys64\mingw64\bin\wx-config
+
+/mingw64/bin/wx-config
+
+
+C:\Apps64\msys64\usr\bin\sh.exe  -c "help set"
+
+/usr/bin/sh.exe
+
+SET PATH=C:\Apps64\msys64\usr\bin;C:\Apps64\msys64\mingw64\bin;%PATH%
+sh.exe -c "wx-config --version=3.0 --list"
+
+SET PATH=C:\Apps64\msys64\usr\bin;C:\Apps64\msys64\mingw64\bin;%PATH%
+
+CMD.exe /c "sh.exe -c 'wx-config --version=3.0 --cflags'"
+
+
+sh.exe -c 'wx-config --version=3.0'
+
+WX_CONFIG wx-config --version=3.0
+
+`$(WX_CONFIG) --cflags`
+`$(WX_CONFIG) --libs std,aui,propgrid`
+`$(WX_CONFIG) --libs`
+`$(WX_CONFIG) --libs std,propgrid`
+`$(WX_CONFIG) --libs std,aui`
+
+`$(WX_CONFIG_CFLAGS)`
+

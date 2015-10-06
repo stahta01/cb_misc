@@ -1,0 +1,27 @@
+git log --grep="CC: applied several patches and improvements from patch tracker, forums and other"
+
+commit c3780a9dc2ad084a15035e92bee134d2f525625c
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Tue Jul 7 07:14:30 2009 +0000
+
+    * major improvement to CC: applied several patches and improvements from patch tracker, forums and other
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/branches/codecompletion_refactoring@5685 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+git log c3780a9dc2ad084a15035e92bee134d2f525625c^
+commit c086377c947afc6cfb6cc52d93cc9064572bc8bf
+Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Tue Jul 7 06:53:43 2009 +0000
+
+    Created branch codecompletion_refactoring.
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/branches/codecompletion_refactoring@5684 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+
+
+
+
+
+git diff c3780a9dc2ad084a15035e92bee134d2f525625c^ c3780a9dc2ad084a15035e92bee134d2f525625c
+
+git format-patch -1 c3780a9dc2ad084a15035e92bee134d2f525625c
