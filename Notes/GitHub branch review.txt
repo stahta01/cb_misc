@@ -1,0 +1,77 @@
+Code::Blocks Related Repos
+
+ Not really sure how to group repos
+  cb_release
+
+ Forks Of Complete Code::Blocks IDE
+  TimS_EmBlocks                         Needs created 
+  EmBlocks                              Needs work to add changes to TimS_EmBlocks
+  msys2_codeblocks
+  codeblocks_windows
+
+  backup Repos or repos that needed backed up
+   codeblocks_backup
+    CB_windows_release
+    codeblocks_mods
+    TimS_build_codeblocks
+    TimS_build_codeblocks_old
+    codeblocks_git_merge
+    codeblocks_obfuscated
+    codeblocks_sf_fork
+    tims_codeblocks_fork
+    codeblocks_biplab
+
+  svn2git Repos and related Repos
+   codeblocks_svn_rebase
+   codeblocks_svn2git_http_metadata
+   codeblocks_svn2git_no_metadata
+   codeblocks_svn2git_https_metadata
+
+ Modular forks Of Complete Code::Blocks IDE
+  TimS_custom_codeblocks
+  build_codeblocks
+  TimS_modular_codeblocks    forked from jenslody/codeblocks
+  TimS_codeblocks_wizard_resources
+  TimS_codeblocks_templates
+  TimS_codeblocks_compilers
+  codeblocks_wizards                Needs work saved and moved to TimS_codeblocks_wizard_resources
+  codeblocks_non_contrib_plugins
+
+ Forks Of Code::Blocks Plugins
+  codeblocks_fortran_plugin
+  cbInno
+
+ Not Forks Of Complete Code::Blocks IDE
+  codeblocks_setup_svn2git_https_metadata
+  colinux_codeblocks
+  cb_share
+  codeblocks_git_attributes
+  cb_misc
+  wx-config-win              forked from kowey/wx-config-win
+  cb_projects_for_wxWidgets
+  cbp2make
+  wxspellchecker
+  cb_code_paks
+  wxWidgets forked from wxWidgets/wxWidgets
+  codeblocks_devpaks
+
+Games or Graphics related Repos
+ Big3DSolitaire
+ test_gitattributes     ?Delete?
+ cb_boost_library
+ stahta01.github.io
+ git_rcs_keywords            forked from kimmormh/git-rcs-keywords
+ book-kollection
+ aptoncd
+ UmlBlocks                    forked from LexRudera/UmlBlocks
+ Cygwin_folder_mods
+ contiki forked from contiki-os/contiki
+ Eagle2Kicad                forked from DanChianucci/Eagle2Kicad
+ windows-games              forked from nonameentername/windows-games
+ squirrel3-dll-port
+ douml                      forked from DoUML/douml
+ bindiff
+ cpu_simulator
+ TerminalWx forked from jeremysalwen/TerminalWx
+ RapidSVN forked from RapidSVN/RapidSVN
+ tic-tac-toe forked from wangguibao/tic-tac-toe
