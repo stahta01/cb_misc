@@ -22,4 +22,5 @@ git push
 
 # git branch --all
 
+# git push --all
 
