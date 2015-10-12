@@ -16,18 +16,19 @@ git remote -v
 git branch --set-upstream-to=origin/master
 git status
 git fetch origin
-git fetch upstream
-git svn info		# 10479
+git svn info		# 10495
 git pull --rebase origin
 git svn rebase
-git svn info		# 10495
+git svn info		# 10528
 git pull --rebase origin
-git svn info		# 10495
+git svn info		# 10528
 git status
-git push origin
+git push origin --all
 
 
 # checkout another branch from upstream
+git remote add upstream https://github.com/stahta01/codeblocks_svn2git_metadata.git 
+git fetch upstream
 git branch --all
 git branch --list
 git checkout -b release-13.12 upstream/release-13.12
