@@ -1,0 +1,26 @@
+From 7d6775a82a3041f3e59b561e65bf0c203dea2f7b Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 16 Oct 2015 15:50:52 -0400
+Subject: [PATCH 12/12] DO NOT APPLY UPSTREAM: Remove "-ansi" from
+ configure.ac.
+
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 866e5b2..d50183d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -332,7 +332,7 @@ case `uname` in
+ esac
+ AC_MSG_RESULT($PIC_FLAGS)
+ 
+-CPPFLAGS="$CPPFLAGS -ansi -DTIXML_USE_STL"
++CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
+ CXXFLAGS="$CXXFLAGS $PCH_FLAGS $PIC_FLAGS -fexceptions"
+ AC_SUBST(codeblocks_PCH_FLAGS, "$PCH_FLAGS")
+ 
+-- 
+2.6.0
+
