@@ -78,6 +78,7 @@ export LDFLAGS=
 # .libs/filemanager.o:filemanager.cpp:(.text+0x3da4): undefined reference to `__imp__Z13wxMSLU__wstatPKwP7_stat64'
 #
 # If you forget, you have to do a "make clean" to remove the object files compiled with -ansi
+#   Not sure if bootstrap and configure needs re-ran.
 #
 # Step B2b
 echo $HUNSPELL_LIBS
@@ -114,10 +115,11 @@ echo $LDFLAGS
 
 # SpellChecker
 # Clean
-cd src/plugins/contrib/SpellChecker && make clean; cd ..; cd ..; cd ..; cd ..;
+#$  cd src/plugins/contrib/SpellChecker && make clean; cd ..; cd ..; cd ..; cd ..;
 # Do reset on MinTTY
 # Make
-cd src/plugins/contrib/SpellChecker && make; cd ..; cd ..; cd ..; cd ..;
+#$  cd src/plugins/contrib/SpellChecker && make; cd ..; cd ..; cd ..; cd ..;
+#
 
 # Step C2
 # If using a Git repo then "git svn info" must work or make will lock up.
