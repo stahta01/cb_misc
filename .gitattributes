@@ -1,0 +1,5 @@
+# Decided the attribute for this file should be at the top with "text eol=input"
+/.gitattributes         text eol=input
+
+# Ones that do NOT start with / or have wild cards in them.
+*.patch                 text eol=input
