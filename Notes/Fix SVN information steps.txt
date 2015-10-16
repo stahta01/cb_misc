@@ -12,13 +12,16 @@
 # Step 1: Record the result of the "git log" command.
 git log --grep="^git-svn-id: " --first-parent -1
 # Git Log message begins
-commit 5db852e63f6e39c4c67a558989feb6bf44019119
-Author: T Petrov <tpetrov@codeblocks.org>
-Date:   Sun Oct 4 10:05:20 2015 +0000
+commit 09bc05e49f84300547b391d84069ecc2bbd22fc8
+Author: fuscated <fuscated@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Mon Oct 5 17:59:25 2015 +0000
 
-    * wx30: Fix an assert when the project is modified externally and the user clicks on an editor (fixes issue #186)
-
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10523 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    * wx30: Fix assertion when using arrow keys in a cbTreeCtrl (reported here http://forums.codeblocks.org/index.php/topic,20629.0.html)
+    
+    > Just removing the code, the arrow keys seems to be working in both wx2.8
+      and wx3.0.
+    
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10528 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Git Log message ends
 
 # Step 2: Verify svn configuration
@@ -30,8 +33,8 @@ git config svn-remote.svn.url
 git config svn-remote.svn.fetch
 # trunk:refs/remotes/svn/trunk
 
-# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10523"
-git svn fetch -r 10523
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10528"
+git svn fetch -r 10528
 
 # Step 3B: verify the folder exists
 ls .git/refs/remotes/svn
@@ -39,10 +42,10 @@ ls .git/refs/remotes/svn
 ls .git/refs/remotes/svn/trunk
 
 # Step 4: Use the commit hash from the git log message returned in the step 1 above.
-echo 5db852e63f6e39c4c67a558989feb6bf44019119 > .git/refs/remotes/svn/trunk
+echo 09bc05e49f84300547b391d84069ecc2bbd22fc8 > .git/refs/remotes/svn/trunk
 
-# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10523" part is needed.
-git svn fetch -r 10523
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10528" part is needed.
+git svn fetch -r 10528
 
 # Step 6: Run svn info to verify it is working
 git svn info
