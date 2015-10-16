@@ -1,0 +1,24 @@
+git remote remove old
+
+git remote add old https://github.com/stahta01/TimS_build_codeblocks.git
+
+git fetch old
+
+git branch --all
+
+git checkout -b pch_code_fixes old/pch_code_fixes
+
+git log --grep="^git-svn-id: " --first-parent -1
+
+git log
+
+git status
+
+git branch --list
+
+git rebase svn_rebase_https_metadata/master
+
+git push -u backup
+
+
+
