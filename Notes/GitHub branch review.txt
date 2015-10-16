@@ -11,10 +11,7 @@ Code::Blocks Related Repos
 
   backup Repos or repos that needed backed up
    codeblocks_backup
-    CB_windows_release
     codeblocks_mods
-    TimS_build_codeblocks
-    TimS_build_codeblocks_old
     codeblocks_git_merge
     codeblocks_obfuscated
     codeblocks_sf_fork
@@ -28,6 +25,7 @@ Code::Blocks Related Repos
    codeblocks_svn2git_https_metadata
 
  Modular forks Of Complete Code::Blocks IDE
+  TimS_build_codeblocks_old
   TimS_custom_codeblocks
   build_codeblocks
   TimS_modular_codeblocks    forked from jenslody/codeblocks
