@@ -11,43 +11,36 @@ pacman -Su
 
 # Exit out of MSYS2-shell, restart MSYS2-shell, then you are ready to use MSYS2-shell.
 # Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
-# Here -S means "sync" (Add). And -U means add or upgrade; it requires an URL-like option I have yet to learn
+# Here -S means "sync".
 
 pacman --version # Pacman v4.2.1-313-gf91f-dirty - libalpm v9.0.1
 
-# Remove programs that are NOT known to be needed
-pacman -R wget                      # Not sure if this is needed
-pacman -R unzip                     # Not sure if this is needed
-pacman -R mingw-w64-winpthreads-git # Not sure if this is needed
-pacman -R autogen                   # Not sure if this is needed
-pacman -R mingw-w64-i686-hunspell
-pacman -R winpty # console
-pacman -R mingw-w64-i686-gcc-ada  
-pacman -R mingw-w64-i686-gcc-fortran
-pacman -R mingw-w64-i686-gcc-libgfortran  
-pacman -R mingw-w64-i686-gcc-objc 
-pacman -R mingw-w64-i686-gdb
-pacman -R mingw-w64-i686-libmangle-git
-pacman -R mingw-w64-i686-tools-git
-pacman -R python2
-pacman -R ruby
 
 # Install programs that are known to be needed
 pacman -S zip                       # Needed to zip files during CB build
-pacman -S git                       # Needed to do Git Clone of my work.
-pacman -S subversion                # Needed for "git svn info" to work
 pacman -S libtool                   # Fixes "libtoolize: command not found"
 pacman -S automake-wrapper          # Fixes "aclocal: command not found"
 pacman -S autoconf                  # Fixes "sh: autom4te: command not found"
+# May or May NOT be needed
 pacman -S make                      # I decided this will likely be needed in future.
+pacman -S git                       # Needed to do Git Clone of my work.
+pacman -S subversion                # Needed for "git svn info" to work or svn checkout
 
 
 # MinGW 32 bit Packages
-pacman -S mingw-w64-i686-wxWidgets  # Errored out; till I redid the initial steps
-pacman -S mingw-w64-i686-drmingw    # Errored out; till I redid the initial steps
+pacman -S mingw-w64-i686-wxWidgets  #
+pacman -S mingw-w64-i686-drmingw    #
 pacman -S mingw-w64-i686-gcc        #
-pacman -S mingw-w64-i686-make       # Likely be needed in future
-pacman -S mingw-w64-i686-pkg-config # Likely be needed in future
+pacman -S mingw-w64-i686-boost      # NassiShneiderman plugin needs boost
+
+# Optional MinGW 32 bit Packages
+pacman -S mingw-w64-i686-make       # Likely to be needed in future
+pacman -S mingw-w64-i686-pkg-config # Likely to be needed in future
+
+# Editors that I might try using as my Git Editor
+# pacman -S mingw-w64-i686-scite       # Adds too many packages to use at this time.
+# pacman -S mingw-w64-i686-geany       # Package NOT found
+# pacman -S mingw-w64-i686-gedit       # Adds way too many packages to use at this time.
 
 ####
 # Under MinGW 32 bit,
