@@ -3,8 +3,9 @@ git config core.safecrlf  # warn, true, or false
 git config core.autocrlf  # input,true, or false
 git status
 
+# On windows use eol=crlf
 git config core.eol       crlf # crlf or lf
-git config core.safecrlf  true # warn, true, or false
+git config core.safecrlf  warn # warn, true, or false
 # On windows use autocrlf=true; otherwise use false or input.
 git config core.autocrlf  true # input,true, or false
 git status
