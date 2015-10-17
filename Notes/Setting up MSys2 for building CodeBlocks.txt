@@ -1,6 +1,6 @@
 Setting up MSys2 for building CodeBlocks.txt
 
-Install MSys2 from http://msys2.github.io/
+Install MSys2 from http://msys2.github.io/ or http://sourceforge.net/projects/msys2/files/Base
 
 First update msys2 core components (if you have not done it yet): 
 pacman -Sy
@@ -11,20 +11,25 @@ pacman -Su
 
 # Exit out of MSYS2-shell, restart MSYS2-shell, then you are ready to use MSYS2-shell.
 # Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
-# Here -S means "sync".
 
+# Open MSYS2-shell
 pacman --version # Pacman v4.2.1-313-gf91f-dirty - libalpm v9.0.1
 
+# Here -S means "sync".
 
+# Using currently open MSYS2-shell install the MSys2 and wanted bit size of MinGW Packages.
 # Install programs that are known to be needed
 pacman -S zip                       # Needed to zip files during CB build
+# Needed packages for building using Configure/make method
 pacman -S libtool                   # Fixes "libtoolize: command not found"
 pacman -S automake-wrapper          # Fixes "aclocal: command not found"
 pacman -S autoconf                  # Fixes "sh: autom4te: command not found"
+pacman -S make                      #
+# End of needed packages for building using Configure/make method
 # May or May NOT be needed
-pacman -S make                      # I decided this will likely be needed in future.
 pacman -S git                       # Needed to do Git Clone of my work.
 pacman -S subversion                # Needed for "git svn info" to work or svn checkout
+
 
 
 # MinGW 32 bit Packages
@@ -49,8 +54,9 @@ pacman -S mingw-w64-i686-pkg-config # Likely to be needed in future
 ####
 
 # MinGW 64 bit
-pacman -S mingw-w64-x86_64-wxWidgets
 pacman -S mingw-w64-x86_64-drmingw
+pacman -S mingw-w64-x86_64-wxWidgets
 pacman -S mingw-w64-x86_64-gcc
+pacman -S mingw-w64-x86_64-boost      # NassiShneiderman plugin needs boost
 
 pacman -Qqe # List Packages Installed
