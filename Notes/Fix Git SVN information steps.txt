@@ -33,7 +33,7 @@ git config svn-remote.svn.url
 git config svn-remote.svn.fetch
 # trunk:refs/remotes/svn/trunk
 
-# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10523"
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10528"
 git svn fetch -r 10528
 
 # Step 3B: verify the folder exists
@@ -44,7 +44,7 @@ ls .git/refs/remotes/svn/trunk
 # Step 4: Use the commit hash from the git log message returned in the step 1 above.
 echo f8874a97a13953771b912e450da0ebae6f341d10 > .git/refs/remotes/svn/trunk
 
-# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10523" part is needed.
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10528" part is needed.
 git svn fetch -r 10528
 
 # Step 6: Run svn info to verify it is working
