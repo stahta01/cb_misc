@@ -29,7 +29,7 @@ pacman -S make                      #
 # May or May NOT be needed
 pacman -S git                       # Needed to do Git Clone of my work.
 pacman -S subversion                # Needed for "git svn info" to work or svn checkout
-
+pacman -S patch                     # Needed to patch the svn checkout
 
 
 # MinGW 32 bit Packages
