@@ -9,14 +9,13 @@ Code::Blocks Related Repos
   msys2_codeblocks
   codeblocks_windows
 
-  backup Repos or repos that needed backed up
-   codeblocks_backup
+  backup Repos or repos that needed backed up to codeblocks_backup
     codeblocks_mods
     codeblocks_git_merge
     codeblocks_obfuscated
     codeblocks_sf_fork
     tims_codeblocks_fork
-    codeblocks_biplab
+    codeblocks_biplab			https://github.com/stahta01/codeblocks_biplab.git
 
   svn2git Repos and related Repos
    codeblocks_svn_rebase
