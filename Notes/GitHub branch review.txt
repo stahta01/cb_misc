@@ -10,12 +10,8 @@ Code::Blocks Related Repos
   codeblocks_windows
 
   backup Repos or repos that needed backed up to codeblocks_backup
-    codeblocks_mods
-    codeblocks_git_merge
-    codeblocks_obfuscated
-    codeblocks_sf_fork
-    tims_codeblocks_fork
-    codeblocks_biplab			https://github.com/stahta01/codeblocks_biplab.git
+    codeblocks_mods                 https://github.com/stahta01/codeblocks_mods.git
+    codeblocks_obfuscated			https://github.com/stahta01/codeblocks_obfuscated.git
 
   svn2git Repos and related Repos
    codeblocks_svn_rebase
