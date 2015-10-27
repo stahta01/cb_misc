@@ -15,19 +15,22 @@ git fetch
 git status
 git checkout master
 git status
-git svn info # 10506
+git svn info # 10528
 
 git svn fetch --all
 git svn rebase
 git status
 
-git svn info # 10515
+git svn info # 10542
 
 svn2git --rebase
-git svn info # 10515
+git svn info # 10542
 git status
 
 git pull --rebase origin master
+git svn info # 10542
 
+git status
 git push --all
 
+git status
