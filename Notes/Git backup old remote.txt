@@ -1,12 +1,19 @@
+cd ~/devel/version_control/codeblocks_backup-git
+
+git-sh
+
+git checkout master
+
 git remote remove old
 
-git remote add old https://github.com/stahta01/TimS_build_codeblocks.git
+# git remote add old https://github.com/stahta01/codeblocks_obfuscated.git  # Way too much work for right now.
+git remote add old https://github.com/stahta01/codeblocks_sf_fork.git
 
 git fetch old
 
 git branch --all
 
-git checkout -b pch_code_fixes old/pch_code_fixes
+# git checkout -b build/split_cb_project old/build/split_cb_project
 
 git log --grep="^git-svn-id: " --first-parent -1
 
@@ -16,7 +23,10 @@ git status
 
 git branch --list
 
-git rebase svn_rebase_https_metadata/master
+#  git rebase svn_rebase_https_metadata/master
+#  git rebase --abort
+
+#  git rebase obfuscated/codeblocks_sf/master
 
 git push -u backup
 
