@@ -1,7 +1,8 @@
 cygpath -w /usr
 cygpath -m /usr
 cygpath -m /mingw32
-cygpath -m /
+cygpath -m /            # C:/Apps32/MSys2/
+cygpath -w /            # C:\Apps32\MSys2\
 cygpath -m . -a
 cygpath -H
 cygpath -S
