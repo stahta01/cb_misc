@@ -1,0 +1,208 @@
+CodeLite code snippets.txt
+
+    if(IS_WINDOWS) {
+        m_cygwinRoot.Clear();
+        EnvSetter es;
+        wxString cmd;
+        cmd << "cygpath -w /";
+        wxArrayString arrOut;
+        ProcUtils::SafeExecuteCommand(cmd, arrOut);
+
+        if(arrOut.IsEmpty() == false) {
+            m_cygwinRoot = arrOut.Item(0);
+        }
+    }
+
+
+void AdjustPathForCygwinIfNeeded();
+void AdjustPathForMSYSIfNeeded();
+
+if(::clIsCygwinEnvironment()) {
+    wxLogMessage("Running under Cygwin environment");
+}
+
+DebuggerSettings.wxcp
+debuggersettingsbasedlg.cpp
+m_staticText5 = new wxStaticText(m_panel7, wxID_ANY, _("Cygwin path conversion command:"), wxDefaultPosition, wxSize(-1, -1), 0);
+m_staticText5->SetToolTip(_("Set here the command to use in order to convert cygwin paths into native Windows paths (use $(File) as a place holder for the file name)"));
+
+bool clIsMSYSEnvironment()
+{
+#ifdef __WXMSW__
+    static bool isMSYS = false;
+    static bool firstTime = true;
+
+    if(firstTime) {
+        firstTime = false;
+        CL_DEBUG("Testing for MSYS environment...uname -a");
+        wxString out = ProcUtils::SafeExecuteCommand("uname -a");
+        CL_DEBUG("[%s]", out);
+        if(out.IsEmpty()) {
+            isMSYS = false;
+        } else {
+            out.MakeLower();
+            isMSYS = out.Contains("mingw") && out.Contains("msys");
+        }
+    }
+    return isMSYS;
+#else
+    return false;
+#endif
+}
+
+bool clIsCygwinEnvironment()
+{
+#ifdef __WXMSW__
+    static bool isCygwin = false;
+    static bool firstTime = true;
+
+    if(firstTime) {
+        firstTime = false;
+        CL_DEBUG("Testing for CYGWIN environment...uname -s");
+        wxString out = ProcUtils::SafeExecuteCommand("uname -s");
+        CL_DEBUG("[%s]", out);
+        if(out.IsEmpty()) {
+            isCygwin = false;
+        } else {
+            isCygwin = out.StartsWith("CYGWIN_NT");
+        }
+    }
+    return isCygwin;
+#else
+    return false;
+#endif
+}
+
+
+void CodeLiteApp::AdjustPathForMSYSIfNeeded()
+{
+#ifdef __WXMSW__
+    CL_DEBUG("AdjustPathForMSYSIfNeeded called");
+    if(!::clIsMSYSEnvironment()) {
+        CL_DEBUG("Not running under MSYS - nothing be done");
+        return;
+    }
+
+    CL_SYSTEM("MSYS environment detected");
+
+    // Running under Cygwin
+    // Adjust the PATH environment variable
+    wxString pathEnv;
+    ::wxGetEnv("PATH", &pathEnv);
+
+    // Always add the default paths
+    wxArrayString paths;
+
+    wxString rootDir = "/"; // Default
+    // determine the baseroot of the MSYS installation
+    wxString msysRoot = ProcUtils::SafeExecuteCommand("sh -c 'cd / && pwd -W'");
+    if(!msysRoot.IsEmpty()) {
+        CL_SYSTEM("MSYS Root folder is set to: %s", msysRoot);
+        msysRoot.Trim().Trim(false);
+        rootDir.Clear();
+        rootDir << msysRoot << "/";
+    }
+
+    paths.Add(rootDir + "usr/local/bin");
+    paths.Add(rootDir + "usr/bin");
+    paths.Add(rootDir + "usr/sbin");
+    paths.Add(rootDir + "bin");
+    paths.Add(rootDir + "sbin");
+
+    // Append the paths from the environment variables
+    wxArrayString userPaths = ::wxStringTokenize(pathEnv, ";", wxTOKEN_STRTOK);
+    paths.insert(paths.end(), userPaths.begin(), userPaths.end());
+
+    wxString fixedPath = ::wxJoin(paths, ';');
+    CL_DEBUG("Setting PATH environment variable to:\n%s", fixedPath);
+    ::wxSetEnv("PATH", fixedPath);
+#endif
+}
+
+void CodeLiteApp::AdjustPathForCygwinIfNeeded()
+{
+#ifdef __WXMSW__
+    CL_DEBUG("AdjustPathForCygwinIfNeeded called");
+    if(!::clIsCygwinEnvironment()) {
+        CL_DEBUG("Not running under Cygwin - nothing be done");
+        return;
+    }
+
+    CL_SYSTEM("Cygwin environment detected");
+
+    wxString cygwinRootDir;
+    CompilerLocatorCygwin cygwin;
+    if(cygwin.Locate()) {
+        // this will return the base folder for cygwin (e.g. D:\cygwin)
+        cygwinRootDir = (*cygwin.GetCompilers().begin())->GetInstallationPath();
+    }
+
+    // Running under Cygwin
+    // Adjust the PATH environment variable
+    wxString pathEnv;
+    ::wxGetEnv("PATH", &pathEnv);
+
+    // Always add the default paths
+    wxArrayString paths;
+    if(!cygwinRootDir.IsEmpty()) {
+        CL_SYSTEM("Cygwin root folder is: %s", cygwinRootDir);
+        wxFileName cygwinBinFolder(cygwinRootDir, "");
+        cygwinBinFolder.AppendDir("bin");
+        paths.Add(cygwinBinFolder.GetPath());
+    }
+
+    paths.Add("/usr/local/bin");
+    paths.Add("/usr/bin");
+    paths.Add("/usr/sbin");
+    paths.Add("/bin");
+    paths.Add("/sbin");
+
+    // Append the paths from the environment variables
+    wxArrayString userPaths = ::wxStringTokenize(pathEnv, ";", wxTOKEN_STRTOK);
+    paths.insert(paths.end(), userPaths.begin(), userPaths.end());
+
+    wxString fixedPath;
+    for(size_t i = 0; i < paths.GetCount(); ++i) {
+        wxString& curpath = paths.Item(i);
+        static wxRegEx reCygdrive("/cygdrive/([A-Za-z])");
+        if(reCygdrive.Matches(curpath)) {
+            // Get the drive letter
+            wxString volume = reCygdrive.GetMatch(curpath, 1);
+            volume << ":";
+            reCygdrive.Replace(&curpath, volume);
+        }
+
+        fixedPath << curpath << ";";
+    }
+
+    CL_DEBUG("Setting PATH environment variable to:\n%s", fixedPath);
+    ::wxSetEnv("PATH", fixedPath);
+#endif
+}
+
+void WrapInShell(wxString& cmd)
+{
+    wxString command;
+#ifdef __WXMSW__
+    wxChar* shell = wxGetenv(wxT("COMSPEC"));
+    if(!shell) shell = (wxChar*)wxT("CMD.EXE");
+    command << shell << wxT(" /C ");
+#if 0
+    command << "\"" << cmd << "\"";
+#else
+    if(cmd.StartsWith("\"")) {
+        command << "\"" << cmd << "\"\"";
+    } else {
+        command << cmd;
+    }
+#endif
+
+    cmd = command;
+#else
+    command << wxT("/bin/sh -c '");
+    // escape any single quoutes
+    cmd.Replace("'", "\\'");
+    command << cmd << wxT("'");
+    cmd = command;
+#endif
+}
