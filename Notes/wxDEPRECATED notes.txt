@@ -1,0 +1,38 @@
+wx/defs.h
+
+Step 1a: Replace wxDEPRECATED_INLINE in headers with wxDEPRECATED_MSG.
+Step 2a: Replace wxDEPRECATED_ACCESSOR in headers with wxDEPRECATED_MSG.
+Step 3a: Replace wxDEPRECATED in headers with wxDEPRECATED_MSG.
+Step 3b: Replace wxDEPRECATED in all files with wxDEPRECATED_MSG.
+
+
+wxDEPRECATED
+wxDEPRECATED_ACCESSOR                       // A macro to define a simple deprecated accessor.
+wxDEPRECATED_BUT_USED_INTERNALLY            // Do NOT change or add
+wxDEPRECATED_BUT_USED_INTERNALLY_INLINE     // Do NOT change or add
+wxDEPRECATED_CONSTRUCTOR                    // Do NOT change or add
+wxDEPRECATED_DECL                           // Do NOT add or change at this time.
+wxDEPRECATED_INLINE                         // Do NOT add to wxWidgets in new code.
+wxDEPRECATED_MSG                            // The preferred macro in the new code is wxDEPRECATED_MSG()
+
+
+wxDEPRECATED_MSG("This is a wxWidgets 1.xx compatibility function; you should not use it in new code.")
+
+
+
+wxWidgets 1.xx compatibility functions
+    wxString::Contains
+    wxString::First
+    wxString::Freq
+    wxString::IsAscii
+    wxString::IsNull
+    wxString::IsNumber
+    wxString::IsWord
+    wxString::Last
+    wxString::Length
+    wxString::LowerCase
+    wxString::Remove
+    wxString::Strip
+    wxString::SubString
+    wxString::UpperCase
+
