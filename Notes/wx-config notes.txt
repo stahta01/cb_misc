@@ -27,3 +27,22 @@ WX_CONFIG wx-config --version=3.0
 
 `$(WX_CONFIG_CFLAGS)`
 
+From MSys2 MinGW 32 Shell
+ wx-config --version=3.0 --cflags --prefix=C:/Apps32/MSys2/mingw32
+-IC:/Apps32/MSys2/mingw32/lib/wx/include/msw-unicode-3.0 -IC:/Apps32/MSys2/mingw32/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -mthreads -fpermissive
+
+WX_CONFIG_LIBS = CMD.exe /c "sh.exe -c 'wx-config --version=3.0 --libs std,aui,propgrid'"
+
+
+ls C:/Apps32/MSys2/mingw32/.
+
+
+
+WX_CONFIG_LIBS = CMD.exe /c "sh.exe -c 'wx-config --version=3.0 --libs std,aui,propgrid --prefix=$(TARGET_COMPILER_DIR).'"
+
+WX_CONFIG_CFLAGS = CMD.exe /c "sh.exe -c 'wx-config --version=3.0 --cflags --prefix=$(TARGET_COMPILER_DIR).'"
+
+
+$(TARGET_COMPILER_DIR) needs changed to forward slashes
+
+CMD_SHELL needs added to macrosmanager.cpp
