@@ -1,0 +1,94 @@
+
+
+http://forums.codeblocks.org/index.php/topic,20664.0.html
+
+wxSTD_STRING_COMPATIBILITY make sure it is NOT being used in Code::Blocks
+
+Likely need to add these checks to Code::Blocks
+    wxUSE_STD_IOSTREAM
+    wxUSE_STD_STRING
+    wxUSE_STD_CONTAINERS
+    wxUSE_STD_STRING_CONV_IN_WXSTRING
+    
+    wxUSE_CONSOLE_EVENTLOOP
+    wxUSE_CONFIG
+    wxUSE_CONFIG_NATIVE
+
+DoFormatWchar
+DoFormatUtf8
+wxUSE_UTF8_LOCALE_ONLY
+wxUSE_UNICODE_UTF8
+wxNEEDS_WXSTRING_PRINTF_MIXIN
+
+git remote rename origin upstream
+
+git remote add origin https://stahta01@github.com/stahta01/wxWidgets.git
+
+Things that I think are worth thinking about doing
+    Change IsEmpty() to empty() or wxIsEmpty()
+    Change CompareTo( to compare(
+    Change Append( to append(
+    Change Length() to length()  # Looks like good thing to do in wx28.
+    IsNull() to
+    IsNumber() to
+
+wxDEPRECATED_MSG("This is a wxWidgets 1.xx compatibility function; you should not use it in new code.")
+
+Code::Blocks seems to use 
+    wxString::Contains
+    wxString::Freq
+    wxString::IsAscii
+    wxString::IsNull
+    wxString::IsNumber
+    wxString::Last
+    wxString::Length
+    wxString::LowerCase
+    wxString::Remove
+    wxString::Strip
+    wxString::SubString
+    wxString::UpperCase
+    
+wxDEPRECATED
+wxDEPRECATED_CONSTRUCTOR
+
+git checkout -b build/cygwin
+
+git checkout -b build/wx28x_mingw64_32bit origin/build/wx28x_mingw64_32bit
+git rebase WX_2_8_BRANCH
+
+git checkout -b build/wxQT_PCH_FIXES origin/build/wxQT_PCH_FIXES
+
+git checkout -b WX_3_0_BRANCH_DEPRECATED
+
+git rebase -i 458bcb954668a14716219657b016ddb6a2255027
+
+wxDEPRECATED_INLINE(
+
+wxWidgets 1.xx compatibility function
+    bool wxString::Contains 	( 	const wxString &  	str	) 	const
+    int wxString::First 	( 	wxUniChar  	ch	) 	const
+    int wxString::First 	( 	const wxString &  	str	) 	const
+    int wxString::Freq 	( 	wxUniChar  	ch	) 	const
+    bool wxString::IsAscii 	( 		) 	const
+    bool wxString::IsNull 	( 		) 	const
+    bool wxString::IsNumber 	( 		) 	const
+    bool wxString::IsWord 	( 		) 	const
+    wxUniChar wxString::Last 	( 		) 	const
+    wxUniCharRef wxString::Last 	( 		) 	
+    size_t wxString::Length 	( 		) 	const
+    void wxString::LowerCase 	( 		) 	
+    wxString& wxString::Remove 	( 	size_t  	pos	) 	
+    wxString& wxString::Remove 	( 	size_t  	pos,
+		size_t  	len 
+	) 	
+    wxString wxString::Strip 	( 	stripType  	s = trailing	) 	const
+    wxString wxString::SubString 	( 	size_t  	from,
+		size_t  	to 
+	) 		const
+    void wxString::UpperCase 	( 		) 	
+
+
+wxUSE_STL_BASED_WXSTRING
+wxUSE_STD_STRING
+
+git checkout -b WX_2_8_BRANCH origin/WX_2_8_BRANCH
