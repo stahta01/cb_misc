@@ -1,0 +1,32 @@
+
+
+git checkout master
+git pull upstream
+git rebase origin/master
+git svn fetch
+git svn info
+
+
+git checkout build_cbp/msys2_bootstrap
+git rebase -i f8874a97a13953771b912e450da0ebae6f341d10
+git rebase master
+# Push
+
+git checkout build_cbp/win_cbp_saveas
+git rebase master
+# Push
+
+git checkout build/cygwin
+git rebase -i f8874a97a13953771b912e450da0ebae6f341d10
+# msys2_cygwin:
+git rebase build_cbp/win_cbp_saveas
+git rebase master
+# Push
+
+git checkout build_cbp/msys2_wx30_libs
+git rebase -i f8874a97a13953771b912e450da0ebae6f341d10
+git rebase build_cbp/msys2_bootstrap
+git rebase build/cygwin
+git rebase master
+# Push
+
