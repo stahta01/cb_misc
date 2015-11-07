@@ -1,0 +1,45 @@
+master
+release-15.xx
+build_cbp/cygwin
+build_cbp/win_cbp_saveas
+build_cbp/lib_folder_type1 |Copy of win_cbp_saveas with added folders lib, lib28, and lib30. |
+build_cbp/lib_folder_type2 |Copy of win_cbp_saveas with added folders lib and lib30. |
+msys2/bootstrap
+msys2/wx30_libs
+msys2/codeblocks           |Copy of master; adds UnixFilename2 using cbPathFormat
+bugfix/core
+obf_sf/master              |Copy of master from github.com/obfuscated/codeblocks_sf
+obf_sf/builds/wx31         |Copy of builds/wx31 from github.com/obfuscated/codeblocks_sf
+build_cbp/wx30x            |Patched copy of builds/wx31 compilied against my wxWidget's msys2/wxWidgets_3_0_X branch
+build_cbp/wx31x            |Patched copy of builds/wx31 compilied against my wxWidget's msys2/master branch
+
+git remote -v
+
+git checkout master
+git checkout -b msys2/codeblocks
+
+git checkout build_cbp/win_cbp_saveas
+git rebase master
+
+git checkout build_cbp/lib_folder_type1
+git rebase build_cbp/win_cbp_saveas
+git rebase master
+
+git checkout build_cbp/lib_folder_type2
+git rebase build_cbp/win_cbp_saveas
+git rebase master
+
+git checkout build_cbp/cygwin
+git rebase build_cbp/win_cbp_saveas
+git rebase master
+
+git checkout msys2/bootstrap
+git rebase master
+
+git checkout msys2/wx30_libs
+git rebase -i f8874a97a13953771b912e450da0ebae6f341d10
+git rebase msys2/bootstrap
+git rebase build_cbp/cygwin
+git rebase master
+
+
