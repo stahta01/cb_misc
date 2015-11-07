@@ -10,6 +10,11 @@ git config core.safecrlf  warn # warn, true, or false
 git config core.autocrlf  true # input,true, or false
 git status
 
+# When Using Msys2 under Windows 7, I am trying the below settings.
+git config core.eol       lf    # crlf or lf
+git config core.safecrlf  warn  # warn, true, or false
+git config core.autocrlf  input # input,true, or false
+git status
 
 # Step A3a
 git config master.rebase true  # Force master to automatically use rebase
@@ -17,16 +22,10 @@ git config master.rebase true  # Force master to automatically use rebase
 git config branch.autosetuprebase always # Force all new branches to automatically use rebase
 # Step A3c
 # No idea what is the best push.default I am trying "simple" or "current" most of the time.
-git config push.default simple # set to push only to upstream branch
+# git config push.default simple# set to push only to upstream branch
+git config push.default current # 
 # Step A3d
 git status
-
-
-git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
-git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
-git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
-
-
 
 Git Repo Info.txt
 git config branch.build/wxContribItems.description "Branch to reduce the build time for CB Project wxContribItems without using PCH."
@@ -37,3 +36,5 @@ git config --list
 
 git config pull.rebase
 
+git config core.ignorecase true
+# git config core.ignorecase false
