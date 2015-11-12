@@ -43,12 +43,11 @@ git rebase master
 git.exe push origin --force-with-lease
 
 git checkout portability/fixes
-# Remove the use of output folder from CB Plugins Help and Spellchecker
+# Add the copying that was removed from CB Help and Spellchecker Projects to update batch files.
 git rebase master
 git.exe push origin --force-with-lease
 
 git checkout build_cbp/win_cbp_saveas
-# Remove the save-as for CB Plugins Help and Spellchecker
 git rebase master
 git.exe push origin --force-with-lease
 
@@ -79,11 +78,13 @@ git rebase master
 git.exe push origin --force-with-lease
 
 git checkout build_cbp/cygwin
+# Replace "gcc" with "cygwin" in Spellchecker Project
+# Replace "mkdir" with $(CMD_MKDIR) in Help and Spellchecker Projects
 # Replace copy and xcopy with CMD_CP macro in Contrib Projects
 git rebase build_cbp/win_cbp_saveas
 git rebase portability/fixes
 git rebase master
-git.exe push origin --force-with-lease 
+git.exe push origin --force-with-lease
 
 git checkout cygwin_compiler
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
