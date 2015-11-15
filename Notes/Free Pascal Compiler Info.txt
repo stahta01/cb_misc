@@ -1,0 +1,59 @@
+Free Pascal Compiler Info.txt
+
+-Cn         Omit linking stage
+-d<x>       Defines the symbol <x>
+-g          Generate debug information (default format for target)
+-iV         Return short compiler version
+-iW         Return full compiler version
+-I<x>       Add <x> to include path
+-O-         Disable optimizations
+-Se<x>      Error options. <x> is a combination of the following:
+             <n> : Compiler halts after the <n> errors (default is 1)
+             w : Compiler also halts after warnings
+             n : Compiler also halts after notes
+             h : Compiler also halts after hints
+-s          Do not call assembler and linker
+              -sh        Generate script to link on host
+              -st        Generate script to link on target
+              -sr        Skip register allocation phase (use with -alr)
+-u<x>       Undefines the symbol <x>
+-U          Unit options:
+              -Un        Do not check where the unit name matches the file name
+              -Ur        Generate release unit files (never automatically recompiled)
+              -Us        Compile a system unit
+-v<x>  Be verbose. <x> is a combination of the following letters:
+              e : Show errors (default)       0 : Show nothing (except errors)
+              w : Show warnings               u : Show unit info
+              n : Show notes                  t : Show tried/used files
+              h : Show hints                  c : Show conditionals
+              i : Show general info           d : Show debug info
+              l : Show linenumbers            r : Rhide/GCC compatibility mode
+              s : Show time stamps            q : Show message numbers
+              a : Show everything             x : Executable info (Win32 only)
+              b : Write file names messages   p : Write tree.log with parse tree
+                  with full path              v : Write fpcdebug.txt with
+                                          lots of debugging info
+              m<x>,<y> : Don't show messages numbered <x> and <y>
+
+-X     Executable options:
+          -Xc        Pass --shared/-dynamic to the linker (BeOS, Darwin, FreeBSD, Linux)
+          -Xd        Do not search default library path (sometimes required for cross-compiling when not using -XR)
+          -Xe        Use external linker
+          -Xg        Create debuginfo in a separate file and add a debuglink section to executable
+          -XD        Try to link units dynamically      (defines FPC_LINK_DYNAMIC)
+          -Xi        Use internal linker
+          -Xm        Generate link map
+          -XM<x>     Set the name of the 'main' program routine (default is 'main')
+          -XP<x>     Prepend the binutils names with the prefix <x>
+          -Xr<x>     Set the linker's rlink-path to <x> (needed for cross compile, see the ld manual for more information) (BeOS, Linux)
+          -XR<x>     Prepend <x> to all linker search paths (BeOS, Darwin, FreeBSD, Linux, Mac OS, Solaris)
+          -Xs        Strip all symbols from executable
+          -XS        Try to link units statically (default, defines FPC_LINK_STATIC)
+          -Xt        Link with static libraries (-static is passed to linker)
+          -XX        Try to smartlink units             (defines FPC_LINK_SMART)
+
+-k<x>  Pass <x> to the linker
+
+      -FE<x>     Set exe/unit output path to <x>
+      -Fi<x>     Add <x> to include path
+      -Fl<x>     Add <x> to library path
