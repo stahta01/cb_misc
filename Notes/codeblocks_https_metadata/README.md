@@ -9,7 +9,6 @@
 | obf_sf/master              |Copy of master from github.com/obfuscated/codeblocks_sf. |
 | tims_readme                |Copy of master and holds this README.md file about the other branches of mine. |
 | build/CMD_GnuWinTools      |Copy of master; with CMD_macros being unix commands by default instead of Windows commands. |
-| build_cbp/cygwin           |Copy of win_cbp_saveas with some CB Windows Projects set to use the Cygwin Compiler. |
 | build_cbp/win_cbp_saveas   |Copy of master; but with a projects save as done for most Windows Projects. |
 | build_cbp/lib_folder_type1 |Copy of win_cbp_saveas with added folders lib, lib28, and lib30. |
 | build_cbp/lib_folder_type2 |Copy of win_cbp_saveas with added folders lib and lib30. |
@@ -19,13 +18,16 @@
 | msys2/bootstrap            |Patched wx2.8 Source needed to build branch msys2/wx30_libs. |
 | msys2/wx30_libs            |Patched CBPs and Source needed to build CB using MSys2 native wx30 libs. |
 | bugfix/core                |Patched bugs in CB Core (not inside a plugin) |
-| cygwin_compiler            |Copy of build/CMD_GnuWinTools; with changes to Cygwin Compiler code. |
 | portability/fixes          |Copy of master; with changes that makes code or project more portable. |
 | deceased/removals          |Copy of master; with code removed that looks like it has not worked in years. |
 | remove/do_not_edit         |Copy of master; with "DO NOT EDIT" comments removed from some files. |
 | wizard/code_fixes          |Copy of master; with scripted wizard code fixes. |
 | PCH/code_fixes             |Copy of master; with Precompiled Header (PCH) related code fixes. |
 | build/cygwin               |Copy of master; with changes for CygWin and MSys2 compiler usage. |
+| compiler_cygwin            |Copy of build/CMD_GnuWinTools; with changes to Cygwin Compiler code. |
+
+Deleted cygwin_compiler            |Copy of build/CMD_GnuWinTools; with changes to Cygwin Compiler code. |
+Deleted build_cbp/cygwin           |Copy of win_cbp_saveas with some CB Windows Projects set to use the Cygwin Compiler. |
 
 Update this repo
     https://github.com/stahta01/codeblocks_setup_svn2git_https_metadata.git
@@ -33,10 +35,19 @@ Update this repo
   git remote add origin https://github.com/stahta01/tims_codeblocks_installer.git
   git push -u origin master
 
+git checkout compiler_cygwin
+git checkout -b debugger_cygwin
+git checkout -b debugger_msys2
+
+# Info about cygwin debugger fix.
+# http://alpha0010.github.io/cb-history/bugs/17626.html
+# http://forums.codeblocks.org/index.php?topic=12212.msg90788;topicseen
+# https://cygwin.com/cygwin-ug-net/cygpath.html
+# http://wiki.codeblocks.org/index.php/Debugging_with_Code::Blocks
 
 Need to do a installer release for 
   msys2/codeblocks
-  cygwin_compiler
+  compiler_cygwin
 
 Need to add branch release-15.xx to origin
 
@@ -51,6 +62,17 @@ git checkout bugfix/core && git rebase master && git.exe push origin --force-wit
 git checkout PCH/code_fixes && git rebase master && git.exe push origin --force-with-lease
 git checkout build_cbp/wx30x && git rebase master && git.exe push origin --force-with-lease
 
+git checkout msys2/wx30_libs
+git rebase master
+git.exe push origin --force-with-lease
+
+git checkout build_cbp/lib_folder_type1
+git rebase master
+git.exe push origin --force-with-lease
+
+git checkout build_cbp/lib_folder_type2
+git rebase master
+git.exe push origin --force-with-lease
 
 git checkout wizard/code_fixes
 git rebase master
@@ -66,6 +88,7 @@ git rebase master
 git.exe push origin --force-with-lease
 
 git checkout portability/fixes
+# Fix SpellChecker copy issue caused by /* or \* in second arg.
 # Add the copying that was removed from CB Help and Spellchecker Projects 
 #   to update batch files.
 # Remove output from batch file used by CB Projects
@@ -76,6 +99,7 @@ git rebase master
 git.exe push origin --force-with-lease
 
 git checkout build/CMD_GnuWinTools
+# Add CMD to ignore errors
 # Add command to enable GnuWinTools.
 # ConfigManager *cfg = Manager::Get()->GetConfigManager(_T("app"));
 # cfg->Write(_T("/environment/gnu_win_tools"), (bool) true);
@@ -83,6 +107,7 @@ git checkout build/CMD_GnuWinTools
 git rebase bugfix/core
 git rebase master
 git.exe push origin --force-with-lease
+
 
 git checkout compiler_cygwin
 # use prefix "compiler_cygwin:"
