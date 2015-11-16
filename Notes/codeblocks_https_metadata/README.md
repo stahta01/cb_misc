@@ -8,7 +8,9 @@
 | obf_sf/builds/wx31         |Copy of builds/wx31 from github.com/obfuscated/codeblocks_sf. |
 | obf_sf/master              |Copy of master from github.com/obfuscated/codeblocks_sf. |
 | tims_readme                |Copy of master and holds this README.md file about the other branches of mine. |
+| compiler_cygwin            |Copy of build/CMD_GnuWinTools; with changes to Cygwin Compiler code. |
 | build/CMD_GnuWinTools      |Copy of master; with CMD_macros being unix commands by default instead of Windows commands. |
+| build/cygwin               |Copy of master; with changes for CygWin and MSys2 compiler usage. |
 | build_cbp/win_cbp_saveas   |Copy of master; but with a projects save as done for most Windows Projects. |
 | build_cbp/lib_folder_type1 |Copy of win_cbp_saveas with added folders lib, lib28, and lib30. |
 | build_cbp/lib_folder_type2 |Copy of win_cbp_saveas with added folders lib and lib30. |
@@ -23,11 +25,9 @@
 | remove/do_not_edit         |Copy of master; with "DO NOT EDIT" comments removed from some files. |
 | wizard/code_fixes          |Copy of master; with scripted wizard code fixes. |
 | PCH/code_fixes             |Copy of master; with Precompiled Header (PCH) related code fixes. |
-| build/cygwin               |Copy of master; with changes for CygWin and MSys2 compiler usage. |
-| compiler_cygwin            |Copy of build/CMD_GnuWinTools; with changes to Cygwin Compiler code. |
 
-Deleted cygwin_compiler            |Copy of build/CMD_GnuWinTools; with changes to Cygwin Compiler code. |
-Deleted build_cbp/cygwin           |Copy of win_cbp_saveas with some CB Windows Projects set to use the Cygwin Compiler. |
+
+Delete build/cygwin
 
 Update this repo
     https://github.com/stahta01/codeblocks_setup_svn2git_https_metadata.git
@@ -49,8 +49,6 @@ Need to do a installer release for
   msys2/codeblocks
   compiler_cygwin
 
-Need to add branch release-15.xx to origin
-
 https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
 
 # Update branch by rebasing with master branch
@@ -61,6 +59,14 @@ git checkout deceased/removals && git rebase master && git.exe push origin --for
 git checkout bugfix/core && git rebase master && git.exe push origin --force-with-lease
 git checkout PCH/code_fixes && git rebase master && git.exe push origin --force-with-lease
 git checkout build_cbp/wx30x && git rebase master && git.exe push origin --force-with-lease
+
+git remote -v
+
+git fetch obfuscated
+git checkout obf_sf/builds/wx31
+git rebase obfuscated/builds/wx31
+git rebase obfuscated/master
+git.exe push origin --force-with-lease
 
 git checkout msys2/wx30_libs
 git rebase master
@@ -88,7 +94,6 @@ git rebase master
 git.exe push origin --force-with-lease
 
 git checkout portability/fixes
-# Fix SpellChecker copy issue caused by /* or \* in second arg.
 # Add the copying that was removed from CB Help and Spellchecker Projects 
 #   to update batch files.
 # Remove output from batch file used by CB Projects
@@ -98,8 +103,8 @@ git checkout portability/fixes
 git rebase master
 git.exe push origin --force-with-lease
 
+
 git checkout build/CMD_GnuWinTools
-# Add CMD to ignore errors
 # Add command to enable GnuWinTools.
 # ConfigManager *cfg = Manager::Get()->GetConfigManager(_T("app"));
 # cfg->Write(_T("/environment/gnu_win_tools"), (bool) true);
@@ -121,45 +126,25 @@ git rebase build/CMD_GnuWinTools
 git rebase master
 git.exe push origin --force-with-lease
 
+
 $(CMD_MKDIR)
-
-git checkout build/cygwin
-# Use prefix "build_cygwin:"
-# Change Compiler to cygwin
-# Think about removing the commits the replace "del" with $(CMD_RM) or "rm -f"
-git rebase build_cbp/win_cbp_saveas
-git rebase compiler_cygwin
-git rebase master
-git.exe push origin --force-with-lease
-
-$(CMD_RM)
-
-* msys2_cb: DO NOT USE UPSTREAM; Changed "\*" to "/*".
-
-And, Changed "\" to "/" in most places in a CB Project.
-
-
-git checkout msys2/codeblocks
+ $(CMD_IGNORERR)
+# git am 0010-build_cygwin-compiler-DO-NOT-USE-UPSTREAM.patch
+# git apply --reject 0010-build_cygwin-cp-DO-NOT-USE-UPSTREAM.patch
+# git am 0012-msys2_cb-Added-UnixFilename2-using-added-enum-cbPath.patch
+# git am 0013-msys2_cb-Use-UnixFilename2-to-set-value-of-macro-TAR.patch
+# git am 0018-msys2_cb-DO-NOT-USE-UPSTREAM-Changed-to.patch
 # Fix SpellChecker issues.
-# Use prefix "msys2_cb: xcopy:"
 # Add Option to enable GnuWinTools in GUI   environmentsettingsdlg.cpp
 # Add Option to change shell in GUI         environmentsettingsdlg.cpp
-git rebase build/cygwin
+#
+git checkout msys2/codeblocks
+# Use prefix "msys2_cb:"
+git rebase build_cbp/win_cbp_saveas
 git rebase portability/fixes
+git rebase compiler_cygwin
 git rebase deceased/removals
 git rebase PCH/code_fixes
 git rebase bugfix/core
 git rebase master
-git.exe push origin --force-with-lease
-
-
-git remote -v
-git fetch obfuscated
-git checkout obf_sf/master
-git pull
-git.exe push origin --force-with-lease
-
-git checkout obf_sf/builds/wx31
-git rebase obfuscated/builds/wx31
-git rebase obf_sf/master
 git.exe push origin --force-with-lease
