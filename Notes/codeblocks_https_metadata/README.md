@@ -29,6 +29,15 @@
 
 Delete build/cygwin
 
+Branches that need updated/rebased
+     msys2/codeblocks
+     wizard/code_fixes Maybe delete this branch
+     msys2/wx30_libs   Maybe delete this branch; create patches, first.
+     msys2/bootstrap   Maybe delete this branch; create patches, first.
+     build_cbp/wx_compiler
+     build_cbp/lib_folder_type1
+     build_cbp/lib_folder_type2
+
 Update this repo
     https://github.com/stahta01/codeblocks_setup_svn2git_https_metadata.git
     
@@ -103,7 +112,7 @@ git checkout portability/fixes
 git rebase master
 git.exe push origin --force-with-lease
 
-
+# Think about moving "build/CMD_GnuWinTools" into branch "compiler_cygwin".
 git checkout build/CMD_GnuWinTools
 # Add command to enable GnuWinTools.
 # ConfigManager *cfg = Manager::Get()->GetConfigManager(_T("app"));
@@ -115,6 +124,7 @@ git.exe push origin --force-with-lease
 
 
 git checkout compiler_cygwin
+# Maybe rename branch to "cygwin_support"
 # use prefix "compiler_cygwin:"
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
 # Add test for running under MSys and Cygwin to Cygwin compiler.
@@ -122,6 +132,8 @@ git checkout compiler_cygwin
 # if(CompilerId.Matches(_T("gcc")))
 # bool IsOpenWatcom = target->GetCompilerID().IsSameAs(_T("ow"));
 # const wxString& GetParentID() const { return m_ParentID; }
+# Add Option to enable GnuWinTools in GUI   environmentsettingsdlg.cpp
+# Add Option to change shell in GUI         environmentsettingsdlg.cpp
 git rebase build/CMD_GnuWinTools
 git rebase master
 git.exe push origin --force-with-lease
@@ -135,9 +147,8 @@ $(CMD_MKDIR)
 # git am 0013-msys2_cb-Use-UnixFilename2-to-set-value-of-macro-TAR.patch
 # git am 0018-msys2_cb-DO-NOT-USE-UPSTREAM-Changed-to.patch
 # Fix SpellChecker issues.
-# Add Option to enable GnuWinTools in GUI   environmentsettingsdlg.cpp
-# Add Option to change shell in GUI         environmentsettingsdlg.cpp
 #
+## Enable Unix Tools and fix the errors that are caused by it.
 git checkout msys2/codeblocks
 # Use prefix "msys2_cb:"
 git rebase build_cbp/win_cbp_saveas
