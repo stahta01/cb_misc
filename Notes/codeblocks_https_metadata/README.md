@@ -26,17 +26,21 @@
 | wizard/code_fixes          |Copy of master; with scripted wizard code fixes. |
 | PCH/code_fixes             |Copy of master; with Precompiled Header (PCH) related code fixes. |
 
+| feature/sdk                |Copy of bugfix/sdk; with added features to CB SDK. |
 
-Delete build/cygwin
+Deleted build/cygwin
+Deleted wizard/code_fixes
+Deleted build/CMD_GnuWinTools
+Renamed compiler_cygwin to cygwin_support
+Renamed bugfix/core to bugfix/sdk
+
 
 Branches that need updated/rebased
-     msys2/codeblocks
-     wizard/code_fixes Maybe delete this branch
-     msys2/wx30_libs   Maybe delete this branch; create patches, first.
-     msys2/bootstrap   Maybe delete this branch; create patches, first.
-     build_cbp/wx_compiler
-     build_cbp/lib_folder_type1
-     build_cbp/lib_folder_type2
+   msys2/wx30_libs            Maybe delete this branch; create patches, first.
+   msys2/bootstrap            Maybe delete this branch; create patches, first.
+   build_cbp/lib_folder_type1
+   build_cbp/lib_folder_type2
+
 
 Update this repo
     https://github.com/stahta01/codeblocks_setup_svn2git_https_metadata.git
@@ -44,9 +48,6 @@ Update this repo
   git remote add origin https://github.com/stahta01/tims_codeblocks_installer.git
   git push -u origin master
 
-git checkout compiler_cygwin
-git checkout -b debugger_cygwin
-git checkout -b debugger_msys2
 
 # Info about cygwin debugger fix.
 # http://alpha0010.github.io/cb-history/bugs/17626.html
@@ -56,16 +57,20 @@ git checkout -b debugger_msys2
 
 Need to do a installer release for 
   msys2/codeblocks
-  compiler_cygwin
+  cygwin_support
 
 https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
 
+git checkout bugfix/sdk
+# Use GUI to push to origin and create new branch
+
+# 
+git checkout master && git pull && git svn fetch && git svn info
 # Update branch by rebasing with master branch
-git checkout master && git pull
 git checkout tims_readme && git rebase master && git.exe push origin --force-with-lease
 git checkout remove/do_not_edit && git rebase master && git.exe push origin --force-with-lease
 git checkout deceased/removals && git rebase master && git.exe push origin --force-with-lease
-git checkout bugfix/core && git rebase master && git.exe push origin --force-with-lease
+git checkout bugfix/sdk && git rebase master && git.exe push origin --force-with-lease
 git checkout PCH/code_fixes && git rebase master && git.exe push origin --force-with-lease
 git checkout build_cbp/wx30x && git rebase master && git.exe push origin --force-with-lease
 
@@ -77,19 +82,15 @@ git rebase obfuscated/builds/wx31
 git rebase obfuscated/master
 git.exe push origin --force-with-lease
 
-git checkout msys2/wx30_libs
-git rebase master
-git.exe push origin --force-with-lease
-
 git checkout build_cbp/lib_folder_type1
-git rebase master
+git rebase master 
 git.exe push origin --force-with-lease
 
 git checkout build_cbp/lib_folder_type2
-git rebase master
+git rebase master 
 git.exe push origin --force-with-lease
 
-git checkout wizard/code_fixes
+git checkout msys2/wx30_libs
 git rebase master
 git.exe push origin --force-with-lease
 
@@ -112,50 +113,39 @@ git checkout portability/fixes
 git rebase master
 git.exe push origin --force-with-lease
 
-# Think about moving "build/CMD_GnuWinTools" into branch "compiler_cygwin".
-git checkout build/CMD_GnuWinTools
-# Add command to enable GnuWinTools.
-# ConfigManager *cfg = Manager::Get()->GetConfigManager(_T("app"));
-# cfg->Write(_T("/environment/gnu_win_tools"), (bool) true);
-# cfg->ReadBool(_T("/environment/gnu_win_tools"), false)
-git rebase bugfix/core
+m_Macros[_T("CMD_SHELL")] = _T("cmd /c");
+m_Macros[_T("CMD_SHELL")]  = _T("sh -c");
+
+m_Macros[_T("CMD_DFLT_SHELL")] = DEFAULT_CONSOLE_SHELL;
+
+# Remove CMD_MKDIR_IGNORERR and see if msys2 build still works.
+git checkout feature/sdk
+git rebase bugfix/sdk
 git rebase master
 git.exe push origin --force-with-lease
 
+# Add redefine of CMD_CP
 
-git checkout compiler_cygwin
-# Maybe rename branch to "cygwin_support"
-# use prefix "compiler_cygwin:"
+git checkout cygwin_support
+# use prefix "cygwin_support:"
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
-# Add test for running under MSys and Cygwin to Cygwin compiler.
-# Add to Cygwin Compiler code enables GnuWinTools if MSys2 or Cygwin detected.
-# if(CompilerId.Matches(_T("gcc")))
 # bool IsOpenWatcom = target->GetCompilerID().IsSameAs(_T("ow"));
 # const wxString& GetParentID() const { return m_ParentID; }
 # Add Option to enable GnuWinTools in GUI   environmentsettingsdlg.cpp
 # Add Option to change shell in GUI         environmentsettingsdlg.cpp
-git rebase build/CMD_GnuWinTools
+#
+git rebase feature/sdk
 git rebase master
 git.exe push origin --force-with-lease
 
 
-$(CMD_MKDIR)
- $(CMD_IGNORERR)
-# git am 0010-build_cygwin-compiler-DO-NOT-USE-UPSTREAM.patch
-# git apply --reject 0010-build_cygwin-cp-DO-NOT-USE-UPSTREAM.patch
-# git am 0012-msys2_cb-Added-UnixFilename2-using-added-enum-cbPath.patch
-# git am 0013-msys2_cb-Use-UnixFilename2-to-set-value-of-macro-TAR.patch
-# git am 0018-msys2_cb-DO-NOT-USE-UPSTREAM-Changed-to.patch
-# Fix SpellChecker issues.
-#
-## Enable Unix Tools and fix the errors that are caused by it.
 git checkout msys2/codeblocks
 # Use prefix "msys2_cb:"
 git rebase build_cbp/win_cbp_saveas
 git rebase portability/fixes
-git rebase compiler_cygwin
+git rebase cygwin_support
 git rebase deceased/removals
 git rebase PCH/code_fixes
-git rebase bugfix/core
+git rebase feature/sdk
 git rebase master
 git.exe push origin --force-with-lease
