@@ -64,6 +64,14 @@ https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
 git checkout bugfix/sdk
 # Use GUI to push to origin and create new branch
 
+# Git pull from origin to local branches.
+git checkout tims_readme && git pull
+git checkout remove/do_not_edit && git pull
+git checkout deceased/removals && git pull
+git checkout bugfix/sdk  && git pull
+git checkout PCH/code_fixes && git pull
+git checkout build_cbp/wx30x  && git pull
+
 # 
 git checkout master && git pull && git svn fetch && git svn info
 # Update branch by rebasing with master branch
