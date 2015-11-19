@@ -32,33 +32,7 @@ Renamed compiler_cygwin to cygwin_support
 Renamed bugfix/core to bugfix/sdk
 
 Branches that need updated/rebased
-   msys2/wx30_libs            create patches, then rebase and apply patches.
-   build_cbp/lib_folder_type1 create patches, then rebase and apply patches.
-   build_cbp/lib_folder_type2 create patches, then rebase and apply patches.
 
-git checkout msys2/wx30_libs
-git log
-git format-patch
-git reset --hard 
-git rebase master 
-git am
-git.exe push origin --force-with-lease
-
-git checkout build_cbp/lib_folder_type1
-git log
-git format-patch
-git reset --hard 
-git rebase master 
-git am
-git.exe push origin --force-with-lease
-
-git checkout build_cbp/lib_folder_type2
-git log
-git format-patch
-git reset --hard 
-git rebase master 
-git am
-git.exe push origin --force-with-lease
 
 # Save patches; rebase master and re-apply patches.
 git checkout
@@ -67,7 +41,7 @@ git format-patch
 git reset --hard 
 git rebase master 
 git am
-git.exe push origin --force-with-lease
+git rebase master && git push origin --force-with-lease
 
 Update this repo
     https://github.com/stahta01/codeblocks_setup_svn2git_https_metadata.git
@@ -90,6 +64,7 @@ https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
 
 
 # Git pull from origin to local branches.
+cd ../codeblocks_https_metadata-git
 git checkout tims_readme && git pull
 git checkout remove/do_not_edit && git pull
 git checkout deceased/removals && git pull
@@ -97,7 +72,8 @@ git checkout bugfix/sdk  && git pull
 git checkout PCH/code_fixes && git pull
 git checkout build_cbp/wx30x  && git pull
 
-# 
+#
+cd ../codeblocks_https_metadata-git
 git checkout master && git pull && git svn fetch && git svn info
 # Update branch by rebasing with master branch
 git checkout tims_readme && git rebase master && git.exe push origin --force-with-lease
@@ -123,13 +99,8 @@ git checkout build_cbp/lib_folder_type2
 git rebase master 
 git.exe push origin --force-with-lease
 
-git checkout msys2/wx30_libs
-git rebase master
-git.exe push origin --force-with-lease
 
-git checkout build_cbp/win_cbp_saveas
-git rebase master
-git.exe push origin --force-with-lease
+git checkout build_cbp/win_cbp_saveas && git rebase master && git.exe push origin --force-with-lease
 
 git checkout build_cbp/wx_compiler
 git rebase build_cbp/win_cbp_saveas
@@ -143,34 +114,22 @@ git checkout portability/fixes
 #   IncrementalSearch, ToolsPlus,
 #     codesnippets, lib_finder, wxsmith,
 #     DoxyBlocks, and ThreadSearch.
-git rebase master
-git.exe push origin --force-with-lease
+git rebase master && git push origin --force-with-lease
 
 
 git checkout feature/sdk
 git rebase bugfix/sdk
-git rebase master
-git.exe push origin --force-with-lease
+git rebase master && git push origin --force-with-lease
 
 
 # Add redefine of CMD_CP
-git checkout cygwin_support
 # use prefix "cygwin_support:"
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
 # const wxString& GetParentID() const { return m_ParentID; }
 #
-git rebase build_cbp/win_cbp_saveas
-git rebase portability/fixes
-git rebase deceased/removals
-git rebase PCH/code_fixes
-git rebase feature/sdk
-git rebase master
-git.exe push origin --force-with-lease
-
-
-cd ../cygwin_support-git
+cd ../codeblocks_cygwin_support-git && git fetch origin
 # git checkout cygwin_support
-git pull --rebase
+git fetch  origin
 git rebase origin/build_cbp/win_cbp_saveas
 git rebase origin/portability/fixes
 git rebase origin/deceased/removals
@@ -180,16 +139,34 @@ git rebase origin/master
 git push origin
 
 
-git checkout msys2/codeblocks
 # Add Option to change shell in GUI         environmentsettingsdlg.cpp
 # Use prefix "msys2_cb:"
-git rebase cygwin_support
-git rebase master
-git.exe push origin --force-with-lease
-
-cd ../msys2_codeblocks-git
+cd ../codeblocks_msys2_wxMonoLib-git && git fetch origin
 git checkout msys2/codeblocks
+git fetch  origin
 git rebase origin/cygwin_support
 git rebase origin/master
 git push origin
 
+
+cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin
+git checkout msys2/wx30_libs
+# Prefix msys2_wx_multilibs:
+# 
+# git rebase origin/msys2/codeblocks            # Done multiple times.
+# git rebase origin/cygwin_support              # Done multiple times.
+# git rebase origin/build_cbp/win_cbp_saveas    # Done multiple times.
+git rebase master && git push origin --force-with-lease
+
+
+wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
+wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
+wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_aui-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_propgrid-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_xrc-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_html-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_adv-$(WX_VERSION).dll
+
+msys2_wx_multilibs: Fixed some of the library issues.
