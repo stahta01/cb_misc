@@ -13,13 +13,13 @@
 # Step 1: Record the result of the "git log" command.
 git log --grep="^git-svn-id: " --first-parent -1
 # Git Log message begins
-commit 89a894be77411d43caee32ca39b7a812268e9619
-Author: jenslody <jenslody@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Sun Nov 1 09:18:34 2015 +0000
+commit f3feb45610e38eec619036fb990c0192bd6961e9
+Author: fuscated <fuscated@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Wed Nov 18 01:53:38 2015 +0000
 
-    - Remove forgotten debug-statement, leading to a build-error in non-pch mode.
+    - autotools: Fix make dist
 
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10554 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10595 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Git Log message ends
 
 # Step 2: Verify svn configuration
@@ -35,8 +35,8 @@ git config svn-remote.svn.url
 git config svn-remote.svn.fetch
 # trunk:refs/remotes/svn/trunk
 
-# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10554"
-git svn fetch -r 10554
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10595"
+git svn fetch -r 10595
 
 # Step 3B: verify the folder exists
 ls .git/refs/remotes/svn
@@ -44,10 +44,10 @@ ls .git/refs/remotes/svn
 ls .git/refs/remotes/svn/trunk
 
 # Step 4: Use the commit hash from the git log message returned in the step 1 above.
-echo 89a894be77411d43caee32ca39b7a812268e9619 > .git/refs/remotes/svn/trunk
+echo f3feb45610e38eec619036fb990c0192bd6961e9 > .git/refs/remotes/svn/trunk
 
-# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10554" part is needed.
-git svn fetch -r 10554
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10595" part is needed.
+git svn fetch -r 10595
 
 # Step 6: Run svn info to verify it is working
 git svn info

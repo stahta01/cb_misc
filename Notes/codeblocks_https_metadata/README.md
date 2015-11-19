@@ -123,29 +123,37 @@ git rebase master && git push origin --force-with-lease
 
 
 # Add redefine of CMD_CP
-# use prefix "cygwin_support:"
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
-# const wxString& GetParentID() const { return m_ParentID; }
 #
 cd ../codeblocks_cygwin_support-git && git fetch origin
 # git checkout cygwin_support
+# use prefix "cygwin_support:"
+git branch --list
 git fetch  origin
 git rebase origin/build_cbp/win_cbp_saveas
 git rebase origin/portability/fixes
 git rebase origin/deceased/removals
 git rebase origin/PCH/code_fixes
 git rebase origin/feature/sdk
+git status -uno
+# git rebase origin/cygwin_support
 git rebase origin/master
+git status -uno
 git push origin
 
 
 # Add Option to change shell in GUI         environmentsettingsdlg.cpp
 # Use prefix "msys2_cb:"
-cd ../codeblocks_msys2_wxMonoLib-git && git fetch origin
-git checkout msys2/codeblocks
+cd ../codeblocks_msys2_wxMonoLib-git && git fetch origin && git status -uno
+# git checkout msys2/codeblocks
+git branch --list
 git fetch  origin
 git rebase origin/cygwin_support
+git status -uno
+git rebase origin/msys2/codeblocks
+git status -uno
 git rebase origin/master
+git status -uno
 git push origin
 
 
@@ -153,10 +161,16 @@ cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin
 git checkout msys2/wx30_libs
 # Prefix msys2_wx_multilibs:
 # 
-# git rebase origin/msys2/codeblocks            # Done multiple times.
-# git rebase origin/cygwin_support              # Done multiple times.
-# git rebase origin/build_cbp/win_cbp_saveas    # Done multiple times.
-git rebase master && git push origin --force-with-lease
+git branch --list
+git fetch  origin
+git rebase origin/msys2/codeblocks            # Done multiple times.
+# git rebase origin/cygwin_support              # Do if above rebase fails
+# git rebase origin/build_cbp/win_cbp_saveas    # Do if above rebase fails
+git status -uno
+git rebase origin/master
+git status -uno
+git push origin
+# git rebase origin/master && git push origin --force-with-lease
 
 
 wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
@@ -170,3 +184,5 @@ wx_msw$(WX_SUFFIX)_html-$(WX_VERSION).dll
 wx_msw$(WX_SUFFIX)_adv-$(WX_VERSION).dll
 
 msys2_wx_multilibs: Fixed some of the library issues.
+
+ExpandTicks
