@@ -1,10 +1,10 @@
-Setting up MSys2 for building CodeBlocks.txt
+# Setting up MSys2 for building CodeBlocks using wxGTK.txt
 
-Install MSys2 from http://msys2.github.io/ or http://sourceforge.net/projects/msys2/files/Base
+# Install MSys2 from http://msys2.github.io/ or http://sourceforge.net/projects/msys2/files/Base
 
-First update msys2 core components (if you have not done it yet): 
-pacman -Sy
-pacman -S bash pacman pacman-mirrors msys2-runtime
+# Open MSYS2-shell
+# First update msys2 core components (if you have not done it yet): 
+update-core
 
 # You must exit out from MSYS2-shell, restart MSYS2-shell, then run below command, to complete rest of other components update:
 pacman -Su
@@ -13,9 +13,8 @@ pacman -Su
 # Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 
 # Open MSYS2-shell
-pacman --version # Pacman v4.2.1-313-gf91f-dirty - libalpm v9.0.1
+pacman --version # Pacman v4.2.1-369-g9f53-dirty - libalpm v9.0.1
 
-# Here -S means "sync".
 
 # Using currently open MSYS2-shell install the MSys2 and wanted bit size of MinGW Packages.
 # Install programs that are known to be needed
@@ -33,6 +32,7 @@ pacman -S patch                     # Needed to patch the svn checkout
 
 
 # MinGW 32 bit Packages
+pacman -S mingw-w64-i686-fontconfig # Takes a very long time to setup
 pacman -S mingw-w64-i686-gtk2       #
 pacman -S mingw-w64-i686-drmingw    #
 pacman -S mingw-w64-i686-gcc        #
