@@ -73,7 +73,7 @@ git checkout PCH/code_fixes && git pull
 git checkout build_cbp/wx30x  && git pull
 
 #
-cd ../codeblocks_https_metadata-git
+cd ../codeblocks_https_metadata-git && git fetch origin
 git checkout master && git pull && git svn fetch && git svn info
 # Update branch by rebasing with master branch
 git checkout tims_readme && git rebase master && git.exe push origin --force-with-lease
@@ -89,14 +89,15 @@ git fetch obfuscated
 git checkout obf_sf/builds/wx31
 git rebase obfuscated/builds/wx31
 git rebase obfuscated/master
+git status -uno
 git.exe push origin --force-with-lease
 
 git checkout build_cbp/lib_folder_type1
-git rebase master 
+git rebase master && git status -uno
 git.exe push origin --force-with-lease
 
 git checkout build_cbp/lib_folder_type2
-git rebase master 
+git rebase master && git status -uno 
 git.exe push origin --force-with-lease
 
 
@@ -108,13 +109,17 @@ git rebase master
 git.exe push origin --force-with-lease
 
 git checkout portability/fixes
+deleted portability_fixes: Removed use of output folder in CB WinOS projects.
+deleted SpellChecker: Removed * from after slash on xcopy command second parameter.
+# ReDo this branch to do changes one plugin at a time.
 # Add the copying that was removed from CB Help and Spellchecker Projects 
 #   to update batch files.
 # Remove output from batch file used by CB Projects
 #   IncrementalSearch, ToolsPlus,
 #     codesnippets, lib_finder, wxsmith,
 #     DoxyBlocks, and ThreadSearch.
-git rebase master && git push origin --force-with-lease
+git rebase master && git status -uno
+git push origin --force-with-lease
 
 
 git checkout feature/sdk
@@ -122,7 +127,7 @@ git rebase bugfix/sdk
 git rebase master && git push origin --force-with-lease
 
 
-# Add redefine of CMD_CP
+# Added redefine of CMD_CP when CygWin Compiler
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
 #
 cd ../codeblocks_cygwin_support-git && git fetch origin
@@ -132,14 +137,17 @@ git branch --list
 git fetch  origin
 git rebase origin/build_cbp/win_cbp_saveas
 git rebase origin/portability/fixes
-git rebase origin/deceased/removals
-git rebase origin/PCH/code_fixes
 git rebase origin/feature/sdk
+git rebase origin/PCH/code_fixes
+git rebase origin/deceased/removals
 git status -uno
 # git rebase origin/cygwin_support
 git rebase origin/master
 git status -uno
 git push origin
+# git push origin --force-with-lease
+
+git log --oneline
 
 
 # Add Option to change shell in GUI         environmentsettingsdlg.cpp
@@ -155,9 +163,9 @@ git status -uno
 git rebase origin/master
 git status -uno
 git push origin
+# git push origin --force-with-lease
 
-
-cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin
+cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin && git status -uno
 git checkout msys2/wx30_libs
 # Prefix msys2_wx_multilibs:
 # 
