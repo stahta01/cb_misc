@@ -96,11 +96,13 @@ git.exe push origin
 # git.exe push origin --force-with-lease
 
 
+cd ../codeblocks_layout-git && git fetch origin && git status -uno
 git checkout build_cbp/lib_folder_type1
 git rebase master && git status -uno
 git.exe push origin 
 # --force-with-lease
 
+cd ../codeblocks_layout-git && git fetch origin && git status -uno
 git checkout build_cbp/lib_folder_type2
 git rebase master && git status -uno 
 git.exe push origin 
@@ -135,10 +137,11 @@ git rebase master && git push origin
 ## --force-with-lease
 
 
+
 # Added redefine of CMD_CP when CygWin Compiler
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
 #
-cd ../codeblocks_cygwin_support-git && git fetch origin
+cd ../codeblocks_cygwin_support-git && git fetch origin && git status -uno
 # git checkout cygwin_support
 # use prefix "cygwin_support:"
 git branch --list
