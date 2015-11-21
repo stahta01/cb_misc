@@ -19,17 +19,12 @@
 | deceased/removals          |Copy of master; with code removed that looks like it has not worked in years. |
 | remove/do_not_edit         |Copy of master; with "DO NOT EDIT" comments removed from some files. |
 | PCH/code_fixes             |Copy of master; with Precompiled Header (PCH) related code fixes. |
-
 | cygwin_support             |Changes to support Cygwin Compiler. |
 | bugfix/sdk                 |Patched bugs in CB SDK. |
 | feature/sdk                |Copy of bugfix/sdk; with added features to CB SDK. |
 
-Deleted build/cygwin
-Deleted wizard/code_fixes
-Deleted build/CMD_GnuWinTools
-Deleted msys2/bootstrap
-Renamed compiler_cygwin to cygwin_support
-Renamed bugfix/core to bugfix/sdk
+?Deleted obf_sf/master
+
 
 Branches that need updated/rebased
 
@@ -76,37 +71,48 @@ git checkout build_cbp/wx30x  && git pull
 cd ../codeblocks_https_metadata-git && git fetch origin
 git checkout master && git pull && git svn fetch && git svn info
 # Update branch by rebasing with master branch
-git checkout tims_readme && git rebase master && git.exe push origin --force-with-lease
-git checkout remove/do_not_edit && git rebase master && git.exe push origin --force-with-lease
-git checkout deceased/removals && git rebase master && git.exe push origin --force-with-lease
-git checkout bugfix/sdk && git rebase master && git.exe push origin --force-with-lease
-git checkout PCH/code_fixes && git rebase master && git.exe push origin --force-with-lease
-git checkout build_cbp/wx30x && git rebase master && git.exe push origin --force-with-lease
+# --force-with-lease
+git checkout tims_readme && git rebase master && git.exe push origin 
+git checkout remove/do_not_edit && git rebase master && git.exe push origin
+git checkout deceased/removals && git rebase master && git.exe push origin
+git checkout bugfix/sdk && git rebase master && git.exe push origin
+git checkout PCH/code_fixes && git rebase master && git.exe push origin
+git checkout build_cbp/wx30x && git rebase master && git.exe push origin
+git checkout build_cbp/win_cbp_saveas && git rebase master && git.exe push origin 
+
 
 git remote -v
+# git remote add obfuscated https://github.com/obfuscated/codeblocks_sf
 
 git fetch obfuscated
 git checkout obf_sf/builds/wx31
 git rebase obfuscated/builds/wx31
+git status -uno
+# git rebase origin/obf_sf/builds/wx31
+git status -uno
 git rebase obfuscated/master
 git status -uno
-git.exe push origin --force-with-lease
+git.exe push origin
+# git.exe push origin --force-with-lease
+
 
 git checkout build_cbp/lib_folder_type1
 git rebase master && git status -uno
-git.exe push origin --force-with-lease
+git.exe push origin 
+# --force-with-lease
 
 git checkout build_cbp/lib_folder_type2
 git rebase master && git status -uno 
-git.exe push origin --force-with-lease
+git.exe push origin 
+# --force-with-lease
 
-
-git checkout build_cbp/win_cbp_saveas && git rebase master && git.exe push origin --force-with-lease
 
 git checkout build_cbp/wx_compiler
+git status -uno
 git rebase build_cbp/win_cbp_saveas
-git rebase master
-git.exe push origin --force-with-lease
+git status -uno
+git rebase master && git push origin 
+## --force-with-lease
 
 git checkout portability/fixes
 deleted portability_fixes: Removed use of output folder in CB WinOS projects.
@@ -119,12 +125,14 @@ deleted SpellChecker: Removed * from after slash on xcopy command second paramet
 #     codesnippets, lib_finder, wxsmith,
 #     DoxyBlocks, and ThreadSearch.
 git rebase master && git status -uno
-git push origin --force-with-lease
+git rebase master && git push origin 
+## --force-with-lease
 
 
 git checkout feature/sdk
 git rebase bugfix/sdk
-git rebase master && git push origin --force-with-lease
+git rebase master && git push origin 
+## --force-with-lease
 
 
 # Added redefine of CMD_CP when CygWin Compiler
