@@ -23,7 +23,11 @@
 | bugfix/sdk                 |Patched bugs in CB SDK. |
 | feature/sdk                |Copy of bugfix/sdk; with added features to CB SDK. |
 
-?Deleted obf_sf/master
+?Delete obf_sf/master
+
+
+Add Branch
+| build/move_output |Copy of master; with "output" folder moved to update script/batch files. |
 
 
 Branches that need updated/rebased
@@ -116,20 +120,11 @@ git status -uno
 git rebase master && git push origin 
 ## --force-with-lease
 
+# Remove "*" from xcopy destination folder
 git checkout portability/fixes
-deleted portability_fixes: Removed use of output folder in CB WinOS projects.
-deleted SpellChecker: Removed * from after slash on xcopy command second parameter.
-# ReDo this branch to do changes one plugin at a time.
-# Add the copying that was removed from CB Help and Spellchecker Projects 
-#   to update batch files.
-# Remove output from batch file used by CB Projects
-#   IncrementalSearch, ToolsPlus,
-#     codesnippets, lib_finder, wxsmith,
-#     DoxyBlocks, and ThreadSearch.
-git rebase master && git status -uno
+git fetch origin && git rebase master && git status -uno
 git rebase master && git push origin 
-## --force-with-lease
-
+## git push origin --force-with-lease
 
 git checkout feature/sdk
 git rebase bugfix/sdk
@@ -169,12 +164,15 @@ git branch --list
 git fetch  origin
 git rebase origin/cygwin_support
 git status -uno
-git rebase origin/msys2/codeblocks
+# git rebase origin/msys2/codeblocks
 git status -uno
 git rebase origin/master
 git status -uno
 git push origin
 # git push origin --force-with-lease
+
+
+* msys2_wx_multilibs: Removed CB Global var "WX30".
 
 cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin && git status -uno
 git checkout msys2/wx30_libs
