@@ -6,7 +6,6 @@
 | master                     |Copy of upstream Code::Blocks trunk/master |
 | release-15.xx              |Copy of upstream Code::Blocks release-15.xx |
 | obf_sf/builds/wx31         |Copy of builds/wx31 from github.com/obfuscated/codeblocks_sf. |
-| obf_sf/master              |Copy of master from github.com/obfuscated/codeblocks_sf. |
 | tims_readme                |Copy of master and holds this README.md file about the other branches of mine. |
 | build_cbp/win_cbp_saveas   |Copy of master; but with a projects save as done for most Windows Projects. |
 | build_cbp/lib_folder_type1 |Copy of win_cbp_saveas with added folders lib, lib28, and lib30. |
@@ -27,7 +26,7 @@
 
 
 Add Branch
-| build/move_output |Copy of master; with "output" folder moved to update script/batch files. |
+| build/move_output          |Copy of portability/fixes; with "output" folder moved to src/update files. |
 
 
 Branches that need updated/rebased
@@ -73,16 +72,42 @@ git checkout build_cbp/wx30x  && git pull
 
 #
 cd ../codeblocks_https_metadata-git && git fetch origin
-git checkout master && git pull && git svn fetch && git svn info
+git checkout master && git pull
+git svn fetch && git svn info
 # Update branch by rebasing with master branch
 # --force-with-lease
-git checkout tims_readme && git rebase master && git.exe push origin 
-git checkout remove/do_not_edit && git rebase master && git.exe push origin
-git checkout deceased/removals && git rebase master && git.exe push origin
-git checkout bugfix/sdk && git rebase master && git.exe push origin
-git checkout PCH/code_fixes && git rebase master && git.exe push origin
-git checkout build_cbp/wx30x && git rebase master && git.exe push origin
-git checkout build_cbp/win_cbp_saveas && git rebase master && git.exe push origin 
+git checkout tims_readme && git rebase master && git.exe push origin --force-with-lease
+git checkout remove/do_not_edit && git rebase master && git.exe push origin --force-with-lease
+git checkout deceased/removals && git rebase master && git.exe push origin --force-with-lease
+git checkout bugfix/sdk && git rebase master && git.exe push origin --force-with-lease
+git checkout PCH/code_fixes && git rebase master && git.exe push origin --force-with-lease
+git checkout build_cbp/wx30x && git rebase master && git.exe push origin --force-with-lease
+git checkout build_cbp/win_cbp_saveas && git rebase master && git.exe push origin --force-with-lease
+
+git checkout portability/fixes
+git fetch origin && git rebase master && git status -uno
+git rebase master && git push origin 
+## git push origin --force-with-lease
+
+git checkout build_cbp/wx_compiler
+git status -uno
+git rebase build_cbp/win_cbp_saveas
+git status -uno
+git rebase master && git push origin 
+## git push origin --force-with-lease
+
+git checkout feature/sdk
+git rebase bugfix/sdk
+git rebase master && git push origin 
+## git push origin --force-with-lease
+
+git checkout build_cbp/wx_multilib
+git status -uno
+git rebase build_cbp/wx_compiler
+git rebase portability/fixes
+git status -uno
+git rebase master && git push origin
+## git push origin --force-with-lease
 
 
 git remote -v
@@ -101,35 +126,25 @@ git.exe push origin
 
 
 cd ../codeblocks_layout-git && git fetch origin && git status -uno
+git checkout build/move_output
+git rebase origin/portability/fixes
+git rebase origin/master && git status -uno
+git svn fetch && git svn info
+git push origin 
+## git push origin --force-with-lease
+
+cd ../codeblocks_layout-git && git fetch origin && git status -uno
 git checkout build_cbp/lib_folder_type1
-git rebase master && git status -uno
+git rebase origin/master && git status -uno
 git.exe push origin 
-# --force-with-lease
+## git push origin --force-with-lease
 
 cd ../codeblocks_layout-git && git fetch origin && git status -uno
 git checkout build_cbp/lib_folder_type2
-git rebase master && git status -uno 
+git rebase origin/master && git status -uno 
 git.exe push origin 
-# --force-with-lease
-
-
-git checkout build_cbp/wx_compiler
-git status -uno
-git rebase build_cbp/win_cbp_saveas
-git status -uno
-git rebase master && git push origin 
-## --force-with-lease
-
-# Remove "*" from xcopy destination folder
-git checkout portability/fixes
-git fetch origin && git rebase master && git status -uno
-git rebase master && git push origin 
 ## git push origin --force-with-lease
 
-git checkout feature/sdk
-git rebase bugfix/sdk
-git rebase master && git push origin 
-## --force-with-lease
 
 
 
@@ -140,7 +155,6 @@ cd ../codeblocks_cygwin_support-git && git fetch origin && git status -uno
 # git checkout cygwin_support
 # use prefix "cygwin_support:"
 git branch --list
-git fetch  origin
 git rebase origin/build_cbp/win_cbp_saveas
 git rebase origin/portability/fixes
 git rebase origin/feature/sdk
@@ -148,8 +162,8 @@ git rebase origin/PCH/code_fixes
 git rebase origin/deceased/removals
 git status -uno
 # git rebase origin/cygwin_support
-git rebase origin/master
-git status -uno
+git rebase origin/master && git status -uno
+git svn fetch && git svn info
 git push origin
 # git push origin --force-with-lease
 
@@ -161,45 +175,50 @@ git log --oneline
 cd ../codeblocks_msys2_wxMonoLib-git && git fetch origin && git status -uno
 # git checkout msys2/codeblocks
 git branch --list
-git fetch  origin
 git rebase origin/cygwin_support
 git status -uno
 # git rebase origin/msys2/codeblocks
 git status -uno
-git rebase origin/master
+git rebase origin/master && git status -uno
+git svn fetch && git svn info
 git status -uno
 git push origin
-# git push origin --force-with-lease
+##  git push origin --force-with-lease
 
+git clone git://git.code.sf.net/p/codeblocks/git codeblocks-git
 
-* msys2_wx_multilibs: Removed CB Global var "WX30".
 
 cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin && git status -uno
 git checkout msys2/wx30_libs
 # Prefix msys2_wx_multilibs:
-# 
+#
 git branch --list
-git fetch  origin
-git rebase origin/msys2/codeblocks            # Done multiple times.
-# git rebase origin/cygwin_support              # Do if above rebase fails
-# git rebase origin/build_cbp/win_cbp_saveas    # Do if above rebase fails
-git status -uno
 git rebase origin/master
+git rebase origin/msys2/codeblocks
 git status -uno
+git rebase origin/master && git status -uno
+git svn fetch && git svn info
 git push origin
-# git rebase origin/master && git push origin --force-with-lease
+##  git push origin --force-with-lease
 
 
-wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
+* msys2_wx_multilibs: Fixed some of the library issues.
+wx_msw$(WX_SUFFIX)_richtext-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_propgrid-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_html-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_aui-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_xrc-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_adv-$(WX_VERSION).dll
+wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
 wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
 wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
-wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
-wx_msw$(WX_SUFFIX)_aui-$(WX_VERSION).dll
-wx_msw$(WX_SUFFIX)_propgrid-$(WX_VERSION).dll
-wx_msw$(WX_SUFFIX)_xrc-$(WX_VERSION).dll
-wx_msw$(WX_SUFFIX)_html-$(WX_VERSION).dll
-wx_msw$(WX_SUFFIX)_adv-$(WX_VERSION).dll
+wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
 
-msys2_wx_multilibs: Fixed some of the library issues.
+* msys2_wx_multilibs: Added header search paths.
+$(TARGET_COMPILER_DIR)lib\wx\include\msw-unicode-3.0
+$(TARGET_COMPILER_DIR)include\wx-3.0
+
+* msys2_wx_multilibs: Removed CB Global var "WX30".
+
 
 ExpandTicks
