@@ -54,21 +54,12 @@ Update this repo
 # https://cygwin.com/cygwin-ug-net/cygpath.html
 # http://wiki.codeblocks.org/index.php/Debugging_with_Code::Blocks
 
-Need to do a installer release for 
-  msys2/codeblocks
+Need to do a installer release for
   cygwin_support
+  msys2/codeblocks
 
 https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
 
-
-# Git pull from origin to local branches.
-cd ../codeblocks_https_metadata-git
-git checkout tims_readme && git pull
-git checkout remove/do_not_edit && git pull
-git checkout deceased/removals && git pull
-git checkout bugfix/sdk  && git pull
-git checkout PCH/code_fixes && git pull
-git checkout build_cbp/wx30x  && git pull
 
 #
 cd ../codeblocks_https_metadata-git && git fetch origin
@@ -93,12 +84,14 @@ git checkout build_cbp/wx_compiler
 git status -uno
 git rebase build_cbp/win_cbp_saveas
 git status -uno
-git rebase master && git push origin 
+git rebase master && git status -uno
+git push origin 
 ## git push origin --force-with-lease
 
 git checkout feature/sdk
 git rebase bugfix/sdk
-git rebase master && git push origin 
+git rebase master && git status -uno
+git push origin 
 ## git push origin --force-with-lease
 
 git checkout build_cbp/wx_multilib
@@ -106,7 +99,8 @@ git status -uno
 git rebase build_cbp/wx_compiler
 git rebase portability/fixes
 git status -uno
-git rebase master && git push origin
+git rebase master && git status -uno
+git push origin
 ## git push origin --force-with-lease
 
 
@@ -119,8 +113,7 @@ git rebase obfuscated/builds/wx31
 git status -uno
 # git rebase origin/obf_sf/builds/wx31
 git status -uno
-git rebase obfuscated/master
-git status -uno
+git rebase obfuscated/master && git status -uno
 git.exe push origin
 # git.exe push origin --force-with-lease
 
@@ -165,9 +158,10 @@ git status -uno
 git rebase origin/master && git status -uno
 git svn fetch && git svn info
 git push origin
-# git push origin --force-with-lease
+##  git push origin --force-with-lease
 
 git log --oneline
+
 
 
 # Add Option to change shell in GUI         environmentsettingsdlg.cpp
@@ -201,6 +195,23 @@ git svn fetch && git svn info
 git push origin
 ##  git push origin --force-with-lease
 
+# Create sed scripts to 
+## Remove CB Global var "WX30"
+## Remove wx lib "wxmsw$(WX_VERSION)$(WX_SUFFIX)"
+## Remove "WX_CFG"
+## Set WX_VERSION to "3.0"
+# Create patch to
+## Add WX_TOOLKIT with value "msw"
+## Add header search paths.
+## Add wx multilibs
+
+* msys2_wx_multilibs: Removed CB Global var "WX30".
+
+* msys2_wx_multilibs: Set WX_VERSION to "3.0".
+
+* msys2_wx_multilibs: Added header search paths.
+$(TARGET_COMPILER_DIR)lib\wx\include\msw-unicode-$(WX_VERSION)
+$(TARGET_COMPILER_DIR)include\wx-$(WX_VERSION)
 
 * msys2_wx_multilibs: Fixed some of the library issues.
 wx_msw$(WX_SUFFIX)_richtext-$(WX_VERSION).dll
@@ -213,12 +224,6 @@ wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
 wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
 wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
 wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
-
-* msys2_wx_multilibs: Added header search paths.
-$(TARGET_COMPILER_DIR)lib\wx\include\msw-unicode-3.0
-$(TARGET_COMPILER_DIR)include\wx-3.0
-
-* msys2_wx_multilibs: Removed CB Global var "WX30".
 
 
 ExpandTicks
