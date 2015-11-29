@@ -25,11 +25,10 @@ Date:   Wed Nov 18 01:53:38 2015 +0000
 # Step 2: Verify svn configuration
 # Step 2A: Check that protocal matches that in the above step (https, http, or svn).
 git config svn-remote.svn.url
-# If the above command returns blank you need to do the next three git config commands.
+# If the above command returns blank you need to do the next two git config commands.
 # Remember to fix the protocal if it needs changed.
 # git config svn-remote.svn.url https://svn.code.sf.net/p/codeblocks/code
 # git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
-# git config svn-remote.svn.branches branches/*:refs/remotes/svn/*
 
 # Step 2B: See what folder name is being used before trunk.
 git config svn-remote.svn.fetch
