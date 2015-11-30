@@ -17,9 +17,11 @@ wxTreeList Current maintainer: Ronan Chartois http://svn.code.sf.net/p/wxcode/co
        #define WXDLLIMPEXP_DATA_WXCODE(type)       type
    #endif
 
-wxled/wxLEDPanel Current maintainer: Christian Gräfe http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/ledpanel/
-wxled/LCDWindow wxCode UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/lcdwindow/
-wxled/wxLed wxCode Current maintainer: UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/led/src/led.cpp
+some classes of wxled folder
+wxLEDNumberCtrl wxCode gizmos http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/gizmos/
+wxLEDPanel  wxCode Current maintainer: Christian Gräfe http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/ledpanel/
+LCDWindow   wxCode UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/lcdwindow/
+wxLed       wxCode Current maintainer: UNMAINTAINED http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/led/src/led.cpp
 About 3 Minutes link time for wxled/* target.
    WXMAKINGDLL_GIZMOS
    WXMAKINGDLL_WXCODE
