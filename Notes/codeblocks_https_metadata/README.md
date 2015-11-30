@@ -64,8 +64,8 @@ Update this repo
 # https://cygwin.com/cygwin-ug-net/cygpath.html
 # http://wiki.codeblocks.org/index.php/Debugging_with_Code::Blocks
 
+https://github.com/stahta01/codeblocks_unofficial_installers.git
 Need to do a installer release for
-  PCH_fixes (PCH/cbp_fixes)
   build_cbp/wx_multilib
   cygwin_support
   msys2/codeblocks
@@ -100,6 +100,12 @@ git push pch_fixes
 ##  git push pch_fixes --force-with-lease
 
 git log --oneline
+
+- PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
+
+- PCH_build_fix: Added object include search folder. (Thanks stahta01)
+
+- PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
 
 - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
 
@@ -211,8 +217,8 @@ git log --oneline
 # Add Option to change shell in GUI         environmentsettingsdlg.cpp
 # Use prefix "msys2_cb:"
 cd ../codeblocks_msys2_wxMonoLib-git && git fetch origin && git status -uno
-# git checkout msys2/codeblocks
-git branch --list
+#  git checkout msys2/codeblocks
+#  git branch --list
 git rebase origin/cygwin_support && git status -uno
 # git rebase origin/msys2/codeblocks && git status -uno
 git rebase origin/master && git status -uno
@@ -235,9 +241,10 @@ git push origin
 git svn fetch && git svn info
 
 
-git format-patch --unified=1 2eaadee59764399201a5f0acdc3f61ae8d8c1786
+#  git format-patch --unified=1 939482398bc7488eaf18e1d8a1273c54883a0bc7
 
-git am --abort
+## git apply --reject ##
+##  git am --abort
 
 * msys2_wx_multilibs: Removed wx lib and CB Global vars.
 * msys2_wx_multilibs: Edited WX variables.
