@@ -1,0 +1,75 @@
+
+http://forums.codeblocks.org/index.php/topic,19721.msg141296.html#msg141296
+
+wcl.exe -q -c -d2 -wx -ml -bt=dos -bcl=dos -iC:\WATCOM\h -fo=obj\Debug\types.obj types.c
+wcl.exe -q -c -d2 -wx -ml -bt=dos -bcl=dos -iC:\WATCOM\h -fo=obj\Debug\calc.obj calc.c
+wlib.exe -q MyLib.lib obj\Debug\types.obj obj\Debug\calc.obj
+
+wcl.exe -q -c -ml -bt=dos -bcl=dos -iC:\WATCOM\h -fo=obj\Debug\main.obj main.c
+wcl.exe -q -c -ml -bt=dos -bcl=dos -iC:\WATCOM\h -fo=obj\Debug\calcHandler.obj calcHandler.c
+wlink.exe name MyProg.exe d all sys dos op m op maxe=25 op q LIBP C:\WATCOM\lib386;C:\WATCOM\lib386\dos FIL main.obj,calcHandler.obj library ..\MyLib\bin\Debug\MyLib.lib,lib\OtherLib.lib
+
+
+wcl.exe -q -c -wx  -d2    
+-iC:\Apps32\WATCOM\h 
+-iC:\Apps32\WATCOM\h\nt 
+-iC:\SourceCode\OpenSourceCode\no_Repos\Test\watcom\test 
+-fo=obj\Debug\main.obj 
+main.c
+
+ftp://ftp.openwatcom.org/pub/open-watcom-c-dos-1.9.exe
+
+git branch: compiler/watcom
+
+    Linker executable: $linker
+    Linker executable for static libs: $lib_linker
+    Static lib output file: $static_output
+    All *linkable* object files: $link_objects
+    All *linkable* flat object files: $link_flat_objects
+
+    Library Directory Separator :
+    Object Separator : ","
+
+C Compiler($compiler):
+C++ Compiler($compiler):
+Linker for Dynamic Libs($linker) : wlink.exe
+Linker for Static Libs($lib_linker) : wlib.exe
+Res. Compiler : wrc.exe
+make: wmake.exe
+
+    <Command name="CompileObject"
+             value="$compiler -q -c $options $includes -fo=$object $file"/>
+    <Command name="CompileResource"
+             value="$rescomp -q -r -fo=$resource_output $res_includes $file"/>
+    <Command name="LinkExe"
+             value="$linker option quiet $link_options $libdirs $link_objects name $exe_output $libs $link_resobjects"/>
+    <Command name="LinkConsoleExe"
+             value="$linker option quiet $link_options $libdirs $link_objects name $exe_output $libs $link_resobjects"/>
+    <Command name="LinkDynamic"
+             value="$linker option quiet $link_options $libdirs name $exe_output $libs $link_objects"/>
+    <Command name="LinkStatic"
+             value="$lib_linker -q $static_output $link_objects"/>
+    <Command name="LinkNative"
+             value="$linker option quiet $link_options $libdirs $link_objects name $exe_output $libs $link_resobjects"/>
+    <Common name="cmds"/>
+
+
+http://gnuwin32.sourceforge.net/packages/zip.htm
+
+* DO NOT USE UPSTREAM:
+
+Test Project needs to contain 3 targets
+2 static libs with at least 2 files in each.
+exe target
+
+Need to test with both 16 and 32 bit target exe.
+
+
+Code needing replaced with better method
+    if (IsOpenWatcom && target->GetTargetType() != ttStaticLib)
+        linkfiles << _T("file ");
+
+
+$linker option quiet $link_options $libdirs FILE $link_objects NAME $exe_output $libs
+
+wcl.exe -q -c -d2 -wx -ml -bt=dos -bcl=dos -iC:\WATCOM\h -fo=obj\Debug\types.obj types.c
