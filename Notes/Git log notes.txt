@@ -1,0 +1,19 @@
+From https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+
+git log --pretty=format:"%h - %an, %ar : %s"
+
+From http://www.thegeekstuff.com/2014/04/git-log/
+git log --author=Tim
+
+git log --stat
+
+git log --graph
+
+From http://gitready.com/advanced/2009/01/20/bend-logs-to-your-will.html
+
+git log origin..HEAD
+
+git log <file>
+
+git --no-pager log
+

@@ -1,0 +1,8 @@
+wxSmith.cbp
+wxSmithAui.cbp
+wxSmithContribItems.cbp
+
+
+Ones that likely do NOT need library
+cb_share_config-unix.cbp
+codesnippets-unix.cbp

@@ -1,0 +1,10 @@
+Debian Git Package links.txt
+
+https://packages.debian.org/jessie/git-mediawiki
+https://packages.debian.org/jessie-backports/geany-plugin-git-changebar
+
+http://rtomayko.github.io/git-sh/
+http://www.procode.org/stgit/
+https://github.com/tj/git-extras
+
+http://www-cs-students.stanford.edu/~blynn/gitmagic/
