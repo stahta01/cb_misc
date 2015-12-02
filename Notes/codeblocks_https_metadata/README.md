@@ -139,8 +139,13 @@ CB_PRECOMP
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info
+# git pull --rebase
+git checkout tims_readme && git pull --rebase && git rebase master && git status -uno
+git checkout remove/do_not_edit && git pull --rebase && git rebase master && git status -uno
+git checkout deceased/removals && git pull --rebase && git rebase master && git status -uno
+git checkout bugfix/sdk && git pull --rebase && git rebase master && git status -uno
+git checkout build_cbp/wx30x && git pull --rebase && git rebase master && git status -uno
 # Update branch by rebasing with master branch
-# --force-with-lease
 git checkout tims_readme && git rebase master && git.exe push origin --force-with-lease
 git checkout remove/do_not_edit && git rebase master && git.exe push origin --force-with-lease
 git checkout deceased/removals && git rebase master && git.exe push origin --force-with-lease
@@ -151,6 +156,7 @@ git checkout build_cbp/wx30x && git rebase master && git.exe push origin --force
 cd ../codeblocks_https_metadata-git 
 git fetch origin && git fetch pch_fixes && git status -uno
 git checkout build_cbp/wx_compiler && git status -uno
+##  git pull --rebase && git rebase master && git status -uno
 git rebase pch_fixes/build_cbp/win_cbp_saveas
 git rebase master && git status -uno
 git push origin 
@@ -225,12 +231,13 @@ cd ../codeblocks_cygwin_support-git git status -uno
 # git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 git fetch origin && git fetch pch_fixes && git status -uno
 # git checkout cygwin_support
+## git pull --rebase
 # use prefix "cygwin_support:"
 ##  git branch --list
-git rebase pch_fixes/PCH/cbp_fixes
-git rebase origin/bugfix/project_n_workspace
-git rebase origin/feature/sdk
-git rebase origin/deceased/removals
+git rebase pch_fixes/PCH/cbp_fixes && git status -uno
+git rebase origin/bugfix/project_n_workspace && git status -uno
+git rebase origin/feature/sdk && git status -uno
+git rebase origin/deceased/removals && git status -uno
 git rebase origin/master && git status -uno
 git push origin
 ##  git push origin --force-with-lease
