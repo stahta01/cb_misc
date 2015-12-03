@@ -72,42 +72,41 @@ Need to do a installer release for
 
 https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
 
+######################################################################
+
 # git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
 
 
 cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes && git fetch origin && git status -uno
-git remote -v
-git branch --list
-git checkout master && git pull origin master && git push && git status -uno
+##  git remote -v
+##  git branch --list
+git checkout master && git pull origin master && git status -uno
+##  git push 
 git svn fetch && git svn info
 git checkout PCH/code_fixes && git rebase master && git.exe push pch_fixes --force-with-lease
 git checkout build_cbp/win_cbp_saveas && git rebase master && git.exe push pch_fixes --force-with-lease
+git checkout wxContribItems && git rebase master && git.exe push pch_fixes --force-with-lease
 
 # 
 cd ../codeblocks_PCH_fixes-git
 git checkout portability/fixes && git fetch pch_fixes && git status -uno
 ##  git rebase wxContribItems
 git rebase build_cbp/win_cbp_saveas
-git rebase master && git status -uno
+##  git rebase master && git status -uno
+git status -uno
 git push pch_fixes 
 ## git push pch_fixes --force-with-lease
 
 git --no-pager log --oneline --author=Tim
 
 
-cd ../codeblocks_PCH_fixes-git && git status -uno
-git checkout wxContribItems && git status -uno
-git rebase master && git status -uno
-
-git --no-pager log --oneline --author=Tim
-
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
 ##  git rebase PCH/code_fixes
-git rebase portability/fixes
-git rebase master && git status -uno
+git rebase portability/fixes && git status -uno
+##  git rebase master && git status -uno
 git push pch_fixes 
 ##  git push pch_fixes --force-with-lease
 
@@ -163,17 +162,17 @@ cd ../codeblocks_https_metadata-git
 git fetch origin && git fetch pch_fixes && git status -uno
 git checkout build_cbp/wx_compiler && git status -uno
 ##  git pull --rebase && git rebase master && git status -uno
-git rebase pch_fixes/build_cbp/win_cbp_saveas
-git rebase master && git status -uno
+git rebase pch_fixes/build_cbp/win_cbp_saveas && git status -uno
+##  git rebase master && git status -uno
 git push origin 
 ## git push origin --force-with-lease
 
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/sdk && git status -uno
-git rebase bugfix/sdk
-git rebase master && git status -uno
+git rebase bugfix/sdk && git status -uno
+##  git rebase master && git status -uno
 git push origin 
-## git push origin --force-with-lease
+##  git push origin --force-with-lease
 
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout bugfix/project_n_workspace && git status -uno
@@ -196,45 +195,44 @@ git remote -v
 
 git fetch obfuscated
 git checkout obf_sf/builds/wx31
-git rebase obfuscated/builds/wx31
-git status -uno
-# git rebase origin/obf_sf/builds/wx31
-git status -uno
-git rebase obfuscated/master && git status -uno
+git rebase obfuscated/builds/wx31 && git pull && git status -uno
+##  git rebase obfuscated/master && git status -uno
 git.exe push origin
-# git.exe push origin --force-with-lease
+##  git.exe push origin --force-with-lease
 
+######################################################################
 
 cd ../codeblocks_layout-git && git status -uno
 # git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 git fetch origin && git fetch pch_fixes && git status -uno
 git checkout build/move_output && git status -uno
-git rebase pch_fixes/portability/fixes
-git rebase origin/master && git status -uno
+git rebase pch_fixes/portability/fixes && git status -uno
+##  git rebase origin/master && git status -uno
 git push origin 
-## git push origin --force-with-lease
+##  git push origin --force-with-lease
 git svn fetch && git svn info
 
 cd ../codeblocks_layout-git && git fetch origin && git status -uno
-git checkout build_cbp/lib_folder_type1
+git checkout build_cbp/lib_folder_type1 && git status -uno
 git rebase origin/master && git status -uno
 git.exe push origin 
 ## git push origin --force-with-lease
 
 cd ../codeblocks_layout-git && git fetch origin && git status -uno
-git checkout build_cbp/lib_folder_type2
+git checkout build_cbp/lib_folder_type2 && git status -uno 
 git rebase origin/master && git status -uno 
 git.exe push origin 
 ## git push origin --force-with-lease
 
 
+######################################################################
 
 
 # Added redefine of CMD_CP when CygWin Compiler
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
 #
+## git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 cd ../codeblocks_cygwin_support-git git status -uno
-# git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 git fetch origin && git fetch pch_fixes && git status -uno
 # git checkout cygwin_support
 ## git pull --rebase
@@ -244,7 +242,7 @@ git fetch origin && git fetch pch_fixes && git status -uno
 ##  git rebase origin/feature/sdk && git status -uno
 ##  git rebase origin/deceased/removals && git status -uno
 git rebase pch_fixes/PCH/cbp_fixes && git status -uno
-git rebase origin/master && git status -uno
+##  git rebase origin/master && git status -uno
 git push origin
 ##  git push origin --force-with-lease
 git svn fetch && git svn info
