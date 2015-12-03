@@ -74,13 +74,9 @@ https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
 
 # git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
 
-# Change the project define "WXMAKINGDLL" into target defines of "WXUSINGDLL"
-# Fix the resulting errors
-git checkout master
-git checkout -b wxContribItems
 
 cd ../codeblocks_PCH_fixes-git && git status -uno
-git fetch origin && git fetch pch_fixes && git status -uno
+git fetch pch_fixes && git fetch origin && git status -uno
 git remote -v
 git branch --list
 git checkout master && git pull origin master && git push && git status -uno
@@ -88,24 +84,34 @@ git svn fetch && git svn info
 git checkout PCH/code_fixes && git rebase master && git.exe push pch_fixes --force-with-lease
 git checkout build_cbp/win_cbp_saveas && git rebase master && git.exe push pch_fixes --force-with-lease
 
-# Checkout out rndgen_wx30.cbp seems to have formating issues. 
-git checkout portability/fixes
-git fetch pch_fixes && git rebase master && git status -uno
-git rebase master && git push pch_fixes 
+# 
+cd ../codeblocks_PCH_fixes-git
+git checkout portability/fixes && git fetch pch_fixes && git status -uno
+##  git rebase wxContribItems
+git rebase build_cbp/win_cbp_saveas
+git rebase master && git status -uno
+git push pch_fixes 
 ## git push pch_fixes --force-with-lease
 
+git --no-pager log --oneline --author=Tim
+
+
 cd ../codeblocks_PCH_fixes-git && git status -uno
+git checkout wxContribItems && git status -uno
+git rebase master && git status -uno
+
+git --no-pager log --oneline --author=Tim
+
+cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
-git rebase PCH/code_fixes
-git rebase wxContribItems
+##  git rebase PCH/code_fixes
 git rebase portability/fixes
-git rebase build_cbp/win_cbp_saveas
 git rebase master && git status -uno
 git push pch_fixes 
 ##  git push pch_fixes --force-with-lease
 
-git log --oneline
+git --no-pager log --oneline --author=Tim
 
 - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
 
@@ -234,10 +240,10 @@ git fetch origin && git fetch pch_fixes && git status -uno
 ## git pull --rebase
 # use prefix "cygwin_support:"
 ##  git branch --list
+##  git rebase origin/bugfix/project_n_workspace && git status -uno
+##  git rebase origin/feature/sdk && git status -uno
+##  git rebase origin/deceased/removals && git status -uno
 git rebase pch_fixes/PCH/cbp_fixes && git status -uno
-git rebase origin/bugfix/project_n_workspace && git status -uno
-git rebase origin/feature/sdk && git status -uno
-git rebase origin/deceased/removals && git status -uno
 git rebase origin/master && git status -uno
 git push origin
 ##  git push origin --force-with-lease
@@ -314,10 +320,10 @@ cd ../codeblocks_wx_multilib_gcc471TDM-git && git status -uno
 git fetch origin && git fetch pch_fixes && git status -uno
 #  git checkout build_cbp/wx_multilib && git status -uno
 #  git branch --list
+##  git rebase origin/build_cbp/wx_compiler
+##  git rebase origin/bugfix/sdk
+##  git rebase origin/deceased/removals
 git rebase pch_fixes/PCH/cbp_fixes
-git rebase origin/build_cbp/wx_compiler
-git rebase origin/bugfix/sdk
-git rebase origin/deceased/removals
 git rebase origin/master && git status -uno
 git push origin
 ## git push origin --force-with-lease
