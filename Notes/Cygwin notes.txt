@@ -1,0 +1,9 @@
+Cygwin notes.txt
+HKEY_CURRENT_USER\Software\Cygwin
+HKEY_LOCAL_MACHINE\SOFTWARE\Cygwin
+HKEY_LOCAL_MACHINE\SOFTWARE\Cygwin\setup
+
+Cygwin GCC exes in Priorty order
+gcc.exe
+x86_64-pc-cygwin-gcc.exe
+i686-pc-cygwin-gcc.exe
