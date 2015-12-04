@@ -1,0 +1,68 @@
+######################################################################
+
+# git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
+
+
+cd ../codeblocks_PCH_fixes-git && git status -uno
+git fetch pch_fixes && git fetch origin && git status -uno
+##  git remote -v
+##  git branch --list
+git checkout master && git pull origin master && git status -uno
+##  git push 
+git svn fetch && git svn info
+git checkout PCH/code_fixes && git rebase master && git.exe push pch_fixes --force-with-lease
+git checkout build_cbp/win_cbp_saveas && git rebase master && git.exe push pch_fixes --force-with-lease
+git checkout wxContribItems && git rebase master && git.exe push pch_fixes --force-with-lease
+
+# 
+cd ../codeblocks_PCH_fixes-git
+git checkout portability/fixes && git fetch pch_fixes && git status -uno
+##  git rebase wxContribItems
+git rebase build_cbp/win_cbp_saveas
+##  git rebase master && git status -uno
+git status -uno
+git push pch_fixes 
+## git push pch_fixes --force-with-lease
+
+git --no-pager log --oneline --author=Tim
+
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/cbp_fixes && git status -uno
+# PCH_build_fix:
+##  git rebase PCH/code_fixes
+git rebase portability/fixes && git status -uno
+##  git rebase master && git status -uno
+git push pch_fixes 
+##  git push pch_fixes --force-with-lease
+
+git --no-pager log --oneline --author=Tim
+
+- PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
+
+- PCH_build_fix: Added object include search folder. (Thanks stahta01)
+
+- PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
+
+- PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
+
+Also, added object include search folder.
+
+../../../.objs/include
+
+../../.objs/include
+
+../../../.objs30/include
+
+- PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
+
+And, removed defines of NOPCH and WX_PRECOMP.
+
+
+USE_PCH
+NOPCH
+WX_PRECOMP
+CB_PRECOMP
+
+######################################################
+
