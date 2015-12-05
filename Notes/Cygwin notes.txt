@@ -13,3 +13,12 @@ i686-pc-cygwin-gcc.exe
 # http://forums.codeblocks.org/index.php?topic=12212.msg90788;topicseen
 # https://cygwin.com/cygwin-ug-net/cygpath.html
 # http://wiki.codeblocks.org/index.php/Debugging_with_Code::Blocks
+
+$ x86_64-pc-cygwin-gcc.exe -v
+Using built-in specs.
+COLLECT_GCC=x86_64-pc-cygwin-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-cygwin/4.9.2/lto-wrapper.exe
+Target: x86_64-pc-cygwin
+Configured with: /usr/src/ports/cygwin64-gcc/cygwin64-gcc-4.9.2-1.i686/src/gcc-4.9.2/configure --srcdir=/usr/src/ports/cygwin64-gcc/cygwin64-gcc-4.9.2-1.i686/src/gcc-4.9.2 --prefix=/usr --exec-prefix=/usr --localstatedir=/var --sysconfdir=/etc --docdir=/usr/share/doc/cygwin64-gcc --htmldir=/usr/share/doc/cygwin64-gcc/html -C --build=i686-pc-cygwin --host=i686-pc-cygwin --target=x86_64-pc-cygwin --without-libiconv-prefix --without-libintl-prefix --with-sysroot=/usr/x86_64-pc-cygwin/sys-root --with-build-sysroot=/usr/x86_64-pc-cygwin/sys-root --libexecdir=/usr/lib --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --enable-__cxa_atexit --with-dwarf2 --with-arch-32=i686 --with-tune=generic --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-graphite --enable-linker-build-id --enable-threads=posix --enable-libatomic --enable-libgomp --disable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --enable-libada --enable-libgcj-sublibs --disable-java-awt --disable-symvers --with-ecj-jar=/usr/share/java/ecj.jar --with-gnu-ld --with-gnu-as --with-cloog-include=/usr/include/cloog-isl --without-libiconv-prefix --without-libintl-prefix --with-system-zlib
+Thread model: posix
+gcc version 4.9.2 (GCC)
