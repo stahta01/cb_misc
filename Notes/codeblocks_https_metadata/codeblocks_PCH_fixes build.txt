@@ -18,9 +18,8 @@ git checkout wxContribItems && git rebase master && git.exe push pch_fixes --for
 cd ../codeblocks_PCH_fixes-git
 git checkout portability/fixes && git fetch pch_fixes && git status -uno
 ##  git rebase wxContribItems
-git rebase build_cbp/win_cbp_saveas
+git rebase build_cbp/win_cbp_saveas && git status -uno
 ##  git rebase master && git status -uno
-git status -uno
 git push pch_fixes 
 ## git push pch_fixes --force-with-lease
 
