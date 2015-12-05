@@ -7,3 +7,9 @@ Cygwin GCC exes in Priorty order
 gcc.exe
 x86_64-pc-cygwin-gcc.exe
 i686-pc-cygwin-gcc.exe
+
+# Info about cygwin debugger fix.
+# http://alpha0010.github.io/cb-history/bugs/17626.html
+# http://forums.codeblocks.org/index.php?topic=12212.msg90788;topicseen
+# https://cygwin.com/cygwin-ug-net/cygpath.html
+# http://wiki.codeblocks.org/index.php/Debugging_with_Code::Blocks
