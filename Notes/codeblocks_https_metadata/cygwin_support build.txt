@@ -1,12 +1,4 @@
-######################################################################
-
-# Info about cygwin debugger fix.
-# http://alpha0010.github.io/cb-history/bugs/17626.html
-# http://forums.codeblocks.org/index.php?topic=12212.msg90788;topicseen
-# https://cygwin.com/cygwin-ug-net/cygpath.html
-# http://wiki.codeblocks.org/index.php/Debugging_with_Code::Blocks
-
-
+#
 # Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
 #
 ## git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
@@ -26,6 +18,3 @@ git push origin
 git svn fetch && git svn info
 
 git --no-pager log --oneline --author=Tim
-
-
-

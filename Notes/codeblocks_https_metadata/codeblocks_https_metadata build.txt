@@ -2,7 +2,6 @@
 cd ../codeblocks_https_metadata-git && git fetch origin
 git checkout master && git pull
 git svn fetch && git svn info
-git checkout -b PCH/cbp_fixes
 
 
 Branches that need updated/rebased
@@ -122,70 +121,9 @@ git rebase obfuscated/builds/wx31 && git pull && git status -uno
 git.exe push origin
 ##  git.exe push origin --force-with-lease
 
-######################################################################
-
-cd ../codeblocks_layout-git && git status -uno
-# git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
-git fetch origin && git fetch pch_fixes && git status -uno
-git checkout build/move_output && git status -uno
-git rebase pch_fixes/portability/fixes && git status -uno
-##  git rebase origin/master && git status -uno
-git push origin 
-##  git push origin --force-with-lease
-git svn fetch && git svn info
-
-cd ../codeblocks_layout-git && git fetch origin && git status -uno
-git checkout build_cbp/lib_folder_type1 && git status -uno
-git rebase origin/master && git status -uno
-git.exe push origin 
-## git push origin --force-with-lease
-
-cd ../codeblocks_layout-git && git fetch origin && git status -uno
-git checkout build_cbp/lib_folder_type2 && git status -uno 
-git rebase origin/master && git status -uno 
-git.exe push origin 
-## git push origin --force-with-lease
-
-
-######################################################################
-
-
-# Added redefine of CMD_CP when CygWin Compiler
-# Fix Cygwin compiler to work with Cygwin 64 bit and 32 bit under Windows 7 64 bit.
-#
-## git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
-cd ../codeblocks_cygwin_support-git git status -uno
-git fetch origin && git fetch pch_fixes && git status -uno
-# git checkout cygwin_support
-## git pull --rebase
-# use prefix "cygwin_support:"
-##  git branch --list
-##  git rebase origin/bugfix/project_n_workspace && git status -uno
-##  git rebase origin/feature/sdk && git status -uno
-##  git rebase origin/deceased/removals && git status -uno
-git rebase pch_fixes/PCH/cbp_fixes && git status -uno
-##  git rebase origin/master && git status -uno
-git push origin
-##  git push origin --force-with-lease
-git svn fetch && git svn info
-
-git --no-pager log --oneline --author=Tim
 
 
 
-# Add Option to change shell in GUI         environmentsettingsdlg.cpp
-# Use prefix "msys2_cb:"
-cd ../codeblocks_msys2_wxMonoLib-git && git fetch origin && git status -uno
-#  git checkout msys2/codeblocks
-#  git branch --list
-git rebase origin/cygwin_support && git status -uno
-# git rebase origin/msys2/codeblocks && git status -uno
-git rebase origin/master && git status -uno
-git push origin
-##  git push origin --force-with-lease
-git svn fetch && git svn info
-
-git log --oneline
 
 cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin && git status -uno
 #  git checkout msys2/wx30_libs
