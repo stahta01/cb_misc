@@ -1,12 +1,12 @@
 ######################################################################
 
-# git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
+##  git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
+##  git remote -v
+##  git branch --list
 
 
 cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes && git fetch origin && git status -uno
-##  git remote -v
-##  git branch --list
 git checkout master && git pull origin master && git status -uno
 ##  git push 
 git svn fetch && git svn info
@@ -17,9 +17,9 @@ git checkout wxContribItems && git rebase master && git.exe push pch_fixes --for
 # 
 cd ../codeblocks_PCH_fixes-git
 git checkout portability/fixes && git fetch pch_fixes && git status -uno
-##  git rebase wxContribItems
-git rebase build_cbp/win_cbp_saveas && git status -uno
+##  git rebase wxContribItems && git status -uno
 ##  git rebase master && git status -uno
+git rebase build_cbp/win_cbp_saveas && git status -uno
 git push pch_fixes 
 ## git push pch_fixes --force-with-lease
 
@@ -30,8 +30,8 @@ cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
 ##  git rebase PCH/code_fixes
-git rebase portability/fixes && git status -uno
 ##  git rebase master && git status -uno
+git rebase portability/fixes && git status -uno
 git push pch_fixes 
 ##  git push pch_fixes --force-with-lease
 

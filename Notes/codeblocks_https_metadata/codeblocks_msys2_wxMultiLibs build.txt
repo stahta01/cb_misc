@@ -1,0 +1,48 @@
+
+
+
+cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin && git status -uno
+#  git checkout msys2/wx30_libs
+# Prefix msys2_wx_multilibs:
+#
+#  git branch --list
+#  git rebase origin/master
+git rebase origin/msys2/codeblocks && git status -uno
+#  git rebase --abort
+git rebase origin/master && git status -uno
+git push origin
+##  git push origin --force-with-lease
+git svn fetch && git svn info
+##  git log --oneline
+
+#  git format-patch --unified=1 939482398bc7488eaf18e1d8a1273c54883a0bc7
+
+## git apply --reject ##
+##  git am --abort
+
+* msys2_wx_multilibs: Removed wx lib and CB Global vars.
+* msys2_wx_multilibs: Edited WX variables.
+
+* msys2_wx_multilibs: Added configure built wx multilibs.
+
+Added header search paths.
+Added wx multilibs.
+
+
+* msys2_wx_multilibs: Added header search paths.
+$(TARGET_COMPILER_DIR)lib\wx\include\$(WX_TOOLKIT)-unicode-$(WX_VERSION)
+$(TARGET_COMPILER_DIR)include\wx-$(WX_VERSION)
+
+* msys2_wx_multilibs: Added wx multilibs.
+wx_$(WX_TOOLKIT)$(WX_SUFFIX)_richtext-$(WX_VERSION).dll
+wx_$(WX_TOOLKIT)$(WX_SUFFIX)_propgrid-$(WX_VERSION).dll
+wx_$(WX_TOOLKIT)$(WX_SUFFIX)_html-$(WX_VERSION).dll
+wx_$(WX_TOOLKIT)$(WX_SUFFIX)_aui-$(WX_VERSION).dll
+wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll
+wx_$(WX_TOOLKIT)$(WX_SUFFIX)_adv-$(WX_VERSION).dll
+wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll
+wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
+wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
+wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
+
+

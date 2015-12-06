@@ -1,0 +1,33 @@
+
+ExpandTicks
+
+
+cd ../codeblocks_wx_multilib_gcc471TDM-git && git status -uno
+# git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
+git fetch origin && git fetch pch_fixes && git status -uno
+#  git checkout build_cbp/wx_multilib && git status -uno
+#  git branch --list
+##  git rebase origin/build_cbp/wx_compiler
+##  git rebase origin/bugfix/sdk
+##  git rebase origin/deceased/removals
+git rebase pch_fixes/PCH/cbp_fixes
+git rebase origin/master && git status -uno
+git push origin
+## git push origin --force-with-lease
+git svn fetch && git svn info
+
+* wx_multilibs_gcc471TDM: Changed to make built wx multilibs.
+fixup! * wx_multilibs_gcc471TDM: Changed to make built wx multilibs.
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_richtext
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_propgrid
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_html
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_aui
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_xrc
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_adv
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core
+wxbase$(WX_VERSION)$(WX_SUFFIX)_xml
+wxbase$(WX_VERSION)$(WX_SUFFIX)_net
+wxbase$(WX_VERSION)$(WX_SUFFIX)
+
+sed '/pattern to match/d' ./infile
+
