@@ -95,13 +95,15 @@ git rebase master && git status -uno
 git push origin 
 ## git push origin --force-with-lease
 
-git log --oneline
+git --no-pager log --oneline --author=Tim
 
-a4326b8 - Core app & plugins: Added target Abbreviations to virtual target. (Thanks stahta01)
-b7b1e89 - Workspace: NEEDS TESTED: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
-419e8cc - Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
-a1c076a - wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
-cccd77c - Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
+daaf855 - Removed unneeded wxscintilla_cb library from link list. (Thanks stahta01)
+98dbbe7 - ToolsPlus: Save-As CB WinOS wx2.8 project using CB 15.12.
+1697c3f - Removed unneeded wxpropgrid library from link list. (Thanks stahta01)
+9ad1b9f - Core app & plugins: Added target Abbreviations to virtual target. (Thanks stahta01)
+f427611 - Workspace: NEEDS TESTED: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
+75d6892 - wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
+0e9d08e - Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
 
 git log -5
 
