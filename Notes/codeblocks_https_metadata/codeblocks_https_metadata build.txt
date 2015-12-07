@@ -76,9 +76,9 @@ git checkout build_cbp/wx30x && git rebase master && git.exe push origin --force
 cd ../codeblocks_https_metadata-git 
 git fetch origin && git fetch pch_fixes && git status -uno
 git checkout build_cbp/wx_compiler && git status -uno
-##  git pull --rebase && git rebase master && git status -uno
-git rebase pch_fixes/win_cbp_saveas && git status -uno
+##  git pull --rebase && git status -uno
 ##  git rebase master && git status -uno
+git rebase pch_fixes/win_cbp_saveas && git status -uno
 git push origin 
 ## git push origin --force-with-lease
 
