@@ -1,9 +1,9 @@
 
 ExpandTicks
 
+# git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 
 cd ../codeblocks_wx_multilib_gcc471TDM-git && git status -uno
-# git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 git fetch origin && git fetch pch_fixes && git status -uno
 git svn fetch && git svn info
 #  git checkout build_cbp/wx_multilib && git status -uno
@@ -11,20 +11,21 @@ git svn fetch && git svn info
 ##  git rebase origin/build_cbp/wx_compiler
 ##  git rebase origin/bugfix/sdk
 ##  git rebase origin/deceased/removals
+##  git rebase origin/master && git status -uno
 git rebase pch_fixes/PCH/cbp_fixes && git status -uno
-git rebase origin/master && git status -uno
 git push origin
 ## git push origin --force-with-lease
 
+git apply --reject msys2_wx_multilibs-Added-make-built-wx-multilib.patch
 
-* wx_multilibs_gcc471TDM: Changed to make built wx multilibs.
-fixup! * wx_multilibs_gcc471TDM: Changed to make built wx multilibs.
+* wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
+fixup! * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_richtext
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_propgrid
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_html
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_aui
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_xrc
-wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_adv
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_adv            wxPropertySheetDialog
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core
 wxbase$(WX_VERSION)$(WX_SUFFIX)_xml
 wxbase$(WX_VERSION)$(WX_SUFFIX)_net
@@ -32,3 +33,19 @@ wxbase$(WX_VERSION)$(WX_SUFFIX)
 
 sed '/pattern to match/d' ./infile
 
+fixup! * wx_multilibs_gcc471TDM: Edited WX variables.
+
+    Changed WX_COMPILER from "gcc" to "gcc471TDM".
+    Changed WX_SUFFIX from "u" to "ud".
+    Added WX_TOOLKIT equal to "msw".
+
+
+WX_TOOLKIT=msw
+
+fixup! * win_cbp: Added CB Project variable of WX_COMPILER with value of "gcc".
+    Changed "gcc_dll" to "$(WX_COMPILER)_dll" in CB Project(s).
+
+
+$(#WX30.lib)\$(WX_COMPILER)_dll$(WX_CFG)\msw$(WX_SUFFIX)
+
+WX_COMPILER=gcc

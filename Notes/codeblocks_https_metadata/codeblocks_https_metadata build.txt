@@ -59,7 +59,9 @@ CB_PRECOMP
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info
-# git pull --rebase
+##  git svn rebase && git svn info
+##  git pull --rebase
+##  git push
 git checkout tims_readme && git pull --rebase && git rebase master && git status -uno
 git checkout remove/do_not_edit && git pull --rebase && git rebase master && git status -uno
 git checkout deceased/removals && git pull --rebase && git rebase master && git status -uno

@@ -1,6 +1,6 @@
+# git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 
 cd ../codeblocks_layout-git && git status -uno
-# git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 git fetch origin && git fetch pch_fixes && git status -uno
 git checkout build/move_output && git status -uno
 git rebase pch_fixes/portability/fixes && git status -uno
