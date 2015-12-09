@@ -60,7 +60,7 @@ cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info
 ##  git svn rebase && git svn info
-##  git pull --rebase
+##  git pull --rebase && git status -uno
 ##  git push
 git checkout tims_readme && git pull --rebase && git rebase master && git status -uno
 git checkout remove/do_not_edit && git pull --rebase && git rebase master && git status -uno
@@ -74,23 +74,6 @@ git checkout deceased/removals && git rebase master && git.exe push origin --for
 git checkout bugfix/sdk && git rebase master && git.exe push origin --force-with-lease
 git checkout build_cbp/wx30x && git rebase master && git.exe push origin --force-with-lease
 
-
-cd ../codeblocks_https_metadata-git 
-git fetch origin && git fetch pch_fixes && git status -uno
-git checkout build_cbp/wx_compiler && git status -uno
-##  git pull --rebase && git status -uno
-##  git rebase master && git status -uno
-git rebase pch_fixes/win_cbp_saveas && git status -uno
-git push origin 
-## git push origin --force-with-lease
-
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout feature/sdk && git status -uno
-git rebase bugfix/sdk && git status -uno
-##  git rebase master && git status -uno
-git push origin 
-##  git push origin --force-with-lease
-
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout bugfix/project_n_workspace && git status -uno
 git rebase master && git status -uno
@@ -99,16 +82,23 @@ git push origin
 
 git --no-pager log --oneline --author=Tim
 
-daaf855 - Removed unneeded wxscintilla_cb library from link list. (Thanks stahta01)
-98dbbe7 - ToolsPlus: Save-As CB WinOS wx2.8 project using CB 15.12.
-1697c3f - Removed unneeded wxpropgrid library from link list. (Thanks stahta01)
-9ad1b9f - Core app & plugins: Added target Abbreviations to virtual target. (Thanks stahta01)
-f427611 - Workspace: NEEDS TESTED: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
-75d6892 - wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
-0e9d08e - Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
+7bfe01a - Removed unneeded wxscintilla_cb library from link list. (Thanks stahta01)
+57f5a6e - ToolsPlus: Save-As CB WinOS wx2.8 project using CB 15.12.
+9510f1f - Removed unneeded wxpropgrid library from link list. (Thanks stahta01)
+d12e5c6 - Core app & plugins: Added target Abbreviations to virtual target. (Thanks stahta01)
+159b28d - wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
+5397aa2 - Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
 
-git log -5
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout feature/sdk && git status -uno
+git rebase bugfix/sdk && git status -uno
+##  git rebase master && git status -uno
+git push origin 
+##  git push origin --force-with-lease
 
+
+###############################################
+#
 git remote -v
 # git remote add obfuscated https://github.com/obfuscated/codeblocks_sf
 
@@ -119,5 +109,6 @@ git rebase obfuscated/builds/wx31 && git pull && git status -uno
 git.exe push origin
 ##  git.exe push origin --force-with-lease
 
-
+#
+###############################################
 

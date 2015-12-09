@@ -1,5 +1,21 @@
 
 ExpandTicks
+###################
+#
+cd ../codeblocks_https_metadata-git 
+git fetch origin && git fetch pch_fixes && git status -uno
+git checkout build_cbp/wx_compiler && git status -uno
+##  git pull --rebase && git status -uno
+##  git rebase master && git status -uno
+git rebase pch_fixes/win_cbp_saveas && git status -uno
+git push origin 
+## git push origin --force-with-lease
+
+fixup! - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Thanks stahta01)
+
+#
+###################
+
 
 # git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 
@@ -15,6 +31,9 @@ git svn fetch && git svn info
 git rebase pch_fixes/PCH/cbp_fixes && git status -uno
 git push origin
 ## git push origin --force-with-lease
+
+git --no-pager log --oneline --author=Tim
+
 
 git apply --reject msys2_wx_multilibs-Added-make-built-wx-multilib.patch
 
