@@ -1,11 +1,10 @@
 $ git --no-pager log --oneline --author=Tim
-f8a1a94 wx_multilibs_gcc471TDM: Added make built wx mulitilibs. (Thanks stahta01)
-bd6a215 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
-251dbb9 * wx_multilibs_gcc471TDM: Edited WX variables.
-d7c4f56 * win_cbp: Added CB Project variable of WX_COMPILER with value of "gcc".
-56aac84 * sdk: Removed Illegal chars from default filename for template. (Thanks stahta01)
-cce455f * sdk: Fixed value of "CMD_NULL" to be just "NUL". (Thanks stahta01)
-18bd084 - Removed win32 wxWidgets template files.(Thanks stahta01)
+58812c7 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
+7a87311 * wx_multilibs_gcc471TDM: Edited WX variables.
+4a7f1d7 - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Thanks stahta01)
+fe87f9d * sdk: Removed Illegal chars from default filename for template. (Thanks stahta01)
+b4cabcb * sdk: Fixed value of "CMD_NULL" to be just "NUL". (Thanks stahta01)
+e8734f8 - Removed win32 wxWidgets template files.(Thanks stahta01)
 ef26e9b - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
 6a8fb40 - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
 e99e885 - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
