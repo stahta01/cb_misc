@@ -1,0 +1,25 @@
+$ git --no-pager log --oneline --author=Tim
+f8a1a94 wx_multilibs_gcc471TDM: Added make built wx mulitilibs. (Thanks stahta01)
+bd6a215 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
+251dbb9 * wx_multilibs_gcc471TDM: Edited WX variables.
+d7c4f56 * win_cbp: Added CB Project variable of WX_COMPILER with value of "gcc".
+56aac84 * sdk: Removed Illegal chars from default filename for template. (Thanks stahta01)
+cce455f * sdk: Fixed value of "CMD_NULL" to be just "NUL". (Thanks stahta01)
+18bd084 - Removed win32 wxWidgets template files.(Thanks stahta01)
+ef26e9b - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
+6a8fb40 - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
+e99e885 - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
+931e3a6 - PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
+be92002 - PCH_build_fix: Added object include search folder. (Thanks stahta01)
+bc41582 - PCH_build_fix: Enabled PCH files. (Thanks stahta01)
+40761e7 - PCH_build_fix: Added define of "NOPCH". (Thanks stahta01)
+f55ae0b - Addr2LineUI: Removed define of WX_PRECOMP. (Thanks stahta01)
+cdefaa7 - PCH_code_fixes: Removed includes of wx/wxprec.h and sdk.h from header file. (Thanks stahta01)
+eee4660 - win_cbp: Moved wxmsw$(WX_VERSION)$(WX_SUFFIX) from project level to target level. (Thanks stahta01)
+ecffdea * SpellChecker: Removed "*" from after "\" from second xcopy param. (Thanks stahta01)
+88404fc * help_plugin: Fixed to use just bzip2 and z in the library link list.(Thanks stahta01)
+d69bb4f * wxContribItems: Change the project define "WXMAKINGDLL" into target defines of "WXUSINGDLL". (Thanks stahta01)
+0343194 - SpellChecker: Save-As CB WinOS projects using CB 13.12.
+95e04bc - help_plugin: Save-As using CB 13.12.
+a80172d - cbp_saveas: reformatted some CB Windows project files. (Thanks stahta01)
+5478468 - cbp_saveas: reformatted some CB Windows wx2.8 project files. (Thanks stahta01)
