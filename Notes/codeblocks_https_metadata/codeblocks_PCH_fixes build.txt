@@ -27,8 +27,24 @@ git --no-pager log --oneline --author=Tim
 
 
 cd ../codeblocks_PCH_fixes-git
+git checkout PCH/toolsplus && git status -uno
+# PCH_code_fixes:
+##  git rebase master && git status -uno
+git push pch_fixes 
+##  git push pch_fixes --force-with-lease
+
+git --no-pager log --oneline --author=Tim
+795b3ea * PCH_code_fixes: Removed improper include of "sdk.h". (Thanks stahta01)
+6db7199 * PCH_code_fixes: Removed improper include of "wx_pch.h". (Thanks stahta01)
+eaaf398 * PCH_code_fixes: Removed improper include of "wxprec.h". (Thanks stahta01)
+129881a - PCH_code_fixes: Added include of "sdk.h" to cpp files. (Thanks stahta01)
+07cc903 * remove_do_not_edit_this_file: Removed from CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
+
+
+cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
+##  git rebase PCH/toolsplus
 ##  git rebase PCH/code_fixes
 ##  git rebase master && git status -uno
 git rebase portability/fixes && git status -uno
@@ -64,4 +80,12 @@ WX_PRECOMP
 CB_PRECOMP
 
 ######################################################
+
+git branch --list
+
+git checkout PCH/cbp_fixes
+git --no-pager log --oneline --author=Tim
+
+git checkout PCH/code_fixes
+git checkout PCH/toolsplus
 
