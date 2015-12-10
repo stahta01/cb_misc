@@ -30,9 +30,14 @@
 | pch_fixes branches are in  | https://github.com/stahta01/codeblocks_PCH_fixes |
 
 
+
 Maybe move wx_compiler to pch_fixes repo.
 
 Add Branch
+    pch_fixes/PCH/toolsplus
+    
+Delete Branch
+    remove/do_not_edit
 
 git fetch --prune
 git branch --all
