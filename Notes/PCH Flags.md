@@ -45,7 +45,7 @@
 |RegExTestbed_wx30.cbp                  |CB_PRECOMP|
 |ReopenEditor.cbp                       |CB_PRECOMP|
 |ReopenEditor_wx30.cbp                  |CB_PRECOMP|
-|SmartIndent.cbp                        |?NOPCH|
+|SmartIndent.cbp                        |CB_PRECOMP|
 |SmartIndent_wx30.cbp                   |?NOPCH|
 |SpellChecker.cbp                       |NOPCH?|
 |SpellChecker_wx30.cbp                  |NOPCH?|
