@@ -10,11 +10,12 @@ git fetch pch_fixes && git fetch origin && git status -uno
 git checkout master && git pull origin master && git status -uno
 git svn fetch && git svn info
 ##  git push 
-git checkout PCH/code_fixes && git rebase master && git.exe push pch_fixes --force-with-lease
+# git checkout PCH/code_fixes && git rebase master && git.exe push pch_fixes --force-with-lease
 git checkout win_cbp_saveas && git rebase master && git.exe push pch_fixes --force-with-lease
 git checkout wxContribItems && git rebase master && git.exe push pch_fixes --force-with-lease
 
-# 
+####
+
 cd ../codeblocks_PCH_fixes-git
 git checkout portability/fixes && git fetch pch_fixes && git status -uno
 ##  git rebase wxContribItems && git status -uno
@@ -25,6 +26,117 @@ git push pch_fixes
 
 git --no-pager log --oneline --author=Tim
 
+####
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/cbp_fixes && git status -uno
+# PCH_build_fix:
+##  git rebase PCH/toolsplus
+##  git rebase PCH/DoxyBlocks
+##  git rebase PCH/FileManager
+##  git rebase master && git status -uno
+git rebase portability/fixes && git status -uno
+git push pch_fixes 
+##  git push pch_fixes --force-with-lease
+
+../../../sdk/wxscintilla/include
+
+fixup! - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+
+fixup! - PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+
+And, added option "-Winvalid-pch".
+Also, added object include search folder.
+
+../../../.objs/include
+
+fixup! - PCH_build_fix: Added object include search folder. (Thanks stahta01)
+fixup! - PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
+fixup! - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
+    Also, added object include search folder.
+
+fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
+    And, removed defines of NOPCH and WX_PRECOMP.
+
+git log -15
+
+git rebase -i 8aff9368cb8c789a4e8ed04f555781c06e0b758f
+
+git log 8aff9368cb8c789a4e8ed04f555781c06e0b758f
+
+git --no-pager log --oneline --author=Tim 8aff9368cb8c789a4e8ed04f555781c06e0b758f..HEAD
+
+git format-patch 8aff9368cb8c789a4e8ed04f555781c06e0b758f
+
+../../../.objs/include
+
+../../.objs/include
+
+../../../.objs30/include
+
+############################
+#
+#
+#
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/SmartIndent && git status -uno
+git rebase win_cbp_saveas && git status -uno
+# PCH_code_fixes:
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/wxSmithAui && git status -uno
+git rebase win_cbp_saveas && git status -uno
+# PCH_code_fixes:
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/keybinder && git status -uno
+git rebase win_cbp_saveas && git status -uno
+# PCH_code_fixes:
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/lib_finder && git status -uno
+git rebase win_cbp_saveas && git status -uno
+# PCH_code_fixes:
+git push pch_fixes 
+##  git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+
+- PCH_code_fixes: Rearranged includes so "sdk.h" is first. (Thanks stahta01)
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/DoxyBlocks && git status -uno
+git rebase win_cbp_saveas && git status -uno
+# PCH_code_fixes:
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/FileManager && git status -uno
+git rebase win_cbp_saveas && git status -uno
+# PCH_code_fixes:
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/NassiShneiderman && git status -uno
+git rebase win_cbp_saveas && git status -uno
+# PCH_code_fixes:
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+
+#####
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/toolsplus && git status -uno
@@ -39,39 +151,3 @@ ef9c383 * PCH_code_fixes: Removed improper include of "sdk.h". (Thanks stahta01)
 69378dd * PCH_code_fixes: Removed improper include of "wxprec.h". (Thanks stahta01)
 beb6ab8 - PCH_code_fixes: Added include of "sdk.h" to cpp files. (Thanks stahta01)
 668e59e * remove_do_not_edit_this_file: Removed from CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
-
-
-cd ../codeblocks_PCH_fixes-git
-git checkout PCH/cbp_fixes && git status -uno
-# PCH_build_fix:
-##  git rebase PCH/toolsplus
-##  git rebase PCH/code_fixes
-##  git rebase master && git status -uno
-git rebase portability/fixes && git status -uno
-git push pch_fixes 
-##  git push pch_fixes --force-with-lease
-
-fixup! - PCH_build_fix: Added object include search folder. (Thanks stahta01)
-fixup! - PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
-fixup! - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
-    Also, added object include search folder.
-
-fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
-    And, removed defines of NOPCH and WX_PRECOMP.
-
-
-git log -10
-
-git rebase -i 309ae89e6501153c2cfd5676a46217b74c3d62fb
-
-git log 309ae89e6501153c2cfd5676a46217b74c3d62fb
-
-git --no-pager log --oneline --author=Tim 309ae89e6501153c2cfd5676a46217b74c3d62fb
-
-git format-patch 309ae89e6501153c2cfd5676a46217b74c3d62fb
-
-../../../.objs/include
-
-../../.objs/include
-
-../../../.objs30/include
