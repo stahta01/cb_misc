@@ -31,13 +31,19 @@ git --no-pager log --oneline --author=Tim
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
-##  git rebase PCH/toolsplus
-##  git rebase PCH/DoxyBlocks
-##  git rebase PCH/FileManager
-##  git rebase master && git status -uno
+###
+# Only rebase this section after one is added to top.
+git rebase PCH/lib_finder
+git rebase PCH/keybinder
+git rebase PCH/wxSmithAui
+git rebase PCH/SmartIndent
+git rebase PCH/DoxyBlocks
+git rebase PCH/toolsplus
+git rebase PCH/FileManager
+###
 git rebase portability/fixes && git status -uno
 git push pch_fixes 
-##  git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 ../../../sdk/wxscintilla/include
 
@@ -61,13 +67,13 @@ fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
 
 git log -15
 
-git rebase -i 8aff9368cb8c789a4e8ed04f555781c06e0b758f
+git log 53b9aadae7ae3bd73a2db5b1e88b19f1be9a1cc5
 
-git log 8aff9368cb8c789a4e8ed04f555781c06e0b758f
+git rebase -i 53b9aadae7ae3bd73a2db5b1e88b19f1be9a1cc5
 
-git --no-pager log --oneline --author=Tim 8aff9368cb8c789a4e8ed04f555781c06e0b758f..HEAD
+git format-patch 53b9aadae7ae3bd73a2db5b1e88b19f1be9a1cc5
 
-git format-patch 8aff9368cb8c789a4e8ed04f555781c06e0b758f
+git --no-pager log --oneline --author=Tim 53b9aadae7ae3bd73a2db5b1e88b19f1be9a1cc5..HEAD
 
 ../../../.objs/include
 
@@ -79,6 +85,12 @@ git format-patch 8aff9368cb8c789a4e8ed04f555781c06e0b758f
 #
 #
 #
+
+KeyBinder is broken for NOPCH builds
+
+- PCH_code_fixes: Removed includes so "sdk.h". (Thanks stahta01)
+
+- PCH_code_fixes: Rearranged includes so "sdk.h" is first. (Thanks stahta01)
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/SmartIndent && git status -uno
@@ -95,6 +107,13 @@ git rebase win_cbp_saveas && git status -uno
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
+- PCH_code_fixes: Removed unneeded #pragma. (Thanks stahta01)
+
+- PCH_code_fixes: Removed include of "wx/wxprec.h". (Thanks stahta01)
+
+Also, removed include of "wx/wx.h" and #pragma hdrstop.
+
+- PCH_code_fixes: Added needed wx headers. (Thanks stahta01)
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/keybinder && git status -uno
@@ -112,7 +131,6 @@ git push pch_fixes
 ##  git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
-- PCH_code_fixes: Rearranged includes so "sdk.h" is first. (Thanks stahta01)
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/DoxyBlocks && git status -uno
@@ -140,10 +158,10 @@ git push pch_fixes -u
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/toolsplus && git status -uno
+git rebase win_cbp_saveas && git status -uno
 # PCH_code_fixes:
-##  git rebase master && git status -uno
 git push pch_fixes 
-##  git push pch_fixes --force-with-lease
+##  git rebase master && git push pch_fixes --force-with-lease
 
 git --no-pager log --oneline --author=Tim
 ef9c383 * PCH_code_fixes: Removed improper include of "sdk.h". (Thanks stahta01)

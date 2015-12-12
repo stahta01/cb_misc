@@ -1,20 +1,5 @@
 
 ExpandTicks
-###################
-#
-cd ../codeblocks_https_metadata-git 
-git fetch origin && git fetch pch_fixes && git status -uno
-git checkout build_cbp/wx_compiler && git status -uno
-##  git pull --rebase && git status -uno
-##  git rebase master && git status -uno
-git rebase pch_fixes/win_cbp_saveas && git status -uno
-git push origin 
-## git push origin --force-with-lease
-
-fixup! - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Thanks stahta01)
-
-#
-###################
 
 
 # git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
@@ -24,15 +9,26 @@ git fetch origin && git fetch pch_fixes && git status -uno
 git svn fetch && git svn info
 #  git checkout build_cbp/wx_multilib && git status -uno
 #  git branch --list
-##  git rebase origin/build_cbp/wx_compiler
 ##  git rebase origin/bugfix/sdk
 ##  git rebase origin/deceased/removals
 ##  git rebase origin/master && git status -uno
 git rebase pch_fixes/PCH/cbp_fixes && git status -uno
 git push origin
-## git push origin --force-with-lease
+## git rebase origin/master && git push origin --force-with-lease
 
-git --no-pager log --oneline --author=Tim
+git log -5
+
+git log 20b747b137b1da28cd71121a86ff0dd1431c0009
+
+git rebase -i 20b747b137b1da28cd71121a86ff0dd1431c0009
+
+git format-patch 20b747b137b1da28cd71121a86ff0dd1431c0009
+
+git --no-pager log --oneline --author=Tim 20b747b137b1da28cd71121a86ff0dd1431c0009..HEAD
+eca40c8 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
+514b851 * wx_multilibs_gcc471TDM: Edited WX variables.
+2d8e56e - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Thanks stahta01)
+
 
 
 git apply --reject msys2_wx_multilibs-Added-make-built-wx-multilib.patch
