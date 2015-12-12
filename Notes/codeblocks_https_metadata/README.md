@@ -46,6 +46,7 @@ Add Branch
     pch_fixes/PCH/keybinder
     pch_fixes/PCH/lib_finder
 Delete Branch
+    Maybe delete or reset to master pch_fixes/PCH/code_fixes
 
 ######################################################
 
