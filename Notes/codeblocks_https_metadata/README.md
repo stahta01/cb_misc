@@ -29,7 +29,7 @@
 | pch_fixes/PCH/code_fixes   |Based on master; with Precompiled Header (PCH) related code fixes. |
 | pch_fixes branches are in  | https://github.com/stahta01/codeblocks_PCH_fixes |
 
-| pch_fixes/PCH/toolsplus
+| pch_fixes/PCH/toolsplus    |Based on win_cbp_saveas; with Precompiled Header (PCH) related code fixes. |
 
 
 Maybe create repo tims_unofficial_codeblocks_builds for my unofficial CB Builds.
@@ -38,6 +38,8 @@ Move Branch
     Maybe move win_cbp_saveas back to origin repo.
 
 Add Branch
+    git checkout -b pch_fixes/PCH/BrowseTracker
+
     pch_fixes/PCH/DoxyBlocks
     pch_fixes/PCH/FileManager
     pch_fixes/PCH/NassiShneiderman
@@ -47,6 +49,7 @@ Add Branch
     pch_fixes/PCH/lib_finder
 Delete Branch
     Maybe delete or reset to master pch_fixes/PCH/code_fixes
+    Maybe delete build_cbp/wx_compiler
 
 ######################################################
 
