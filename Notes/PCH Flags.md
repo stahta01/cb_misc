@@ -16,9 +16,9 @@
 |CppCheck_wx30.cbp                      |CB_PRECOMP|
 |Cscope.cbp                             |CB_PRECOMP|
 |Cscope_wx30.cbp                        |CB_PRECOMP|
-|DevPakPlugin.cbp                       |?NOPCH|
+|DevPakPlugin.cbp                       |CB_PRECOMP|
 |DevPakPlugin_wx30.cbp                  |?NOPCH|
-|DoxyBlocks.cbp                         |?NOPCH|
+|DoxyBlocks.cbp                         |CB_PRECOMP|
 |DoxyBlocks_wx30.cbp                    |?NOPCH|
 |DragScroll.cbp                         |NOPCH|
 |DragScroll_wx30.cbp                    |NOPCH|
@@ -28,7 +28,7 @@
 |EditorTweaks_wx30.cbp                  |CB_PRECOMP|
 |Exporter.cbp                           |NOPCH|
 |Exporter_wx30.cbp                      |NOPCH|
-|FileManager.cbp                        |?NOPCH|
+|FileManager.cbp                        |CB_PRECOMP|
 |FileManager_wx30.cbp                   |?NOPCH|
 |HexEditor.cbp                          |CB_PRECOMP|
 |HexEditor_wx30.cbp                     |CB_PRECOMP|
@@ -88,7 +88,7 @@
 |tidycmt.cbp                            |CB_PRECOMP|
 |wxContribItems.cbp                     |?|NOPCH|
 |wxContribItems_wx30.cbp                |?|NOPCH|
-|wxSmith.cbp                            |?NOPCH|
+|wxSmith.cbp                            |CB_PRECOMP|
 |wxSmith_wx30.cbp                       |?NOPCH|
 |wxSmithAui.cbp                         |?NOPCH|
 |wxSmithAui_wx30.cbp                    |?NOPCH|
