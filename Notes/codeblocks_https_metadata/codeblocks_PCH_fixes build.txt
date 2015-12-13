@@ -93,6 +93,13 @@ KeyBinder is broken for NOPCH builds
 - PCH_code_fixes: Rearranged includes so "sdk.h" is first. (Thanks stahta01)
 
 cd ../codeblocks_PCH_fixes-git
+git checkout PCH/BrowseTracker && git status -uno
+git rebase win_cbp_saveas && git status -uno
+# PCH_code_fixes:
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+
+cd ../codeblocks_PCH_fixes-git
 git checkout PCH/SmartIndent && git status -uno
 git rebase win_cbp_saveas && git status -uno
 # PCH_code_fixes:
