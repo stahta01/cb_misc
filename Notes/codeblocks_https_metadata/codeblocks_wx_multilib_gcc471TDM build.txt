@@ -9,9 +9,12 @@ git fetch origin && git fetch pch_fixes && git status -uno
 git svn fetch && git svn info
 #  git checkout build_cbp/wx_multilib && git status -uno
 #  git branch --list
-##  git rebase origin/bugfix/sdk
-##  git rebase origin/deceased/removals
-##  git rebase origin/master && git status -uno
+###
+# Only rebase this section after one is added to top.
+    git rebase origin/bugfix/plugins
+    git rebase origin/bugfix/sdk
+    git rebase origin/deceased/removals
+###
 git rebase pch_fixes/PCH/cbp_fixes && git status -uno
 git push origin
 ## git rebase origin/master && git push origin --force-with-lease

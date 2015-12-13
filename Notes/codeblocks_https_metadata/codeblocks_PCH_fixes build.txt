@@ -18,11 +18,11 @@ git checkout wxContribItems && git rebase master && git.exe push pch_fixes --for
 
 cd ../codeblocks_PCH_fixes-git
 git checkout portability/fixes && git fetch pch_fixes && git status -uno
+##  git rebase origin/bugfix/project_n_workspace
 ##  git rebase wxContribItems && git status -uno
-##  git rebase master && git status -uno
 git rebase win_cbp_saveas && git status -uno
 git push pch_fixes 
-## git push pch_fixes --force-with-lease
+## git rebase origin/master && git push pch_fixes --force-with-lease
 
 git --no-pager log --oneline --author=Tim
 

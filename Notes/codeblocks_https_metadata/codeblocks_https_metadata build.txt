@@ -23,7 +23,7 @@ cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout bugfix/project_n_workspace && git status -uno
 git rebase master && git status -uno
 git push origin 
-## git push origin --force-with-lease
+## git rebase master && git push origin --force-with-lease
 
 git --no-pager log --oneline --author=Tim
 
