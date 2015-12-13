@@ -38,8 +38,7 @@ Move Branch
     Maybe move win_cbp_saveas back to origin repo.
 
 Add Branch
-    git checkout -b pch_fixes/PCH/BrowseTracker
-
+    pch_fixes/PCH/BrowseTracker
     pch_fixes/PCH/DoxyBlocks
     pch_fixes/PCH/FileManager
     pch_fixes/PCH/NassiShneiderman
@@ -48,8 +47,8 @@ Add Branch
     pch_fixes/PCH/keybinder
     pch_fixes/PCH/lib_finder
 Delete Branch
-    Maybe delete or reset to master pch_fixes/PCH/code_fixes
-    Maybe delete build_cbp/wx_compiler
+    DELETED pch_fixes/PCH/code_fixes
+    DELETED build_cbp/wx_compiler
 
 ######################################################
 
