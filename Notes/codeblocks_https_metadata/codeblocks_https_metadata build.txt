@@ -5,9 +5,6 @@
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info
-##  git svn rebase && git svn info
-##  git pull --rebase && git status -uno
-##  git push
 # Pull and then check if needs pushed
 git checkout tims_readme && git pull --rebase && git rebase master && git status -uno
 git checkout deceased/removals && git pull --rebase && git rebase master && git status -uno
@@ -18,6 +15,7 @@ git checkout tims_readme && git rebase master && git push origin --force-with-le
 git checkout deceased/removals && git rebase master && git push origin --force-with-lease
 git checkout bugfix/sdk && git rebase master && git push origin --force-with-lease
 git checkout build_cbp/wx30x && git rebase master && git push origin --force-with-lease
+
 
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout bugfix/project_n_workspace && git status -uno

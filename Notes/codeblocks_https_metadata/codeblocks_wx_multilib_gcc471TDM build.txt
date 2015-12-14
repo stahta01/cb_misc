@@ -21,16 +21,16 @@ git push origin
 
 git log -7
 
-git log 20b747b137b1da28cd71121a86ff0dd1431c0009
+git log 835d7942716e62658332af3ac45e58eb267594f7
 
-git rebase -i 20b747b137b1da28cd71121a86ff0dd1431c0009
+git rebase -i 835d7942716e62658332af3ac45e58eb267594f7
 
-git format-patch 20b747b137b1da28cd71121a86ff0dd1431c0009
+git format-patch 835d7942716e62658332af3ac45e58eb267594f7
 
-git --no-pager log --oneline --author=Tim 20b747b137b1da28cd71121a86ff0dd1431c0009..HEAD
-eca40c8 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
-514b851 * wx_multilibs_gcc471TDM: Edited WX variables.
-2d8e56e - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Thanks stahta01)
+git --no-pager log --oneline --author=Tim 835d7942716e62658332af3ac45e58eb267594f7..HEAD
+c2a891c * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
+e93ba18 * wx_multilibs_gcc471TDM: Edited WX variables.
+ce38aad - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Thanks stahta01)
 
 
 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)

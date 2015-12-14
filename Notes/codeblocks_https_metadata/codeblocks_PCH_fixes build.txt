@@ -10,7 +10,6 @@ git fetch pch_fixes && git fetch origin && git status -uno
 git checkout master && git pull origin master && git status -uno
 git svn fetch && git svn info
 ##  git push 
-# git checkout PCH/code_fixes && git rebase master && git.exe push pch_fixes --force-with-lease
 git checkout win_cbp_saveas && git rebase master && git.exe push pch_fixes --force-with-lease
 git checkout wxContribItems && git rebase master && git.exe push pch_fixes --force-with-lease
 
@@ -18,8 +17,8 @@ git checkout wxContribItems && git rebase master && git.exe push pch_fixes --for
 
 cd ../codeblocks_PCH_fixes-git
 git checkout portability/fixes && git fetch pch_fixes && git status -uno
-##  git rebase origin/bugfix/project_n_workspace
-##  git rebase wxContribItems && git status -uno
+##  git fetch origin && git rebase origin/bugfix/project_n_workspace
+##  git rebase wxContribItems
 git rebase win_cbp_saveas && git status -uno
 git push pch_fixes 
 ## git rebase origin/master && git push pch_fixes --force-with-lease
