@@ -38,6 +38,8 @@ Move Branch
     Maybe move win_cbp_saveas back to origin repo.
 
 Add Branch
+    bugfix/plugins
+
     pch_fixes/PCH/BrowseTracker
     pch_fixes/PCH/DoxyBlocks
     pch_fixes/PCH/FileManager
