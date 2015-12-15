@@ -35,11 +35,11 @@ a17221f - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Th
 
 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
 fixup! * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_xrc
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_richtext
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_propgrid
-wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_html
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_aui
-wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_xrc
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_html
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_adv            wxPropertySheetDialog
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core
 wxbase$(WX_VERSION)$(WX_SUFFIX)_xml
