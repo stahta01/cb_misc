@@ -61,7 +61,7 @@ Also, added object include search folder.
 
 ../../../.objs/include
 
-PCH_build_fix: Removed define of "BUILDING_PLUGIN". (Thanks stahta01)
+fixup! - PCH_build_fix: Removed define of "BUILDING_PLUGIN". (Thanks stahta01)
 
 This define is NOT needed under Linux.
 
@@ -76,7 +76,7 @@ fixup! - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
 fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
     And, removed defines of NOPCH and WX_PRECOMP.
 
-git log -15
+git log -20
 
 git log 0236d6cbdf027db4cc698ba7247a03b73755c4ce
 
