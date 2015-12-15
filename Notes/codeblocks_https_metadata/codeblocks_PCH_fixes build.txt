@@ -36,6 +36,7 @@ git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
 ###
 # Only rebase this section after one is added to top.
+git rebase PCH/NassiShneiderman
 git rebase PCH/lib_finder
 git rebase PCH/keybinder
 git rebase PCH/wxSmithAui
@@ -70,18 +71,20 @@ fixup! - PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
 fixup! - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
     Also, added object include search folder.
 
+../../../.objs30/include
+
 fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
     And, removed defines of NOPCH and WX_PRECOMP.
 
 git log -15
 
-git log 53b9aadae7ae3bd73a2db5b1e88b19f1be9a1cc5
+git log 0236d6cbdf027db4cc698ba7247a03b73755c4ce
 
-git rebase -i 53b9aadae7ae3bd73a2db5b1e88b19f1be9a1cc5
+git rebase -i 0236d6cbdf027db4cc698ba7247a03b73755c4ce
 
-git format-patch 53b9aadae7ae3bd73a2db5b1e88b19f1be9a1cc5
+git format-patch 0236d6cbdf027db4cc698ba7247a03b73755c4ce
 
-git --no-pager log --oneline --author=Tim 53b9aadae7ae3bd73a2db5b1e88b19f1be9a1cc5..HEAD
+git --no-pager log --oneline --author=Tim 0236d6cbdf027db4cc698ba7247a03b73755c4ce..HEAD
 
 ../../../.objs/include
 
@@ -130,6 +133,8 @@ Also, removed include of "wx/wx.h" and #pragma hdrstop.
 
 - PCH_code_fixes: Added needed wx headers. (Thanks stahta01)
 
+* PCH_code_fixes: Added "sdk.h" and other headers. (Thanks stahta01)
+
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/keybinder && git status -uno
 git rebase win_cbp_saveas && git status -uno
@@ -161,6 +166,12 @@ git rebase win_cbp_saveas && git status -uno
 # PCH_code_fixes:
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+#
+Total (2 minute(s), 58 second(s))
+Link 13 second(s)
+
+- NassiShneiderman: Fixed PCH issues in code for "sdk.h". (Thanks stahta01) 
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/NassiShneiderman && git status -uno
