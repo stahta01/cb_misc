@@ -15,6 +15,8 @@ git checkout wxContribItems && git rebase master && git.exe push pch_fixes --for
 
 ####
 
+##  git checkout -b portability/fixes pch_fixes/portability/fixes
+
 cd ../codeblocks_PCH_fixes-git
 git checkout portability/fixes && git fetch pch_fixes && git status -uno
 ##  git fetch origin && git rebase origin/bugfix/project_n_workspace
@@ -26,6 +28,8 @@ git push pch_fixes
 git --no-pager log --oneline --author=Tim
 
 ####
+
+##  git checkout -b PCH/cbp_fixes pch_fixes/PCH/cbp_fixes
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
@@ -55,6 +59,11 @@ And, added option "-Winvalid-pch".
 Also, added object include search folder.
 
 ../../../.objs/include
+
+PCH_build_fix: Removed define of "BUILDING_PLUGIN". (Thanks stahta01)
+
+This define is NOT needed under Linux.
+
 
 fixup! - PCH_build_fix: Added object include search folder. (Thanks stahta01)
 fixup! - PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
