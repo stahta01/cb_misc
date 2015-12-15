@@ -35,7 +35,8 @@ cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
 ###
-# Only rebase this section after one is added to top.
+# Rebase this complete section after one is added or branch is changed.
+# Only add to the top.
 git rebase PCH/NassiShneiderman
 git rebase PCH/lib_finder
 git rebase PCH/keybinder
@@ -97,11 +98,10 @@ git --no-pager log --oneline --author=Tim 0236d6cbdf027db4cc698ba7247a03b73755c4
 #
 #
 
+- NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
+
 KeyBinder is broken for NOPCH builds
 
-- PCH_code_fixes: Removed includes so "sdk.h". (Thanks stahta01)
-
-- PCH_code_fixes: Rearranged includes so "sdk.h" is first. (Thanks stahta01)
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/BrowseTracker && git status -uno
@@ -125,15 +125,9 @@ git rebase win_cbp_saveas && git status -uno
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
-- PCH_code_fixes: Removed unneeded #pragma. (Thanks stahta01)
 
-- PCH_code_fixes: Removed include of "wx/wxprec.h". (Thanks stahta01)
 
-Also, removed include of "wx/wx.h" and #pragma hdrstop.
-
-- PCH_code_fixes: Added needed wx headers. (Thanks stahta01)
-
-* PCH_code_fixes: Added "sdk.h" and other headers. (Thanks stahta01)
+- keybinder: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/keybinder && git status -uno
@@ -171,7 +165,6 @@ git push pch_fixes -u
 Total (2 minute(s), 58 second(s))
 Link 13 second(s)
 
-- NassiShneiderman: Fixed PCH issues in code for "sdk.h". (Thanks stahta01) 
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/NassiShneiderman && git status -uno
@@ -182,16 +175,11 @@ git push pch_fixes -u
 
 #####
 
+- toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
+
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/toolsplus && git status -uno
 git rebase win_cbp_saveas && git status -uno
 # PCH_code_fixes:
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
-
-git --no-pager log --oneline --author=Tim
-ef9c383 * PCH_code_fixes: Removed improper include of "sdk.h". (Thanks stahta01)
-7de1995 * PCH_code_fixes: Removed improper include of "wx_pch.h". (Thanks stahta01)
-69378dd * PCH_code_fixes: Removed improper include of "wxprec.h". (Thanks stahta01)
-beb6ab8 - PCH_code_fixes: Added include of "sdk.h" to cpp files. (Thanks stahta01)
-668e59e * remove_do_not_edit_this_file: Removed from CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
