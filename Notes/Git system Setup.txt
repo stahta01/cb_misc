@@ -1,3 +1,7 @@
+git config --global core.editor C:/CI_Work_Apps/wscite/SciTE.exe
+
+# 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+
 git config --global user.email "stahta01@users.sourceforge.net"
 git config --global user.name  "Tim S"
 
