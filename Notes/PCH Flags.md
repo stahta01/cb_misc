@@ -2,7 +2,9 @@
 |:--------------------------------------|:--------:|
 |Addr2LineUI.cbp                        |none|
 |Addr2LineUI_wx30.cbp                   |none|
+|AutoVersioning-unix.cbp                |?none|
 |AutoVersioning.cbp                     |NOPCH|
+|AutoVersioning_wx30-unix.cbp           |?none|
 |AutoVersioning_wx30.cbp                |NOPCH|
 |BrowseTracker.cbp                      |CB_PRECOMP|
 |BrowseTracker_wx30.cbp                 |CB_PRECOMP|
@@ -37,7 +39,9 @@
 |ModPoller.cbp                          |CB_PRECOMP|
 |MouseSap.cbp                           |NOPCH?|
 |MouseSap_wx30.cbp                      |NOPCH?|
-|NassiShneiderman.cbp                   |?NOPCH|
+|NassiShneiderman-unix.cbp              |CB_PRECOMP|
+|NassiShneiderman.cbp                   |CB_PRECOMP|
+|NassiShneiderman_wx30-unix.cbp         |?CB_PRECOMP|
 |NassiShneiderman_wx30.cbp              |?NOPCH|
 |ProjectOptionsManipulator.cbp          |?NOPCH|
 |ProjectOptionsManipulator_wx30.cbp     |?NOPCH|
@@ -45,7 +49,9 @@
 |RegExTestbed_wx30.cbp                  |CB_PRECOMP|
 |ReopenEditor.cbp                       |CB_PRECOMP|
 |ReopenEditor_wx30.cbp                  |CB_PRECOMP|
+|SmartIndent-unix.cbp                   |?CB_PRECOMP|
 |SmartIndent.cbp                        |CB_PRECOMP|
+|SmartIndent_wx30-unix.cbp              |?CB_PRECOMP|
 |SmartIndent_wx30.cbp                   |?NOPCH|
 |SpellChecker.cbp                       |NOPCH?|
 |SpellChecker_wx30.cbp                  |NOPCH?|
@@ -61,7 +67,9 @@
 |cb_share_config_wx30.cbp               |NOPCH|
 |cbprofiler.cbp                         |CB_PRECOMP|
 |cbprofiler_wx30.cbp                    |CB_PRECOMP|
+|cctest-unix.cbp                        |?none?|
 |cctest.cbp                             |?none?|
+|cctest_wx30-unix.cbp                   |?none?|
 |cctest_wx30.cbp                        |?none?|
 |codesnippets.cbp                       |NOPCH|
 |codesnippets_wx30.cbp                  |NOPCH|
@@ -69,6 +77,8 @@
 |codestat_wx30.cbp                      |CB_PRECOMP|
 |copystrings.cbp                        |CB_PRECOMP|
 |copystrings_wx30.cbp                   |CB_PRECOMP|
+|debuggergdb_test-unix.cbp              |?none|
+|debuggergdb_test_wx30-unix.cbp         |?none|
 |envvars.cbp                            |CB_PRECOMP|
 |envvars_wx30.cbp                       |CB_PRECOMP|
 |headerfixup.cbp                        |CB_PRECOMP|
