@@ -5,6 +5,10 @@
 ##  git branch --list
 
 
+pch_cbp_win_wx28:
+pch_cbp_win_wx30:
+pch_cbp_unix:
+
 cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes && git fetch origin && git status -uno
 git checkout master && git pull origin master && git status -uno
@@ -102,26 +106,24 @@ git --no-pager log --oneline --author=Tim 0236d6cbdf027db4cc698ba7247a03b73755c4
 
 KeyBinder is broken for NOPCH builds
 
+git rebase -i 7905cb51c20946f51abe446f9bf06f66b8dd908c
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/BrowseTracker && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+#
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/SmartIndent && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+#
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/wxSmithAui && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+# 
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
@@ -131,16 +133,14 @@ git push pch_fixes -u
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/keybinder && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+# 
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/lib_finder && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+# 
 git push pch_fixes 
 ##  git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
@@ -148,28 +148,27 @@ git push pch_fixes
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/DoxyBlocks && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+# 
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/FileManager && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+# 
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
-#
-Total (2 minute(s), 58 second(s))
-Link 13 second(s)
+git apply 0001-cbp_saveas-reformatted-some-CB-Windows-wx2.8-project.patch
+git am 0002-NassiShneiderman-Fixed-PCH-issues-in-code-using-sdk..patch
 
+pch_cbp_win_wx28:
+pch_cbp_win_wx30:
+pch_cbp_unix:
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/NassiShneiderman && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+#
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
@@ -179,7 +178,6 @@ git push pch_fixes -u
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/toolsplus && git status -uno
-git rebase win_cbp_saveas && git status -uno
-# PCH_code_fixes:
+# 
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
