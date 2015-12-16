@@ -34,6 +34,15 @@ git --no-pager log --oneline --author=Tim
 ####
 
 ##  git checkout -b PCH/cbp_fixes pch_fixes/PCH/cbp_fixes
+##
+##  git checkout -b PCH/NassiShneiderman pch_fixes/PCH/NassiShneiderman
+##  git checkout -b PCH/lib_finder pch_fixes/PCH/lib_finder
+##  git checkout -b PCH/keybinder pch_fixes/PCH/keybinder
+##  git checkout -b PCH/wxSmithAui pch_fixes/PCH/wxSmithAui
+##  git checkout -b PCH/SmartIndent pch_fixes/PCH/SmartIndent
+##  git checkout -b PCH/DoxyBlocks pch_fixes/PCH/DoxyBlocks
+##  git checkout -b PCH/toolsplus pch_fixes/PCH/toolsplus
+##  git checkout -b PCH/FileManager pch_fixes/PCH/FileManager
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
@@ -50,7 +59,7 @@ git rebase PCH/DoxyBlocks
 git rebase PCH/toolsplus
 git rebase PCH/FileManager
 ###
-git rebase portability/fixes && git status -uno
+git rebase pch_fixes/portability/fixes && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
