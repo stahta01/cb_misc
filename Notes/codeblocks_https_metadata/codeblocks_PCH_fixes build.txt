@@ -191,7 +191,8 @@ git push pch_fixes -u
 - pch_cbp_unix: Changed from CB_PRECOMP to NOPCH. (Thanks stahta01)
 
 # Change to using PCH sdk.h on both Windows and Linux
-# Then, change to using NOPCH
+# Then, change to using NOPCH  on both Windows and Linux
+# Last, remove object folder  on both Windows and Linux
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/wxSmithAui && git status -uno
 # 
