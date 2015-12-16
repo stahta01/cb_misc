@@ -102,7 +102,6 @@ git --no-pager log --oneline --author=Tim 0236d6cbdf027db4cc698ba7247a03b73755c4
 
 ../../../.objs/include
 
-../../.objs/include
 
 ../../../.objs30/include
 
@@ -111,11 +110,39 @@ git --no-pager log --oneline --author=Tim 0236d6cbdf027db4cc698ba7247a03b73755c4
 #
 #
 
-- NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
+- NassiShneiderman: Fixed PCH code issues using "sdk.h". (Thanks stahta01)
 
 KeyBinder is broken for NOPCH builds
 
-git rebase -i 7905cb51c20946f51abe446f9bf06f66b8dd908c
+
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+
+../../../.objs/include
+../../../.objs30/include
+
+- pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
+
+And, added object include search folder.
+
+
+fixup! - pch_cbp_unix: Added define "cbDEBUG". (Thanks stahta01)
+- pch_cbp_unix: Added define "cbDEBUG". (Thanks stahta01)
+
+And, added object include search folder.
+Also, may have added option "-Winvalid-pch".
+
+fixup! - pch_cbp_unix: Moved defines to target level. 
+- pch_cbp_unix: Moved defines to target level.
+
+And, removed defines that caused PCH errors.
+
+
+fixup! - pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
+- pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
+
+And, added object include search folder.
+Also, may have removed define "WX_PRECOMP".
+
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/BrowseTracker && git status -uno
@@ -123,30 +150,31 @@ git checkout PCH/BrowseTracker && git status -uno
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
+###
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/SmartIndent && git status -uno
 #
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
-
+###
+# Change to using PCH sdk.h on both Windows and Linux
+# Then, change to using NOPCH
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/wxSmithAui && git status -uno
 # 
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
-
-
-- keybinder: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
-
+###
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/keybinder && git status -uno
 # 
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
-
+#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+###
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/lib_finder && git status -uno
 # 
@@ -155,13 +183,15 @@ git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 
+###
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/DoxyBlocks && git status -uno
 # 
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
-
+###
+- FileManager: Fixed PCH code issues using "sdk.h". (Thanks stahta01)
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/FileManager && git status -uno
 # 
