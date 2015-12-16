@@ -31,6 +31,9 @@ git push pch_fixes
 
 git --no-pager log --oneline --author=Tim
 
+# Projects with issues
+
+
 ####
 
 ##  git checkout -b PCH/cbp_fixes pch_fixes/PCH/cbp_fixes
@@ -43,6 +46,18 @@ git --no-pager log --oneline --author=Tim
 ##  git checkout -b PCH/DoxyBlocks pch_fixes/PCH/DoxyBlocks
 ##  git checkout -b PCH/toolsplus pch_fixes/PCH/toolsplus
 ##  git checkout -b PCH/FileManager pch_fixes/PCH/FileManager
+
+###
+git fetch pch_fixes
+git checkout PCH/NassiShneiderman && git pull
+git checkout PCH/lib_finder && git pull
+git checkout PCH/keybinder && git pull
+git checkout PCH/wxSmithAui && git pull
+git checkout PCH/SmartIndent && git pull
+git checkout PCH/DoxyBlocks && git pull
+git checkout PCH/toolsplus && git pull
+git checkout PCH/FileManager && git pull
+##
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
@@ -92,13 +107,24 @@ fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
 
 git log -20
 
-git log 0236d6cbdf027db4cc698ba7247a03b73755c4ce
+git log 40d378ab629395ba44eb7dd5409becaef01ee3fc
 
-git rebase -i 0236d6cbdf027db4cc698ba7247a03b73755c4ce
+git rebase -i 40d378ab629395ba44eb7dd5409becaef01ee3fc
 
-git format-patch 0236d6cbdf027db4cc698ba7247a03b73755c4ce
+git format-patch 40d378ab629395ba44eb7dd5409becaef01ee3fc
 
-git --no-pager log --oneline --author=Tim 0236d6cbdf027db4cc698ba7247a03b73755c4ce..HEAD
+git --no-pager log --oneline --author=Tim 40d378ab629395ba44eb7dd5409becaef01ee3fc..HEAD
+65021ac - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+MOVE 1aa0000 - PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+dddaf14 - PCH_build_fix: Removed define of "NOPCH" and "WX_PRECOMP". (Thanks stahta01)
+995f0af - PCH_build_fix: Added define of "NOPCH". (Thanks stahta01)
+afbe453 - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
+f4bedf1 - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
+MOVE 3c5c40f - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+e47f953 - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
+9d10208 - PCH_build_fix: Added object include search folder. (Thanks stahta01)
+7ec8956 - PCH_build_fix: Enabled PCH files. (Thanks stahta01)
+2bf2ae6 - Addr2LineUI: Removed define of WX_PRECOMP. (Thanks stahta01)
 
 ../../../.objs/include
 
@@ -158,6 +184,12 @@ git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 ###
+- pch_cbp_win_wx30: Changed from NOPCH to CB_PRECOMP. (Thanks stahta01)
+
+- pch_cbp_win_wx28: Changed from CB_PRECOMP to NOPCH. (Thanks stahta01)
+- pch_cbp_win_wx30: Changed from CB_PRECOMP to NOPCH. (Thanks stahta01) 
+- pch_cbp_unix: Changed from CB_PRECOMP to NOPCH. (Thanks stahta01)
+
 # Change to using PCH sdk.h on both Windows and Linux
 # Then, change to using NOPCH
 cd ../codeblocks_PCH_fixes-git
