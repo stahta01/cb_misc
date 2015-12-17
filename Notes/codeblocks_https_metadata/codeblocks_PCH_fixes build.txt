@@ -192,6 +192,8 @@ git rebase -i cfea06ea9b36c6f1ba164d3de39b18dc3af99604
 ../../../.objs/include
 pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
 
+pch_cbp_win_wx28: Removed define of NOPCH. (Thanks stahta01)
+
 - pch_cbp_win_wx30:
 
 ../../../.objs30/include
@@ -209,6 +211,7 @@ git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 ###
+* SmartIndent: Removed "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/SmartIndent && git status -uno
 #
