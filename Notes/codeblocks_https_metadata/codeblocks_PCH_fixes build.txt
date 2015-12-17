@@ -61,11 +61,13 @@ git checkout PCH/FileManager && git pull
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
+# git rebase pch_fixes/win_cbp_saveas
 # PCH_build_fix:
 ###
 # Rebase this complete section after one is added or 
 #   a branch is changed.
 # Only add new branches to rebase to the top of the list.
+git rebase pch_fixes/PCH/BrowseTracker
 git rebase pch_fixes/PCH/NassiShneiderman
 git rebase pch_fixes/PCH/lib_finder
 git rebase pch_fixes/PCH/keybinder
@@ -78,6 +80,7 @@ git rebase pch_fixes/PCH/FileManager
 git rebase pch_fixes/portability/fixes && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
+
 
 ../../../sdk/wxscintilla/include
 
@@ -114,7 +117,7 @@ git log 7c4a59b2269f302e553df297b101806e8cd59b41
 
 git rebase -i 7c4a59b2269f302e553df297b101806e8cd59b41
 
-git format-patch 7c4a59b2269f302e553df297b101806e8cd59b41
+git format-patch bf7eef6645a3f00634434db4d183c8d904c1114d
 
 git --no-pager log --oneline --author=Tim 7c4a59b2269f302e553df297b101806e8cd59b41..HEAD
 
@@ -179,6 +182,25 @@ fixup! - pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
 And, added object include search folder.
 Also, may have removed define "WX_PRECOMP".
 
+
+* BrowseTracker: Fixed PCH code issues using "sdk.h". (Thanks stahta01)
+
+Removed includes of "wx/wxprec.h" and "wx/wx.h" from header file.
+
+git rebase -i cfea06ea9b36c6f1ba164d3de39b18dc3af99604
+
+../../../.objs/include
+pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
+
+- pch_cbp_win_wx30:
+
+../../../.objs30/include
+- pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
+    Also, added object include search folder.
+
+pch_cbp_unix:
+
+- pch_cbp_win_wx30: Changed from NOPCH to CB_PRECOMP. (Thanks stahta01)
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/BrowseTracker && git status -uno
