@@ -81,6 +81,8 @@ git push pch_fixes
 
 ../../../sdk/wxscintilla/include
 
+fixup! * TEST ONLY: Do NOT apply upstream.
+
 fixup! - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 
 fixup! - PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
