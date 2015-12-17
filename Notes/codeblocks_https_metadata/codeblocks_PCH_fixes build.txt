@@ -110,22 +110,29 @@ git log -20
 
 git log 40d378ab629395ba44eb7dd5409becaef01ee3fc
 
-git rebase -i 40d378ab629395ba44eb7dd5409becaef01ee3fc
+git rebase -i 7c4a59b2269f302e553df297b101806e8cd59b41
 
 git format-patch 40d378ab629395ba44eb7dd5409becaef01ee3fc
 
-git --no-pager log --oneline --author=Tim 40d378ab629395ba44eb7dd5409becaef01ee3fc..HEAD
-65021ac - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+git --no-pager log --oneline --author=Tim 7c4a59b2269f302e553df297b101806e8cd59b41..HEAD
+
+8e1630c - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+664e833 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+7a62d74 - PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+39786a9 - PCH_build_fix: Removed define of "NOPCH" and "WX_PRECOMP". (Thanks stahta01)
+1d51fa9 - PCH_build_fix: Added define of "NOPCH". (Thanks stahta01)
+c5f2c84 - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
+157dafb - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
+56a894a - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+997e5a1 - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
+ddbce5d - PCH_build_fix: Added object include search folder. (Thanks stahta01)
+372e217 - PCH_build_fix: Enabled PCH files. (Thanks stahta01)
+dca065a - Addr2LineUI: Removed define of WX_PRECOMP. (Thanks stahta01)
+
+
 MOVE 1aa0000 - PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-dddaf14 - PCH_build_fix: Removed define of "NOPCH" and "WX_PRECOMP". (Thanks stahta01)
-995f0af - PCH_build_fix: Added define of "NOPCH". (Thanks stahta01)
-afbe453 - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
-f4bedf1 - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
+
 MOVE 3c5c40f - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-e47f953 - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
-9d10208 - PCH_build_fix: Added object include search folder. (Thanks stahta01)
-7ec8956 - PCH_build_fix: Enabled PCH files. (Thanks stahta01)
-2bf2ae6 - Addr2LineUI: Removed define of WX_PRECOMP. (Thanks stahta01)
 
 ../../../.objs/include
 
@@ -191,6 +198,9 @@ git push pch_fixes -u
 - pch_cbp_win_wx30: Changed from CB_PRECOMP to NOPCH. (Thanks stahta01) 
 - pch_cbp_unix: Changed from CB_PRECOMP to NOPCH. (Thanks stahta01)
 
+- wxSmithAui:
+- wxSmithAui: Removed object include search folder.
+
 # Change to using PCH sdk.h on both Windows and Linux
 # Then, change to using NOPCH  on both Windows and Linux
 # Last, remove object folder  on both Windows and Linux
@@ -199,6 +209,8 @@ git checkout PCH/wxSmithAui && git status -uno
 # 
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+git format-patch cfea06ea9b36c6f1ba164d3de39b18dc3af99604
 
 ###
 cd ../codeblocks_PCH_fixes-git
