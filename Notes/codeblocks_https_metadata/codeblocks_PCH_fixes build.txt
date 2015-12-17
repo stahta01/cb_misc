@@ -110,11 +110,11 @@ fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
 
 git log -20
 
-git log 40d378ab629395ba44eb7dd5409becaef01ee3fc
+git log 7c4a59b2269f302e553df297b101806e8cd59b41
 
 git rebase -i 7c4a59b2269f302e553df297b101806e8cd59b41
 
-git format-patch 40d378ab629395ba44eb7dd5409becaef01ee3fc
+git format-patch 7c4a59b2269f302e553df297b101806e8cd59b41
 
 git --no-pager log --oneline --author=Tim 7c4a59b2269f302e553df297b101806e8cd59b41..HEAD
 
