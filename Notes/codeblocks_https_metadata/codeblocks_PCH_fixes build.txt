@@ -63,16 +63,17 @@ cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
 ###
-# Rebase this complete section after one is added or branch is changed.
-# Only add to the top.
-git rebase PCH/NassiShneiderman
-git rebase PCH/lib_finder
-git rebase PCH/keybinder
-git rebase PCH/wxSmithAui
-git rebase PCH/SmartIndent
-git rebase PCH/DoxyBlocks
-git rebase PCH/toolsplus
-git rebase PCH/FileManager
+# Rebase this complete section after one is added or 
+#   a branch is changed.
+# Only add new branches to rebase to the top of the list.
+git rebase pch_fixes/PCH/NassiShneiderman
+git rebase pch_fixes/PCH/lib_finder
+git rebase pch_fixes/PCH/keybinder
+git rebase pch_fixes/PCH/wxSmithAui
+git rebase pch_fixes/PCH/SmartIndent
+git rebase pch_fixes/PCH/DoxyBlocks
+git rebase pch_fixes/PCH/toolsplus
+git rebase pch_fixes/PCH/FileManager
 ###
 git rebase pch_fixes/portability/fixes && git status -uno
 git push pch_fixes 
