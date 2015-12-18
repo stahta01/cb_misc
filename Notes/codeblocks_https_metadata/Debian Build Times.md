@@ -1,6 +1,6 @@
-|: CB Project Name             :|:Time:|:PCH Time:|
-|:------------------------------|-----:|---------:|
-|CodeBlocks-unix.cbp            |||
+| CB Project Name               |Time      |PCH Time  |
+|:------------------------------|---------:|---------:|
+|CodeBlocks-unix.cbp            |09:38||
 |CodeBlocks_wx30-unix.cbp       |||
 |BrowseTracker-unix.cbp         |||
 |BrowseTracker_wx30-unix.cbp    |||
@@ -72,7 +72,7 @@
 |Valgrind_wx30-unix.cbp
 |wxContribItems-unix.cbp
 |wxContribItems_wx30-unix.cbp
-|wxSmith-unix.cbp  |||
+|wxSmith-unix.cbp  |9:05||
 |wxSmith_wx30-unix.cbp  |||
 |wxSmithContribItems-unix.cbp  |||
 |wxSmithContribItems_wx30-unix.cbp  |||
