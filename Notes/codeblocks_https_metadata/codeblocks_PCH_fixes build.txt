@@ -36,16 +36,6 @@ git --no-pager log --oneline --author=Tim
 
 ####
 
-##  git checkout -b PCH/cbp_fixes pch_fixes/PCH/cbp_fixes
-##
-##  git checkout -b PCH/NassiShneiderman pch_fixes/PCH/NassiShneiderman
-##  git checkout -b PCH/lib_finder pch_fixes/PCH/lib_finder
-##  git checkout -b PCH/keybinder pch_fixes/PCH/keybinder
-##  git checkout -b PCH/wxSmithAui pch_fixes/PCH/wxSmithAui
-##  git checkout -b PCH/SmartIndent pch_fixes/PCH/SmartIndent
-##  git checkout -b PCH/DoxyBlocks pch_fixes/PCH/DoxyBlocks
-##  git checkout -b PCH/toolsplus pch_fixes/PCH/toolsplus
-##  git checkout -b PCH/FileManager pch_fixes/PCH/FileManager
 
 ###
 git fetch pch_fixes
@@ -66,21 +56,21 @@ git checkout PCH/cbp_fixes && git status -uno
 ###
 # Rebase this complete section after one is added or 
 #   a branch is changed.
-# Only add new branches to rebase to the top of the list.
+# Only add new branches to the top of the rebase list.
+git rebase pch_fixes/PCH/toolsplus
 git rebase pch_fixes/PCH/BrowseTracker
 git rebase pch_fixes/PCH/NassiShneiderman
 git rebase pch_fixes/PCH/lib_finder
 git rebase pch_fixes/PCH/keybinder
-git rebase pch_fixes/PCH/wxSmithAui
-git rebase pch_fixes/PCH/SmartIndent
 git rebase pch_fixes/PCH/DoxyBlocks
-git rebase pch_fixes/PCH/toolsplus
 git rebase pch_fixes/PCH/FileManager
+git rebase pch_fixes/PCH/SmartIndent
+git rebase pch_fixes/PCH/wxSmithAui
+git rebase pch_fixes/PCH/core
 ###
 git rebase pch_fixes/portability/fixes && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
-
 
 ../../../sdk/wxscintilla/include
 
@@ -149,61 +139,6 @@ MOVE 3c5c40f - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Than
 #
 #
 
-- NassiShneiderman: Fixed PCH code issues using "sdk.h". (Thanks stahta01)
-
-KeyBinder is broken for NOPCH builds
-
-
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-
-../../../.objs/include
-../../../.objs30/include
-
-- pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
-
-And, added object include search folder.
-
-
-fixup! - pch_cbp_unix: Added define "cbDEBUG". (Thanks stahta01)
-- pch_cbp_unix: Added define "cbDEBUG". (Thanks stahta01)
-
-And, added object include search folder.
-Also, may have added option "-Winvalid-pch".
-
-fixup! - pch_cbp_unix: Moved defines to target level. 
-- pch_cbp_unix: Moved defines to target level.
-
-And, removed defines that caused PCH errors.
-
-
-fixup! - pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
-- pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
-
-And, added object include search folder.
-Also, may have removed define "WX_PRECOMP".
-
-
-* BrowseTracker: Fixed PCH code issues using "sdk.h". (Thanks stahta01)
-
-Removed includes of "wx/wxprec.h" and "wx/wx.h" from header file.
-
-git rebase -i cfea06ea9b36c6f1ba164d3de39b18dc3af99604
-
-../../../.objs/include
-pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-
-pch_cbp_win_wx28: Removed define of NOPCH. (Thanks stahta01)
-
-- pch_cbp_win_wx30:
-
-../../../.objs30/include
-- pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
-    Also, added object include search folder.
-
-pch_cbp_unix:
-
-- pch_cbp_win_wx30: Changed from NOPCH to CB_PRECOMP. (Thanks stahta01)
-
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/BrowseTracker && git status -uno
 #
@@ -217,6 +152,8 @@ git checkout PCH/SmartIndent && git status -uno
 #
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+git rebase -i cfea06ea9b36c6f1ba164d3de39b18dc3af99604
 
 ###
 - pch_cbp_win_wx30: Changed from NOPCH to CB_PRECOMP. (Thanks stahta01)
