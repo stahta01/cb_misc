@@ -5,31 +5,14 @@
 ##  git branch --list
 
 
-pch_cbp_win_wx28:
-pch_cbp_win_wx30:
-pch_cbp_unix:
 
 cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes && git fetch origin && git status -uno
-git checkout master && git pull origin master && git status -uno
+git checkout master && git pull origin master && git push && git status -uno
 git svn fetch && git svn info
-##  git push 
-git checkout win_cbp_saveas && git rebase master && git.exe push pch_fixes --force-with-lease
-git checkout wxContribItems && git rebase master && git.exe push pch_fixes --force-with-lease
-
+#
 ####
 
-##  git checkout -b portability/fixes pch_fixes/portability/fixes
-
-cd ../codeblocks_PCH_fixes-git
-git checkout portability/fixes && git fetch pch_fixes && git status -uno
-##  git fetch origin && git rebase origin/bugfix/project_n_workspace
-##  git rebase wxContribItems
-git rebase win_cbp_saveas && git status -uno
-git push pch_fixes 
-## git rebase origin/master && git push pch_fixes --force-with-lease
-
-git --no-pager log --oneline --author=Tim
 
 # Projects with issues
 
@@ -51,13 +34,16 @@ git checkout PCH/FileManager && git pull
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
-# git rebase pch_fixes/win_cbp_saveas
 # PCH_build_fix:
+# pch_cbp_win_wx28:
+# pch_cbp_win_wx30:
+# pch_cbp_unix:
 ###
 # Rebase this complete section after one is added or 
 #   a branch is changed.
 # Only add new branches to the top of the rebase list.
 git rebase pch_fixes/PCH/toolsplus
+# PCH/headerfixup
 git rebase pch_fixes/PCH/BrowseTracker
 git rebase pch_fixes/PCH/NassiShneiderman
 git rebase pch_fixes/PCH/lib_finder
@@ -66,9 +52,11 @@ git rebase pch_fixes/PCH/DoxyBlocks
 git rebase pch_fixes/PCH/FileManager
 git rebase pch_fixes/PCH/SmartIndent
 git rebase pch_fixes/PCH/wxSmithAui
+# PCH/wxSmith
+# PCH/contrib
 git rebase pch_fixes/PCH/core
 ###
-git rebase pch_fixes/portability/fixes && git status -uno
+git rebase origin/portability/fixes && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 

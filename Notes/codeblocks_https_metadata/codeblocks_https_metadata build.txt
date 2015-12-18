@@ -40,6 +40,23 @@ git push origin
 ##  git rebase master && git push origin --force-with-lease
 
 
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout wxContribItems
+git rebase master
+git push -u origin 
+# --force-with-lease
+
+
+cd ../codeblocks_https_metadata-git 
+git checkout portability/fixes && git fetch origin && git status -uno
+##  git rebase origin/bugfix/project_n_workspace
+##  git rebase wxContribItems
+git push -u origin
+## git rebase origin/master && git push origin --force-with-lease
+
+git --no-pager log --oneline --author=Tim
+
+
 ###############################################
 #
 git remote -v

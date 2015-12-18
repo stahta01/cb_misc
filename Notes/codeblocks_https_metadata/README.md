@@ -25,17 +25,17 @@
 | pch_fixes/win_cbp_saveas   |Based on master; but with a projects save as done for most Windows Projects. |
 | pch_fixes/PCH/cbp_fixes    |Based on master; with Precompiled Header (PCH) related project fixes. |
 | pch_fixes/wxContribItems   |Based on master; fixes to wxContribItems WinOS Projects. |
-| pch_fixes/portability/fixes|Based on master; with changes that makes code or project more portable. |
 | pch_fixes/PCH/code_fixes   |Based on master; with Precompiled Header (PCH) related code fixes. |
 | pch_fixes branches are in  | https://github.com/stahta01/codeblocks_PCH_fixes |
 
+| portability/fixes          |Based on master; with changes that makes code or project more portable. |
 | pch_fixes/PCH/toolsplus    |Based on master; with Precompiled Header (PCH) related fixes. |
 
 
 Maybe create repo tims_unofficial_codeblocks_builds for my unofficial CB Builds.
 
 Move Branch
-    Maybe move branch pch_fixes/portability/fixes back to origin.
+    Maybe move branch pch_fixes/wxContribItems back to origin.
 
 Add Branch
     bugfix/plugins
@@ -52,6 +52,7 @@ Delete Branch
     DELETED pch_fixes/PCH/code_fixes
     DELETED build_cbp/wx_compiler
     Work to no longer use branch win_cbp_saveas
+    pch_fixes/win_cbp_saveas
 
 ######################################################
 
