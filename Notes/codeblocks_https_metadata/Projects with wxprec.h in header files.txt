@@ -1,0 +1,84 @@
+Projects with wxprec.h in header files.txt
+
+  pch_fixes/PCH/BrowseTracker   Should be fixed; needs tested in Linux
+  pch_fixes/PCH/FileManager
+  pch_fixes/PCH/SmartIndent
+  pch_fixes/PCH/wxSmithAui
+
+  pch_fixes/PCH/headerfixup
+  pch_fixes/PCH/wxSmith
+
+  pch_fixes/PCH/core
+    debuggergdb
+    defaultmimehandler
+    occurrenceshighlighting
+    src
+
+  pch_fixes/PCH/contrib
+    abbreviations
+    astyle
+    Cscope
+    EditorConfig
+    SpellChecker
+    cb_koders
+    devpak_plugin
+    regex_testbed
+    source_exporter
+    wxContribItems\wxSpeedButton
+    wxSmithContribItems
+    cb_share_config
+
+
+After pch_fixes changes have been done
+    wxContribItems\wxchart
+
+abbreviations\abbreviations.h|10|#include <wx/wxprec.h>|
+astyle\astyleplugin.h|10|#include <wx/wxprec.h>|
+codecompletion\parser\ccdebuginfo.h|9|#include <wx/wxprec.h>|
+codecompletion\selectincludefile.h|9|#include <wx/wxprec.h>|
+BrowseTracker\JumpTracker.h|14|#include <wx/wxprec.h>|
+Cscope\CscopePlugin.h|14|#include <wx/wxprec.h>|
+EditorConfig\EditorConfig.h|5|#include <wx/wxprec.h>|
+FileManager\FileManager.h|14|#include <wx/wxprec.h>|
+SmartIndent\SmartIndentCpp.h|5|#include <wx/wxprec.h>|
+SmartIndent\SmartIndentFortran.h|5|#include <wx/wxprec.h>|
+SmartIndent\SmartIndentHDL.h|5|#include <wx/wxprec.h>|
+SmartIndent\SmartIndentLua.h|5|#include <wx/wxprec.h>|
+SmartIndent\SmartIndentPascal.h|5|#include <wx/wxprec.h>|
+SmartIndent\SmartIndentPython.h|5|#include <wx/wxprec.h>|
+SmartIndent\SmartIndentXML.h|5|#include <wx/wxprec.h>|
+SpellChecker\HunspellInterface.h|23|#include "wx/wxprec.h"|
+SpellChecker\MySpellingDialog.h|23|#include "wx/wxprec.h"|
+SpellChecker\OnlineSpellChecker.h|23|#include <wx/wxprec.h>|
+SpellChecker\SpellCheckHelper.h|23|#include "wx/wxprec.h"|
+SpellChecker\SpellCheckerPlugin.h|24|#include <wx/wxprec.h>|
+SpellChecker\Thesaurus.h|23|#include "wx/wxprec.h"|
+SpellChecker\wxThes.h|28|#include <wx/wxprec.h>|
+cb_koders\kodersdialog.h|9|#include <wx/wxprec.h>|
+devpak_plugin\devpakupdater.h|5|#include <wx/wxprec.h>|
+headerfixup\configuration.h|9|#include <wx/wxprec.h>|
+headerfixup\execution.h|9|#include <wx/wxprec.h>|
+headerfixup\headerfixup.h|9|#include <wx/wxprec.h>|
+headerfixup\protocol.h|9|#include <wx/wxprec.h>|
+regex_testbed\RegExTestbed.h|5|#include <wx/wxprec.h>|
+regex_testbed\regexdlg.h|4|#include <wx/wxprec.h>|
+source_exporter\exporter.h|5|#include <wx/wxprec.h>|
+wxContribItems\wxSpeedButton\wxSpeedButton.h|30|#include "wx/wxprec.h"|
+wxContribItems\wxchart\include\wx\chart.h|23|#include <wx/wxprec.h>|
+wxContribItems\wxchart\include\wx\charttypes.h|23|#include <wx/wxprec.h>|
+wxContribItems\wxchart\include\wx\legend.h|23|#include <wx/wxprec.h>|
+wxContribItems\wxchart\include\wx\points.h|24|#include <wx/wxprec.h>|
+wxContribItems\wxchart\include\wx\yaxiswindow.h|24|#include <wx/wxprec.h>|
+wxSmithAui\wxSmithAui.h|14|#include <wx/wxprec.h>|
+wxSmithContribItems\wxSmithContribItems.h|28|#include <wx/wxprec.h>|
+wxSmithContribItems\wxSmithPlot\wxsSmithPlot.h|29|#include <wx/wxprec.h>|
+wxSmith\wxwidgets\defitems\wxstoolbareditor.h|26|#include <wx/wxprec.h>|
+wxSmith\wxwidgets\properties\wxsfontfaceeditordlg.h|26|#include <wx/wxprec.h>|
+debuggergdb\databreakpointdlg.h|9|#include <wx/wxprec.h>|
+defaultmimehandler\mimetypesarray.h|10|#include <wx/wxprec.h>|
+occurrenceshighlighting\highlighter.h|10|#include <wx/wxprec.h>|
+occurrenceshighlighting\occurrenceshighlighting.h|10|#include <wx/wxprec.h>|
+src\src\app.h|9|#include <wx/wxprec.h>|
+src\src\scriptconsole.h|9|#include <wx/wxprec.h>|
+src\src\virtualbuildtargetsdlg.h|9|#include <wx/wxprec.h>|
+src\tools\cb_share_config\app.h|9|#include <wx/wxprec.h>|
