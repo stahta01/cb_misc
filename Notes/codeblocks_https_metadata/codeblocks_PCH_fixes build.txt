@@ -53,7 +53,7 @@ git rebase pch_fixes/PCH/DoxyBlocks
 git rebase pch_fixes/PCH/FileManager
 git rebase pch_fixes/PCH/SmartIndent
 git rebase pch_fixes/PCH/wxSmithAui
-# PCH/wxSmith
+git rebase pch_fixes/PCH/wxSmith
 # PCH/contrib
 git rebase pch_fixes/PCH/core
 ###
@@ -127,6 +127,12 @@ MOVE 3c5c40f - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Than
 #
 #
 #
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/wxSmith && git status -uno
+# 
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/BrowseTracker && git status -uno
