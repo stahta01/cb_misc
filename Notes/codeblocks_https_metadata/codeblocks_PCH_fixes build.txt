@@ -5,7 +5,6 @@
 ##  git branch --list
 
 
-
 cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes && git fetch origin && git status -uno
 git checkout master && git pull origin master && git status -uno
@@ -21,18 +20,6 @@ git svn fetch && git svn info
 ####
 
 
-###
-git fetch pch_fixes
-git checkout PCH/NassiShneiderman && git pull
-git checkout PCH/lib_finder && git pull
-git checkout PCH/keybinder && git pull
-git checkout PCH/wxSmithAui && git pull
-git checkout PCH/SmartIndent && git pull
-git checkout PCH/DoxyBlocks && git pull
-git checkout PCH/toolsplus && git pull
-git checkout PCH/FileManager && git pull
-##
-
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 # PCH_build_fix:
@@ -44,18 +31,20 @@ git checkout PCH/cbp_fixes && git status -uno
 #   a branch is changed.
 # Only add new branches to the top of the rebase list.
 git rebase pch_fixes/PCH/toolsplus
-# PCH/headerfixup
+git rebase pch_fixes/PCH/devpak_plugin
+git rebase pch_fixes/PCH/HexEditor
+git rebase pch_fixes/PCH/headerfixup
 git rebase pch_fixes/PCH/BrowseTracker
 git rebase pch_fixes/PCH/NassiShneiderman
-git rebase pch_fixes/PCH/lib_finder
 git rebase pch_fixes/PCH/keybinder
 git rebase pch_fixes/PCH/DoxyBlocks
 git rebase pch_fixes/PCH/FileManager
 git rebase pch_fixes/PCH/SmartIndent
-git rebase pch_fixes/PCH/wxSmithAui
 git rebase pch_fixes/PCH/wxSmith
-# PCH/contrib
+git rebase pch_fixes/PCH/contrib
 git rebase pch_fixes/PCH/core
+# git rebase --abort
+# git rebase --skip
 ###
 git rebase origin/portability/fixes && git status -uno
 git push pch_fixes 
@@ -92,27 +81,35 @@ fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
 
 git log -20
 
-git log 7c4a59b2269f302e553df297b101806e8cd59b41
+git log a897d283285437b5dd89aed0fecedf186014bd38
 
-git rebase -i 7c4a59b2269f302e553df297b101806e8cd59b41
+git rebase -i a897d283285437b5dd89aed0fecedf186014bd38
 
-git format-patch bf7eef6645a3f00634434db4d183c8d904c1114d
+git format-patch a897d283285437b5dd89aed0fecedf186014bd38
 
-git --no-pager log --oneline --author=Tim 7c4a59b2269f302e553df297b101806e8cd59b41..HEAD
+git --no-pager log --oneline --author=Tim a897d283285437b5dd89aed0fecedf186014bd38..HEAD
 
-8e1630c - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
-664e833 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
-7a62d74 - PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-39786a9 - PCH_build_fix: Removed define of "NOPCH" and "WX_PRECOMP". (Thanks stahta01)
-1d51fa9 - PCH_build_fix: Added define of "NOPCH". (Thanks stahta01)
-c5f2c84 - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
-157dafb - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
-56a894a - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-997e5a1 - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
-ddbce5d - PCH_build_fix: Added object include search folder. (Thanks stahta01)
-372e217 - PCH_build_fix: Enabled PCH files. (Thanks stahta01)
-dca065a - Addr2LineUI: Removed define of WX_PRECOMP. (Thanks stahta01)
 
+0758a0e - PCH_build_fix: Added object include search folder. (Thanks stahta01)
+6acf4e1 - pch_cbp_win_wx30: Added define of "CB_PRECOMP". (Thanks stahta01)
+259ec40 - pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
+c0375c7 - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+
+0001-Addr2LineUI-Removed-define-of-WX_PRECOMP.-Thanks-sta.patch
+0002-PCH_build_fix-Enabled-PCH-files.-Thanks-stahta01.patch
+0003-PCH_build_fix-Changed-USE_PCH-to-NOPCH-.-Thanks-stah.patch
+0004-PCH_build_fix-Added-define-of-NOPCH-.-Thanks-stahta0.patch
+0005-PCH_build_fix-Removed-define-of-NOPCH-and-WX_PRECOMP.patch
+0006-PCH_build_fix-Added-compiler-option-include-sdk.h-.-.patch
+0007-TEST-ONLY-Do-NOT-apply-upstream.patch
+0008-pch_cbp_win_wx28-Removed-define-of-WX_PRECOMP-.-Than.patch
+0009-PCH_build_fix-Added-search-path-sdk-wxscintilla-incl.patch
+git am 0010-pch_cbp_win_wx30-Added-option-Winvalid-pch-.-Thanks-.patch
+git am 0011-pch_cbp_win_wx30-Added-define-of-CB_PRECOMP-.-Thanks.patch
+git am 0012-PCH_build_fix-Added-object-include-search-folder.-Th.patch
+
+# git am --abort
+# git apply --reject
 
 MOVE 1aa0000 - PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 
@@ -128,9 +125,36 @@ MOVE 3c5c40f - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Than
 #
 #
 
+###
+# pch_cbp_win_wx28:
+# pch_cbp_win_wx30:
+# pch_cbp_unix:
+# wxContribItems:
+# lib_finder:
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/wxContribItems && git status -uno
+# 
+git rebase origin/wxContribItems && git status -uno
+git push pch_fixes -u
+##  git rebase master && git push pch_fixes --force-with-lease
+###
+
+
+###
+# pch_cbp_win_wx28:
+# pch_cbp_win_wx30:
+# pch_cbp_unix:
+# wxSmith:
+# wxSmithAui:
+# wxSmithContribItems:
+#
+
+
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/wxSmith && git status -uno
 # 
+git rebase PCH/wxContribItems && git status -uno
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
@@ -163,13 +187,6 @@ git rebase -i cfea06ea9b36c6f1ba164d3de39b18dc3af99604
 # Change to using PCH sdk.h on both Windows and Linux
 # Then, change to using NOPCH  on both Windows and Linux
 # Last, remove object folder  on both Windows and Linux
-cd ../codeblocks_PCH_fixes-git
-git checkout PCH/wxSmithAui && git status -uno
-# 
-git push pch_fixes -u
-##  git rebase master && git push pch_fixes --force-with-lease
-
-git format-patch cfea06ea9b36c6f1ba164d3de39b18dc3af99604
 
 ###
 cd ../codeblocks_PCH_fixes-git
@@ -179,13 +196,6 @@ git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 #include "sdk.h" // Code::Blocks SDK and Precompiled Header
-###
-cd ../codeblocks_PCH_fixes-git
-git checkout PCH/lib_finder && git status -uno
-# 
-git push pch_fixes 
-##  git push pch_fixes -u
-##  git rebase master && git push pch_fixes --force-with-lease
 
 
 ###
@@ -225,3 +235,67 @@ git checkout PCH/toolsplus && git status -uno
 # 
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+
+src\sdk\scrollingdialog.cpp:299:13: error: '::SetWindowPos' has not been declared
+src\sdk\scrollingdialog.cpp:299:29: error: 'HWND' was not declared in this scope
+src\sdk\scrollingdialog.cpp:299:51: error: 'HWND_BOTTOM' was not declared in this scope
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/core && git status -uno
+# 
+git push pch_fixes 
+##  git rebase master && git push pch_fixes --force-with-lease
+
+####
+../../../.objs/include
+* pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
+
+- pch_cbp_win_wx28: Save-As some Windows CB projects. (Thanks stahta01)
+
+src\plugins\contrib\dragscroll\dragscroll.cpp|10|warning: ..\..\..\.objs\include/sdk.h.gch: not used because `CB_PRECOMP' not defined [-Winvalid-pch]|
+
+# Git contrib workspace wx28 build time(s): 4:22 after PCH fixes: 2:05
+# - : Save-As Windows CB projects. (Thanks stahta01)
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/contrib && git fetch pch_fixes && git status -uno
+# 
+git push pch_fixes 
+##  git rebase master && git push pch_fixes --force-with-lease
+
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/help_plugin && git status -uno
+# 
+git push -u pch_fixes 
+##  git rebase master && git push pch_fixes --force-with-lease
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/codesnippets && git status -uno
+# 
+git push -u pch_fixes 
+##  git rebase master && git push pch_fixes --force-with-lease
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/HexEditor && git status -uno
+# 
+git push -u pch_fixes 
+##  git rebase master && git push pch_fixes --force-with-lease
+
+###
+
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/devpak_plugin && git status -uno
+# 
+git push pch_fixes 
+##  git rebase master && git push pch_fixes --force-with-lease
+
+
+###
+cd ../codeblocks_PCH_fixes-git
+git checkout PCH/headerfixup && git status -uno
+# 
+git push -u pch_fixes 
+##  git rebase master && git push pch_fixes --force-with-lease
+###
+

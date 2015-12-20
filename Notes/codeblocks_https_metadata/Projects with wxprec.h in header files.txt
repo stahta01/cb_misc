@@ -5,29 +5,40 @@ Projects with wxprec.h in header files.txt
   pch_fixes/PCH/SmartIndent
   pch_fixes/PCH/wxSmithAui
 
+  pch_fixes/PCH/wxContribItems
+    wxContribItems
+    lib_finder
+    
+  git rebase PCH/lib_finder && git status -uno
+
   pch_fixes/PCH/headerfixup
   pch_fixes/PCH/wxSmith
+    wxSmith
+    wxSmithAui
+    wxSmithContribItems
 
   pch_fixes/PCH/core
     debuggergdb
     defaultmimehandler
     occurrenceshighlighting
     src
-
-  pch_fixes/PCH/contrib
     abbreviations
     astyle
+
+  pch_fixes/PCH/SpellChecker
+  pch_fixes/PCH/devpak_plugin
+  pch_fixes/PCH/source_exporter
+  pch_fixes/PCH/cb_share_config
+  pch_fixes/PCH/wxContribItems
+    wxContribItems\wxSpeedButton
+  
+  git checkout PCH/contrib
+  
+  pch_fixes/PCH/contrib
     Cscope
     EditorConfig
-    SpellChecker
     cb_koders
-    devpak_plugin
     regex_testbed
-    source_exporter
-    wxContribItems\wxSpeedButton
-    wxSmithContribItems
-    cb_share_config
-
 
 After pch_fixes changes have been done
     wxContribItems\wxchart

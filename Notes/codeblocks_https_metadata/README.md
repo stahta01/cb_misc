@@ -45,7 +45,7 @@ Add Branch
     pch_fixes/PCH/FileManager
     pch_fixes/PCH/NassiShneiderman
     pch_fixes/PCH/SmartIndent
-    pch_fixes/PCH/wxSmithAui
+    pch_fixes/PCH/wxSmith
     pch_fixes/PCH/keybinder
     pch_fixes/PCH/lib_finder
 Delete Branch
