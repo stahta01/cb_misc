@@ -12,10 +12,16 @@ git svn fetch && git svn info
 ##  git rebase origin/bugfix/project_n_workspace && git status -uno
 ##  git rebase origin/feature/sdk && git status -uno
 ##  git rebase origin/deceased/removals && git status -uno
-##  git rebase origin/master && git status -uno
+##  git status -uno
 git rebase pch_fixes/PCH/cbp_fixes && git status -uno
 git push origin
-##  git push origin --force-with-lease
+##  git rebase origin/master && git push origin --force-with-lease
 
 
 git --no-pager log --oneline --author=Tim
+
+git log
+
+git format-patch 72523ff65f88a2f07ed082be6f923bf27501a260
+
+0001-cygwin_support-Change-the-macros-values-listed-below.patch
