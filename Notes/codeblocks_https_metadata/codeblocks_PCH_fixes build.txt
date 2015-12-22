@@ -23,6 +23,7 @@ git svn fetch && git svn info
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
 git gc
+# fixup!
 # PCH_build_fix:
 # pch_cbp_win_wx28:
 # pch_cbp_win_wx30:
@@ -52,57 +53,26 @@ git fetch origin && git rebase origin/portability/fixes && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-../../../sdk/wxscintilla/include
 
-fixup! * TEST ONLY: Do NOT apply upstream.
-
-fixup! - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-
-fixup! - PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- PCH_build_fix: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-
-And, added option "-Winvalid-pch".
-Also, added object include search folder.
-
-../../../.objs/include
-
-fixup! - PCH_build_fix: Removed define of "BUILDING_PLUGIN". (Thanks stahta01)
-
-This define is NOT needed under Linux.
-
-
-fixup! - PCH_build_fix: Added object include search folder. (Thanks stahta01)
-fixup! - PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
-fixup! - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
-    Also, added object include search folder.
-
-../../../.objs30/include
-
-fixup! - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
-    And, removed defines of NOPCH and WX_PRECOMP.
 
 git log -10
 
-git log cfc8b02cabb7ea9a6cea470f8c29c3a31f51c23e
+git log 28db496b962a3859f30d96d4fcfeaa59def362f6
 
-git rebase -i cfc8b02cabb7ea9a6cea470f8c29c3a31f51c23e
+git rebase -i 28db496b962a3859f30d96d4fcfeaa59def362f6
 
-git --no-pager log --oneline --author=Tim cfc8b02cabb7ea9a6cea470f8c29c3a31f51c23e..HEAD
+git --no-pager log --oneline --author=Tim 28db496b962a3859f30d96d4fcfeaa59def362f6..HEAD
 
-9fb864d - pch_cbp_win_wx30: Added define of "CB_PRECOMP". (Thanks stahta01)
-39c6877 - pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
-b655abd - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
-ed87a3f * TEST ONLY: Do NOT apply upstream.
-9325563 - CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
+00ffaf0 - pch_cbp_win_wx30: Added define of "CB_PRECOMP". (Thanks stahta01)
+5126a03 - pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
+a36ed68 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
 
 
-git format-patch cfc8b02cabb7ea9a6cea470f8c29c3a31f51c23e
+git format-patch 28db496b962a3859f30d96d4fcfeaa59def362f6
 
-0001-CodeBlocks_wx30.cbp-Enabled-PCH-files.-Thanks-stahta.patch
-0002-TEST-ONLY-Do-NOT-apply-upstream.patch
-0003-pch_cbp_win_wx28-Removed-define-of-WX_PRECOMP-.-Than.patch
-0004-pch_cbp_win_wx30-Added-option-Winvalid-pch-.-Thanks-.patch
-0005-pch_cbp_win_wx30-Added-define-of-CB_PRECOMP-.-Thanks.patch
+0001-pch_cbp_win_wx28-Removed-define-of-WX_PRECOMP-.-Than.patch # Stays here
+0002-pch_cbp_win_wx30-Added-option-Winvalid-pch-.-Thanks-.patch # will move to branch
+0003-pch_cbp_win_wx30-Added-define-of-CB_PRECOMP-.-Thanks.patch # will move to branch
 
 
 # git am --abort
