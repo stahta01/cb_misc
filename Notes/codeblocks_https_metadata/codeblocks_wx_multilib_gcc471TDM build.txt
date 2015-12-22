@@ -16,21 +16,27 @@ git svn fetch && git svn info
     git rebase origin/deceased/removals
 ###
 git rebase pch_fixes/PCH/cbp_fixes && git status -uno
+# git log -5
 git push origin
 ## git rebase origin/master && git push origin --force-with-lease
 
-git log -7
+git log -5
 
-git log c489bd103139afd1748860c17c89d73d97add974
+git log 3440a1ebf00af8a75c702737c7b1186e46fa5e48
 
-git rebase -i c489bd103139afd1748860c17c89d73d97add974
+git rebase -i 3440a1ebf00af8a75c702737c7b1186e46fa5e48
 
-git format-patch c489bd103139afd1748860c17c89d73d97add974
+git am 0001-cbp_win_wx30-Saves-As-several-Windows-wx30-Projects..patch
 
-git --no-pager log --oneline --author=Tim c489bd103139afd1748860c17c89d73d97add974..HEAD
-c2fa49a * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
-e125ba1 * wx_multilibs_gcc471TDM: Edited WX variables.
-dde804a - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Thanks stahta01)
+git format-patch 3440a1ebf00af8a75c702737c7b1186e46fa5e48
+git am 0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
+git am 0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
+git am 0003-wx_multilibs_gcc471TDM-Changed-to-make-built-wx-mult.patch
+
+git --no-pager log --oneline --author=Tim 3440a1ebf00af8a75c702737c7b1186e46fa5e48..HEAD
+f3d0a10 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
+3b2ee7b * wx_multilibs_gcc471TDM: Edited WX variables.
+06f4aff - wx_compiler: Added CB variable of WX_COMPILER with value of "gcc". (Thanks stahta01)
 
 
 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)
