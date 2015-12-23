@@ -32,20 +32,23 @@ git gc
 # Rebase this complete section after one is added or 
 #   a branch is changed.
 # Only add new branches to the top of the rebase list.
+# git rebase --abort
 git rebase pch_fixes/PCH/toolsplus # Needs Extra Approval from CB Team
-git rebase pch_fixes/PCH/contrib
-git rebase pch_fixes/PCH/devpak_plugin
-git rebase pch_fixes/PCH/misc
-git rebase pch_fixes/PCH/HexEditor
-git rebase pch_fixes/PCH/headerfixup
-git rebase pch_fixes/PCH/BrowseTracker
-git rebase pch_fixes/PCH/NassiShneiderman
-git rebase pch_fixes/PCH/keybinder
-git rebase pch_fixes/PCH/DoxyBlocks
-git rebase pch_fixes/PCH/FileManager
-git rebase pch_fixes/PCH/SmartIndent
+#
+git rebase pch_fixes/PCH/contrib && \
+git rebase pch_fixes/PCH/codesnippets && \
+git rebase pch_fixes/PCH/devpak_plugin && \
+git rebase pch_fixes/PCH/misc && \
+git rebase pch_fixes/PCH/HexEditor && \
+git rebase pch_fixes/PCH/headerfixup && \
+git rebase pch_fixes/PCH/BrowseTracker && \
+git rebase pch_fixes/PCH/NassiShneiderman && \
+git rebase pch_fixes/PCH/keybinder && \
+git rebase pch_fixes/PCH/DoxyBlocks && \
+git rebase pch_fixes/PCH/FileManager && \
+git rebase pch_fixes/PCH/source_exporter && \
+git rebase pch_fixes/PCH/SmartIndent && \
 git rebase pch_fixes/PCH/wxSmith
-git rebase pch_fixes/PCH/core
 # git rebase --abort
 # git rebase --skip
 ###
@@ -53,27 +56,34 @@ git fetch origin && git rebase origin/portability/fixes && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
+git --no-pager log --oneline origin/portability/fixes..HEAD
 
 
-git log -10
+git log -5
 
-git log 28db496b962a3859f30d96d4fcfeaa59def362f6
+git log 0bb1e4950d1fa2708da5140f29c0b07646838b8d
 
-git rebase -i 28db496b962a3859f30d96d4fcfeaa59def362f6
+git rebase -i 0bb1e4950d1fa2708da5140f29c0b07646838b8d
 
-git --no-pager log --oneline --author=Tim 28db496b962a3859f30d96d4fcfeaa59def362f6..HEAD
+git --no-pager log --oneline 497225d09e25c817c66ecfefcece8c0f3637584e..HEAD
 
-00ffaf0 - pch_cbp_win_wx30: Added define of "CB_PRECOMP". (Thanks stahta01)
-5126a03 - pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
-a36ed68 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+dc0eed4 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+codesnippets.cbp
+DevPakPlugin.cbp
+Exporter.cbp
+
+6076fe4 - pch_cbp_win_wx30: Added define of "CB_PRECOMP". (Thanks stahta01)
 
 
-git format-patch 28db496b962a3859f30d96d4fcfeaa59def362f6
+git format-patch 497225d09e25c817c66ecfefcece8c0f3637584e
 
-0001-pch_cbp_win_wx28-Removed-define-of-WX_PRECOMP-.-Than.patch # Stays here
-0002-pch_cbp_win_wx30-Added-option-Winvalid-pch-.-Thanks-.patch # will move to branch
-0003-pch_cbp_win_wx30-Added-define-of-CB_PRECOMP-.-Thanks.patch # will move to branch
+Subject: [PATCH 1/2] - pch_cbp_win_wx30: Added define of "CB_PRECOMP". (Thanks
+ stahta01)
 
+And, removed defines of NOPCH and WX_PRECOMP.
+---
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp | 2 +-
+ src/plugins/contrib/ThreadSearch/ThreadSearch_wx30.cbp         | 2 +-
 
 # git am --abort
 # git apply --reject
@@ -123,6 +133,13 @@ git rebase PCH/wxContribItems && git status -uno
 git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
 
+git rebase -i PCH/wxContribItems
+
+git --no-pager log --oneline PCH/wxContribItems..HEAD
+
+git format-patch PCH/wxContribItems
+
+
 ###
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/BrowseTracker && git status -uno
@@ -134,6 +151,8 @@ git push pch_fixes -u
 # * SmartIndent: Removed "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/SmartIndent && git status -uno
+#
+git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
@@ -173,8 +192,20 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/NassiShneiderman && git status -uno
 #
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+git --no-pager log --oneline pch_fixes/PCH/core..HEAD
+b1bc874 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+0a4f9dd - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+b8b8784 - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+06a7df1 - NassiShneiderman: Save-As Windows CB projects. (Thanks stahta01)
+77a5b2f - pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
+99a7022 - pch_cbp_win_wx30: Save as CB Project(s).
+570d1f0 - pch_cbp_win_wx28: Save as CB Project(s).
+cfe8c96 - NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
 
 ###
 # - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
@@ -182,9 +213,19 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/toolsplus && git status -uno
 # 
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
 
+git --no-pager log --oneline pch_fixes/PCH/core..HEAD
+8b4a49d - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+b2d4b8e - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+13a9aba - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+0817e84 - ToolsPlus: Save-As Windows CB projects. (Thanks stahta01)
+5b2cbfe - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+8c86b27 - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
+991729b * remove_do_not_edit_this_file: Removed from CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
 
 ###
 #
@@ -193,6 +234,74 @@ git checkout PCH/core && git status -uno
 # 
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+git rebase -i eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7
+
+git format-patch eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7
+
+git reset --hard 03de7e08cb07bfd4813869392d4c8c7caaff6fe8
+
+0001-sdk-Removed-include-of-wx-wxprec.h-and-wx-wx.h-from-.patch
+0002-codecompletion-Removed-include-of-wx-wxprec.h-and-wx.patch
+0003-pch_cbp_unix-Added-define-NOPCH-to-targets-scintilla.patch
+0004-CodeBlocks_wx30.cbp-Enabled-PCH-files.-Thanks-stahta.patch
+git apply 0005-core-Removed-include-of-wx-wxprec.h-and-wx-wx.h-from.patch
+
+git --no-pager log eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7..HEAD
+
+commit a36fdbb26b1612757e0cfc29ccb0104ef8637b07
+Author: Tim S <stahta01@users.sourceforge.net>
+Date:   Sat Nov 28 21:02:07 2015 -0500
+
+    - CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
+
+    Added define of "CB_PRECOMP".
+    And, removed define of NOPCH.
+    Also, added option "-Winvalid-pch".
+
+commit 3104ee87168490be3aabe394ebcb63f26bd8a230
+Author: Tim S <stahta01@users.sourceforge.net>
+Date:   Sat Dec 19 23:19:27 2015 -0500
+
+    fixup: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
+
+    Moved wx headers to fix build errors.
+
+commit 737c6de021fd2335ead37c37423be30de256e86e
+Author: Tim S <stahta01@users.sourceforge.net>
+Date:   Sat Dec 19 22:54:50 2015 -0500
+
+    fixup: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
+
+    Added needed wx headers to get SDK to compile under Windows.
+
+commit 029916c881f4d51738c35c5d92e7d6c76e3d493c
+Author: Tim S <stahta01@gmail.com>
+Date:   Fri Dec 18 12:06:33 2015 -0500
+
+    * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
+
+commit 51480e9179f4908b6547b608c05d3654e342297f
+Author: Tim S <stahta01@gmail.com>
+Date:   Fri Dec 18 11:50:28 2015 -0500
+
+    * core: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
+
+    And, added wx headers to source and header files to fix the errors.
+    Also, commented out includes inside WX_PRECOMP sections in headers.
+    Removed include of "wx/wxprec.h" and "wx/wx.h" from source files.
+
+commit 75fdfedb6ee6115e4a60c5d2be34f123539f0535
+Author: Tim S <stahta01@users.sourceforge.net>
+Date:   Fri Dec 18 06:30:17 2015 -0500
+
+    * core: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
+
+    And, added wx headers to source and header files to fix the errors.
+    Also, commented out includes inside WX_PRECOMP sections in headers.
+
+
+git --no-pager log --oneline --author=Tim eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7..HEAD
 
 ###
 ../../../.objs/include
@@ -207,16 +316,30 @@ src\plugins\contrib\dragscroll\dragscroll.cpp|10|warning: ..\..\..\.objs\include
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/contrib && git fetch pch_fixes && git status -uno
 # 
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+git rebase -i pch_fixes/PCH/core
+
+git --no-pager log --oneline pch_fixes/PCH/core..HEAD
+
 
 ###
 #
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/help_plugin && git status -uno
-# 
+#
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+git --no-pager log --oneline pch_fixes/PCH/core..HEAD
+2139920 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+d448244 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+1b94bdc - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 
 ###
 #
@@ -230,17 +353,33 @@ git push pch_fixes
 #
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/HexEditor && git status -uno
-# 
+#
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
 
+git --no-pager log --oneline pch_fixes/PCH/core..HEAD
+add4681 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+ecb29e8 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+a7b982d - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+6b6d306 - HexEditor: Save-As Windows CB projects. (Thanks stahta01)
 
 ###
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/headerfixup && git status -uno
-# 
+#
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+git --no-pager log --oneline pch_fixes/PCH/core..HEAD
+03dc1e4 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+6d36b0e - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+f6a1e3e - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+7887823 - headerfixup: Save-As Windows CB Projects. (Thanks stahta01)
+
 ###
 
 ###
