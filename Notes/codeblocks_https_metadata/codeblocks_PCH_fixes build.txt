@@ -16,13 +16,25 @@ git svn fetch && git svn info
 
 # Projects with issues
 
+Has define "NOPCH" that needs checked
+    codesnippets_wx30.cbp
+    DevPakPlugin_wx30.cbp
+    DoxyBlocks_wx30.cbp
+    envvars_wx30.cbp
+    FileManager_wx30.cbp
+    help-plugin_wx30.cbp
+    keybinder_wx30.cbp
+    SmartIndent_wx30.cbp
+    Exporter_wx30.cbp
+    SpellChecker_wx30.cbp
+    wxContribItems_wx30.cbp
+
 
 ####
 
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/cbp_fixes && git status -uno
-git gc
 # fixup!
 # PCH_build_fix:
 # pch_cbp_win_wx28:
@@ -31,10 +43,11 @@ git gc
 ###
 # Rebase this complete section after one is added or 
 #   a branch is changed.
-# Only add new branches to the top of the rebase list.
+# Only add new branches after the first "git gc" of the rebase list.
 # git rebase --abort
-git rebase pch_fixes/PCH/toolsplus # Needs Extra Approval from CB Team
-#
+# PCH/toolsplus needs Extra Approval from CB Team
+git rebase pch_fixes/PCH/toolsplus  && \
+git gc      && \
 git rebase pch_fixes/PCH/contrib && \
 git rebase pch_fixes/PCH/codesnippets && \
 git rebase pch_fixes/PCH/devpak_plugin && \
@@ -56,7 +69,10 @@ git fetch origin && git rebase origin/portability/fixes && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-git --no-pager log --oneline origin/portability/fixes..HEAD
+git log -3 --pretty=format:%f
+git log -3 --pretty=format:%s
+
+git --no-pager log --pretty=format:%s origin/portability/fixes..HEAD
 
 
 git log -5
@@ -111,7 +127,7 @@ MOVE 3c5c40f - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Than
 #
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/wxContribItems && git status -uno
-# 
+# git rebase pch_fixes/PCH/core && git status -uno
 git rebase origin/wxContribItems && git status -uno
 git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
@@ -132,6 +148,13 @@ git checkout PCH/wxSmith && git status -uno
 git rebase PCH/wxContribItems && git status -uno
 git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+* wxSmith.cbp: Changed to using USE_PCH and wx_pch.h. (Thanks stahta01)
+
+And, removed CB_PRECOMP, WX_PRECOMP, and NOPCH.
+Also, added NOPCH to plugin file target.
+
+-include "wx_pch.h"
 
 git rebase -i PCH/wxContribItems
 
