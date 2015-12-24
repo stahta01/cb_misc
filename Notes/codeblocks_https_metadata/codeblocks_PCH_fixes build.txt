@@ -28,6 +28,7 @@ Has define "NOPCH" that needs checked
     Exporter_wx30.cbp
     SpellChecker_wx30.cbp
     wxContribItems_wx30.cbp
+    wxSmithAui.cbp
 
 
 ####
@@ -144,7 +145,7 @@ git push pch_fixes
 #
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/wxSmith && git status -uno
-# 
+# git pull
 git rebase pch_fixes/PCH/wxContribItems && git status -uno
 git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
@@ -156,7 +157,7 @@ Also, added NOPCH to plugin file target.
 
 -include "wx_pch.h"
 
-git rebase -i PCH/wxContribItems
+git rebase -i pch_fixes/PCH/wxContribItems
 
 git --no-pager log --oneline PCH/wxContribItems..HEAD
 
@@ -232,7 +233,8 @@ cfe8c96 - NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stah
 
 ###
 # - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
-#
+# cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
+# pch_cbp_win_wx30:
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/toolsplus && git status -uno
 # 
@@ -241,14 +243,48 @@ git rebase pch_fixes/PCH/core && git status -uno
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
 
-git --no-pager log --oneline pch_fixes/PCH/core..HEAD
-8b4a49d - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-b2d4b8e - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-13a9aba - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-0817e84 - ToolsPlus: Save-As Windows CB projects. (Thanks stahta01)
-5b2cbfe - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-8c86b27 - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
-991729b * remove_do_not_edit_this_file: Removed from CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
+git rebase -i origin/master
+
+"ToolsPlus: Save-As Windows CB projects."
+
+git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+- cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+- toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
+* remove_do_not_edit_this_file: Removed from CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
+
+git --no-pager log --pretty=format:%s origin/master..pch_fixes/PCH/core
+- CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
+* pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
+* defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
+* debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
+* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
+* occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
+* src: Added needed wx headers. (Thanks stahta01)
+- compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
+* astyle: Added needed wx headers. (Thanks stahta01)
+* abbreviations: Added needed wx headers. (Thanks stahta01)
+- sdk: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
+
+git fetch origin --prune
+git --no-pager log --pretty=format:%s origin/master..origin/portability/fixes
+- win_cbp: Moved wxmsw$(WX_VERSION)$(WX_SUFFIX) from project level to target level. (Thanks stahta01)
+* SpellChecker: Removed "*" from after "\" from second xcopy param. (Thanks stahta01)
+* help_plugin: Fixed to use just bzip2 and z in the library link list.(Thanks stahta01)
+* wxSmithPlot/wxsSmithPlot.cpp: Disabled Compiling and linking of file. (Thanks stahta01)
+- Removed unneeded wxscintilla_cb library from link list. (Thanks stahta01)
+- Removed unneeded wxpropgrid library from link list. (Thanks stahta01)
+- Core app & plugins: Added target Abbreviations to virtual target. (Thanks stahta01)
+- wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
+- Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
+* wxContribItems: Change the project define "WXMAKINGDLL" into target defines of "WXUSINGDLL". (Thanks stahta01)
+- ToolsPlus.cbp: Save-As CB Project. (Thanks stahta01)
+- BrowseTracker: Save-As CB Windows project files. (Thanks stahta01)
+- SpellChecker: Save-As CB WinOS projects using CB 13.12.
+- help_plugin: Save-As using CB 13.12.
 
 ###
 #
@@ -256,7 +292,7 @@ cd ../codeblocks_PCH_fixes-git
 git checkout PCH/core && git status -uno
 # 
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git rebase -i eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7
 
