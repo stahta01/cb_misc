@@ -145,7 +145,7 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/wxSmith && git status -uno
 # 
-git rebase PCH/wxContribItems && git status -uno
+git rebase pch_fixes/PCH/wxContribItems && git status -uno
 git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
 
