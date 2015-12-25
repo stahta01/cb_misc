@@ -16,13 +16,9 @@ git svn fetch && git svn info
 
 # Projects with issues
 
-Has define "NOPCH" that needs checked
-    wxContribItems_wx30.cbp     Checked OK!
-    envvars_wx30.cbp            Checked OK!
-    wxSmith_wx30.cbp            Checked OK!
-    SpellChecker_wx30.cbp           PCH/SpellChecker
-    Exporter_wx30.cbp               PCH/source_exporter
-    DevPakPlugin_wx30.cbp           PCH/devpak_plugin
+    wxContribItems_wx30.cbp     Checked OK for "NOPCH".
+    envvars_wx30.cbp            Checked OK for "NOPCH".
+    wxSmith_wx30.cbp            Checked OK for "NOPCH".
 
 Missing "-Winvalid-pch" and has "NOPCH"
     SpellChecker_wx30.cbp           PCH/SpellChecker
@@ -30,12 +26,8 @@ Missing "-Winvalid-pch" and has "NOPCH"
     DevPakPlugin_wx30.cbp           PCH/devpak_plugin
 
 Missing "../../../.objs/include"
-    DoxyBlocks.cbp                  PCH/DoxyBlocks
-    FileManager.cbp                 PCH/FileManager
-    headerfixup.cbp                 PCH/headerfixup
-    HexEditor.cbp                   PCH/HexEditor
-    lib_finder.cbp                  PCH/wxContribItems
-    ToolsPlus.cbp                   PCH/toolsplus
+    FileManager.cbp                 Fixed, needs tested after full rebase.
+    lib_finder.cbp                  Fixed, needs tested after full rebase.
 
 ####
 
@@ -71,7 +63,7 @@ git rebase pch_fixes/PCH/FileManager && \
 git rebase pch_fixes/PCH/source_exporter && \
 git rebase pch_fixes/PCH/SpellChecker && \
 git rebase pch_fixes/PCH/SmartIndent && \
-git rebase pch_fixes/PCH/wxSmith
+git rebase pch_fixes/PCH/wxSmith   && \
 # git rebase --abort
 # git rebase --skip
 ###
@@ -131,7 +123,7 @@ MOVE 3c5c40f - PCH_build_fix: Added search path "sdk/wxscintilla/include". (Than
 # wxContribItems:
 # lib_finder:
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxContribItems && git status -uno
 # git fetch origin && git rebase origin/wxContribItems && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
@@ -270,8 +262,9 @@ git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 ###
-# - FileManager: Fixed PCH code issues using "sdk.h". (Thanks stahta01)
-cd ../codeblocks_PCH_fixes-git
+# FileManager:
+#
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/FileManager && git status -uno
 #
 git rebase pch_fixes/PCH/core && git status -uno
