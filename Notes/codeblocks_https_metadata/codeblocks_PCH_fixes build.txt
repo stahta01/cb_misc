@@ -23,19 +23,23 @@ git svn fetch && git svn info
 
 # Projects with issues
  Missing "-Winvalid-pch"
-    AutoVersioning-unix.cbp         PCH/contrib
+    AutoVersioning-unix.cbp         Fixed
     AutoVersioning_wx30-unix.cbp    PCH/contrib
-    cb_koders-unix.cbp              PCH/contrib
+    cb_koders-unix.cbp              Fixed
     cb_koders_wx30-unix.cbp         PCH/contrib
-    cbprofiler.unix.cbp             PCH/contrib
+    cbprofiler.unix.cbp             Fixed
     cbprofiler_wx30-unix.cbp        PCH/contrib
-    symtab-unix.cbp                 PCH/contrib
+    symtab-unix.cbp                 Fixed
     symtab_wx30-unix.cbp            PCH/contrib
     TestPlot.cbp                    PCH/misc
     IETest.cbp                      PCH/misc
  Has "NOPCH"
     wxSmith-unix.cbp
  Missing [directory="../../../.objs]
+
+$(CBDIR)/.objs/include
+../../../.objs/include
+../../../.objs30/include
 
 ####
 
