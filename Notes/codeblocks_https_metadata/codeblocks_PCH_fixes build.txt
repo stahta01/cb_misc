@@ -13,21 +13,29 @@ git svn fetch && git svn info
 #
 ####
 
-
-# Projects with issues
-
     wxContribItems_wx30.cbp     Checked OK for "NOPCH".
+    wxContribItems.cbp          Checked OK for "NOPCH".
     envvars_wx30.cbp            Checked OK for "NOPCH".
     wxSmith_wx30.cbp            Checked OK for "NOPCH".
+    wxSmith.cbp                 Checked OK for "NOPCH".
+    Exporter_wx30.cbp           Checked OK for "NOPCH".
+    Exporter_wx30.cbp           Checked OK for Missing [directory="../../../.objs]
 
-Missing "-Winvalid-pch" and has "NOPCH"
-    SpellChecker_wx30.cbp           PCH/SpellChecker
-    Exporter_wx30.cbp               PCH/source_exporter
-    DevPakPlugin_wx30.cbp           PCH/devpak_plugin
-
-Missing "../../../.objs/include"
-    FileManager.cbp                 Fixed, needs tested after full rebase.
-    lib_finder.cbp                  Fixed, needs tested after full rebase.
+# Projects with issues
+ Missing "-Winvalid-pch"
+    AutoVersioning-unix.cbp         PCH/contrib
+    AutoVersioning_wx30-unix.cbp    PCH/contrib
+    cb_koders-unix.cbp              PCH/contrib
+    cb_koders_wx30-unix.cbp         PCH/contrib
+    cbprofiler.unix.cbp             PCH/contrib
+    cbprofiler_wx30-unix.cbp        PCH/contrib
+    symtab-unix.cbp                 PCH/contrib
+    symtab_wx30-unix.cbp            PCH/contrib
+    TestPlot.cbp                    PCH/misc
+    IETest.cbp                      PCH/misc
+ Has "NOPCH"
+    wxSmith-unix.cbp
+ Missing [directory="../../../.objs]
 
 ####
 
@@ -514,6 +522,8 @@ f6a1e3e - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/misc && git status -uno
 ##  git log
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push -u pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
 ###
@@ -527,9 +537,11 @@ git push pch_fixes
 ###
 
 
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/SpellChecker && git status -uno
 ##  git log
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
 ###
@@ -537,8 +549,14 @@ git push pch_fixes
 
 ###
 
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/devpak_plugin && git status -uno
-# 
+#
+git rebase pch_fixes/PCH/core && git status -uno
+#
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
+
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
