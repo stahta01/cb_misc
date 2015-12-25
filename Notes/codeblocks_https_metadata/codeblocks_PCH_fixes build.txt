@@ -20,15 +20,27 @@ Has define "NOPCH" that needs checked
     wxContribItems_wx30.cbp     Checked OK!
     envvars_wx30.cbp            Checked OK!
     wxSmith_wx30.cbp            Checked OK!
-    wxSmithAui.cbp                  Fix on Linux; after fixing PCH/wxContribItems
     SpellChecker_wx30.cbp           PCH/SpellChecker
     Exporter_wx30.cbp               PCH/source_exporter
     DevPakPlugin_wx30.cbp           PCH/devpak_plugin
 
+Missing "-Winvalid-pch" and has "NOPCH"
+    SpellChecker_wx30.cbp           PCH/SpellChecker
+    Exporter_wx30.cbp               PCH/source_exporter
+    DevPakPlugin_wx30.cbp           PCH/devpak_plugin
+
+Missing "../../../.objs/include"
+    DoxyBlocks.cbp                  PCH/DoxyBlocks
+    FileManager.cbp                 PCH/FileManager
+    headerfixup.cbp                 PCH/headerfixup
+    HexEditor.cbp                   PCH/HexEditor
+    lib_finder.cbp                  PCH/wxContribItems
+    ToolsPlus.cbp                   PCH/toolsplus
+
 ####
 
 
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/cbp_fixes && git status -uno
 # fixup!
 # PCH_build_fix:
@@ -197,7 +209,7 @@ Patch failed at 0022 - wxContribItems.cbp: Added [-include "wx_pch.h"]. (Thanks 
 # wxSmithAui:
 # wxSmithContribItems:
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxSmith && git status -uno
 # git pull
 git rebase pch_fixes/PCH/wxContribItems && git status -uno
