@@ -23,19 +23,32 @@ git svn fetch && git svn info
 
 # Projects with issues
  Missing "-Winvalid-pch"
-    AutoVersioning-unix.cbp         Fixed
-    AutoVersioning_wx30-unix.cbp    PCH/contrib
-    cb_koders-unix.cbp              Fixed
-    cb_koders_wx30-unix.cbp         PCH/contrib
-    cbprofiler.unix.cbp             Fixed
-    cbprofiler_wx30-unix.cbp        PCH/contrib
-    symtab-unix.cbp                 Fixed
-    symtab_wx30-unix.cbp            PCH/contrib
     TestPlot.cbp                    PCH/misc
     IETest.cbp                      PCH/misc
  Has "NOPCH"
     wxSmith-unix.cbp
  Missing [directory="../../../.objs]
+    wxSmithDemo.cbp
+Has "wx_pch.h"
+    Exporter_wx30.cbp
+    SpellChecker_wx30.cbp
+    wxContribItems.cbp
+    wxContribItems_wx30.cbp
+    wxSmith-unix.cbp
+    wxSmith.cbp
+    wxSmith_wx30.cbp
+    wxSmithAui.cbp
+    wxSmithAui_wx30.cbp
+    wxSmithContribItems-unix.cbp
+    wxSmithContribItems.cbp
+    wxSmithContribItems_wx30.cbp
+Has "pch/wx_pch.h"
+    SpellChecker_wx30.cbp           Move into new location!
+    wxContribItems.cbp
+    wxContribItems_wx30.cbp
+    wxSmith-unix.cbp
+    wxSmith.cbp
+    wxSmith_wx30.cbp
 
 $(CBDIR)/.objs/include
 ../../../.objs/include
@@ -57,9 +70,9 @@ git checkout PCH/cbp_fixes && git status -uno
 #   a branch is changed.
 # Only add new branches after the first "git gc" of the rebase list.
 # git rebase --abort
+git gc      && \
 # PCH/toolsplus needs Extra Approval from CB Team
 git rebase pch_fixes/PCH/toolsplus  && \
-git gc      && \
 git rebase pch_fixes/PCH/contrib && \
 git rebase pch_fixes/PCH/help_plugin  && \
 git rebase pch_fixes/PCH/codesnippets && \
