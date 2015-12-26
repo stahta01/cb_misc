@@ -138,7 +138,9 @@ git fetch pch_fixes && git --no-pager log --pretty=format:%s pch_fixes/PCH/core.
 # pch_cbp_unix:
 # wxContribItems:
 # lib_finder:
-#
+##
+# git checkout -b PCH/wxContribItems pch_fixes/PCH/wxContribItems
+##
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxContribItems && git status -uno
 # git fetch origin && git rebase origin/wxContribItems && git status -uno
@@ -217,6 +219,9 @@ Patch failed at 0022 - wxContribItems.cbp: Added [-include "wx_pch.h"]. (Thanks 
 # wxSmithAui:
 # wxSmithContribItems:
 #
+##
+# git checkout -b PCH/wxSmith pch_fixes/PCH/wxSmith
+##
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxSmith && git status -uno
 # git pull
@@ -369,17 +374,19 @@ git --no-pager log --pretty=format:%s origin/master..origin/portability/fixes
 
 ###
 #
+##
+# git checkout -b PCH/core pch_fixes/PCH/core
+##
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/core && git status -uno
 # 
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-git rebase -i eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7
+git rebase -i origin/master
 
-git format-patch eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7
+git format-patch origin/master
 
-git reset --hard 03de7e08cb07bfd4813869392d4c8c7caaff6fe8
 
 0001-sdk-Removed-include-of-wx-wxprec.h-and-wx-wx.h-from-.patch
 0002-codecompletion-Removed-include-of-wx-wxprec.h-and-wx.patch
@@ -399,21 +406,7 @@ Date:   Sat Nov 28 21:02:07 2015 -0500
     And, removed define of NOPCH.
     Also, added option "-Winvalid-pch".
 
-commit 3104ee87168490be3aabe394ebcb63f26bd8a230
-Author: Tim S <stahta01@users.sourceforge.net>
-Date:   Sat Dec 19 23:19:27 2015 -0500
 
-    fixup: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
-
-    Moved wx headers to fix build errors.
-
-commit 737c6de021fd2335ead37c37423be30de256e86e
-Author: Tim S <stahta01@users.sourceforge.net>
-Date:   Sat Dec 19 22:54:50 2015 -0500
-
-    fixup: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
-
-    Added needed wx headers to get SDK to compile under Windows.
 
 commit 029916c881f4d51738c35c5d92e7d6c76e3d493c
 Author: Tim S <stahta01@gmail.com>
@@ -421,24 +414,7 @@ Date:   Fri Dec 18 12:06:33 2015 -0500
 
     * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
 
-commit 51480e9179f4908b6547b608c05d3654e342297f
-Author: Tim S <stahta01@gmail.com>
-Date:   Fri Dec 18 11:50:28 2015 -0500
 
-    * core: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
-
-    And, added wx headers to source and header files to fix the errors.
-    Also, commented out includes inside WX_PRECOMP sections in headers.
-    Removed include of "wx/wxprec.h" and "wx/wx.h" from source files.
-
-commit 75fdfedb6ee6115e4a60c5d2be34f123539f0535
-Author: Tim S <stahta01@users.sourceforge.net>
-Date:   Fri Dec 18 06:30:17 2015 -0500
-
-    * core: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
-
-    And, added wx headers to source and header files to fix the errors.
-    Also, commented out includes inside WX_PRECOMP sections in headers.
 
 
 git --no-pager log --pretty=format:%s --author=Tim eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7..HEAD
@@ -453,6 +429,9 @@ src\plugins\contrib\dragscroll\dragscroll.cpp|10|warning: ..\..\..\.objs\include
 
 # Git contrib workspace wx28 build time(s): 4:22 after PCH fixes: 2:05
 # - : Save-As Windows CB projects. (Thanks stahta01)
+##
+# git checkout -b PCH/contrib pch_fixes/PCH/contrib
+##
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/contrib && git fetch pch_fixes && git status -uno
 # 
@@ -569,6 +548,9 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/SpellChe
 
 ###
 
+##
+# git checkout -b PCH/devpak_plugin pch_fixes/PCH/devpak_plugin
+##
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/devpak_plugin && git status -uno
 #
