@@ -1,15 +1,16 @@
 ######################################################################
-
-##  git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
+##
 ##  git remote -v
+##  git remote rename origin pch_fixes
+##  git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
 ##  git branch --list
-
-
+##  git checkout -b PCH/cbp_fixes pch_fixes/PCH/cbp_fixes
+##
+##
 cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes && git fetch origin && git status -uno
 git checkout master && git pull origin master && git status -uno
 git svn fetch && git svn info
-# git push 
 #
 ####
 
@@ -103,15 +104,15 @@ git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cb
 
 git --no-pager log --pretty=format:%s -10
 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
+- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-- cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-- toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
-* remove_do_not_edit_this_file: Removed from CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
-* Test Only: Added GitContribPlugins workspace(s).
+* devpak_plugin: Added object search folders. (Thanks stahta01)
+- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
 
 # # Currently pch_fixes/PCH/devpak_plugin is the top rebase branch in the long list.
 git fetch pch_fixes && git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin

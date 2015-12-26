@@ -13,13 +13,13 @@
 # Step 1: Record the result of the "git log" command.
 git log --grep="^git-svn-id: " --first-parent -1
 # Git Log message begins
-commit cfea06ea9b36c6f1ba164d3de39b18dc3af99604
+commit eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7
 Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Sun Dec 13 06:07:21 2015 +0000
+Date:   Sun Dec 20 19:01:28 2015 +0000
 
-    * applied patch by darmar: parsing Gfortran v5.* compiler messages in new v5.* format; option -fopenmp should be applied at compiler and linker command line
-    
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10623 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    - build-fix for non-PCH compilers (including wx30 and wx30_64 workspaces)
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10627 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Git Log message ends
 
 # Step 2: Verify svn configuration
@@ -31,8 +31,8 @@ git config svn-remote.svn.url
 # git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
 
 
-# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10623"
-git svn fetch -r 10623
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10627"
+git svn fetch -r 10627
 
 # Step 3B: See what folder name is being used before trunk.
 git config svn-remote.svn.fetch
@@ -44,10 +44,10 @@ ls .git/refs/remotes/svn
 ls .git/refs/remotes/svn/trunk
 
 # Step 4: Use the commit hash from the git log message returned in the step 1 above.
-echo cfea06ea9b36c6f1ba164d3de39b18dc3af99604 > .git/refs/remotes/svn/trunk
+echo eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7 > .git/refs/remotes/svn/trunk
 
-# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10623" part is needed.
-git svn fetch -r 10623
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10627" part is needed.
+git svn fetch -r 10627
 
 # Step 6: Run svn info to verify it is working
 git svn info
