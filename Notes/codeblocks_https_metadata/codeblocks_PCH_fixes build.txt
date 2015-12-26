@@ -55,6 +55,7 @@ git svn fetch && git svn info
 $(CBDIR)/.objs/include
 ../../../.objs/include
 ../../../.objs30/include
+../../../.objs30_64/include
 ##
 # - pch_cbp_win_wx28:
 # - pch_cbp_win_wx30:
@@ -559,6 +560,19 @@ git rebase pch_fixes/PCH/core && git status -uno
 git push pch_fixes 
 ##  git rebase master && git push pch_fixes --force-with-lease
 
+#  ..\..\..\sdk\wxscintilla\include
+
+git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin
+- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 - devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+* devpak_plugin: Added object search folders. (Thanks stahta01)
+- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
