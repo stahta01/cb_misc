@@ -154,28 +154,8 @@ git rebase -i pch_fixes/PCH/core
 
 git --no-pager log --pretty=format:%s origin/master..origin/wxContribItems
 
-M       src/plugins/contrib/wxContribItems/wxContribItems.cbp
-Falling back to patching base and 3-way merge...
-Auto-merging src/plugins/contrib/wxContribItems/wxContribItems.cbp
-CONFLICT (content): Merge conflict in src/plugins/contrib/wxContribItems/wxContribItems.cbp
-error: Failed to merge in the changes.
-Patch failed at 0022 - wxContribItems.cbp: Added [-include "wx_pch.h"]. (Thanks stahta01)
 
 git format-patch pch_fixes/PCH/core
-0001-wxContribItems-Change-the-project-define-WXMAKINGDLL.patch
-0002-pch_cbp_unix-Added-object-include-search-folder.-Tha.patch
-0003-lib_finder-Fixed-PCH-code-issues-using-sdk.h-.-Thank.patch
-0004-wxContribItems-Removed-include-of-wx-wxprec.h-.-Than.patch
-0005-lib_finder-Saves-As-Windows-projects.-Thanks-stahta0.patch
-0006-ThreadSearch-Save-As-Windows-projects.-Thanks-stahta.patch
-0007-Test-Only-Added-wxContribItemsPlugins-workspace-s.patch
-0008-pch_cbp_win_wx30-Added-Winvalid-pch-.-Thanks-stahta0.patch
-0009-pch_cbp_win_wx30-Added-object-search-folder.-Thanks-.patch
-0010-pch_cbp_win_wx30-Changed-NOPCH-to-CB_PRECOMP-.-Thank.patch
-0011-wxContribItems-Added-pch-wx_pch.h.-Thanks-stahta01.patch
-git apply --reject 0012-wxContribItems.cbp-Added-include-wx_pch.h-.-Thanks-s.patch
-0013-pch_cbp_win_wx30-Added-option-Winvalid-pch-.-Thanks-.patch
-0014-wxContribItems_wx30.cbp-Added-include-wx_pch.h-.-Tha.patch
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/wxContribItems
 - wxContribItems_wx30.cbp: Added [-include "wx_pch.h"]. (Thanks stahta01)
@@ -196,21 +176,8 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/wxContri
 
 # git rebase pch_fixes/PCH/wxSmith
 
-M       src/plugins/contrib/wxContribItems/wxContribItems.cbp
-Falling back to patching base and 3-way merge...
-Auto-merging src/plugins/contrib/wxContribItems/wxContribItems.cbp
-CONFLICT (content): Merge conflict in src/plugins/contrib/wxContribItems/wxContribItems.cbp
-error: Failed to merge in the changes.
-Patch failed at 0006 - wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
 
 # git fetch origin && git rebase origin/portability/fixes && git status -uno
-
-M       src/plugins/contrib/wxContribItems/wxContribItems.cbp
-Falling back to patching base and 3-way merge...
-Auto-merging src/plugins/contrib/wxContribItems/wxContribItems.cbp
-CONFLICT (content): Merge conflict in src/plugins/contrib/wxContribItems/wxContribItems.cbp
-error: Failed to merge in the changes.
-Patch failed at 0022 - wxContribItems.cbp: Added [-include "wx_pch.h"]. (Thanks stahta01)
 
 ###
 # pch_cbp_win_wx28:
@@ -227,21 +194,34 @@ cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxSmith && git status -uno
 # git pull
 git rebase pch_fixes/PCH/wxContribItems && git status -uno
+# git rebase -i pch_fixes/PCH/wxContribItems
 git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
 
+#  git format-patch PCH/wxContribItems
+
+git --no-pager log --pretty=format:%s PCH/wxContribItems..pch_fixes/PCH/wxSmith
+* wxSmithContribItems-unix.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+* wxSmithAui.cbp: Added [-include "wx_pch.h"] and "USE_PCH" to Unix target. (Thanks stahta01)
+- wxSmith-unix.cbp: Moved defines to target level.
+* Test Only: Added wxSmithPlugins workspace(s).
+* wxSmithAui_wx30.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+* wxSmithContribItems_wx30.cbp: Changed to using USE_PCH and wxSmithLib/pch/wx_pch.h. (Thanks stahta01)
+* wxSmith_wx30.cbp: Changed to using USE_PCH and wx_pch.h. (Thanks stahta01)
+* Test Only: Added wxSmithPlugins workspace(s).
+* wxSmithAui.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+* wxSmith-unix.cbp: Added wx_pch.h to CB Project as PCH. (Thanks stahta01)
+* wxSmithContribItems.cbp: Changed to using USE_PCH and wxSmithLib/pch/wx_pch.h. (Thanks stahta01)
 * wxSmith.cbp: Changed to using USE_PCH and wx_pch.h. (Thanks stahta01)
-
-And, removed CB_PRECOMP, WX_PRECOMP, and NOPCH.
-Also, added NOPCH to plugin file target.
-
--include "wx_pch.h"
-
-git rebase -i pch_fixes/PCH/wxContribItems
-
-git --no-pager log --pretty=format:%s PCH/wxContribItems..HEAD
-
-git format-patch PCH/wxContribItems
+* wx_pch.h: Added wxSmith/pch/wx_pch.h to repo.
+* wxSmithContribItems: Removed include of "sdk.h" and "wx/wxprec.h". (Thanks stahta01)
+* wxSmithAui: Removed include of "sdk.h" and "wx/wxprec.h". (Thanks stahta01)
+* wxSmith: Remove include of "wx/wx.h" and "wx/wxprec.h" from files. (Thanks stahta01)
+- wxSmith: Save-As Windows projects. (Thanks stahta01)
+- wxSmithSTC: Save-As wx28 Windows CB Project. (Thanks stahta01)
+- wxSmithIExplore: Save-As wx28 Windows CB Project. (Thanks stahta01)
+- wxSmithDateTimePicker: Save-As wx28 Windows CB Project. (Thanks stahta01)
+- wxSmith: Save-As CB Windows Projects. (Thanks stahta01)
 
 
 ###
@@ -309,14 +289,14 @@ git push pch_fixes
 ##  git rebase master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
-b1bc874 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-0a4f9dd - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-b8b8784 - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-06a7df1 - NassiShneiderman: Save-As Windows CB projects. (Thanks stahta01)
-77a5b2f - pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
-99a7022 - pch_cbp_win_wx30: Save as CB Project(s).
-570d1f0 - pch_cbp_win_wx28: Save as CB Project(s).
-cfe8c96 - NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+- NassiShneiderman: Save-As Windows CB projects. (Thanks stahta01)
+- pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
+- pch_cbp_win_wx30: Save as CB Project(s).
+- pch_cbp_win_wx28: Save as CB Project(s).
+- NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
 
 ###
 # - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
@@ -335,6 +315,8 @@ git rebase -i origin/master
 "ToolsPlus: Save-As Windows CB projects."
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
+- ToolsPlus.cbp: Save-As Windows CB projects. (Thanks stahta01)
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
@@ -344,6 +326,7 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 * remove_do_not_edit_this_file: Removed from CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
 
 git --no-pager log --pretty=format:%s origin/master..pch_fixes/PCH/core
+- CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
 - CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
 * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
 * defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
@@ -386,39 +369,22 @@ git push pch_fixes
 
 git rebase -i origin/master
 
+git --no-pager log --pretty=format:%s origin/master..HEAD
+- CodeBlocks_wx30_64.cbp: Enabled PCH files. (Thanks stahta01)
+- CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
+* pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
+* defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
+* debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
+* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
+* occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
+* src: Added needed wx headers. (Thanks stahta01)
+- compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
+* astyle: Added needed wx headers. (Thanks stahta01)
+* abbreviations: Added needed wx headers. (Thanks stahta01)
+- sdk: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
+
 git format-patch origin/master
 
-
-0001-sdk-Removed-include-of-wx-wxprec.h-and-wx-wx.h-from-.patch
-0002-codecompletion-Removed-include-of-wx-wxprec.h-and-wx.patch
-0003-pch_cbp_unix-Added-define-NOPCH-to-targets-scintilla.patch
-0004-CodeBlocks_wx30.cbp-Enabled-PCH-files.-Thanks-stahta.patch
-git apply 0005-core-Removed-include-of-wx-wxprec.h-and-wx-wx.h-from.patch
-
-git --no-pager log eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7..HEAD
-
-commit a36fdbb26b1612757e0cfc29ccb0104ef8637b07
-Author: Tim S <stahta01@users.sourceforge.net>
-Date:   Sat Nov 28 21:02:07 2015 -0500
-
-    - CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
-
-    Added define of "CB_PRECOMP".
-    And, removed define of NOPCH.
-    Also, added option "-Winvalid-pch".
-
-
-
-commit 029916c881f4d51738c35c5d92e7d6c76e3d493c
-Author: Tim S <stahta01@gmail.com>
-Date:   Fri Dec 18 12:06:33 2015 -0500
-
-    * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
-
-
-
-
-git --no-pager log --pretty=format:%s --author=Tim eb84cd3f8cd22a6a3049a8bc928675f0db1f25a7..HEAD
 
 ###
 ../../../.objs/include
@@ -428,8 +394,6 @@ git --no-pager log --pretty=format:%s --author=Tim eb84cd3f8cd22a6a3049a8bc92867
 
 src\plugins\contrib\dragscroll\dragscroll.cpp|10|warning: ..\..\..\.objs\include/sdk.h.gch: not used because `CB_PRECOMP' not defined [-Winvalid-pch]|
 
-# Git contrib workspace wx28 build time(s): 4:22 after PCH fixes: 2:05
-# - : Save-As Windows CB projects. (Thanks stahta01)
 ##
 # git checkout -b PCH/contrib pch_fixes/PCH/contrib
 ##
@@ -558,21 +522,23 @@ git checkout PCH/devpak_plugin && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+
+#   git rebase -i pch_fixes/PCH/core
 
 #  ..\..\..\sdk\wxscintilla\include
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin
 - devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 - devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 - devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-* devpak_plugin: Added object search folders. (Thanks stahta01)
+- pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
 - devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 - devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
