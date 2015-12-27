@@ -416,6 +416,29 @@ git push pch_fixes
 git rebase -i pch_fixes/PCH/core
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- cbp_win_64: Save-As some Windows CB projects using Win32. (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+* Test Only: Added GitContribPlugins workspace(s).
+- pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
+- AutoVersioning-unix.cbp: Enabled "sdk.h" PCH. (Thanks stahta01)
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+- pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
+- pch_cbp_win_wx30: Added define "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+- cbp_win_wx30: Saves-As several Windows wx30 Projects. (Thanks stahta01)
+* pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
+- pch_cbp_win_wx28: Save-As some Windows CB projects. (Thanks stahta01)
+- ProjectOptionsManipulator: Added include of "sdk.h" and rearranged includes. (Thanks stahta01)
+- dragscroll: Removed #pragma interface and implementation. (Thanks stahta01)
+- MouseSap: Removed #pragma interface and implementation. (Thanks stahta01)
+- AutoVersioning: Moved the location of the "sdk.h" include. (Thanks stahta01)
+- Cscope: Added needed wx header to source file. (Thanks stahta01)
+* regex_testbed: Removed include of "wx/wxprec.h" and "wx/wx.h" from files. (Thanks stahta01)
+* cb_koders: Removed include of "wx/wxprec.h" from files. (Thanks stahta01)
+* EditorConfig: Removed include of "wx/wxprec.h" and "WX_PRECOMP" from files. (Thanks stahta01)
+* Cscope: Removed include of "wx/wxprec.h" and "wx/wx.h" from files. (Thanks stahta01)
 
 
 ###
