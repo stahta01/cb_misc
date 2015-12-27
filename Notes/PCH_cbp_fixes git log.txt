@@ -1,11 +1,15 @@
 $ git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cbp_fixes
 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
 - devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
 - devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-* devpak_plugin: Added object search folders. (Thanks stahta01)
+- pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
 - devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 - devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
@@ -123,7 +127,6 @@ $ git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/
 * SmartIndent: Removed "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
 - SmartIndent: Rearranged includes so "sdk.h" is first. (Thanks stahta01)
 * wxSmithContribItems-unix.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
-FIXUP: wxSmithAui.cbp corrected pch folder.
 * wxSmithAui.cbp: Added [-include "wx_pch.h"] and "USE_PCH" to Unix target. (Thanks stahta01)
 - wxSmith-unix.cbp: Moved defines to target level.
 * Test Only: Added wxSmithPlugins workspace(s).
@@ -160,6 +163,7 @@ FIXUP: wxSmithAui.cbp corrected pch folder.
 * wxContribItems: Removed include of "wx/wxprec.h". (Thanks stahta01)
 - lib_finder: Fixed PCH code issues using "sdk.h". (Thanks stahta01)
 - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+- CodeBlocks_wx30_64.cbp: Enabled PCH files. (Thanks stahta01)
 - CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
 * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
 * defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
