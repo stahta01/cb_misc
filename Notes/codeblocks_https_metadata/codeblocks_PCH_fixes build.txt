@@ -20,6 +20,7 @@ git svn fetch && git svn info
     envvars_wx30.cbp            Checked OK for "NOPCH".
     wxSmith_wx30.cbp            Checked OK for "NOPCH".
     wxSmith.cbp                 Checked OK for "NOPCH".
+    wxSmith-unix.cbp            Checked OK for "NOPCH".
     Exporter_wx30.cbp           Checked OK for "NOPCH".
     Exporter_wx30.cbp           Checked OK for Missing [directory="../../../.objs]
     wxContribItems.cbp          Checked OK for "pch/wx_pch.h"
@@ -30,11 +31,11 @@ git svn fetch && git svn info
 
 # Projects with issues
  Missing "-Winvalid-pch"
-    wxSmithAui_wx30_64.cbp          PCH/wxSmith  Fixed Windows Target
-    TestPlot.cbp                    PCH/wxSmith  Find where Save-As was done and remove it.
+    wxSmithAui_wx30_64.cbp          PCH/wxSmith  Fixed Windows and Unix Targets
+    TestPlot.cbp                    PCH/wxSmith
     IETest.cbp                      PCH/wxSmith
  Has "NOPCH"
-    wxSmith-unix.cbp                PCH/wxSmith
+
  Has "WX_PRECOMP" in branch PCH/cbp_fixes
     wxSmithDemo.cbp                 PCH/wxSmith
  Missing [directory="../../../.objs]
