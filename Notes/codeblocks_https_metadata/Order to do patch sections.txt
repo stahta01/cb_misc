@@ -1,0 +1,12 @@
+Order to do patch sections.txt
+
+bugfix/sdk
+bugfix/project_n_workspace
+bugfix/plugins
+feature/sdk
+wxContribItems
+portability/fixes
+PCH
+  PCH/core
+  PCH/wxContribItems
+  etc.
