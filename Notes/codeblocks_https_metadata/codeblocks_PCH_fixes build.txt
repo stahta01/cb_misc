@@ -107,7 +107,7 @@ git push pch_fixes
 #  git rebase origin/master && git push pch_fixes --force-with-lease
 ##
 
-git format-patch origin/master
+git format-patch origin/master..origin/portability/fixes
 
 
 git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cbp_fixes
@@ -156,7 +156,7 @@ git checkout PCH/wxContribItems && git status -uno
 # git fetch origin && git rebase origin/wxContribItems && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 git push pch_fixes
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 ###
 
 git rebase -i pch_fixes/PCH/core
@@ -203,9 +203,10 @@ cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxSmith && git status -uno
 # git pull
 git rebase pch_fixes/PCH/wxContribItems && git status -uno
+# git am 0192-IETest.cbp-Save-As-Windows-project.-Thanks-stahta01.patch
 # git rebase -i pch_fixes/PCH/wxContribItems
 git push pch_fixes
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 #  git format-patch PCH/wxContribItems
 
@@ -240,7 +241,7 @@ git checkout PCH/BrowseTracker && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes -u
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 ###
 # * SmartIndent: Removed "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
@@ -250,7 +251,7 @@ git checkout PCH/SmartIndent && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 
 ###
@@ -260,7 +261,7 @@ git checkout PCH/keybinder && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 #include "sdk.h" // Code::Blocks SDK and Precompiled Header
 
@@ -272,7 +273,7 @@ git checkout PCH/DoxyBlocks && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 ###
 # FileManager:
@@ -283,7 +284,7 @@ git checkout PCH/FileManager && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 ###
 # pch_cbp_win_wx28:
@@ -297,7 +298,7 @@ git checkout PCH/NassiShneiderman && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
@@ -321,7 +322,7 @@ git checkout PCH/toolsplus && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git rebase -i origin/master
 
@@ -418,7 +419,7 @@ git checkout PCH/contrib && git fetch pch_fixes && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git rebase -i pch_fixes/PCH/core
 
@@ -456,7 +457,7 @@ git checkout PCH/help_plugin && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
@@ -471,7 +472,7 @@ git checkout PCH/codesnippets && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git rebase -i pch_fixes/PCH/core
 
@@ -483,7 +484,7 @@ git checkout PCH/HexEditor && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 add4681 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
@@ -498,7 +499,7 @@ git checkout PCH/headerfixup && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..PCH/headerfixup
 03dc1e4 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
@@ -514,10 +515,11 @@ git checkout PCH/misc && git status -uno
 ##  git log
 git rebase pch_fixes/PCH/core && git status -uno
 #
+##  git rebase -i pch_fixes/PCH/core
+#
 git push -u pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 ###
-
 
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/source_exporter && git status -uno
@@ -537,7 +539,7 @@ git rebase pch_fixes/PCH/core && git status -uno
 #  git rebase -i pch_fixes/PCH/core
 #  git status -uno
 git push pch_fixes 
-#  git rebase master && git push pch_fixes --force-with-lease
+#  git rebase origin/master && git push pch_fixes --force-with-lease
 ##
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/SpellChecker
