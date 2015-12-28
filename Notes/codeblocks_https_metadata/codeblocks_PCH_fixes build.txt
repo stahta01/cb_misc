@@ -30,15 +30,17 @@ git svn fetch && git svn info
 
 # Projects with issues
  Missing "-Winvalid-pch"
-    TestPlot.cbp                    PCH/misc
-    IETest.cbp                      PCH/misc
+    wxSmithAui_wx30_64.cbp          PCH/wxSmith  Fixed Windows Target
+    TestPlot.cbp                    PCH/wxSmith  Find where Save-As was done and remove it.
+    IETest.cbp                      PCH/wxSmith
  Has "NOPCH"
-    wxSmith-unix.cbp
+    wxSmith-unix.cbp                PCH/wxSmith
  Has "WX_PRECOMP" in branch PCH/cbp_fixes
-    wxSmithDemo.cbp
+    wxSmithDemo.cbp                 PCH/wxSmith
  Missing [directory="../../../.objs]
-    wxSmithDemo.cbp
- Has "wx_pch.h"
+    wxSmithDemo.cbp                 PCH/wxSmith
+
+Has "wx_pch.h" this NOT a problem
     Exporter_wx30.cbp
     SpellChecker_wx30.cbp
     wxContribItems.cbp
@@ -233,6 +235,8 @@ git --no-pager log --pretty=format:%s PCH/wxContribItems..pch_fixes/PCH/wxSmith
 ###
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/BrowseTracker && git status -uno
+#
+git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes -u
 ##  git rebase master && git push pch_fixes --force-with-lease
