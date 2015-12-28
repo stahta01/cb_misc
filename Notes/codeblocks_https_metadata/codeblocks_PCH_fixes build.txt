@@ -34,6 +34,8 @@ git svn fetch && git svn info
     IETest.cbp                      PCH/misc
  Has "NOPCH"
     wxSmith-unix.cbp
+ Has "WX_PRECOMP" in branch PCH/cbp_fixes
+    wxSmithDemo.cbp
  Missing [directory="../../../.objs]
     wxSmithDemo.cbp
  Has "wx_pch.h"
@@ -516,7 +518,10 @@ cd ../codeblocks_PCH_fixes-git
 git checkout PCH/source_exporter && git status -uno
 ##  git log
 git push pch_fixes 
-##  git rebase master && git push pch_fixes --force-with-lease
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+
+git rebase -i origin/master
+
 ###
 # fixup!
 ##
