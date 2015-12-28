@@ -1,8 +1,11 @@
 Order to do patch sections.txt
 
 bugfix/sdk
-bugfix/project_n_workspace
 bugfix/plugins
+Save-As several CB Projects; Use Windows 64 bit for wx30_64 projects.
+bugfix/project_n_workspace 
+   ToolsPlus.cbp, codesnippets-unix.cbp, cb_share_config-unix.cbp,
+   wxContribItems.cbp, CodeBlocks*.cbp, and wxSmithContribItems/wx30/wx30_64.cbp
 feature/sdk
 wxContribItems
 portability/fixes
