@@ -14,34 +14,26 @@ git svn fetch && git svn info
 #
 ####
 
-# Projects with checked issues
-    wxContribItems_wx30.cbp     Checked OK for "NOPCH".
-    wxContribItems.cbp          Checked OK for "NOPCH".
-    envvars.cbp                 Checked OK for "NOPCH".
-    envvars_wx30.cbp            Checked OK for "NOPCH".
-    envvars_wx30_64.cbp         Checked OK for "NOPCH".
-    wxSmith_wx30.cbp            Checked OK for "NOPCH".
-    wxSmith.cbp                 Checked OK for "NOPCH".
-    wxSmith-unix.cbp            Checked OK for "NOPCH".
-    Exporter_wx30.cbp           Checked OK for "NOPCH".
-    Exporter_wx30.cbp           Checked OK for Missing [directory="../../../.objs]
-    wxContribItems.cbp          Checked OK for "pch/wx_pch.h"
-    wxContribItems_wx30.cbp     Checked OK for "pch/wx_pch.h"
-    wxSmith-unix.cbp            Checked OK for "pch/wx_pch.h"
-    wxSmith.cbp                 Checked OK for "pch/wx_pch.h"
-    wxSmith_wx30.cbp            Checked OK for "pch/wx_pch.h"
-    wxSmithDemo.cbp             Checked OK; does NOT need object folder.
 
 # Projects with issues
  Missing "-Winvalid-pch"
     TestPlot.cbp                    PCH/wxSmith
     IETest.cbp                      PCH/wxSmith
  Has "NOPCH"
-    Exporter.cbp
-    Exporter_wx30_64.cbp
+    Exporter.cbp                    Checked OK for "NOPCH".
+    Exporter_wx30.cbp               Checked OK for "NOPCH".
+    Exporter_wx30_64.cbp            Checked OK for "NOPCH".
+    wxSmith-unix.cbp                Checked OK for "NOPCH".
+    wxSmith.cbp                     Checked OK for "NOPCH".
+    wxSmith_wx30.cbp                Checked OK for "NOPCH".
+    envvars.cbp                     Checked OK for "NOPCH".
+    envvars_wx30.cbp                Checked OK for "NOPCH".
+    envvars_wx30_64.cbp             Checked OK for "NOPCH".
+    wxContribItems.cbp              Checked OK for "NOPCH".
+    wxContribItems_wx30.cbp         Checked OK for "NOPCH".
+    And many wx30_64.cbp
  Has "WX_PRECOMP" in branch PCH/cbp_fixes
-
-
+    No Projects
  Has [directory="$(CBDIR)/.objs]; this is NOT a problem!
     cbprofiler.unix.cbp
     cbprofiler_wx30-unix.cbp
@@ -105,6 +97,15 @@ Has [wx_pch.h&quot;] but, NOT [wx_pch.h"]
     wxSmithContribItems-unix.cbp
     wxSmithContribItems.cbp
     wxSmithContribItems_wx30.cbp
+
+# Projects with checked issues
+    Exporter_wx30.cbp           Checked OK for Missing [directory="../../../.objs]
+    wxContribItems.cbp          Checked OK for "pch/wx_pch.h"
+    wxContribItems_wx30.cbp     Checked OK for "pch/wx_pch.h"
+    wxSmith-unix.cbp            Checked OK for "pch/wx_pch.h"
+    wxSmith.cbp                 Checked OK for "pch/wx_pch.h"
+    wxSmith_wx30.cbp            Checked OK for "pch/wx_pch.h"
+    wxSmithDemo.cbp             Checked OK; does NOT need object folder.
 
 # Things I copy and paste.
 
