@@ -41,12 +41,16 @@ git svn fetch && git svn info
     Exporter_wx30_64.cbp
  Has "WX_PRECOMP" in branch PCH/cbp_fixes
 
- Missing [directory="../../../.objs]
+
+ Has [directory="$(CBDIR)/.objs]; this is NOT a problem!
+    cbprofiler.unix.cbp
+    cbprofiler_wx30-unix.cbp
+    symtab-unix.cbp
+    symtab_wx30-unix.cbp
+ Missing [directory="../../../.objs] and [directory="$(CBDIR)/.objs]
     codesnippets_wx30_64.cbp
     DoxyBlocks_wx30_64.cbp
     FileManager_wx30_64.cbp
-    headerfixup-unix.cbp
-    headerfixup_wx30-unix.cbp
     headerfixup_wx30_64.cbp
     help-plugin-unix.cbp
     help-plugin_wx30-unix.cbp
@@ -55,7 +59,6 @@ git svn fetch && git svn info
     HexEditor_wx30-unix.cbp
     HexEditor_wx30_64.cbp
     keybinder_wx30_64.cbp
-    NassiShneiderman.cbp
     NassiShneiderman_wx30_64.cbp
     Exporter-unix.cbp
     Exporter.cbp
@@ -63,15 +66,13 @@ git svn fetch && git svn info
     Exporter_wx30.cbp
     Exporter_wx30_64.cbp
     SpellChecker-unix.cbp
-    SpellChecker.cbp
     SpellChecker_wx30-unix.cbp
     SpellChecker_wx30_64.cbp
     ThreadSearch-unix.cbp
-    ThreadSearch.cbp
     ThreadSearch_wx30-unix.cbp
     ToolsPlus_wx30_64.cbp
-    Valgrind-unix.cbp
-    Valgrind_wx30-unix.cbp
+   Valgrind-unix.cbp
+   Valgrind_wx30-unix.cbp
     wxContribItems-unix.cbp
     wxContribItems_wx30-unix.cbp
     wxContribItems_wx30_64.cbp
@@ -82,6 +83,7 @@ git svn fetch && git svn info
     wxSmithContribItems_wx30_64.cbp
     TestPlot.cbp
     wxSmithDateTimePicker.cbp
+    wxSmithDemo.cbp
     wxsSmithIExplore.cbp
     IETest.cbp
     wxsSmithSTC.cbp
