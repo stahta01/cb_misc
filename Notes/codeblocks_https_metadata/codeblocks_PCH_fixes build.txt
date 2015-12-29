@@ -11,7 +11,36 @@ cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes && git fetch origin && git status -uno
 git checkout master && git pull origin master && git status -uno
 git svn fetch && git svn info
+###
 #
+##
+# git checkout -b PCH/core pch_fixes/PCH/core
+##
+cd ../codeblocks_PCH_fixes-git && git fetch origin && git fetch pch_fixes
+git checkout PCH/core && git rebase origin/master && git status -uno
+# 
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+
+git rebase -i origin/master
+
+git --no-pager log --pretty=format:%s origin/master..pch_fixes/PCH/core
+- CodeBlocks_wx30_64.cbp: Enabled PCH files. (Thanks stahta01)
+- CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
+* pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
+- win_cbp: Moved wxmsw$(WX_VERSION)$(WX_SUFFIX) from project level to target level. (Thanks stahta01)
+* defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
+* debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
+* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
+* occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
+* src: Added needed wx headers. (Thanks stahta01)
+- compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
+* astyle: Added needed wx headers. (Thanks stahta01)
+* abbreviations: Added needed wx headers. (Thanks stahta01)
+- sdk: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
+
+git format-patch origin/master
+
 ####
 
 
@@ -411,38 +440,6 @@ git --no-pager log --pretty=format:%s origin/master..origin/portability/fixes
 - BrowseTracker: Save-As CB Windows project files. (Thanks stahta01)
 - SpellChecker: Save-As CB WinOS projects using CB 13.12.
 - help_plugin: Save-As using CB 13.12.
-
-###
-#
-##
-# git checkout -b PCH/core pch_fixes/PCH/core
-##
-cd ../codeblocks_PCH_fixes-git
-git checkout PCH/core && git status -uno
-# 
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
-
-git rebase -i origin/master
-
-
-git --no-pager log --pretty=format:%s origin/master..pch_fixes/PCH/core
-- CodeBlocks_wx30_64.cbp: Enabled PCH files. (Thanks stahta01)
-- CodeBlocks_wx30.cbp: Enabled PCH files. (Thanks stahta01)
-* pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
-- win_cbp: Moved wxmsw$(WX_VERSION)$(WX_SUFFIX) from project level to target level. (Thanks stahta01)
-* defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
-* debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
-* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
-* occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
-* src: Added needed wx headers. (Thanks stahta01)
-- compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
-* astyle: Added needed wx headers. (Thanks stahta01)
-* abbreviations: Added needed wx headers. (Thanks stahta01)
-- sdk: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
-
-git format-patch origin/master
-
 
 ###
 ../../../.objs/include
