@@ -42,22 +42,8 @@ git svn fetch && git svn info
  Has "WX_PRECOMP" in branch PCH/cbp_fixes
 
  Missing [directory="../../../.objs]
-    AutoVersioning_wx30-unix.cbp
-    byogames_wx30-unix.cbp
-    cb_koders_wx30-unix.cbp
-    Cccc_wx30-unix.cbp
-    codesnippets-unix.cbp
-    codesnippets_wx30-unix.cbp
     codesnippets_wx30_64.cbp
-    codestat_wx30-unix.cbp
-    copystrings_wx30-unix.cbp
-    CppCheck_wx30-unix.cbp
-    Cscope_wx30-unix.cbp
     DoxyBlocks_wx30_64.cbp
-    DragScroll_wx30-unix.cbp
-    EditorConfig_wx30-unix.cbp
-    EditorTweaks_wx30-unix.cbp
-    envvars_wx30-unix.cbp
     FileManager_wx30_64.cbp
     headerfixup-unix.cbp
     headerfixup_wx30-unix.cbp
@@ -68,16 +54,9 @@ git svn fetch && git svn info
     HexEditor-unix.cbp
     HexEditor_wx30-unix.cbp
     HexEditor_wx30_64.cbp
-    IncrementalSearch_wx30-unix.cbp
     keybinder_wx30_64.cbp
-    MouseSap_wx30-unix.cbp
     NassiShneiderman.cbp
     NassiShneiderman_wx30_64.cbp
-    cbprofiler.unix.cbp
-    cbprofiler_wx30-unix.cbp
-    ProjectOptionsManipulator_wx30-unix.cbp
-    RegExTestbed_wx30-unix.cbp
-    ReopenEditor_wx30-unix.cbp
     Exporter-unix.cbp
     Exporter.cbp
     Exporter_wx30-unix.cbp
@@ -87,8 +66,6 @@ git svn fetch && git svn info
     SpellChecker.cbp
     SpellChecker_wx30-unix.cbp
     SpellChecker_wx30_64.cbp
-    symtab-unix.cbp
-    symtab_wx30-unix.cbp
     ThreadSearch-unix.cbp
     ThreadSearch.cbp
     ThreadSearch_wx30-unix.cbp
@@ -130,6 +107,7 @@ Has "wx_pch.h" this NOT a problem
 $(CBDIR)/.objs/include
 ../../../.objs/include
 ../../../.objs30/include
+$(CBDIR)/.objs30/include
 ../../../.objs30_64/include
 ##
 # - pch_cbp_win_wx28:
