@@ -159,34 +159,23 @@ git push pch_fixes
 #  git rebase origin/master && git push pch_fixes --force-with-lease
 ##
 
-git format-patch origin/master..origin/portability/fixes
-
+git --no-pager log --pretty=format:%s -10
+- codesnippets.cbp: Removed define of "WX_PRECOMP". (Thanks stahta01)
+- DevPakPlugin.cbp: Removed define of "WX_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 
 git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cbp_fixes
 
-git --no-pager log --pretty=format:%s -10
-- pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-* devpak_plugin: Added object search folders. (Thanks stahta01)
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
 
-# # Currently pch_fixes/PCH/devpak_plugin is the top rebase branch in the long list.
-git fetch pch_fixes && git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-* devpak_plugin: Added object search folders. (Thanks stahta01)
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
+git format-patch origin/portability/fixes..pch_fixes/PCH/cbp_fixes
+
 
 
 ####
