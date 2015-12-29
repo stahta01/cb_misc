@@ -38,6 +38,7 @@ Move Branch
 Add Branch
     bugfix/plugins
 
+    pch_fixes/PCH/Valgrind
     pch_fixes/PCH/HexEditor
     pch_fixes/PCH/SpellChecker
     pch_fixes/PCH/codesnippets

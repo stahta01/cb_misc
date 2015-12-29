@@ -88,17 +88,19 @@ git svn fetch && git svn info
     IETest.cbp
     wxsSmithSTC.cbp
 
-Has "wx_pch.h" this NOT a problem
+Has [wx_pch.h"] this NOT a problem
     Exporter.cbp                    PCH/source_exporter
     Exporter_wx30.cbp
-    SpellChecker_wx30.cbp           PCH/SpellChecker
-    SpellChecker.cbp
+    Exporter_wx30_64.cbp
+    SpellChecker.cbp                PCH/SpellChecker
+    SpellChecker_wx30.cbp
     wxContribItems.cbp              PCH/wxContribItems
     wxContribItems_wx30.cbp
     wxSmith-unix.cbp                PCH/wxSmith
     wxSmith.cbp
     wxSmith_wx30.cbp
-    wxSmithAui.cbp
+Has [wx_pch.h&quot;] but, NOT [wx_pch.h"]
+    wxSmithAui.cbp                  PCH/wxSmith
     wxSmithAui_wx30.cbp
     wxSmithContribItems-unix.cbp
     wxSmithContribItems.cbp
