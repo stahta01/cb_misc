@@ -69,18 +69,10 @@ git format-patch origin/master
     symtab-unix.cbp
     symtab_wx30-unix.cbp
  Missing [directory="../../../.objs] and [directory="$(CBDIR)/.objs]
-    codesnippets_wx30_64.cbp
-    DoxyBlocks_wx30_64.cbp
-    FileManager_wx30_64.cbp
-    headerfixup_wx30_64.cbp
     help-plugin-unix.cbp
     help-plugin_wx30-unix.cbp
-    help-plugin_wx30_64.cbp
     HexEditor-unix.cbp
     HexEditor_wx30-unix.cbp
-    HexEditor_wx30_64.cbp
-    keybinder_wx30_64.cbp
-    NassiShneiderman_wx30_64.cbp
     Exporter-unix.cbp
     Exporter.cbp
     Exporter_wx30-unix.cbp
@@ -88,12 +80,10 @@ git format-patch origin/master
     Exporter_wx30_64.cbp
     SpellChecker-unix.cbp
     SpellChecker_wx30-unix.cbp
-    SpellChecker_wx30_64.cbp
     ThreadSearch-unix.cbp
     ThreadSearch_wx30-unix.cbp
-    ToolsPlus_wx30_64.cbp
-   Valgrind-unix.cbp
-   Valgrind_wx30-unix.cbp
+    Valgrind-unix.cbp
+    Valgrind_wx30-unix.cbp
     wxContribItems-unix.cbp
     wxContribItems_wx30-unix.cbp
     wxContribItems_wx30_64.cbp
@@ -488,7 +478,8 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 * Cscope: Removed include of "wx/wxprec.h" and "wx/wx.h" from files. (Thanks stahta01)
 
 
-###
+###  help-plugin
+# help_plugin:
 #
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/help_plugin && git status -uno
