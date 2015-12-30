@@ -80,8 +80,8 @@
 |copystrings_wx30.cbp                   |CB_PRECOMP|
 |debuggergdb_test-unix.cbp              |?none|
 |debuggergdb_test_wx30-unix.cbp         |?none|
-|envvars.cbp                            |CB_PRECOMP|
-|envvars_wx30.cbp                       |CB_PRECOMP|
+|envvars.cbp                            |CB_PRECOMP,NOPCH|
+|envvars_wx30.cbp                       |CB_PRECOMP,NOPCH|
 |headerfixup.cbp                        |CB_PRECOMP|
 |headerfixup_wx30.cbp                   |CB_PRECOMP|
 |headerguard.cbp                        |CB_PRECOMP|
@@ -97,11 +97,11 @@
 |symtab.cbp                             |CB_PRECOMP|
 |symtab_wx30.cbp                        |CB_PRECOMP|
 |tidycmt.cbp                            |CB_PRECOMP|
-|wxContribItems.cbp                     |USE_PCH|
-|wxContribItems_wx30.cbp                |USE_PCH|
+|wxContribItems.cbp                     |USE_PCH,NOPCH|
+|wxContribItems_wx30.cbp                |USE_PCH,NOPCH|
 |wxSmith-unix.cbp                       |USE_PCH|
-|wxSmith.cbp                            |USE_PCH|
-|wxSmith_wx30.cbp                       |USE_PCH|
+|wxSmith.cbp                            |USE_PCH,NOPCH|
+|wxSmith_wx30.cbp                       |USE_PCH,NOPCH|
 |wxSmithAui.cbp                         |USE_PCH|
 |wxSmithAui_wx30.cbp                    |USE_PCH|
 |wxSmithContribItems-unix.cbp           |USE_PCH|
