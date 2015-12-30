@@ -99,6 +99,28 @@ git format-patch origin/master
     IETest.cbp
     wxsSmithSTC.cbp
 
+Has USE_PCH this NOT a problem
+    Exporter.cbp
+    Exporter_wx30.cbp
+    Exporter_wx30_64.cbp
+    SpellChecker.cbp
+    SpellChecker_wx30.cbp
+    SpellChecker_wx30_64.cbp
+    wxContribItems.cbp              PCH/wxContribItems
+    wxContribItems_wx30.cbp
+    wxContribItems_wx30_64.cbp
+    wxSmith-unix.cbp
+    wxSmith.cbp
+    wxSmith_wx30.cbp
+    wxSmith_wx30_64.cbp
+    wxSmithAui.cbp
+    wxSmithAui_wx30.cbp
+    wxSmithAui_wx30_64.cbp
+    wxSmithContribItems-unix.cbp
+    wxSmithContribItems.cbp
+    wxSmithContribItems_wx30.cbp    PCH/wxSmith
+    wxSmithContribItems_wx30_64.cbp
+
 Has [wx_pch.h"] this NOT a problem
     Exporter.cbp                    PCH/source_exporter
     Exporter_wx30.cbp
@@ -166,13 +188,14 @@ git rebase pch_fixes/PCH/keybinder && \
 git rebase pch_fixes/PCH/DoxyBlocks && \
 git rebase pch_fixes/PCH/FileManager && \
 git rebase pch_fixes/PCH/source_exporter && \
-git rebase pch_fixes/PCH/SpellChecker && \
+git rebase PCH/SpellChecker && \
 git rebase pch_fixes/PCH/SmartIndent && \
-git rebase pch_fixes/PCH/wxSmith   && \
+git rebase PCH/wxSmith   && \
 #  git rebase --abort
 #  git rebase --skip
 ##
-git fetch origin && git rebase origin/portability/fixes && git status -uno
+###git fetch origin && 
+git rebase origin/portability/fixes && git status -uno
 #  git log -5
 #  git rebase -i HEAD~5
 git push pch_fixes 
@@ -263,7 +286,7 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/wxContri
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxSmith && git status -uno
 # git pull
-git rebase pch_fixes/PCH/wxContribItems && git status -uno
+git rebase PCH/wxContribItems && git status -uno
 # git am 0192-IETest.cbp-Save-As-Windows-project.-Thanks-stahta01.patch
 # git rebase -i pch_fixes/PCH/wxContribItems
 git push pch_fixes
