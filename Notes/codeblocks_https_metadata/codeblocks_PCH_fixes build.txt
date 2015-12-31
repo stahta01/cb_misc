@@ -65,8 +65,16 @@ git format-patch origin/master
 
  Has "WX_PRECOMP" in branch PCH/cbp_fixes
     No Projects
- Has [pch_mode=] in branch PCH/cbp_fixes
-    ???
+ Should be missing [pch_mode=] in branch PCH/cbp_fixes
+    Exporter*.cbp                    PCH/source_exporter
+    Exporter-unix.cbp
+    Exporter_wx30-unix.cbp
+    SpellChecker*.cbp                PCH/SpellChecker
+    wxContribItems*.cbp              PCH/wxContribItems
+    wxContribItems-unix.cbp
+    wxContribItems_wx30-unix.cbp
+    wxSmith*.cbp                     PCH/wxSmith
+
  Has [directory="$(CBDIR)/.objs]; this is NOT a problem!
     cbprofiler.unix.cbp
     cbprofiler_wx30-unix.cbp
@@ -96,7 +104,7 @@ Has USE_PCH this NOT a problem
     SpellChecker.cbp
     SpellChecker_wx30.cbp
     SpellChecker_wx30_64.cbp
-    wxContribItems.cbp              PCH/wxContribItems
+    wxContribItems.cbp
     wxContribItems_wx30.cbp
     wxContribItems_wx30_64.cbp
     wxSmith-unix.cbp
@@ -108,7 +116,7 @@ Has USE_PCH this NOT a problem
     wxSmithAui_wx30_64.cbp
     wxSmithContribItems-unix.cbp
     wxSmithContribItems.cbp
-    wxSmithContribItems_wx30.cbp    PCH/wxSmith
+    wxSmithContribItems_wx30.cbp
     wxSmithContribItems_wx30_64.cbp
 
 Has [wx_pch.h"] this NOT a problem
@@ -161,6 +169,7 @@ $(CBDIR)/.objs30/include
 
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/cbp_fixes && git status -uno
+#   git pull
 ##
 # Rebase this complete section after one is added or 
 #   a branch is changed.
