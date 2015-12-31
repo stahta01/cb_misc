@@ -55,20 +55,13 @@ git format-patch origin/master
     wxSmith-unix.cbp                Checked OK for "NOPCH".
     wxSmith.cbp                     Checked OK for "NOPCH".
     wxSmith_wx30.cbp                Checked OK for "NOPCH".
-    wxSmith_wx30_64.cbp
+    wxSmith_wx30_64.cbp             Checked OK for "NOPCH".
     envvars.cbp                     Checked OK for "NOPCH".
     envvars_wx30.cbp                Checked OK for "NOPCH".
     envvars_wx30_64.cbp             Checked OK for "NOPCH".
     wxContribItems.cbp              Checked OK for "NOPCH".
     wxContribItems_wx30.cbp         Checked OK for "NOPCH".
-    wxContribItems_wx30_64.cbp    Missing "NOPCH".
-    headerfixup_wx30_64.cbp
-    help-plugin_wx30_64.cbp
-    HexEditor_wx30_64.cbp
-    keybinder_wx30_64.cbp
-    NassiShneiderman_wx30_64.cbp
-    SmartIndent_wx30_64.cbp
-    ToolsPlus_wx30_64.cbp
+    wxContribItems_wx30_64.cbp      Checked OK for "NOPCH".
 
  Has "WX_PRECOMP" in branch PCH/cbp_fixes
     No Projects
@@ -98,9 +91,7 @@ git format-patch origin/master
     wxContribItems_wx30_64.cbp
     wxSmith_wx30-unix.cbp
     wxSmith_wx30_64.cbp
-    wxSmithAui_wx30_64.cbp
     wxSmithContribItems_wx30-unix.cbp
-    wxSmithContribItems_wx30_64.cbp
     TestPlot.cbp
     wxSmithDateTimePicker.cbp
     wxSmithDemo.cbp
