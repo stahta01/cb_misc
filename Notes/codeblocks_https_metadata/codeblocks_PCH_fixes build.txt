@@ -654,3 +654,44 @@ git rebase pch_fixes/PCH/core && git status -uno
 git push -u pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 ###
+
+
+######
+#
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+git checkout PCH/wx_pch_h && git status -uno
+#
+git fetch origin && git rebase origin/portability/fixes && git status -uno
+##  git rebase -i origin/portability/fixes
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+######
+#
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+git checkout PCH/cbp_unix_and_win_wx28 && git status -uno
+#
+##  git rebase pch_fixes/PCH/wx_pch_h && git status -uno
+#
+git fetch origin && git rebase origin/portability/fixes && git status -uno
+#
+##  git rebase -i origin/portability/fixes
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+######
+#
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+git checkout PCH/cbp_win_wx30 && git status -uno
+#
+git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
+##  git rebase -i pch_fixes/PCH/cbp_unix_and_win_wx28
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+######
+
+
