@@ -274,9 +274,6 @@ git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/he
 - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 
 ######
-
-###########################
-
 #
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/codesnippets && git status -uno
@@ -292,76 +289,88 @@ git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 ######
-
-###
 #
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/HexEditor && git status -uno
 #
-#   git pull && git status -uno
-git rebase pch_fixes/PCH/core && git status -uno
-#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
-#   git rebase -i pch_fixes/PCH/core
+##  git pull && git status -uno
+#
+git fetch origin && git rebase origin/portability/fixes && git status -uno
+#
+##  git rebase -i origin/portability/fixes && git status -uno
+##  git --no-pager log --pretty=format:%s origin/portability/fixes..HEAD
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
-add4681 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-ecb29e8 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-a7b982d - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-6b6d306 - HexEditor: Save-As Windows CB projects. (Thanks stahta01)
+git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/HexEditor
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
+- HexEditor_wx30_64.cbp: Save-As Windows CB project. (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+- HexEditor: Save-As Windows CB projects. (Thanks stahta01)
 
-###
+######
+#
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/headerfixup && git status -uno
 #
-#   git pull && git status -uno
-git rebase pch_fixes/PCH/core && git status -uno
-#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
-#   git rebase -i pch_fixes/PCH/core
+##  git pull && git status -uno
+#
+git fetch origin && git rebase origin/portability/fixes && git status -uno
+#
+##  git rebase -i origin/portability/fixes && git status -uno
+##  git --no-pager log --pretty=format:%s origin/portability/fixes..HEAD
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-git --no-pager log --pretty=format:%s pch_fixes/PCH/core..PCH/headerfixup
-03dc1e4 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-6d36b0e - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-f6a1e3e - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
-7887823 - headerfixup: Save-As Windows CB Projects. (Thanks stahta01)
+git --no-pager log --pretty=format:%s origin/portability/fixes..PCH/headerfixup
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
+- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+- headerfixup: Save-As Windows CB Projects. (Thanks stahta01)
 
-###
-
-###
+######
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/misc && git status -uno
 ##  git log
-#   git pull && git status -uno
-git rebase pch_fixes/PCH/core && git status -uno
-#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
-#   git rebase -i pch_fixes/PCH/core
 #
-##  git rebase -i pch_fixes/PCH/core
+##  git pull && git status -uno
+#
+git fetch origin && git rebase origin/portability/fixes && git status -uno
+#
+##  git rebase -i origin/portability/fixes && git status -uno
+##  git --no-pager log --pretty=format:%s origin/portability/fixes..HEAD
 #
 git push -u pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
-###
+######
 
-###
+###########################
 
-
-###
-
+#
 ##
 # git checkout -b PCH/devpak_plugin pch_fixes/PCH/devpak_plugin
 ##
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/devpak_plugin && git status -uno
 #
-#   git pull && git status -uno
-git rebase pch_fixes/PCH/core && git status -uno
-#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
-#   git rebase -i pch_fixes/PCH/core
+##  git pull && git status -uno
+#
+git fetch origin && git rebase origin/portability/fixes && git status -uno
+#
+##  git rebase -i origin/portability/fixes && git status -uno
+##  git --no-pager log --pretty=format:%s origin/portability/fixes..HEAD
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -386,7 +395,8 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_p
 - devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
 
 
-###
+######
+
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/Valgrind && git status -uno
 #
