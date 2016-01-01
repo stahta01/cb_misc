@@ -2,10 +2,11 @@
 |:--------------------------------------|:--------:|
 |Addr2LineUI.cbp                        |none|
 |Addr2LineUI_wx30.cbp                   |none|
-|AutoVersioning-unix.cbp                |?none|
+|AutoVersioning-unix.cbp                |CB_PRECOMP|
 |AutoVersioning.cbp                     |CB_PRECOMP|
-|AutoVersioning_wx30-unix.cbp           |?none|
+|AutoVersioning_wx30-unix.cbp           |CB_PRECOMP|
 |AutoVersioning_wx30.cbp                |CB_PRECOMP|
+|AutoVersioning_wx30_64.cbp             |CB_PRECOMP|
 |BrowseTracker.cbp                      |CB_PRECOMP|
 |BrowseTracker_wx30.cbp                 |CB_PRECOMP|
 |CbLauncher.cbp                         |none|
@@ -22,8 +23,8 @@
 |DevPakPlugin_wx30.cbp                  |CB_PRECOMP|
 |DoxyBlocks.cbp                         |CB_PRECOMP|
 |DoxyBlocks_wx30.cbp                    |CB_PRECOMP|
-|DragScroll.cbp                         |NOPCH|
-|DragScroll_wx30.cbp                    |NOPCH|
+|DragScroll.cbp                         |CB_PRECOMP|
+|DragScroll_wx30.cbp                    |CB_PRECOMP|
 |EditorConfig.cbp                       |CB_PRECOMP|
 |EditorConfig_wx30.cbp                  |CB_PRECOMP|
 |EditorTweaks.cbp                       |CB_PRECOMP|
@@ -42,7 +43,7 @@
 |MouseSap_wx30.cbp                      |CB_PRECOMP|
 |NassiShneiderman-unix.cbp              |CB_PRECOMP|
 |NassiShneiderman.cbp                   |CB_PRECOMP|
-|NassiShneiderman_wx30-unix.cbp         |?CB_PRECOMP|
+|NassiShneiderman_wx30-unix.cbp         |CB_PRECOMP|
 |NassiShneiderman_wx30.cbp              |CB_PRECOMP|
 |ProjectOptionsManipulator.cbp          |CB_PRECOMP|
 |ProjectOptionsManipulator_wx30.cbp     |CB_PRECOMP|
@@ -50,9 +51,9 @@
 |RegExTestbed_wx30.cbp                  |CB_PRECOMP|
 |ReopenEditor.cbp                       |CB_PRECOMP|
 |ReopenEditor_wx30.cbp                  |CB_PRECOMP|
-|SmartIndent-unix.cbp                   |?CB_PRECOMP|
+|SmartIndent-unix.cbp                   |CB_PRECOMP|
 |SmartIndent.cbp                        |CB_PRECOMP|
-|SmartIndent_wx30-unix.cbp              |?CB_PRECOMP|
+|SmartIndent_wx30-unix.cbp              |CB_PRECOMP|
 |SmartIndent_wx30.cbp                   |CB_PRECOMP|
 |SpellChecker.cbp                       |USE_PCH|
 |SpellChecker_wx30.cbp                  |USE_PCH|
@@ -82,6 +83,7 @@
 |debuggergdb_test_wx30-unix.cbp         |?none|
 |envvars.cbp                            |CB_PRECOMP,NOPCH|
 |envvars_wx30.cbp                       |CB_PRECOMP,NOPCH|
+|envvars_wx30_64.cbp                    |CB_PRECOMP,NOPCH|
 |headerfixup.cbp                        |CB_PRECOMP|
 |headerfixup_wx30.cbp                   |CB_PRECOMP|
 |headerguard.cbp                        |CB_PRECOMP|
