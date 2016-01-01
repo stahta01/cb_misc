@@ -81,15 +81,16 @@ git format-patch origin/master
     symtab-unix.cbp
     symtab_wx30-unix.cbp
  Missing [directory="../../../.objs] and [directory="$(CBDIR)/.objs]
-#  ../../../.objs/include
-#  ../../../.objs30/include
-#  - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-#  git status -uno
-#  git push
-- pch_cbp_unix: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
-    Valgrind-unix.cbp
-    Valgrind_wx30-unix.cbp
-    wxSmith_wx30_64.cbp
+    Exporter-unix.cbp
+    Exporter.cbp
+    Exporter_wx30-unix.cbp
+    Exporter_wx30.cbp
+    Exporter_wx30_64.cbp
+    wxContribItems-unix.cbp             Likely needs fixing
+    wxContribItems_wx30-unix.cbp        Likely needs fixing
+    wxContribItems_wx30_64.cbp          Likely needs fixing
+    wxSmith_wx30-unix.cbp               ??
+    wxSmith_wx30_64.cbp                 ??
     TestPlot.cbp
     wxSmithDateTimePicker.cbp
     wxSmithDemo.cbp
@@ -101,7 +102,9 @@ Has USE_PCH this NOT a problem
     Exporter.cbp
     Exporter_wx30.cbp
     Exporter_wx30_64.cbp
+    SpellChecker-unix.cbp
     SpellChecker.cbp
+    SpellChecker_wx30-unix.cbp
     SpellChecker_wx30.cbp
     SpellChecker_wx30_64.cbp
     wxContribItems.cbp
@@ -109,6 +112,7 @@ Has USE_PCH this NOT a problem
     wxContribItems_wx30_64.cbp
     wxSmith-unix.cbp
     wxSmith.cbp
+    wxSmith_wx30-unix.cbp
     wxSmith_wx30.cbp
     wxSmith_wx30_64.cbp
     wxSmithAui.cbp
@@ -116,6 +120,7 @@ Has USE_PCH this NOT a problem
     wxSmithAui_wx30_64.cbp
     wxSmithContribItems-unix.cbp
     wxSmithContribItems.cbp
+    wxSmithContribItems_wx30-unix.cbp
     wxSmithContribItems_wx30.cbp
     wxSmithContribItems_wx30_64.cbp
 
@@ -126,12 +131,15 @@ Has [wx_pch.h"] this NOT a problem
     SpellChecker.cbp                PCH/SpellChecker
     SpellChecker_wx30.cbp
     SpellChecker_wx30_64.cbp
+    SpellChecker-unix.cbp
+    SpellChecker_wx30-unix.cbp
     wxContribItems.cbp              PCH/wxContribItems
     wxContribItems_wx30.cbp
     wxContribItems_wx30_64.cbp
     wxSmith-unix.cbp                PCH/wxSmith
     wxSmith.cbp
     wxSmith_wx30.cbp
+    wxSmith_wx30-unix.cbp
     wxSmith_wx30_64.cbp
 
 Has [wx_pch.h&quot;] but, NOT [wx_pch.h"]
@@ -140,6 +148,7 @@ Has [wx_pch.h&quot;] but, NOT [wx_pch.h"]
     wxSmithAui_wx30_64.cbp
     wxSmithContribItems-unix.cbp
     wxSmithContribItems.cbp
+    wxSmithContribItems_wx30-unix.cbp
     wxSmithContribItems_wx30.cbp
     wxSmithContribItems_wx30_64.cbp
 
@@ -211,13 +220,13 @@ git --no-pager log --pretty=format:%s -10
 - codesnippets.cbp: Removed define of "WX_PRECOMP". (Thanks stahta01)
 - DevPakPlugin.cbp: Removed define of "WX_PRECOMP". (Thanks stahta01)
 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+- ValgrindListLog.cpp: Changed "sdk_precomp.h" to "sdk.h". (Thanks stahta01)
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
 - devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
 - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
 - devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 
 git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cbp_fixes
 
@@ -247,6 +256,7 @@ git rebase pch_fixes/PCH/core && git status -uno
 git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 ###
+
 
 git rebase -i pch_fixes/PCH/core
 
@@ -292,7 +302,7 @@ cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxSmith && git status -uno
 # git pull
 git rebase pch_fixes/PCH/wxContribItems && git status -uno
-# git am 0192-IETest.cbp-Save-As-Windows-project.-Thanks-stahta01.patch
+# git --no-pager log --pretty=format:%s PCH/wxContribItems..HEAD
 # git rebase -i pch_fixes/PCH/wxContribItems
 git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -300,14 +310,24 @@ git push pch_fixes
 #  git format-patch PCH/wxContribItems
 
 git --no-pager log --pretty=format:%s PCH/wxContribItems..pch_fixes/PCH/wxSmith
+* Test Only: Added wxSmithPlugins workspace(s).
+- pch_cbp_unix: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+- pch_cbp_unix: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+- wxSmithContribItems_wx30_64.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+- wxSmithAui_wx30_64.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+* wxSmith_wx30_64.cbp: Changed to using USE_PCH and wx_pch.h. (Thanks stahta01)
+- wxSmithDemo.cbp: Removed defines of "WX_PRECOMP" and "CB_PRECOMP".
+- wxSmithDemo.cbp: Save-As Windows project. (Thanks stahta01)
+* wxSmithAui_wx30_64.cbp: Added "-Winvalid-pch" to Unix target
+- IETest.cbp: Save-As Windows project. (Thanks stahta01)
+- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+* TestPlot.cbp: Fixed building of Project. (Thanks stahta01)
 * wxSmithContribItems-unix.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
 * wxSmithAui.cbp: Added [-include "wx_pch.h"] and "USE_PCH" to Unix target. (Thanks stahta01)
 - wxSmith-unix.cbp: Moved defines to target level.
-* Test Only: Added wxSmithPlugins workspace(s).
 * wxSmithAui_wx30.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
 * wxSmithContribItems_wx30.cbp: Changed to using USE_PCH and wxSmithLib/pch/wx_pch.h. (Thanks stahta01)
 * wxSmith_wx30.cbp: Changed to using USE_PCH and wx_pch.h. (Thanks stahta01)
-* Test Only: Added wxSmithPlugins workspace(s).
 * wxSmithAui.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
 * wxSmith-unix.cbp: Added wx_pch.h to CB Project as PCH. (Thanks stahta01)
 * wxSmithContribItems.cbp: Changed to using USE_PCH and wxSmithLib/pch/wx_pch.h. (Thanks stahta01)
@@ -346,7 +366,7 @@ git push pch_fixes
 ###
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/keybinder && git status -uno
-#
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
@@ -359,6 +379,7 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/DoxyBlocks && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
@@ -370,6 +391,7 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/FileManager && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
 #
 git push pch_fixes
@@ -384,7 +406,9 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/NassiShneiderman && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 #
 git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -406,9 +430,9 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/toolsplus && git status -uno
 #
-# git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
-#
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -473,12 +497,14 @@ src\plugins\contrib\dragscroll\dragscroll.cpp|10|warning: ..\..\..\.objs\include
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/contrib && git fetch pch_fixes && git status -uno
 # 
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-git rebase -i pch_fixes/PCH/core
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
@@ -512,7 +538,10 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/help_plugin && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -527,7 +556,10 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/codesnippets && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -539,7 +571,10 @@ git rebase -i pch_fixes/PCH/core
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/HexEditor && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -554,7 +589,10 @@ a7b982d - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/headerfixup && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -571,7 +609,10 @@ f6a1e3e - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/misc && git status -uno
 ##  git log
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #
 ##  git rebase -i pch_fixes/PCH/core
 #
@@ -593,11 +634,13 @@ git rebase -i origin/master
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/SpellChecker && git status -uno
 #  git log
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
-#  git rebase -i pch_fixes/PCH/core
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #  git status -uno
 git push pch_fixes 
-#  git rebase origin/master && git push pch_fixes --force-with-lease
+#   git rebase origin/master && git push pch_fixes --force-with-lease
 ##
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/SpellChecker
@@ -620,7 +663,10 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/SpellChe
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/devpak_plugin && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -649,7 +695,10 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_p
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/Valgrind && git status -uno
 #
+#   git pull && git status -uno
 git rebase pch_fixes/PCH/core && git status -uno
+#   git --no-pager log --pretty=format:%s pch_fixes/PCH/core..HEAD
+#   git rebase -i pch_fixes/PCH/core
 #
 git push -u pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
