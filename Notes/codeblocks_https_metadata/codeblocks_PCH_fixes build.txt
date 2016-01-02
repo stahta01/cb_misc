@@ -22,23 +22,7 @@ cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wx_pch_h && git status -uno
 #
 git fetch origin && git rebase origin/portability/fixes && git status -uno
-##  git rebase -i origin/portability/fixes
-#
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
-#
-######
-#
-### pch_fixes/
-###
-#   git checkout -b PCH/cbp_win_wx30     pch_fixes/PCH/cbp_win_wx30
-###
-#
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
-git checkout PCH/cbp_win_wx30 && git status -uno
-#
-git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
-##  git rebase -i pch_fixes/PCH/cbp_unix_and_win_wx28
+##  git rebase -i origin/portability/fixes && git status -uno
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -82,7 +66,7 @@ git checkout PCH/BrowseTracker && git status -uno
 #
 git fetch origin && git rebase origin/portability/fixes && git status -uno
 #
-##  git rebase -i origin/portability/fixes
+##  git rebase -i origin/portability/fixes && git status -uno
 #
 git push pch_fixes -u
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -97,10 +81,11 @@ git checkout PCH/SmartIndent && git status -uno
 #
 git fetch origin && git rebase origin/portability/fixes && git status -uno
 #
-##  git rebase -i origin/portability/fixes
+##  git rebase -i origin/portability/fixes && git status -uno
 #
 git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
 ######
 #
 ### pch_fixes/PCH/keybinder
@@ -112,7 +97,7 @@ git checkout PCH/keybinder && git status -uno
 #
 git fetch origin && git rebase origin/portability/fixes && git status -uno
 #
-##  git rebase -i origin/portability/fixes
+##  git rebase -i origin/portability/fixes && git status -uno
 #
 git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -128,7 +113,7 @@ git checkout PCH/DoxyBlocks && git status -uno
 #
 git fetch origin && git rebase origin/portability/fixes && git status -uno
 #
-##  git rebase -i origin/portability/fixes
+##  git rebase -i origin/portability/fixes && git status -uno
 #
 git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -146,7 +131,7 @@ git checkout PCH/FileManager && git status -uno
 #
 git fetch origin && git rebase origin/portability/fixes && git status -uno
 #
-##  git rebase -i origin/portability/fixes
+##  git rebase -i origin/portability/fixes && git status -uno
 #
 git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -166,7 +151,7 @@ git checkout PCH/NassiShneiderman && git status -uno
 #
 git fetch origin && git rebase origin/portability/fixes && git status -uno
 #
-##  git rebase -i origin/portability/fixes
+##  git rebase -i origin/portability/fixes && git status -uno
 ##  git --no-pager log --pretty=format:%s origin/portability/fixes..HEAD
 #
 git push pch_fixes
@@ -198,7 +183,7 @@ git checkout PCH/toolsplus && git status -uno
 #
 git fetch origin && git rebase origin/portability/fixes && git status -uno
 #
-##  git rebase -i origin/portability/fixes
+##  git rebase -i origin/portability/fixes && git status -uno
 ##  git --no-pager log --pretty=format:%s origin/portability/fixes..HEAD
 #
 git push pch_fixes 
@@ -229,20 +214,12 @@ git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/co
 - AutoVersioning_wx30-unix.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - pch_cbp_unix: Added defines "cbDEBUG" and "CB_PRECOMP". (Thanks stahta01)
 - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-* Test Only: Added GitContribPlugins workspace(s).
-- pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - cbp_win_64: Save-As some Windows CB projects using Win32. (Thanks stahta01)
 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-* Test Only: Added GitContribPlugins workspace(s).
 - pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
 - AutoVersioning-unix.cbp: Enabled "sdk.h" PCH. (Thanks stahta01)
 - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
 - pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
-- pch_cbp_win_wx30: Added define "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 - cbp_win_wx30: Saves-As several Windows wx30 Projects. (Thanks stahta01)
 * pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
 - pch_cbp_win_wx28: Save-As some Windows CB projects. (Thanks stahta01)
@@ -276,15 +253,12 @@ git fetch origin && git rebase origin/portability/fixes && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
+git format-patch origin/portability/fixes
+
 git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/help_plugin
 - pch_cbp_unix: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-- cbp_win: Moved search folders to target level. (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
+- cbp_win_wx28: Moved search folders to target level. (Thanks stahta01)
 
 ######
 #
@@ -322,14 +296,8 @@ git push pch_fixes
 
 git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/HexEditor
 - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added option "-Winvalid-pch". (Thanks stahta01)
 - HexEditor_wx30_64.cbp: Save-As Windows CB project. (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 - HexEditor: Save-As Windows CB projects. (Thanks stahta01)
 
 ######
@@ -350,13 +318,8 @@ git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s origin/portability/fixes..PCH/headerfixup
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 - headerfixup: Save-As Windows CB Projects. (Thanks stahta01)
 
 ######
@@ -398,18 +361,9 @@ git push pch_fixes
 
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 - pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- DevPakPlugin.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- DevPakPlugin.cbp: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 - devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
 
 ######
@@ -417,7 +371,7 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_p
 ### pch_fixes/PCH/Valgrind
 #
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
-git checkout  && git status -uno
+git checkout PCH/Valgrind && git status -uno
 #
 ##  git pull && git status -uno
 #
@@ -482,15 +436,15 @@ git push pch_fixes
 
 git --no-pager log --pretty=format:%s -10
 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
+* FIXUP: SpellChecker.cbp; moved [-include "wx_pch.h"] to target!
+* SpellChecker.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+* Test Only: Added wxContribItemsPlugins workspace(s).
+* Test Only: Added wxContribItemsPlugins workspace(s).
 - ValgrindListLog.cpp: Changed "sdk_precomp.h" to "sdk.h". (Thanks stahta01)
 - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- devpak_plugin: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- devpak_plugin: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
+- pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
+- DevPakPlugin.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- DevPakPlugin.cbp: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
 
 git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cbp_unix_and_win_wx28
 
@@ -498,6 +452,24 @@ git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cb
 git format-patch origin/portability/fixes..pch_fixes/PCH/cbp_unix_and_win_wx28
 
 #######
+######
+#
+### pch_fixes/
+###
+#   git checkout -b PCH/cbp_win_wx30     pch_fixes/PCH/cbp_win_wx30
+###
+#
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+git checkout PCH/cbp_win_wx30 && git status -uno
+#
+git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
+##  git rebase -i pch_fixes/PCH/cbp_unix_and_win_wx28
+##  git rebase -i HEAD~25
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+######
 
 ###########################
 
