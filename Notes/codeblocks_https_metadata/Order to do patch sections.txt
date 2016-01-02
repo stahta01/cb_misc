@@ -9,7 +9,4 @@ bugfix/project_n_workspace
 feature/sdk
 wxContribItems
 portability/fixes
-PCH
-  PCH/core
-  PCH/wxContribItems
-  etc.
+PCH/cbp_unix_and_win_wx28
