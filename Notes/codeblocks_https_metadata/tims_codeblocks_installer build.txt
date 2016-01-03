@@ -1,0 +1,125 @@
+######################################################################
+##
+##  git remote -v
+##  git remote rename origin pch_fixes
+##  git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
+##  git fetch origin
+##  git branch --list
+##
+##
+#
+git fetch pch_fixes && git fetch origin
+git svn fetch && git svn info
+#
+######
+#
+git checkout NOPCH/cbp_win_wx30 && git status -uno
+#
+git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
+##  git rebase -i pch_fixes/PCH/cbp_unix_and_win_wx28
+##  git rebase -i HEAD~25
+#
+git push -u pch_fixes
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+######
+#
+###
+#   git checkout -b PCH/cbp_win_wx30     pch_fixes/PCH/cbp_win_wx30
+###
+#
+git checkout PCH/cbp_win_wx30 && git status -uno
+#
+git rebase pch_fixes/NOPCH/cbp_win_wx30 && git status -uno
+##  git rebase -i pch_fixes/NOPCH/cbp_win_wx30
+##  git rebase -i HEAD~25
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+###########################
+
+ Has "NOPCH"
+    CodeBlocks_wx30_64.cbp          Checked OK for "NOPCH".
+    envvars_wx30.cbp                Checked OK for "NOPCH".
+    envvars_wx30_64.cbp             Checked OK for "NOPCH".
+    Exporter_wx30.cbp               Checked OK for "NOPCH".
+    Exporter_wx30_64.cbp            Checked OK for "NOPCH".
+    wxContribItems_wx30.cbp         Checked OK for "NOPCH".
+    wxContribItems_wx30_64.cbp      Checked OK for "NOPCH".
+    wxSmith_wx30-unix.cbp
+    wxSmith_wx30.cbp                Checked OK for "NOPCH".
+    wxSmith_wx30_64.cbp             Checked OK for "NOPCH".
+    cb_share_config_wx30.cbp
+
+ Has [directory="$(CBDIR)/.objs]; this is NOT a problem!
+    cbprofiler.unix.cbp
+    cbprofiler_wx30-unix.cbp
+    symtab-unix.cbp
+    symtab_wx30-unix.cbp
+ Missing [directory="../../../.objs] and [directory="$(CBDIR)/.objs]
+    Exporter-unix.cbp
+    Exporter.cbp
+    Exporter_wx30-unix.cbp
+    Exporter_wx30.cbp
+    Exporter_wx30_64.cbp
+
+Has USE_PCH this NOT a problem
+    Exporter.cbp
+    Exporter_wx30.cbp
+    Exporter_wx30_64.cbp
+    SpellChecker-unix.cbp
+    SpellChecker.cbp
+    SpellChecker_wx30-unix.cbp
+    SpellChecker_wx30.cbp
+    SpellChecker_wx30_64.cbp
+    wxContribItems.cbp
+    wxContribItems_wx30.cbp
+    wxContribItems_wx30_64.cbp
+    wxSmith-unix.cbp
+    wxSmith.cbp
+    wxSmith_wx30-unix.cbp
+    wxSmith_wx30.cbp
+    wxSmith_wx30_64.cbp
+    wxSmithAui.cbp
+    wxSmithAui_wx30.cbp
+    wxSmithAui_wx30_64.cbp
+    wxSmithContribItems-unix.cbp
+    wxSmithContribItems.cbp
+    wxSmithContribItems_wx30-unix.cbp
+    wxSmithContribItems_wx30.cbp
+    wxSmithContribItems_wx30_64.cbp
+
+Has [wx_pch.h"] this NOT a problem
+    Exporter.cbp                    PCH/source_exporter
+    Exporter_wx30.cbp
+    Exporter_wx30_64.cbp
+    SpellChecker.cbp                PCH/SpellChecker
+    SpellChecker_wx30.cbp
+    SpellChecker_wx30_64.cbp
+    SpellChecker-unix.cbp
+    SpellChecker_wx30-unix.cbp
+    wxContribItems.cbp              PCH/wxContribItems
+    wxContribItems_wx30.cbp
+    wxContribItems_wx30_64.cbp
+    wxSmith-unix.cbp                PCH/wxSmith
+    wxSmith.cbp
+    wxSmith_wx30.cbp
+    wxSmith_wx30-unix.cbp
+    wxSmith_wx30_64.cbp
+
+# Projects with checked issues
+    Exporter_wx30.cbp           Checked OK for Missing [directory="../../../.objs]
+    wxContribItems_wx30.cbp     Checked OK for "pch/wx_pch.h"
+    wxSmith_wx30.cbp            Checked OK for "pch/wx_pch.h"
+
+# Things I copy and paste.
+
+../../../.objs30/include
+$(CBDIR)/.objs30/include
+../../../.objs30_64/include
+##
+# - pch_cbp_win_wx30:
+# fixup!
+#
+####
