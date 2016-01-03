@@ -3,6 +3,7 @@
 ##  git remote -v
 ##  git remote rename origin pch_fixes
 ##  git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
+##  git fetch origin
 ##  git branch --list
 ##  git checkout -b PCH/cbp_unix_and_win_wx28 pch_fixes/PCH/cbp_unix_and_win_wx28
 ##
@@ -528,6 +529,11 @@ git push pch_fixes
     wxsSmithIExplore.cbp
     IETest.cbp
     wxsSmithSTC.cbp
+
+    wxSmith.cbp
+    wxSmithAui.cbp
+    wxContribItems.cbp
+    wxSmithContribItems.cbp
 
 Has USE_PCH this NOT a problem
     Exporter.cbp
