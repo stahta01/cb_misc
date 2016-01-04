@@ -437,15 +437,15 @@ git push pch_fixes
 
 git --no-pager log --pretty=format:%s -10
 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
-* FIXUP: SpellChecker.cbp; moved [-include "wx_pch.h"] to target!
-* SpellChecker.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
-* Test Only: Added wxContribItemsPlugins workspace(s).
-* Test Only: Added wxContribItemsPlugins workspace(s).
 - ValgrindListLog.cpp: Changed "sdk_precomp.h" to "sdk.h". (Thanks stahta01)
 - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
 - pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
 - DevPakPlugin.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - DevPakPlugin.cbp: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
+- devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
+- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
+- cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
 
 git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cbp_unix_and_win_wx28
 
@@ -453,24 +453,6 @@ git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cb
 git format-patch origin/portability/fixes..pch_fixes/PCH/cbp_unix_and_win_wx28
 
 #######
-######
-#
-### pch_fixes/
-###
-#   git checkout -b PCH/cbp_win_wx30     pch_fixes/PCH/cbp_win_wx30
-###
-#
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
-git checkout PCH/cbp_win_wx30 && git status -uno
-#
-git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
-##  git rebase -i pch_fixes/PCH/cbp_unix_and_win_wx28
-##  git rebase -i HEAD~25
-#
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
-#
-######
 
 ###########################
 

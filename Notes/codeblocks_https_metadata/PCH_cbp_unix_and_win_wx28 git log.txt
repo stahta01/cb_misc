@@ -1,9 +1,5 @@
 $ git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/cbp_unix_and_win_wx28
 - pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
-* FIXUP: SpellChecker.cbp; moved [-include "wx_pch.h"] to target!
-* SpellChecker.cbp: Added [-include "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
-* Test Only: Added wxContribItemsPlugins workspace(s).
-* Test Only: Added wxContribItemsPlugins workspace(s).
 - ValgrindListLog.cpp: Changed "sdk_precomp.h" to "sdk.h". (Thanks stahta01)
 - pch_cbp_unix: Added object include search folder. (Thanks stahta01)
 - pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)

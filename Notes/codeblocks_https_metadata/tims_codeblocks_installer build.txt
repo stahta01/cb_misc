@@ -6,7 +6,8 @@
 ##  git fetch origin
 ##  git branch --list
 ##
-##  git checkout 
+##  cd ../tims_codeblocks_installer-git
+##  git checkout PCH_cbp_win_wx30
 ##  cd codeblocks
 #
 git fetch pch_fixes && git fetch origin
