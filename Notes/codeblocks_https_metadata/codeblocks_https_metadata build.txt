@@ -18,6 +18,15 @@ git checkout bugfix/sdk && git rebase master && git push origin --force-with-lea
 git checkout build_cbp/wx30x && git rebase master && git push origin --force-with-lease
 
 ###
+# Fix return type of wxNewId() to be long. Causes warning on Linux Debian.
+# Maybe in the furture replace wxNewId() with wxID_ANY.
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout bugfix/wxNewId && git status -uno
+git rebase master && git status -uno
+git push origin 
+## git rebase master && git push origin --force-with-lease
+
+###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout bugfix/plugins && git status -uno
 git rebase master && git status -uno
