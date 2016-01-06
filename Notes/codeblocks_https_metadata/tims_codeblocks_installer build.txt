@@ -33,50 +33,44 @@ git format-patch pch_fixes/PCH/cbp_unix_and_win_wx28
 ###########################
 
  Has "NOPCH"
-    CodeBlocks_wx30_64.cbp          Checked OK for "NOPCH".
     envvars_wx30.cbp                Checked OK for "NOPCH".
-    envvars_wx30_64.cbp             Checked OK for "NOPCH".
     Exporter_wx30.cbp               Checked OK for "NOPCH".
-    Exporter_wx30_64.cbp            Checked OK for "NOPCH".
     wxContribItems_wx30.cbp         Checked OK for "NOPCH".
-    wxContribItems_wx30_64.cbp      Checked OK for "NOPCH".
     wxSmith_wx30.cbp                Checked OK for "NOPCH".
-    wxSmith_wx30_64.cbp             Checked OK for "NOPCH".
     cb_share_config_wx30.cbp
+    CodeBlocks_wx30_64.cbp          Checked OK for "NOPCH".
+    envvars_wx30_64.cbp             Checked OK for "NOPCH".
+    Exporter_wx30_64.cbp            Checked OK for "NOPCH".
+    wxContribItems_wx30_64.cbp      Checked OK for "NOPCH".
+    wxSmith_wx30_64.cbp             Checked OK for "NOPCH".
 
  Missing [directory="../../../.objs]
-    Exporter.cbp
     Exporter_wx30.cbp
     Exporter_wx30_64.cbp
 
 Has USE_PCH this NOT a problem
-    Exporter.cbp
     Exporter_wx30.cbp
-    Exporter_wx30_64.cbp
-    SpellChecker.cbp
     SpellChecker_wx30.cbp
-    SpellChecker_wx30_64.cbp
-    wxContribItems.cbp
     wxContribItems_wx30.cbp
-    wxContribItems_wx30_64.cbp
-    wxSmith.cbp
     wxSmith_wx30.cbp
-    wxSmith_wx30_64.cbp
-    wxSmithAui.cbp
     wxSmithAui_wx30.cbp
-    wxSmithAui_wx30_64.cbp
-    wxSmithContribItems.cbp
     wxSmithContribItems_wx30.cbp
+    Exporter_wx30_64.cbp
+    SpellChecker_wx30_64.cbp
+    wxContribItems_wx30_64.cbp
+    wxSmith_wx30_64.cbp
+    wxSmithAui_wx30_64.cbp
     wxSmithContribItems_wx30_64.cbp
+    cb_share_config_wx30_64.cbp
 
 Has [wx_pch.h"] this NOT a problem
     Exporter_wx30.cbp               PCH/source_exporter
-    Exporter_wx30_64.cbp
     SpellChecker_wx30.cbp           PCH/SpellChecker
-    SpellChecker_wx30_64.cbp
     wxContribItems_wx30.cbp         PCH/wxContribItems
-    wxContribItems_wx30_64.cbp
     wxSmith_wx30.cbp                PCH/wxSmith
+    Exporter_wx30_64.cbp
+    SpellChecker_wx30_64.cbp
+    wxContribItems_wx30_64.cbp
     wxSmith_wx30_64.cbp
 
 # Projects with checked issues

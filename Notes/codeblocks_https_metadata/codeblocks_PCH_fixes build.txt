@@ -76,7 +76,6 @@ git push pch_fixes -u
 #
 ### pch_fixes/PCH/SmartIndent
 #
-# * SmartIndent: Removed "wx/wxprec.h" and "wx/wx.h" from headers. (Thanks stahta01)
 cd ../codeblocks_PCH_fixes-git
 git checkout PCH/SmartIndent && git status -uno
 #
@@ -159,15 +158,10 @@ git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s origin/portability/fixes..pch_fixes/PCH/NassiShneiderman
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks stahta01)
 - NassiShneiderman: Save-As Windows CB projects. (Thanks stahta01)
 - pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
-- pch_cbp_win_wx30: Save as CB Project(s).
+- cbp_win_wx30: Save as CB Project(s).
 - pch_cbp_win_wx28: Save as CB Project(s).
 - NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
 ######
