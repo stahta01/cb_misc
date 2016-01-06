@@ -432,13 +432,13 @@ git rebase pch_fixes/PCH/core        && \
 #  git rebase --skip
 ####
 #
-git fetch origin && git rebase pch_fixes/portability/fixes && git status -uno
+git rebase pch_fixes/portability/fixes && git status -uno
 #
 ##  git log -5
 ##  git rebase -i HEAD~5
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git fetch origin && git rebase origin/master && git push pch_fixes --force-with-lease
 #
 
 git --no-pager log --pretty=format:%s -10
