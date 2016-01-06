@@ -12,7 +12,8 @@ cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes && git fetch origin && git status -uno
 git checkout master && git pull origin master && git status -uno
 git svn fetch && git svn info
-
+##  git push
+#
 ######
 #
 ### pch_fixes/portability/fixes
@@ -34,7 +35,7 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wx_pch_h && git status -uno
 #
-git fetch origin && git rebase pch_fixes/portability/fixes && git status -uno
+git rebase pch_fixes/portability/fixes && git status -uno
 ##  git rebase -i pch_fixes/portability/fixes && git status -uno
 #
 git push pch_fixes 
@@ -49,7 +50,7 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git && git fetch origin && git fetch pch_fixes
 git checkout PCH/core && git status -uno
 #
-git fetch origin && git rebase pch_fixes/portability/fixes && git status -uno
+git rebase pch_fixes/portability/fixes && git status -uno
 #
 ##  git rebase -i pch_fixes/portability/fixes
 #
