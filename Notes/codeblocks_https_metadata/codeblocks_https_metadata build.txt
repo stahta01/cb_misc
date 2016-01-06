@@ -65,35 +65,6 @@ git rebase origin/master && git status -uno
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 
-###
-cd ../codeblocks_https_metadata-git 
-git checkout portability/fixes && git fetch origin && git status -uno
-##  git rebase origin/bugfix/project_n_workspace
-##  git rebase wxContribItems
-git push origin
-## git rebase origin/master && git push origin --force-with-lease
-
-git rebase -i origin/master
-
-git --no-pager log --pretty=format:%s origin/master..HEAD
-- win_cbp: Moved wxmsw$(WX_VERSION)$(WX_SUFFIX) from project level to target level. (Thanks stahta01)
-* SpellChecker: Removed "*" from after "\" from second xcopy param. (Thanks stahta01)
-* help_plugin: Fixed to use just bzip2 and z in the library link list.(Thanks stahta01)
-* wxSmithPlot/wxsSmithPlot.cpp: Disabled Compiling and linking of file. (Thanks stahta01)
-- Removed unneeded wxscintilla_cb library from link list. (Thanks stahta01)
-- Removed unneeded wxpropgrid library from link list. (Thanks stahta01)
-- Core app & plugins: Added target Abbreviations to virtual target. (Thanks stahta01)
-- wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
-- Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
-* wxContribItems: Change the project define "WXMAKINGDLL" into target defines of "WXUSINGDLL". (Thanks stahta01)
-- ToolsPlus.cbp: Save-As CB Project. (Thanks stahta01)
-- BrowseTracker: Save-As CB Windows project files. (Thanks stahta01)
-- SpellChecker: Save-As CB WinOS projects using CB 13.12.
-- help_plugin: Save-As using CB 13.12.
-
-git format-patch origin/master ## Save patches since origin/master
-
-
 ###############################################
 #
 git remote -v
