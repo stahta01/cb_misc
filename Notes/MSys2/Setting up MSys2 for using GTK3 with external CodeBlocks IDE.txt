@@ -1,0 +1,38 @@
+# Setting up MSys2 for building CodeBlocks using wxGTK.txt
+
+# Install MSys2 from http://msys2.github.io/ or http://sourceforge.net/projects/msys2/files/Base
+
+# Open MSYS2-shell
+# First update msys2 core components (if you have not done it yet): 
+update-core
+
+# You must exit out from MSYS2-shell, restart MSYS2-shell, then run below command, to complete rest of other components update:
+# The X in the upper right corner may be needed to exit out.
+pacman -Su
+
+# Exit out of MSYS2-shell, restart MSYS2-shell, then you are ready to use MSYS2-shell.
+# Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
+
+# Open MSYS2-shell
+pacman --version # Pacman v4.2.1-369-g9f53-dirty - libalpm v9.0.1
+
+
+# Using currently open MSYS2-shell install the MSys2 and wanted bit size of MinGW Packages.
+
+
+# MinGW 32 bit Packages
+pacman -S mingw-w64-i686-gtk3       #
+pacman -S mingw-w64-i686-gcc        #
+
+
+####
+# Under MinGW 32 bit,
+# Exit out of all MSys2 Windows;
+# And, run batch file autorebase.bat
+####
+
+# MinGW 64 bit
+pacman -S mingw-w64-x86_64-gtk3     # It takes the installer a lot of time to search the fonts folder; just wait.
+pacman -S mingw-w64-x86_64-gcc
+
+pacman -Qqe # List Packages Installed
