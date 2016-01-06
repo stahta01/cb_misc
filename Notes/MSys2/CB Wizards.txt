@@ -1,0 +1,12 @@
+fltk                mingw-w64-fltk
+glfw                mingw-w64-glfw
+glut                mingw-w64-freeglut
+gtk                 mingw-w64-gtk2
+gtk3                mingw-w64-gtk3
+irrlicht            mingw-w64-irrlicht
+ogre                mingw-w64-ogre
+opencv              mingw-w64-opencv
+qt4                 mingw-w64-qt4
+sdl                 mingw-w64-SDL2
+sfml                mingw-w64-sfml
+wxwidgets           mingw-w64-wxwidgets

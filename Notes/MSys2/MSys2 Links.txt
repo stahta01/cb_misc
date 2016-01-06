@@ -1,0 +1,17 @@
+
+https://wiki.qt.io/MSYS2
+
+http://wiki.netbeans.org/HowToCreate64-BitC/C++WindowsProgramWithNetBeans
+https://cmake.org/pipermail/cmake/2015-July/061186.html
+https://www.allegro.cc/forums/thread/614242
+
+http://here-be-braces.com/articles/toolchain-install-guide
+
+http://www.davidegrayson.com/windev/msys2/
+
+https://github.com/Alexpux/MSYS2-Cross
+https://msys2.github.io/
+
+http://sourceforge.net/p/msys2/wiki/MSYS2%20introduction/
+
+Each of the subsystems provides its own native (i.e. target=host) compiler toolchain, in msys2-devel, mingw-w64-i686-toolchain, and mingw-w64-x86_64-toolchain. There are also cross compiler toolchains with host={i686,x86_64}-pc-msys and target={i686,x86_64}-w64-mingw32 in mingw-w64-cross-toolchain, but these are of limited use because there are no library packages for them.
