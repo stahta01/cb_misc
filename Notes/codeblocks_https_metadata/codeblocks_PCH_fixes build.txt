@@ -22,8 +22,13 @@ git checkout portability/fixes && git status -uno
 ##  git fetch origin
 ##  git rebase origin/bugfix/project_n_workspace
 ##  git rebase origin/wxContribItems
+#
+##  git rebase origin/master && git status -uno
+#
+##  git rebase -i origin/master
+#
 git push pch_fixes
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull && git rebase origin/master && git push pch_fixes --force-with-lease
 #
 ######
 #
