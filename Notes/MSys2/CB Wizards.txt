@@ -14,15 +14,16 @@ wxwidgets           mingw-w64-wxwidgets         mingw-w64-x86_64-wxWidgets      
 CB Wizards and what needs edited
 gtk         Fix Wizard to ask GTK version. GTK2 or GTK3.
 sdl         Fix Wizard to ask SDL version.
-            Fix Sample code to work with SDL2.
-glfw        Fix Wizard to ask GLFW version. GLFW2 or GLFW3. 
+            Fix Sample code to work with SDL2. Works OK with SDL 1.
+glfw        Fix Wizard to ask GLFW version. GLFW2 or GLFW3.
+            Test Wizard under Linux using Packages libglfw-dev (2.7.2-1) and libglfw3-dev (3.0.4-1)
             Sample code is different for GLFW3 #include <GLFW/glfw3.h>
             GLFW 3.0 Replaced glfwOpenWindow with glfwCreateWindow.
             Version 3.0     Released on June 12, 2013
             Version 2.7.9   Released on June  6, 2013
-opencv      Fix Wizard so Library can be found.
-irrlicht    Fix Sample code.
-glut        Maybe fix Wizard to ask if using freeglut.
+opencv      Fix Wizard so Library can be found. Linux Package: opencv-data (2.4.9.1+dfsg-1+deb8u1) 
+irrlicht    Fix Sample code. Linux Package: libirrlicht-dev (1.8.1+dfsg1-1 and others)
+glut        Maybe fix Wizard to ask if using freeglut. Linux Package: freeglut3 (2.8.1-2) 
 
 CB Wizards that ask for Library version info.
 wxwidgets
