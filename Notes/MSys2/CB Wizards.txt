@@ -1,11 +1,22 @@
 fltk                mingw-w64-fltk              mingw-w64-x86_64-fltk
 glfw                mingw-w64-glfw              mingw-w64-x86_64-glfw           # Broken Wizard
 glut                mingw-w64-freeglut          mingw-w64-x86_64-freeglut       # Edited Wizard
-gtk                 mingw-w64-gtk2
-gtk3                mingw-w64-gtk3              mingw-w64-x86_64-gtk3           # Wizard needs Edited
+gtk                 mingw-w64-gtk3              mingw-w64-x86_64-gtk3           # Wizard needs Edited
 irrlicht            mingw-w64-irrlicht          mingw-w64-x86_64-irrlicht       # Sample code needs fixing
 opencv              mingw-w64-opencv            mingw-w64-x86_64-opencv         # Wizard needs Edited
 qt4                 mingw-w64-qt4               mingw-w64-x86_64-qt4            # Requires over 1.5 GB in space; Wizard Works.
 sdl                 mingw-w64-SDL2              mingw-w64-x86_64-SDL2           # Edited Wizard; sample code needs fixed.
 sfml                mingw-w64-sfml              mingw-w64-x86_64-sfml           # Wizard gave warning; but, it worked.
 wxwidgets           mingw-w64-wxwidgets         mingw-w64-x86_64-wxWidgets      # Package names are case sensitive
+
+CB Wizards and what needs edited
+sdl         Fix Wizard to ask SDL version.
+            Fix Sample code to work with SDL2.
+gtk         Fix Wizard to ask GTK version. GTK2 or GTK3.
+opencv      Fix Wizard so Library can be found.
+irrlicht    Fix Sample code.
+glfw        Fix Wizard to ask GLFW version. GLFW2 or GLFW3. 
+            Sample code is different for GLFW3 #include <GLFW/glfw3.h>
+            GLFW 3.0 Replaced glfwOpenWindow with glfwCreateWindow.
+            Version 3.0     Released on June 12, 2013
+            Version 2.7.9   Released on June  6, 2013
