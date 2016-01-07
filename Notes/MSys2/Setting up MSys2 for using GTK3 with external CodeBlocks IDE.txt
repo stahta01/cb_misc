@@ -14,15 +14,15 @@ pacman -Su
 # Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 
 # Open MSYS2-shell
-pacman --version # Pacman v4.2.1-369-g9f53-dirty - libalpm v9.0.1
+pacman --version # Pacman v4.2.1-432-ga10ea-dirty - libalpm v9.0.1
 
 
 # Using currently open MSYS2-shell install the MSys2 and wanted bit size of MinGW Packages.
 
 
 # MinGW 32 bit Packages
-pacman -S mingw-w64-i686-gtk3       #
-pacman -S mingw-w64-i686-gcc        #
+pacman -S mingw-w64-i686-gtk3               #
+pacman -S mingw-w64-i686-gdk-pixbuf2        #
 
 
 ####
@@ -32,7 +32,7 @@ pacman -S mingw-w64-i686-gcc        #
 ####
 
 # MinGW 64 bit
-pacman -S mingw-w64-x86_64-gtk3     # It takes the installer a lot of time to search the fonts folder; just wait.
-pacman -S mingw-w64-x86_64-gcc
+pacman -S mingw-w64-x86_64-gtk3             # It takes the installer a lot of time to search the fonts folder; just wait.
+pacman -S mingw-w64-x86_64-gdk-pixbuf2
 
 pacman -Qqe # List Packages Installed

@@ -1,12 +1,11 @@
 fltk                mingw-w64-fltk              mingw-w64-x86_64-fltk
-glfw                mingw-w64-glfw              mingw-w64-x86_64-glfw
-glut                mingw-w64-freeglut          mingw-w64-x86_64-freeglut
+glfw                mingw-w64-glfw              mingw-w64-x86_64-glfw           # Broken Wizard
+glut                mingw-w64-freeglut          mingw-w64-x86_64-freeglut       # Edited Wizard
 gtk                 mingw-w64-gtk2
-gtk3                mingw-w64-gtk3              mingw-w64-x86_64-gtk3           mingw-w64-i686-gtk3
-irrlicht            mingw-w64-irrlicht          mingw-w64-x86_64-irrlicht
-ogre                mingw-w64-ogre              mingw-w64-x86_64-ogre           # Missing 64 bit package
-opencv              mingw-w64-opencv            mingw-w64-x86_64-opencv
-qt4                 mingw-w64-qt4               mingw-w64-x86_64-qt4            # Requires over 1.5 GB in space.
-sdl                 mingw-w64-SDL2              mingw-w64-x86_64-SDL2
-sfml                mingw-w64-sfml              mingw-w64-x86_64-sfml
-wxwidgets           mingw-w64-wxwidgets         mingw-w64-x86_64-wxwidgets      # Missing 64 bit package
+gtk3                mingw-w64-gtk3              mingw-w64-x86_64-gtk3           # Wizard needs Edited
+irrlicht            mingw-w64-irrlicht          mingw-w64-x86_64-irrlicht       # Sample code needs fixing
+opencv              mingw-w64-opencv            mingw-w64-x86_64-opencv         # Wizard needs Edited
+qt4                 mingw-w64-qt4               mingw-w64-x86_64-qt4            # Requires over 1.5 GB in space; Wizard Works.
+sdl                 mingw-w64-SDL2              mingw-w64-x86_64-SDL2           # Edited Wizard; sample code needs fixed.
+sfml                mingw-w64-sfml              mingw-w64-x86_64-sfml           # Wizard gave warning; but, it worked.
+wxwidgets           mingw-w64-wxwidgets         mingw-w64-x86_64-wxWidgets      # Package names are case sensitive
