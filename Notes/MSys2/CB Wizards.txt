@@ -8,10 +8,8 @@ qt4                 mingw-w64-qt4               mingw-w64-x86_64-qt4            
 sdl                 mingw-w64-SDL2              mingw-w64-x86_64-SDL2           # Edited Wizard; sample code needs fixed.
 sfml                mingw-w64-sfml              mingw-w64-x86_64-sfml           # Wizard gave warning; but, it worked.
 wxwidgets           mingw-w64-wxwidgets         mingw-w64-x86_64-wxWidgets      # Package names are case sensitive
-                    mingw-w64-glew
-                    mingw-w64-vtk
-ogre                mingw-w64-ogre3d-hg         mingw-w64-x86_64-ogre3d-hg
-ARM Project         mingw-w64-arm-none-eabi-gcc
+                    mingw-w64-glew              mingw-w64-x86_64-glew
+                    mingw-w64-vtk               mingw-w64-x86_64-vtk
 
 CB Wizards and what needs edited
 gtk         Fix Wizard to ask GTK version. GTK2 or GTK3.
