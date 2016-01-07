@@ -17,13 +17,13 @@ CB Wizards and what needs edited
 gtk         Fix Wizard to ask GTK version. GTK2 or GTK3.
 sdl         Fix Wizard to ask SDL version.
             Fix Sample code to work with SDL2.
-opencv      Fix Wizard so Library can be found.
-irrlicht    Fix Sample code.
 glfw        Fix Wizard to ask GLFW version. GLFW2 or GLFW3. 
             Sample code is different for GLFW3 #include <GLFW/glfw3.h>
             GLFW 3.0 Replaced glfwOpenWindow with glfwCreateWindow.
             Version 3.0     Released on June 12, 2013
             Version 2.7.9   Released on June  6, 2013
+opencv      Fix Wizard so Library can be found.
+irrlicht    Fix Sample code.
 glut        Maybe fix Wizard to ask if using freeglut.
 
 CB Wizards that ask for Library version info.
