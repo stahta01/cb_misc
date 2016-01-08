@@ -33,8 +33,17 @@ Testing of CB Wizards on Debian "Jessie"
 sdl         SDL 1 Tested Good
 gtk         GTK 2 Tested Good
 glfw        Required CB Global Var of "glfw" with "/usr" as base. Tested Good; include path of "GL" valid for Linux Debian Jessie.
-irrlicht    Required CB Global Var
-glut        Required CB Global Var
+irrlicht    Required CB Global Var of "irrlicht" with "/usr" as base, "/usr/include/irrlicht" as include, and "/usr/lib/x86_64-linux-gnu" as lib.
+            Linux code has sample compile error.
+            g++ -Wall -g -I/usr/include/irrlicht -c /home/stahta01/devel/source_code/test/IRR/main.cpp -o obj/main.o
+            /home/stahta01/devel/source_code/test/IRR/main.cpp: In function ‘int main(int, char**)’:
+            /home/stahta01/devel/source_code/test/IRR/main.cpp:71:35: error: invalid initialization of reference of type ‘const irr::core::dimension2d<unsigned int>&’ from expression of type ‘irr::core::dimension2d<int>’ false, false, false, 0);
+
+In file included from /home/stahta01/devel/source_code/test/IRR/main.cpp:10:0:
+/usr/include/irrlicht/irrlicht.h:324:54: note: in passing argument 2 of ‘irr::IrrlichtDevice* irr::createDevice(irr::video::E_DRIVER_TYPE, const irr::core::dimension2d<unsigned int>&, irr::u32, bool, bool, bool, irr::IEventReceiver*)’
+  extern "C" IRRLICHT_API IrrlichtDevice* IRRCALLCONV createDevice(
+            
+glut        Required CB Global Var of "glut" with "/usr" as base and "/usr/lib/x86_64-linux-gnu" as lib. Tested Good; did NOT need to edit to use freeglut on Linux.
 opencv      Linker Errors from Sample code
 /home/stahta01/devel/source_code/test/opencv/main.cpp:8: undefined reference to `cv::imread(std::string const&, int)'
 /home/stahta01/devel/source_code/test/opencv/main.cpp:11: undefined reference to `cv::namedWindow(std::string const&, int)'
