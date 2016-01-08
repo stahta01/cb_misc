@@ -4,6 +4,14 @@ https://bugs.launchpad.net/ubuntu/+source/gnucash/+bug/1306500
 
 # Install ibus without ibus-gtk to dup problem.
 apt-get install ibus
+# Note: I needed to reboot the computer for the problem to start.
 
 # Try installing ibus-gtk or removing ibus to fix problem.
 apt-get install ibus-gtk
+
+# Installing ibus-gtk and rebooting failed to fix the problem!
+
+# Try installing ibus-gtk3
+apt-get install ibus-gtk3
+
+# Installing ibus-gtk3 and rebooting fixed the problem!
