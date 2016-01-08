@@ -28,3 +28,22 @@ glut        Maybe fix Wizard to ask if using freeglut. Linux Package: freeglut3-
 CB Wizards that ask for Library version info.
 wxwidgets
 sfml
+
+Testing of CB Wizards on Debian "Jessie"
+sdl         SDL 1 Tested Good
+gtk         GTK 2 Tested Good
+glfw        Required CB Global Var
+irrlicht    Required CB Global Var
+glut        Required CB Global Var
+opencv      Linker Errors from Sample code
+/home/stahta01/devel/source_code/test/opencv/main.cpp:8: undefined reference to `cv::imread(std::string const&, int)'
+/home/stahta01/devel/source_code/test/opencv/main.cpp:11: undefined reference to `cv::namedWindow(std::string const&, int)'
+/home/stahta01/devel/source_code/test/opencv/main.cpp:12: undefined reference to `cv::_InputArray::_InputArray(cv::Mat const&)'
+/home/stahta01/devel/source_code/test/opencv/main.cpp:12: undefined reference to `cv::imshow(std::string const&, cv::_InputArray const&)'
+/home/stahta01/devel/source_code/test/opencv/main.cpp:13: undefined reference to `cv::waitKey(int)'
+obj/main.o: In function `cv::Mat::~Mat()':
+/usr/include/opencv2/core/mat.hpp:278: undefined reference to `cv::fastFree(void*)'
+obj/main.o: In function `cv::Mat::release()':
+/usr/include/opencv2/core/mat.hpp:367: undefined reference to `cv::Mat::deallocate()'
+
+
