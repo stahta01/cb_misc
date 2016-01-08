@@ -4,48 +4,17 @@ cd ../codeblocks_msys2_wxMonoLib-git && git fetch origin && git status -uno
 #  git checkout msys2/codeblocks
 #  git branch --list
 git rebase origin/cygwin_support && git status -uno
-# git rebase origin/msys2/codeblocks && git status -uno
-git rebase origin/master && git status -uno
 git push origin
-##  git push origin --force-with-lease
+##  git rebase origin/master && git push origin --force-with-lease
 git svn fetch && git svn info
 
-git --no-pager log --oneline --author=Tim
+git --no-pager log --pretty=format:%s origin/cygwin_support..origin/msys2/codeblocks
 
-9c25ddc * msys2_cb: Changed some of the "\" to "/".
-5fd3e7f * msys2_cb: DO NOT USE UPSTREAM; Changed "\*" to "/*".
-e29453b * msys2_cb: Use UnixFilename2 to set value of macro TARGET_COMPILER_DIR.
-13ae1ba * msys2_cb: Added UnixFilename2 using added enum cbPathFormat.
-56e9caa * msys2_cb: copy: Replaced copy with CMD_CP macro.
-bb24598 - msys2_cb: mkdir: Use macros CMD_MKDIR and CMD_MKDIR_IGNORERR.
-1d55102 * msys2_cb: compiler: DO NOT USE UPSTREAM
-cf95fb9 * cygwin_support: Removed "-3" suffix from exe files. (Thanks stahta01)
-247e7d9 * cygwin_support: Change the macros values listed below when using CygWin Compiler. (Thanks stahta01)
-26ea202 - Removed unneeded wxscintilla_cb library from link list. (Thanks stahta01)
-c9bd0ce - Workspace: NEEDS TESTED on Linux: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
-88f2c04 - Removed unneeded wxpropgrid library from link list. (Thanks stahta01)
-fa84dd9 - Core app & plugins: Added target Abbreviations to virtual target. (Thanks stahta01)
-48cf1f1 - Workspace: NEEDS TESTED: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
-c0964d7 - wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
-2dd2885 - Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
-72ec9ad * sdk: Added new CMD macros. (Thanks stahta01)
-f07aafe * sdk: Removed Illegal chars from default filename for template. (Thanks stahta01)
-f7af9db * sdk: Fixed value of "CMD_NULL" to be just "NUL". (Thanks stahta01)
-e31b383 - Removed win32 wxWidgets template files.(Thanks stahta01)
-fca640e - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
-48415b0 - PCH_build_fix: Added define of "CB_PRECOMP". (Thanks stahta01)
-d916697 - PCH_build_fix: Added option "-Winvalid-pch". (Thanks stahta01)
-7e7eb80 - PCH_build_fix: Removed define of "WX_PRECOMP". (Thanks stahta01)
-4fbf665 - PCH_build_fix: Added object include search folder. (Thanks stahta01)
-b60f04a - PCH_build_fix: Enabled PCH files. (Thanks stahta01)
-d63e851 - PCH_build_fix: Added define of "NOPCH". (Thanks stahta01)
-20f84d0 - Addr2LineUI: Removed define of WX_PRECOMP. (Thanks stahta01)
-b8418cc - PCH_code_fixes: Removed includes of wx/wxprec.h and sdk.h from header file. (Thanks stahta01)
-eaf8424 - win_cbp: Moved wxmsw$(WX_VERSION)$(WX_SUFFIX) from project level to target level. (Thanks stahta01)
-7afe581 * SpellChecker: Removed "*" from after "\" from second xcopy param. (Thanks stahta01)
-650a27c * help_plugin: Fixed to use just bzip2 and z in the library link list.(Thanks stahta01)
-a61203c * wxContribItems: Change the project define "WXMAKINGDLL" into target defines of "WXUSINGDLL". (Thanks stahta01)
-0e4c968 - SpellChecker: Save-As CB WinOS projects using CB 13.12.
-788a974 - help_plugin: Save-As using CB 13.12.
-938978e - cbp_saveas: reformatted some CB Windows project files. (Thanks stahta01)
-389c5d0 - cbp_saveas: reformatted some CB Windows wx2.8 project files. (Thanks stahta01)
+* msys2_cb: compiler: DO NOT USE UPSTREAM
+* CbLauncher_wx30.cbp: Save-As using CB 15.12RC1. (Thanks stahta01)
+* msys2_cb: Changed some of the "\" to "/".
+* msys2_cb: DO NOT USE UPSTREAM; Changed "\*" to "/*".
+* msys2_cb: Use UnixFilename2 to set value of macro TARGET_COMPILER_DIR.
+* msys2_cb: Added UnixFilename2 using added enum cbPathFormat.
+* msys2_cb: copy: Replaced copy with CMD_CP macro.
+- msys2_cb: mkdir: Use macros CMD_MKDIR and CMD_MKDIR_IGNORERR.

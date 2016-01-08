@@ -13,7 +13,7 @@ git svn fetch && git svn info
 ##  git rebase origin/feature/sdk && git status -uno
 ##  git rebase origin/deceased/removals && git status -uno
 ##  git status -uno
-git rebase pch_fixes/PCH/cbp_fixes && git status -uno
+git rebase pch_fixes/PCH/cbp_win_wx30 && git status -uno
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 

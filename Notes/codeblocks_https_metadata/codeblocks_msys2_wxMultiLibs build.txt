@@ -10,11 +10,17 @@ cd ../codeblocks_msys2_wxMultiLibs-git && git fetch origin && git status -uno
 git rebase origin/msys2/codeblocks && git status -uno
 #  git rebase --abort
 git push origin
-##  git push origin --force-with-lease
+##  git rebase origin/master && git push origin --force-with-lease
 git svn fetch && git svn info
 ##  git log --oneline
 
-#  git format-patch --unified=1 2162af86dd272670c75c4d9f54938211f70502aa
+#  git format-patch --unified=1 fddb1c04661a83505450023e9a6b82a09693855f
+
+0001-msys2_wx_multilibs-Edited-WX-variables-for-configure.patch
+git apply --reject 0002-msys2_wx_multilibs-Removed-wx-lib-and-CB-Global-vars.patch
+git apply --reject 0003-msys2_wx_multilibs-Added-configure-built-wx-multilib.patch
+
+git am --abort
 
 git apply --reject 0001-msys2_wx_multilibs-Edited-WX-variables-for-configure.patch
 git apply --reject 0002-msys2_wx_multilibs-Removed-wx-lib-and-CB-Global-vars.patch
