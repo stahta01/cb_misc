@@ -32,7 +32,7 @@ sfml
 Testing of CB Wizards on Debian "Jessie"
 sdl         SDL 1 Tested Good
 gtk         GTK 2 Tested Good
-glfw        Required CB Global Var
+glfw        Required CB Global Var of "glfw" with "/usr" as base. Tested Good; include path of "GL" valid for Linux Debian Jessie.
 irrlicht    Required CB Global Var
 glut        Required CB Global Var
 opencv      Linker Errors from Sample code
