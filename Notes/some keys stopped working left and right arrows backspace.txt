@@ -1,0 +1,9 @@
+C:\SourceCode\OpenSourceCode\VC_Repos\Apps\IDE\Codeblocks\cb_misc-git\Notes\some keys stopped working left and right arrows backspace.txt
+
+https://bugs.launchpad.net/ubuntu/+source/gnucash/+bug/1306500
+
+# Install ibus without ibus-gtk to dup problem.
+apt-get install ibus
+
+# Try installing ibus-gtk or removing ibus to fix problem.
+apt-get install ibus-gtk
