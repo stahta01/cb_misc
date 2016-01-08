@@ -31,7 +31,7 @@ sfml
 
 Testing of CB Wizards on Debian "Jessie"
 sdl         SDL 1 Tested Good
-gtk         GTK 2 Tested Good
+gtk         GTK 2 Tested Good Try "2.1 Hello World in GTK" from http://www.gtk.org/tutorial1.2/gtk_tut-2.html
 glfw        Required CB Global Var of "glfw" with "/usr" as base. Tested Good; include path of "GL" valid for Linux Debian Jessie.
 irrlicht    Required CB Global Var of "irrlicht" with "/usr" as base, "/usr/include/irrlicht" as include, and "/usr/lib/x86_64-linux-gnu" as lib.
             Linux code has sample compile error.
