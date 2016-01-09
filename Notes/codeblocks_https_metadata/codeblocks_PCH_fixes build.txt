@@ -8,18 +8,13 @@
 ##  git checkout -b PCH/cbp_unix_and_win_wx28 pch_fixes/PCH/cbp_unix_and_win_wx28
 ##  git checkout -b portability/fixes pch_fixes/portability/fixes
 ##
-cd ../codeblocks_PCH_fixes-git && git status -uno
-git fetch pch_fixes && git fetch origin && git status -uno
-git checkout master && git pull origin master && git status -uno
-git svn fetch && git svn info
-##  git push
-#
 ######
 #
 ### pch_fixes/portability/fixes
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes-git && git status -uno
+git fetch pch_fixes && git fetch origin && git status -uno
+git svn fetch && git svn info
 git checkout portability/fixes && git status -uno
-##  git fetch origin
 ##  git rebase origin/bugfix/project_n_workspace
 ##  git rebase origin/wxContribItems
 #
