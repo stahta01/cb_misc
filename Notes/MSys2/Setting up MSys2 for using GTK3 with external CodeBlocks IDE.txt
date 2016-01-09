@@ -19,6 +19,8 @@ pacman --version # Pacman v4.2.1-432-ga10ea-dirty - libalpm v9.0.1
 
 # Using currently open MSYS2-shell install the MSys2 and wanted bit size of MinGW Packages.
 
+# MSys2 Packages
+pacman -S pkg-config                        # Needed to figure out what include paths and libs are normmally needed
 
 # MinGW 32 bit Packages
 pacman -S mingw-w64-i686-gtk3               #
@@ -38,3 +40,11 @@ pacman -S mingw-w64-x86_64-gdk-pixbuf2
 pacman -Qqe # List Packages Installed
 
 pacman -Ss gtk # List Packages on server that contain gtk
+
+# The next command outputs compiler options that might need to be added to CB Projects
+$ pkg-config --cflags gtk+-3.0
+You can also try adding `pkg-config --cflags gtk+-3.0` to the other compiler options.
+
+# The next command outputs linker options that might need to be added to CB Projects
+$ pkg-config --libs gtk+-3.0
+You can also try adding `pkg-config --libs gtk+-3.0` to the other linker options.
