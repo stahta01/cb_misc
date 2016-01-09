@@ -1,30 +1,13 @@
-cd ../codeblocks_PCH_fixes-git
-git fetch pch_fixes && git fetch origin && git status -uno
-git checkout master && git pull origin master && git status -uno
-
-git checkout win_cbp_saveas && git rebase origin/master && git status -uno
-#
-git push pch_fixes 
-##  git push pch_fixes --force-with-lease
-
-
-git checkout portability/fixes
-git rebase win_cbp_saveas && git status -uno
-#
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
-
-
-git checkout PCH/cbp_fixes && git status -uno
-git rebase portability/fixes && git status -uno
-#
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 cd ../codeblocks_wx_multilib_gcc471TDM-git
 git fetch origin && git fetch pch_fixes
 git svn fetch && git svn info && git status -uno
-git rebase pch_fixes/PCH/cbp_fixes && git status -uno
-#
+#   git checkout build_cbp/wx_multilib
+git rebase pch_fixes/PCH/cbp_win_wx30 && git status -uno
 git push origin 
 ##  git rebase origin/master && git push origin --force-with-lease
+
+git format-patch e8e40ea66f0e7da60dac307f6bf22a675ce352d3
+0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
+0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
+0003-wx_multilibs_gcc471TDM-Changed-to-make-built-wx-mult.patch
