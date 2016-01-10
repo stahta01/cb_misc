@@ -27,6 +27,11 @@ git push origin
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout win_cbp_save_as && git status -uno
+##  git rebase master && git push origin --force-with-lease
+
+###
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout bugfix/plugins && git status -uno
 git rebase master && git status -uno
 git push origin 
@@ -50,6 +55,7 @@ e32ce56 - Removed unneeded wxpropgrid library from link list. (Thanks stahta01)
 
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/sdk && git status -uno
+#
 git rebase bugfix/sdk && git status -uno
 ##  git rebase master && git status -uno
 git push origin 
