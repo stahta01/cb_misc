@@ -31,8 +31,8 @@ sfml
 
 Testing of CB Wizards on Debian "Jessie"
 All the wizards failed to work on Linux via a configure/make build!
-sdl         SDL 1 Tested Good
-gtk         GTK 2 Tested Good
+sdl         SDL 1 Tested Good; SDL2 wizard needs edited to find the v2files folder.
+gtk         GTK 2 and GTK3 Tested Good
 glfw        Required CB Global Var of "glfw" with "/usr" as base. Tested Good; include path of "GL" valid for Linux Debian Jessie.
 irrlicht    Required CB Global Var of "irrlicht" with "/usr" as base, "/usr/include/irrlicht" as include, and "/usr/lib/x86_64-linux-gnu" as lib.
             Linux code has sample compile error.
