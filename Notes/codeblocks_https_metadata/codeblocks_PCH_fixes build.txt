@@ -74,7 +74,7 @@ git format-patch pch_fixes/PCH/master
 #
 ### pch_fixes/PCH/BrowseTracker
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/BrowseTracker && git status -uno
 #
 git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
@@ -88,7 +88,7 @@ git push pch_fixes -u
 #
 ### pch_fixes/PCH/SmartIndent
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/SmartIndent && git status -uno
 #
 git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
@@ -102,7 +102,7 @@ git push pch_fixes
 #
 ### pch_fixes/PCH/keybinder
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/keybinder && git status -uno
 #
 ##  git pull && git status -uno
@@ -118,7 +118,7 @@ git push pch_fixes
 #
 ### pch_fixes/PCH/DoxyBlocks
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/DoxyBlocks && git status -uno
 #
 ##  git pull && git status -uno
@@ -156,7 +156,7 @@ git push pch_fixes
 # pch_cbp_unix:
 # NassiShneiderman: 
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/NassiShneiderman && git status -uno
 #
 ##  git pull && git status -uno
@@ -183,7 +183,7 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/NassiS
 # - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
 # cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
 # pch_cbp_win_wx30:
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/toolsplus && git status -uno
 #
 ##  git pull && git status -uno
@@ -203,7 +203,7 @@ git push pch_fixes
 ##
 # git checkout -b PCH/contrib pch_fixes/PCH/contrib
 ##
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/contrib && git fetch pch_fixes && git status -uno
 #
 ##  git pull && git status -uno
@@ -247,7 +247,7 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/contri
 ##  help-plugin
 # help_plugin:
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/help_plugin && git status -uno
 #
 ##  git pull && git status -uno
@@ -271,7 +271,7 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/help_p
 #
 ### pch_fixes/PCH/codesnippets
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/codesnippets && git status -uno
 #
 ##  git pull && git status -uno
@@ -288,7 +288,7 @@ git push pch_fixes
 #
 ### pch_fixes/PCH/HexEditor
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/HexEditor && git status -uno
 #
 ##  git pull && git status -uno
@@ -311,7 +311,7 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/HexEdi
 #
 ### pch_fixes/PCH/headerfixup
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/headerfixup && git status -uno
 #
 ##  git pull && git status -uno
@@ -333,7 +333,7 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..PCH/headerfixup
 #
 ### pch_fixes/PCH/misc
 #
-cd ../codeblocks_PCH_fixes-git
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/misc && git status -uno
 ##  git log
 #
