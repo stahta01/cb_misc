@@ -1,0 +1,56 @@
+Building wxWidgets 2.8.txt
+
+wxABI_VERSION=20800 for 2.8.0 # only good to change the last two digits. So, 2.8.x can only change value of x to smaller value.
+
+Some influential environment variables:
+  CFLAGS      C compiler flags
+  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+              nonstandard directory <lib dir>
+  CPPFLAGS    C/C++ preprocessor flags, e.g. -I<include dir> if you have
+              headers in a nonstandard directory <include dir>
+  CXXFLAGS    C++ compiler flags
+
+Interesting Windows config options
+  --enable-official_build official build of wxWidgets (win32 DLL only)
+  --enable-vendor=VENDOR  vendor name (win32 DLL only)
+
+--enable-graphics_ctx
+
+--with-gtk=2
+
+--with-flavour=NAME     specify a name to identify this build
+
+git checkout -WX_2_8_BRANCH
+
+mkdir build_shared_multilib_gtk2_unicode_2.8_2.8
+cd build_shared_multilib_gtk2_unicode_2.8_2.8
+../configure --disable-compat26 \
+       --prefix=/opt/wx2.8_GTK2 \
+       --enable-xrc \
+       --enable-unicode
+make
+su
+make install
+exit
+
+
+Configured wxWidgets 2.8.12 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be compiled in debug mode?             no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets be compiled in Unicode mode?           yes
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.4      no
+                                       wxWidgets 2.6      no
+  Which libraries should wxWidgets use?
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       odbc               no
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
