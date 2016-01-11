@@ -460,6 +460,19 @@ git format-patch pch_fixes/PCH/master..pch_fixes/PCH/cbp_unix_and_win_wx28
 
 #######
 
+###
+#
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+git checkout PCH/cbp_win_wx30 && git status -uno
+#
+git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
+##  git rebase -i pch_fixes/PCH/cbp_unix_and_win_wx28
+##  git --no-pager log --pretty=format:%s pch_fixes/PCH/cbp_unix_and_win_wx28..HEAD
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+
 ###########################
 
 #include "sdk.h" // Code::Blocks SDK and Precompiled Header
