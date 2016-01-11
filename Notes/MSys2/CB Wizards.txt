@@ -1,4 +1,4 @@
-fltk                mingw-w64-fltk              mingw-w64-x86_64-fltk
+fltk                mingw-w64-fltk              mingw-w64-x86_64-fltk           # Wizard works on Linux.
 glfw                mingw-w64-glfw              mingw-w64-x86_64-glfw           # Broken Wizard
 glut                mingw-w64-freeglut          mingw-w64-x86_64-freeglut       # Edited Wizard
 gtk                 mingw-w64-gtk3              mingw-w64-x86_64-gtk3           # Wizard needs Edited
@@ -25,17 +25,19 @@ opencv      Fix Wizard so Library can be found. Linux Package: libopencv-dev (Ve
 irrlicht    Fix Sample code. Linux Package: libirrlicht-dev (1.8.1+dfsg1-1 and others)
 glut        Maybe fix Wizard to ask if using freeglut. Linux Package: freeglut3-dev
 
-CB Wizards that ask for Library version info.
+CB Wizards that already ask for Library version info.
 wxwidgets
-sfml
+sfml        Best one to copy because it is simplier.
 
 Testing of CB Wizards on Debian "Jessie"
-All the wizards failed to work on Linux via a configure/make build!
-sdl         SDL 1 Tested Good; SDL2 wizard needs edited to find the v2files folder.
-gtk         GTK 2 and GTK3 Tested Good
-glfw        Required CB Global Var of "glfw" with "/usr" as base. Tested Good; include path of "GL" valid for Linux Debian Jessie.
+sdl         SDL1 and SDL2 Tested Good.
+gtk         GTK2 and GTK3 Tested Good.
+glfw        Required CB Global Var of "glfw" with "/usr" as base. 
+            GLFW2 Tested Good; include path of "GL" valid for Linux Debian Jessie.
+            GLFW3 Tested Good; include path of "GLFW" valid for Linux Debian Jessie.
+glut        Required CB Global Var of "glut" with "/usr" as base and "/usr/lib/x86_64-linux-gnu" as lib. Tested Good; did NOT need to edit to use freeglut on Linux.
 irrlicht    Required CB Global Var of "irrlicht" with "/usr" as base, "/usr/include/irrlicht" as include, and "/usr/lib/x86_64-linux-gnu" as lib.
-            Linux code has sample compile error.
+            Linux code has sample compile error. Linux using version 1.8.
             g++ -Wall -g -I/usr/include/irrlicht -c /home/stahta01/devel/source_code/test/IRR/main.cpp -o obj/main.o
             /home/stahta01/devel/source_code/test/IRR/main.cpp: In function ‘int main(int, char**)’:
             /home/stahta01/devel/source_code/test/IRR/main.cpp:71:35: error: invalid initialization of reference of type ‘const irr::core::dimension2d<unsigned int>&’ from expression of type ‘irr::core::dimension2d<int>’ false, false, false, 0);
@@ -44,7 +46,6 @@ In file included from /home/stahta01/devel/source_code/test/IRR/main.cpp:10:0:
 /usr/include/irrlicht/irrlicht.h:324:54: note: in passing argument 2 of ‘irr::IrrlichtDevice* irr::createDevice(irr::video::E_DRIVER_TYPE, const irr::core::dimension2d<unsigned int>&, irr::u32, bool, bool, bool, irr::IEventReceiver*)’
   extern "C" IRRLICHT_API IrrlichtDevice* IRRCALLCONV createDevice(
             
-glut        Required CB Global Var of "glut" with "/usr" as base and "/usr/lib/x86_64-linux-gnu" as lib. Tested Good; did NOT need to edit to use freeglut on Linux.
 opencv      Linker Errors from Sample code
 /home/stahta01/devel/source_code/test/opencv/main.cpp:8: undefined reference to `cv::imread(std::string const&, int)'
 /home/stahta01/devel/source_code/test/opencv/main.cpp:11: undefined reference to `cv::namedWindow(std::string const&, int)'
