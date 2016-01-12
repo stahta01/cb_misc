@@ -15,6 +15,10 @@ CB Wizards and what needs edited
 gtk         Fix Wizard to ask GTK version. GTK2 or GTK3.
 sdl         Fix Wizard to ask SDL version.
             Fix Sample code to work with SDL2. Works OK with SDL 1. Linux Package: libsdl1.2debian and libsdl2-2.0-0
+Bad Wizard code!!!
+if (VerifyFile(dir_nomacro_inc, _T("SDL/SDL.h"), _T("SDL's include")))
+                SDLPathDefaultInc = SDLPathDefaultInc + _T("/SDL");
+
 glfw        Fix Wizard to ask GLFW version. GLFW2 or GLFW3.
             Test Wizard under Linux using Packages libglfw-dev (2.7.2-1) and libglfw3-dev (3.0.4-1)
             Sample code is different for GLFW3 #include <GLFW/glfw3.h>
