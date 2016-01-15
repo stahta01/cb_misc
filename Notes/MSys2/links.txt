@@ -4,3 +4,4 @@ http://forums.codeblocks.org/index.php/topic,20827.msg142193.html#msg142193
 https://blogs.gnome.org/nacho/2014/08/01/how-to-build-your-gtk-application-on-windows/
 
 http://www.glfw.org/download.html
+http://www.glfw.org/docs/latest/compile.html#compile_deps_mingw
