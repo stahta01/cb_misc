@@ -26,6 +26,15 @@ git checkout build_cbp/wx30x && git rebase master && git push origin --force-wit
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout feature/wizards && git status -uno
+#
+git rebase master && git status -uno
+#
+git push origin 
+##  git rebase master && git push origin --force-with-lease
+
+###
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/compiler && git status -uno
 #
 git rebase master && git status -uno
@@ -35,15 +44,6 @@ git push origin
 
 #   git log
 #   git format-patch db88edd2171099a883d42b1171fad1ed91b44ece
-
-###
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout feature/wizards && git status -uno
-#
-git rebase master && git status -uno
-#
-git push origin 
-##  git rebase master && git push origin --force-with-lease
 
 ###
 # Fix return type of wxNewId() to be long. Causes warning on Linux Debian.
@@ -113,6 +113,35 @@ git checkout wxContribItems
 git rebase origin/master && git status -uno
 # git rebase -i master
 git push origin
+##  git rebase origin/master && git push origin --force-with-lease
+
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout build/move_output && git status -uno
+#
+git rebase origin/win_cbp_save_as && git status -uno
+##  git status -uno
+git push origin 
+##  git rebase origin/master && git push origin --force-with-lease
+git svn fetch && git svn info
+
+
+git format-patch 7fa44d701dbcc21bef9f831d1591d792bbe0b640
+0001-bat-Removed-output-folders-from-several-windows-batc.patch
+0002-bat-Created-res_dev.bat-from-update.bat.-Thanks-stah.patch
+0003-help_plugin-Removed-output-folder-from-WinOS-CB-proj.patch
+0004-SpellChecker-Removed-output-folder-from-WinOS-CB-pro.patch
+
+
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout build_cbp/lib_folder_type1 && git status -uno
+##  git rebase origin/master && git status -uno
+git.exe push origin 
+##  git rebase origin/master && git push origin --force-with-lease
+
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout build_cbp/lib_folder_type2 && git status -uno 
+##  git rebase origin/master && git status -uno 
+git.exe push origin 
 ##  git rebase origin/master && git push origin --force-with-lease
 
 ###############################################
