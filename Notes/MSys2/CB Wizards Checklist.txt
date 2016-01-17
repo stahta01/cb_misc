@@ -1,0 +1,37 @@
+Wizard          Lib Type        URL
+fltk            C++
+irrlicht        C++             http://irrlicht.sourceforge.net/tutorials/
+qt4             C++             https://en.wikipedia.org/wiki/Qt_%28software%29
+wxwidgets       C++ 
+CB Plugin       C++       
+ogre            C++?
+lightfeather    C++?
+SmartWin        C++?
+opengl          C?
+Win32 GUI       C?
+glfw            C               http://www.glfw.org/docs/latest/build.html
+glut            C               https://www.opengl.org/resources/libraries/glut/
+gtk             C
+opencv          C               http://opencv.org/  
+sdl             C       
+sfml            C               http://www.sfml-dev.org/    
+directx         C
+
+Pass Level
+1. Wizard starts up
+2. Wizard runs to the end.
+3. Sample code exists
+4. Sample code compiles
+5. Sample code runs without error.
+6. Multiple versions work.
+7. Single version of Multiple version works when only that version installed.
+
+Test Platforms
+1. Linux Debian 64 bit "Jessie"
+2. Windows 7 32 bit
+3. Windows 7 64 bit.
+
+Lib builds
+1. MSys2
+2. Downloaded C Lib
+3. Self Built C++ Lib
