@@ -1,8 +1,8 @@
-# git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 
 cd ../codeblocks_layout-git && git status -uno
-git fetch origin && git fetch pch_fixes && git status -uno
+git fetch origin && git status -uno
 git checkout build/move_output && git status -uno
+#
 git rebase origin/win_cbp_save_as && git status -uno
 ##  git status -uno
 git push origin 
@@ -10,18 +10,22 @@ git push origin
 git svn fetch && git svn info
 
 
-git format-patch origin/master
+git format-patch 7fa44d701dbcc21bef9f831d1591d792bbe0b640
+0001-bat-Removed-output-folders-from-several-windows-batc.patch
+0002-bat-Created-res_dev.bat-from-update.bat.-Thanks-stah.patch
+0003-help_plugin-Removed-output-folder-from-WinOS-CB-proj.patch
+0004-SpellChecker-Removed-output-folder-from-WinOS-CB-pro.patch
 
 
 cd ../codeblocks_layout-git && git fetch origin && git status -uno
 git checkout build_cbp/lib_folder_type1 && git status -uno
-##  git status -uno
+##  git rebase origin/master && git status -uno
 git.exe push origin 
 ##  git rebase origin/master && git push origin --force-with-lease
 
 cd ../codeblocks_layout-git && git fetch origin && git status -uno
 git checkout build_cbp/lib_folder_type2 && git status -uno 
-##  git status -uno 
+##  git rebase origin/master && git status -uno 
 git.exe push origin 
 ##  git rebase origin/master && git push origin --force-with-lease
 

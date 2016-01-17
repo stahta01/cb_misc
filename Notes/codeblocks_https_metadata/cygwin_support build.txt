@@ -22,6 +22,6 @@ git --no-pager log --oneline --author=Tim
 
 git log
 
-git format-patch 72523ff65f88a2f07ed082be6f923bf27501a260
+git format-patch d7410e19c052e2654c0ea6d69bc0484cfb21d831
 
 0001-cygwin_support-Change-the-macros-values-listed-below.patch

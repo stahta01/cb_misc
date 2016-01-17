@@ -16,6 +16,26 @@ git checkout deceased/removals && git rebase master && git push origin --force-w
 git checkout bugfix/sdk && git rebase master && git push origin --force-with-lease
 git checkout build_cbp/wx30x && git rebase master && git push origin --force-with-lease
 
+# build/move_output
+# build_cbp/lib_folder_type2
+# build_cbp/lib_folder_type1
+## Move to different repo??
+# build_cbp/wx_multilib
+# msys2/wx30_libs
+# msys2/codeblocks
+
+###
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout feature/compiler && git status -uno
+#
+git rebase master && git status -uno
+#
+git push origin
+##  git rebase master && git push origin --force-with-lease
+
+#   git log
+#   git format-patch db88edd2171099a883d42b1171fad1ed91b44ece
+
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/wizards && git status -uno
@@ -50,14 +70,22 @@ git format-patch --unified=1 ac088c61c30a837d5dfe5ef37035aecc297e932f
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout bugfix/plugins && git status -uno
+#
 git rebase master && git status -uno
+#
 git push origin 
 ##  git rebase master && git push origin --force-with-lease
+
+git format-patch --unified=1 ac088c61c30a837d5dfe5ef37035aecc297e932f
+git am --abort
+git apply --reject 0001-NotifyMissingFile-Commented-out-Manager-LoadResource.patch
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout bugfix/project_n_workspace && git status -uno
+#
 git rebase master && git status -uno
+#
 git push origin 
 ##  git rebase master && git push origin --force-with-lease
 
