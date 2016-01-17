@@ -10,6 +10,13 @@ sfml                mingw-w64-sfml              mingw-w64-x86_64-sfml           
 wxwidgets           mingw-w64-wxwidgets         mingw-w64-x86_64-wxWidgets      # Package names are case sensitive
                     mingw-w64-glew              mingw-w64-x86_64-glew
                     mingw-w64-vtk               mingw-w64-x86_64-vtk
+ogre
+directx
+lightfeather
+opengl
+SmartWin
+Win32 GUI
+CB Plugin
 
 CB Wizards and what needs edited
 gtk         Fix Wizard to ask GTK version. GTK2 or GTK3.
