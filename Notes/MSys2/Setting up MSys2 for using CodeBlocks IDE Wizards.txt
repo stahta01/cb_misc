@@ -2,19 +2,18 @@
 
 # Install MSys2 from http://msys2.github.io/ or http://sourceforge.net/projects/msys2/files/Base
 
+# Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 # Open MSYS2-shell
 # First update msys2 core components (if you have not done it yet): 
 update-core
-
-# You must exit out from MSYS2-shell, restart MSYS2-shell, then run below command, to complete rest of other components update:
-# The X in the upper right corner may be needed to exit out.
-pacman -Su
-
-# Exit out of MSYS2-shell, restart MSYS2-shell, then you are ready to use MSYS2-shell.
-# Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
+# Close MSYS2-shell; ALT-F4 or the X in the upper right corner may be needed to exit out.
 
 # Open MSYS2-shell
-pacman --version # Pacman v4.2.1-432-ga10ea-dirty - libalpm v9.0.1
+pacman -Su
+# Exit out of MSYS2-shell, restart MSYS2-shell, then you are ready to use MSYS2-shell.
+
+# Open MSYS2-shell
+pacman --version # Pacman v4.2.1-432-ga10fb-dirty - libalpm v9.0.1
 
 
 # Using currently open MSYS2-shell install the MSys2 and wanted bit size of MinGW Packages.
@@ -24,22 +23,27 @@ pacman -S pkg-config                        # Needed to figure out what include 
 
 # MinGW 32 bit Packages
 pacman -S mingw-w64-i686-gtk2               #
-pacman -S mingw-w64-i686-gdk-pixbuf2        #
+pacman -S mingw-w64-i686-gdk-pixbuf2        # Not sure if really needed
 pacman -S mingw-w64-i686-SDL                #
-pacman -S mingw-w64-i686-glfw               #
 
-pacman -R mingw-w64-i686-gtk3               #
-pacman -R mingw-w64-i686-SDL2               #
+pacman -S mingw-w64-i686-gtk3               #
+pacman -S mingw-w64-i686-SDL2               #
+
+pacman -S mingw-w64-i686-glew               # No idea if this is needed
+
+# Remove the 32 bit libs that does NOT work on my old Win7 32 bit PC.
+pacman -R mingw-w64-i686-glfw               # This library does NOT work on my 32 bit PC.
+
 
 ####
-# Under MinGW 32 bit,
+# Under MinGW 32 bit, if you get DLL base address errors;
 # Exit out of all MSys2 Windows;
 # And, run batch file autorebase.bat
 ####
 
 # MinGW 64 bit
 pacman -S mingw-w64-x86_64-gtk3             # It takes the installer a lot of time to search the fonts folder; just wait.
-pacman -S mingw-w64-x86_64-gdk-pixbuf2
+pacman -S mingw-w64-x86_64-gdk-pixbuf2      # Not sure if really needed
 pacman -S mingw-w64-x86_64-SDL2
 
 pacman -R mingw-w64-x86_64-gtk2     

@@ -1,15 +1,15 @@
-fltk                mingw-w64-fltk              mingw-w64-x86_64-fltk           # Wizard works on Linux.
-glfw                mingw-w64-glfw              mingw-w64-x86_64-glfw           # Broken Wizard
-glut                mingw-w64-freeglut          mingw-w64-x86_64-freeglut       # Edited Wizard
-gtk                 mingw-w64-gtk3              mingw-w64-x86_64-gtk3           # Wizard needs Edited
-irrlicht            mingw-w64-irrlicht          mingw-w64-x86_64-irrlicht       # Sample code needs fixing
-opencv              mingw-w64-opencv            mingw-w64-x86_64-opencv         # Wizard needs Edited
-qt4                 mingw-w64-qt4               mingw-w64-x86_64-qt4            # Requires over 1.5 GB in space; Wizard Works.
-sdl                 mingw-w64-SDL2              mingw-w64-x86_64-SDL2           # Edited Wizard; sample code needs fixed.
-sfml                mingw-w64-sfml              mingw-w64-x86_64-sfml           # Wizard gave warning; but, it worked.
-wxwidgets           mingw-w64-wxwidgets         mingw-w64-x86_64-wxWidgets      # Package names are case sensitive
-                    mingw-w64-glew              mingw-w64-x86_64-glew
-                    mingw-w64-vtk               mingw-w64-x86_64-vtk
+fltk                mingw-w64-x86_64-fltk           # Wizard works on Linux.
+glfw                mingw-w64-x86_64-glfw           # Broken Wizard
+glut                mingw-w64-x86_64-freeglut       # Edited Wizard
+gtk                 mingw-w64-x86_64-gtk3           # Wizard needs Edited
+irrlicht            mingw-w64-x86_64-irrlicht       # Sample code needs fixing
+opencv              mingw-w64-x86_64-opencv         # Wizard needs Edited
+qt4                 mingw-w64-x86_64-qt4            # Requires over 1.5 GB in space; Wizard Works.
+sdl                 mingw-w64-x86_64-SDL2           # Edited Wizard; sample code needs fixed.
+sfml                mingw-w64-x86_64-sfml           # Wizard gave warning; but, it worked.
+wxwidgets           mingw-w64-x86_64-wxWidgets      # Package names are case sensitive
+                    mingw-w64-x86_64-glew
+                    mingw-w64-x86_64-vtk
 ogre
 directx
 lightfeather
