@@ -17,15 +17,6 @@ sdl             C
 sfml            C               http://www.sfml-dev.org/    
 directx         C
 
-Pass Level
-1. Wizard starts up
-2. Wizard runs to the end.
-3. Sample code exists
-4. Sample code compiles
-5. Sample code runs without error.
-6. Multiple versions work.
-7. Single version of Multiple version works when only that version installed.
-
 Test Platforms
 1. Linux Debian 64 bit "Jessie"
 2. Windows 7 32 bit
@@ -35,3 +26,33 @@ Lib builds
 1. MSys2
 2. Downloaded C Lib
 3. Self Built C++ Lib
+
+Pass Level
+1. Wizard starts up
+2. Wizard runs to the end.
+3. Sample code exists
+4A. Sample code fails to compile
+4B. Sample code fails to link
+5. Sample code runs without error.
+6. Multiple versions work.
+7. Single version of Multiple version works when only that version installed.
+
+Wizard      Ver.    MSys2_Win7x32       MinGW 32 bit
+opengl              5
+win32gui            5.
+glfw        2       1. Missing header
+glfw        3       1. Missing header
+glut                1. Missing header
+gtk         2       5.
+gtk         3       1. Missing header
+opencv              1. Missing header
+sdl         1       5.
+sdl         2       1. Missing header
+sfml        1       1. Missing header
+sfml        2       1. Missing header
+directx     8       4B.Link error       4A.Compile error
+directx     9       4A.Compile error    4A.Compile error
+
+MSys2 32 bit base: C:\Apps32\MSys2\mingw32
+MinGW GCC 4.7 and 5.1 has dx9 header; but, missing strsafe.h header
+directx 9 sample code needs changed to work with MinGW GCC
