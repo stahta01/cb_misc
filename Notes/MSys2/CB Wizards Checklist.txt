@@ -12,11 +12,12 @@ lightfeather    C++?            http://sourceforge.net/projects/lightfeather/
 SmartWin        C++?            http://sourceforge.net/projects/smartwin/?source=directory
 opengl          C?
 win32gui        C?
+directx         C
 glfw            C               http://www.glfw.org/docs/latest/build.html
 glut            C               https://www.opengl.org/resources/libraries/glut/
-gtk             C
-sdl             C       
-directx         C
+gtk             C               http://sourceforge.net/projects/gtk-mingw/files/gtk%2B3/
+sdl             C               https://www.libsdl.org/download-2.0.php
+
 
 GCC, BCC, MSVC, and OpenWatcom compilers need tested.
     win32gui
@@ -61,13 +62,11 @@ Build test level
 
 
 Wizard      Ver.    MSys2x32_Win7x32    Win7x32 MinGW 32 bit    MSys2x64_Win7x64        MSys2x32_Win7x64     
-directx     8       4B.Link error       4A.Compile error        
-directx     9       4A.Compile error    4A.Compile error        1. Can't find files.    4A.Sample needs fixed for MinGW
-opengl              5                                           5.                      5.
-win32gui            5.                                          5.                      5.
+opengl              5                                           5. Gui worked
+win32gui            5.                                          5. Empty GUI was shown.
 glfw        2       1. Missing header                           1. Missing header       1. Missing header
 glfw        3       5. returned 2                               5. Gui worked           5. Gui worked
-glut                5. freeglut used
+glut                5. freeglut used                            5. freeglut used
 gtk         2       6.                                          6.
 gtk         3       6.                                          6.
 sdl         1       6.                                          6.
