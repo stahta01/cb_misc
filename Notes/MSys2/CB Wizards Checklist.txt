@@ -1,21 +1,38 @@
 Wizard          Lib Type        URL
-fltk            C++
+fltk            C++             http://www.fltk.org/software.php
 irrlicht        C++             http://irrlicht.sourceforge.net/tutorials/
 qt4             C++             https://en.wikipedia.org/wiki/Qt_%28software%29
+sfml            C++             http://www.sfml-dev.org/    
+opencv          C++             http://opencv.org/
+        https://zahidhasan.wordpress.com/2013/02/16/how-to-install-opencv-on-windows-7-64bit-using-mingw-64-and-codeblocks/
 wxwidgets       C++ 
 CB Plugin       C++       
-ogre            C++?
-lightfeather    C++?
-SmartWin        C++?
+ogre            C++?            http://www.ogre3d.org/
+lightfeather    C++?            http://sourceforge.net/projects/lightfeather/
+SmartWin        C++?            http://sourceforge.net/projects/smartwin/?source=directory
 opengl          C?
-Win32 GUI       C?
+win32gui        C?
 glfw            C               http://www.glfw.org/docs/latest/build.html
 glut            C               https://www.opengl.org/resources/libraries/glut/
 gtk             C
-opencv          C               http://opencv.org/  
 sdl             C       
-sfml            C               http://www.sfml-dev.org/    
 directx         C
+
+GCC, BCC, MSVC, and OpenWatcom compilers need tested.
+    win32gui
+    wxWidgets
+
+GCC, BCC, and MSVC compilers need tested.
+    opengl
+
+GCC and MSVC compilers need tested.
+    directx
+    irrlicht
+
+Only GCC compilers need tested.
+    fltk
+    opencv
+    smartwin
 
 Test Platforms
 1. Linux Debian 64 bit "Jessie"
@@ -44,20 +61,17 @@ Build test level
 
 
 Wizard      Ver.    MSys2x32_Win7x32    Win7x32 MinGW 32 bit    MSys2x64_Win7x64        MSys2x32_Win7x64     
+directx     8       4B.Link error       4A.Compile error        
+directx     9       4A.Compile error    4A.Compile error        1. Can't find files.    4A.Sample needs fixed for MinGW
 opengl              5                                           5.                      5.
 win32gui            5.                                          5.                      5.
 glfw        2       1. Missing header                           1. Missing header       1. Missing header
-glfw        3       5. No GUI seen.                             5. Gui worked           5. Gui worked
-glut                1. Missing glut.h                           1. Missing Lib
+glfw        3       5. returned 2                               5. Gui worked           5. Gui worked
+glut                5. freeglut used
 gtk         2       6.                                          6.
 gtk         3       6.                                          6.
-opencv              1. Missing header                           1. Wiz needs edited to find libopencv_core.dll.a
-sdl         1       5.                                          6.
-sdl         2       5. Runtime error                            6.
-sfml        1       1. Missing header                           4B. Using DLL
-sfml        2       1. Missing header                           5. Gui worked using DLL.
-directx     8       4B.Link error       4A.Compile error        
-directx     9       4A.Compile error    4A.Compile error        1. Can't find files.    4A.Sample needs fixed for MinGW
+sdl         1       6.                                          6.
+sdl         2       6.                                          6.
 
 MSys2 32 bit base: C:\Apps32\MSys2\mingw32
 MSys2 64 bit base: C:\Apps64\MSys2_CB\mingw64

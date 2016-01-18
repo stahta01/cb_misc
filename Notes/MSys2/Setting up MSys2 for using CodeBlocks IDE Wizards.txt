@@ -26,10 +26,11 @@ pacman -S mingw-w64-i686-gcc                # GCC Compiler
 #
 pacman -S mingw-w64-i686-SDL                #
 pacman -S mingw-w64-i686-SDL2               #
-pacman -S mingw-w64-i686-freeglut           # Wizard needs lib code edited to look for freeglut.
+pacman -S mingw-w64-i686-freeglut           #
 pacman -S mingw-w64-i686-glfw
 pacman -S mingw-w64-i686-gtk2               #
 pacman -S mingw-w64-i686-gtk3               #
+pacman -S mingw-w64-i686-opencv             #
 
 # pacman -S mingw-w64-i686-gdk-pixbuf2        # Not sure if really needed
 # pacman -S mingw-w64-i686-glew               # No idea if this is needed
