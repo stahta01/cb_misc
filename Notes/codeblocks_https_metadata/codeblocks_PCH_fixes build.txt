@@ -11,7 +11,7 @@
 #
 ### pch_fixes/PCH/master
 cd ../codeblocks_PCH_fixes-git && git status -uno
-git fetch pch_fixes && git fetch origin && git status -uno
+git fetch pch_fixes --prune && git fetch origin --prune
 git svn fetch && git svn info
 git checkout PCH/master && git status -uno
 ##  git rebase origin/bugfix/project_n_workspace
@@ -408,8 +408,8 @@ git checkout PCH/cbp_unix_and_win_wx28 && git status -uno
 #   a branch is changed.
 # Only add new branches after the first "git gc" of the rebase list.
 # git rebase --abort
-git fetch pch_fixes     && \
-git gc                  && \
+git fetch pch_fixes  --prune   && git gc
+##
 git rebase pch_fixes/PCH/Valgrind && \
 git rebase pch_fixes/PCH/devpak_plugin && \
 # PCH/toolsplus needs Extra Approval from CB Team
