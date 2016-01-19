@@ -2,7 +2,8 @@
 ######################################################
 
 #
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+cd ../codeblocks_https_metadata-git && git status -uno
+git fetch origin --prune
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info
 # Pull and then check if needs pushed
