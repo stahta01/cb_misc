@@ -61,21 +61,18 @@ Build test level
 3. Debian configure/make builds and runs wx3.0 version
 
 
-Wizard      Ver.    MSys2x64_Win7x64        MSys2x32_Win7x64        Win7x64 Mgw64       Win7x64 Mgw32
-glfw        2       1. Missing header       1. Missing header       6. Both worked
-glfw        3       5. Gui worked           5. Gui worked           6. Both worked
-glut                5. freeglut used
-gtk         2       6. 
-gtk         3       6.                    
-sdl         1       6.                    
-sdl         2       6.                    
+Wizard      Ver.    MSys2x64_Win7x64        MSys2x32_Win7x64        Win7x64 Mgw64       Win7x64 Mgw32       Debian Jessie
+glfw        2       1. Missing header       1. Missing header       6. Both worked      ?                   6. Both worked
+glfw        3       5. Gui worked           5. Gui worked           6. Both worked      ?                   6. Both worked Needed to change lib folder to /usr/lib/x86_64-linux-gnu
+glut                5. freeglut used        ?                       ?                   ?                   5. Gui worked
+gtk         2       6.                      ?                       ?                   ?                   6. Both worked       
+gtk         3       6.                      ?                       ?                   ?                   6. Both worked  
+sdl         1       6.                      ?                       ?                   ?                   6. Both worked                 
+sdl         2       6.                      ?                       ?                   ?                   6. Both worked
 
 
 MSys2 64 bit base: C:\Apps64\MSys2\mingw64
 MSys2 32 bit base: C:\Apps64\MSys2\mingw32
 
-MSys2 32 bit base: C:\Apps\MSys2\mingw32
-MSys2 64 bit base: C:\Apps\MSys2\mingw64
-
-MinGW GCC 4.7 and 5.1 has dx9 header; but, missing strsafe.h header
+MinGW GCC 4.7 and 5.1 has dx9 header.
 directx 9 sample code needs changed to work with MinGW GCC
