@@ -18,9 +18,9 @@ git checkout build_cbp/wx30x && git rebase master && git push origin --force-wit
 
 
 ## Move to different repo??
-# build_cbp/wx_multilib
-# msys2/wx30_libs
-# msys2/codeblocks
+# build_cbp/wx_multilib ?move to PCH Repo?
+# msys2/wx30_libs       # 2nd Best so far to keep in this repo.
+# msys2/codeblocks      # Best so far to keep in this repo.
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno

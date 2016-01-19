@@ -28,10 +28,10 @@ git rebase -i 3440a1ebf00af8a75c702737c7b1186e46fa5e48
 
 git am 0001-cbp_win_wx30-Saves-As-several-Windows-wx30-Projects..patch
 
-git format-patch 3440a1ebf00af8a75c702737c7b1186e46fa5e48
-git am 0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
-git am 0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
-git apply --reject 0003-wx_multilibs_gcc471TDM-Changed-to-make-built-wx-mult.patch
+git format-patch 3f86e0ff2d990377e744edf164b5f1f9e8c94d73
+0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
+0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
+0003-wx_multilibs_gcc471TDM-Changed-to-make-built-wx-mult.patch
 
 git --no-pager log --oneline --author=Tim 3440a1ebf00af8a75c702737c7b1186e46fa5e48..HEAD
 f3d0a10 * wx_multilibs_gcc471TDM: Changed to make built wx multilibs. (Thanks stahta01)

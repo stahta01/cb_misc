@@ -3,12 +3,12 @@
 cd ../codeblocks_msys2_wxMonoLib-git && git fetch origin && git status -uno
 #  git checkout msys2/codeblocks
 #  git branch --list
-git rebase origin/cygwin_support && git status -uno
+git rebase origin/feature/compiler && git status -uno
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 git svn fetch && git svn info
 
-git --no-pager log --pretty=format:%s origin/cygwin_support..origin/msys2/codeblocks
+git --no-pager log --pretty=format:%s origin/feature/compiler..origin/msys2/codeblocks
 
 * msys2_cb: compiler: DO NOT USE UPSTREAM
 * CbLauncher_wx30.cbp: Save-As using CB 15.12RC1. (Thanks stahta01)
