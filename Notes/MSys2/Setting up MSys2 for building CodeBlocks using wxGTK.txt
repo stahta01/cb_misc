@@ -42,10 +42,8 @@ pacman -S mingw-w64-i686-boost      # NassiShneiderman plugin needs boost
 pacman -S mingw-w64-i686-make       # Likely to be needed in future
 pacman -S mingw-w64-i686-pkg-config # Likely to be needed in future
 
-# Editors that I might try using as my Git Editor
-# pacman -S mingw-w64-i686-scite       # Adds too many packages to use at this time.
-# pacman -S mingw-w64-i686-geany       # Package NOT found
-# pacman -S mingw-w64-i686-gedit       # Adds way too many packages to use at this time.
+# My Git Editor
+pacman -S mingw-w64-i686-scite
 
 ####
 # Under MinGW 32 bit,

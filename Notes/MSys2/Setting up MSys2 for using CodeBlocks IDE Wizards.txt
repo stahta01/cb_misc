@@ -36,10 +36,6 @@ pacman -S mingw-w64-i686-opencv             #
 # pacman -S mingw-w64-i686-glew               # No idea if this is needed
 
 
-# Remove the 32 bit libs that does NOT work on my old Win7 32 bit PC.
-pacman -R mingw-w64-i686-glfw               # This library does NOT work on my 32 bit PC.
-
-
 ####
 # Under Windows/Mingw 32 bit, if you get DLL base address errors;
 # Exit out of all MSys2 Windows;
