@@ -473,6 +473,22 @@ git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 #
 
+###
+#
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+git checkout build_cbp/wx_multilib && git status -uno
+#  git branch --list
+###
+# Only rebase this section after one is added to top.
+    git rebase origin/bugfix/plugins
+    git rebase origin/bugfix/sdk
+    git rebase origin/deceased/removals
+###
+git rebase pch_fixes/PCH/cbp_win_wx30 && git status -uno
+# git log -5
+git push pch_fixes
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+
 ###########################
 
 #include "sdk.h" // Code::Blocks SDK and Precompiled Header

@@ -17,8 +17,8 @@ git svn fetch && git svn info
 ###
 git rebase pch_fixes/PCH/cbp_win_wx30 && git status -uno
 # git log -5
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
+git push pch_fixes
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git log -5
 
