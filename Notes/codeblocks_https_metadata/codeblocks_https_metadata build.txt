@@ -16,9 +16,7 @@ git checkout deceased/removals && git rebase master && git push origin --force-w
 git checkout bugfix/sdk && git rebase master && git push origin --force-with-lease
 git checkout build_cbp/wx30x && git rebase master && git push origin --force-with-lease
 
-# build/move_output
-# build_cbp/lib_folder_type2
-# build_cbp/lib_folder_type1
+
 ## Move to different repo??
 # build_cbp/wx_multilib
 # msys2/wx30_libs
@@ -183,7 +181,6 @@ Update this repo
 https://github.com/stahta01/codeblocks_unofficial_installers.git
 Need to do a installer release for
   build_cbp/wx_multilib
-  cygwin_support
   msys2/codeblocks
 
 https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
