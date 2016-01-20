@@ -14,6 +14,7 @@ cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes --prune && git fetch origin --prune
 git svn fetch && git svn info
 git checkout PCH/master && git status -uno
+##  git rebase origin/deceased/removals
 ##  git rebase origin/bugfix/project_n_workspace
 ##  git rebase origin/wxContribItems
 #
@@ -26,6 +27,20 @@ git push pch_fixes
 #
 ######
 #
+### pch_fixes/PCH/wxCode
+##
+cd ../codeblocks_PCH_fixes-git && git fetch origin && git fetch pch_fixes
+git checkout PCH/wxCode && git status -uno
+#
+git rebase pch_fixes/PCH/master && git status -uno
+#
+##  git rebase -i pch_fixes/PCH/master
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+######
+#
 ### pch_fixes/PCH/wx_pch_h
 #
 ##
@@ -34,8 +49,8 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wx_pch_h && git status -uno
 #
-git rebase pch_fixes/PCH/master && git status -uno
-##  git rebase -i pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/wxCode && git status -uno
+##  git rebase -i pch_fixes/PCH/wxCode && git status -uno
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
@@ -471,7 +486,6 @@ git checkout build_cbp/wx_multilib && git status -uno
     git fetch origin                        && \
     git rebase origin/bugfix/plugins        && \
     git rebase origin/bugfix/sdk            && \
-    git rebase origin/deceased/removals     && \
 ###
 git rebase pch_fixes/PCH/cbp_win_wx30 && git status -uno
 # git log -5
@@ -484,8 +498,8 @@ git push pch_fixes
 
 # Projects with issues
  Missing "-Winvalid-pch"
-    TestPlot.cbp                    PCH/wxSmith
-    IETest.cbp                      PCH/wxSmith
+    TestPlot.cbp                    PCH/wx_pch_h
+    IETest.cbp                      PCH/wx_pch_h
  Has "NOPCH"
     Exporter.cbp                    Checked OK for "NOPCH".
     Exporter_wx30.cbp               Checked OK for "NOPCH".
@@ -504,14 +518,14 @@ git push pch_fixes
  Has "WX_PRECOMP" in branch PCH/cbp_unix_and_win_wx28
     No Projects
  Should be missing [pch_mode=] in branch PCH/cbp_unix_and_win_wx28
-    Exporter*.cbp                    PCH/source_exporter
+    Exporter*.cbp                    PCH/wx_pch_h
     Exporter-unix.cbp
     Exporter_wx30-unix.cbp
-    SpellChecker*.cbp                PCH/SpellChecker
-    wxContribItems*.cbp              PCH/wxContribItems
+    SpellChecker*.cbp                PCH/wx_pch_h
+    wxContribItems*.cbp              PCH/wx_pch_h
     wxContribItems-unix.cbp
     wxContribItems_wx30-unix.cbp
-    wxSmith*.cbp                     PCH/wxSmith
+    wxSmith*.cbp                     PCH/wx_pch_h
 
  Has [directory="$(CBDIR)/.objs]; this is NOT a problem!
     cbprofiler.unix.cbp
@@ -568,25 +582,25 @@ Has USE_PCH this NOT a problem
     wxSmithContribItems_wx30_64.cbp
 
 Has [wx_pch.h"] this NOT a problem
-    Exporter.cbp                    PCH/source_exporter
+    Exporter.cbp                    PCH/wx_pch_h
     Exporter_wx30.cbp
     Exporter_wx30_64.cbp
-    SpellChecker.cbp                PCH/SpellChecker
+    SpellChecker.cbp                PCH/wx_pch_h
     SpellChecker_wx30.cbp
     SpellChecker_wx30_64.cbp
     SpellChecker-unix.cbp
     SpellChecker_wx30-unix.cbp
-    wxContribItems.cbp              PCH/wxContribItems
+    wxContribItems.cbp              PCH/wx_pch_h
     wxContribItems_wx30.cbp
     wxContribItems_wx30_64.cbp
-    wxSmith-unix.cbp                PCH/wxSmith
+    wxSmith-unix.cbp                PCH/wx_pch_h
     wxSmith.cbp
     wxSmith_wx30.cbp
     wxSmith_wx30-unix.cbp
     wxSmith_wx30_64.cbp
 
 Has [wx_pch.h&quot;] but, NOT [wx_pch.h"]
-    wxSmithAui.cbp                  PCH/wxSmith
+    wxSmithAui.cbp                  PCH/wx_pch_h
     wxSmithAui_wx30.cbp
     wxSmithAui_wx30_64.cbp
     wxSmithContribItems-unix.cbp
