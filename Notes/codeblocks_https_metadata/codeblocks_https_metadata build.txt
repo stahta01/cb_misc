@@ -6,12 +6,7 @@ cd ../codeblocks_https_metadata-git && git status -uno
 git fetch origin --prune
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info
-# Pull and then check if needs pushed
-git checkout tims_readme && git pull --rebase && git rebase master && git status -uno
-git checkout deceased/removals && git pull --rebase && git rebase master && git status -uno
-git checkout bugfix/sdk && git pull --rebase && git rebase master && git status -uno
-git checkout build_cbp/wx30x && git pull --rebase && git rebase master && git status -uno
-# Update branch by rebasing with master branch
+# Update branches by rebasing with master branch
 git checkout tims_readme && git rebase master && git push origin --force-with-lease
 git checkout deceased/removals && git rebase master && git push origin --force-with-lease
 git checkout bugfix/sdk && git rebase master && git push origin --force-with-lease

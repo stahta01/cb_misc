@@ -81,7 +81,7 @@ git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 #
-git push pch_fixes -u
+git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 ######
@@ -441,18 +441,6 @@ git push pch_fixes
 ##  git fetch origin && git rebase origin/master && git push pch_fixes --force-with-lease
 #
 
-git --no-pager log --pretty=format:%s -10
-- pch_cbp_win_wx28: Removed define of "WX_PRECOMP". (Thanks stahta01)
-- ValgrindListLog.cpp: Changed "sdk_precomp.h" to "sdk.h". (Thanks stahta01)
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-- pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
-- DevPakPlugin.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- DevPakPlugin.cbp: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
-- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-- cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-
 git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/cbp_unix_and_win_wx28
 
 
@@ -480,9 +468,10 @@ git checkout build_cbp/wx_multilib && git status -uno
 #  git branch --list
 ###
 # Only rebase this section after one is added to top.
-    git rebase origin/bugfix/plugins
-    git rebase origin/bugfix/sdk
-    git rebase origin/deceased/removals
+    git fetch origin                        && \
+    git rebase origin/bugfix/plugins        && \
+    git rebase origin/bugfix/sdk            && \
+    git rebase origin/deceased/removals     && \
 ###
 git rebase pch_fixes/PCH/cbp_win_wx30 && git status -uno
 # git log -5
