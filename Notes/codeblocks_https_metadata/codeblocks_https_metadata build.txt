@@ -17,6 +17,16 @@ git checkout build_cbp/wx30x && git rebase master && git push origin --force-wit
 # msys2/wx30_libs       # 2nd Best so far to keep in this repo.
 # msys2/codeblocks      # Best so far to keep in this repo.
 
+
+###
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout wxFormBuilder && git status -uno
+#
+git rebase master && git status -uno
+#
+git push origin 
+##  git rebase master && git push origin --force-with-lease
+
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/wizards && git status -uno

@@ -1,8 +1,8 @@
-// C++ code generated with wxFormBuilder (version Dec 17 2007)
-// C++ code generated with wxFormBuilder (version Feb  2 2007)
-// C++ code generated with wxFormBuilder (version Feb 17 2007)
-// C++ code generated with wxFormBuilder (version Jul 24 2006)
-// C++ code generated with wxFormBuilder (version Sep  8 2010)
+// C++ code generated with wxFormBuilder (version Dec 17 2007) <FileVersion major="1" minor="5" /> 12/17/2007 Version 3.00.52 (RC4-1)
+// C++ code generated with wxFormBuilder (version Feb  2 2007) <FileVersion major="1" minor="5" /> 02-01-2007  Version 3.00.18 (Beta 3)
+// C++ code generated with wxFormBuilder (version Feb 17 2007) <FileVersion major="1" minor="5" /> 02-18-2007 Version 3.00.20 (Beta 3)
+// C++ code generated with wxFormBuilder (version Jul 24 2006) <FileVersion major="1" minor="5" /> 07-24-2006  Version 2.00.61
+// C++ code generated with wxFormBuilder (version Sep  8 2010) <FileVersion major="1" minor="10" />07/31/2010 Version 3.01.70
 src\plugins\contrib\BrowseTracker\ConfigPanel.cpp
 src\plugins\contrib\BrowseTracker\ConfigPanel.h
 src\plugins\contrib\BrowseTracker\FormBuilder\BrowseTrackerCfg2.fbp
