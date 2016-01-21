@@ -1,0 +1,27 @@
+// C++ code generated with wxFormBuilder (version Dec 17 2007)
+// C++ code generated with wxFormBuilder (version Feb  2 2007)
+// C++ code generated with wxFormBuilder (version Feb 17 2007)
+// C++ code generated with wxFormBuilder (version Jul 24 2006)
+// C++ code generated with wxFormBuilder (version Sep  8 2010)
+src\plugins\contrib\BrowseTracker\ConfigPanel.cpp
+src\plugins\contrib\BrowseTracker\ConfigPanel.h
+src\plugins\contrib\BrowseTracker\FormBuilder\BrowseTrackerCfg2.fbp
+src\plugins\contrib\BrowseTracker\FormBuilder\ConfigPanel.cpp
+src\plugins\contrib\BrowseTracker\FormBuilder\ConfigPanel.h
+src\plugins\contrib\FileManager\Resources\fileexplorersettings.fbp
+src\plugins\contrib\ToolsPlus\CmdConfigDialog.cpp
+src\plugins\contrib\ToolsPlus\CmdConfigDialog.h
+src\plugins\contrib\ToolsPlus\Resources\cmddialog.fbp
+src\plugins\contrib\ToolsPlus\Resources\dialogs.fbp
+src\plugins\contrib\codesnippets\Search\MainPanel.cpp
+src\plugins\contrib\codesnippets\Search\MainPanel.h
+src\plugins\contrib\codesnippets\settingsdlgform.cpp
+src\plugins\contrib\codesnippets\settingsdlgform.h
+src\plugins\contrib\codesnippets\snippetpropertyform.cpp
+src\plugins\contrib\codesnippets\snippetpropertyform.h
+src\plugins\scriptedwizard\resources\wxwidgets\wxfb\dialog\GUIDialog.cpp
+src\plugins\scriptedwizard\resources\wxwidgets\wxfb\dialog\GUIDialog.h
+src\plugins\scriptedwizard\resources\wxwidgets\wxfb\dialog\WxWizDialog.fbp
+src\plugins\scriptedwizard\resources\wxwidgets\wxfb\frame\GUIFrame.cpp
+src\plugins\scriptedwizard\resources\wxwidgets\wxfb\frame\GUIFrame.h
+src\plugins\scriptedwizard\resources\wxwidgets\wxfb\frame\WxWizFrame.fbp
