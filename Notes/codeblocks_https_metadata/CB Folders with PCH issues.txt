@@ -1,12 +1,6 @@
 PCH/?                   src\plugins\contrib\wxContribItems\wxFlatNotebook\include\wx\wxFlatNotebook
 PCH/?                   src\plugins\contrib\wxContribItems\wxmathplot
-PCH/BrowseTracker       src\plugins\contrib\BrowseTracker
-PCH/FileManager         src\plugins\contrib\FileManager
-PCH/NassiShneiderman    src\plugins\contrib\NassiShneiderman
-PCH/codesnippets        src\plugins\contrib\codesnippets
-PCH/codesnippets        src\plugins\contrib\codesnippets\Search
-PCH/headerfixup         src\plugins\contrib\headerfixup
-PCH/misc                src\plugins\modpoller
+PCH/codesnippets        src\plugins\contrib\codesnippets # DO NOT EDIT IN FILES
 PCH/wx_pch_h            src\plugins\contrib\wxSmithDateTimePicker
 PCH/wx_pch_h            src\plugins\contrib\wxSmithIExplore
 PCH/wx_pch_h            src\plugins\contrib\wxSmithSTC
