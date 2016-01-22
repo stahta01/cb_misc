@@ -1,0 +1,14 @@
+Ubuntu 14.04 LTS    Trusty Tahr     April 17, 2014  
+Ubuntu 14.04.1 LTS  Trusty Tahr     July 24, 2014
+Ubuntu 14.04.2 LTS  Trusty Tahr     February 20, 2015
+Ubuntu 14.04.3 LTS  Trusty Tahr     August 6, 2015
+
+Ubuntu 15.04        Vivid Vervet    April 23, 2015
+Ubuntu 15.10        Wily Werewolf   October 22, 2015
+
+Ubuntu 16.04 LTS    Xenial Xerus    future
+
+Version Code name   Release date
+7.0     Wheezy      May 4th 2013 
+8.0     Jessie      April 25th 2015
+9.x     stretch     future
