@@ -11,4 +11,4 @@ Ubuntu 16.04 LTS    Xenial Xerus    future
 Version Code name   Release date
 7.0     Wheezy      May 4th 2013 
 8.0     Jessie      April 25th 2015
-9.x     stretch     future
+9.x     Stretch     future

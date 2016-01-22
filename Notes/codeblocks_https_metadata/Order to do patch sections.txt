@@ -1,8 +1,11 @@
 Order to do patch sections.txt
 
+bugfix/project_n_workspace
 bugfix/sdk
 bugfix/wxNewId
 bugfix/plugins
+deceased/removals
+wxContribItems
 PCH/core
 Save-As several CB Projects; Use Windows 64 bit for wx30_64 projects.
 bugfix/project_n_workspace 

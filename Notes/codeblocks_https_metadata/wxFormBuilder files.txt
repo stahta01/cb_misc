@@ -1,25 +1,26 @@
-// C++ code generated with wxFormBuilder (version Dec 17 2007) <FileVersion major="1" minor="5" /> 12/17/2007 Version 3.00.52 (RC4-1)
+// C++ code generated with wxFormBuilder (version Jul 24 2006) <FileVersion major="1" minor="5" /> 07-24-2006  Version 2.00.61
 // C++ code generated with wxFormBuilder (version Feb  2 2007) <FileVersion major="1" minor="5" /> 02-01-2007  Version 3.00.18 (Beta 3)
 // C++ code generated with wxFormBuilder (version Feb 17 2007) <FileVersion major="1" minor="5" /> 02-18-2007 Version 3.00.20 (Beta 3)
-// C++ code generated with wxFormBuilder (version Jul 24 2006) <FileVersion major="1" minor="5" /> 07-24-2006  Version 2.00.61
+// C++ code generated with wxFormBuilder (version Dec 17 2007) <FileVersion major="1" minor="9" /> 12/17/2007 Version 3.00.52 (RC4-1)
+// C++ code generated with wxFormBuilder (version Apr 16 2008) <FileVersion major="1" minor="9" /> 04/15/2008 Version 3.00.57
 // C++ code generated with wxFormBuilder (version Feb  6 2009  <FileVersion major="1" minor="9" /> 02/06/2009 Version 3.01.59 (Beta)
 // C++ code generated with wxFormBuilder (version Sep  8 2010) <FileVersion major="1" minor="10" />07/31/2010 Version 3.01.70
 src\plugins\contrib\BrowseTracker\ConfigPanel.cpp
 src\plugins\contrib\BrowseTracker\ConfigPanel.h
-src\plugins\contrib\BrowseTracker\FormBuilder\BrowseTrackerCfg2.fbp
+src\plugins\contrib\BrowseTracker\FormBuilder\BrowseTrackerCfg2.fbp <FileVersion major="1" minor="10" />
 src\plugins\contrib\BrowseTracker\FormBuilder\ConfigPanel.cpp
 src\plugins\contrib\BrowseTracker\FormBuilder\ConfigPanel.h
 src\plugins\contrib\FileManager\Resources\fileexplorersettings.fbp
-src\plugins\contrib\ToolsPlus\CmdConfigDialog.cpp
-src\plugins\contrib\ToolsPlus\CmdConfigDialog.h
-src\plugins\contrib\ToolsPlus\Resources\cmddialog.fbp
-src\plugins\contrib\ToolsPlus\Resources\dialogs.fbp
-src\plugins\contrib\codesnippets\Search\MainPanel.cpp
-src\plugins\contrib\codesnippets\Search\MainPanel.h
+src\plugins\contrib\ToolsPlus\CmdConfigDialog.cpp                   wxFormBuilder (version Feb  2 2007)
+src\plugins\contrib\ToolsPlus\CmdConfigDialog.h                     wxFormBuilder (version Feb  2 2007)
+src\plugins\contrib\ToolsPlus\Resources\cmddialog.fbp               <FileVersion major="1" minor="5" />
+src\plugins\contrib\ToolsPlus\Resources\dialogs.fbp                 <FileVersion major="1" minor="5" />
+src\plugins\contrib\codesnippets\Search\MainPanel.cpp               IGNORE BECAUSE NOT USED
+src\plugins\contrib\codesnippets\Search\MainPanel.h                 IGNORE BECAUSE NOT USED
 src\plugins\contrib\codesnippets\settingsdlgform.cpp
-src\plugins\contrib\codesnippets\settingsdlgform.h
+src\plugins\contrib\codesnippets\settingsdlgform.h                  wxFormBuilder (version Dec 17 2007)
 src\plugins\contrib\codesnippets\snippetpropertyform.cpp
-src\plugins\contrib\codesnippets\snippetpropertyform.h
+src\plugins\contrib\codesnippets\snippetpropertyform.h              wxFormBuilder (version Jul 24 2006)
 src\plugins\scriptedwizard\resources\wxwidgets\wxfb\dialog\GUIDialog.cpp
 src\plugins\scriptedwizard\resources\wxwidgets\wxfb\dialog\GUIDialog.h
 src\plugins\scriptedwizard\resources\wxwidgets\wxfb\dialog\WxWizDialog.fbp
