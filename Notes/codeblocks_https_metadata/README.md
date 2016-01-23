@@ -62,6 +62,7 @@ Delete Branch
     DELETED pch_fixes/PCH/code_fixes
     DELETED build_cbp/wx_compiler
     DELETED pch_fixes/win_cbp_saveas
+    wxFormBuilder
 
 ######################################################
 
