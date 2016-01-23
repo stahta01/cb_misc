@@ -1,0 +1,18 @@
+Plugin idea to set Global Variables for default compiler.txt
+http://wiki.codeblocks.org/index.php/Recommended_global_variables
+
+cs      Base directory of Crystal Space         A free (LGPL) and portable 3D engine written in C++. It runs on GNU/Linux, Windows, and MacOS/X and supports many modern 3D features like shaders, ...
+fl      Base directory of FLTK                  The Fast Light Toolkit is a cross-platform Graphical User Interface library written in C++.
+glfw    Base directory of GLFW                  GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events. 
+glut    Base directory of GLUT                  GLUT is the OpenGL Utility Toolkit, a window system independent toolkit for writing OpenGL programs.
+gtk     Base directory of GTK+                  GTK+, or the GIMP Toolkit, is a multi-platform toolkit for creating graphical user interfaces.
+irr     Base directory of Irrlicht              The Irrlicht Engine is an open source high performance realtime 3D engine written in C++
+ogre    Base directory of Ogre 3D
+openal  Base directory of OpenAL                OpenAL (Open Audio Library) is a cross-platform audio application programming interface (API)
+sdl     Base directory of SDL
+qt      Base directory of Qt
+wx      Base directory of wxWidgets
+
+
+    m_CfgMan = Manager::Get()->GetConfigManager(_T("gcv"));
+    m_CfgMan->Exists(_T("/sets/") + CompilerFactory::GetDefaultCompilerID()+ _T("/foo"));
