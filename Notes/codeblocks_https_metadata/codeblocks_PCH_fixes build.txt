@@ -29,6 +29,26 @@ git push pch_fixes
 #
 ######
 #
+### pch_fixes/PCH/toolsplus
+#
+# - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
+# cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
+# pch_cbp_win_wx30:
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+git checkout PCH/toolsplus && git status -uno
+#
+##  git pull && git status -uno
+#
+git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+#
+##  git rebase -i pch_fixes/PCH/master && git status -uno
+##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+
+######
+#
 ### pch_fixes/PCH/wxCode
 ##
 cd ../codeblocks_PCH_fixes-git && git fetch origin && git fetch pch_fixes
@@ -193,26 +213,6 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/NassiS
 - cbp_win_wx30: Save as CB Project(s).
 - pch_cbp_win_wx28: Save as CB Project(s).
 - NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
-######
-#
-### pch_fixes/PCH/toolsplus
-#
-# - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
-# cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
-# pch_cbp_win_wx30:
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
-git checkout PCH/toolsplus && git status -uno
-#
-##  git pull && git status -uno
-#
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
-#
-##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
-#
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
-
 ######
 #
 ### pch_fixes/PCH/contrib

@@ -1,15 +1,3 @@
 
 Need to make PCH in object directory in wxWidgets wizard
 
-In "Defines Application Frame" header
-#include <wx/frame.h>
-or
-#include <wx/dialog.h>
-#include <wx/stattext.h>
-
-In "Code for Application Frame" file
-#ifndef WX_PRECOMP
-#include <wx/menu.h>
-#include <wx/msgdlg.h>
-#include <wx/sizer.h>
-#endif
