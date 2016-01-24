@@ -1,0 +1,98 @@
+# Based on info from http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
+
+cd ~/devel/source_code/wxWidgets-2.8.12
+
+mkdir build_gtk2_shared_multilib_unicode
+cd build_gtk2_shared_multilib_unicode
+../configure --with-gtk=2 \
+       --enable-xrc \
+       --enable-unicode
+#### config settings start
+Configured wxWidgets 2.8.12 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be compiled in debug mode?             no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets be compiled in Unicode mode?           yes
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.4      no
+                                       wxWidgets 2.6      yes
+  Which libraries should wxWidgets use?
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       odbc               no
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
+#### config setting end
+# GUI toolkit of GTK+ 2 is the only one I have tested
+# The wxWidgets library needs to be shared for Code::Blocks to run (Fails to load CB Plugins if it was a static build)
+# Unicode mode is needed; unless you wish to edit Code::Blocks source to fix the handful of locations that have issues.
+# wxWidgets 2.6 compatibility is NOT needed.
+make
+su
+make install
+update-alternatives --install /usr/bin/wx-config wx-config /usr/local/bin/wx-config 50
+exit
+
+/usr/local/bin/wx-config --list
+
+########
+
+########
+# configure/make builds require wx-config to work.
+$   which wx-config
+# Normal return from Debian below
+/usr/bin/wx-config
+
+# update-alternatives is a Debian based distro command.
+# The command below displays the default version of wxWidgets that is currently set.
+$   update-alternatives --display wx-config
+
+cd ~/devel/version_control/codeblocks_https_metadata-git
+
+# If you are going to change the wxWidgets version; you need to uninstall the old version before doing so.
+$   su
+$   make uninstall
+$   exit
+# Likely a good idea to clean everything if changing wxWidgets version
+$   make clean
+$   make distclean
+$   make clean-bin
+$   make clean-zipfiles
+
+# update-alternatives is a Debian based distro command.
+# The command below can be used to change the default version of wxWidgets to be used.
+$   su
+$   update-alternatives --config wx-config
+$   exit
+
+wx-config --help
+
+$   ./bootstrap
+# configure options I tried in the past or plan to try in the future
+--disable-pch
+--disable-code-completion
+--enable-debug
+--with-wx-config="wx-config --static=no --version=2.8"
+# End of options
+$   ./configure --enable-debug --with-wx-config="wx-config --static=no --version=2.8"
+$   make
+$   su
+$   make install
+$   exit
+
+
+# Check to verify fixes for runtime issues.
+$   cat /etc/ld.so.conf
+# Output below
+include /etc/ld.so.conf.d/*.conf
+/usr/local/lib
+# Output stops above
+
+codeblocks --no-splash-screen --debug-log --verbose --user-data-dir=<path>
+
