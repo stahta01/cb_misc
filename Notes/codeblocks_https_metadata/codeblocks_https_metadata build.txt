@@ -24,6 +24,8 @@ git checkout feature/wizards && git status -uno
 #
 git rebase master && git status -uno
 #
+## git rebase -i master
+#
 git push origin 
 ##  git rebase master && git push origin --force-with-lease
 

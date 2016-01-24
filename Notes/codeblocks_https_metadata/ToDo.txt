@@ -1,3 +1,0 @@
-
-Need to make PCH in object directory in wxWidgets wizard
-
