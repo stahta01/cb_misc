@@ -1,0 +1,59 @@
+Index: src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
+===================================================================
+--- src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp	(revision 10745)
++++ src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp	(working copy)
+@@ -6,6 +6,16 @@
+ 		<Option pch_mode="0" />
+ 		<Option default_target="help_plugin" />
+ 		<Option compiler="gcc" />
++		<Option show_notes="0">
++			<notes>
++				<![CDATA[The packages libbz2-dev and zlib1g-dev are needed for the project to build in the recommended manor.
++
++The other option is to build project targets bzip2 and zlib; and edit this project to use the libs built by those targets.
++
++
++]]>
++			</notes>
++		</Option>
+ 		<Build>
+ 			<Target title="bzip2">
+ 				<Option output="bzip2/libbzip2.a" prefix_auto="0" extension_auto="0" />
+@@ -46,8 +56,8 @@
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 				</Compiler>
+ 				<Linker>
+-					<Add library="bzip2/libbzip2.a" />
+-					<Add library="zlib/libz.a" />
++					<Add library="bz2" />
++					<Add library="z" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+@@ -55,7 +65,8 @@
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="bzip2;zlib;help_plugin;" />
++			<Add alias="All" targets="help_plugin;" />
++			<Add alias="Third-party libs" targets="bzip2;zlib;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add option="-Wextra" />
+Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp	(revision 10745)
++++ src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp	(working copy)
+@@ -461,6 +461,12 @@
+ 		<Unit filename="wxled/ledpanel/src/wxledpanel.cpp">
+ 			<Option target="wxLED" />
+ 		</Unit>
++		<Unit filename="wxmathplot/mathplot.cpp">
++			<Option target="wxMathPlot" />
++		</Unit>
++		<Unit filename="wxmathplot/mathplot.h">
++			<Option target="wxMathPlot" />
++		</Unit>
+ 		<Unit filename="wxthings/include/wx/things/toggle.h">
+ 			<Option target="wxCustomButton" />
+ 		</Unit>
