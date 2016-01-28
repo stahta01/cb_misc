@@ -1,0 +1,51 @@
+
+######################################################
+
+cd ../codeblocks_https_metadata-git && \
+git fetch origin                && \
+git checkout deceased/removals  && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout bugfix/sdk         && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout build_cbp/wx30x    && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout feature/wizards    && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout feature/compiler   && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout bugfix/wxNewId     && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout win_cbp_save_as    && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout bugfix/plugins     && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout bugfix/project_n_workspace && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout feature/sdk        && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout wxContribItems     && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout build/move_output  && \
+git rebase origin/win_cbp_save_as && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout build_cbp/lib_folder_type1 && \
+git pull                        && \
+git rebase origin/master        && \
+git checkout build_cbp/lib_folder_type2 && \
+git pull                        && \
+git rebase origin/master        && \
+git fetch pch_fixes  --prune   && git gc && git prune
+
+###############################################
