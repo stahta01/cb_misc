@@ -1,11 +1,11 @@
 Order to do patch sections.txt
 
-bugfix/project_n_workspace
-bugfix/sdk
-bugfix/wxNewId
-bugfix/plugins
+bugfix/project_n_workspace  Needs Tested and then Posted
+bugfix/sdk                  Applied
+feature/wizards             Needs Tested and then Posted
+bugfix/wxNewId              Needs Tested and then Posted
+bugfix/plugins              Needs Tested and then Posted
 deceased/removals
-wxContribItems
 PCH/core
 Save-As several CB Projects; Use Windows 64 bit for wx30_64 projects.
 bugfix/project_n_workspace 
