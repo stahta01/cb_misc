@@ -80,7 +80,7 @@ $   ./bootstrap
 --enable-debug
 --with-wx-config="wx-config --static=no --version=2.8"
 # End of options
-$   ./configure --enable-debug --with-wx-config="wx-config --static=no --version=2.8"
+$   ./configure --disable-pch --enable-debug --with-wx-config="wx-config --static=no --version=2.8"
 $   make
 $   su
 $   make install
