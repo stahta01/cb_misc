@@ -38,10 +38,11 @@ Move Branch
 Add Branch
     bugfix/plugins
 
+    pch_fixes/PCH/wxFormBuilder 
+      that combines PCH/toolsplus, PCH/BrowseTracker, and PCH/codesnippets.
     pch_fixes/PCH/Valgrind
     pch_fixes/PCH/HexEditor
     pch_fixes/PCH/SpellChecker
-    pch_fixes/PCH/codesnippets
     pch_fixes/PCH/contrib
     pch_fixes/PCH/core
     pch_fixes/PCH/devpak_plugin
@@ -51,7 +52,6 @@ Add Branch
     pch_fixes/PCH/source_exporter
     pch_fixes/PCH/wxContribItems
 
-    pch_fixes/PCH/BrowseTracker
     pch_fixes/PCH/DoxyBlocks
     pch_fixes/PCH/FileManager
     pch_fixes/PCH/NassiShneiderman
@@ -62,7 +62,7 @@ Delete Branch
     DELETED pch_fixes/PCH/code_fixes
     DELETED build_cbp/wx_compiler
     DELETED pch_fixes/win_cbp_saveas
-    wxFormBuilder
+    DELETED wxFormBuilder
 
 ######################################################
 

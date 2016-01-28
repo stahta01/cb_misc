@@ -29,13 +29,15 @@ git push pch_fixes
 #
 ######
 #
-### pch_fixes/PCH/toolsplus
+### pch_fixes/PCH/wxFormBuilder
 #
-# - toolsplus: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
-# cbp_win_wx30: Save-As Windows CB Projects. (Thanks stahta01)
-# pch_cbp_win_wx30:
+# toolsplus:
+# BrowseTracker: 
+# codesnippets: 
+#
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
-git checkout PCH/toolsplus && git status -uno
+git checkout PCH/wxFormBuilder && git status -uno
+
 #
 ##  git pull && git status -uno
 #
@@ -106,20 +108,6 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/core
 - sdk: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
 
 git format-patch pch_fixes/PCH/master
-
-######
-#
-### pch_fixes/PCH/BrowseTracker
-#
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
-git checkout PCH/BrowseTracker && git status -uno
-#
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
-#
-##  git rebase -i pch_fixes/PCH/master && git status -uno
-#
-git push pch_fixes
-##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 ######
 #
@@ -286,23 +274,6 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/help_p
 
 ######
 #
-### pch_fixes/PCH/codesnippets
-#
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
-git checkout PCH/codesnippets && git status -uno
-#
-##  git pull && git status -uno
-#
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
-#
-##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
-#
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
-
-######
-#
 ### pch_fixes/PCH/HexEditor
 #
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
@@ -429,15 +400,13 @@ git fetch pch_fixes  --prune   && git gc && git prune
 ##
 git rebase pch_fixes/PCH/Valgrind && \
 git rebase pch_fixes/PCH/devpak_plugin && \
-# PCH/toolsplus needs Extra Approval from CB Team
-git rebase pch_fixes/PCH/toolsplus  && \
+# PCH/wxFormBuilder needs Extra Approval from CB Team
+git rebase pch_fixes/PCH/wxFormBuilder  && \
 git rebase pch_fixes/PCH/contrib && \
 git rebase pch_fixes/PCH/help_plugin  && \
-git rebase pch_fixes/PCH/codesnippets && \
 git rebase pch_fixes/PCH/misc && \
 git rebase pch_fixes/PCH/HexEditor && \
 git rebase pch_fixes/PCH/headerfixup && \
-git rebase pch_fixes/PCH/BrowseTracker && \
 git rebase pch_fixes/PCH/NassiShneiderman && \
 git rebase pch_fixes/PCH/keybinder && \
 git rebase pch_fixes/PCH/DoxyBlocks && \

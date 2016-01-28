@@ -14,9 +14,12 @@ git checkout build_cbp/wx30x && git rebase master && git push origin --force-wit
 
 
 ## Move to different repo??
+# obf_sf/builds/wx31
 # msys2/wx30_libs       # 2nd Best so far to keep in this repo.
 # msys2/codeblocks      # Best so far to keep in this repo.
 
+## Move back to this Repo??
+# build_cbp/wx_multilib
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
@@ -88,6 +91,16 @@ git rebase master && git status -uno
 #
 git push origin 
 ##  git rebase master && git push origin --force-with-lease
+
+#  --unified=1
+#   git format-patch --unified=1 5c91dab26e40547288a0db747cf9c83600a71990
+0001-Workspace-Replaced-lib_finder-project-dependency-wit.patch
+0002-wxContribItems-Removed-unneeded-search-directories-a.patch
+0003-Core-app-plugins-Added-target-Abbreviations-to-virtu.patch
+0004-Removed-unneeded-wxpropgrid-library-from-link-list.-.patch
+0005-ToolsPlus-Save-As-CB-WinOS-wx2.8-project-using-CB-15.patch
+0006-Removed-unneeded-wxscintilla_cb-library-from-link-li.patch
+
 
 git --no-pager log --oneline --author=Tim
 
