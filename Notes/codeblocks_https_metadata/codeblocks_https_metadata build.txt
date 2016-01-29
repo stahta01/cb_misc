@@ -162,47 +162,21 @@ git.exe push origin
 
 ###
 # Add Option to change shell in GUI         environmentsettingsdlg.cpp
-# Use prefix "msys2_cb:"
+# Use prefix "msys2_cb:" or "msys2_wx_multilibs:"
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout msys2/codeblocks && git status -uno
-#  git branch --list
+git checkout build/msys2_codeblocks && git status -uno
+#   git branch --list
+#
+##  git rebase origin/win_cbp_save_as && git status -uno
+#
 git rebase origin/feature/compiler && git status -uno
 #
+##  git format-patch --unified=1 origin/feature/compiler..HEAD
+#
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
-#   git log
-# --unified=1 
-#   git format-patch 23405ed7ed5d777ec423cc5d60cff667a4a20950
-# git am --abort
-#
-###
-#
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout msys2/wx30_libs && git status -uno
-# Prefix msys2_wx_multilibs:
-#
-#  git branch --list
-#  git rebase origin/master && git status -uno
-git rebase origin/msys2/codeblocks && git status -uno
-#  git rebase --abort
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
 
-###############################################
-#
-git remote -v
-# git remote add obfuscated https://github.com/obfuscated/codeblocks_sf
-
-git fetch obfuscated
-git checkout obf_sf/builds/wx31
-##  git rebase obfuscated/master && git status -uno
-git rebase obfuscated/builds/wx31 && git rebase origin/obf_sf/builds/wx31 && git status -uno
-##  git pull --rebase && git status -uno
-git.exe push origin
-##  git.exe push origin --force-with-lease
-
-#
 ###############################################
 
 Branches that need updated/rebased
