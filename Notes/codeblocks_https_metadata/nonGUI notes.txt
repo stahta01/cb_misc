@@ -1,0 +1,25 @@
+nonGUI notes.txt
+
+#endif //*TAS*//
+
+GUI Includes that need removed
+    sdk\wxscintilla\include
+
+GUI Libs that need removed
+    wxscintilla_cb
+    wxmsw30ud_propgrid 
+    wxmsw30ud_html
+    wxmsw30ud_aui
+    wxmsw30ud_xrc
+    wxmsw30ud_adv
+    wxmsw30ud_core
+    gdi32
+
+GUI Manager that need removed
+    EditorManager
+    CCManager
+    DebuggerManager
+
+GUI Defines that need removed
+    WXMAKINGDLL_SCI
+    __WXMSW__
