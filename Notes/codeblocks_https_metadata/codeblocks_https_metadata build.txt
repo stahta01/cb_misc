@@ -190,13 +190,26 @@ git checkout build/wx_multilibs_gcc471TDM && git status -uno
 ###
 git rebase origin/win_cbp_save_as && git status -uno
 # git log -5
+# git rebase -i HEAD~5
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 
-git format-patch  --unified=1 878c5d8462227903d2ed04bb5cb65e5ebafdb16f
+# git format-patch  --unified=1 878c5d8462227903d2ed04bb5cb65e5ebafdb16f
 0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
 0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
 0003-wx_multilibs_gcc471TDM-Changed-to-make-built-wx-mult.patch
+
+###
+# nonGUI:
+#
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout build/nonGUI && git status -uno
+#  git branch --list
+###
+git rebase origin/master && git status -uno
+# git log -5
+git push origin
+##  git rebase origin/master && git push origin --force-with-lease
 
 ###############################################
 
