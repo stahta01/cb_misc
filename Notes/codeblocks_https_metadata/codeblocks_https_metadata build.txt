@@ -104,6 +104,8 @@ git format-patch master..bugfix/project_n_workspace
 0004-Removed-unneeded-wxpropgrid-library-from-link-list.-.patch
 0005-ToolsPlus-Removed-unneeded-wxscintilla_cb-from-libra.patch
 0006-cb_koders-Removed-wxscintilla_cb-from-ext.-depends.-.patch
+0007-wxContribItems_wx30-unix.cbp-Added-missing-files-for.patch
+0008-update30-Change-devel-to-devel30.patch
 
 git --no-pager log --oneline --author=Tim
 
@@ -176,6 +178,25 @@ git rebase origin/feature/compiler && git status -uno
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
+###
+#
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout build/wx_multilibs_gcc471TDM && git status -uno
+#  git branch --list
+###
+# Only rebase this section after one is added to top.
+    git rebase origin/bugfix/plugins        && \
+    git rebase origin/bugfix/sdk
+###
+git rebase origin/win_cbp_save_as && git status -uno
+# git log -5
+git push origin
+##  git rebase origin/master && git push origin --force-with-lease
+
+git format-patch  --unified=1 878c5d8462227903d2ed04bb5cb65e5ebafdb16f
+0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
+0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
+0003-wx_multilibs_gcc471TDM-Changed-to-make-built-wx-mult.patch
 
 ###############################################
 

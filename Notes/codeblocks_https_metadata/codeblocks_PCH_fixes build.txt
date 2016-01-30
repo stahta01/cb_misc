@@ -14,7 +14,7 @@ cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes --prune && git fetch origin --prune
 git svn fetch && git svn info
 git checkout PCH/master && git status -uno
-#   git prune && git gc && git prune
+#   git gc && git prune
 #
 ##  git rebase origin/wxContribItems
 ##  git rebase origin/deceased/removals
@@ -446,22 +446,6 @@ git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 #
-
-###
-#
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
-git checkout build_cbp/wx_multilib && git status -uno
-#  git branch --list
-###
-# Only rebase this section after one is added to top.
-    git fetch origin                        && \
-    git rebase origin/bugfix/plugins        && \
-    git rebase origin/bugfix/sdk            && \
-###
-git rebase pch_fixes/PCH/cbp_win_wx30 && git status -uno
-# git log -5
-git push pch_fixes
-##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 ###########################
 
