@@ -1,0 +1,162 @@
+# Based on info from http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
+
+cd ~/devel/version_control/wxWidgets-git
+git remote -v
+git fetch
+git checkout master
+git pull && git status -uno
+
+##  --with-opengl  # Missing libs; need to delete folder to re-run configure
+
+mkdir build_gtk2_shared_multilib_unicode
+cd build_gtk2_shared_multilib_unicode
+
+../configure --prefix=/opt/wxGTK2/3.1.x \
+       --without-gnomeprint \
+       --with-gtk=2 \
+       --with-sdl \
+       --with-libjpeg=sys \
+       --with-libpng=sys \
+       --with-libtiff=sys \
+       --with-zlib=sys \
+       --with-expat=sys \
+       --enable-compat28 \
+       --enable-geometry \
+       --enable-display \
+       --enable-mediactrl \
+       --enable-sound \
+       --enable-graphics_ctx \
+       --enable-xrc \
+       --enable-unicode
+
+#### config settings start
+Configured wxWidgets 3.1.0 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                yes
+#### config setting end
+# GUI toolkit of GTK+ 2 is the only one I have tested
+# The wxWidgets library needs to be shared for Code::Blocks to run (Fails to load CB Plugins if it was a static build)
+# Unicode mode is needed; unless you wish to edit Code::Blocks source to fix the handful of locations that have issues.
+# wxWidgets 2.8 compatibility is needed.
+# The --prefix= command is needed because the default of "/usr/local" results in it being hard to use any other wx installions.
+make
+su
+make install
+update-alternatives --install /usr/bin/wx-config wx-config /opt/wxGTK2/3.1/bin/wx-config 51
+exit
+
+update-alternatives --display wx-config
+# wx-config - manual mode
+#  link currently points to /usr/lib/x86_64-linux-gnu/wx/config/gtk2-unicode-3.0
+# /opt/wxGTK2/2.8/bin/wx-config - priority 50
+# /usr/lib/x86_64-linux-gnu/wx/config/base-unicode-3.0 - priority 307
+# /usr/lib/x86_64-linux-gnu/wx/config/gtk2-unicode-3.0 - priority 308
+# Current 'best' version is '/usr/lib/x86_64-linux-gnu/wx/config/gtk2-unicode-3.0'.
+
+/usr/bin/wx-config --list 
+# Default config is gtk2-unicode-3.0
+
+/opt/wxGTK2/3.1/bin/wx-config --list
+
+
+which wx-config
+# /usr/local/bin/wx-config
+
+wx-config --list 
+
+
+########
+
+########
+# configure/make builds require wx-config to work.
+$   which wx-config
+# Normal return from Debian below
+/usr/bin/wx-config
+
+# update-alternatives is a Debian based distro command.
+# The command below displays the default version of wxWidgets that is currently set.
+$   update-alternatives --display wx-config
+
+cd ~/devel/version_control/codeblocks_https_metadata-git
+git-sh
+git checkout bugfix/project_n_workspace
+git fetch origin && git rebase origin/master && git status -uno
+
+
+# If you are going to change the wxWidgets version; you need to uninstall the old version before doing so.
+$   su
+$   make uninstall
+$   exit
+# Likely a good idea to clean everything if changing wxWidgets version
+$   make clean && make distclean
+$   make clean-bin ; make clean-zipfiles
+
+# update-alternatives is a Debian based distro command.
+# The command below can be used to change the default version of wxWidgets to be used.
+$   su
+$   update-alternatives --config wx-config
+$   exit
+
+wx-config --help
+
+$   ./bootstrap
+# configure options I tried in the past or plan to try in the future
+--disable-pch
+--disable-code-completion
+--enable-debug
+--with-wx-config="wx-config --static=no --version=3.1"
+# End of options
+$   ./configure --disable-pch --enable-debug --with-wx-config="wx-config --static=no --version=3.1"
+$   make
+$   su
+$   make install
+$   exit
+
+
+# Check to verify fixes for runtime issues.
+$   cat /etc/ld.so.conf
+# Output below
+include /etc/ld.so.conf.d/*.conf
+/usr/local/lib
+# Output stops above
+
+/opt/wxGTK2/3.1/lib
+
+# codeblocks --no-splash-screen --debug-log --verbose --user-data-dir=<path>
+
+#### Notes Below
+wxABI_VERSION=30100 for 3.1.0 # only good to change the last two digits. So, 3.1.x can only change value of x to smaller value.
+
+Some influential environment variables:
+  CFLAGS      C compiler flags
+  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+              nonstandard directory <lib dir>
+  CPPFLAGS    C/C++ preprocessor flags, e.g. -I<include dir> if you have
+              headers in a nonstandard directory <include dir>
+  CXXFLAGS    C++ compiler flags
+
+Interesting Windows config options
+  --enable-official_build official build of wxWidgets (win32 DLL only)
+  --enable-vendor=VENDOR  vendor name (win32 DLL only)
+
+--enable-graphics_ctx
+
+--with-gtk=2
+
+--with-flavour=NAME     specify a name to identify this build
