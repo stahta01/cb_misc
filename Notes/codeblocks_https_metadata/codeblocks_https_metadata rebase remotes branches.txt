@@ -45,7 +45,6 @@ git pull                        && \
 git rebase origin/master        && \
 git checkout build_cbp/lib_folder_type2 && \
 git pull                        && \
-git rebase origin/master        && \
-git fetch origin  --prune   && git gc && git prune
+git rebase origin/master
 
 ###############################################

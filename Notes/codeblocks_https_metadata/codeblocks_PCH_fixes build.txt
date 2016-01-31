@@ -18,6 +18,7 @@ git checkout PCH/master && git status -uno
 #
 ##  git rebase origin/wxContribItems
 ##  git rebase origin/deceased/removals
+##  git rebase origin/portability/fixes
 ##  git rebase origin/bugfix/project_n_workspace
 #
 ##  git rebase origin/master && git status -uno
@@ -26,6 +27,8 @@ git checkout PCH/master && git status -uno
 #
 git push pch_fixes
 ##  git pull && git rebase origin/master && git push pch_fixes --force-with-lease
+#
+# git format-patch origin/master..pch_fixes/PCH/master
 #
 ######
 #
