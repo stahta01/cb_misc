@@ -82,6 +82,8 @@ git rebase pch_fixes/PCH/wxCode && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 #
+# git format-patch --unified=1 5c91dab26e40547288a0db747cf9c83600a71990
+#
 ######
 #
 ### pch_fixes/PCH/core
@@ -434,6 +436,9 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/cbp_un
 
 
 git format-patch pch_fixes/PCH/master..pch_fixes/PCH/cbp_unix_and_win_wx28
+
+# git format-patch --unified=1 263018df0c43dd464930a9b1f0df00edfd2624fd
+git apply --reject 0001-pch_cbp_win_wx28-Removed-define-of-WX_PRECOMP-.-Than.patch
 
 #######
 
