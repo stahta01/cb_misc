@@ -1,0 +1,52 @@
+########################################
+
+cd ../codeblocks_PCH_fixes-git      && \
+git fetch pch_fixes                 && \
+##  git checkout PCH/wxFormBuilder      && \
+##  git pull                            && \
+##  git rebase pch_fixes/PCH/master     && \
+##  git checkout PCH/wxCode             && \
+##  git pull                            && \
+##  git rebase pch_fixes/PCH/master     && \
+#   git checkout PCH/wx_pch_h           && \
+#   git pull                            && \
+#   git rebase pch_fixes/PCH/master     && \
+##  git checkout PCH/core               && \
+##  git pull                            && \
+##  git rebase pch_fixes/PCH/master     && \
+##  git checkout PCH/SmartIndent        && \
+##  git pull                            && \
+##  git rebase pch_fixes/PCH/master     && \
+git checkout PCH/keybinder          && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/DoxyBlocks         && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/FileManager        && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/NassiShneiderman   && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/contrib            && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/help_plugin        && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/HexEditor          && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/headerfixup        && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/misc               && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/devpak_plugin      && \
+git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/Valgrind           && \
+git pull                            && \
+git rebase pch_fixes/PCH/master
