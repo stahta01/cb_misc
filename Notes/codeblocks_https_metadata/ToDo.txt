@@ -1,3 +1,24 @@
+||WARNING: Target 'wxSmith - Contrib Items (Unix) - wxSmithContribItems': Unable to resolve 1 external dependency/ies:|
+||        ../../../devel/libwxdatetimepicker.so|
+
+||=== Build: bzip2 in Help Plugin (Unix) (compiler: GNU GCC Compiler) ===|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/bzip2/bzlib.c||In function ‘bzopen_or_bzdopen’:|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/bzip2/bzlib.c|1431|warning: implicit declaration of function ‘fdopen’ [-Wimplicit-function-declaration]|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/bzip2/bzlib.c|1431|warning: assignment makes pointer from integer without a cast|
+||=== Build: zlib in Help Plugin (Unix) (compiler: GNU GCC Compiler) ===|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzlib.c||In function ‘gz_open’:|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzlib.c|256|warning: implicit declaration of function ‘lseek’ [-Wimplicit-function-declaration]|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzread.c||In function ‘gz_load’:|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzread.c|30|warning: implicit declaration of function ‘read’ [-Wimplicit-function-declaration]|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzread.c||In function ‘gzclose_r’:|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzread.c|591|warning: implicit declaration of function ‘close’ [-Wimplicit-function-declaration]|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzwrite.c||In function ‘gz_comp’:|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzwrite.c|84|warning: implicit declaration of function ‘write’ [-Wimplicit-function-declaration]|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzwrite.c||In function ‘gzclose_w’:|
+/home/stahta01/devel/version_control/codeblocks_https_metadata-git/src/plugins/contrib/help_plugin/zlib/gzwrite.c|573|warning: implicit declaration of function ‘close’ [-Wimplicit-function-declaration]|
+||=== Build: help_plugin in Help Plugin (Unix) (compiler: GNU GCC Compiler) ===|
+||=== Build finished: 0 error(s), 7 warning(s) (0 minute(s), 38 second(s)) ===|
+
 Index: src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
 ===================================================================
 --- src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp	(revision 10745)
@@ -42,20 +63,3 @@ Index: src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
  		</VirtualTargets>
  		<Compiler>
  			<Add option="-Wextra" />
-Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp
-===================================================================
---- src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp	(revision 10745)
-+++ src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp	(working copy)
-@@ -461,6 +461,12 @@
- 		<Unit filename="wxled/ledpanel/src/wxledpanel.cpp">
- 			<Option target="wxLED" />
- 		</Unit>
-+		<Unit filename="wxmathplot/mathplot.cpp">
-+			<Option target="wxMathPlot" />
-+		</Unit>
-+		<Unit filename="wxmathplot/mathplot.h">
-+			<Option target="wxMathPlot" />
-+		</Unit>
- 		<Unit filename="wxthings/include/wx/things/toggle.h">
- 			<Option target="wxCustomButton" />
- 		</Unit>
