@@ -1,5 +1,9 @@
 nonGUI notes.txt
 
+Lost Tuesday code changes; plan to work on the src project changes starting 
+from scratch after I export all the SDK changes that was lost.
+Plan to do all CB Project changes in seperate commits.
+
 #endif //*TAS*//
 
 GUI Includes that need removed
@@ -8,10 +12,10 @@ GUI Includes that need removed
 GUI Libs that need removed
     wxscintilla_cb                  Removed
     wxmsw30ud_propgrid 
-    wxmsw30ud_html
-    wxmsw30ud_aui
-    wxmsw30ud_xrc
-    wxmsw30ud_adv
+    wxmsw30ud_aui                   Removed from SDK
+    wxmsw30ud_html                  Removed from SDK
+    wxmsw30ud_adv                   Removed from SDK
+    wxmsw30ud_xrc                   Removed from SDK
     wxmsw30ud_core
     gdi32
 
@@ -20,7 +24,10 @@ GUI Manager that need removed
     CCManager                       Removed
     DebuggerManager                 Removed
     TemplateManager                 Removed
+    ToolsManager
 
 GUI Defines that need removed
-    WXMAKINGDLL_SCI
+    WXMAKINGDLL_SCI                 Removed
+    LINK_LEXERS
+    SCI_LEXER
     __WXMSW__
