@@ -31,6 +31,7 @@ Move Branch
     Moved branch wxContribItems back to origin.
 
 Add Branch
+    feature/cb_projects         Add Virtural Target "SDK & Third Party Libs"
     bugfix/plugins
 
     pch_fixes/PCH/wxFormBuilder 
