@@ -7,27 +7,30 @@ Plan to do all CB Project changes in seperate commits.
 #endif //*TAS*//
 
 GUI Includes that need removed
-    sdk\wxscintilla\include         Removed
+    sdk\wxscintilla\include         
 
-GUI Libs that need removed
-    wxscintilla_cb                  Removed
-    wxmsw30ud_propgrid 
-    wxmsw30ud_aui                   Removed from SDK
-    wxmsw30ud_html                  Removed from SDK
-    wxmsw30ud_adv                   Removed from SDK
-    wxmsw30ud_xrc                   Removed from SDK
+GUI Libs that need removed                  
+    wxmsw30ud_propgrid          Removed from Compiler and Core App.
+    wxmsw30ud_html              Removed from Core App.
+    wxmsw30ud_adv               Removed from Core App.
+    wxscintilla_cb
+    wxmsw30ud_aui                                                       
+    wxmsw30ud_xrc                   
     wxmsw30ud_core
     gdi32
 
 GUI Manager that need removed
-    EditorManager                   Removed
-    CCManager                       Removed
-    DebuggerManager                 Removed
-    TemplateManager                 Removed
+    EditorManager               DO THIS NEXT!                   
+    CCManager                       
+    DebuggerManager                 
+    TemplateManager                 
     ToolsManager
 
+GUI Classes that need removed
+    ProjectManagerUI            Removed
+
 GUI Defines that need removed
-    WXMAKINGDLL_SCI                 Removed
+    WXMAKINGDLL_SCI                 
     LINK_LEXERS
     SCI_LEXER
     __WXMSW__
