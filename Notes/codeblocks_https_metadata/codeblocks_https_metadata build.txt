@@ -97,16 +97,10 @@ git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 
 #  --unified=1
-#   git format-patch 5c91dab26e40547288a0db747cf9c83600a71990
+#   git format-patch origin/master
 git format-patch master..bugfix/project_n_workspace
-0001-Workspace-Replaced-lib_finder-project-dependency-wit.patch
+0001-Core-app-plugins-Added-target-Abbreviations-to-virtu.patch
 0002-wxContribItems-Removed-unneeded-search-directories-a.patch
-0003-Core-app-plugins-Added-target-Abbreviations-to-virtu.patch
-0004-Removed-unneeded-wxpropgrid-library-from-link-list.-.patch
-0005-ToolsPlus-Removed-unneeded-wxscintilla_cb-from-libra.patch
-0006-cb_koders-Removed-wxscintilla_cb-from-ext.-depends.-.patch
-0007-wxContribItems_wx30-unix.cbp-Added-missing-files-for.patch
-0008-update30-Change-devel-to-devel30.patch
 
 git --no-pager log --oneline --author=Tim
 

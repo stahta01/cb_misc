@@ -1,10 +1,12 @@
 Order to do patch sections.txt
 
-bugfix/project_n_workspace  Needs Tested and then Posted
+bugfix/project_n_workspace  Posted
 bugfix/sdk                  Applied
 feature/wizards             Needs Tested and then Posted
+portability/fixes           Needs Tested and then Posted
 bugfix/wxNewId              Needs Tested and then Posted
 bugfix/plugins              Needs Tested and then Posted
+feature/cb_projects         Needs changes added to branch
 deceased/removals
 PCH/core
 Save-As several CB Projects; Use Windows 64 bit for wx30_64 projects.
