@@ -244,8 +244,10 @@ git push origin
 # git format-patch origin/master
 0001-nonGUI-Changed-to-using-wx-Multilibs.patch
 0002-nonGUI-Saved-CodeBlocks_wx30.cbp.patch
-0003-nonGUI-SDK-Work.patch
-0004-nonGUI-Core-App-work.patch
+0003-nonGUI-SDK-scripting-work.patch
+0004-nonGUI-Compiler-work.patch
+0005-nonGUI-SDK-work.patch
+0006-nonGUI-Core-App-work.patch
 #
 ###############################################
 

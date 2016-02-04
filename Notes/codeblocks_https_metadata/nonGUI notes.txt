@@ -1,7 +1,9 @@
 nonGUI notes.txt
 
+branch: build/nonGUI
+
 Lost Tuesday code changes; plan to work on the src project changes starting 
-from scratch after I export all the SDK changes that was lost.
+from scratch after I export all the SDK changes that was NOT lost.
 Plan to do all CB Project changes in seperate commits.
 
 #endif //*TAS*//
@@ -10,24 +12,27 @@ GUI Includes that need removed
     sdk\wxscintilla\include         
 
 GUI Libs that need removed                  
-    wxmsw30ud_propgrid          Removed from Compiler and Core App.
-    wxmsw30ud_html              Removed from Core App.
-    wxmsw30ud_adv               Removed from Core App.
+    wxmsw30ud_propgrid                  Removed from Compiler and Core App.
+    wxmsw30ud_html          DO NEXT to SDK            Removed from Core App.
+    wxmsw30ud_adv           DO NEXT to SDK           Removed from Core App.
     wxscintilla_cb
     wxmsw30ud_aui                                                       
     wxmsw30ud_xrc                   
     wxmsw30ud_core
     gdi32
 
-GUI Manager that need removed
-    EditorManager               DO THIS NEXT!                   
-    CCManager                       
-    DebuggerManager                 
-    TemplateManager                 
+GUI Classes that need removed
+    ProjectManagerUI                    Removed class
+    EditorManager   editormanager.h     Removed header file
+    CCManager       ccmanager.h         Removed header file               
+    DebuggerManager debuggermanager.h   Removed header file              
+    TemplateManager templatemanager.h   Removed header file still fixing the errors.               
     ToolsManager
 
-GUI Classes that need removed
-    ProjectManagerUI            Removed
+SDK Classes that need removed
+    cbDebuggerPlugin    cbplugin.h      Removed class
+    cbEditor            cbeditor.h      Removed header file
+    cbSmartIndentPlugin
 
 GUI Defines that need removed
     WXMAKINGDLL_SCI                 
