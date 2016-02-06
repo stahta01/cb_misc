@@ -2,21 +2,31 @@ nonGUI notes.txt
 
 branch: build/nonGUI
 
+branch: reducedGUI reduce the GUI output when doing BatchBuild
+
+CB Project Titles: "EnvVars nonGUI" and "Code::Blocks nonGUI"
+
+IsBatchBuild
+
 Lost Tuesday code changes; plan to work on the src project changes starting 
 from scratch after I export all the SDK changes that was NOT lost.
 Plan to do all CB Project changes in seperate commits.
 
 #endif //*TAS*//
 
+Needs fixed m_pBatchBuildDialog
+
+
+
 GUI Includes that need removed
-    sdk\wxscintilla\include         
+    sdk\wxscintilla\include             Removed       
 
 GUI Libs that need removed                  
     wxmsw30ud_propgrid                  Removed from Compiler and Core App.
-    wxmsw30ud_html          DO NEXT to SDK            Removed from Core App.
-    wxmsw30ud_adv           DO NEXT to SDK           Removed from Core App.
-    wxscintilla_cb
-    wxmsw30ud_aui                                                       
+    wxmsw30ud_html                      Removed from SDK and Core App.
+    wxmsw30ud_adv                       Removed from SDK and Core App.
+    wxscintilla_cb                      Removed from SDK
+    wxmsw30ud_aui                       Removed from SDK                                               
     wxmsw30ud_xrc                   
     wxmsw30ud_core
     gdi32
@@ -26,16 +36,26 @@ GUI Classes that need removed
     EditorManager   editormanager.h     Removed header file
     CCManager       ccmanager.h         Removed header file               
     DebuggerManager debuggermanager.h   Removed header file              
-    TemplateManager templatemanager.h   Removed header file still fixing the errors.               
-    ToolsManager
-
+    TemplateManager templatemanager.h   Removed header file               
+    ToolsManager    toolsmanager.h
+                    scrollingdialog.h   Removed header file
+                    annoyingdialog.h    Removed header file
+    projectfileoptionsdlg.h             Removed header file
+    scriptsecuritywarningdlg.h          Removed header file
+    editorcolourset.h                   
+    wx/wxscintilla.h                    Removed header file
+                    
 SDK Classes that need removed
     cbDebuggerPlugin    cbplugin.h      Removed class
     cbEditor            cbeditor.h      Removed header file
-    cbSmartIndentPlugin
+    cbSmartIndentPlugin cbplugin.h
 
 GUI Defines that need removed
-    WXMAKINGDLL_SCI                 
-    LINK_LEXERS
-    SCI_LEXER
+    WXMAKINGDLL_SCI                     Removed              
+    LINK_LEXERS                         Removed
+    SCI_LEXER                           Removed
     __WXMSW__
+
+
+XP look & feel      windowsxplooknfeel.cpp:83: undefined reference to `_imp___ZN9cbProject12SelectTargetEib
+
