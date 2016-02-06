@@ -258,23 +258,13 @@ git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
 # git format-patch origin/master
-git apply --reject 0001-nonGUI-Changed-to-using-wx-Multilibs.patch
-git am 0002-nonGUI-Saved-CodeBlocks_wx30.cbp.patch
-0003-nonGUI-SDK-scripting-work.patch
-0004-nonGUI-Compiler-work.patch
-0005-nonGUI-SDK-work.patch
-0006-nonGUI-Core-App-work.patch
+0001-nonGUI-SDK-scripting-work.patch
+0002-nonGUI-Compiler-work.patch
+0003-nonGUI-SDK-work.patch
+0004-nonGUI-Core-App-work.patch
+0005-nonGUI-Saved-envvars_wx30.cbp.patch
+0006-nonGUI-Saved-CodeBlocks_wx30.cbp.patch
 0007-DO-NOT-USE-UPSTREAM-Delete-headers-to-cause-compile-.patch
-0008-nonGUI-SDK-scripting-work.patch
-0009-nonGUI-SDK-scripting-work.patch
-0010-nonGUI-Saved-CodeBlocks_wx30.cbp.patch
-0011-nonGUI-SDK-work.patch
-0012-DO-NOT-USE-UPSTREAM-Delete-headers-to-cause-compile-.patch
-0013-nonGUI-SDK-scripting-work.patch
-0014-DO-NOT-USE-UPSTREAM-Delete-headers-to-cause-compile-.patch
-0015-nonGUI-SDK-work.patch
-0016-nonGUI-SDK-scripting-work.patch
-0017-nonGUI-Saved-CodeBlocks_wx30.cbp.patch
 #
 ###############################################
 

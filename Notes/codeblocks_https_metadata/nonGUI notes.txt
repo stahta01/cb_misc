@@ -57,5 +57,185 @@ GUI Defines that need removed
     __WXMSW__
 
 
-XP look & feel      windowsxplooknfeel.cpp:83: undefined reference to `_imp___ZN9cbProject12SelectTargetEib
+-------------- Build: src in Code::Blocks nonGUI (compiler: GNU GCC Compiler)---------------
 
+mingw32-g++.exe -Lbase\tinyxml -LC:\SourceCode\OpenSourceCode\no_Repos\Libs\wx\wxMSW-3.0\wxMSW-3.0.2_gcc471TDM_Dev\lib\gcc_dll -Ldevel30 -Lexchndl\win32\lib -o devel30\codeblocks.exe .objs30\src\app.o .objs30\src\appglobals.o .objs30\src\crashhandler.o .objs30\src\main.o .objs30\src\notebookstyles.o .objs30\src\scriptconsole.o .objs30\src\splashscreen.o  .objs30\src\resources\resources.res -Wl,--enable-auto-import -Wl,--no-undefined  -lcodeblocks -lexchndl -lshfolder -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lcomctl32 -lodbc32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lwsock32 -lwxmsw30ud_aui -lwxmsw30ud_xrc -lwxmsw30ud_core -lwxbase30ud -mwindows
+.objs30\src\main.o: In function `ZN9MainFrame26AddPluginInHelpPluginsMenuEP8cbPlugin':
+src/main.cpp:1346: undefined reference to `MainFrame::OnHelpPluginMenu(wxCommandEvent&)'
+.objs30\src\main.o: In function `ZN9MainFrame14LoadViewLayoutERK8wxStringb':
+src/main.cpp:1493: undefined reference to `InfoPane::LoadTabOrder(wxString)'
+.objs30\src\main.o: In function `ZN9MainFrame30DoCheckCurrentLayoutForChangesEb':
+src/main.cpp:1613: undefined reference to `InfoPane::SaveTabOrder()'
+.objs30\src\main.o: In function `ZN9MainFrame11OpenGenericERK8wxStringb':
+src/main.cpp:1924: undefined reference to `MainFrame::DoOpenFile(wxString const&, bool)'
+.objs30\src\main.o: In function `ZN9MainFrame17ShowHideStartPageEbi':
+src/main.cpp:2296: undefined reference to `MainFrame::DoUpdateAppTitle()'
+.objs30\src\main.o: In function `ZN9MainFrame15OnStartHereLinkER14wxCommandEvent':
+src/main.cpp:2315: undefined reference to `MainFrame::OnFileNewWhat(wxCommandEvent&)'
+.objs30\src\main.o: In function `ZN9MainFrame16OnViewLayoutSaveER14wxCommandEvent':
+src/main.cpp:4028: undefined reference to `InfoPane::SaveTabOrder()'
+.objs30\src\main.o: In function `ZN9MainFrame17OnToggleStatusBarER14wxCommandEvent':
+src/main.cpp:4729: undefined reference to `MainFrame::DoUpdateStatusBar()'
+.objs30\src\main.o: In function `ZN9MainFrame20OnFocusLogsAndOthersER14wxCommandEvent':
+src/main.cpp:4755: undefined reference to `_imp___ZN13cbAuiNotebook18FocusActiveTabCtrlEv'
+.objs30\src\main.o: In function `ZN9MainFrame18OnProjectActivatedER15CodeBlocksEvent':
+src/main.cpp:5018: undefined reference to `MainFrame::DoUpdateAppTitle()'
+.objs30\src\main.o: In function `ZN9MainFrame14OnEditorOpenedER15CodeBlocksEvent':
+src/main.cpp:5030: undefined reference to `MainFrame::DoUpdateAppTitle()'
+.objs30\src\main.o: In function `ZN9MainFrame17OnEditorActivatedER15CodeBlocksEvent':
+src/main.cpp:5036: undefined reference to `MainFrame::DoUpdateAppTitle()'
+src/main.cpp:5037: undefined reference to `MainFrame::DoUpdateStatusBar()'
+.objs30\src\main.o: In function `ZN9MainFrame14OnEditorClosedER15CodeBlocksEvent':
+src/main.cpp:5058: undefined reference to `MainFrame::DoUpdateAppTitle()'
+src/main.cpp:5059: undefined reference to `MainFrame::DoUpdateStatusBar()'
+.objs30\src\main.o: In function `ZN9MainFrame13OnEditorSavedER15CodeBlocksEvent':
+src/main.cpp:5065: undefined reference to `MainFrame::DoUpdateAppTitle()'
+.objs30\src\main.o: In function `ZN9MainFrame16OnEditorModifiedER15CodeBlocksEvent':
+src/main.cpp:5071: undefined reference to `MainFrame::DoUpdateAppTitle()'
+.objs30\src\main.o: In function `ZN9MainFrame13OnPageChangedER15wxBookCtrlEvent':
+src/main.cpp:5083: undefined reference to `MainFrame::DoUpdateAppTitle()'
+.objs30\src\main.o: In function `ZN9MainFrame12OnCtrlAltTabER14wxCommandEvent':
+src/main.cpp:5104: undefined reference to `MainFrame::OnFocusEditor(wxCommandEvent&)'
+src/main.cpp:5114: undefined reference to `MainFrame::OnFocusEditor(wxCommandEvent&)'
+.objs30\src\main.o: In function `ZN9MainFrame14OnAddLogWindowER18CodeBlocksLogEvent':
+src/main.cpp:5222: undefined reference to `InfoPane::AddNonLogger(wxWindow*, wxString const&, wxBitmap*)'
+src/main.cpp:5227: undefined reference to `InfoPane::AddLogger(Logger*, wxWindow*, wxString const&, wxBitmap*)'
+.objs30\src\main.o: In function `ZN9MainFrame17OnRemoveLogWindowER18CodeBlocksLogEvent':
+src/main.cpp:5237: undefined reference to `InfoPane::RemoveNonLogger(wxWindow*)'
+src/main.cpp:5239: undefined reference to `InfoPane::DeleteLogger(Logger*)'
+.objs30\src\main.o: In function `ZN9MainFrame15OnHideLogWindowER18CodeBlocksLogEvent':
+src/main.cpp:5245: undefined reference to `InfoPane::HideNonLogger(wxWindow*)'
+src/main.cpp:5247: undefined reference to `InfoPane::Hide(Logger*)'
+.objs30\src\main.o: In function `ZN9MainFrame19OnSwitchToLogWindowER18CodeBlocksLogEvent':
+src/main.cpp:5253: undefined reference to `InfoPane::ShowNonLogger(wxWindow*)'
+src/main.cpp:5255: undefined reference to `InfoPane::Show(Logger*)'
+.objs30\src\main.o: In function `ZN9MainFrame20OnGetActiveLogWindowER18CodeBlocksLogEvent':
+src/main.cpp:5261: undefined reference to `InfoPane::GetCurrentPage(bool&)'
+src/main.cpp:5267: undefined reference to `InfoPane::GetLogger(int)'
+src/main.cpp:5269: undefined reference to `InfoPane::GetWindow(int)'
+.objs30\src\main.o: In function `_static_initialization_and_destruction_0':
+src/main.cpp:352: undefined reference to `MainFrame::OnEditMenuUpdateUI(wxUpdateUIEvent&)'
+src/main.cpp:353: undefined reference to `MainFrame::OnEditMenuUpdateUI(wxUpdateUIEvent&)'
+src/main.cpp:354: undefined reference to `MainFrame::OnEditMenuUpdateUI(wxUpdateUIEvent&)'
+src/main.cpp:355: undefined reference to `MainFrame::OnEditMenuUpdateUI(wxUpdateUIEvent&)'
+src/main.cpp:356: undefined reference to `MainFrame::OnEditMenuUpdateUI(wxUpdateUIEvent&)'
+.objs30\src\main.o:src/main.cpp:357: more undefined references to `MainFrame::OnEditMenuUpdateUI(wxUpdateUIEvent&)' follow
+.objs30\src\main.o: In function `_static_initialization_and_destruction_0':
+src/main.cpp:385: undefined reference to `MainFrame::OnSearchMenuUpdateUI(wxUpdateUIEvent&)'
+src/main.cpp:386: undefined reference to `MainFrame::OnSearchMenuUpdateUI(wxUpdateUIEvent&)'
+src/main.cpp:387: undefined reference to `MainFrame::OnSearchMenuUpdateUI(wxUpdateUIEvent&)'
+src/main.cpp:388: undefined reference to `MainFrame::OnSearchMenuUpdateUI(wxUpdateUIEvent&)'
+src/main.cpp:389: undefined reference to `MainFrame::OnSearchMenuUpdateUI(wxUpdateUIEvent&)'
+.objs30\src\main.o:src/main.cpp:390: more undefined references to `MainFrame::OnSearchMenuUpdateUI(wxUpdateUIEvent&)' follow
+.objs30\src\main.o: In function `_static_initialization_and_destruction_0':
+src/main.cpp:409: undefined reference to `MainFrame::OnFileNewWhat(wxCommandEvent&)'
+src/main.cpp:410: undefined reference to `MainFrame::OnFileNewWhat(wxCommandEvent&)'
+src/main.cpp:411: undefined reference to `MainFrame::OnFileNewWhat(wxCommandEvent&)'
+src/main.cpp:412: undefined reference to `MainFrame::OnFileNewWhat(wxCommandEvent&)'
+src/main.cpp:413: undefined reference to `MainFrame::OnFileNewWhat(wxCommandEvent&)'
+.objs30\src\main.o:src/main.cpp:414: more undefined references to `MainFrame::OnFileNewWhat(wxCommandEvent&)' follow
+.objs30\src\main.o: In function `_static_initialization_and_destruction_0':
+src/main.cpp:429: undefined reference to `MainFrame::OnFileSave(wxCommandEvent&)'
+src/main.cpp:430: undefined reference to `MainFrame::OnFileSaveAs(wxCommandEvent&)'
+src/main.cpp:431: undefined reference to `MainFrame::OnFileSaveAllFiles(wxCommandEvent&)'
+src/main.cpp:432: undefined reference to `MainFrame::OnFileSaveProject(wxCommandEvent&)'
+src/main.cpp:433: undefined reference to `MainFrame::OnFileSaveProjectAs(wxCommandEvent&)'
+src/main.cpp:434: undefined reference to `MainFrame::OnFileSaveProjectTemplate(wxCommandEvent&)'
+src/main.cpp:435: undefined reference to `MainFrame::OnFileSaveProjectAllProjects(wxCommandEvent&)'
+src/main.cpp:441: undefined reference to `MainFrame::OnFileSaveAll(wxCommandEvent&)'
+src/main.cpp:443: undefined reference to `MainFrame::OnFileClose(wxCommandEvent&)'
+src/main.cpp:444: undefined reference to `MainFrame::OnFileCloseAll(wxCommandEvent&)'
+src/main.cpp:445: undefined reference to `MainFrame::OnFileCloseProject(wxCommandEvent&)'
+src/main.cpp:446: undefined reference to `MainFrame::OnFileCloseAllProjects(wxCommandEvent&)'
+src/main.cpp:447: undefined reference to `MainFrame::OnFilePrint(wxCommandEvent&)'
+src/main.cpp:449: undefined reference to `MainFrame::OnFileNext(wxCommandEvent&)'
+src/main.cpp:450: undefined reference to `MainFrame::OnFilePrev(wxCommandEvent&)'
+src/main.cpp:452: undefined reference to `MainFrame::OnEditUndo(wxCommandEvent&)'
+src/main.cpp:453: undefined reference to `MainFrame::OnEditRedo(wxCommandEvent&)'
+src/main.cpp:454: undefined reference to `MainFrame::OnEditClearHistory(wxCommandEvent&)'
+src/main.cpp:455: undefined reference to `MainFrame::OnEditCopy(wxCommandEvent&)'
+src/main.cpp:456: undefined reference to `MainFrame::OnEditCut(wxCommandEvent&)'
+src/main.cpp:457: undefined reference to `MainFrame::OnEditPaste(wxCommandEvent&)'
+src/main.cpp:458: undefined reference to `MainFrame::OnEditSwapHeaderSource(wxCommandEvent&)'
+src/main.cpp:459: undefined reference to `MainFrame::OnEditGotoMatchingBrace(wxCommandEvent&)'
+src/main.cpp:460: undefined reference to `MainFrame::OnEditHighlightMode(wxCommandEvent&)'
+src/main.cpp:461: undefined reference to `MainFrame::OnEditFoldAll(wxCommandEvent&)'
+src/main.cpp:462: undefined reference to `MainFrame::OnEditUnfoldAll(wxCommandEvent&)'
+src/main.cpp:463: undefined reference to `MainFrame::OnEditToggleAllFolds(wxCommandEvent&)'
+src/main.cpp:464: undefined reference to `MainFrame::OnEditFoldBlock(wxCommandEvent&)'
+src/main.cpp:465: undefined reference to `MainFrame::OnEditUnfoldBlock(wxCommandEvent&)'
+src/main.cpp:466: undefined reference to `MainFrame::OnEditToggleFoldBlock(wxCommandEvent&)'
+src/main.cpp:467: undefined reference to `MainFrame::OnEditEOLMode(wxCommandEvent&)'
+src/main.cpp:468: undefined reference to `MainFrame::OnEditEOLMode(wxCommandEvent&)'
+src/main.cpp:469: undefined reference to `MainFrame::OnEditEOLMode(wxCommandEvent&)'
+src/main.cpp:470: undefined reference to `MainFrame::OnEditEncoding(wxCommandEvent&)'
+src/main.cpp:471: undefined reference to `MainFrame::OnEditEncoding(wxCommandEvent&)'
+src/main.cpp:472: undefined reference to `MainFrame::OnEditEncoding(wxCommandEvent&)'
+src/main.cpp:473: undefined reference to `MainFrame::OnEditEncoding(wxCommandEvent&)'
+src/main.cpp:474: undefined reference to `MainFrame::OnEditEncoding(wxCommandEvent&)'
+.objs30\src\main.o:src/main.cpp:475: more undefined references to `MainFrame::OnEditEncoding(wxCommandEvent&)' follow
+.objs30\src\main.o: In function `_static_initialization_and_destruction_0':
+src/main.cpp:482: undefined reference to `MainFrame::OnEditParaUp(wxCommandEvent&)'
+src/main.cpp:483: undefined reference to `MainFrame::OnEditParaUpExtend(wxCommandEvent&)'
+src/main.cpp:484: undefined reference to `MainFrame::OnEditParaDown(wxCommandEvent&)'
+src/main.cpp:485: undefined reference to `MainFrame::OnEditParaDownExtend(wxCommandEvent&)'
+src/main.cpp:486: undefined reference to `MainFrame::OnEditWordPartLeft(wxCommandEvent&)'
+src/main.cpp:487: undefined reference to `MainFrame::OnEditWordPartLeftExtend(wxCommandEvent&)'
+src/main.cpp:488: undefined reference to `MainFrame::OnEditWordPartRight(wxCommandEvent&)'
+src/main.cpp:489: undefined reference to `MainFrame::OnEditWordPartRightExtend(wxCommandEvent&)'
+src/main.cpp:490: undefined reference to `MainFrame::OnEditZoomIn(wxCommandEvent&)'
+src/main.cpp:491: undefined reference to `MainFrame::OnEditZoomOut(wxCommandEvent&)'
+src/main.cpp:492: undefined reference to `MainFrame::OnEditZoomReset(wxCommandEvent&)'
+src/main.cpp:493: undefined reference to `MainFrame::OnEditLineCut(wxCommandEvent&)'
+src/main.cpp:494: undefined reference to `MainFrame::OnEditLineDelete(wxCommandEvent&)'
+src/main.cpp:495: undefined reference to `MainFrame::OnEditLineDuplicate(wxCommandEvent&)'
+src/main.cpp:496: undefined reference to `MainFrame::OnEditLineTranspose(wxCommandEvent&)'
+src/main.cpp:497: undefined reference to `MainFrame::OnEditLineCopy(wxCommandEvent&)'
+src/main.cpp:498: undefined reference to `MainFrame::OnEditLinePaste(wxCommandEvent&)'
+src/main.cpp:499: undefined reference to `MainFrame::OnEditLineMove(wxCommandEvent&)'
+src/main.cpp:500: undefined reference to `MainFrame::OnEditLineMove(wxCommandEvent&)'
+src/main.cpp:501: undefined reference to `MainFrame::OnEditUpperCase(wxCommandEvent&)'
+src/main.cpp:502: undefined reference to `MainFrame::OnEditLowerCase(wxCommandEvent&)'
+src/main.cpp:503: undefined reference to `MainFrame::OnEditInsertNewLine(wxCommandEvent&)'
+src/main.cpp:504: undefined reference to `MainFrame::OnEditGotoLineEnd(wxCommandEvent&)'
+src/main.cpp:505: undefined reference to `MainFrame::OnEditSelectAll(wxCommandEvent&)'
+src/main.cpp:506: undefined reference to `MainFrame::OnEditSelectNext(wxCommandEvent&)'
+src/main.cpp:507: undefined reference to `MainFrame::OnEditSelectNextSkip(wxCommandEvent&)'
+src/main.cpp:508: undefined reference to `MainFrame::OnEditBookmarksToggle(wxCommandEvent&)'
+src/main.cpp:509: undefined reference to `MainFrame::OnEditBookmarksNext(wxCommandEvent&)'
+src/main.cpp:510: undefined reference to `MainFrame::OnEditBookmarksPrevious(wxCommandEvent&)'
+src/main.cpp:511: undefined reference to `MainFrame::OnEditBookmarksClearAll(wxCommandEvent&)'
+src/main.cpp:512: undefined reference to `MainFrame::OnEditCommentSelected(wxCommandEvent&)'
+src/main.cpp:513: undefined reference to `MainFrame::OnEditUncommentSelected(wxCommandEvent&)'
+src/main.cpp:514: undefined reference to `MainFrame::OnEditToggleCommentSelected(wxCommandEvent&)'
+src/main.cpp:515: undefined reference to `MainFrame::OnEditStreamCommentSelected(wxCommandEvent&)'
+src/main.cpp:516: undefined reference to `MainFrame::OnEditBoxCommentSelected(wxCommandEvent&)'
+src/main.cpp:517: undefined reference to `MainFrame::OnEditShowCallTip(wxCommandEvent&)'
+src/main.cpp:518: undefined reference to `MainFrame::OnEditCompleteCode(wxCommandEvent&)'
+src/main.cpp:520: undefined reference to `MainFrame::OnSearchFind(wxCommandEvent&)'
+src/main.cpp:521: undefined reference to `MainFrame::OnSearchFind(wxCommandEvent&)'
+src/main.cpp:522: undefined reference to `MainFrame::OnSearchFindNext(wxCommandEvent&)'
+src/main.cpp:523: undefined reference to `MainFrame::OnSearchFindNext(wxCommandEvent&)'
+src/main.cpp:524: undefined reference to `MainFrame::OnSearchFindNextSelected(wxCommandEvent&)'
+src/main.cpp:525: undefined reference to `MainFrame::OnSearchFindNextSelected(wxCommandEvent&)'
+src/main.cpp:526: undefined reference to `MainFrame::OnSearchReplace(wxCommandEvent&)'
+src/main.cpp:527: undefined reference to `MainFrame::OnSearchReplace(wxCommandEvent&)'
+src/main.cpp:528: undefined reference to `MainFrame::OnSearchGotoLine(wxCommandEvent&)'
+src/main.cpp:529: undefined reference to `MainFrame::OnSearchGotoNextChanged(wxCommandEvent&)'
+src/main.cpp:530: undefined reference to `MainFrame::OnSearchGotoPrevChanged(wxCommandEvent&)'
+src/main.cpp:542: undefined reference to `MainFrame::OnViewHideEditorTabs(wxCommandEvent&)'
+src/main.cpp:543: undefined reference to `MainFrame::OnFocusEditor(wxCommandEvent&)'
+src/main.cpp:548: undefined reference to `MainFrame::OnSwitchTabs(wxCommandEvent&)'
+src/main.cpp:554: undefined reference to `MainFrame::OnSettingsEnvironment(wxCommandEvent&)'
+src/main.cpp:556: undefined reference to `MainFrame::OnSettingsEditor(wxCommandEvent&)'
+src/main.cpp:557: undefined reference to `MainFrame::OnSettingsCompiler(wxCommandEvent&)'
+src/main.cpp:558: undefined reference to `MainFrame::OnSettingsDebugger(wxCommandEvent&)'
+src/main.cpp:559: undefined reference to `MainFrame::OnSettingsPlugins(wxCommandEvent&)'
+src/main.cpp:560: undefined reference to `MainFrame::OnSettingsScripting(wxCommandEvent&)'
+src/main.cpp:562: undefined reference to `MainFrame::OnHelpAbout(wxCommandEvent&)'
+src/main.cpp:575: undefined reference to `MainFrame::OnHighlightMenu(wxCommandEvent&)'
+src/main.cpp:580: undefined reference to `MainFrame::OnShiftTab(wxCommandEvent&)'
+collect2.exe: error: ld returned 1 exit status
+Process terminated with status 1 (0 minute(s), 9 second(s))
+149 error(s), 0 warning(s) (0 minute(s), 9 second(s))
+ 
