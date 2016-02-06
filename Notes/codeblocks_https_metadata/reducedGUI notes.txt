@@ -1,0 +1,37 @@
+reducedGUI notes.txt
+
+branch: reducedGUI reduce the GUI output when doing BatchBuild
+
+IsBatchBuild
+
+#if CB_REDUCED_GUI
+#endif // #if CB_REDUCED_GUI
+
+Needs fixed m_pBatchBuildDialog
+
+
+
+GUI Includes that need removed
+
+GUI Libs that may need removed                  
+    wxmsw30ud_propgrid                  
+    wxmsw30ud_html                      
+    wxmsw30ud_adv                       
+    wxscintilla_cb                      
+    wxmsw30ud_aui                                                                      
+    wxmsw30ud_xrc                   
+    wxmsw30ud_core
+    gdi32
+
+GUI Classes that need removed
+                        scrollingdialog.h
+    CCManager           ccmanager.h                        
+    DebuggerManager     debuggermanager.h                
+    TemplateManager     templatemanager.h                 
+    ToolsManager        toolsmanager.h                
+                
+SDK Classes that need removed
+    cbDebuggerPlugin    cbplugin.h      
+
+GUI Defines that need removed
+
