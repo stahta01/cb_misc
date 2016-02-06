@@ -89,29 +89,6 @@ git apply --reject 0001-NotifyMissingFile-Commented-out-Manager-LoadResource.pat
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout bugfix/project_n_workspace && git status -uno
-#
-git rebase origin/master && git status -uno
-#   git rebase -i origin/master
-git push origin 
-##  git rebase origin/master && git push origin --force-with-lease
-
-#  --unified=1
-#   git format-patch origin/master
-git format-patch master..bugfix/project_n_workspace
-0001-Core-app-plugins-Added-target-Abbreviations-to-virtu.patch
-0002-wxContribItems-Removed-unneeded-search-directories-a.patch
-
-git --no-pager log --oneline --author=Tim
-
-2da1b20 - Removed unneeded wxscintilla_cb library from link list. (Thanks stahta01)
-24040c5 - ToolsPlus: Save-As CB WinOS wx2.8 project using CB 15.12.
-e32ce56 - Removed unneeded wxpropgrid library from link list. (Thanks stahta01)
-26761f8 - Core app & plugins: Added target Abbreviations to virtual target. (Thanks stahta01)
-1b69624 - wxContribItems: Removed unneeded search directories and libs. (Thanks stahta01)
-41fdb0f - Workspace: Replaced "lib_finder" project dependency with "wxContribItems". (Thanks stahta01)
-
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/sdk && git status -uno
 #
 git rebase bugfix/sdk && git status -uno

@@ -60,6 +60,7 @@ Delete Branch
     DELETED build_cbp/wx_compiler
     DELETED pch_fixes/win_cbp_saveas
     DELETED wxFormBuilder
+    bugfix/project_n_workspace
 
 ######################################################
 

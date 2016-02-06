@@ -1,11 +1,13 @@
 reducedGUI notes.txt
 
+git checkout master && git checkout -b reducedGUI && git push origin -u
+
 branch: reducedGUI reduce the GUI output when doing BatchBuild
 
 IsBatchBuild
 
-#if CB_REDUCED_GUI
-#endif // #if CB_REDUCED_GUI
+#if !CB_REDUCED_GUI
+#endif // #if !CB_REDUCED_GUI
 
 Needs fixed m_pBatchBuildDialog
 
@@ -24,9 +26,9 @@ GUI Libs that may need removed
     gdi32
 
 GUI Classes that need removed
+    DebuggerManager     debuggermanager.h
                         scrollingdialog.h
-    CCManager           ccmanager.h                        
-    DebuggerManager     debuggermanager.h                
+    CCManager           ccmanager.h                                        
     TemplateManager     templatemanager.h                 
     ToolsManager        toolsmanager.h                
                 

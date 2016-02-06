@@ -15,7 +15,6 @@
 # git checkout wxContribItems && git rebase origin/master && git push origin --force-with-lease
 # git checkout deceased/removals && git rebase origin/master && git push origin --force-with-lease
 # git checkout portability/fixes && git rebase origin/master && git push origin --force-with-lease
-# git checkout bugfix/project_n_workspace && git rebase origin/master && git push origin --force-with-lease
 ##
 cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes --prune && git fetch origin --prune
@@ -28,7 +27,6 @@ git checkout PCH/master && git status -uno
 ##  git rebase origin/wxContribItems
 ##  git rebase origin/deceased/removals
 ##  git rebase origin/portability/fixes
-##  git rebase origin/bugfix/project_n_workspace
 #
 ##  git rebase origin/master && git status -uno
 #
