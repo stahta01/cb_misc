@@ -27,9 +27,6 @@ git rebase origin/master        && \
 git checkout bugfix/plugins     && \
 git pull                        && \
 git rebase origin/master        && \
-git checkout bugfix/project_n_workspace && \
-git pull                        && \
-git rebase origin/master        && \
 git checkout feature/sdk        && \
 git pull                        && \
 git rebase origin/master        && \
