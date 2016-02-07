@@ -44,4 +44,3 @@ git checkout build_cbp/lib_folder_type2 && \
 git pull                        && \
 git rebase origin/master
 
-###############################################
