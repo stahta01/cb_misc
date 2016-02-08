@@ -1,0 +1,31 @@
+Linux and BSD Distros that I am thinking about trying to use.
+And, my notes on how much of Code::Blocks prereqs are installed.
+
+https://pkgs.alpinelinux.org/packages
+http://wiki.alpinelinux.org/wiki/Aports_tree
+http://git.alpinelinux.org/cgit/aports/
+
+OS Setup Packages that I tend to use
+    nano    Yes
+
+CB Depends
+    wxgtk2.8-dev    has package
+
+Dev Depends
+    git-svn         has package
+    git-gitk        has package
+
+CB Related Stuff
+    cscope          missing package
+    cppcheck        has package
+    gcc             has package 5.3.0-r0
+    zip             has package 
+    wxformbuilder   has old APKBUILD in unmaintained      
+    cmake           has package 3.4.3-r0
+    premake
+    scite
+
+
+PacBSD AKA ArchBSD
+https://pacbsd.org/packages
+https://en.wikipedia.org/wiki/PacBSD
