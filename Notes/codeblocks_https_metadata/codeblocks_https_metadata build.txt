@@ -28,12 +28,12 @@ git rebase origin/master
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/wizards && git status -uno
 #
-git rebase master && git status -uno
+git rebase origin/master && git status -uno
 #
-## git rebase -i master
+## git rebase -i origin/master
 #
 git push origin 
-##  git rebase master && git push origin --force-with-lease
+##  git rebase origin/master && git push origin --force-with-lease
 #
 # git log
 # git format-patch --unified=1 5fa65096205e9a24ae1ce30dbb8908a58e10ff68
