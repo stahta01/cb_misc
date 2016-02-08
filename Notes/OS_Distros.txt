@@ -26,6 +26,9 @@ CB Related Stuff
     scite
 
 
-PacBSD AKA ArchBSD
+PacBSD formerly called ArchBSD
 https://pacbsd.org/packages
 https://en.wikipedia.org/wiki/PacBSD
+
+Distros I might try on old XP Laptop.
+http://solydxk.com/
