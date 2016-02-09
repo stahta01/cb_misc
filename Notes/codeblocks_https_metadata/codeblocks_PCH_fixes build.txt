@@ -24,9 +24,9 @@ git checkout PCH/master && git status -uno
 #
 ##  git pull --rebase
 #
-##  git rebase origin/wxContribItems
 ##  git rebase origin/deceased/removals
 ##  git rebase origin/portability/fixes
+##  git rebase origin/wxContribItems
 #
 ##  git rebase origin/master && git status -uno
 #
