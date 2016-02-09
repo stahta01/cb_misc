@@ -101,7 +101,7 @@ cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout wxContribItems
 #
 git rebase origin/master && git status -uno
-# git rebase -i master
+# git rebase -i origin/master
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 
