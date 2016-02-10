@@ -15,6 +15,7 @@ Functions that need to be readded
     HasBreakpoint
     ToggleBreakpoint
     StopRunningDebugger
+    BreakpointMarkerToggle
 
 GUI Includes that need removed
 
