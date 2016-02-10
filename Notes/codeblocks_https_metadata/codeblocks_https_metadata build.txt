@@ -220,6 +220,12 @@ git push origin
 0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
 0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
 0003-wx_multilibs_gcc471TDM-Changed-to-make-built-wx-mult.patch
+###
+#
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout reducedGUI && git status -uno
+
+
 
 ###
 # nonGUI:

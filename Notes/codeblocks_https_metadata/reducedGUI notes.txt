@@ -11,7 +11,10 @@ IsBatchBuild
 
 Needs fixed m_pBatchBuildDialog
 
-
+Functions that need to be readded
+    HasBreakpoint
+    ToggleBreakpoint
+    StopRunningDebugger
 
 GUI Includes that need removed
 
@@ -26,14 +29,15 @@ GUI Libs that may need removed
     gdi32
 
 GUI Classes that need removed
-    DebuggerManager     debuggermanager.h
-                        scrollingdialog.h
+    DebuggerManager     debuggermanager.h           Removed
+                        cbdebugger_interfaces.h     Removed 
     CCManager           ccmanager.h                                        
     TemplateManager     templatemanager.h                 
     ToolsManager        toolsmanager.h                
+                        scrollingdialog.h
                 
 SDK Classes that need removed
-    cbDebuggerPlugin    cbplugin.h      
+    cbDebuggerPlugin    cbplugin.h                  Removed     
 
 GUI Defines that need removed
 
