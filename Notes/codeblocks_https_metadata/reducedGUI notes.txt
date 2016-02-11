@@ -20,6 +20,22 @@ Code::Blocks Debug # Created by option --debug-log
 Change this debug log to be a Text file 
 And add option --build-log that goes to a text file.
 
+    SetLog(new StdoutLogger, stdout_log);
+    SetLog(new StdoutLogger, app_log);
+    SetLog(new StdoutLogger, debug_log);
+    slot[stdout_log].title = _T("stdout");
+    slot[app_log].title = _T("Code::Blocks");
+    slot[debug_log].title = _T("Code::Blocks Debug");
+
+class BuildLogger : public TextCtrlLogger
+
+/** a logger which prints messages to the standard console IO */
+class DLLIMPORT StdoutLogger : public Logger
+/** a logger which prints messages to a file */
+class DLLIMPORT FileLogger : public Logger
+/** a logger which prints messages to a wxTextCtrl */
+class DLLIMPORT TextCtrlLogger : public Logger
+
 Functions that need to be readded
 
 GUI Includes that need removed
@@ -35,15 +51,22 @@ GUI Libs that may need removed
     gdi32
 
 GUI Classes that need removed
-    DebuggerManager     debuggermanager.h           Removed
-                        cbdebugger_interfaces.h     Removed 
+    DebuggerManager     debuggermanager.h      
+                        cbdebugger_interfaces.h
     CCManager           ccmanager.h                                        
     TemplateManager     templatemanager.h                 
     ToolsManager        toolsmanager.h                
                         scrollingdialog.h
+
                 
 SDK Classes that need removed
-    cbDebuggerPlugin    cbplugin.h                  Removed     
+    cbDebuggerPlugin    cbplugin.h
+
+Core App Classes that need removed  
+    FindReplace         find_replace.h              Removed
+
+Compiler Classes that need removed
+    CompilerMessages    compilermessages.h          Removed
 
 GUI Defines that need removed
 
