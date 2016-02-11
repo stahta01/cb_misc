@@ -1,0 +1,961 @@
+From 768790cc409c5f84ac1227cba8da4f9986263bad Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 9 Feb 2016 21:33:49 -0500
+Subject: [PATCH] * reducedGUI: Remove most of the Debugger code.
+
+Also, Edited update.bat to remove creation of debugger.zip.
+---
+ src/CodeBlocks.cbp                             | 197 +------------------------
+ src/include/cbdebugger_interfaces.h            |   2 +
+ src/include/cbeditor.h                         |   4 +
+ src/include/cbplugin.h                         |   2 +
+ src/include/editorbase.h                       |   2 +
+ src/plugins/compilergcc/compilergcc.cpp        |   4 +
+ src/plugins/compilergcc/compileroptionsdlg.cpp |   4 +
+ src/sdk/cbeditor.cpp                           |  18 +++
+ src/sdk/cbplugin.cpp                           |   8 +-
+ src/sdk/cbstyledtextctrl.cpp                   |   3 +-
+ src/sdk/manager.cpp                            |   4 +
+ src/sdk/scripting/bindings/scriptbindings.cpp  |   4 +
+ src/src/main.cpp                               |  23 ++-
+ src/src/main.h                                 |   4 +
+ src/src/threadsdlg.cpp                         |   9 ++
+ src/src/threadsdlg.h                           |   1 +
+ src/update.bat                                 |   4 +-
+ 17 files changed, 98 insertions(+), 195 deletions(-)
+
+diff --git a/src/CodeBlocks.cbp b/src/CodeBlocks.cbp
+index 682a8b8..3e1dff2 100644
+--- a/src/CodeBlocks.cbp
++++ b/src/CodeBlocks.cbp
+@@ -378,38 +378,6 @@
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+ 			</Target>
+-			<Target title="Debugger">
+-				<Option output="devel/share/CodeBlocks/plugins/debugger" prefix_auto="1" extension_auto="1" />
+-				<Option working_dir="devel" />
+-				<Option external_deps="devel/libcodeblocks.a;" />
+-				<Option type="3" />
+-				<Option compiler="gcc" />
+-				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --no-splash-screen --verbose -p debug" />
+-				<Option host_application="./codeblocks.exe" />
+-				<Option run_host_application_in_terminal="0" />
+-				<Option projectLinkerOptionsRelation="1" />
+-				<Compiler>
+-					<Add option="-DBUILDING_PLUGIN" />
+-					<Add directory="include" />
+-					<Add directory="include/scripting/include" />
+-					<Add directory="include/scripting/sqplus" />
+-				</Compiler>
+-				<Linker>
+-					<Add option="-Wl,--enable-auto-image-base" />
+-					<Add option="-Wl,--add-stdcall-alias" />
+-					<Add option="-Wl,--enable-auto-import" />
+-					<Add option="-Wl,--no-undefined" />
+-					<Add option="-mthreads" />
+-					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+-					<Add directory="devel" />
+-				</Linker>
+-				<ExtraCommands>
+-					<Add after="cmd /c if not exist devel\share\CodeBlocks mkdir devel\share\CodeBlocks" />
+-					<Add after="zip -jq9 devel\share\CodeBlocks\debugger.zip plugins\debuggergdb\resources\manifest.xml plugins\debuggergdb\resources\*.xrc" />
+-					<Mode after="always" />
+-				</ExtraCommands>
+-			</Target>
+ 			<Target title="Code-completion">
+ 				<Option output="devel/share/CodeBlocks/plugins/codecompletion" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="devel" />
+@@ -707,8 +675,8 @@
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;wxpropgrid;sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
+-			<Add alias="Core app &amp; plugins" targets="sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Debugger;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
++			<Add alias="All" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;wxpropgrid;sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
++			<Add alias="Core app &amp; plugins" targets="sdk;src;Abbreviations;AStyle;Autosave;Compiler depslib;Compiler;Code-completion;Class wizard;Default MIME handler;Occurrences Highlighting;Open files list;Projects-workspaces importer;Scripted wizard;To-do;XP look &amp; feel;" />
+ 			<Add alias="Third-party libs" targets="tinyXML;AutoRevision;ConsoleRunner;Squirrel;Squirrel std lib;SqPlus;scintilla;wxpropgrid;Compiler depslib;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+@@ -726,6 +694,7 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add option="-DCB_REDUCED_GUI" />
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 			<Add directory="sdk/wxscintilla/include" />
+@@ -2024,98 +1993,17 @@
+ 		<Unit filename="plugins/compilergcc/resources/manifest.xml">
+ 			<Option target="Compiler" />
+ 		</Unit>
+-		<Unit filename="plugins/debuggergdb/cdb_commands.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/cdb_driver.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/cdb_driver.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/databreakpointdlg.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/databreakpointdlg.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debugger_defs.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debugger_defs.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggerdriver.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggerdriver.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggergdb.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggergdb.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggeroptionsdlg.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggeroptionsdlg.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggeroptionsprjdlg.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggeroptionsprjdlg.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggerstate.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/debuggerstate.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/editbreakpointdlg.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/editbreakpointdlg.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/editwatchdlg.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/editwatchdlg.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/gdb_commands.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/gdb_driver.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/gdb_driver.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/parsewatchvalue.cpp">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/parsewatchvalue.h">
+-			<Option target="Debugger" />
+-		</Unit>
+-		<Unit filename="plugins/debuggergdb/remotedebugging.h">
+-			<Option target="Debugger" />
+-		</Unit>
+ 		<Unit filename="plugins/debuggergdb/resources/breakpoints.xrc">
+-			<Option target="Debugger" />
++			<Option target="&lt;{~None~}&gt;" />
+ 		</Unit>
+ 		<Unit filename="plugins/debuggergdb/resources/debugger_options_dlg.xrc">
+-			<Option target="Debugger" />
++			<Option target="&lt;{~None~}&gt;" />
+ 		</Unit>
+ 		<Unit filename="plugins/debuggergdb/resources/debugger_project_options_dlg.xrc">
+-			<Option target="Debugger" />
++			<Option target="&lt;{~None~}&gt;" />
+ 		</Unit>
+ 		<Unit filename="plugins/debuggergdb/resources/edit_watches_dlg.xrc">
+-			<Option target="Debugger" />
++			<Option target="&lt;{~None~}&gt;" />
+ 		</Unit>
+ 		<Unit filename="plugins/defaultmimehandler/EmbeddedHtmlPanel.cpp">
+ 			<Option target="Default MIME handler" />
+@@ -2472,7 +2360,7 @@
+ 			<Option target="XP look &amp; feel" />
+ 		</Unit>
+ 		<Unit filename="scripts/gdb_types.script">
+-			<Option target="Debugger" />
++			<Option target="&lt;{~None~}&gt;" />
+ 		</Unit>
+ 		<Unit filename="scripts/make_dist.script">
+ 			<Option target="src" />
+@@ -2595,9 +2483,6 @@
+ 		<Unit filename="sdk/crc32.cpp">
+ 			<Option target="sdk" />
+ 		</Unit>
+-		<Unit filename="sdk/debuggermanager.cpp">
+-			<Option target="sdk" />
+-		</Unit>
+ 		<Unit filename="sdk/editarrayfiledlg.cpp">
+ 			<Option target="sdk" />
+ 		</Unit>
+@@ -3951,75 +3836,21 @@
+ 		<Unit filename="src/associations.h">
+ 			<Option target="src" />
+ 		</Unit>
+-		<Unit filename="src/backtracedlg.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/backtracedlg.h">
+-			<Option target="src" />
+-		</Unit>
+ 		<Unit filename="src/batchbuild.h">
+ 			<Option target="src" />
+ 		</Unit>
+-		<Unit filename="src/breakpointsdlg.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/breakpointsdlg.h">
+-			<Option target="src" />
+-		</Unit>
+ 		<Unit filename="src/compilersettingsdlg.cpp">
+ 			<Option target="src" />
+ 		</Unit>
+ 		<Unit filename="src/compilersettingsdlg.h">
+ 			<Option target="src" />
+ 		</Unit>
+-		<Unit filename="src/cpuregistersdlg.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/cpuregistersdlg.h">
+-			<Option target="src" />
+-		</Unit>
+ 		<Unit filename="src/crashhandler.cpp">
+ 			<Option target="src" />
+ 		</Unit>
+ 		<Unit filename="src/crashhandler.h">
+ 			<Option target="src" />
+ 		</Unit>
+-		<Unit filename="src/debugger_interface_creator.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debugger_interface_creator.h">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debuggermenu.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debuggermenu.h">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debuggersettingscommonpanel.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debuggersettingscommonpanel.h">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debuggersettingsdlg.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debuggersettingsdlg.h">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debuggersettingspanel.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/debuggersettingspanel.h">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/disassemblydlg.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/disassemblydlg.h">
+-			<Option target="src" />
+-		</Unit>
+ 		<Unit filename="src/dlgabout.cpp">
+ 			<Option target="src" />
+ 		</Unit>
+@@ -4050,12 +3881,6 @@
+ 		<Unit filename="src/environmentsettingsdlg.h">
+ 			<Option target="src" />
+ 		</Unit>
+-		<Unit filename="src/examinememorydlg.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/examinememorydlg.h">
+-			<Option target="src" />
+-		</Unit>
+ 		<Unit filename="src/find_replace.cpp">
+ 			<Option target="src" />
+ 		</Unit>
+@@ -4230,12 +4055,6 @@
+ 		<Unit filename="src/virtualbuildtargetsdlg.h">
+ 			<Option target="src" />
+ 		</Unit>
+-		<Unit filename="src/watchesdlg.cpp">
+-			<Option target="src" />
+-		</Unit>
+-		<Unit filename="src/watchesdlg.h">
+-			<Option target="src" />
+-		</Unit>
+ 		<Unit filename="tips.txt">
+ 			<Option target="src" />
+ 		</Unit>
+diff --git a/src/include/cbdebugger_interfaces.h b/src/include/cbdebugger_interfaces.h
+index 6812496..03cbbc6 100644
+--- a/src/include/cbdebugger_interfaces.h
++++ b/src/include/cbdebugger_interfaces.h
+@@ -8,7 +8,9 @@
+ 
+ #include <wx/string.h>
+ #include "settings.h"
++#if !CB_REDUCED_GUI
+ #include "debuggermanager.h"
++#endif // #if !CB_REDUCED_GUI
+ 
+ class cbDebuggerPlugin;
+ class wxMenu;
+diff --git a/src/include/cbeditor.h b/src/include/cbeditor.h
+index 5a8f2f1..6140565 100644
+--- a/src/include/cbeditor.h
++++ b/src/include/cbeditor.h
+@@ -211,11 +211,13 @@ class DLLIMPORT cbEditor : public EditorBase
+           * @return Editor found, position set and token highlighted? */
+         bool GotoTokenPosition(int line, const wxString& tokenName);
+ 
++#if !CB_REDUCED_GUI
+         /** Add debugger breakpoint at specified line. If @c line is -1, use current line. */
+         bool AddBreakpoint(int line = -1, bool notifyDebugger = true);
+ 
+         /** Remove debugger breakpoint at specified line. If @c line is -1, use current line. */
+         bool RemoveBreakpoint(int line = -1, bool notifyDebugger = true);
++#endif // #if !CB_REDUCED_GUI
+ 
+         /** Toggle debugger breakpoint at specified line. If @c line is -1, use current line. */
+         virtual void ToggleBreakpoint(int line = -1, bool notifyDebugger = true);
+@@ -223,6 +225,7 @@ class DLLIMPORT cbEditor : public EditorBase
+         /** Does @c line has debugger breakpoint? If @c line is -1, use current line. */
+         virtual bool HasBreakpoint(int line) const;
+ 
++#if !CB_REDUCED_GUI
+         /** Go to next debugger breakpoint. */
+         virtual void GotoNextBreakpoint();
+ 
+@@ -231,6 +234,7 @@ class DLLIMPORT cbEditor : public EditorBase
+ 
+         /** Refresh all markers for the breakpoints (only the markers for the current debugger will be shown) */
+         virtual void RefreshBreakpointMarkers();
++#endif // #if !CB_REDUCED_GUI
+ 
+         /** Clear all bookmarks. */
+         virtual void ClearAllBookmarks();
+diff --git a/src/include/cbplugin.h b/src/include/cbplugin.h
+index 11d982c..b628b34 100644
+--- a/src/include/cbplugin.h
++++ b/src/include/cbplugin.h
+@@ -393,6 +393,7 @@ struct cbDebuggerFeature
+   * This plugin type must offer some pre-defined debug facilities, on top
+   * of the generic plugin's.
+   */
++#if !CB_REDUCED_GUI
+ class PLUGIN_EXPORT cbDebuggerPlugin: public cbPlugin
+ {
+     public:
+@@ -649,6 +650,7 @@ class PLUGIN_EXPORT cbDebuggerPlugin: public cbPlugin
+         bool m_lastLineWasNormal;
+         wxString m_guiName, m_settingsName;
+ };
++#endif // #if !CB_REDUCED_GUI
+ 
+ /** @brief Base class for tool plugins
+   *
+diff --git a/src/include/editorbase.h b/src/include/editorbase.h
+index f9ad7f4..fe5ff75 100644
+--- a/src/include/editorbase.h
++++ b/src/include/editorbase.h
+@@ -18,7 +18,9 @@
+ class wxMenu;
+ class EditorBase;
+ struct EditorBaseInternalData;
++#if !CB_REDUCED_GUI
+ class cbDebuggerPlugin;
++#endif // #if !CB_REDUCED_GUI
+ 
+ WX_DECLARE_HASH_MAP(int, EditorBase*, wxIntegerHash, wxIntegerEqual, SwitchToMap);
+ 
+diff --git a/src/plugins/compilergcc/compilergcc.cpp b/src/plugins/compilergcc/compilergcc.cpp
+index 66a15b4..dada23c 100644
+--- a/src/plugins/compilergcc/compilergcc.cpp
++++ b/src/plugins/compilergcc/compilergcc.cpp
+@@ -33,7 +33,9 @@
+ #include <pipedprocess.h>
+ #include <configmanager.h>
+ #include <compilercommandgenerator.h>
++#if !CB_REDUCED_GUI
+ #include <debuggermanager.h>
++#endif // #if !CB_REDUCED_GUI
+ #include <logmanager.h>
+ #include <macrosmanager.h>
+ #include <projectmanager.h>
+@@ -810,6 +812,7 @@ void CompilerGCC::SetupEnvironment()
+ 
+ bool CompilerGCC::StopRunningDebugger()
+ {
++#if !CB_REDUCED_GUI
+     cbDebuggerPlugin *dbg = Manager::Get()->GetDebuggerManager()->GetActiveDebugger();
+     // is the debugger running?
+     if (dbg && dbg->IsRunning())
+@@ -833,6 +836,7 @@ bool CompilerGCC::StopRunningDebugger()
+                 return false;
+         }
+     }
++#endif // #if !CB_REDUCED_GUI
+ 
+     return true;
+ }
+diff --git a/src/plugins/compilergcc/compileroptionsdlg.cpp b/src/plugins/compilergcc/compileroptionsdlg.cpp
+index 68cbb53..f54c5fb 100644
+--- a/src/plugins/compilergcc/compileroptionsdlg.cpp
++++ b/src/plugins/compilergcc/compileroptionsdlg.cpp
+@@ -46,7 +46,9 @@
+ #include "cbexception.h"
+ #include "compilergcc.h"
+ #include "compileroptionsdlg.h"
++#if !CB_REDUCED_GUI
+ #include "debuggermanager.h"
++#endif // #if !CB_REDUCED_GUI
+ #include "editpathdlg.h"
+ #include "editpairdlg.h"
+ #include "compilerflagdlg.h"
+@@ -477,6 +479,7 @@ void CompilerOptionsDlg::DoFillCompilerPrograms()
+     XRCCTRL(*this, "txtCPPcompiler", wxTextCtrl)->SetValue(progs.CPP);
+     XRCCTRL(*this, "txtLinker", wxTextCtrl)->SetValue(progs.LD);
+     XRCCTRL(*this, "txtLibLinker", wxTextCtrl)->SetValue(progs.LIB);
++#if !CB_REDUCED_GUI
+     wxChoice *cmbDebugger = XRCCTRL(*this, "cmbDebugger", wxChoice);
+     if (cmbDebugger)
+     {
+@@ -501,6 +504,7 @@ void CompilerOptionsDlg::DoFillCompilerPrograms()
+             }
+         }
+     }
++#endif // #if !CB_REDUCED_GUI
+ 
+     XRCCTRL(*this, "txtResComp", wxTextCtrl)->SetValue(progs.WINDRES);
+     XRCCTRL(*this, "txtMake", wxTextCtrl)->SetValue(progs.MAKE);
+diff --git a/src/sdk/cbeditor.cpp b/src/sdk/cbeditor.cpp
+index 0a6a36c..0a2421f 100644
+--- a/src/sdk/cbeditor.cpp
++++ b/src/sdk/cbeditor.cpp
+@@ -44,7 +44,9 @@
+ #include <wx/splitter.h>
+ 
+ #include "cbeditorprintout.h"
++#if !CB_REDUCED_GUI
+ #include "cbdebugger_interfaces.h"
++#endif // #if !CB_REDUCED_GUI
+ #include "editor_hooks.h"
+ #include "encodingdetector.h"
+ #include "filefilters.h"
+@@ -2182,6 +2184,7 @@ void cbEditor::BreakpointMarkerToggle(int line)
+         m_pControl->MarkerAdd(line, BREAKPOINT_MARKER);
+ }
+ 
++#if !CB_REDUCED_GUI
+ bool cbEditor::AddBreakpoint(int line, bool notifyDebugger)
+ {
+     if (HasBreakpoint(line))
+@@ -2228,6 +2231,7 @@ bool cbEditor::RemoveBreakpoint(int line, bool notifyDebugger)
+     return false;
+ }
+ 
++#endif // #if !CB_REDUCED_GUI
+ void cbEditor::ToggleBreakpoint(int line, bool notifyDebugger)
+ {
+     if (line == -1)
+@@ -2238,6 +2242,7 @@ void cbEditor::ToggleBreakpoint(int line, bool notifyDebugger)
+         return;
+     }
+ 
++#if !CB_REDUCED_GUI
+     DebuggerManager *dbgManager = Manager::Get()->GetDebuggerManager();
+     cbBreakpointsDlg *dialog = dbgManager->GetBreakpointDialog();
+     cbDebuggerPlugin *plugin = dbgManager->GetActiveDebugger();
+@@ -2261,6 +2266,7 @@ void cbEditor::ToggleBreakpoint(int line, bool notifyDebugger)
+         BreakpointMarkerToggle(line);
+         dialog->Reload();
+     }
++#endif // #if !CB_REDUCED_GUI
+ }
+ 
+ bool cbEditor::HasBreakpoint(int line) const
+@@ -2270,6 +2276,7 @@ bool cbEditor::HasBreakpoint(int line) const
+     return LineHasMarker(BREAKPOINT_MARKER, line) || LineHasMarker(BREAKPOINT_DISABLED_MARKER, line);
+ }
+ 
++#if !CB_REDUCED_GUI
+ void cbEditor::GotoNextBreakpoint()
+ {
+     MarkerNext(BREAKPOINT_MARKER);
+@@ -2279,12 +2286,14 @@ void cbEditor::GotoPreviousBreakpoint()
+ {
+     MarkerPrevious(BREAKPOINT_MARKER);
+ }
++#endif // #if !CB_REDUCED_GUI
+ 
+ void cbEditor::ToggleBookmark(int line)
+ {
+     MarkerToggle(BOOKMARK_MARKER, line);
+ }
+ 
++#if !CB_REDUCED_GUI
+ void cbEditor::RefreshBreakpointMarkers()
+ {
+     // First remove all breakpoint markers, then add the markers for the active debugger
+@@ -2331,6 +2340,7 @@ void cbEditor::RefreshBreakpointMarkers()
+         }
+     }
+ }
++#endif // #if !CB_REDUCED_GUI
+ 
+ bool cbEditor::HasBookmark(int line) const
+ {
+@@ -2876,6 +2886,7 @@ bool cbEditor::OnBeforeBuildContextMenu(const wxPoint& position, ModuleType type
+             // create special menu
+             wxMenu* popup = new wxMenu;
+ 
++#if !CB_REDUCED_GUI
+             cbDebuggerPlugin *plugin = Manager::Get()->GetDebuggerManager()->GetActiveDebugger();
+             if (plugin && plugin->SupportsFeature(cbDebuggerFeature::Breakpoints))
+             {
+@@ -2895,6 +2906,7 @@ bool cbEditor::OnBeforeBuildContextMenu(const wxPoint& position, ModuleType type
+                     popup->Append(idBreakpointAdd, _("Add breakpoint"));
+                 popup->AppendSeparator();
+             }
++#endif // #if !CB_REDUCED_GUI
+ 
+             if (LineHasMarker(BOOKMARK_MARKER, m_pData->m_LastMarginMenuLine))
+             {
+@@ -3108,6 +3120,7 @@ void cbEditor::OnContextMenuEntry(wxCommandEvent& event)
+         ui.SwitchToProjectsPage();
+         ui.ShowFileInTree(*m_pProjectFile);
+     }
++#if !CB_REDUCED_GUI
+     else if (id == idBreakpointAdd)
+         AddBreakpoint(m_pData->m_LastMarginMenuLine);
+     else if (id == idBreakpointEdit)
+@@ -3127,6 +3140,7 @@ void cbEditor::OnContextMenuEntry(wxCommandEvent& event)
+         cbBreakpointsDlg *dialog = Manager::Get()->GetDebuggerManager()->GetBreakpointDialog();
+         dialog->EnableBreakpoint(m_Filename, m_pData->m_LastMarginMenuLine + 1, false);
+     }
++#endif // #if !CB_REDUCED_GUI
+     else
+         event.Skip();
+     //Manager::Get()->GetLogManager()->DebugLog(_T("Leaving OnContextMenuEntry"));
+@@ -3141,7 +3155,9 @@ void cbEditor::OnMarginClick(wxScintillaEvent& event)
+             int lineYpix = event.GetPosition();
+             int line = GetControl()->LineFromPosition(lineYpix);
+ 
++#if !CB_REDUCED_GUI
+             ToggleBreakpoint(line);
++#endif // #if !CB_REDUCED_GUI
+             break;
+         }
+         case C_FOLDING_MARGIN: // folding margin
+@@ -3322,6 +3338,7 @@ void cbEditor::OnEditorModified(wxScintillaEvent& event)
+         // well, scintilla events happen regularly
+         // although we only reach this part of the code only if a line has been added/removed
+         // so, yes, it might not be that bad after all
++#if !CB_REDUCED_GUI
+         int startline = m_pControl->LineFromPosition(event.GetPosition());
+         const DebuggerManager::RegisteredPlugins &plugins = Manager::Get()->GetDebuggerManager()->GetAllDebuggers();
+         cbDebuggerPlugin *active = Manager::Get()->GetDebuggerManager()->GetActiveDebugger();
+@@ -3337,6 +3354,7 @@ void cbEditor::OnEditorModified(wxScintillaEvent& event)
+         if (dlg)
+             dlg->Reload();
+         RefreshBreakpointMarkers();
++#endif // #if !CB_REDUCED_GUI
+     }
+     // If we remove the folding-point (the brace or whatever) from a folded block,
+     // we have to make the hidden lines visible, otherwise, they
+diff --git a/src/sdk/cbplugin.cpp b/src/sdk/cbplugin.cpp
+index a037108..bc014bd 100644
+--- a/src/sdk/cbplugin.cpp
++++ b/src/sdk/cbplugin.cpp
+@@ -34,10 +34,11 @@
+ #include <wx/toolbar.h>
+ 
+ #include "annoyingdialog.h"
++#if !CB_REDUCED_GUI
+ #include "cbdebugger_interfaces.h"
++#endif // #if !CB_REDUCED_GUI
+ #include "cbstyledtextctrl.h"
+ #include "ccmanager.h"
+-#include "debuggermanager.h"
+ #include "editor_hooks.h"
+ #include "loggers.h"
+ 
+@@ -124,6 +125,7 @@ cbCompilerPlugin::cbCompilerPlugin()
+ ///// cbDebuggerPlugin
+ /////
+ 
++#if !CB_REDUCED_GUI
+ cbDebuggerPlugin::cbDebuggerPlugin(const wxString &guiName, const wxString &settingsName) :
+     m_pCompiler(nullptr),
+     m_WaitingCompilerToFinish(false),
+@@ -139,7 +141,6 @@ cbDebuggerPlugin::cbDebuggerPlugin(const wxString &guiName, const wxString &sett
+     m_Type = ptDebugger;
+ }
+ 
+-
+ void cbDebuggerPlugin::OnAttach()
+ {
+     Manager::Get()->GetDebuggerManager()->RegisterDebugger(this);
+@@ -755,6 +756,7 @@ void cbDebuggerPlugin::OnCompilerFinished(cb_unused CodeBlocksEvent& event)
+         }
+     }
+ }
++#endif // #if !CB_REDUCED_GUI
+ 
+ #ifndef __WXMSW__
+ namespace
+@@ -845,6 +847,7 @@ struct ConsoleProcess : wxProcess
+ } // namespace
+ #endif
+ 
++#if !CB_REDUCED_GUI
+ int cbDebuggerPlugin::RunNixConsole(wxString &consoleTty)
+ {
+     consoleTty = wxEmptyString;
+@@ -996,6 +999,7 @@ void cbDebuggerPlugin::CancelValueTooltip(cb_unused CodeBlocksEvent& event)
+ {
+     Manager::Get()->GetDebuggerManager()->GetInterfaceFactory()->HideValueTooltip();
+ }
++#endif // #if !CB_REDUCED_GUI
+ /////
+ ///// cbToolPlugin
+ /////
+diff --git a/src/sdk/cbstyledtextctrl.cpp b/src/sdk/cbstyledtextctrl.cpp
+index b172f87..1d83e01 100644
+--- a/src/sdk/cbstyledtextctrl.cpp
++++ b/src/sdk/cbstyledtextctrl.cpp
+@@ -20,9 +20,10 @@
+ #endif
+ #include <wx/textfile.h> // for wxTextBuffer::Translate()
+ 
++#if !CB_REDUCED_GUI
+ #include "cbdebugger_interfaces.h"
++#endif // #if !CB_REDUCED_GUI
+ #include "ccmanager.h"
+-#include "debuggermanager.h"
+ 
+ static const wxString s_leftBrace(_T("([{'\""));
+ static const wxString s_rightBrace(_T(")]}'\""));
+diff --git a/src/sdk/manager.cpp b/src/sdk/manager.cpp
+index 1122b0e..b208fb8 100644
+--- a/src/sdk/manager.cpp
++++ b/src/sdk/manager.cpp
+@@ -46,7 +46,9 @@
+ 
+ #include "cbcolourmanager.h"
+ #include "ccmanager.h"
++#if !CB_REDUCED_GUI
+ #include "debuggermanager.h"
++#endif // #if !CB_REDUCED_GUI
+ 
+ static Manager* s_ManagerInstance = nullptr;
+ 
+@@ -484,10 +486,12 @@ FileManager* Manager::GetFileManager() const
+     return FileManager::Get();
+ }
+ 
++#if !CB_REDUCED_GUI
+ DebuggerManager* Manager::GetDebuggerManager() const
+ {
+     return DebuggerManager::Get();
+ }
++#endif // #if !CB_REDUCED_GUI
+ 
+ ColourManager* Manager::GetColourManager() const
+ {
+diff --git a/src/sdk/scripting/bindings/scriptbindings.cpp b/src/sdk/scripting/bindings/scriptbindings.cpp
+index 13624bb..776a275 100644
+--- a/src/sdk/scripting/bindings/scriptbindings.cpp
++++ b/src/sdk/scripting/bindings/scriptbindings.cpp
+@@ -666,17 +666,21 @@ namespace ScriptBindings
+                 func(&cbEditor::Reload, "Reload").
+                 func(&cbEditor::Print, "Print").
+                 func(&cbEditor::AutoComplete, "AutoComplete").
++#if !CB_REDUCED_GUI
+                 func(&cbEditor::AddBreakpoint, "AddBreakpoint").
+                 func(&cbEditor::RemoveBreakpoint, "RemoveBreakpoint").
++#endif // #if !CB_REDUCED_GUI
+                 func(&cbEditor::ToggleBookmark, "ToggleBookmark").
+                 func(&cbEditor::HasBookmark, "HasBookmark").
+                 func(&cbEditor::GotoNextBookmark, "GotoNextBookmark").
+                 func(&cbEditor::GotoPreviousBookmark, "GotoPreviousBookmark").
+                 func(&cbEditor::ClearAllBookmarks, "ClearAllBookmarks").
++#if !CB_REDUCED_GUI
+                 func(&cbEditor::ToggleBreakpoint, "ToggleBreakpoint").
+                 func(&cbEditor::HasBreakpoint, "HasBreakpoint").
+                 func(&cbEditor::GotoNextBreakpoint, "GotoNextBreakpoint").
+                 func(&cbEditor::GotoPreviousBreakpoint, "GotoPreviousBreakpoint").
++#endif // #if !CB_REDUCED_GUI
+ 
+ 
+                 // these are not present in cbEditor; included to help scripts edit text
+diff --git a/src/src/main.cpp b/src/src/main.cpp
+index 0417e2c..930ace4 100644
+--- a/src/src/main.cpp
++++ b/src/src/main.cpp
+@@ -49,7 +49,6 @@
+ #include <cbworkspace.h>
+ #include <ccmanager.h>
+ #include <configmanager.h>
+-#include <debuggermanager.h>
+ #include <editorcolourset.h>
+ #include <editormanager.h>
+ #include <filefilters.h>
+@@ -64,8 +63,10 @@
+ #include <toolsmanager.h>
+ #include <uservarmanager.h>
+ 
++#if !CB_REDUCED_GUI
+ #include "debugger_interface_creator.h"
+ #include "debuggermenu.h"
++#endif // #if !CB_REDUCED_GUI
+ 
+ #include "cbcolourmanager.h"
+ #include "editorconfigurationdlg.h"
+@@ -528,7 +529,9 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
+     EVT_MENU(idSettingsGlobalUserVars, MainFrame::OnGlobalUserVars)
+     EVT_MENU(idSettingsEditor,         MainFrame::OnSettingsEditor)
+     EVT_MENU(idSettingsCompiler,       MainFrame::OnSettingsCompiler)
++#if !CB_REDUCED_GUI
+     EVT_MENU(idSettingsDebugger,       MainFrame::OnSettingsDebugger)
++#endif // #if !CB_REDUCED_GUI
+     EVT_MENU(idPluginsManagePlugins,   MainFrame::OnSettingsPlugins)
+     EVT_MENU(idSettingsScripting,      MainFrame::OnSettingsScripting)
+ 
+@@ -669,8 +672,10 @@ MainFrame::~MainFrame()
+ 
+     DeInitPrinting();
+ 
++#if !CB_REDUCED_GUI
+     delete m_debuggerMenuHandler;
+     delete m_debuggerToolbarHandler;
++#endif // #if !CB_REDUCED_GUI
+ }
+ 
+ void MainFrame::RegisterEvents()
+@@ -749,7 +754,9 @@ void MainFrame::CreateIDE()
+ 
+     // logs manager
+     SetupGUILogging();
++#if !CB_REDUCED_GUI
+     SetupDebuggerUI();
++#endif // #if !CB_REDUCED_GUI
+ 
+     CreateMenubar();
+ 
+@@ -821,6 +828,7 @@ void MainFrame::SetupGUILogging()
+     m_pInfoPane->SetDropTarget(new cbFileDropTarget(this));
+ }
+ 
++#if !CB_REDUCED_GUI
+ void MainFrame::SetupDebuggerUI()
+ {
+     m_debuggerMenuHandler = new DebuggerMenuHandler;
+@@ -839,6 +847,7 @@ void MainFrame::SetupDebuggerUI()
+     Manager::Get()->GetDebuggerManager()->SetInterfaceFactory(new DebugInterfaceFactory);
+     m_debuggerMenuHandler->RegisterDefaultWindowItems();
+ }
++#endif // #if !CB_REDUCED_GUI
+ 
+ DECLARE_INSTANCE_TYPE(MainFrame);
+ 
+@@ -1027,7 +1036,9 @@ void MainFrame::CreateMenubar()
+ 
+     // core modules: create menus
+     m_pPrjManUI->CreateMenu(mbar);
++#if !CB_REDUCED_GUI
+     Manager::Get()->GetDebuggerManager()->SetMenuHandler(m_debuggerMenuHandler);
++#endif // #if !CB_REDUCED_GUI
+ 
+     // ask all plugins to rebuild their menus
+     PluginElementsArray plugins = Manager::Get()->GetPluginManager()->GetPlugins();
+@@ -1111,15 +1122,19 @@ void MainFrame::CreateToolbars()
+ 
+     m_pToolbar->SetInitialSize();
+ 
++#if !CB_REDUCED_GUI
+     // Right click on the debugger toolbar will popup a context menu
+     m_debuggerToolbarHandler->GetToolbar()->Connect(wxID_ANY, wxEVT_COMMAND_TOOL_RCLICKED, wxCommandEventHandler(MainFrame::OnToolBarRightClick), NULL, this );
++#endif // #if !CB_REDUCED_GUI
+ 
+     std::vector<ToolbarInfo> toolbars;
+ 
+     toolbars.push_back(ToolbarInfo(m_pToolbar, wxAuiPaneInfo().Name(wxT("MainToolbar")).Caption(_("Main Toolbar")), 0));
++#if !CB_REDUCED_GUI
+     toolbars.push_back(ToolbarInfo(m_debuggerToolbarHandler->GetToolbar(),
+                                    wxAuiPaneInfo(). Name(wxT("DebuggerToolbar")).Caption(_("Debugger Toolbar")),
+                                    2));
++#endif // #if !CB_REDUCED_GUI
+ 
+     // ask all plugins to rebuild their toolbars
+     PluginElementsArray plugins = Manager::Get()->GetPluginManager()->GetPlugins();
+@@ -4409,11 +4424,13 @@ void MainFrame::OnToggleBar(wxCommandEvent& event)
+         win = m_pToolbar;
+         toolbar = true;
+     }
++#if !CB_REDUCED_GUI
+     else if (event.GetId() == idViewToolDebugger)
+     {
+         win = m_debuggerToolbarHandler->GetToolbar();
+         toolbar = true;
+     }
++#endif // #if !CB_REDUCED_GUI
+     else
+     {
+         wxString pluginName = m_PluginIDsMap[event.GetId()];
+@@ -4698,6 +4715,7 @@ void MainFrame::OnSettingsCompiler(cb_unused wxCommandEvent& event)
+     }
+ }
+ 
++#if !CB_REDUCED_GUI
+ void MainFrame::OnSettingsDebugger(cb_unused wxCommandEvent& event)
+ {
+     DebuggerSettingsDlg dlg(this);
+@@ -4709,6 +4727,7 @@ void MainFrame::OnSettingsDebugger(cb_unused wxCommandEvent& event)
+         Manager::Get()->ProcessEvent(event2);
+     }
+ }
++#endif // #if !CB_REDUCED_GUI
+ 
+ void MainFrame::OnSettingsPlugins(cb_unused wxCommandEvent& event)
+ {
+@@ -5120,5 +5139,7 @@ void MainFrame::SetChecksForViewToolbarsMenu(wxMenu &menu)
+     }
+ 
+     menu.Check(idViewToolMain,     m_LayoutManager.GetPane(m_pToolbar).IsShown());
++#if !CB_REDUCED_GUI
+     menu.Check(idViewToolDebugger, m_LayoutManager.GetPane(m_debuggerToolbarHandler->GetToolbar(false)).IsShown());
++#endif // #if !CB_REDUCED_GUI
+ }
+diff --git a/src/src/main.h b/src/src/main.h
+index 461543d..ba6296a 100644
+--- a/src/src/main.h
++++ b/src/src/main.h
+@@ -31,8 +31,10 @@ extern int idStartHerePageLink;
+ extern int idStartHerePageVarSubst;
+ 
+ class cbAuiNotebook;
++#if !CB_REDUCED_GUI
+ class DebuggerMenuHandler;
+ class DebuggerToolbarHandler;
++#endif // #if !CB_REDUCED_GUI
+ class InfoPane;
+ class wxGauge;
+ class ProjectManagerUI;
+@@ -400,8 +402,10 @@ class MainFrame : public wxFrame
+         wxScrollingDialog* m_pBatchBuildDialog;
+         wxButton*          m_pHighlightButton;
+ 
++#if !CB_REDUCED_GUI
+         DebuggerMenuHandler*    m_debuggerMenuHandler;
+         DebuggerToolbarHandler* m_debuggerToolbarHandler;
++#endif // #if !CB_REDUCED_GUI
+ 
+         FindReplace m_findReplace;
+ 
+diff --git a/src/src/threadsdlg.cpp b/src/src/threadsdlg.cpp
+index 0fca34c..8c2c240 100644
+--- a/src/src/threadsdlg.cpp
++++ b/src/src/threadsdlg.cpp
+@@ -20,7 +20,9 @@
+ 
+ #include "threadsdlg.h"
+ #include "cbcolourmanager.h"
++#if !CB_REDUCED_GUI
+ #include "debuggermanager.h"
++#endif // #if !CB_REDUCED_GUI
+ 
+ namespace
+ {
+@@ -58,6 +60,7 @@ ThreadsDlg::ThreadsDlg(wxWindow* parent) : wxPanel(parent)
+ 
+ void ThreadsDlg::Reload()
+ {
++#if !CB_REDUCED_GUI
+     cbDebuggerPlugin *plugin = Manager::Get()->GetDebuggerManager()->GetActiveDebugger();
+     if (!plugin)
+         return;
+@@ -89,6 +92,10 @@ void ThreadsDlg::Reload()
+     {
+         m_list->SetColumnWidth(ii, wxLIST_AUTOSIZE);
+     }
++#else
++    return;
++#endif // #if !CB_REDUCED_GUI
++
+ }
+ 
+ //void ThreadsDlg::AddThread(const wxString& active_mark, const wxString& thread_num, const wxString& thread_info)
+@@ -139,9 +146,11 @@ void ThreadsDlg::OnSwitchThread(cb_unused wxCommandEvent& event)
+     unsigned long thread_num;
+     if (thread.ToULong(&thread_num, 10))
+     {
++#if !CB_REDUCED_GUI
+         cbDebuggerPlugin *plugin = Manager::Get()->GetDebuggerManager()->GetActiveDebugger();
+         if(plugin)
+             plugin->SwitchToThread(thread_num);
++#endif // #if !CB_REDUCED_GUI
+     }
+ }
+ 
+diff --git a/src/src/threadsdlg.h b/src/src/threadsdlg.h
+index 2cfa551..82af759 100644
+--- a/src/src/threadsdlg.h
++++ b/src/src/threadsdlg.h
+@@ -7,6 +7,7 @@
+ #define THREADSDLG_H
+ 
+ #include <wx/panel.h>
++
+ #include <cbdebugger_interfaces.h>
+ 
+ class wxCommandEvent;
+diff --git a/src/update.bat b/src/update.bat
+index a163ca6..fabba72 100644
+--- a/src/update.bat
++++ b/src/update.bat
+@@ -49,7 +49,7 @@ echo Compressing plugins UI resources
+ %ZIPCMD% -jqu9 %CB_DEVEL_RESDIR%\classwizard.zip plugins\classwizard\resources\manifest.xml plugins\classwizard\resources\*.xrc > nul
+ %ZIPCMD% -jqu9 %CB_DEVEL_RESDIR%\codecompletion.zip plugins\codecompletion\resources\manifest.xml plugins\codecompletion\resources\*.xrc > nul
+ %ZIPCMD% -jqu9 %CB_DEVEL_RESDIR%\compiler.zip plugins\compilergcc\resources\manifest.xml plugins\compilergcc\resources\*.xrc > nul
+-%ZIPCMD% -jqu9 %CB_DEVEL_RESDIR%\debugger.zip plugins\debuggergdb\resources\manifest.xml plugins\debuggergdb\resources\*.xrc > nul
++REM %ZIPCMD% -jqu9 %CB_DEVEL_RESDIR%\debugger.zip plugins\debuggergdb\resources\manifest.xml plugins\debuggergdb\resources\*.xrc > nul
+ %ZIPCMD% -jqu9 %CB_DEVEL_RESDIR%\defaultmimehandler.zip plugins\defaultmimehandler\resources\manifest.xml plugins\defaultmimehandler\resources\*.xrc > nul
+ %ZIPCMD% -jqu9 %CB_DEVEL_RESDIR%\occurrenceshighlighting.zip plugins\occurrenceshighlighting\resources\*.xrc plugins\occurrenceshighlighting\resources\manifest.xml > nul
+ %ZIPCMD% -jqu9 %CB_DEVEL_RESDIR%\openfileslist.zip plugins\openfileslist\manifest.xml > nul
+@@ -67,7 +67,7 @@ echo Packing plugins UI bitmaps
+ cd ..\..\plugins\compilergcc\resources
+ %ZIPCMD% -0 -qu ..\..\..\%CB_DEVEL_RESDIR%\compiler.zip images\*.png images\16x16\*.png > nul
+ cd ..\..\..\plugins\debuggergdb\resources
+-%ZIPCMD% -0 -qu ..\..\..\%CB_DEVEL_RESDIR%\debugger.zip images\*.png images\16x16\*.png > nul
++REM %ZIPCMD% -0 -qu ..\..\..\%CB_DEVEL_RESDIR%\debugger.zip images\*.png images\16x16\*.png > nul
+ cd ..\..\..
+ 
+ echo Copying files
+-- 
+2.7.1.windows.1
+
