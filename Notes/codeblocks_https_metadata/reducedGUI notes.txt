@@ -11,11 +11,16 @@ IsBatchBuild
 
 Needs fixed m_pBatchBuildDialog
 
+Logs that exist with all but Compiler Plugin Disabled
+Code::Blocks
+Search Results
+Build log
+Build Messages
+Code::Blocks Debug # Created by option --debug-log
+Change this debug log to be a Text file 
+And add option --build-log that goes to a text file.
+
 Functions that need to be readded
-    HasBreakpoint
-    ToggleBreakpoint
-    StopRunningDebugger
-    BreakpointMarkerToggle
 
 GUI Includes that need removed
 
