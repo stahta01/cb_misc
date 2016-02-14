@@ -75,6 +75,23 @@ git push pch_fixes
 #
 ######
 #
+### pch_fixes/PCH/wxContribItems
+#
+cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+git checkout PCH/wxContribItems && git status -uno
+#
+git rebase pch_fixes/PCH/master && git status -uno
+##  git rebase -i pch_fixes/PCH/master && git status -uno
+#
+git push pch_fixes -u
+##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
+
+# git log
+# git format-patch --unified=1 6ec704e8e2de96c5450efacce53ddb503e541c02
+#
+######
+#
 ### pch_fixes/PCH/wx_pch_h
 #
 ##
@@ -83,15 +100,17 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wx_pch_h && git status -uno
 #
+#   git rebase pch_fixes/PCH/wxContribItems && git status -uno
 git rebase pch_fixes/PCH/wxCode && git status -uno
 ##  git rebase -i pch_fixes/PCH/wxCode && git status -uno
 #
 git push pch_fixes 
+#   git rebase pch_fixes/PCH/master
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 #
 
 # git log
-# git format-patch --unified=1 6ec704e8e2de96c5450efacce53ddb503e541c02
+# git format-patch --unified=1 bbf02b1d5e1a825f7fbc41f34f5ac9e467b45c46
 #
 ######
 #
@@ -203,7 +222,10 @@ git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
 #
 git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
-
+#
+# git log 
+# git format-patch --unified=1
+# 
 ######
 #
 ### pch_fixes/PCH/NassiShneiderman

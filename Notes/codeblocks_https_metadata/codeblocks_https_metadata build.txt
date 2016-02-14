@@ -230,6 +230,7 @@ git rebase origin/master && git status -uno
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
+git format-patch origin/master
 ###
 # nonGUI:
 #
