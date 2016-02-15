@@ -26,7 +26,6 @@ git checkout PCH/master && git status -uno
 #
 ##  git rebase origin/deceased/removals
 ##  git rebase origin/portability/fixes
-##  git rebase origin/wxContribItems
 #
 ##  git rebase origin/master && git status -uno
 #
@@ -80,6 +79,8 @@ git push pch_fixes
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
 git checkout PCH/wxContribItems && git status -uno
 #
+#   git rebase origin/wxContribItems
+#
 git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 #
@@ -102,6 +103,9 @@ git checkout PCH/wx_pch_h && git status -uno
 #
 #   git rebase pch_fixes/PCH/wxContribItems && git status -uno
 git rebase pch_fixes/PCH/wxCode && git status -uno
+#
+#   git rebase pch_fixes/PCH/master && git status -uno
+#
 ##  git rebase -i pch_fixes/PCH/wxCode && git status -uno
 #
 git push pch_fixes 
@@ -494,7 +498,8 @@ git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 #
-
+# git format-patch --unified=2 e7fd713c67023161ed6b3411f18802efa4f25b4f
+#
 ###########################
 
 #include "sdk.h" // Code::Blocks SDK and Precompiled Header
