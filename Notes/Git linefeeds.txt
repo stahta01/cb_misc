@@ -1,7 +1,12 @@
 git config core.eol
 git config core.autocrlf
 git config core.safecrlf
+git config core.whitespace
 
+# Setting for Windows I am trying
+git config --local core.safecrlf true
+git config --local core.eol      crlf
+git config --local core.autocrlf true
 
 git config --system core.eol
 git config --local  core.eol
@@ -19,7 +24,7 @@ git config --local core.safecrlf true
 
 $ git config core.eol lf
 $ git config core.autocrlf input
-$ git config core.safecrlf true
+$ git config core.safecrlf true    # Seems to take a long time to set to true for big repos.
 
 $ git config core.autocrlf true
 $ git config core.autocrlf false

@@ -11,6 +11,11 @@ IsBatchBuild
 
 Needs fixed m_pBatchBuildDialog
 
+new FileLogger(_T("codeblocks-debug.log")), LogManager::debug_log
+
+new FileLogger(_T("codeblocks-build.log")), LogManager::build_log
+
+
 Logs that exist with all but Compiler Plugin Disabled
 Code::Blocks
 Search Results
@@ -60,7 +65,10 @@ GUI Classes that need removed
 
                 
 SDK Classes that need removed
-    cbDebuggerPlugin    cbplugin.h
+    TextCtrlLogger          loggers.h               Removed
+    TimestampTextCtrlLogger loggers.h               Removed
+    ListCtrlLogger          loggers.h               Removed
+    cbDebuggerPlugin        cbplugin.h
 
 Core App Classes that need removed  
     FindReplace         find_replace.h              Removed

@@ -1,7 +1,7 @@
 ###############################################################################
 #
 # Steps needed to make git svn info return the correct information
-# I am using "git version 2.6.2.windows.1" under Windows 7
+# I am using "git version 2.7.1.windows.2" under Windows 7
 #
 ###############################################################################
 #
@@ -13,13 +13,13 @@
 # Step 1: Record the result of the "git log" command.
 git log --grep="^git-svn-id: " --first-parent -1
 # Git Log message begins
-commit 424021900336ea1389ee25a0daea97b7a15dd31a
-Author: mortenmacfly <mortenmacfly@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Wed Jan 6 06:39:40 2016 +0000
+commit eca77d00eff51d29d0c7132af13ab9b69bd95d5e
+Author: T Petrov <tpetrov@codeblocks.org>
+Date:   Sat Feb 13 17:03:15 2016 +0000
 
-    * applied (modified) patch by stahta01 to relax wizards when searching for library files to link against, see: http://forums.codeblocks.org/index.php/topic,20730.msg142215.html#msg142215
-    
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10639 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    - wx30: Fix assert when deleting a compiler
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10781 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Git Log message ends
 
 # Step 2: Verify svn configuration
@@ -31,8 +31,8 @@ git config svn-remote.svn.url
 # git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
 
 
-# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10639"
-git svn fetch -r 10639
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10781"
+git svn fetch -r 10781
 
 # Step 3B: See what folder name is being used before trunk.
 git config svn-remote.svn.fetch
@@ -50,7 +50,7 @@ ls .git/refs/remotes/svn/trunk
 ########
 
 # Step 4: Use the commit hash from the git log message returned in the step 1 above.
-echo 424021900336ea1389ee25a0daea97b7a15dd31a > .git/refs/remotes/svn/trunk
+echo eca77d00eff51d29d0c7132af13ab9b69bd95d5e > .git/refs/remotes/svn/trunk
 
 ########
 ### When doing inside git sub module the location of the trunk file differs.
@@ -58,8 +58,8 @@ echo 424021900336ea1389ee25a0daea97b7a15dd31a > .git/refs/remotes/svn/trunk
 ###
 ########
 
-# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10639" part is needed.
-git svn fetch -r 10639
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10381" part is needed.
+git svn fetch -r 10781
 
 # Step 6: Run svn info to verify it is working
 git svn info

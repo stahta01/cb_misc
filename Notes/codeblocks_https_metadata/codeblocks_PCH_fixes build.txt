@@ -7,6 +7,12 @@
 ##  git branch --list
 ##  git checkout -b PCH/cbp_unix_and_win_wx28 pch_fixes/PCH/cbp_unix_and_win_wx28
 ##
+
+Check for format issues under Linux.
+PCH/cbp_unix_and_win_wx28
+PCH/DoxyBlocks
+PCH/wxFormBuilder
+
 ######
 #
 ### pch_fixes/PCH/master
