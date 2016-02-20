@@ -1,6 +1,5 @@
 Order to do patch sections.txt
 
-bugfix/project_n_workspace  Applied
 bugfix/sdk                  Applied
 feature/wizards             Needs Tested and then Posted
 portability/fixes           Needs Tested and then Posted
