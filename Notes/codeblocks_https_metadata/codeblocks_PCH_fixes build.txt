@@ -1,8 +1,11 @@
 ######################################################################
 ##
+##  git clone https://github.com/stahta01/codeblocks_PCH_fixes.git -o pch_fixes codeblocks_PCH_fixes-git
+##
+##  cd codeblocks_PCH_fixes-git
+##
 ##  git remote -v
-##  git remote rename origin pch_fixes
-##  git remote add origin  https://stahta01@github.com/stahta01/codeblocks_https_metadata.git
+##  git remote add origin  https://github.com/stahta01/codeblocks_https_metadata.git
 ##  git fetch origin
 ##  git branch --list
 ##  git checkout -b PCH/cbp_unix_and_win_wx28 pch_fixes/PCH/cbp_unix_and_win_wx28
