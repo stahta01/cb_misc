@@ -60,20 +60,6 @@ git push pch_fixes
 
 ######
 #
-### pch_fixes/PCH/wxCode
-##
-cd ../codeblocks_PCH_fixes-git && git fetch origin && git fetch pch_fixes
-git checkout PCH/wxCode && git status -uno
-#
-git rebase pch_fixes/PCH/master && git status -uno
-#
-##  git rebase -i pch_fixes/PCH/master
-#
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
-#
-######
-#
 ### pch_fixes/PCH/wxContribItems
 #
 cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
@@ -90,6 +76,20 @@ git push pch_fixes -u
 
 # git log
 # git format-patch --unified=1 6ec704e8e2de96c5450efacce53ddb503e541c02
+#
+######
+#
+### pch_fixes/PCH/wxCode
+##
+cd ../codeblocks_PCH_fixes-git && git fetch origin && git fetch pch_fixes
+git checkout PCH/wxCode && git status -uno
+#
+git rebase pch_fixes/PCH/master && git status -uno
+#
+##  git rebase -i pch_fixes/PCH/master
+#
+git push pch_fixes 
+##  git rebase origin/master && git push pch_fixes --force-with-lease
 #
 ######
 #
@@ -133,6 +133,7 @@ git push pch_fixes
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/core
+- sdk: Removed include of "wx/wx.h" from source files.
 - sdk: Added wx headers to CB_PRECOMP section. (Thanks stahta01)
 * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
 * defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
@@ -143,7 +144,6 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/core
 - compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
 * astyle: Added needed wx headers. (Thanks stahta01)
 * abbreviations: Added needed wx headers. (Thanks stahta01)
-- sdk: Removed include of "wx/wxprec.h" and "wx/wx.h" from headers.
 
 git format-patch pch_fixes/PCH/master
 
@@ -151,17 +151,6 @@ git log
 
 git format-patch --unified=1 1b53807139c30b4303f44f5903d574a26932ebb3
 
-git apply --reject 0001-sdk-Removed-include-of-wx-wxprec.h-and-wx-wx.h-from-.patch
-0002-abbreviations-Added-needed-wx-headers.-Thanks-stahta.patch
-0003-astyle-Added-needed-wx-headers.-Thanks-stahta01.patch
-0004-compilergcc-Removed-wx-wx.h-headers.-Thanks-stahta01.patch
-0005-src-Added-needed-wx-headers.-Thanks-stahta01.patch
-0006-occurrenceshighlighting-Added-needed-wx-headers.-Tha.patch
-0007-codecompletion-Removed-include-of-wx-wxprec.h-and-wx.patch
-0008-debuggergdb-Removed-wx-wxprec.h-from-header.-Thanks-.patch
-0009-defaultmimehandler-Removed-wx-wxprec.h-and-wx-wx.h-f.patch
-0010-pch_cbp_unix-Added-define-NOPCH-to-targets-scintilla.patch
-0011-sdk-Added-wx-headers-to-CB_PRECOMP-section.-Thanks-s.patch
 
 ######
 #
@@ -311,17 +300,19 @@ git checkout PCH/help_plugin && git status -uno
 git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
+##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 git format-patch pch_fixes/PCH/master
 
-git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/help_plugin
-- pch_cbp_unix: Added object search folder. (Thanks stahta01)
-- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
+git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/help_plugin
+- help_plugin: Save-As using CB 13.12.
+* help_plugin: Fixed to use just bzip2 and z in the library link list.(Thanks stahta01)
 - cbp_win_wx28: Moved search folders to target level. (Thanks stahta01)
+- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
+- pch_cbp_unix: Added object search folder. (Thanks stahta01)
 
 ######
 #
@@ -335,15 +326,15 @@ git checkout PCH/HexEditor && git status -uno
 git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
+##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/HexEditor
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/HexEditor
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+s
 ######
 #
 ### pch_fixes/PCH/headerfixup
@@ -356,15 +347,15 @@ git checkout PCH/headerfixup && git status -uno
 git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
+##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-git --no-pager log --pretty=format:%s pch_fixes/PCH/master..PCH/headerfixup
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..PCH/headerfixup
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-- headerfixup: Save-As Windows CB Projects. (Thanks stahta01)
+- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
+* headerfixup: Removed includes of "wx/wx.h" and "wx/wxprec.h" from headers. (Thanks stahta01)
 
 ######
 #
@@ -379,10 +370,11 @@ git checkout PCH/misc && git status -uno
 git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
+##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push -u pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
+#
 ######
 #
 ### pch_fixes/PCH/devpak_plugin
@@ -398,17 +390,17 @@ git checkout PCH/devpak_plugin && git status -uno
 git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
+##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
 
-git --no-pager log --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin
-- pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
-- DevPakPlugin.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin
 - DevPakPlugin.cbp: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- devpak_plugin: Save-As Windows CB projects. (Thanks stahta01)
+- DevPakPlugin.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
+- pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
+* devpak_plugin: Removed unneeded wx/wx.h and wx/wxprec.h. (Thanks stahta01)
 
 ######
 #
@@ -422,7 +414,7 @@ git checkout PCH/Valgrind && git status -uno
 git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
+##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push -u pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
