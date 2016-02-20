@@ -3,10 +3,15 @@ git config core.autocrlf
 git config core.safecrlf
 git config core.whitespace
 
-# Setting for Windows I am trying
+# Suggested setting; but, seems bad to add git attribute file.
 git config --local core.safecrlf true
 git config --local core.eol      crlf
 git config --local core.autocrlf true
+
+# Setting for Windows I am trying to work with adding git attribute file.
+git config --local core.safecrlf true
+git config --local core.eol      lf
+git config --local core.autocrlf input
 
 git config --system core.eol
 git config --local  core.eol
