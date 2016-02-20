@@ -11,6 +11,17 @@
 ##  git checkout -b PCH/cbp_unix_and_win_wx28 pch_fixes/PCH/cbp_unix_and_win_wx28
 ##
 ######
+Files with posible CRLF/LF Issues. This was seen likely on Linux.
+    modified:   src/plugins/contrib/wxContribItems/wxchart/build/msw/wxchart.sln
+	modified:   src/plugins/contrib/wxContribItems/wxmathplot/mathplot.cpp
+	modified:   src/plugins/contrib/wxSmithContribItems/wxSmithPlot/wxsText.cpp
+	modified:   src/sdk/filemanager.cpp
+	modified:   src/sdk/wxpropgrid/build_wx26/propgrid.sln
+	modified:   src/tools/cbp2make/src/buildtools.h
+	modified:   src/tools/cbp2make/src/cbp2make.cpp
+	modified:   src/tools/cbp2make/src/cbproject.cpp
+	modified:   src/tools/cbp2make/src/cbptarget.cpp
+	modified:   src/tools/cbp2make/src/platforms.h
 #
 ### pch_fixes/PCH/master
 ##
