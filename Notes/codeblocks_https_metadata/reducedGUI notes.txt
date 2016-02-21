@@ -1,8 +1,12 @@
 reducedGUI notes.txt
 
+git am 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
+
 git checkout master && git checkout -b reducedGUI && git push origin -u
 
 branch: reducedGUI reduce the GUI output when doing BatchBuild
+
+Branch: build/nonGUI to be created from reducedGUI
 
 IsBatchBuild
 
