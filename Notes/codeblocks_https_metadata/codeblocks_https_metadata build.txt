@@ -38,12 +38,12 @@ git push origin
 #   git log
 # --unified=1
 #   git format-patch  origin/master
-git am 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
+0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
 0002-scriptedwizard-Added-support-for-GTK-v3.-Thanks-stah.patch
 0003-scriptedwizard-Added-support-for-GLFW-v3.-Thanks-sta.patch
 0004-scriptedwizard-Added-support-for-freeglut-lib-in-GLU.patch
-0005-scriptedwizard-Fixed-PCH-related-issues.-Thanks-stah.patch
-0006-NEEDS-FIXED-scriptedwizard-Added-support-for-SDL-v2-.patch
+0005-NEEDS-FIXED-scriptedwizard-Added-support-for-SDL-v2-.patch
+0006-scriptedwizard-Fixed-PCH-related-issues.-Thanks-stah.patch
 #
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
