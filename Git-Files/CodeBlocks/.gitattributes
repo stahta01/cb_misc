@@ -1,4 +1,4 @@
-# Declare files you want to always be converted 
+# Declare files you want to always be converted
 # to native line endings on checkout.
 *.c         text whitespace=tab-in-indent,trailing-space,tabwidth=4
 *.cpp       text whitespace=tab-in-indent,trailing-space,tabwidth=4
