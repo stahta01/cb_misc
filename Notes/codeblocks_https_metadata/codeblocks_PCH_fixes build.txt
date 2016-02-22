@@ -39,6 +39,15 @@ git push pch_fixes
 ##  git pull && git rebase origin/master && git push pch_fixes --force-with-lease
 #
 # git format-patch origin/master..pch_fixes/PCH/master
+# 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
+# 0002-win_cbp_wx30_64-Save-As-Windows-wx3.0-64-bit-project.patch
+# 0003-win_cbp_wx28-Save-As-Windows-wx2.8-32-bit-projects.-.patch
+# 0004-win_cbp-Moved-wxmsw-WX_VERSION-WX_SUFFIX-from-projec.patch
+# 0005-SpellChecker-Removed-from-after-from-second-xcopy-pa.patch
+# 0006-Removed-win32-wxWidgets-template-files.-Thanks-staht.patch
+# 0007-deleted-files-src-ipc.cpp-and-src-ipc.h.-Thanks-stah.patch
+# git am 0008-git-Added-src-plugins-contrib-SmartIndent-manifest.x.patch
+# 0009-Removed-wxWidgets-template-files.-Thanks-stahta01.patch
 #
 ######
 #
@@ -468,6 +477,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git log -5
 ##  git rebase -i HEAD~5
+##  git rebase -i pch_fixes/PCH/master
 #
 git push pch_fixes 
 ##  git fetch origin && git rebase origin/master && git push pch_fixes --force-with-lease
