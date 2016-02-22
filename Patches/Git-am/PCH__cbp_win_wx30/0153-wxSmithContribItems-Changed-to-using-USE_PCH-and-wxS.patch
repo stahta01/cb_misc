@@ -1,0 +1,64 @@
+From 5b3c45d77548c9160b2f872d8330c55cdc16bbbf Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 23 Dec 2015 21:01:34 -0500
+Subject: [PATCH 153/159] - wxSmithContribItems: Changed to using USE_PCH and
+ wxSmithLib/pch/wx_pch.h. (Thanks stahta01)
+
+---
+ .../contrib/wxSmithContribItems/wxSmithContribItems_wx30.cbp        | 6 +++++-
+ .../contrib/wxSmithContribItems/wxSmithContribItems_wx30_64.cbp     | 6 +++++-
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30.cbp b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30.cbp
+index d1b4844..3ef9822 100644
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30.cbp
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30.cbp
+@@ -23,5 +23,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+@@ -78,4 +78,6 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
++			<Add option='-include &quot;wx_pch.h&quot;' />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+@@ -84,4 +86,6 @@
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30/plugins/contrib/wxSmithLib/pch" />
++			<Add directory="../wxSmith/pch" />
+ 		</Compiler>
+ 		<Linker>
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30_64.cbp b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30_64.cbp
+index 6b74adb..5e05c2a 100644
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30_64.cbp
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30_64.cbp
+@@ -23,5 +23,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+@@ -78,4 +78,6 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
++			<Add option='-include &quot;wx_pch.h&quot;' />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+@@ -85,4 +87,6 @@
+ 			<Add directory="$(#WX30_64.include)" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30_64/plugins/contrib/wxSmithLib/pch" />
++			<Add directory="../wxSmith/pch" />
+ 		</Compiler>
+ 		<Linker>
+-- 
+2.7.1.windows.2
+

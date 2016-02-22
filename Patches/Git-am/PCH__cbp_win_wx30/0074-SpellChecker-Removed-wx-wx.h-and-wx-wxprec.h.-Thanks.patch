@@ -1,0 +1,166 @@
+From e98e6f0ff1b9fb3193ca450da603ba9a0ac1321e Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 15:10:27 -0500
+Subject: [PATCH 074/159] * SpellChecker: Removed wx/wx.h and wx/wxprec.h.
+ (Thanks stahta01)
+
+And, added wx headers needed.
+---
+ src/plugins/contrib/SpellChecker/HunspellInterface.h    |  6 ------
+ src/plugins/contrib/SpellChecker/MySpellingDialog.cpp   |  9 +++++++++
+ src/plugins/contrib/SpellChecker/MySpellingDialog.h     |  6 ------
+ src/plugins/contrib/SpellChecker/OnlineSpellChecker.h   |  6 ------
+ src/plugins/contrib/SpellChecker/SpellCheckHelper.h     |  7 -------
+ src/plugins/contrib/SpellChecker/SpellCheckerPlugin.cpp |  1 +
+ src/plugins/contrib/SpellChecker/SpellCheckerPlugin.h   |  6 ------
+ src/plugins/contrib/SpellChecker/Thesaurus.h            | 10 ++++------
+ src/plugins/contrib/SpellChecker/wxThes.h               |  7 -------
+ 9 files changed, 14 insertions(+), 44 deletions(-)
+
+diff --git a/src/plugins/contrib/SpellChecker/HunspellInterface.h b/src/plugins/contrib/SpellChecker/HunspellInterface.h
+index 445c0a6..2873d65 100644
+--- a/src/plugins/contrib/SpellChecker/HunspellInterface.h
++++ b/src/plugins/contrib/SpellChecker/HunspellInterface.h
+@@ -20,10 +20,4 @@
+ #define __HUNSPELL_CHECK_INTERFACE__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+ 
+ #include "wx/string.h"
+diff --git a/src/plugins/contrib/SpellChecker/MySpellingDialog.cpp b/src/plugins/contrib/SpellChecker/MySpellingDialog.cpp
+index 5dd65ad..96180f7 100644
+--- a/src/plugins/contrib/SpellChecker/MySpellingDialog.cpp
++++ b/src/plugins/contrib/SpellChecker/MySpellingDialog.cpp
+@@ -19,4 +19,13 @@
+ #include "prep.h"
+ 
++#include <wx/button.h>
++#include <wx/choice.h>
++#include <wx/listbox.h>
++#include <wx/msgdlg.h>
++#include <wx/sizer.h>
++#include <wx/stattext.h>
++#include <wx/textctrl.h>
++#include <wx/valtext.h>
++
+ #include "MySpellingDialog.h"
+ 
+diff --git a/src/plugins/contrib/SpellChecker/MySpellingDialog.h b/src/plugins/contrib/SpellChecker/MySpellingDialog.h
+index 784bc0b..aca3cb0 100644
+--- a/src/plugins/contrib/SpellChecker/MySpellingDialog.h
++++ b/src/plugins/contrib/SpellChecker/MySpellingDialog.h
+@@ -20,10 +20,4 @@
+ #define __MY_SPELL_CHECK_DIALOG__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+ 
+ #include "SpellCheckDialogInterface.h"
+diff --git a/src/plugins/contrib/SpellChecker/OnlineSpellChecker.h b/src/plugins/contrib/SpellChecker/OnlineSpellChecker.h
+index 51b386b..6da6952 100644
+--- a/src/plugins/contrib/SpellChecker/OnlineSpellChecker.h
++++ b/src/plugins/contrib/SpellChecker/OnlineSpellChecker.h
+@@ -20,12 +20,6 @@
+ #define OnlineSpellChecker_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+ #include "cbeditor.h"
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ class wxSpellCheckEngineInterface;
+diff --git a/src/plugins/contrib/SpellChecker/SpellCheckHelper.h b/src/plugins/contrib/SpellChecker/SpellCheckHelper.h
+index 0eb0822..9765bca 100644
+--- a/src/plugins/contrib/SpellChecker/SpellCheckHelper.h
++++ b/src/plugins/contrib/SpellChecker/SpellCheckHelper.h
+@@ -20,11 +20,4 @@
+ #define SPELLCHECKHELPER_H
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+-
+ 
+ #include <map>
+diff --git a/src/plugins/contrib/SpellChecker/SpellCheckerPlugin.cpp b/src/plugins/contrib/SpellChecker/SpellCheckerPlugin.cpp
+index 5c3cd54..2c2eddb 100644
+--- a/src/plugins/contrib/SpellChecker/SpellCheckerPlugin.cpp
++++ b/src/plugins/contrib/SpellChecker/SpellCheckerPlugin.cpp
+@@ -18,4 +18,5 @@
+ */
+ #include <sdk.h> // Code::Blocks SDK
++#include <wx/menu.h>
+ #ifndef CB_PRECOMP
+     #include <cbeditor.h>
+diff --git a/src/plugins/contrib/SpellChecker/SpellCheckerPlugin.h b/src/plugins/contrib/SpellChecker/SpellCheckerPlugin.h
+index 1c36270..04edd41 100644
+--- a/src/plugins/contrib/SpellChecker/SpellCheckerPlugin.h
++++ b/src/plugins/contrib/SpellChecker/SpellCheckerPlugin.h
+@@ -21,10 +21,4 @@
+ #define SPELLCHECKER_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbPlugin"
+diff --git a/src/plugins/contrib/SpellChecker/Thesaurus.h b/src/plugins/contrib/SpellChecker/Thesaurus.h
+index 69ac99e..6332a3d 100644
+--- a/src/plugins/contrib/SpellChecker/Thesaurus.h
++++ b/src/plugins/contrib/SpellChecker/Thesaurus.h
+@@ -20,13 +20,11 @@
+ #define THESAURUS_H
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+ 
+ #include <map>
+ #include <vector>
++
++#include <wx/string.h>
++#include <wx/window.h>
++
+ typedef std::map<wxString, std::vector< wxString > > synonyms;
+ 
+diff --git a/src/plugins/contrib/SpellChecker/wxThes.h b/src/plugins/contrib/SpellChecker/wxThes.h
+index fcede5f..071cf1c 100644
+--- a/src/plugins/contrib/SpellChecker/wxThes.h
++++ b/src/plugins/contrib/SpellChecker/wxThes.h
+@@ -25,11 +25,4 @@
+ 
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
+-
+ #include <wx/string.h>
+ #include <map>
+-- 
+2.7.1.windows.2
+

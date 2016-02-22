@@ -1,0 +1,36 @@
+From 4dc486ca6d32ad4282fedfb9058377eafaed08e1 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 29 Nov 2015 23:48:50 -0500
+Subject: [PATCH 104/159] - PCH_build_fix: Changed "USE_PCH" to "NOPCH".
+ (Thanks stahta01)
+
+---
+ src/tools/cb_share_config/cb_share_config.cbp      | 2 +-
+ src/tools/cb_share_config/cb_share_config_wx30.cbp | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/tools/cb_share_config/cb_share_config.cbp b/src/tools/cb_share_config/cb_share_config.cbp
+index 8deb2c4..3df254b 100644
+--- a/src/tools/cb_share_config/cb_share_config.cbp
++++ b/src/tools/cb_share_config/cb_share_config.cbp
+@@ -28,5 +28,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
+-			<Add option="-DUSE_PCH" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-D__GNUWIN32__" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/tools/cb_share_config/cb_share_config_wx30.cbp b/src/tools/cb_share_config/cb_share_config_wx30.cbp
+index 23a0b97..d747d1b 100644
+--- a/src/tools/cb_share_config/cb_share_config_wx30.cbp
++++ b/src/tools/cb_share_config/cb_share_config_wx30.cbp
+@@ -28,5 +28,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
+-			<Add option="-DUSE_PCH" />
++			<Add option="-DNOPCH" />
+ 			<Add option="-D__GNUWIN32__" />
+ 			<Add option="-D__WXMSW__" />
+-- 
+2.7.1.windows.2
+

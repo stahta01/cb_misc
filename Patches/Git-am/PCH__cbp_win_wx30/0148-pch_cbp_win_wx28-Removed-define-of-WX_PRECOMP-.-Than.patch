@@ -1,0 +1,491 @@
+From d023c75491cf0b6385c34de7a5e2739fa2b02461 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 1 Feb 2016 01:43:08 -0500
+Subject: [PATCH 148/159] - pch_cbp_win_wx28: Removed define of "WX_PRECOMP".
+ (Thanks stahta01)
+
+---
+ src/CodeBlocks.cbp                                                      | 1 -
+ src/plugins/contrib/AutoVersioning/AutoVersioning.cbp                   | 1 -
+ src/plugins/contrib/BrowseTracker/BrowseTracker.cbp                     | 2 --
+ src/plugins/contrib/Cccc/Cccc.cbp                                       | 1 -
+ src/plugins/contrib/CppCheck/CppCheck.cbp                               | 1 -
+ src/plugins/contrib/Cscope/Cscope.cbp                                   | 1 -
+ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp                           | 1 -
+ src/plugins/contrib/EditorConfig/EditorConfig.cbp                       | 1 -
+ src/plugins/contrib/EditorTweaks/EditorTweaks.cbp                       | 1 -
+ src/plugins/contrib/FileManager/FileManager.cbp                         | 1 -
+ src/plugins/contrib/HexEditor/HexEditor.cbp                             | 1 -
+ src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp             | 1 -
+ src/plugins/contrib/MouseSap/MouseSap.cbp                               | 1 -
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp               | 1 -
+ .../contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp     | 1 -
+ src/plugins/contrib/ReopenEditor/ReopenEditor.cbp                       | 1 -
+ src/plugins/contrib/SmartIndent/SmartIndent.cbp                         | 1 -
+ src/plugins/contrib/SpellChecker/SpellChecker.cbp                       | 1 -
+ src/plugins/contrib/ThreadSearch/ThreadSearch.cbp                       | 1 -
+ src/plugins/contrib/ToolsPlus/ToolsPlus.cbp                             | 1 -
+ src/plugins/contrib/byogames/byogames.cbp                               | 1 -
+ src/plugins/contrib/cb_koders/cb_koders.cbp                             | 1 -
+ src/plugins/contrib/codesnippets/codesnippets.cbp                       | 1 -
+ src/plugins/contrib/codestat/codestat.cbp                               | 1 -
+ src/plugins/contrib/copystrings/copystrings.cbp                         | 1 -
+ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp                      | 1 -
+ src/plugins/contrib/dragscroll/DragScroll.cbp                           | 1 -
+ src/plugins/contrib/envvars/envvars.cbp                                 | 1 -
+ src/plugins/contrib/headerfixup/headerfixup.cbp                         | 1 -
+ src/plugins/contrib/help_plugin/help-plugin.cbp                         | 1 -
+ src/plugins/contrib/keybinder/keybinder.cbp                             | 1 -
+ src/plugins/contrib/lib_finder/lib_finder.cbp                           | 1 -
+ src/plugins/contrib/profiler/cbprofiler.cbp                             | 1 -
+ src/plugins/contrib/regex_testbed/RegExTestbed.cbp                      | 1 -
+ src/plugins/contrib/rndgen/rndgen.cbp                                   | 1 -
+ src/plugins/contrib/symtab/symtab.cbp                                   | 1 -
+ src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp                | 1 -
+ src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp                          | 1 -
+ src/plugins/headerguard/headerguard.cbp                                 | 1 -
+ src/plugins/loghacker/loghacker.cbp                                     | 1 -
+ src/plugins/modpoller/ModPoller.cbp                                     | 1 -
+ src/plugins/tidycmt/tidycmt.cbp                                         | 1 -
+ src/tools/Addr2LineUI/Addr2LineUI.cbp                                   | 1 -
+ 43 files changed, 44 deletions(-)
+
+diff --git a/src/CodeBlocks.cbp b/src/CodeBlocks.cbp
+index 4fb7954..2c24b61 100644
+--- a/src/CodeBlocks.cbp
++++ b/src/CodeBlocks.cbp
+@@ -728,5 +728,4 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+index c2ad8c5..9996cee 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+@@ -28,5 +28,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+index 4d6aee6..7c3371c 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+@@ -29,5 +29,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
+@@ -76,5 +75,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DLOGGING" />
+diff --git a/src/plugins/contrib/Cccc/Cccc.cbp b/src/plugins/contrib/Cccc/Cccc.cbp
+index b9880e1..4dcd700 100644
+--- a/src/plugins/contrib/Cccc/Cccc.cbp
++++ b/src/plugins/contrib/Cccc/Cccc.cbp
+@@ -33,5 +33,4 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/CppCheck/CppCheck.cbp b/src/plugins/contrib/CppCheck/CppCheck.cbp
+index 1fac7ce..3e79882 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck.cbp
+@@ -33,5 +33,4 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/Cscope/Cscope.cbp b/src/plugins/contrib/Cscope/Cscope.cbp
+index 7e07192..b41b1cc 100644
+--- a/src/plugins/contrib/Cscope/Cscope.cbp
++++ b/src/plugins/contrib/Cscope/Cscope.cbp
+@@ -33,5 +33,4 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+index 99f4ffe..8e8b211 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+@@ -30,5 +30,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig.cbp b/src/plugins/contrib/EditorConfig/EditorConfig.cbp
+index 0355aec..8549441 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig.cbp
+@@ -29,5 +29,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+index d0f3d6e..2e85dcc 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+@@ -29,5 +29,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/FileManager/FileManager.cbp b/src/plugins/contrib/FileManager/FileManager.cbp
+index c952f44..6054e31 100644
+--- a/src/plugins/contrib/FileManager/FileManager.cbp
++++ b/src/plugins/contrib/FileManager/FileManager.cbp
+@@ -45,5 +45,4 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/HexEditor/HexEditor.cbp b/src/plugins/contrib/HexEditor/HexEditor.cbp
+index 8d35fe5..0737c92 100644
+--- a/src/plugins/contrib/HexEditor/HexEditor.cbp
++++ b/src/plugins/contrib/HexEditor/HexEditor.cbp
+@@ -26,5 +26,4 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DcbDEBUG" />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+index f94a46b..7469d8e 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+@@ -29,5 +29,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/MouseSap/MouseSap.cbp b/src/plugins/contrib/MouseSap/MouseSap.cbp
+index f26c901..af08c8b 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap.cbp
+@@ -25,5 +25,4 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
+index d0f4e1e..5cf209a 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
+@@ -29,5 +29,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DBOOST_SYSTEM_NO_DEPRECATED" />
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+index 0e0d344..7188f49 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+@@ -41,5 +41,4 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+index c59761d..527b02a 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+@@ -29,5 +29,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent.cbp b/src/plugins/contrib/SmartIndent/SmartIndent.cbp
+index dc804e7..2b49d00 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent.cbp
+@@ -173,5 +173,4 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker.cbp b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
+index 263124d..bf5b34f 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
+@@ -125,5 +125,4 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+diff --git a/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp b/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+index 5148086..fc0c377 100644
+--- a/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
++++ b/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+@@ -47,5 +47,4 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+index 0dd6e22..4d8dfa2 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+@@ -45,5 +45,4 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/byogames/byogames.cbp b/src/plugins/contrib/byogames/byogames.cbp
+index 7493fcd..2b4bdfb 100644
+--- a/src/plugins/contrib/byogames/byogames.cbp
++++ b/src/plugins/contrib/byogames/byogames.cbp
+@@ -36,5 +36,4 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders.cbp b/src/plugins/contrib/cb_koders/cb_koders.cbp
+index e8a7179..2fae90b 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders.cbp
+@@ -40,5 +40,4 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/codesnippets/codesnippets.cbp b/src/plugins/contrib/codesnippets/codesnippets.cbp
+index c4bce6c..c851758 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets.cbp
+@@ -44,5 +44,4 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/codestat/codestat.cbp b/src/plugins/contrib/codestat/codestat.cbp
+index 4f309b8..1b9044f 100644
+--- a/src/plugins/contrib/codestat/codestat.cbp
++++ b/src/plugins/contrib/codestat/codestat.cbp
+@@ -33,5 +33,4 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/copystrings/copystrings.cbp b/src/plugins/contrib/copystrings/copystrings.cbp
+index bdd028e..4387cb9 100644
+--- a/src/plugins/contrib/copystrings/copystrings.cbp
++++ b/src/plugins/contrib/copystrings/copystrings.cbp
+@@ -33,5 +33,4 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+index 2236ee3..7c1c830 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+@@ -39,5 +39,4 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/dragscroll/DragScroll.cbp b/src/plugins/contrib/dragscroll/DragScroll.cbp
+index f49b26a..ced081c 100644
+--- a/src/plugins/contrib/dragscroll/DragScroll.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll.cbp
+@@ -35,5 +35,4 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/envvars/envvars.cbp b/src/plugins/contrib/envvars/envvars.cbp
+index dacea6d..9bdd2f0 100644
+--- a/src/plugins/contrib/envvars/envvars.cbp
++++ b/src/plugins/contrib/envvars/envvars.cbp
+@@ -19,5 +19,4 @@
+ 				<Compiler>
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add directory="../../../.objs/include" />
+ 				</Compiler>
+diff --git a/src/plugins/contrib/headerfixup/headerfixup.cbp b/src/plugins/contrib/headerfixup/headerfixup.cbp
+index 6b6766f..fdefa79 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup.cbp
+@@ -28,5 +28,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+diff --git a/src/plugins/contrib/help_plugin/help-plugin.cbp b/src/plugins/contrib/help_plugin/help-plugin.cbp
+index b1400f1..2b1588c 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin.cbp
+@@ -54,5 +54,4 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/keybinder/keybinder.cbp b/src/plugins/contrib/keybinder/keybinder.cbp
+index 8f0b97a..0cd6153 100644
+--- a/src/plugins/contrib/keybinder/keybinder.cbp
++++ b/src/plugins/contrib/keybinder/keybinder.cbp
+@@ -24,5 +24,4 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/lib_finder/lib_finder.cbp b/src/plugins/contrib/lib_finder/lib_finder.cbp
+index 42f3943..d2f4474 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder.cbp
+@@ -39,5 +39,4 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler.cbp b/src/plugins/contrib/profiler/cbprofiler.cbp
+index f437eab..fc3a46d 100644
+--- a/src/plugins/contrib/profiler/cbprofiler.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler.cbp
+@@ -33,5 +33,4 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+index 9f36463..7599a01 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+@@ -44,5 +44,4 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/rndgen/rndgen.cbp b/src/plugins/contrib/rndgen/rndgen.cbp
+index 465b740..d613365 100644
+--- a/src/plugins/contrib/rndgen/rndgen.cbp
++++ b/src/plugins/contrib/rndgen/rndgen.cbp
+@@ -27,5 +27,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs/include" />
+diff --git a/src/plugins/contrib/symtab/symtab.cbp b/src/plugins/contrib/symtab/symtab.cbp
+index 9bd0023..b613a82 100644
+--- a/src/plugins/contrib/symtab/symtab.cbp
++++ b/src/plugins/contrib/symtab/symtab.cbp
+@@ -37,5 +37,4 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
+index 508715d..4d3c111 100644
+--- a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
++++ b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
+@@ -72,5 +72,4 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+diff --git a/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp b/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
+index 4cc64bb..85915e6 100644
+--- a/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
++++ b/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
+@@ -116,5 +116,4 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+diff --git a/src/plugins/headerguard/headerguard.cbp b/src/plugins/headerguard/headerguard.cbp
+index b54a86e..b574f9f 100644
+--- a/src/plugins/headerguard/headerguard.cbp
++++ b/src/plugins/headerguard/headerguard.cbp
+@@ -27,5 +27,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../include" />
+diff --git a/src/plugins/loghacker/loghacker.cbp b/src/plugins/loghacker/loghacker.cbp
+index d1b008f..005340c 100644
+--- a/src/plugins/loghacker/loghacker.cbp
++++ b/src/plugins/loghacker/loghacker.cbp
+@@ -27,5 +27,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../include" />
+diff --git a/src/plugins/modpoller/ModPoller.cbp b/src/plugins/modpoller/ModPoller.cbp
+index c59b41e..5d4f2a0 100644
+--- a/src/plugins/modpoller/ModPoller.cbp
++++ b/src/plugins/modpoller/ModPoller.cbp
+@@ -27,5 +27,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../include" />
+diff --git a/src/plugins/tidycmt/tidycmt.cbp b/src/plugins/tidycmt/tidycmt.cbp
+index 972dadf..41f2580 100644
+--- a/src/plugins/tidycmt/tidycmt.cbp
++++ b/src/plugins/tidycmt/tidycmt.cbp
+@@ -27,5 +27,4 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../include" />
+diff --git a/src/tools/Addr2LineUI/Addr2LineUI.cbp b/src/tools/Addr2LineUI/Addr2LineUI.cbp
+index 151f5e3..5086a55 100644
+--- a/src/tools/Addr2LineUI/Addr2LineUI.cbp
++++ b/src/tools/Addr2LineUI/Addr2LineUI.cbp
+@@ -38,5 +38,4 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+-- 
+2.7.1.windows.2
+

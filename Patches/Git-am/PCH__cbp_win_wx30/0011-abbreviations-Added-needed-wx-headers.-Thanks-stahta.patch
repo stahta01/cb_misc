@@ -1,0 +1,63 @@
+From 5147e427dac6f7375069a700a8947a5d942a73cb Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 13:29:22 -0500
+Subject: [PATCH 011/159] * abbreviations: Added needed wx headers. (Thanks
+ stahta01)
+
+And, removed "wx/wxprec.h" and "wx/wx.h" from headers.
+---
+ src/plugins/abbreviations/abbreviations.cpp            | 2 ++
+ src/plugins/abbreviations/abbreviations.h              | 6 ------
+ src/plugins/abbreviations/abbreviationsconfigpanel.cpp | 1 +
+ src/plugins/abbreviations/abbreviationsconfigpanel.h   | 1 +
+ 4 files changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/src/plugins/abbreviations/abbreviations.cpp b/src/plugins/abbreviations/abbreviations.cpp
+index f8dfb76..d87bc95 100644
+--- a/src/plugins/abbreviations/abbreviations.cpp
++++ b/src/plugins/abbreviations/abbreviations.cpp
+@@ -11,4 +11,6 @@
+ 
+ #ifndef CB_PRECOMP
++    #include <wx/textdlg.h>
++
+     #include <configurationpanel.h>
+     #include <cbstyledtextctrl.h>
+diff --git a/src/plugins/abbreviations/abbreviations.h b/src/plugins/abbreviations/abbreviations.h
+index 2edd069..9d4772e 100644
+--- a/src/plugins/abbreviations/abbreviations.h
++++ b/src/plugins/abbreviations/abbreviations.h
+@@ -7,10 +7,4 @@
+ #define ABBREVIATIONS_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbPlugin"
+diff --git a/src/plugins/abbreviations/abbreviationsconfigpanel.cpp b/src/plugins/abbreviations/abbreviationsconfigpanel.cpp
+index e679fbe..2a06e56 100644
+--- a/src/plugins/abbreviations/abbreviationsconfigpanel.cpp
++++ b/src/plugins/abbreviations/abbreviationsconfigpanel.cpp
+@@ -15,4 +15,5 @@
+     #include <wx/fontutil.h>
+     #include <wx/choicdlg.h>
++    #include <wx/textdlg.h>
+ 
+     #include <configmanager.h>
+diff --git a/src/plugins/abbreviations/abbreviationsconfigpanel.h b/src/plugins/abbreviations/abbreviationsconfigpanel.h
+index 8724f69..4304abe 100644
+--- a/src/plugins/abbreviations/abbreviationsconfigpanel.h
++++ b/src/plugins/abbreviations/abbreviationsconfigpanel.h
+@@ -16,4 +16,5 @@
+ #include <wx/panel.h>
+ #include <wx/button.h>
++#include <wx/combobox.h>
+ 
+ class AbbreviationsConfigPanel: public cbConfigurationPanel
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,34 @@
+From 9d2706ed5cd4f7e6e0f8586c4609513d256707a3 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Thu, 31 Dec 2015 12:48:21 -0500
+Subject: [PATCH 146/159] - pch_cbp_unix: Added object include search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/Valgrind/Valgrind-unix.cbp      | 1 +
+ src/plugins/contrib/Valgrind/Valgrind_wx30-unix.cbp | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/Valgrind/Valgrind-unix.cbp b/src/plugins/contrib/Valgrind/Valgrind-unix.cbp
+index 5c20de7..eced9f3 100644
+--- a/src/plugins/contrib/Valgrind/Valgrind-unix.cbp
++++ b/src/plugins/contrib/Valgrind/Valgrind-unix.cbp
+@@ -38,4 +38,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Valgrind/Valgrind_wx30-unix.cbp b/src/plugins/contrib/Valgrind/Valgrind_wx30-unix.cbp
+index 734b263..d7f4f72 100644
+--- a/src/plugins/contrib/Valgrind/Valgrind_wx30-unix.cbp
++++ b/src/plugins/contrib/Valgrind/Valgrind_wx30-unix.cbp
+@@ -35,4 +35,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

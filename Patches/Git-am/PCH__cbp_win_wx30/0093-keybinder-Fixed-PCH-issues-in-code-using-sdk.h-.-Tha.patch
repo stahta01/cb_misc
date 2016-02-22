@@ -1,0 +1,151 @@
+From d891d8b75b438c41f599a36da82031d751be2359 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 12 Dec 2015 06:36:08 -0500
+Subject: [PATCH 093/159] - keybinder: Fixed PCH issues in code using "sdk.h".
+ (Thanks stahta01)
+
+Removed unneeded #pragma.
+Removed include of "wx/wxprec.h" and "wx/wx.h".
+Rearranged includes so "sdk.h" is first.
+Added needed wx headers.
+---
+ src/plugins/contrib/keybinder/cbkeybinder.cpp |  3 ---
+ src/plugins/contrib/keybinder/cbkeybinder.h   |  7 ------
+ src/plugins/contrib/keybinder/keybinder.cpp   | 34 ++++++++++-----------------
+ src/plugins/contrib/keybinder/keybinder.h     |  3 ---
+ src/plugins/contrib/keybinder/menuutils.cpp   | 14 -----------
+ src/plugins/contrib/keybinder/menuutils.h     |  3 ---
+ 6 files changed, 12 insertions(+), 52 deletions(-)
+
+diff --git a/src/plugins/contrib/keybinder/cbkeybinder.cpp b/src/plugins/contrib/keybinder/cbkeybinder.cpp
+index 6344f17..ea0e678 100644
+--- a/src/plugins/contrib/keybinder/cbkeybinder.cpp
++++ b/src/plugins/contrib/keybinder/cbkeybinder.cpp
+@@ -11,7 +11,4 @@
+ // its "minimal.cpp" sample program
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-    #pragma implementation "cbkeybinder.h"
+-#endif
+ 
+ #include <sdk.h>
+diff --git a/src/plugins/contrib/keybinder/cbkeybinder.h b/src/plugins/contrib/keybinder/cbkeybinder.h
+index 5180d33..21374dd 100644
+--- a/src/plugins/contrib/keybinder/cbkeybinder.h
++++ b/src/plugins/contrib/keybinder/cbkeybinder.h
+@@ -11,11 +11,4 @@
+ #define CBKEYBINDER_H
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma interface "cbkeybinder.h"
+-#endif
+-
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+ 
+ #include <wx/string.h>
+diff --git a/src/plugins/contrib/keybinder/keybinder.cpp b/src/plugins/contrib/keybinder/keybinder.cpp
+index 4cd7f76..68e41b6 100644
+--- a/src/plugins/contrib/keybinder/keybinder.cpp
++++ b/src/plugins/contrib/keybinder/keybinder.cpp
+@@ -12,27 +12,11 @@
+ 
+ 
+-#if defined(kbLOGGING)
+-    #include "debugging.h"
+-#endif
+-
+-#ifdef __GNUG__
+-#pragma implementation "keybinder.h"
+-#endif
+-
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-	#include "wx/wx.h"
+-	#include "wx/log.h"
+-#endif
+-
+ #if defined(CB_PRECOMP)
+ #include "sdk.h"
+ #else
++    #include <wx/log.h>
++    #include <wx/sizer.h>
++    #include <wx/textdlg.h>
++
+ 	#include "sdk_events.h"
+ 	#include "manager.h"
+@@ -52,9 +36,15 @@
+ #include <wx/string.h>
+ #include "wx/statline.h"
+-#include "keybinder.h"
+-#include "menuutils.h"
+ #include "wx/config.h"
+ #include "wx/tokenzr.h"
+ 
++#if defined(kbLOGGING)
++    #include "debugging.h"
++#endif
++
++#include "keybinder.h"
++#include "menuutils.h"
++
++
+ // class definition for wxKeyProfile
+ IMPLEMENT_CLASS(wxKeyProfile, wxKeyBinder)
+diff --git a/src/plugins/contrib/keybinder/keybinder.h b/src/plugins/contrib/keybinder/keybinder.h
+index 2957412..f35546d 100644
+--- a/src/plugins/contrib/keybinder/keybinder.h
++++ b/src/plugins/contrib/keybinder/keybinder.h
+@@ -15,7 +15,4 @@
+ #define __KEYBINDER_G__
+ 
+-#ifdef __GNUG__
+-#pragma interface "keybinder.h"
+-#endif
+ 
+ // required includes
+diff --git a/src/plugins/contrib/keybinder/menuutils.cpp b/src/plugins/contrib/keybinder/menuutils.cpp
+index 652b3aa..d341289 100644
+--- a/src/plugins/contrib/keybinder/menuutils.cpp
++++ b/src/plugins/contrib/keybinder/menuutils.cpp
+@@ -10,18 +10,4 @@
+ // RCS-ID:      $Id$
+ 
+-#ifdef __GNUG__
+-#pragma implementation "menuutils.h"
+-#endif
+-
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+ 
+ #if defined(CB_PRECOMP)
+diff --git a/src/plugins/contrib/keybinder/menuutils.h b/src/plugins/contrib/keybinder/menuutils.h
+index 8c06d88..8e0d5c1 100644
+--- a/src/plugins/contrib/keybinder/menuutils.h
++++ b/src/plugins/contrib/keybinder/menuutils.h
+@@ -14,7 +14,4 @@
+ #define __WX_MENUUTILS_H__
+ 
+-#ifdef __GNUG__
+-#pragma interface "menuutils.h"
+-#endif
+ 
+ // includes
+-- 
+2.7.1.windows.2
+

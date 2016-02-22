@@ -1,0 +1,23 @@
+From ef845961fa43779d00f9552376b043f6d08c8b8f Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 19 Dec 2015 14:40:15 -0500
+Subject: [PATCH 114/159] * cb_koders: Removed include of "wx/wxprec.h" from
+ files. (Thanks stahta01)
+
+---
+ src/plugins/contrib/cb_koders/kodersdialog.h | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/plugins/contrib/cb_koders/kodersdialog.h b/src/plugins/contrib/cb_koders/kodersdialog.h
+index e8c021f..6595cec 100644
+--- a/src/plugins/contrib/cb_koders/kodersdialog.h
++++ b/src/plugins/contrib/cb_koders/kodersdialog.h
+@@ -7,5 +7,4 @@
+ #define KODERSDIALOG_H
+ 
+-#include <wx/wxprec.h>
+ 
+ //(*Headers(KodersDialog)
+-- 
+2.7.1.windows.2
+

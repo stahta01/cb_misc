@@ -1,0 +1,30 @@
+From b5688bd312a8b89b0965ddaa4d0a04b28eee383a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 25 Dec 2015 08:16:10 -0500
+Subject: [PATCH 156/159] - DevPakPlugin_wx30.cbp: Added compiler option
+ [-include "sdk.h"]. (Thanks stahta01)
+
+And, added search path "sdk/wxscintilla/include". (Thanks stahta01)
+---
+ src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
+index 634f3b0..ff28d3d 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
+@@ -36,4 +36,5 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option='-include &quot;sdk.h&quot;' />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DCB_PRECOMP" />
+@@ -45,4 +46,5 @@
+ 					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+-- 
+2.7.1.windows.2
+

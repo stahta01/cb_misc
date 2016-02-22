@@ -1,0 +1,45 @@
+From 139f8ec06682de4ba860a84b00d42c228968f4a2 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 25 Dec 2015 19:14:24 -0500
+Subject: [PATCH 066/159] * SpellChecker: Added wx_pch.h file.
+
+---
+ .../SpellChecker/wxspellchecker/include/wx_pch.h   | 26 ++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+ create mode 100644 src/plugins/contrib/SpellChecker/wxspellchecker/include/wx_pch.h
+
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/wx_pch.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/wx_pch.h
+new file mode 100644
+index 0000000..a420022
+--- /dev/null
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/wx_pch.h
+@@ -0,0 +1,26 @@
++#ifndef WX_PCH_H_INCLUDED
++#define WX_PCH_H_INCLUDED
++
++#if ( defined(USE_PCH) && !defined(WX_PRECOMP) )
++    #define WX_PRECOMP
++#endif // USE_PCH
++
++// basic wxWidgets headers
++#include <wx/wxprec.h>
++
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#ifdef __WINDOWS__
++// Undo bad windows.h changes.
++    #ifdef near
++        #undef near
++    #endif
++#endif // __WINDOWS__
++
++#ifdef USE_PCH
++    // put here all your rarely-changing header files
++#endif // USE_PCH
++
++#endif // WX_PCH_H_INCLUDED
+-- 
+2.7.1.windows.2
+

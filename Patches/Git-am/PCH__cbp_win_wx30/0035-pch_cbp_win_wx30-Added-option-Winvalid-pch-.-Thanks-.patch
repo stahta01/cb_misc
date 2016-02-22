@@ -1,0 +1,34 @@
+From b2ab86a60636922df3f82067f4765da11e014bdd Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 13:10:24 -0500
+Subject: [PATCH 035/159] - pch_cbp_win_wx30: Added option "-Winvalid-pch".
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp    | 1 +
+ src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp b/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+index 233f170..0d27429 100644
+--- a/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
++++ b/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+@@ -153,4 +153,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp b/src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp
+index bfe9fca..fdeee44 100644
+--- a/src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp
++++ b/src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp
+@@ -141,4 +141,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-- 
+2.7.1.windows.2
+

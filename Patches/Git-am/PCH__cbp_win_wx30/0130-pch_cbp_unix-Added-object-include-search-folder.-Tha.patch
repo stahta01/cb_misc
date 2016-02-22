@@ -1,0 +1,34 @@
+From eb5c6adb6227a0cf53090eada5eb30c9cd2e9a81 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Wed, 16 Dec 2015 10:03:03 -0500
+Subject: [PATCH 130/159] - pch_cbp_unix: Added object include search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/ToolsPlus/ToolsPlus-unix.cbp      | 1 +
+ src/plugins/contrib/ToolsPlus/ToolsPlus_wx30-unix.cbp | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus-unix.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus-unix.cbp
+index b59f099..17ecff9 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus-unix.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus-unix.cbp
+@@ -41,4 +41,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk" />
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30-unix.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30-unix.cbp
+index 69a48b2..feba21d 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30-unix.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30-unix.cbp
+@@ -37,4 +37,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk" />
+-- 
+2.7.1.windows.2
+

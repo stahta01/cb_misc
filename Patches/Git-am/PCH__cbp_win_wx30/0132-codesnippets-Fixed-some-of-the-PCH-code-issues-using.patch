@@ -1,0 +1,26 @@
+From f3c7af3e6cf71f24b21e1f22cea06817c8d9fda9 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 11:09:20 -0500
+Subject: [PATCH 132/159] * codesnippets: Fixed some of the PCH code issues
+ using "sdk.h". (Thanks stahta01)
+
+---
+ src/plugins/contrib/codesnippets/codesnippets.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/plugins/contrib/codesnippets/codesnippets.cpp b/src/plugins/contrib/codesnippets/codesnippets.cpp
+index 43a556c..08905cf 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets.cpp
++++ b/src/plugins/contrib/codesnippets/codesnippets.cpp
+@@ -20,6 +20,7 @@
+ // $Id$
+ 
+-#include <cstring>
+ #include "sdk.h"
++
++#include <cstring>
+ #ifndef CB_PRECOMP
+ 	#include <wx/event.h>
+-- 
+2.7.1.windows.2
+

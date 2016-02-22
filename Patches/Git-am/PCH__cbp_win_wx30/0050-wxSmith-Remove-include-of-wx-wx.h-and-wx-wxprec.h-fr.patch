@@ -1,0 +1,49 @@
+From c21db3b3e3419e07804ba664c871c67ddd9d5ac6 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Fri, 18 Dec 2015 13:09:13 -0500
+Subject: [PATCH 050/159] * wxSmith: Remove include of "wx/wx.h" and
+ "wx/wxprec.h" from files. (Thanks stahta01)
+
+---
+ src/plugins/contrib/wxSmith/wxseditor.cpp                            | 1 -
+ src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h    | 1 -
+ .../contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h      | 5 -----
+ 3 files changed, 7 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmith/wxseditor.cpp b/src/plugins/contrib/wxSmith/wxseditor.cpp
+index 9f7f0b0..d9ed671 100644
+--- a/src/plugins/contrib/wxSmith/wxseditor.cpp
++++ b/src/plugins/contrib/wxSmith/wxseditor.cpp
+@@ -25,5 +25,4 @@
+ #include "wxsmith.h"
+ 
+-#include <wx/wx.h>
+ 
+ wxsEditor::wxsEditor(wxWindow* parent, const wxString& title,wxsResource* Resource):
+diff --git a/src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h b/src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h
+index ecb6376..3a1909f 100644
+--- a/src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h
++++ b/src/plugins/contrib/wxSmith/wxwidgets/defitems/wxstoolbareditor.h
+@@ -24,5 +24,4 @@
+ #define WXSTOOLBAREDITOR_H
+ 
+-#include <wx/wxprec.h>
+ 
+ #include "wxstoolbar.h"
+diff --git a/src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h b/src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h
+index e1e69ca..dcb3485 100644
+--- a/src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h
++++ b/src/plugins/contrib/wxSmith/wxwidgets/properties/wxsfontfaceeditordlg.h
+@@ -24,9 +24,4 @@
+ #define WXSFONTFACEEDITORDLG_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+ 
+ //(*Headers(wxsFontFaceEditorDlg)
+-- 
+2.7.1.windows.2
+

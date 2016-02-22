@@ -1,0 +1,120 @@
+From a258c161e06cad63cd60df22c2f9e99d218962f3 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 14 Feb 2016 10:04:25 -0500
+Subject: [PATCH 045/159] - lib_finder: Fixed PCH code issues using "sdk.h".
+ (Thanks stahta01)
+
+Added or moved "sdk.h" include at top of source file(s).
+---
+ src/plugins/contrib/lib_finder/dirlistdlg.cpp                | 2 ++
+ src/plugins/contrib/lib_finder/lib_finder.cpp                | 1 +
+ src/plugins/contrib/lib_finder/librarydetectionmanager.cpp   | 2 ++
+ src/plugins/contrib/lib_finder/libselectdlg.cpp              | 2 ++
+ src/plugins/contrib/lib_finder/pkgconfigmanager.cpp          | 2 ++
+ src/plugins/contrib/lib_finder/processingdlg.cpp             | 2 ++
+ src/plugins/contrib/lib_finder/projectconfiguration.cpp      | 2 ++
+ src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp | 2 ++
+ src/plugins/contrib/lib_finder/resultmap.cpp                 | 2 ++
+ 9 files changed, 17 insertions(+)
+
+diff --git a/src/plugins/contrib/lib_finder/dirlistdlg.cpp b/src/plugins/contrib/lib_finder/dirlistdlg.cpp
+index 5ce8abc..fb91b25 100644
+--- a/src/plugins/contrib/lib_finder/dirlistdlg.cpp
++++ b/src/plugins/contrib/lib_finder/dirlistdlg.cpp
+@@ -24,4 +24,6 @@
+ #include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "dirlistdlg.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/lib_finder.cpp b/src/plugins/contrib/lib_finder/lib_finder.cpp
+index 415a278..b828bbc 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder.cpp
++++ b/src/plugins/contrib/lib_finder/lib_finder.cpp
+@@ -33,4 +33,5 @@
+ #include <wx/wfstream.h>
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
+ #include <configmanager.h>
+diff --git a/src/plugins/contrib/lib_finder/librarydetectionmanager.cpp b/src/plugins/contrib/lib_finder/librarydetectionmanager.cpp
+index 6dd404e..efe1340 100644
+--- a/src/plugins/contrib/lib_finder/librarydetectionmanager.cpp
++++ b/src/plugins/contrib/lib_finder/librarydetectionmanager.cpp
+@@ -24,4 +24,6 @@
+ #include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <tinyxml/tinyxml.h>
+ #include <tinyxml/tinywxuni.h>
+diff --git a/src/plugins/contrib/lib_finder/libselectdlg.cpp b/src/plugins/contrib/lib_finder/libselectdlg.cpp
+index e38a7c8..986446c 100644
+--- a/src/plugins/contrib/lib_finder/libselectdlg.cpp
++++ b/src/plugins/contrib/lib_finder/libselectdlg.cpp
+@@ -24,4 +24,6 @@
+ #include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "libselectdlg.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/pkgconfigmanager.cpp b/src/plugins/contrib/lib_finder/pkgconfigmanager.cpp
+index 7b89e21..b3087f9 100644
+--- a/src/plugins/contrib/lib_finder/pkgconfigmanager.cpp
++++ b/src/plugins/contrib/lib_finder/pkgconfigmanager.cpp
+@@ -24,4 +24,6 @@
+ #include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <wx/intl.h>
+ #include <wx/log.h>
+diff --git a/src/plugins/contrib/lib_finder/processingdlg.cpp b/src/plugins/contrib/lib_finder/processingdlg.cpp
+index 2017e25..fb22184 100644
+--- a/src/plugins/contrib/lib_finder/processingdlg.cpp
++++ b/src/plugins/contrib/lib_finder/processingdlg.cpp
+@@ -24,4 +24,6 @@
+ #include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "processingdlg.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/projectconfiguration.cpp b/src/plugins/contrib/lib_finder/projectconfiguration.cpp
+index e97d158..6ca1a49 100644
+--- a/src/plugins/contrib/lib_finder/projectconfiguration.cpp
++++ b/src/plugins/contrib/lib_finder/projectconfiguration.cpp
+@@ -24,4 +24,6 @@
+ #include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "projectconfiguration.h"
+ #include <wx/hashset.h>
+diff --git a/src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp b/src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp
+index 5725f7e..1bf26a6 100644
+--- a/src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp
++++ b/src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp
+@@ -24,4 +24,6 @@
+ #include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "projectconfigurationpanel.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/resultmap.cpp b/src/plugins/contrib/lib_finder/resultmap.cpp
+index 4a154af..078ca4b 100644
+--- a/src/plugins/contrib/lib_finder/resultmap.cpp
++++ b/src/plugins/contrib/lib_finder/resultmap.cpp
+@@ -24,4 +24,6 @@
+ #include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <wx/arrstr.h>
+ #include <wx/dir.h>
+-- 
+2.7.1.windows.2
+

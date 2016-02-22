@@ -1,0 +1,50 @@
+From e0417f9072b496f164fdc20690c788cfe161641d Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Fri, 18 Dec 2015 13:09:57 -0500
+Subject: [PATCH 052/159] * wx_pch.h: Added wxSmith/pch/wx_pch.h to repo.
+
+---
+ src/plugins/contrib/wxSmith/pch/wx_pch.h | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+ create mode 100644 src/plugins/contrib/wxSmith/pch/wx_pch.h
+
+diff --git a/src/plugins/contrib/wxSmith/pch/wx_pch.h b/src/plugins/contrib/wxSmith/pch/wx_pch.h
+new file mode 100644
+index 0000000..49201dc
+--- /dev/null
++++ b/src/plugins/contrib/wxSmith/pch/wx_pch.h
+@@ -0,0 +1,31 @@
++#ifndef WX_PCH_H_INCLUDED
++#define WX_PCH_H_INCLUDED
++
++#if ( defined(USE_PCH) && !defined(WX_PRECOMP) )
++    #define WX_PRECOMP
++#endif // USE_PCH
++
++// basic wxWidgets headers
++#include <wx/wxprec.h>
++
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#ifdef USE_PCH
++    // put here all your rarely-changing header files
++    #include "properties/wxsenumproperty.h"
++    #include "properties/wxsproperties.h"
++    #include "wxwidgets/defitems/wxsimage.h"
++    #include "wxwidgets/defitems/wxsimagelist.h"
++    #include "wxwidgets/properties/wxsimagelisteditordlg.h"
++    #include "wxwidgets/wxscontainer.h"
++    #include "wxwidgets/wxsflags.h"
++    #include "wxwidgets/wxsitem.h"
++    #include "wxwidgets/wxsitemresdata.h"
++    #include "wxwidgets/wxsparent.h"
++    #include "wxwidgets/wxssizer.h"
++    #include "wxwidgets/wxswidget.h"
++#endif // USE_PCH
++
++#endif // WX_PCH_H_INCLUDED
+-- 
+2.7.1.windows.2
+

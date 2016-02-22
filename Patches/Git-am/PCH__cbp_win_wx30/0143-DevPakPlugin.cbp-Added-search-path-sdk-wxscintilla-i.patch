@@ -1,0 +1,23 @@
+From 3f580860757e36196d12627b773d954db235ea3a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 11 Dec 2015 20:44:29 -0500
+Subject: [PATCH 143/159] - DevPakPlugin.cbp: Added search path
+ "sdk/wxscintilla/include". (Thanks stahta01)
+
+---
+ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+index 0e95426..7250fad 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+@@ -46,4 +46,5 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+-- 
+2.7.1.windows.2
+

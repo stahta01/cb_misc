@@ -1,0 +1,36 @@
+From d104eabacc4cd2c3b875be6b4dd0c1b0201b6737 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 14 Feb 2016 10:25:43 -0500
+Subject: [PATCH 086/159] - FileManager: Removed includes of wx/wxprec.h and
+ sdk.h from header file. (Thanks stahta01)
+
+And, fixed the resulting compile errors.
+---
+ src/plugins/contrib/FileManager/FileExplorer.cpp        | 2 ++
+ src/plugins/contrib/FileManager/FileExplorerUpdater.cpp | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/src/plugins/contrib/FileManager/FileExplorer.cpp b/src/plugins/contrib/FileManager/FileExplorer.cpp
+index 6578acf..07bccce 100644
+--- a/src/plugins/contrib/FileManager/FileExplorer.cpp
++++ b/src/plugins/contrib/FileManager/FileExplorer.cpp
+@@ -11,4 +11,6 @@
+     #include <cbproject.h>
+     #include <configmanager.h>
++    #include <editorbase.h>
++    #include <editormanager.h>
+     #include <projectmanager.h>
+ #endif
+diff --git a/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp b/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
+index 5a0b3a9..b2e25c0 100644
+--- a/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
++++ b/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
+@@ -1,4 +1,5 @@
+ #include <sdk.h>
+ 
++#include <wx/dir.h>
+ #include <wx/sstream.h>
+ #include <wx/regex.h>
+-- 
+2.7.1.windows.2
+

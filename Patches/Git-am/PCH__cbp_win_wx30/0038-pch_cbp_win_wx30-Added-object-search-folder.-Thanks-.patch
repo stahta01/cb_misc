@@ -1,0 +1,34 @@
+From c5b5ac564660ba37234bc99b8d85fe70ce998ed0 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 27 Dec 2015 10:21:04 -0500
+Subject: [PATCH 038/159] - pch_cbp_win_wx30: Added object search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp | 1 +
+ src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp     | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp b/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
+index 73077cf..0bea9c1 100644
+--- a/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
++++ b/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
+@@ -50,4 +50,5 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp b/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
+index 90ebcc1..cc03fee 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
+@@ -45,4 +45,5 @@
+ 			<Add directory="$(#WX30_64.include)" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

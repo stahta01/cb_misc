@@ -1,0 +1,24 @@
+From 3a4dd40e4078c5494579b869e5c8dd0d3d81f097 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 12:30:09 -0500
+Subject: [PATCH 020/159] - sdk: Added wx headers to CB_PRECOMP section.
+ (Thanks stahta01)
+
+---
+ src/sdk/xtra_res.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/sdk/xtra_res.cpp b/src/sdk/xtra_res.cpp
+index 5aa74c8..d66237d 100644
+--- a/src/sdk/xtra_res.cpp
++++ b/src/sdk/xtra_res.cpp
+@@ -11,4 +11,6 @@
+ 
+ #ifndef CB_PRECOMP
++    #include <wx/frame.h>
++
+     #include "xtra_res.h"
+     #include "scrollingdialog.h"
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,23 @@
+From 31c9993d73f29e5db79f9b884e4a50c4eb3ee5c9 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 20:48:24 -0500
+Subject: [PATCH 090/159] - pch_cbp_win_wx28: Added option "-Winvalid-pch".
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+index b838ea1..7487e30 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+@@ -23,4 +23,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+-- 
+2.7.1.windows.2
+

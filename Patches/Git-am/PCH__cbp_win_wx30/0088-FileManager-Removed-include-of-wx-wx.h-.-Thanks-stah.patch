@@ -1,0 +1,145 @@
+From c1fc889f6356927d1ea2dbd43eba88136fb2c169 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 18:38:16 -0500
+Subject: [PATCH 088/159] * FileManager: Removed include of "wx/wx.h". (Thanks
+ stahta01)
+
+And, added needed normal wx headers.
+---
+ src/plugins/contrib/FileManager/FileExplorer.cpp         | 3 +++
+ src/plugins/contrib/FileManager/FileExplorer.h           | 5 ++++-
+ src/plugins/contrib/FileManager/FileExplorerSettings.cpp | 3 +++
+ src/plugins/contrib/FileManager/FileExplorerSettings.h   | 4 +++-
+ src/plugins/contrib/FileManager/FileExplorerUpdater.cpp  | 2 ++
+ src/plugins/contrib/FileManager/FileExplorerUpdater.h    | 3 ++-
+ src/plugins/contrib/FileManager/FileManager.cpp          | 1 +
+ src/plugins/contrib/FileManager/FileManager.h            | 6 ------
+ src/plugins/contrib/FileManager/directorymonitor.h       | 4 +---
+ 9 files changed, 19 insertions(+), 12 deletions(-)
+
+diff --git a/src/plugins/contrib/FileManager/FileExplorer.cpp b/src/plugins/contrib/FileManager/FileExplorer.cpp
+index febfdf4..011379d 100644
+--- a/src/plugins/contrib/FileManager/FileExplorer.cpp
++++ b/src/plugins/contrib/FileManager/FileExplorer.cpp
+@@ -5,4 +5,7 @@
+ #include <wx/filename.h>
+ #include <wx/aui/aui.h>
++#include <wx/menu.h>
++#include <wx/textdlg.h>
++#include <wx/dirdlg.h>
+ 
+ #ifndef CB_PRECOMP
+diff --git a/src/plugins/contrib/FileManager/FileExplorer.h b/src/plugins/contrib/FileManager/FileExplorer.h
+index ea39b2b..bb63af3 100644
+--- a/src/plugins/contrib/FileManager/FileExplorer.h
++++ b/src/plugins/contrib/FileManager/FileExplorer.h
+@@ -2,5 +2,5 @@
+ #define FILEEXPLORER_H
+ 
+-#include <wx/wx.h>
++
+ #include <wx/treectrl.h>
+ #include <wx/combobox.h>
+@@ -12,4 +12,7 @@
+ #include "directorymonitor.h"
+ 
++class wxCheckBox;
++class wxStaticText;
++
+ class UpdateQueue;
+ 
+diff --git a/src/plugins/contrib/FileManager/FileExplorerSettings.cpp b/src/plugins/contrib/FileManager/FileExplorerSettings.cpp
+index e6747f6..9bb359a 100644
+--- a/src/plugins/contrib/FileManager/FileExplorerSettings.cpp
++++ b/src/plugins/contrib/FileManager/FileExplorerSettings.cpp
+@@ -3,4 +3,7 @@
+ #include "FileExplorerSettings.h"
+ 
++#include <wx/dirdlg.h>
++#include <wx/listbox.h>
++
+ #ifndef CB_PRECOMP
+   #include <wx/xrc/xmlres.h>
+diff --git a/src/plugins/contrib/FileManager/FileExplorerSettings.h b/src/plugins/contrib/FileManager/FileExplorerSettings.h
+index b028fb8..a275e40 100644
+--- a/src/plugins/contrib/FileManager/FileExplorerSettings.h
++++ b/src/plugins/contrib/FileManager/FileExplorerSettings.h
+@@ -2,8 +2,10 @@
+ #define FILEEXPLORERSETTINGS_H
+ 
+-#include <wx/wx.h>
+ 
+ #include <wx/button.h>
++#include <wx/dialog.h>
+ 
++class wxListBox;
++class wxTextCtrl;
+ 
+ class FavoriteDir
+diff --git a/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp b/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
+index 3160bbb..e0ac199 100644
+--- a/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
++++ b/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
+@@ -1,7 +1,9 @@
+ #include "sdk.h" // Code::Blocks SDK Precompiled Header
+ 
++#include <wx/checkbox.h>
+ #include <wx/dir.h>
+ #include <wx/sstream.h>
+ #include <wx/regex.h>
++#include <wx/stattext.h>
+ #include <set>
+ 
+diff --git a/src/plugins/contrib/FileManager/FileExplorerUpdater.h b/src/plugins/contrib/FileManager/FileExplorerUpdater.h
+index e7bb723..a5c5ada 100644
+--- a/src/plugins/contrib/FileManager/FileExplorerUpdater.h
++++ b/src/plugins/contrib/FileManager/FileExplorerUpdater.h
+@@ -2,5 +2,6 @@
+ #define FILEEXPLORERUPDATER_H_INCLUDED
+ 
+-#include <wx/wx.h>
++
++#include <wx/timer.h>
+ #include <wx/treectrl.h>
+ #include <wx/thread.h>
+diff --git a/src/plugins/contrib/FileManager/FileManager.cpp b/src/plugins/contrib/FileManager/FileManager.cpp
+index 3aefc7f..01ba742 100644
+--- a/src/plugins/contrib/FileManager/FileManager.cpp
++++ b/src/plugins/contrib/FileManager/FileManager.cpp
+@@ -2,4 +2,5 @@
+ 
+ #include <wx/aui/aui.h>
++#include <wx/menu.h>
+ 
+ #ifndef CB_PRECOMP
+diff --git a/src/plugins/contrib/FileManager/FileManager.h b/src/plugins/contrib/FileManager/FileManager.h
+index 5bc2c39..97a1610 100644
+--- a/src/plugins/contrib/FileManager/FileManager.h
++++ b/src/plugins/contrib/FileManager/FileManager.h
+@@ -11,10 +11,4 @@
+ #define FILEMANAGER_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbPlugin"
+diff --git a/src/plugins/contrib/FileManager/directorymonitor.h b/src/plugins/contrib/FileManager/directorymonitor.h
+index db929cd..4054739 100644
+--- a/src/plugins/contrib/FileManager/directorymonitor.h
++++ b/src/plugins/contrib/FileManager/directorymonitor.h
+@@ -2,7 +2,5 @@
+ #define WXFILESYSTEMMONITOR_H
+ 
+-
+-
+-#include <wx/wx.h>
++#include <wx/event.h>
+ 
+ #define MONITOR_TERMINATE 0x010000
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,43 @@
+From 4af6e8d6a24e0e7c0e7dc1c69360a8e8a450b72c Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 20 Dec 2015 12:41:50 -0500
+Subject: [PATCH 119/159] - dragscroll: Removed #pragma interface and
+ implementation. (Thanks stahta01)
+
+---
+ src/plugins/contrib/dragscroll/dragscroll.cpp | 4 ----
+ src/plugins/contrib/dragscroll/dragscroll.h   | 7 -------
+ 2 files changed, 11 deletions(-)
+
+diff --git a/src/plugins/contrib/dragscroll/dragscroll.cpp b/src/plugins/contrib/dragscroll/dragscroll.cpp
+index eef1620..a7f8f8d 100644
+--- a/src/plugins/contrib/dragscroll/dragscroll.cpp
++++ b/src/plugins/contrib/dragscroll/dragscroll.cpp
+@@ -7,8 +7,4 @@
+  **************************************************************/
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma implementation "dragscroll.h"
+-#endif
+-
+ 
+ #include <sdk.h>
+diff --git a/src/plugins/contrib/dragscroll/dragscroll.h b/src/plugins/contrib/dragscroll/dragscroll.h
+index d5aff67..7248863 100644
+--- a/src/plugins/contrib/dragscroll/dragscroll.h
++++ b/src/plugins/contrib/dragscroll/dragscroll.h
+@@ -10,11 +10,4 @@
+ #define DRAGSCROLL_H
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma interface "dragscroll.h"
+-#endif
+-
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+ 
+ #include <wx/arrstr.h>
+-- 
+2.7.1.windows.2
+

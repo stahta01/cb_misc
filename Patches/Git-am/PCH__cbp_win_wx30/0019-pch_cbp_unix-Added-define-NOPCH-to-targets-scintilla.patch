@@ -1,0 +1,29 @@
+From 6aba240adbea85fcee43aec1dd33127115bd6be7 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Fri, 18 Dec 2015 12:06:33 -0500
+Subject: [PATCH 019/159] * pch_cbp_unix: Added define "NOPCH" to targets
+ scintilla and wxpropgrid. (Thanks stahta01)
+
+---
+ src/CodeBlocks-unix.cbp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/CodeBlocks-unix.cbp b/src/CodeBlocks-unix.cbp
+index d8754b7..5869084 100644
+--- a/src/CodeBlocks-unix.cbp
++++ b/src/CodeBlocks-unix.cbp
+@@ -90,4 +90,5 @@
+ 					<Add option="-DSCI_LEXER" />
+ 					<Add option="-DWXMAKINGDLL_SCI" />
++					<Add option="-DNOPCH" />
+ 					<Add directory="sdk/wxscintilla/src/scintilla/include" />
+ 					<Add directory="sdk/wxscintilla/src/scintilla/src" />
+@@ -107,4 +108,5 @@
+ 					<Add option="-DEXPORT_LIB" />
+ 					<Add option="-DwxPG_SUPPORT_TOOLTIPS" />
++					<Add option="-DNOPCH" />
+ 					<Add directory="sdk/wxpropgrid/include" />
+ 					<Add directory="include" />
+-- 
+2.7.1.windows.2
+

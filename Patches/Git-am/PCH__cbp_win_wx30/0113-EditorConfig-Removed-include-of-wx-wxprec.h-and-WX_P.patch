@@ -1,0 +1,27 @@
+From b6178b2f1076d31657ec1807c4bf1252f03e7a04 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 19 Dec 2015 14:38:30 -0500
+Subject: [PATCH 113/159] * EditorConfig: Removed include of "wx/wxprec.h" and
+ "WX_PRECOMP" from files. (Thanks stahta01)
+
+---
+ src/plugins/contrib/EditorConfig/EditorConfig.h | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig.h b/src/plugins/contrib/EditorConfig/EditorConfig.h
+index b947b4e..d57856c 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig.h
++++ b/src/plugins/contrib/EditorConfig/EditorConfig.h
+@@ -2,9 +2,4 @@
+ #define EDITORCONFIG_H
+ 
+-// For compilers that support pre-compilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-#endif
+ 
+ #include <map>
+-- 
+2.7.1.windows.2
+

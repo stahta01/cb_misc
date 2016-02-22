@@ -1,0 +1,122 @@
+From 4e05fb9c5109e08b084ec5716625615d4409f4d2 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Wed, 16 Dec 2015 09:06:31 -0500
+Subject: [PATCH 083/159] - pch_cbp_unix: Removed define "BUILDING_PLUGIN".
+ (Thanks stahta01)
+
+And, added object include search folder.
+Also, may have removed define "WX_PRECOMP".
+---
+ src/plugins/contrib/SmartIndent/SmartIndent-unix.cbp      | 9 +--------
+ src/plugins/contrib/SmartIndent/SmartIndent_wx30-unix.cbp | 9 +--------
+ 2 files changed, 2 insertions(+), 16 deletions(-)
+
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent-unix.cbp b/src/plugins/contrib/SmartIndent/SmartIndent-unix.cbp
+index 5ea344e..2f32307 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent-unix.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent-unix.cbp
+@@ -18,5 +18,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -38,5 +37,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -58,5 +56,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -78,5 +75,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -98,5 +94,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -118,5 +113,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -138,5 +132,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -163,5 +156,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent_wx30-unix.cbp b/src/plugins/contrib/SmartIndent/SmartIndent_wx30-unix.cbp
+index cd6bd7d..a46b9a2 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent_wx30-unix.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent_wx30-unix.cbp
+@@ -18,5 +18,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -38,5 +37,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -58,5 +56,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -78,5 +75,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -98,5 +94,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -118,5 +113,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -138,5 +132,4 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add directory="." />
+ 				</Compiler>
+@@ -166,5 +159,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

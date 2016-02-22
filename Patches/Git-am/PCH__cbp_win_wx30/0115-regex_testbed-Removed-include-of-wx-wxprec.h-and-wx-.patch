@@ -1,0 +1,43 @@
+From e4225381af12c129c4bebcf30eb0bcb148e2612a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 19 Dec 2015 14:41:27 -0500
+Subject: [PATCH 115/159] * regex_testbed: Removed include of "wx/wxprec.h" and
+ "wx/wx.h" from files. (Thanks stahta01)
+
+---
+ src/plugins/contrib/regex_testbed/RegExTestbed.h | 6 ------
+ src/plugins/contrib/regex_testbed/regexdlg.h     | 5 -----
+ 2 files changed, 11 deletions(-)
+
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed.h b/src/plugins/contrib/regex_testbed/RegExTestbed.h
+index 165a3ed..2346f34 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed.h
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed.h
+@@ -2,10 +2,4 @@
+ #define REGEXTESTBED_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbToolPlugin"
+diff --git a/src/plugins/contrib/regex_testbed/regexdlg.h b/src/plugins/contrib/regex_testbed/regexdlg.h
+index d4f4965..7fb6278 100644
+--- a/src/plugins/contrib/regex_testbed/regexdlg.h
++++ b/src/plugins/contrib/regex_testbed/regexdlg.h
+@@ -2,9 +2,4 @@
+ #define REGEXDLG_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+ 
+ #include <set>
+-- 
+2.7.1.windows.2
+

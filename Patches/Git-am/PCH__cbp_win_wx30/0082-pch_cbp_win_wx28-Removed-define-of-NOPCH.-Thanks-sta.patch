@@ -1,0 +1,23 @@
+From f6508f9099ca8791354a5d8e20941dbdc2b2ac14 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 17 Dec 2015 13:29:15 -0500
+Subject: [PATCH 082/159] * pch_cbp_win_wx28: Removed define of NOPCH. (Thanks
+ stahta01)
+
+---
+ src/plugins/contrib/SmartIndent/SmartIndent.cbp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent.cbp b/src/plugins/contrib/SmartIndent/SmartIndent.cbp
+index a84b5e7..dc804e7 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent.cbp
+@@ -175,5 +175,4 @@
+ 			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DNOPCH" />
+ 			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+-- 
+2.7.1.windows.2
+

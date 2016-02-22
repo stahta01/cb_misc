@@ -1,0 +1,65 @@
+From 7b0dd54983cbee4638607b9a17aa8c67ebc12a62 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 13:33:20 -0500
+Subject: [PATCH 016/159] * codecompletion: Removed include of "wx/wxprec.h"
+ and "wx/wx.h". (Thanks stahta01)
+
+And, moved wx headers to fix build errors.
+---
+ src/plugins/codecompletion/parser/ccdebuginfo.h  | 5 -----
+ src/plugins/codecompletion/parser/expression.cpp | 3 ---
+ src/plugins/codecompletion/selectincludefile.h   | 5 ++---
+ 3 files changed, 2 insertions(+), 11 deletions(-)
+
+diff --git a/src/plugins/codecompletion/parser/ccdebuginfo.h b/src/plugins/codecompletion/parser/ccdebuginfo.h
+index 4fdabd2..235301c 100644
+--- a/src/plugins/codecompletion/parser/ccdebuginfo.h
++++ b/src/plugins/codecompletion/parser/ccdebuginfo.h
+@@ -7,9 +7,4 @@
+ #define CCDEBUGINFO_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+ 
+ //(*Headers(CCDebugInfo)
+diff --git a/src/plugins/codecompletion/parser/expression.cpp b/src/plugins/codecompletion/parser/expression.cpp
+index b261933..e9ec9de 100644
+--- a/src/plugins/codecompletion/parser/expression.cpp
++++ b/src/plugins/codecompletion/parser/expression.cpp
+@@ -12,7 +12,4 @@
+ #include <stack>
+ 
+-#ifndef CB_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <logmanager.h>
+diff --git a/src/plugins/codecompletion/selectincludefile.h b/src/plugins/codecompletion/selectincludefile.h
+index 69b489a..7b74bab 100644
+--- a/src/plugins/codecompletion/selectincludefile.h
++++ b/src/plugins/codecompletion/selectincludefile.h
+@@ -7,6 +7,4 @@
+ #define SELECTINCLUDEFILE_H
+ 
+-#include <wx/wxprec.h>
+-
+ #include "scrollingdialog.h"
+ 
+@@ -14,9 +12,10 @@
+     #include <wx/button.h>
+     #include <wx/intl.h>
+-    #include <wx/listbox.h>
+     #include <wx/sizer.h>
+     #include <wx/xrc/xmlres.h>
+ #endif
+ 
++#include <wx/listbox.h>
++
+ class SelectIncludeFile: public wxScrollingDialog
+ {
+-- 
+2.7.1.windows.2
+

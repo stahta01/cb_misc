@@ -1,0 +1,32 @@
+From 5f21d29a74c8fc54e81d55704bdb420040f8e502 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 10:21:24 -0500
+Subject: [PATCH 145/159] * devpak_plugin: Removed unneeded wx/wx.h and
+ wx/wxprec.h. (Thanks stahta01)
+
+---
+ src/plugins/contrib/devpak_plugin/devpakupdater.h | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+diff --git a/src/plugins/contrib/devpak_plugin/devpakupdater.h b/src/plugins/contrib/devpak_plugin/devpakupdater.h
+index 81e8f67..5cef2ee 100644
+--- a/src/plugins/contrib/devpak_plugin/devpakupdater.h
++++ b/src/plugins/contrib/devpak_plugin/devpakupdater.h
+@@ -2,14 +2,4 @@
+ #define DEVPAKUPDATER_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // the base class we 're inheriting
+-- 
+2.7.1.windows.2
+

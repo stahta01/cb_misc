@@ -1,0 +1,23 @@
+From 0d122ef391ac6decf9edd809aff592af96dae3c9 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 10:48:47 -0500
+Subject: [PATCH 133/159] - pch_cbp_win_wx28: Added object search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/codesnippets/codesnippets.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/codesnippets/codesnippets.cbp b/src/plugins/contrib/codesnippets/codesnippets.cbp
+index c8bfb7a..c4bce6c 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets.cbp
+@@ -48,4 +48,5 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,221 @@
+From 06c8373fe88c5beb03b4fc3748903a9c81e80b4a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Fri, 25 Dec 2015 12:11:29 -0500
+Subject: [PATCH 123/159] - pch_cbp_unix: Added object include search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp               | 1 +
+ src/plugins/contrib/Cccc/Cccc-unix.cbp                                   | 1 +
+ src/plugins/contrib/CppCheck/CppCheck-unix.cbp                           | 1 +
+ src/plugins/contrib/Cscope/Cscope-unix.cbp                               | 1 +
+ src/plugins/contrib/EditorConfig/EditorConfig-unix.cbp                   | 1 +
+ src/plugins/contrib/EditorTweaks/EditorTweaks-unix.cbp                   | 1 +
+ src/plugins/contrib/IncrementalSearch/IncrementalSearch-unix.cbp         | 1 +
+ src/plugins/contrib/MouseSap/MouseSap-unix.cbp                           | 1 +
+ .../contrib/ProjectOptionsManipulator/ProjectOptionsManipulator-unix.cbp | 1 +
+ src/plugins/contrib/ReopenEditor/ReopenEditor-unix.cbp                   | 1 +
+ src/plugins/contrib/byogames/byogames-unix.cbp                           | 1 +
+ src/plugins/contrib/cb_koders/cb_koders-unix.cbp                         | 1 +
+ src/plugins/contrib/codestat/codestat-unix.cbp                           | 1 +
+ src/plugins/contrib/copystrings/copystrings-unix.cbp                     | 1 +
+ src/plugins/contrib/dragscroll/DragScroll-unix.cbp                       | 1 +
+ src/plugins/contrib/envvars/envvars-unix.cbp                             | 1 +
+ src/plugins/contrib/profiler/cbprofiler.unix.cbp                         | 1 +
+ src/plugins/contrib/regex_testbed/RegExTestbed-unix.cbp                  | 1 +
+ src/plugins/contrib/symtab/symtab-unix.cbp                               | 1 +
+ 19 files changed, 19 insertions(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
+index f9f41ce..9b1c8e0 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
+@@ -21,4 +21,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DPIC" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 				</Compiler>
+diff --git a/src/plugins/contrib/Cccc/Cccc-unix.cbp b/src/plugins/contrib/Cccc/Cccc-unix.cbp
+index 781c1a5..147a7ae 100644
+--- a/src/plugins/contrib/Cccc/Cccc-unix.cbp
++++ b/src/plugins/contrib/Cccc/Cccc-unix.cbp
+@@ -38,4 +38,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/CppCheck/CppCheck-unix.cbp b/src/plugins/contrib/CppCheck/CppCheck-unix.cbp
+index 1329eea..16d6de9 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck-unix.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck-unix.cbp
+@@ -38,4 +38,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Cscope/Cscope-unix.cbp b/src/plugins/contrib/Cscope/Cscope-unix.cbp
+index b8a3854..780ad07 100644
+--- a/src/plugins/contrib/Cscope/Cscope-unix.cbp
++++ b/src/plugins/contrib/Cscope/Cscope-unix.cbp
+@@ -25,4 +25,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig-unix.cbp b/src/plugins/contrib/EditorConfig/EditorConfig-unix.cbp
+index 953c43e..65660b6 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig-unix.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks-unix.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks-unix.cbp
+index 4b87f17..fe71411 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks-unix.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch-unix.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch-unix.cbp
+index a85cf70..3e9d035 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch-unix.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/MouseSap/MouseSap-unix.cbp b/src/plugins/contrib/MouseSap/MouseSap-unix.cbp
+index fe54925..dfc2c82 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap-unix.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap-unix.cbp
+@@ -27,4 +27,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator-unix.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator-unix.cbp
+index fb83356..16016b8 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator-unix.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator-unix.cbp
+@@ -27,4 +27,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor-unix.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor-unix.cbp
+index 7c22be9..ec81de5 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor-unix.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/byogames/byogames-unix.cbp b/src/plugins/contrib/byogames/byogames-unix.cbp
+index 8553613..ea2005d 100644
+--- a/src/plugins/contrib/byogames/byogames-unix.cbp
++++ b/src/plugins/contrib/byogames/byogames-unix.cbp
+@@ -38,4 +38,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders-unix.cbp b/src/plugins/contrib/cb_koders/cb_koders-unix.cbp
+index fa42ded..012ace3 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders-unix.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders-unix.cbp
+@@ -43,4 +43,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/codestat/codestat-unix.cbp b/src/plugins/contrib/codestat/codestat-unix.cbp
+index eeae777..cea5eab 100644
+--- a/src/plugins/contrib/codestat/codestat-unix.cbp
++++ b/src/plugins/contrib/codestat/codestat-unix.cbp
+@@ -38,4 +38,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/copystrings/copystrings-unix.cbp b/src/plugins/contrib/copystrings/copystrings-unix.cbp
+index 0a0e859..48ab444 100644
+--- a/src/plugins/contrib/copystrings/copystrings-unix.cbp
++++ b/src/plugins/contrib/copystrings/copystrings-unix.cbp
+@@ -37,4 +37,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/dragscroll/DragScroll-unix.cbp b/src/plugins/contrib/dragscroll/DragScroll-unix.cbp
+index 66c0f3c..7949278 100644
+--- a/src/plugins/contrib/dragscroll/DragScroll-unix.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll-unix.cbp
+@@ -39,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/envvars/envvars-unix.cbp b/src/plugins/contrib/envvars/envvars-unix.cbp
+index 4f4d384..40a584f 100644
+--- a/src/plugins/contrib/envvars/envvars-unix.cbp
++++ b/src/plugins/contrib/envvars/envvars-unix.cbp
+@@ -42,4 +42,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../include/scripting/include" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler.unix.cbp b/src/plugins/contrib/profiler/cbprofiler.unix.cbp
+index 9d25c9f..ac207ea 100644
+--- a/src/plugins/contrib/profiler/cbprofiler.unix.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler.unix.cbp
+@@ -32,4 +32,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="$(CBDIR)/.objs/include" />
+ 			<Add directory="$(CBDIR)/include" />
+ 			<Add directory="$(CBDIR)/sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed-unix.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed-unix.cbp
+index 583116a..c68c089 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed-unix.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/symtab/symtab-unix.cbp b/src/plugins/contrib/symtab/symtab-unix.cbp
+index 82ccd09..fa582c0 100644
+--- a/src/plugins/contrib/symtab/symtab-unix.cbp
++++ b/src/plugins/contrib/symtab/symtab-unix.cbp
+@@ -32,4 +32,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="$(CBDIR)/.objs/include" />
+ 			<Add directory="$(CBDIR)/include" />
+ 			<Add directory="$(CBDIR)/sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

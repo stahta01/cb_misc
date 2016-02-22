@@ -1,0 +1,27 @@
+From 69b26a0141e1561307c9c845406c5c6b3a11f094 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 13:51:52 -0500
+Subject: [PATCH 017/159] * debuggergdb: Removed "wx/wxprec.h" from header.
+ (Thanks stahta01)
+
+---
+ src/plugins/debuggergdb/databreakpointdlg.h | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/src/plugins/debuggergdb/databreakpointdlg.h b/src/plugins/debuggergdb/databreakpointdlg.h
+index e1ebc5a..82bd689 100644
+--- a/src/plugins/debuggergdb/databreakpointdlg.h
++++ b/src/plugins/debuggergdb/databreakpointdlg.h
+@@ -7,9 +7,4 @@
+ #define DATABREAKPOINTDLG_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+ 
+ //(*Headers(DataBreakpointDlg)
+-- 
+2.7.1.windows.2
+

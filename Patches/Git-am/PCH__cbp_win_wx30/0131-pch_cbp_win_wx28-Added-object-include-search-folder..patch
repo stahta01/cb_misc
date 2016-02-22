@@ -1,0 +1,23 @@
+From 02ae3373b15b47969d55d29900195742aa01e38a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 21:46:54 -0500
+Subject: [PATCH 131/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/ToolsPlus/ToolsPlus.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+index 5692c34..0dd6e22 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+@@ -48,4 +48,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,21 @@
+From 370fff0f7eb3f4752cc31d9ffa7221ead70e76b7 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 19 Feb 2016 11:50:51 -0500
+Subject: [PATCH 009/159] - git: Added
+ "/src/plugins/contrib/SmartIndent/manifest.xml" to ignore file.
+
+---
+ .gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/.gitignore b/.gitignore
+index 90a7510..44beab7 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,2 +33,3 @@ Makefile.in
+ /config.sub
+ *.cbTemp
++/src/plugins/contrib/SmartIndent/manifest.xml
+-- 
+2.7.1.windows.2
+

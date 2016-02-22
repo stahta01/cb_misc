@@ -1,0 +1,35 @@
+From 8398b9a2732599bff609c853a72c4bae47a679fd Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Thu, 24 Dec 2015 17:54:51 -0500
+Subject: [PATCH 057/159] - wxSmith-unix.cbp: Moved defines to target level.
+
+---
+ src/plugins/contrib/wxSmith/wxSmith-unix.cbp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmith/wxSmith-unix.cbp b/src/plugins/contrib/wxSmith/wxSmith-unix.cbp
+index 3c5f6c1..8926541 100644
+--- a/src/plugins/contrib/wxSmith/wxSmith-unix.cbp
++++ b/src/plugins/contrib/wxSmith/wxSmith-unix.cbp
+@@ -19,4 +19,5 @@
+ 					<Add option="`wx-config --version=2.8 --cflags`" />
+ 					<Add option='-include &quot;wx_pch.h&quot;' />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="../../../.objs/plugins/contrib/wxSmith/pch" />
+ 					<Add directory="pch" />
+@@ -37,4 +38,5 @@
+ 				<Compiler>
+ 					<Add option="`wx-config --version=2.8 --cflags`" />
++					<Add option="-DNOPCH" />
+ 				</Compiler>
+ 				<Linker>
+@@ -58,6 +60,4 @@
+ 			<Add option='[[if (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;)) print(_T(&quot;-Wno-attributes&quot;));]]' />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DUSE_PCH" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

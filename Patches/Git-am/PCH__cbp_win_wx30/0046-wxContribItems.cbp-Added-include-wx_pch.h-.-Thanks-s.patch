@@ -1,0 +1,124 @@
+From f0177bbb9aaa6b5654606402f562d6111297e036 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 14 Feb 2016 10:11:10 -0500
+Subject: [PATCH 046/159] - wxContribItems.cbp: Added [-include "wx_pch.h"].
+ (Thanks stahta01)
+
+---
+ .../contrib/wxContribItems/wxContribItems.cbp      | 36 ++++++++++++++++++++--
+ 1 file changed, 34 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/wxContribItems/wxContribItems.cbp b/src/plugins/contrib/wxContribItems/wxContribItems.cbp
+index 2a78f1b..4dfaa4f 100644
+--- a/src/plugins/contrib/wxContribItems/wxContribItems.cbp
++++ b/src/plugins/contrib/wxContribItems/wxContribItems.cbp
+@@ -5,7 +5,18 @@
+ 		<Option title="wxWidgets - Contrib Items" />
+ 		<Option platforms="Windows;" />
+-		<Option pch_mode="2" />
+ 		<Option compiler="gcc" />
+ 		<Build>
++			<Target title="pch">
++				<Option platforms="Windows;" />
++				<Option output="../../../devel/wxmathplot" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/wxContribItems" />
++				<Option type="3" />
++				<Option compiler="gcc" />
++				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
++				</Compiler>
++			</Target>
+ 			<Target title="wxFlatNoteBook">
+ 				<Option platforms="Windows;" />
+@@ -16,6 +27,8 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXMAKINGDLL_FNB" />
+ 					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+@@ -42,6 +55,8 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXMAKINGDLL_CHART" />
+ 					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+@@ -55,6 +70,8 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
+ 					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+@@ -68,5 +85,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+@@ -83,5 +102,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
+ 				</Compiler>
+ 				<Linker>
+@@ -97,5 +118,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+@@ -112,5 +135,7 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+@@ -124,6 +149,8 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXMAKINGDLL_GIZMOS" />
+ 					<Add option="-DWXUSINGDLL" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+@@ -168,7 +195,8 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DNOPCH" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/plugins/contrib/wxContribItems/pch" />
++			<Add directory="pch" />
+ 		</Compiler>
+ 		<Linker>
+@@ -286,4 +314,8 @@
+ 			<Option target="wxDateTimePicker" />
+ 		</Unit>
++		<Unit filename="pch/wx_pch.h">
++			<Option compile="1" />
++			<Option target="pch" />
++		</Unit>
+ 		<Unit filename="wxFlatNotebook/include/wx/wxFlatNotebook/fnb_customize_dlg.h">
+ 			<Option target="wxFlatNoteBook" />
+-- 
+2.7.1.windows.2
+

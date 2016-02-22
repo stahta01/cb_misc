@@ -1,0 +1,66 @@
+From 1ddaf54526d24d29ddf60817e53005d798903bc6 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 17 Dec 2015 08:00:17 -0500
+Subject: [PATCH 135/159] - BrowseTracker: Fixed PCH code issues using "sdk.h".
+ (Thanks stahta01)
+
+Removed includes of "wx/wxprec.h" and "wx/wx.h" from header file.
+And, fixed the resulting build errors by adding wx headers where needed.
+Also, changed include from "sdk_precomp.h" to "sdk.h".
+---
+ src/plugins/contrib/BrowseTracker/BrowseTracker.cpp       | 1 +
+ src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp | 2 +-
+ src/plugins/contrib/BrowseTracker/JumpTracker.cpp         | 2 ++
+ src/plugins/contrib/BrowseTracker/JumpTracker.h           | 6 ------
+ 4 files changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker.cpp b/src/plugins/contrib/BrowseTracker/BrowseTracker.cpp
+index 647eb01..79fc807 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker.cpp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker.cpp
+@@ -94,4 +94,5 @@
+ 	#include <wx/fileconf.h>
+     #include <wx/aui/auibook.h>
++    #include <wx/toolbar.h>
+ 
+ #include "Version.h"
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp b/src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
+index 6fc3c1d..4e174a8 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTrackerLayout.cpp
+@@ -31,5 +31,5 @@
+ */
+ 
+-#include "sdk_precomp.h"
++#include "sdk.h"
+ #include "BrowseTrackerLayout.h"
+ 
+diff --git a/src/plugins/contrib/BrowseTracker/JumpTracker.cpp b/src/plugins/contrib/BrowseTracker/JumpTracker.cpp
+index 6b65084..2e303b6 100644
+--- a/src/plugins/contrib/BrowseTracker/JumpTracker.cpp
++++ b/src/plugins/contrib/BrowseTracker/JumpTracker.cpp
+@@ -3,4 +3,6 @@
+ // ----------------------------------------------------------------------------
+ #include <sdk.h> // Code::Blocks SDK
++#include <wx/menu.h>
++#include <wx/toolbar.h>
+ #include <configurationpanel.h>
+ #include <cbstyledtextctrl.h>
+diff --git a/src/plugins/contrib/BrowseTracker/JumpTracker.h b/src/plugins/contrib/BrowseTracker/JumpTracker.h
+index 967c9fe..6604f7e 100644
+--- a/src/plugins/contrib/BrowseTracker/JumpTracker.h
++++ b/src/plugins/contrib/BrowseTracker/JumpTracker.h
+@@ -11,10 +11,4 @@
+ #define TESTPLUGIN_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbPlugin"
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,33 @@
+From 1b7c997b468ac8447f6ee52aef354975445d851d Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Thu, 24 Dec 2015 18:03:30 -0500
+Subject: [PATCH 059/159] * wxSmithContribItems-unix.cbp: Added [-include
+ "wx_pch.h"] and "USE_PCH". (Thanks stahta01)
+
+---
+ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems-unix.cbp | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems-unix.cbp b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems-unix.cbp
+index e6b0fca..d710bd0 100644
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems-unix.cbp
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems-unix.cbp
+@@ -40,4 +40,6 @@
+ 					<Add directory="../wxContribItems/wxled/ledpanel/include" />
+ 					<Add directory="../wxContribItems/wxmathplot" />
++					<Add directory="../../../.objs/plugins/contrib/wxSmith/pch" />
++					<Add directory="../wxSmith/pch" />
+ 				</Compiler>
+ 				<Linker>
+@@ -77,6 +79,7 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-fPIC" />
++			<Add option='-include &quot;wx_pch.h&quot;' />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
++			<Add option="-DUSE_PCH" />
+ 		</Compiler>
+ 		<Linker>
+-- 
+2.7.1.windows.2
+

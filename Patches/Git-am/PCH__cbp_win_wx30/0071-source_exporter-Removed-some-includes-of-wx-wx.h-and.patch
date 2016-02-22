@@ -1,0 +1,57 @@
+From 1c16aa4ecb4ea6272e654c95a1a2d9545c26f792 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 25 Dec 2015 09:30:37 -0500
+Subject: [PATCH 071/159] * source_exporter: Removed some includes of "wx/wx.h"
+ and "wx/wxprec.h" from headers. (Thanks stahta01)
+
+And, fixed the resulting errors by adding needed wx headers.
+---
+ src/plugins/contrib/source_exporter/BaseExporter.h |  1 -
+ src/plugins/contrib/source_exporter/exporter.cpp   |  2 ++
+ src/plugins/contrib/source_exporter/exporter.h     | 10 ----------
+ 3 files changed, 2 insertions(+), 11 deletions(-)
+
+diff --git a/src/plugins/contrib/source_exporter/BaseExporter.h b/src/plugins/contrib/source_exporter/BaseExporter.h
+index 80689b7..fbbf41b 100644
+--- a/src/plugins/contrib/source_exporter/BaseExporter.h
++++ b/src/plugins/contrib/source_exporter/BaseExporter.h
+@@ -2,5 +2,4 @@
+ #define BASEEXPORTER_INCLUDED
+ 
+-#include <wx/wx.h>
+ #include <wx/wxscintilla.h>
+ 
+diff --git a/src/plugins/contrib/source_exporter/exporter.cpp b/src/plugins/contrib/source_exporter/exporter.cpp
+index b35da13..6ab8f56 100644
+--- a/src/plugins/contrib/source_exporter/exporter.cpp
++++ b/src/plugins/contrib/source_exporter/exporter.cpp
+@@ -7,5 +7,7 @@
+  **************************************************************/
+ 
++#include <wx/filedlg.h> // wxFD_SAVE
+ #include <wx/frame.h> // GetMenuBar
++#include <wx/menu.h>
+ #include "exporter.h"
+ #include <configmanager.h>
+diff --git a/src/plugins/contrib/source_exporter/exporter.h b/src/plugins/contrib/source_exporter/exporter.h
+index 7af9819..2098b48 100644
+--- a/src/plugins/contrib/source_exporter/exporter.h
++++ b/src/plugins/contrib/source_exporter/exporter.h
+@@ -2,14 +2,4 @@
+ #define EXPORTER_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // the base class we 're inheriting
+-- 
+2.7.1.windows.2
+

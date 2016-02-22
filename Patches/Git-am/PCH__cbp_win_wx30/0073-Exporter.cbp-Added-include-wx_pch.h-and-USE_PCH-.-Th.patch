@@ -1,0 +1,55 @@
+From 75ab2e2a1aef353b9cf6cfa6fffef9c3b3373ac7 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 27 Dec 2015 18:20:24 -0500
+Subject: [PATCH 073/159] - Exporter.cbp: Added [-include "wx_pch.h"] and
+ "USE_PCH". (Thanks stahta01)
+
+And, changed default target to "NOPCH".
+---
+ src/plugins/contrib/source_exporter/Exporter.cbp | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/src/plugins/contrib/source_exporter/Exporter.cbp b/src/plugins/contrib/source_exporter/Exporter.cbp
+index 7d2dfe9..7cda98d 100644
+--- a/src/plugins/contrib/source_exporter/Exporter.cbp
++++ b/src/plugins/contrib/source_exporter/Exporter.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="Exporter" />
+-		<Option pch_mode="0" />
+ 		<Option default_target="default" />
+ 		<Option compiler="gcc" />
+@@ -17,5 +16,7 @@
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXMAKINGLIB_PDFDOC" />
++					<Add option="-DUSE_PCH" />
+ 				</Compiler>
+ 			</Target>
+@@ -68,5 +69,5 @@
+ 				<Compiler>
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DCB_PRECOMP" />
++					<Add option="-DNOPCH" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add directory="../../../include" />
+@@ -102,5 +103,4 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+@@ -325,4 +325,9 @@
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
++		<Unit filename="wxPdfDocument/include/wx_pch.h">
++			<Option compile="1" />
++			<Option weight="0" />
++			<Option target="wxPdfDocument" />
++		</Unit>
+ 		<Unit filename="wxPdfDocument/makefont/makefont.cpp">
+ 			<Option target="makefont" />
+-- 
+2.7.1.windows.2
+

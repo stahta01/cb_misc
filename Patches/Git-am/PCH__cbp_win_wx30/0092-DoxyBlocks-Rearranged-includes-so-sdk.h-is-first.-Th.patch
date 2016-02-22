@@ -1,0 +1,86 @@
+From f2ce46507ff9a6b6165a0191f476f5189dc182dc Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 20 Feb 2016 00:42:54 -0500
+Subject: [PATCH 092/159] - DoxyBlocks: Rearranged includes so "sdk.h" is
+ first. (Thanks stahta01)
+
+---
+ src/plugins/contrib/DoxyBlocks/Config.cpp           | 4 ++--
+ src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp      | 4 +++-
+ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp       | 3 ++-
+ src/plugins/contrib/DoxyBlocks/DoxyBlocksLogger.cpp | 3 ++-
+ 4 files changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/src/plugins/contrib/DoxyBlocks/Config.cpp b/src/plugins/contrib/DoxyBlocks/Config.cpp
+index 0becdc3..39df32f 100644
+--- a/src/plugins/contrib/DoxyBlocks/Config.cpp
++++ b/src/plugins/contrib/DoxyBlocks/Config.cpp
+@@ -22,6 +22,4 @@
+  *****************************************************************************/
+ 
+-#include "Config.h"
+-
+ #include "sdk.h"
+ #ifndef CB_PRECOMP
+@@ -34,4 +32,6 @@
+ #include <wx/fileconf.h>
+ 
++#include "Config.h"
++
+ /*! \brief Constructor.
+  */
+diff --git a/src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp b/src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp
+index f83982b..1533592 100644
+--- a/src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp
++++ b/src/plugins/contrib/DoxyBlocks/ConfigPanel.cpp
+@@ -21,5 +21,5 @@
+  *
+  *****************************************************************************/
+-#include "ConfigPanel.h"
++
+ #include <sdk.h> // Code::Blocks SDK
+ 
+@@ -36,4 +36,6 @@
+ #include <tinyxml/tinyxml.h>
+ 
++#include "ConfigPanel.h"
++
+ #include "version.h"
+ 
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp
+index 53610a9..878428d 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cpp
+@@ -21,5 +21,4 @@
+  *
+  *****************************************************************************/
+-#include "DoxyBlocks.h"
+ 
+ #include <sdk.h> // Code::Blocks SDK
+@@ -46,4 +45,6 @@
+ #include <wx/textfile.h>
+ 
++#include "DoxyBlocks.h"
++
+ #include "ConfigPanel.h"
+ #include "DoxyBlocksLogger.h"
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocksLogger.cpp b/src/plugins/contrib/DoxyBlocks/DoxyBlocksLogger.cpp
+index be98406..d48b085 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocksLogger.cpp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocksLogger.cpp
+@@ -21,5 +21,4 @@
+  *
+  *****************************************************************************/
+-#include "DoxyBlocksLogger.h"
+ 
+ #include <cbplugin.h>
+@@ -29,4 +28,6 @@
+ #include <wx/sizer.h>
+ 
++#include "DoxyBlocksLogger.h"
++
+ /*! \brief Update the window's settings.
+  *
+-- 
+2.7.1.windows.2
+

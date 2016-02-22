@@ -1,0 +1,34 @@
+From 51e2f029982e72a027f7b9bf03446afe4f934ded Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Mon, 28 Dec 2015 19:37:27 -0500
+Subject: [PATCH 100/159] - pch_cbp_unix: Added object include search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/headerfixup/headerfixup-unix.cbp      | 1 +
+ src/plugins/contrib/headerfixup/headerfixup_wx30-unix.cbp | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/headerfixup/headerfixup-unix.cbp b/src/plugins/contrib/headerfixup/headerfixup-unix.cbp
+index 57e8e3f..18c6555 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup-unix.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup-unix.cbp
+@@ -24,4 +24,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/headerfixup/headerfixup_wx30-unix.cbp b/src/plugins/contrib/headerfixup/headerfixup_wx30-unix.cbp
+index a379a43..1810d4c 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup_wx30-unix.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup_wx30-unix.cbp
+@@ -24,4 +24,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

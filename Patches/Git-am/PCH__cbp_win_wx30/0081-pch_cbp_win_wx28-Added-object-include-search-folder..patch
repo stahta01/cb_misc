@@ -1,0 +1,23 @@
+From 145d6cd23d3daa20fc544602a1eeeb7bd67ab04e Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 17 Dec 2015 13:26:47 -0500
+Subject: [PATCH 081/159] * pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/SmartIndent/SmartIndent.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent.cbp b/src/plugins/contrib/SmartIndent/SmartIndent.cbp
+index da6c9b6..a84b5e7 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent.cbp
+@@ -176,4 +176,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DNOPCH" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,62 @@
+From cc4d174d2b2ed1714a03c651f2045cde3d35ae41 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 13:35:37 -0500
+Subject: [PATCH 015/159] * occurrenceshighlighting: Added needed wx headers.
+ (Thanks stahta01)
+
+And, removed "wx/wxprec.h" and "wx/wx.h" from headers.
+---
+ src/plugins/occurrenceshighlighting/highlighter.h               | 9 +++------
+ src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp | 1 +
+ src/plugins/occurrenceshighlighting/occurrenceshighlighting.h   | 6 ------
+ 3 files changed, 4 insertions(+), 12 deletions(-)
+
+diff --git a/src/plugins/occurrenceshighlighting/highlighter.h b/src/plugins/occurrenceshighlighting/highlighter.h
+index 778b3f8..2445dd9 100644
+--- a/src/plugins/occurrenceshighlighting/highlighter.h
++++ b/src/plugins/occurrenceshighlighting/highlighter.h
+@@ -7,13 +7,10 @@
+ #define HIGHLIGHTER_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <set>
+ 
++#include <wx/colour.h>
++#include <wx/string.h>
++
+ #include <editor_hooks.h>
+ 
+diff --git a/src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp b/src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
+index 13455d5..8604585 100644
+--- a/src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
++++ b/src/plugins/occurrenceshighlighting/occurrenceshighlighting.cpp
+@@ -13,4 +13,5 @@
+     #include <algorithm>
+     #include <wx/listctrl.h>
++    #include <wx/menu.h>
+     #include <configmanager.h>
+     #include <cbeditor.h>
+diff --git a/src/plugins/occurrenceshighlighting/occurrenceshighlighting.h b/src/plugins/occurrenceshighlighting/occurrenceshighlighting.h
+index 0aed816..a917b94 100644
+--- a/src/plugins/occurrenceshighlighting/occurrenceshighlighting.h
++++ b/src/plugins/occurrenceshighlighting/occurrenceshighlighting.h
+@@ -7,10 +7,4 @@
+ #define OCCURRENCESHIGHLIGHTING_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <set>
+-- 
+2.7.1.windows.2
+

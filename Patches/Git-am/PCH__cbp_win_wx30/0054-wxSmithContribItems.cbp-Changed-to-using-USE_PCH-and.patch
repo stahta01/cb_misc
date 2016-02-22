@@ -1,0 +1,39 @@
+From ab58c5d1ad741607ba3a55784c4cbb3ee33d560f Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 23:39:39 -0500
+Subject: [PATCH 054/159] * wxSmithContribItems.cbp: Changed to using USE_PCH
+ and wxSmithLib/pch/wx_pch.h. (Thanks stahta01)
+
+---
+ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
+index 9729540..e49c7fc 100644
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp
+@@ -23,5 +23,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DCB_PRECOMP" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+@@ -82,11 +82,13 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-Winvalid-pch" />
++			<Add option='-include &quot;wx_pch.h&quot;' />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/plugins/contrib/wxSmithLib/pch" />
++			<Add directory="../wxSmith/pch" />
+ 		</Compiler>
+ 		<Linker>
+-- 
+2.7.1.windows.2
+

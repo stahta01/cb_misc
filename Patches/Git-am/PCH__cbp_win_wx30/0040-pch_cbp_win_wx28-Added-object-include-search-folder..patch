@@ -1,0 +1,23 @@
+From b3b5420703b2c97cd9c6cf19dcd38a0a3fd80d25 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 28 Dec 2015 20:56:27 -0500
+Subject: [PATCH 040/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/ThreadSearch/ThreadSearch.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp b/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+index 899ac37..5148086 100644
+--- a/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
++++ b/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+@@ -51,4 +51,5 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

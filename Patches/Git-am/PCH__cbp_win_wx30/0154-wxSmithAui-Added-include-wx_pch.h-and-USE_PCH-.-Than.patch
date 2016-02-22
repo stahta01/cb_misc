@@ -1,0 +1,86 @@
+From 3645993712915be4b881e8ffd7b7a5b13f19fdcb Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 23 Dec 2015 21:09:21 -0500
+Subject: [PATCH 154/159] - wxSmithAui: Added [-include "wx_pch.h"] and
+ "USE_PCH". (Thanks stahta01)
+
+And, moved defines to target level.
+The "wx_pch.h" is from wxSmith Project.
+---
+ src/plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp    | 15 ++++++++++-----
+ src/plugins/contrib/wxSmithAui/wxSmithAui_wx30_64.cbp |  7 ++++++-
+ 2 files changed, 16 insertions(+), 6 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp b/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp
+index 6f98a23..22b9b69 100644
+--- a/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp
++++ b/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-fPIC" />
++					<Add option="-DcbDEBUG" />
+ 				</Compiler>
+ 				<Linker>
+@@ -47,6 +48,13 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
++					<Add option="-DBUILDING_PLUGIN" />
++					<Add option="-DwxUSE_UNICODE" />
++					<Add option="-DWXUSINGDLL" />
++					<Add option="-DcbDEBUG" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="$(#WX30.include)" />
+ 					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+@@ -80,12 +88,9 @@
+ 		<Compiler>
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
+-			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="../wxSmith" />
++			<Add directory="../../../.objs30/plugins/contrib/wxSmithLib/pch" />
++			<Add directory="../wxSmith/pch" />
+ 		</Compiler>
+ 		<Linker>
+diff --git a/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30_64.cbp b/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30_64.cbp
+index daf3cc9..858f3e4 100644
+--- a/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30_64.cbp
++++ b/src/plugins/contrib/wxSmithAui/wxSmithAui_wx30_64.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-fPIC" />
++					<Add option="-Winvalid-pch" />
+ 				</Compiler>
+ 				<Linker>
+@@ -47,9 +48,14 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-D_WIN64" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="$(#WX30_64.include)" />
+ 					<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs30_64/plugins/contrib/wxSmithLib/pch" />
++					<Add directory="../wxSmith/pch" />
+ 				</Compiler>
+ 				<Linker>
+@@ -85,5 +91,4 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

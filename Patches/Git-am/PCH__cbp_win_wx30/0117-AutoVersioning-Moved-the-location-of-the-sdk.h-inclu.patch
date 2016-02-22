@@ -1,0 +1,25 @@
+From 7b8604349337d523e73af1cc518f2eadba5ff7db Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 20 Dec 2015 12:40:08 -0500
+Subject: [PATCH 117/159] - AutoVersioning: Moved the location of the "sdk.h"
+ include. (Thanks stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning.cpp b/src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
+index f8603df..09bd7b9 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning.cpp
+@@ -1,5 +1,6 @@
++#include <sdk.h>
++
+ #include <ctime>
+ #include <cstdlib> //For random numbers
+-#include <sdk.h>
+ 
+ #ifndef CB_PRECOMP
+-- 
+2.7.1.windows.2
+

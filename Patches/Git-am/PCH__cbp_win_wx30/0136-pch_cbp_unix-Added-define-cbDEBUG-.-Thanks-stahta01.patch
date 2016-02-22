@@ -1,0 +1,46 @@
+From e2946d21b69367eaf0157ad72dfb40e9e7c6f0f6 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Wed, 16 Dec 2015 08:44:41 -0500
+Subject: [PATCH 136/159] - pch_cbp_unix: Added define "cbDEBUG". (Thanks
+ stahta01)
+
+And, added object include search folder.
+Also, may have added option "-Winvalid-pch".
+---
+ src/plugins/contrib/BrowseTracker/BrowseTracker-unix.cbp      | 3 +++
+ src/plugins/contrib/BrowseTracker/BrowseTracker_wx30-unix.cbp | 3 +++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker-unix.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker-unix.cbp
+index 10b9d5d..bae1a7a 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker-unix.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker-unix.cbp
+@@ -19,7 +19,10 @@
+ 					<Add option="`wx-config --version=2.8 --cflags`" />
+ 					<Add option="-fPIC" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DPIC" />
+ 					<Add option="-DNO_LOGGING" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30-unix.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30-unix.cbp
+index 9d52f36..39bc8e2 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30-unix.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30-unix.cbp
+@@ -19,7 +19,10 @@
+ 					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="-fPIC" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DPIC" />
+ 					<Add option="-DNO_LOGGING" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,23 @@
+From a5ab7aba1106ee3eb8c33b6c51ac994539cad030 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 16 Dec 2015 12:57:34 -0500
+Subject: [PATCH 142/159] - DevPakPlugin.cbp: Added compiler option [-include
+ "sdk.h"]. (Thanks stahta01)
+
+---
+ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+index a691278..0e95426 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+@@ -34,4 +34,5 @@
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option='-include &quot;sdk.h&quot;' />
+ 					<Add option="-mthreads" />
+ 					<Add option="-fexceptions" />
+-- 
+2.7.1.windows.2
+

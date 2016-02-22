@@ -1,0 +1,26 @@
+From 571801cdbda636c00804d313556adbf0c6d24255 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 7 Feb 2016 01:34:34 -0500
+Subject: [PATCH 047/159] * DO NOT APPLY UPSTREAM: wxContribItems: Fixed Linux
+ Warning that needs to be tested.
+
+In wx3.0.2, "wx/defs.h" is needed before wx/version.h under Linux or get [warning: "HAVE_VARIADIC_MACROS" redefined]
+---
+ .../contrib/wxContribItems/wxDateTimePicker/include/DateTimeCtrl.h     | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/plugins/contrib/wxContribItems/wxDateTimePicker/include/DateTimeCtrl.h b/src/plugins/contrib/wxContribItems/wxDateTimePicker/include/DateTimeCtrl.h
+index 0b4b1cf..b205819 100644
+--- a/src/plugins/contrib/wxContribItems/wxDateTimePicker/include/DateTimeCtrl.h
++++ b/src/plugins/contrib/wxContribItems/wxDateTimePicker/include/DateTimeCtrl.h
+@@ -2,4 +2,7 @@
+ #define WXDATETIMEPICKERCTRL_H
+ 
++// In wx3.0.2, "wx/defs.h" is needed before wx/version.h under Linux
++//    or get [warning: "HAVE_VARIADIC_MACROS" redefined]
++#include <wx/defs.h>
+ #include <wx/version.h>
+ 
+-- 
+2.7.1.windows.2
+

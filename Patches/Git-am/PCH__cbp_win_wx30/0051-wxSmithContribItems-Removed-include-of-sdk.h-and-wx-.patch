@@ -1,0 +1,67 @@
+From f4efb6539b042193321d7fcad26c5bd0bec94bf7 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 19 Dec 2015 18:10:22 -0500
+Subject: [PATCH 051/159] * wxSmithContribItems: Removed include of "sdk.h" and
+ "wx/wxprec.h". (Thanks stahta01)
+
+Also, removed include of "wx/wx.h".
+---
+ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp | 1 -
+ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.h   | 6 ------
+ src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp        | 1 -
+ src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.h          | 6 ------
+ 4 files changed, 14 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp
+index 2df5f21..5c39619 100644
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.cpp
+@@ -22,5 +22,4 @@
+ */
+ 
+-#include <sdk.h> // Code::Blocks SDK
+ #include <configurationpanel.h>
+ #include "wxSmithContribItems.h"
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.h b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.h
+index 98f4983..bb7abb3 100644
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.h
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithContribItems.h
+@@ -25,10 +25,4 @@
+ #define WXSMITHCONTRIBITEMS_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbPlugin"
+diff --git a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp
+index 1640edb..018ddf5 100644
+--- a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp
++++ b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cpp
+@@ -23,5 +23,4 @@
+ */
+ 
+-#include <sdk.h> // Code::Blocks SDK
+ #include <configurationpanel.h>
+ 
+diff --git a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.h b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.h
+index 290aea6..a3f33a5 100644
+--- a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.h
++++ b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.h
+@@ -26,10 +26,4 @@
+ #define WXSSMITHIEXPLORE_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbPlugin"
+-- 
+2.7.1.windows.2
+

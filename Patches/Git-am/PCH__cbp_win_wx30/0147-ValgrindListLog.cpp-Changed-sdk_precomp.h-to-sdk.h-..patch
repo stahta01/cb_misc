@@ -1,0 +1,23 @@
+From 62ef2bcafd9ce320201d6421f77649ad882dd5dd Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Thu, 31 Dec 2015 12:50:16 -0500
+Subject: [PATCH 147/159] - ValgrindListLog.cpp: Changed "sdk_precomp.h" to
+ "sdk.h". (Thanks stahta01)
+
+The PCH file loading time on my PC resulted in slower build times till I used the exact same PCH filename.
+---
+ src/plugins/contrib/Valgrind/ValgrindListLog.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/plugins/contrib/Valgrind/ValgrindListLog.cpp b/src/plugins/contrib/Valgrind/ValgrindListLog.cpp
+index 0b72083..6f14abc 100644
+--- a/src/plugins/contrib/Valgrind/ValgrindListLog.cpp
++++ b/src/plugins/contrib/Valgrind/ValgrindListLog.cpp
+@@ -1,3 +1,3 @@
+-#include "sdk_precomp.h"
++#include "sdk.h"
+ 
+ #ifndef CB_PRECOMP
+-- 
+2.7.1.windows.2
+

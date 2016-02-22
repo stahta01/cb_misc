@@ -1,0 +1,23 @@
+From 5f3586c89276d7508e7a14719f89835414795e00 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 11:24:42 -0500
+Subject: [PATCH 095/159] - pch_cbp_win_wx28: Added object search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/keybinder/keybinder.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/keybinder/keybinder.cbp b/src/plugins/contrib/keybinder/keybinder.cbp
+index 22aaa98..8f0b97a 100644
+--- a/src/plugins/contrib/keybinder/keybinder.cbp
++++ b/src/plugins/contrib/keybinder/keybinder.cbp
+@@ -46,4 +46,5 @@
+ 			<Add option="-Wall" />
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

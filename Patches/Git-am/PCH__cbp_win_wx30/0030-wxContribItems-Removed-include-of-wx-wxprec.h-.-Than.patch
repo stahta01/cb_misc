@@ -1,0 +1,23 @@
+From a5738a5238aa6a93dc353b0fff633443cd10205a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 19 Dec 2015 19:21:04 -0500
+Subject: [PATCH 030/159] * wxContribItems: Removed include of "wx/wxprec.h".
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/wxContribItems/wxSpeedButton/wxSpeedButton.h | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/plugins/contrib/wxContribItems/wxSpeedButton/wxSpeedButton.h b/src/plugins/contrib/wxContribItems/wxSpeedButton/wxSpeedButton.h
+index 27828be..00ae9c4 100644
+--- a/src/plugins/contrib/wxContribItems/wxSpeedButton/wxSpeedButton.h
++++ b/src/plugins/contrib/wxContribItems/wxSpeedButton/wxSpeedButton.h
+@@ -28,5 +28,4 @@
+ 
+ #include "wx/defs.h"
+-#include "wx/wxprec.h"
+ #include "wx/control.h"
+ #include "wx/settings.h"
+-- 
+2.7.1.windows.2
+

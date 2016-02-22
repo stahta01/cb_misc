@@ -1,0 +1,24 @@
+From 35e9198a151b001f4a9feceb0c2e3f1593ab1ae9 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Mon, 28 Dec 2015 19:17:35 -0500
+Subject: [PATCH 128/159] - pch_cbp_unix: Added defines "cbDEBUG" and
+ "CB_PRECOMP". (Thanks stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
+index 8f4d94c..ff2ff65 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
+@@ -21,4 +21,6 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DPIC" />
++					<Add option="-DcbDEBUG" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+-- 
+2.7.1.windows.2
+

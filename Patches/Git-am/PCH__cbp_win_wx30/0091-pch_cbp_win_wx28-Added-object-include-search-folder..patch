@@ -1,0 +1,23 @@
+From 70218c3d11ecb4d63250c2616efc3a8b899bce1b Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 20:49:49 -0500
+Subject: [PATCH 091/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+index 7487e30..99f4ffe 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks.cbp
+@@ -32,4 +32,5 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,27 @@
+From 3aadd247c21a7be3219eb42ba9ece7ac41425810 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 19:17:20 -0500
+Subject: [PATCH 106/159] * modpoller: Removed "wx/wx.h" and "wx/wxprec.h" from
+ header. (Thanks stahta01)
+
+---
+ src/plugins/modpoller/ModPoller.h | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/src/plugins/modpoller/ModPoller.h b/src/plugins/modpoller/ModPoller.h
+index d626a1f..ca25772 100644
+--- a/src/plugins/modpoller/ModPoller.h
++++ b/src/plugins/modpoller/ModPoller.h
+@@ -7,9 +7,4 @@
+ #define MODPOLLER_H_INCLUDED
+ 
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h>
+-- 
+2.7.1.windows.2
+

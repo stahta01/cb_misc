@@ -1,0 +1,61 @@
+From 3a7f7b076102e2e2000619e7283f33cbffb92fcb Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 18 Dec 2015 22:06:15 -0500
+Subject: [PATCH 053/159] * wxSmith.cbp: Changed to using USE_PCH and wx_pch.h.
+ (Thanks stahta01)
+
+And, removed CB_PRECOMP and WX_PRECOMP.
+Also, added NOPCH to plugin target.
+---
+ src/plugins/contrib/wxSmith/wxSmith.cbp | 17 ++++++++++++++---
+ 1 file changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmith/wxSmith.cbp b/src/plugins/contrib/wxSmith/wxSmith.cbp
+index f0e656c..31d3b81 100644
+--- a/src/plugins/contrib/wxSmith/wxSmith.cbp
++++ b/src/plugins/contrib/wxSmith/wxSmith.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="wxSmith" />
+-		<Option pch_mode="0" />
+ 		<Option default_target="wxSmith" />
+ 		<Option compiler="gcc" />
+@@ -16,4 +15,11 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Option projectIncludeDirsRelation="2" />
++				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
++					<Add option="-DUSE_PCH" />
++					<Add directory="../../../.objs/plugins/contrib/wxSmithLib/pch" />
++					<Add directory="pch" />
++				</Compiler>
+ 			</Target>
+ 			<Target title="wxSmith">
+@@ -26,4 +32,7 @@
+ 				<Option host_application="../../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
++				<Compiler>
++					<Add option="-DNOPCH" />
++				</Compiler>
+ 				<Linker>
+ 					<Add library="wxsmithlib" />
+@@ -51,6 +60,4 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DwxUSE_UNICODE" />
+@@ -92,4 +99,8 @@
+ 			<Mode after="always" />
+ 		</ExtraCommands>
++		<Unit filename="pch/wx_pch.h">
++			<Option compile="1" />
++			<Option target="wxSmithLib" />
++		</Unit>
+ 		<Unit filename="plugin/wxsmithpluginregistrants.cpp">
+ 			<Option target="wxSmith" />
+-- 
+2.7.1.windows.2
+

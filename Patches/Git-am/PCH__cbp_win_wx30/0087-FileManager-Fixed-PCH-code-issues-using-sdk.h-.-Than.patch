@@ -1,0 +1,75 @@
+From c94057335104a1f085e81c638c9013782764d864 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 14 Feb 2016 10:27:20 -0500
+Subject: [PATCH 087/159] - FileManager: Fixed PCH code issues using "sdk.h".
+ (Thanks stahta01)
+
+Added or moved include "sdk.h" to top of source file.
+---
+ src/plugins/contrib/FileManager/CommitBrowser.cpp        | 2 ++
+ src/plugins/contrib/FileManager/FileExplorer.cpp         | 3 ++-
+ src/plugins/contrib/FileManager/FileExplorerSettings.cpp | 3 ++-
+ src/plugins/contrib/FileManager/FileExplorerUpdater.cpp  | 2 +-
+ src/plugins/contrib/FileManager/FileManager.cpp          | 4 +++-
+ 5 files changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/src/plugins/contrib/FileManager/CommitBrowser.cpp b/src/plugins/contrib/FileManager/CommitBrowser.cpp
+index f70e958..984daba 100644
+--- a/src/plugins/contrib/FileManager/CommitBrowser.cpp
++++ b/src/plugins/contrib/FileManager/CommitBrowser.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK Precompiled Header
++
+ #include "CommitBrowser.h"
+ #include "FileExplorerUpdater.h"
+diff --git a/src/plugins/contrib/FileManager/FileExplorer.cpp b/src/plugins/contrib/FileManager/FileExplorer.cpp
+index 07bccce..febfdf4 100644
+--- a/src/plugins/contrib/FileManager/FileExplorer.cpp
++++ b/src/plugins/contrib/FileManager/FileExplorer.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK Precompiled Header
++
+ #include "FileExplorer.h"
+ #include <wx/dir.h>
+@@ -4,5 +6,4 @@
+ #include <wx/aui/aui.h>
+ 
+-#include <sdk.h>
+ #ifndef CB_PRECOMP
+     #include <wx/dnd.h>
+diff --git a/src/plugins/contrib/FileManager/FileExplorerSettings.cpp b/src/plugins/contrib/FileManager/FileExplorerSettings.cpp
+index e2aab4c..e6747f6 100644
+--- a/src/plugins/contrib/FileManager/FileExplorerSettings.cpp
++++ b/src/plugins/contrib/FileManager/FileExplorerSettings.cpp
+@@ -1,5 +1,6 @@
++#include "sdk.h" // Code::Blocks SDK Precompiled Header
++
+ #include "FileExplorerSettings.h"
+ 
+-#include <sdk.h>
+ #ifndef CB_PRECOMP
+   #include <wx/xrc/xmlres.h>
+diff --git a/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp b/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
+index b2e25c0..3160bbb 100644
+--- a/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
++++ b/src/plugins/contrib/FileManager/FileExplorerUpdater.cpp
+@@ -1,3 +1,3 @@
+-#include <sdk.h>
++#include "sdk.h" // Code::Blocks SDK Precompiled Header
+ 
+ #include <wx/dir.h>
+diff --git a/src/plugins/contrib/FileManager/FileManager.cpp b/src/plugins/contrib/FileManager/FileManager.cpp
+index d4d65c2..3aefc7f 100644
+--- a/src/plugins/contrib/FileManager/FileManager.cpp
++++ b/src/plugins/contrib/FileManager/FileManager.cpp
+@@ -1,4 +1,6 @@
++#include "sdk.h" // Code::Blocks SDK Precompiled Header
++
+ #include <wx/aui/aui.h>
+-#include <sdk.h> // Code::Blocks SDK
++
+ #ifndef CB_PRECOMP
+     #include <cbauibook.h>
+-- 
+2.7.1.windows.2
+

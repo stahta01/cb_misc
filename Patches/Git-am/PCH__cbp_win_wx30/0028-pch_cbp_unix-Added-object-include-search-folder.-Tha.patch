@@ -1,0 +1,34 @@
+From 23fe582524fda67f98ac737595f7563cf81c5727 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Wed, 16 Dec 2015 10:29:19 -0500
+Subject: [PATCH 028/159] - pch_cbp_unix: Added object include search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/lib_finder/lib_finder-unix.cbp      | 1 +
+ src/plugins/contrib/lib_finder/lib_finder_wx30-unix.cbp | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/lib_finder/lib_finder-unix.cbp b/src/plugins/contrib/lib_finder/lib_finder-unix.cbp
+index 53eea98..09d7f49 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder-unix.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder-unix.cbp
+@@ -40,4 +40,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../include/tinyxml" />
+diff --git a/src/plugins/contrib/lib_finder/lib_finder_wx30-unix.cbp b/src/plugins/contrib/lib_finder/lib_finder_wx30-unix.cbp
+index 9803fb1..0e9563c 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder_wx30-unix.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder_wx30-unix.cbp
+@@ -36,4 +36,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../include/tinyxml" />
+-- 
+2.7.1.windows.2
+

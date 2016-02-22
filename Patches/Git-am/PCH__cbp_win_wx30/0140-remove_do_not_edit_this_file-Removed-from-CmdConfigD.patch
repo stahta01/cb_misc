@@ -1,0 +1,42 @@
+From e2988a4acae4ff06876f689b96aef78375135a9d Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 10 Nov 2015 15:32:32 -0500
+Subject: [PATCH 140/159] * remove_do_not_edit_this_file: Removed from
+ CmdConfigDialog.cpp/h files the do NOT edit text. (Thanks stahta01)
+
+---
+ src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp | 7 -------
+ src/plugins/contrib/ToolsPlus/CmdConfigDialog.h   | 7 -------
+ 2 files changed, 14 deletions(-)
+
+diff --git a/src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp b/src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp
+index 9ccc71b..9bcaa6e 100644
+--- a/src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp
++++ b/src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp
+@@ -1,9 +1,2 @@
+-///////////////////////////////////////////////////////////////////////////
+-// C++ code generated with wxFormBuilder (version Feb  2 2007)
+-// http://www.wxformbuilder.org/
+-//
+-// PLEASE DO "NOT" EDIT THIS FILE!
+-///////////////////////////////////////////////////////////////////////////
+-
+ #include "wx/wxprec.h"
+ 
+diff --git a/src/plugins/contrib/ToolsPlus/CmdConfigDialog.h b/src/plugins/contrib/ToolsPlus/CmdConfigDialog.h
+index e049d67..5ce4d8b 100644
+--- a/src/plugins/contrib/ToolsPlus/CmdConfigDialog.h
++++ b/src/plugins/contrib/ToolsPlus/CmdConfigDialog.h
+@@ -1,9 +1,2 @@
+-///////////////////////////////////////////////////////////////////////////
+-// C++ code generated with wxFormBuilder (version Feb  2 2007)
+-// http://www.wxformbuilder.org/
+-//
+-// PLEASE DO "NOT" EDIT THIS FILE!
+-///////////////////////////////////////////////////////////////////////////
+-
+ #ifndef __CMDCONFIGDIALOG__
+ #define __CMDCONFIGDIALOG__
+-- 
+2.7.1.windows.2
+

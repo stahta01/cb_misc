@@ -1,0 +1,47 @@
+From 48ead484bf20bdf3800393a4192191459076ca2a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 9 Feb 2016 12:08:16 -0500
+Subject: [PATCH 026/159] * wxContribItems: Fixup wxContribItems.cbp and
+ wxContribItems_wx30.cbp.
+
+Changed target wxDateTimePicker to using WXMAKINGDLL define.
+---
+ src/plugins/contrib/wxContribItems/wxContribItems.cbp      | 2 ++
+ src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp | 2 ++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/src/plugins/contrib/wxContribItems/wxContribItems.cbp b/src/plugins/contrib/wxContribItems/wxContribItems.cbp
+index c8e1720..2a78f1b 100644
+--- a/src/plugins/contrib/wxContribItems/wxContribItems.cbp
++++ b/src/plugins/contrib/wxContribItems/wxContribItems.cbp
+@@ -29,4 +29,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxDateTimePicker/include" />
+ 					<Add directory="wxDateTimePicker/images" />
+@@ -142,4 +143,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxmathplot" />
+ 				</Compiler>
+diff --git a/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp b/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+index 460fb57..233f170 100644
+--- a/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
++++ b/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+@@ -29,4 +29,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL" />
+ 					<Add directory="wxDateTimePicker/include" />
+ 					<Add directory="wxDateTimePicker/images" />
+@@ -130,4 +131,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxmathplot" />
+ 				</Compiler>
+-- 
+2.7.1.windows.2
+

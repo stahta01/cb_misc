@@ -1,0 +1,37 @@
+From 944e5ff31d8e027036527d5be32105ab383b48a3 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 20 Dec 2015 12:45:19 -0500
+Subject: [PATCH 120/159] - ProjectOptionsManipulator: Added include of "sdk.h"
+ and rearranged includes. (Thanks stahta01)
+
+---
+ .../ProjectOptionsManipulator/ProjectOptionsManipulator.cpp      | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cpp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cpp
+index 663ee96..1f0d82c 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cpp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cpp
+@@ -8,12 +8,17 @@
+  */
+ 
+-#include "ProjectOptionsManipulator.h"
++#include "sdk.h"
++
++#include <vector>
+ 
++#ifndef CB_PRECOMP
+ #include <cbproject.h>
+ #include <globals.h> // cbMessageBox
+ #include <manager.h>
+ #include <projectmanager.h>
++#endif
+ 
+-#include <vector>
++
++#include "ProjectOptionsManipulator.h"
+ 
+ #include "ProjectOptionsManipulatorDlg.h"
+-- 
+2.7.1.windows.2
+

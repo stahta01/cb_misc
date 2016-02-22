@@ -1,0 +1,23 @@
+From 14f8ce56d152bbc2b46f498e3bb5ae0f9f4e257e Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 20 Dec 2015 15:39:31 -0500
+Subject: [PATCH 144/159] - pch_cbp_win_wx28: Added object search folders.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+index 7250fad..2236ee3 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+@@ -45,4 +45,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

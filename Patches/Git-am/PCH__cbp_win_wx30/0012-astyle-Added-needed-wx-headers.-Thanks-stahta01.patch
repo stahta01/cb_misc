@@ -1,0 +1,43 @@
+From e0a3d4dd983fa38e11164458d7604faff9a2c057 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 13:30:37 -0500
+Subject: [PATCH 012/159] * astyle: Added needed wx headers. (Thanks stahta01)
+
+And, removed "wx/wxprec.h" and "wx/wx.h" from headers.
+---
+ src/plugins/astyle/astyleplugin.cpp |  1 +
+ src/plugins/astyle/astyleplugin.h   | 10 ----------
+ 2 files changed, 1 insertion(+), 10 deletions(-)
+
+diff --git a/src/plugins/astyle/astyleplugin.cpp b/src/plugins/astyle/astyleplugin.cpp
+index 26b11de..9f3455e 100644
+--- a/src/plugins/astyle/astyleplugin.cpp
++++ b/src/plugins/astyle/astyleplugin.cpp
+@@ -16,4 +16,5 @@
+     #include <vector>
+ 
++    #include <wx/menu.h>
+     #include <wx/msgdlg.h>
+     #include <wx/xrc/xmlres.h>
+diff --git a/src/plugins/astyle/astyleplugin.h b/src/plugins/astyle/astyleplugin.h
+index b549124..b97e987 100644
+--- a/src/plugins/astyle/astyleplugin.h
++++ b/src/plugins/astyle/astyleplugin.h
+@@ -7,14 +7,4 @@
+ #define ASTYLEPLUGIN_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // the base class we 're inheriting
+-- 
+2.7.1.windows.2
+

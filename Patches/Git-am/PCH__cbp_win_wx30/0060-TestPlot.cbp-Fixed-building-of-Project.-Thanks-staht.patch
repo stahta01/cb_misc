@@ -1,0 +1,79 @@
+From a0ef14efc00b36e0ec1339bb42c9bce95952925f Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 28 Dec 2015 07:15:31 -0500
+Subject: [PATCH 060/159] * TestPlot.cbp: Fixed building of Project. (Thanks
+ stahta01)
+
+---
+ .../wxSmithContribItems/wxSmithPlot/test/TestPlot.cbp | 19 ++++++++++---------
+ .../wxSmithPlot/test/TestPlotMain.h                   |  2 +-
+ 2 files changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlot.cbp b/src/plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlot.cbp
+index 5bf675d..3fb8152 100644
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlot.cbp
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlot.cbp
+@@ -9,5 +9,5 @@
+ 			<Target title="Release">
+ 				<Option output="TestPlot" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\..\.objs\plugins\contrib\wxSmithPlot\test" />
++				<Option object_output="../../../../.objs/plugins/contrib/wxSmithPlot/test" />
+ 				<Option type="0" />
+ 				<Option compiler="gcc" />
+@@ -18,11 +18,11 @@
+ 				<Linker>
+ 					<Add option="-s" />
+-					<Add library="MathPlot" />
+-					<Add directory="..\..\..\..\devel" />
++					<Add library="wxMathPlot" />
++					<Add directory="../../../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -36,15 +36,16 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="$(#wx)\include" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx)/include" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 			<Add directory=".." />
++			<Add directory="../../../wxContribItems/wxmathplot" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+-			<Add directory="$(#wx)\include" />
++			<Add directory="$(#wx)/include" />
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="TestPlotApp.cpp" />
+@@ -55,5 +56,5 @@
+ 			<Option compilerVar="WINDRES" />
+ 		</Unit>
+-		<Unit filename="wxsmith\TestPlotframe.wxs" />
++		<Unit filename="wxsmith/TestPlotframe.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+diff --git a/src/plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlotMain.h b/src/plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlotMain.h
+index 0dc47a9..551858e 100644
+--- a/src/plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlotMain.h
++++ b/src/plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlotMain.h
+@@ -18,5 +18,5 @@
+ //*)
+ 
+-#include <mpMarker.h>
++//#include <mpMarker.h>
+ 
+ class TestPlotFrame: public wxFrame
+-- 
+2.7.1.windows.2
+

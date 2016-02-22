@@ -1,0 +1,41 @@
+From f09d1ec943c7ba3eed0c22452057281f55e0a5e9 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 28 Dec 2015 14:34:01 -0500
+Subject: [PATCH 067/159] * SpellChecker.cbp: Added [-include "wx_pch.h"] and
+ "USE_PCH". (Thanks stahta01)
+
+---
+ src/plugins/contrib/SpellChecker/SpellChecker.cbp | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker.cbp b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
+index 31860cb..2498e35 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="SpellChecker wx2.8.x" />
+-		<Option pch_mode="2" />
+ 		<Option default_target="plugin" />
+ 		<Option compiler="gcc" />
+@@ -48,5 +47,7 @@
+ 					<Add option="-pipe" />
+ 					<Add option="-mthreads" />
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DHUNSPELL_STATIC" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="hunspell/src" />
+ 					<Add directory="wxspellchecker/include" />
+@@ -349,4 +350,9 @@
+ 			<Option target="wxSpellChecker" />
+ 		</Unit>
++		<Unit filename="wxspellchecker/include/wx_pch.h">
++			<Option compile="1" />
++			<Option weight="0" />
++			<Option target="wxSpellChecker" />
++		</Unit>
+ 		<Unit filename="wxspellchecker/src/PersonalDictionary.cpp">
+ 			<Option target="wxSpellChecker" />
+-- 
+2.7.1.windows.2
+

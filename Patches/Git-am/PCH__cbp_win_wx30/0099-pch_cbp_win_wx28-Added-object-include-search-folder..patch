@@ -1,0 +1,23 @@
+From 8b02a163943f4bbf4875de95adbf10f740175def Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 21:20:45 -0500
+Subject: [PATCH 099/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/headerfixup/headerfixup.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/headerfixup/headerfixup.cbp b/src/plugins/contrib/headerfixup/headerfixup.cbp
+index f15e544..6b6766f 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup.cbp
+@@ -32,4 +32,5 @@
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

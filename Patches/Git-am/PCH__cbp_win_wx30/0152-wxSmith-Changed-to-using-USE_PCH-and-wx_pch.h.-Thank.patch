@@ -1,0 +1,116 @@
+From bc67083f8b061abbe9bc8e02f8c221ad2bc7fd3d Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 23 Dec 2015 16:12:46 -0500
+Subject: [PATCH 152/159] - wxSmith: Changed to using USE_PCH and wx_pch.h.
+ (Thanks stahta01)
+
+And, removed CB_PRECOMP, WX_PRECOMP, and NOPCH.
+Also, added NOPCH to plugin file target.
+---
+ src/plugins/contrib/wxSmith/wxSmith_wx30.cbp    | 17 +++++++++++++++--
+ src/plugins/contrib/wxSmith/wxSmith_wx30_64.cbp | 16 ++++++++++++++--
+ 2 files changed, 29 insertions(+), 4 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmith/wxSmith_wx30.cbp b/src/plugins/contrib/wxSmith/wxSmith_wx30.cbp
+index 4a70ce6..adef1be 100644
+--- a/src/plugins/contrib/wxSmith/wxSmith_wx30.cbp
++++ b/src/plugins/contrib/wxSmith/wxSmith_wx30.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="wxSmith wx3.0.x" />
+-		<Option pch_mode="0" />
+ 		<Option default_target="wxSmith" />
+ 		<Option compiler="gcc" />
+@@ -16,4 +15,11 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Option projectIncludeDirsRelation="2" />
++				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
++					<Add option="-DUSE_PCH" />
++					<Add directory="../../../.objs30/plugins/contrib/wxSmithLib/pch" />
++					<Add directory="pch" />
++				</Compiler>
+ 			</Target>
+ 			<Target title="wxSmith">
+@@ -26,4 +32,7 @@
+ 				<Option host_application="../../../devel30/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
++				<Compiler>
++					<Add option="-DNOPCH" />
++				</Compiler>
+ 				<Linker>
+ 					<Add library="wxsmithlib" />
+@@ -46,9 +55,9 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DwxUSE_UNICODE" />
+@@ -87,4 +96,8 @@
+ 			<Mode after="always" />
+ 		</ExtraCommands>
++		<Unit filename="pch/wx_pch.h">
++			<Option compile="1" />
++			<Option target="wxSmithLib" />
++		</Unit>
+ 		<Unit filename="plugin/wxsmithpluginregistrants.cpp">
+ 			<Option target="wxSmith" />
+diff --git a/src/plugins/contrib/wxSmith/wxSmith_wx30_64.cbp b/src/plugins/contrib/wxSmith/wxSmith_wx30_64.cbp
+index 4feaf66..205c58f 100644
+--- a/src/plugins/contrib/wxSmith/wxSmith_wx30_64.cbp
++++ b/src/plugins/contrib/wxSmith/wxSmith_wx30_64.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="wxSmith wx3.0.x (64 bit)" />
+-		<Option pch_mode="0" />
+ 		<Option default_target="wxSmith" />
+ 		<Option compiler="gcc" />
+@@ -16,4 +15,9 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
++					<Add option="-DUSE_PCH" />
++					<Add directory="pch" />
++				</Compiler>
+ 			</Target>
+ 			<Target title="wxSmith">
+@@ -26,4 +30,7 @@
+ 				<Option host_application="../../../devel30_64/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
++				<Compiler>
++					<Add option="-DNOPCH" />
++				</Compiler>
+ 				<Linker>
+ 					<Add library="wxsmithlib" />
+@@ -46,4 +53,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+@@ -51,5 +59,4 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DwxUSE_UNICODE" />
+@@ -88,4 +95,9 @@
+ 			<Mode after="always" />
+ 		</ExtraCommands>
++		<Unit filename="pch/wx_pch.h">
++			<Option compile="1" />
++			<Option weight="0" />
++			<Option target="wxSmithLib" />
++		</Unit>
+ 		<Unit filename="plugin/wxsmithpluginregistrants.cpp">
+ 			<Option target="wxSmith" />
+-- 
+2.7.1.windows.2
+

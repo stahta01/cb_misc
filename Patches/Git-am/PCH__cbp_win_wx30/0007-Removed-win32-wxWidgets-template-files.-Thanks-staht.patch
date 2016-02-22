@@ -1,0 +1,313 @@
+From f3972f1cd147103da1e2d6b54f0f96a6f0a8a974 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 10 Nov 2015 14:07:27 -0500
+Subject: [PATCH 007/159] - Removed win32 wxWidgets template files.(Thanks
+ stahta01)
+
+Deleted wxWidgets files templates/win32 folder.
+And, edited templates/win32/Makefile.am.
+---
+ src/templates/win32/Makefile.am            |  7 +---
+ src/templates/win32/wxwidgets.cbp          | 46 -----------------------
+ src/templates/win32/wxwidgets.template     | 34 -----------------
+ src/templates/win32/wxwidgets_static.cbp   | 58 -----------------------------
+ src/templates/win32/wxwidgets_static_u.cbp | 59 ------------------------------
+ src/templates/win32/wxwidgets_u.cbp        | 47 ------------------------
+ 6 files changed, 1 insertion(+), 250 deletions(-)
+ delete mode 100644 src/templates/win32/wxwidgets.cbp
+ delete mode 100644 src/templates/win32/wxwidgets.template
+ delete mode 100644 src/templates/win32/wxwidgets_static.cbp
+ delete mode 100644 src/templates/win32/wxwidgets_static_u.cbp
+ delete mode 100644 src/templates/win32/wxwidgets_u.cbp
+
+diff --git a/src/templates/win32/Makefile.am b/src/templates/win32/Makefile.am
+index a1c4dbb..8696ea6 100644
+--- a/src/templates/win32/Makefile.am
++++ b/src/templates/win32/Makefile.am
+@@ -34,8 +34,3 @@ dist_pkgdata_DATA = dll.cbp \
+ 		win32.cbp \
+ 		win32gui.template \
+-		win32-main.cpp \
+-		wxwidgets.cbp \
+-		wxwidgets_static.cbp \
+-		wxwidgets_u.cbp \
+-		wxwidgets_static_u.cbp \
+-		wxwidgets.template
++		win32-main.cpp
+diff --git a/src/templates/win32/wxwidgets.cbp b/src/templates/win32/wxwidgets.cbp
+deleted file mode 100644
+index dc96c50..0000000
+--- a/src/templates/win32/wxwidgets.cbp
++++ /dev/null
+@@ -1,46 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+-<CodeBlocks_project_file>
+-	<FileVersion major="1" minor="3" />
+-	<Project>
+-		<Option title="wxWidgets application" />
+-		<Option pch_mode="0" />
+-		<Option compiler="gcc" />
+-		<Build>
+-			<Target title="default">
+-				<Option output="wxwidgets.exe" />
+-				<Option type="0" />
+-				<Option compiler="gcc" />
+-				<Option includeInTargetAll="1" />
+-				<Option projectResourceIncludeDirsRelation="0" />
+-			</Target>
+-			<Environment>
+-				<Variable name="WX_CFG" value="" />
+-			</Environment>
+-		</Build>
+-		<Compiler>
+-			<Add option="-pipe" />
+-			<Add option="-mthreads" />
+-			<Add option="-Winvalid-pch" />
+-			<Add option="-D__GNUWIN32__" />
+-			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DUSE_PCH" />
+-			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw" />
+-		</Compiler>
+-		<ResourceCompiler>
+-			<Add directory="$(#WX.include)" />
+-		</ResourceCompiler>
+-		<Linker>
+-			<Add library="wxmsw26" />
+-			<Add directory="$(#WX.lib)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-		</Linker>
+-		<Unit filename="wx_pch.h">
+-			<Option compilerVar="CPP" />
+-			<Option link="0" />
+-			<Option weight="0" />
+-			<Option target="default" />
+-		</Unit>
+-	</Project>
+-</CodeBlocks_project_file>
+diff --git a/src/templates/win32/wxwidgets.template b/src/templates/win32/wxwidgets.template
+deleted file mode 100644
+index d1adcbf..0000000
+--- a/src/templates/win32/wxwidgets.template
++++ /dev/null
+@@ -1,34 +0,0 @@
+-<?xml version="1.0"?>
+-<!DOCTYPE CodeBlocks_template_file>
+-<CodeBlocks_template_file>
+-	<Template name="wxWidgets" title="wxWidgets Application" category="GUI" bitmap="wxwidgets.png">
+-		<FileSet name="s" title="No header file">
+-			<File source="wx-main-s.cpp" destination="main.cpp"/>
+-			<File source="wx_pch.h" destination="wx_pch.h"/>
+-		</FileSet>
+-		<FileSet name="sh" title="With header file">
+-			<File source="wx-main-sh.cpp" destination="main.cpp"/>
+-			<File source="wx-main-sh.h" destination="main.h"/>
+-			<File source="wx_pch.h" destination="wx_pch.h"/>
+-		</FileSet>
+-		<FileSet name="ash" title="Use separate wxApp, wxFrame files">
+-			<File source="wx-app-ash.cpp" destination="app.cpp"/>
+-			<File source="wx-app-ash.h" destination="app.h"/>
+-			<File source="wx-main-ash.cpp" destination="main.cpp"/>
+-			<File source="wx-main-ash.h" destination="main.h"/>
+-			<File source="wx_pch.h" destination="wx_pch.h"/>
+-		</FileSet>
+-		<Option name="Using wxWidgets DLL">
+-			<Project file="wxwidgets.cbp"/>
+-		</Option>
+-		<Option name="Using UNICODE wxWidgets DLL">
+-			<Project file="wxwidgets_u.cbp"/>
+-		</Option>
+-		<Option name="Using static wxWidgets library">
+-			<Project file="wxwidgets_static.cbp"/>
+-		</Option>
+-		<Option name="Using UNICODE static wxWidgets library">
+-			<Project file="wxwidgets_static_u.cbp"/>
+-		</Option>
+-	</Template>
+-</CodeBlocks_template_file>
+diff --git a/src/templates/win32/wxwidgets_static.cbp b/src/templates/win32/wxwidgets_static.cbp
+deleted file mode 100644
+index 1c9033b..0000000
+--- a/src/templates/win32/wxwidgets_static.cbp
++++ /dev/null
+@@ -1,58 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+-<CodeBlocks_project_file>
+-	<FileVersion major="1" minor="3" />
+-	<Project>
+-		<Option title="wxWidgets application" />
+-		<Option pch_mode="0" />
+-		<Option compiler="gcc" />
+-		<Build>
+-			<Target title="default">
+-				<Option output="wxwidgets_static.exe" />
+-				<Option type="0" />
+-				<Option compiler="gcc" />
+-				<Option includeInTargetAll="1" />
+-				<Option projectResourceIncludeDirsRelation="0" />
+-			</Target>
+-			<Environment>
+-				<Variable name="WX_CFG" value="" />
+-			</Environment>
+-		</Build>
+-		<Compiler>
+-			<Add option="-pipe" />
+-			<Add option="-mthreads" />
+-			<Add option="-Winvalid-pch" />
+-			<Add option="-D__GNUWIN32__" />
+-			<Add option="-D__WXMSW__" />
+-			<Add option="-DUSE_PCH" />
+-			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_lib$(WX_CFG)\msw" />
+-		</Compiler>
+-		<ResourceCompiler>
+-			<Add directory="$(#WX.include)" />
+-		</ResourceCompiler>
+-		<Linker>
+-			<Add library="wxmsw" />
+-			<Add library="winspool" />
+-			<Add library="winmm" />
+-			<Add library="shell32" />
+-			<Add library="comctl32" />
+-			<Add library="ctl3d32" />
+-			<Add library="odbc32" />
+-			<Add library="advapi32" />
+-			<Add library="wsock32" />
+-			<Add library="opengl32" />
+-			<Add library="glu32" />
+-			<Add library="ole32" />
+-			<Add library="oleaut32" />
+-			<Add library="uuid" />
+-			<Add directory="$(#WX.lib)" />
+-			<Add directory="$(#WX.lib)\gcc_lib$(WX_CFG)" />
+-		</Linker>
+-		<Unit filename="wx_pch.h">
+-			<Option compilerVar="CPP" />
+-			<Option link="0" />
+-			<Option weight="0" />
+-			<Option target="default" />
+-		</Unit>
+-	</Project>
+-</CodeBlocks_project_file>
+diff --git a/src/templates/win32/wxwidgets_static_u.cbp b/src/templates/win32/wxwidgets_static_u.cbp
+deleted file mode 100644
+index 450ace7..0000000
+--- a/src/templates/win32/wxwidgets_static_u.cbp
++++ /dev/null
+@@ -1,59 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+-<CodeBlocks_project_file>
+-	<FileVersion major="1" minor="3" />
+-	<Project>
+-		<Option title="wxWidgets application" />
+-		<Option pch_mode="0" />
+-		<Option compiler="gcc" />
+-		<Build>
+-			<Target title="default">
+-				<Option output="wxwidgets_static_u.exe" />
+-				<Option type="0" />
+-				<Option compiler="gcc" />
+-				<Option includeInTargetAll="1" />
+-				<Option projectResourceIncludeDirsRelation="0" />
+-			</Target>
+-			<Environment>
+-				<Variable name="WX_CFG" value="" />
+-			</Environment>
+-		</Build>
+-		<Compiler>
+-			<Add option="-pipe" />
+-			<Add option="-mthreads" />
+-			<Add option="-Winvalid-pch" />
+-			<Add option="-D__GNUWIN32__" />
+-			<Add option="-D__WXMSW__" />
+-			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DUSE_PCH" />
+-			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_lib$(WX_CFG)\mswu" />
+-		</Compiler>
+-		<ResourceCompiler>
+-			<Add directory="$(#WX)\include" />
+-		</ResourceCompiler>
+-		<Linker>
+-			<Add library="wxmswu" />
+-			<Add library="winspool" />
+-			<Add library="winmm" />
+-			<Add library="shell32" />
+-			<Add library="comctl32" />
+-			<Add library="ctl3d32" />
+-			<Add library="odbc32" />
+-			<Add library="advapi32" />
+-			<Add library="wsock32" />
+-			<Add library="opengl32" />
+-			<Add library="glu32" />
+-			<Add library="ole32" />
+-			<Add library="oleaut32" />
+-			<Add library="uuid" />
+-			<Add directory="$(#WX.lib)" />
+-			<Add directory="$(#WX.lib)\gcc_lib$(WX_CFG)" />
+-		</Linker>
+-		<Unit filename="wx_pch.h">
+-			<Option compilerVar="CPP" />
+-			<Option link="0" />
+-			<Option weight="0" />
+-			<Option target="default" />
+-		</Unit>
+-	</Project>
+-</CodeBlocks_project_file>
+diff --git a/src/templates/win32/wxwidgets_u.cbp b/src/templates/win32/wxwidgets_u.cbp
+deleted file mode 100644
+index 3cee201..0000000
+--- a/src/templates/win32/wxwidgets_u.cbp
++++ /dev/null
+@@ -1,47 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+-<CodeBlocks_project_file>
+-	<FileVersion major="1" minor="3" />
+-	<Project>
+-		<Option title="wxWidgets application" />
+-		<Option pch_mode="0" />
+-		<Option compiler="gcc" />
+-		<Build>
+-			<Target title="default">
+-				<Option output="wxwidgets_u.exe" />
+-				<Option type="0" />
+-				<Option compiler="gcc" />
+-				<Option includeInTargetAll="1" />
+-				<Option projectResourceIncludeDirsRelation="0" />
+-			</Target>
+-			<Environment>
+-				<Variable name="WX_CFG" value="" />
+-			</Environment>
+-		</Build>
+-		<Compiler>
+-			<Add option="-pipe" />
+-			<Add option="-mthreads" />
+-			<Add option="-Winvalid-pch" />
+-			<Add option="-D__GNUWIN32__" />
+-			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DUSE_PCH" />
+-			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\mswu" />
+-		</Compiler>
+-		<ResourceCompiler>
+-			<Add directory="$(#WX)\include" />
+-		</ResourceCompiler>
+-		<Linker>
+-			<Add library="wxmsw26u" />
+-			<Add directory="$(#WX.lib)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-		</Linker>
+-		<Unit filename="wx_pch.h">
+-			<Option compilerVar="CPP" />
+-			<Option link="0" />
+-			<Option weight="0" />
+-			<Option target="default" />
+-		</Unit>
+-	</Project>
+-</CodeBlocks_project_file>
+-- 
+2.7.1.windows.2
+

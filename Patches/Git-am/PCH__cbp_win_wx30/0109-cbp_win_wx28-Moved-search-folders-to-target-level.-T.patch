@@ -1,0 +1,43 @@
+From 7d4473cd43d9382146857190bf4dbf021c03e6b7 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 2 Jan 2016 01:36:18 -0500
+Subject: [PATCH 109/159] - cbp_win_wx28: Moved search folders to target level.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/help_plugin/help-plugin.cbp | 16 +++++++---------
+ 1 file changed, 7 insertions(+), 9 deletions(-)
+
+diff --git a/src/plugins/contrib/help_plugin/help-plugin.cbp b/src/plugins/contrib/help_plugin/help-plugin.cbp
+index e708ce5..af92550 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin.cbp
+@@ -60,4 +60,11 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="$(#WX.include)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
++					<Add directory="../../../include/scripting/bindings" />
++					<Add directory="../../../include/scripting/include" />
++					<Add directory="../../../include/scripting/sqplus" />
+ 					<Add directory="bzip2" />
+ 					<Add directory="zlib" />
+@@ -87,13 +94,4 @@
+ 			<Add alias="All" targets="bzip2;zlib;help_plugin;" />
+ 		</VirtualTargets>
+-		<Compiler>
+-			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+-			<Add directory="../../../include" />
+-			<Add directory="../../../sdk/wxscintilla/include" />
+-			<Add directory="../../../include/scripting/bindings" />
+-			<Add directory="../../../include/scripting/include" />
+-			<Add directory="../../../include/scripting/sqplus" />
+-		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#WX.include)" />
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,106 @@
+From 66fa59162ed606025cb71fa506d67d20847b6fbf Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 13:37:20 -0500
+Subject: [PATCH 014/159] * src: Added needed wx headers. (Thanks stahta01)
+
+And, removed unneeded wx includes from header files.
+Also, removed "wx/wx.h" from source files.
+---
+ src/src/app.h                    | 15 ---------------
+ src/src/main.cpp                 |  4 ++++
+ src/src/scriptconsole.h          |  5 -----
+ src/src/switcherdlg.cpp          |  2 +-
+ src/src/switcherdlg.h            |  1 +
+ src/src/virtualbuildtargetsdlg.h |  5 -----
+ 6 files changed, 6 insertions(+), 26 deletions(-)
+
+diff --git a/src/src/app.h b/src/src/app.h
+index a5e053f..6ec312d 100644
+--- a/src/src/app.h
++++ b/src/src/app.h
+@@ -7,19 +7,4 @@
+ #define CODEBLOCKS_APP_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#if !defined(WX_PRECOMP)
+-    #include <wx/wx.h>
+-    #include <wx/intl.h>
+-    #include <wx/laywin.h>
+-    #include <wx/image.h>
+-    #include <wx/filename.h>
+-    #include <wx/hashmap.h>
+-    #include <wx/docview.h> // recent files history
+-#endif
+ 
+ #if defined(__WXGTK__) || defined(__WXMOTIF__) || defined(__WXMAC__) || defined(__WXMGL__) || defined(__WXX11__)
+diff --git a/src/src/main.cpp b/src/src/main.cpp
+index 0417e2c..3654e16 100644
+--- a/src/src/main.cpp
++++ b/src/src/main.cpp
+@@ -10,4 +10,8 @@
+ #include <sdk.h>
+ 
++#include <wx/dcclient.h>
++#include <wx/filedlg.h>
++#include <wx/textdlg.h>
++
+ #include "app.h"
+ #include "appglobals.h"
+diff --git a/src/src/scriptconsole.h b/src/src/scriptconsole.h
+index 464b193..82af0b9 100644
+--- a/src/src/scriptconsole.h
++++ b/src/src/scriptconsole.h
+@@ -7,9 +7,4 @@
+ #define SCRIPTCONSOLE_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+ 
+ //(*Headers(ScriptConsole)
+diff --git a/src/src/switcherdlg.cpp b/src/src/switcherdlg.cpp
+index 5114282..2a70d15 100644
+--- a/src/src/switcherdlg.cpp
++++ b/src/src/switcherdlg.cpp
+@@ -10,6 +10,6 @@
+ /////////////////////////////////////////////////////////////////////////////
+ 
+-#include <wx/wx.h>
+ 
++#include <wx/sizer.h>
+ #include <wx/settings.h>
+ #include <wx/dcbuffer.h>
+diff --git a/src/src/switcherdlg.h b/src/src/switcherdlg.h
+index b23e516..9e59332 100644
+--- a/src/src/switcherdlg.h
++++ b/src/src/switcherdlg.h
+@@ -13,4 +13,5 @@
+ #define _WX_SWITCHERDLG_H_
+ 
++#include <wx/control.h>
+ #include <wx/dynarray.h>
+ #include <wx/html/htmlwin.h>
+diff --git a/src/src/virtualbuildtargetsdlg.h b/src/src/virtualbuildtargetsdlg.h
+index 4217ecf..662183f 100644
+--- a/src/src/virtualbuildtargetsdlg.h
++++ b/src/src/virtualbuildtargetsdlg.h
+@@ -7,9 +7,4 @@
+ #define VIRTUALBUILDTARGETSDLG_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+ 
+ //(*Headers(VirtualBuildTargetsDlg)
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,62 @@
+From c86cca6dde3f6d2a2dd3164f375e00a9e9792746 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 10 Nov 2015 10:36:43 -0500
+Subject: [PATCH 108/159] * help_plugin: Fixed to use just bzip2 and z in the
+ library link list.(Thanks stahta01)
+
+And, added the library search paths of bzip2 and zlib.
+Did not test the 64 bit changes worked using bzip2_64 and z_64 libs.
+---
+ src/plugins/contrib/help_plugin/help-plugin.cbp         | 6 ++++--
+ src/plugins/contrib/help_plugin/help-plugin_wx30.cbp    | 6 ++++--
+ src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp | 6 ++++--
+ 3 files changed, 12 insertions(+), 6 deletions(-)
+
+diff --git a/src/plugins/contrib/help_plugin/help-plugin.cbp b/src/plugins/contrib/help_plugin/help-plugin.cbp
+index 7015570..e708ce5 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin.cbp
+@@ -65,6 +65,8 @@
+ 				<Linker>
+ 					<Add option="-mthreads" />
+-					<Add library="bzip2\libbzip2.a" />
+-					<Add library="zlib\libz.a" />
++					<Add library="bzip2" />
++					<Add library="z" />
++					<Add directory="bzip2" />
++					<Add directory="zlib" />
+ 				</Linker>
+ 				<ExtraCommands>
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
+index 54a8521..928f3b7 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
+@@ -63,6 +63,8 @@
+ 				<Linker>
+ 					<Add option="-mthreads" />
+-					<Add library="bzip2\libbzip2.a" />
+-					<Add library="zlib\libz.a" />
++					<Add library="bzip2" />
++					<Add library="z" />
++					<Add directory="bzip2" />
++					<Add directory="zlib" />
+ 				</Linker>
+ 				<ExtraCommands>
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
+index a58b339..25c5bb0 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
+@@ -64,6 +64,8 @@
+ 				<Linker>
+ 					<Add option="-mthreads" />
+-					<Add library="bzip2\libbzip2_64.a" />
+-					<Add library="zlib\libz_64.a" />
++					<Add library="bzip2_64" />
++					<Add library="z_64" />
++					<Add directory="bzip2" />
++					<Add directory="zlib" />
+ 				</Linker>
+ 				<ExtraCommands>
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,3363 @@
+From 5c879287ff41de2f0c8ba1a2f8ab85090b7d62de Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 31 Jan 2016 16:03:12 -0500
+Subject: [PATCH 003/159] - win_cbp_wx28: Save-As Windows wx3.0 32 bit
+ projects. (Thanks stahta01)
+
+Using CB 15.12RC1 on Windows 7 32 bit using TDM GCC 5.1 32 bit compiler.
+---
+ .../contrib/AutoVersioning/AutoVersioning.cbp      |  19 +-
+ src/plugins/contrib/Cccc/Cccc.cbp                  |  19 +-
+ src/plugins/contrib/CppCheck/CppCheck.cbp          |  17 +-
+ src/plugins/contrib/Cscope/Cscope.cbp              |  19 +-
+ src/plugins/contrib/EditorConfig/EditorConfig.cbp  |  21 +-
+ src/plugins/contrib/EditorTweaks/EditorTweaks.cbp  |  20 +-
+ .../IncrementalSearch/IncrementalSearch.cbp        |  19 +-
+ src/plugins/contrib/MouseSap/MouseSap.cbp          |  19 +-
+ src/plugins/contrib/ReopenEditor/ReopenEditor.cbp  |  21 +-
+ src/plugins/contrib/ThreadSearch/ThreadSearch.cbp  |  35 +-
+ src/plugins/contrib/ToolsPlus/ToolsPlus.cbp        |  30 +-
+ src/plugins/contrib/byogames/byogames.cbp          |  21 +-
+ src/plugins/contrib/codestat/codestat.cbp          |  25 +-
+ src/plugins/contrib/copystrings/copystrings.cbp    |  19 +-
+ src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp |  39 +-
+ src/plugins/contrib/envvars/envvars.cbp            |  30 +-
+ src/plugins/contrib/headerfixup/headerfixup.cbp    |  25 +-
+ src/plugins/contrib/lib_finder/lib_finder.cbp      |  71 ++--
+ src/plugins/contrib/profiler/cbprofiler.cbp        |  25 +-
+ src/plugins/contrib/regex_testbed/RegExTestbed.cbp |  21 +-
+ src/plugins/contrib/rndgen/rndgen.cbp              |  19 +-
+ src/plugins/contrib/source_exporter/Exporter.cbp   | 345 ++++++++--------
+ src/plugins/contrib/symtab/symtab.cbp              |  25 +-
+ src/plugins/contrib/wxSmith/wxSmith.cbp            |  38 +-
+ .../contrib/wxSmithIExplore/wxsSmithIExplore.cbp   |  33 +-
+ src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp     | 444 ++++++++++-----------
+ src/plugins/headerguard/headerguard.cbp            |  18 +-
+ src/plugins/loghacker/loghacker.cbp                |  19 +-
+ src/plugins/modpoller/ModPoller.cbp                |  19 +-
+ src/plugins/tidycmt/tidycmt.cbp                    |  19 +-
+ src/tools/Addr2LineUI/Addr2LineUI.cbp              |  16 +-
+ src/tools/CBLauncher/CbLauncher.cbp                |  96 ++---
+ 32 files changed, 816 insertions(+), 790 deletions(-)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+index d14d29f..a9756a1 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+@@ -8,10 +8,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\AutoVersioning.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\AutoVersioning" />
++				<Option output="../../../devel/share/codeblocks/plugins/AutoVersioning.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/AutoVersioning" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -29,8 +30,8 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+@@ -39,6 +40,6 @@
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -48,6 +49,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+diff --git a/src/plugins/contrib/Cccc/Cccc.cbp b/src/plugins/contrib/Cccc/Cccc.cbp
+index 590aa74..47a393d 100644
+--- a/src/plugins/contrib/Cccc/Cccc.cbp
++++ b/src/plugins/contrib/Cccc/Cccc.cbp
+@@ -8,15 +8,16 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\Cccc.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\Cccc" />
++				<Option output="../../../devel/share/codeblocks/plugins/Cccc.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/Cccc" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -38,8 +39,8 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -50,6 +51,6 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+diff --git a/src/plugins/contrib/CppCheck/CppCheck.cbp b/src/plugins/contrib/CppCheck/CppCheck.cbp
+index 4abd895..cd9a739 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck.cbp
+@@ -8,10 +8,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\CppCheck.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\CppCheck" />
++				<Option output="../../../devel/share/codeblocks/plugins/CppCheck.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/CppCheck" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+@@ -38,8 +39,8 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -51,6 +52,6 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+diff --git a/src/plugins/contrib/Cscope/Cscope.cbp b/src/plugins/contrib/Cscope/Cscope.cbp
+index 6865c0c..a872fc7 100644
+--- a/src/plugins/contrib/Cscope/Cscope.cbp
++++ b/src/plugins/contrib/Cscope/Cscope.cbp
+@@ -7,14 +7,15 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\Cscope" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\Cscope" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/Cscope" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/Cscope" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance --no-check-associations -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -39,7 +40,7 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -50,6 +51,6 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<ExtraCommands>
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig.cbp b/src/plugins/contrib/EditorConfig/EditorConfig.cbp
+index 461a9df..803fbd8 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig.cbp
+@@ -8,11 +8,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\EditorConfig" prefix_auto="1" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\EditorConfig" />
++				<Option output="../../../devel/share/codeblocks/plugins/EditorConfig" prefix_auto="1" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/EditorConfig" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --no-dde --no-check-associations --multiple-instance --verbose -p debug" />
+-				<Option host_application=".\codeblocks.exe" />
++				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+@@ -31,14 +31,14 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#wx.include)" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -62,5 +62,5 @@
+ 		<Unit filename="EditorConfigUI.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="wxsmith\EditorConfigUI.wxs" />
++		<Unit filename="wxsmith/EditorConfigUI.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+@@ -71,4 +71,5 @@
+ 				</resources>
+ 			</wxsmith>
++			<envvars />
+ 		</Extensions>
+ 	</Project>
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+index 20d7c2d..eedaf6c 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+@@ -8,11 +8,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\EditorTweaks" prefix_auto="1" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\EditorTweaks" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/EditorTweaks" prefix_auto="1" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/EditorTweaks" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance --no-check-associations -ns -nd -p debug" />
+-				<Option host_application=".\codeblocks.exe" />
++				<Option host_application="./codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+@@ -31,14 +31,14 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#wx.include)" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -59,5 +59,5 @@
+ 		<Unit filename="EditorTweaksConfDlg.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="wxsmith\EditorTweaksConfDlg.wxs" />
++		<Unit filename="wxsmith/EditorTweaksConfDlg.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+index 9e30670..6949418 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+@@ -8,10 +8,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\IncrementalSearch" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\IncrementalSearch" />
++				<Option output="../../../devel/share/codeblocks/plugins/IncrementalSearch" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/IncrementalSearch" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+@@ -30,8 +31,8 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+@@ -39,6 +40,6 @@
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -49,6 +50,6 @@
+ 				</ExtraCommands>
+ 				<Environment>
+-					<Variable name="WX_SUFFIX" value="u" />
+ 					<Variable name="WX_CFG" value="" />
++					<Variable name="WX_SUFFIX" value="u" />
+ 				</Environment>
+ 			</Target>
+diff --git a/src/plugins/contrib/MouseSap/MouseSap.cbp b/src/plugins/contrib/MouseSap/MouseSap.cbp
+index 9e70e2d..23febe2 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap.cbp
+@@ -8,10 +8,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\MouseSap" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\MouseSap" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/MouseSap" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/MouseSap" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+@@ -31,7 +32,7 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -39,6 +40,6 @@
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -47,6 +48,6 @@
+ 				</ExtraCommands>
+ 				<Environment>
+-					<Variable name="WX_SUFFIX" value="u" />
+ 					<Variable name="WX_CFG" value="" />
++					<Variable name="WX_SUFFIX" value="u" />
+ 				</Environment>
+ 			</Target>
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+index e2102ac..4b5f808 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+@@ -8,10 +8,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\ReopenEditor" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\ReopenEditor" />
++				<Option output="../../../devel/share/codeblocks/plugins/ReopenEditor" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/ReopenEditor" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+@@ -30,8 +31,8 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
++					<Add directory="../../../include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -39,6 +40,6 @@
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -47,6 +48,6 @@
+ 				</ExtraCommands>
+ 				<Environment>
+-					<Variable name="WX_SUFFIX" value="u" />
+ 					<Variable name="WX_CFG" value="" />
++					<Variable name="WX_SUFFIX" value="u" />
+ 				</Environment>
+ 			</Target>
+@@ -62,5 +63,5 @@
+ 		<Unit filename="ReopenEditorListView.h" />
+ 		<Unit filename="manifest.xml" />
+-		<Unit filename="wxsmith\ReopenEditorConfDLg.wxs" />
++		<Unit filename="wxsmith/ReopenEditorConfDLg.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+diff --git a/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp b/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+index 742c877..899ac37 100644
+--- a/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
++++ b/src/plugins/contrib/ThreadSearch/ThreadSearch.cbp
+@@ -7,11 +7,12 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\ThreadSearch.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\ThreadSearch" />
+-				<Option external_deps="..\..\..\devel\wxcustombutton.dll;" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/ThreadSearch.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/ThreadSearch" />
++				<Option external_deps="../../../devel/wxcustombutton.dll;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -21,11 +22,11 @@
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="wxcustombutton" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -50,15 +51,15 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\wxContribItems\wxthings\include" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../wxContribItems/wxthings/include" />
+ 		</Compiler>
+ 		<Linker>
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+index 03c7c20..5692c34 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus.cbp
+@@ -7,10 +7,10 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\ToolsPlus" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\ToolsPlus" />
++				<Option output="../../../devel/share/codeblocks/plugins/ToolsPlus" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/ToolsPlus" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+@@ -21,6 +21,6 @@
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="gdi32" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 			</Target>
+@@ -48,14 +48,14 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<Linker>
+@@ -71,5 +71,5 @@
+ 		<Unit filename="PipedProcessCtrl.cpp" />
+ 		<Unit filename="PipedProcessCtrl.h" />
+-		<Unit filename="Resources\dialogs.fbp" />
++		<Unit filename="Resources/dialogs.fbp" />
+ 		<Unit filename="ShellCtrlBase.cpp" />
+ 		<Unit filename="ShellCtrlBase.h" />
+diff --git a/src/plugins/contrib/byogames/byogames.cbp b/src/plugins/contrib/byogames/byogames.cbp
+index 314f185..7f7e6e4 100644
+--- a/src/plugins/contrib/byogames/byogames.cbp
++++ b/src/plugins/contrib/byogames/byogames.cbp
+@@ -7,14 +7,15 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\byogames.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\byogames" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/byogames.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/byogames" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -39,8 +40,8 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\tinyxml" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/tinyxml" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -52,6 +53,6 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<ExtraCommands>
+diff --git a/src/plugins/contrib/codestat/codestat.cbp b/src/plugins/contrib/codestat/codestat.cbp
+index 4b319ac..bf6557b 100644
+--- a/src/plugins/contrib/codestat/codestat.cbp
++++ b/src/plugins/contrib/codestat/codestat.cbp
+@@ -8,15 +8,16 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\codestat.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\codestat" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/codestat.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/codestat" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectCompilerOptionsRelation="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -38,8 +39,8 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -51,6 +52,6 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+@@ -65,7 +66,7 @@
+ 		<Unit filename="codestatexec.h" />
+ 		<Unit filename="language_def.h" />
+-		<Unit filename="resources\config_dialog.xrc" />
+-		<Unit filename="resources\main_dialog.xrc" />
+-		<Unit filename="resources\manifest.xml" />
++		<Unit filename="resources/config_dialog.xrc" />
++		<Unit filename="resources/main_dialog.xrc" />
++		<Unit filename="resources/manifest.xml" />
+ 		<Extensions>
+ 			<code_completion />
+diff --git a/src/plugins/contrib/copystrings/copystrings.cbp b/src/plugins/contrib/copystrings/copystrings.cbp
+index 56c35b6..d31a3c4 100644
+--- a/src/plugins/contrib/copystrings/copystrings.cbp
++++ b/src/plugins/contrib/copystrings/copystrings.cbp
+@@ -7,14 +7,15 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\copystrings.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\copystrings" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/copystrings.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/copystrings" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -39,7 +40,7 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -50,6 +51,6 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<ExtraCommands>
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+index d6ab36c..a691278 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin.cbp
+@@ -9,7 +9,7 @@
+ 		<Build>
+ 			<Target title="libbz2">
+-				<Option output="bzip2\libbz2.a" prefix_auto="0" extension_auto="0" />
++				<Option output="bzip2/libbz2.a" prefix_auto="0" extension_auto="0" />
+ 				<Option working_dir="" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\devpak_plugin" />
++				<Option object_output="../../../.objs/plugins/contrib/devpak_plugin" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+@@ -22,10 +22,11 @@
+ 			</Target>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\devpakupdater.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\devpak_plugin" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/devpakupdater.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/devpak_plugin" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectResourceIncludeDirsRelation="0" />
+ 				<Compiler>
+@@ -43,10 +44,10 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
++					<Add directory="../../../include" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add option="-mthreads" />
+ 					<Add library="bz2" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -56,6 +57,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -66,5 +67,5 @@
+ 			<Add directory="bzip2" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -76,37 +77,37 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add directory="bzip2" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+-		<Unit filename="bzip2\blocksort.c">
++		<Unit filename="bzip2/blocksort.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib.c">
++		<Unit filename="bzip2/bzlib.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib.h">
++		<Unit filename="bzip2/bzlib.h">
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\bzlib_private.h">
++		<Unit filename="bzip2/bzlib_private.h">
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\compress.c">
++		<Unit filename="bzip2/compress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\crctable.c">
++		<Unit filename="bzip2/crctable.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\decompress.c">
++		<Unit filename="bzip2/decompress.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\huffman.c">
++		<Unit filename="bzip2/huffman.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+ 		</Unit>
+-		<Unit filename="bzip2\randtable.c">
++		<Unit filename="bzip2/randtable.c">
+ 			<Option compilerVar="CC" />
+ 			<Option target="libbz2" />
+diff --git a/src/plugins/contrib/envvars/envvars.cbp b/src/plugins/contrib/envvars/envvars.cbp
+index cd58b83..0573c34 100644
+--- a/src/plugins/contrib/envvars/envvars.cbp
++++ b/src/plugins/contrib/envvars/envvars.cbp
+@@ -9,10 +9,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\envvars.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\envvars" />
++				<Option output="../../../devel/share/codeblocks/plugins/envvars.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/envvars" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-DCB_PRECOMP" />
+@@ -21,10 +22,11 @@
+ 			</Target>
+ 			<Target title="no_pch">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\envvars.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\envvars" />
++				<Option output="../../../devel/share/codeblocks/plugins/envvars.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/envvars" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-DNOPCH" />
+@@ -51,11 +53,11 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\include\scripting\include" />
+-			<Add directory="..\..\..\include\scripting\sqplus" />
+-			<Add directory="..\..\..\include\scripting\bindings" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../include/scripting/include" />
++			<Add directory="../../../include/scripting/sqplus" />
++			<Add directory="../../../include/scripting/bindings" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.INCLUDE)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -66,6 +68,6 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+diff --git a/src/plugins/contrib/headerfixup/headerfixup.cbp b/src/plugins/contrib/headerfixup/headerfixup.cbp
+index d726ccd..f15e544 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup.cbp
+@@ -8,10 +8,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\headerfixup" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\headerfixup" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/headerfixup" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/headerfixup" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -30,11 +31,11 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -44,6 +45,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -74,7 +75,7 @@
+ 		<Unit filename="protocol.h" />
+ 		<Unit filename="todo.txt" />
+-		<Unit filename="wxsmith\configuration.wxs" />
+-		<Unit filename="wxsmith\execution.wxs" />
+-		<Unit filename="wxsmith\protocol.wxs" />
++		<Unit filename="wxsmith/configuration.wxs" />
++		<Unit filename="wxsmith/execution.wxs" />
++		<Unit filename="wxsmith/protocol.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+diff --git a/src/plugins/contrib/lib_finder/lib_finder.cbp b/src/plugins/contrib/lib_finder/lib_finder.cbp
+index 9232990..4fe57cd 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder.cbp
+@@ -8,16 +8,17 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\lib_finder.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\lib_finder" />
+-				<Option external_deps="..\..\..\devel\wxflatnotebook.dll;" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/lib_finder.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/lib_finder" />
++				<Option external_deps="../../../devel/wxflatnotebook.dll;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectResourceIncludeDirsRelation="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -42,19 +43,19 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\tinyxml" />
+-			<Add directory="..\..\..\include\scripting\include" />
+-			<Add directory="..\..\..\include\scripting\sqplus" />
+-			<Add directory="..\..\..\include\scripting\squirrel" />
+-			<Add directory="..\..\..\include\scripting\bindings" />
+-			<Add directory="..\wxContribItems\wxFlatNotebook\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/tinyxml" />
++			<Add directory="../../../include/scripting/include" />
++			<Add directory="../../../include/scripting/sqplus" />
++			<Add directory="../../../include/scripting/squirrel" />
++			<Add directory="../../../include/scripting/bindings" />
++			<Add directory="../wxContribItems/wxFlatNotebook/include" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -67,7 +68,7 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="..\..\..\base\tinyxml" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="../../../base/tinyxml" />
+ 		</Linker>
+ 		<ExtraCommands>
+@@ -83,8 +84,8 @@
+ 		<Unit filename="lib_finder.cpp" />
+ 		<Unit filename="lib_finder.h" />
+-		<Unit filename="lib_finder\codeblocks_sdk.xml" />
+-		<Unit filename="lib_finder\glfw.xml" />
+-		<Unit filename="lib_finder\readme.txt" />
+-		<Unit filename="lib_finder\wxwidgets.xml" />
++		<Unit filename="lib_finder/codeblocks_sdk.xml" />
++		<Unit filename="lib_finder/glfw.xml" />
++		<Unit filename="lib_finder/readme.txt" />
++		<Unit filename="lib_finder/wxwidgets.xml" />
+ 		<Unit filename="librariesdlg.cpp" />
+ 		<Unit filename="librariesdlg.h" />
+@@ -111,12 +112,12 @@
+ 		<Unit filename="webresourcesmanager.cpp" />
+ 		<Unit filename="webresourcesmanager.h" />
+-		<Unit filename="wxsmith\DefsDownloadDlg.wxs" />
+-		<Unit filename="wxsmith\DirListDlg.wxs" />
+-		<Unit filename="wxsmith\HeadersDetectorDlg.wxs" />
+-		<Unit filename="wxsmith\LibSelectDlg.wxs" />
+-		<Unit filename="wxsmith\LibrariesDlg.wxs" />
+-		<Unit filename="wxsmith\ProcessingDlg.wxs" />
+-		<Unit filename="wxsmith\ProjectConfigurationPanel.wxs" />
+-		<Unit filename="wxsmith\ProjectMissingLibs.wxs" />
++		<Unit filename="wxsmith/DefsDownloadDlg.wxs" />
++		<Unit filename="wxsmith/DirListDlg.wxs" />
++		<Unit filename="wxsmith/HeadersDetectorDlg.wxs" />
++		<Unit filename="wxsmith/LibSelectDlg.wxs" />
++		<Unit filename="wxsmith/LibrariesDlg.wxs" />
++		<Unit filename="wxsmith/ProcessingDlg.wxs" />
++		<Unit filename="wxsmith/ProjectConfigurationPanel.wxs" />
++		<Unit filename="wxsmith/ProjectMissingLibs.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+diff --git a/src/plugins/contrib/profiler/cbprofiler.cbp b/src/plugins/contrib/profiler/cbprofiler.cbp
+index 551f870..6f2bff2 100644
+--- a/src/plugins/contrib/profiler/cbprofiler.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler.cbp
+@@ -8,14 +8,15 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\Profiler.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\profiler" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/Profiler.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/profiler" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -38,8 +39,8 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -51,6 +52,6 @@
+ 			<Add library="codeblocks" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+@@ -64,7 +65,7 @@
+ 		<Unit filename="cbprofilerexec.cpp" />
+ 		<Unit filename="cbprofilerexec.h" />
+-		<Unit filename="resources\configuration.xrc" />
+-		<Unit filename="resources\main_dialog.xrc" />
+-		<Unit filename="resources\manifest.xml" />
++		<Unit filename="resources/configuration.xrc" />
++		<Unit filename="resources/main_dialog.xrc" />
++		<Unit filename="resources/manifest.xml" />
+ 		<Extensions>
+ 			<code_completion />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+index f7051ae..f2213bd 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+@@ -9,11 +9,12 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\RegExTestbed" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\regex_testbed" />
+-				<Option external_deps="..\..\..\devel\libcodeblocks.a;" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/RegExTestbed" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/regex_testbed" />
++				<Option external_deps="../../../devel/libcodeblocks.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -25,6 +26,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -49,7 +50,7 @@
+ 			<Add option="-DSUPPORT_UTF8" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -62,6 +63,6 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="..\..\..\devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
+ 		</Linker>
+ 		<Unit filename="RegExTestbed.cpp" />
+diff --git a/src/plugins/contrib/rndgen/rndgen.cbp b/src/plugins/contrib/rndgen/rndgen.cbp
+index 64f5b49..59361aa 100644
+--- a/src/plugins/contrib/rndgen/rndgen.cbp
++++ b/src/plugins/contrib/rndgen/rndgen.cbp
+@@ -8,9 +8,10 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\rndgen" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\rndgen" />
++				<Option output="../../../devel/share/codeblocks/plugins/rndgen" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/rndgen" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -28,14 +29,14 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -45,6 +46,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+diff --git a/src/plugins/contrib/source_exporter/Exporter.cbp b/src/plugins/contrib/source_exporter/Exporter.cbp
+index a4bb2c7..7d2dfe9 100644
+--- a/src/plugins/contrib/source_exporter/Exporter.cbp
++++ b/src/plugins/contrib/source_exporter/Exporter.cbp
+@@ -9,7 +9,7 @@
+ 		<Build>
+ 			<Target title="wxPdfDocument">
+-				<Option output="wxPdfDocument\lib\wxPdfDocument" prefix_auto="1" extension_auto="1" />
++				<Option output="wxPdfDocument/lib/wxPdfDocument" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+@@ -21,7 +21,7 @@
+ 			</Target>
+ 			<Target title="makefont">
+-				<Option output="wxPdfDocument\makefont\makefont" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="wxPdfDocument\makefont" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
++				<Option output="wxPdfDocument/makefont/makefont" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="wxPdfDocument/makefont" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+@@ -29,11 +29,11 @@
+ 					<Add library="wxPdfDocument" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="minimal">
+-				<Option output="wxPdfDocument\samples\minimal\minimal" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="wxPdfDocument\samples\minimal" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
++				<Option output="wxPdfDocument/samples/minimal/minimal" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="wxPdfDocument/samples/minimal" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+@@ -41,11 +41,11 @@
+ 					<Add library="wxPdfDocument" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="pdfdc">
+-				<Option output="wxPdfDocument\samples\pdfdcl\pdfdc" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="wxPdfDocument\samples\pdfdc" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
++				<Option output="wxPdfDocument/samples/pdfdcl/pdfdc" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="wxPdfDocument/samples/pdfdc" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+@@ -53,15 +53,16 @@
+ 					<Add library="wxPdfDocument" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\Exporter" prefix_auto="0" extension_auto="1" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\source_exporter" />
+-				<Option external_deps="wxPdfDocument\lib\libwxPdfDocument.a;" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/Exporter" prefix_auto="0" extension_auto="1" />
++				<Option object_output="../../../.objs/plugins/contrib/source_exporter" />
++				<Option external_deps="wxPdfDocument/lib/libwxPdfDocument.a;" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
+@@ -69,6 +70,6 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+@@ -77,6 +78,6 @@
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="gdi32" />
+-					<Add directory="..\..\..\devel" />
+-					<Add directory="wxPdfDocument\lib" />
++					<Add directory="../../../devel" />
++					<Add directory="wxPdfDocument/lib" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -86,6 +87,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -107,6 +108,6 @@
+ 			<Add option="-DwxPDF_USE_WXMODULE=0" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="wxPdfDocument\include" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="wxPdfDocument/include" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -115,5 +116,5 @@
+ 		<Linker>
+ 			<Add option="-mthreads" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="BaseExporter.cpp">
+@@ -156,443 +157,443 @@
+ 			<Option target="default" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfannotation.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfannotation.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfarraydouble.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfarraydouble.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfarraytypes.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfarraytypes.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfbarcode.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfbarcode.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfbookmark.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfbookmark.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcffdecoder.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcffdecoder.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcffindex.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcffindex.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcjkfontdata.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcjkfontdata.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcolour.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcolour.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcoonspatchmesh.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcoonspatchmesh.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfcorefontdata.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfcorefontdata.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdc.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdc.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdc28.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdc28.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdc29.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdc29.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdoc.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdoc.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdocdef.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdocdef.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfdocument.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfdocument.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfencoding.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfencoding.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfencrypt.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfencrypt.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffont.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffont.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdata.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdata.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdatacore.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdatacore.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdataopentype.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdataopentype.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdatatruetype.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdatatruetype.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdatatype0.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdatatype0.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdatatype1.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdatatype1.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdescription.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdescription.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontdetails.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontdetails.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontextended.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontextended.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontmacosx.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontmacosx.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontmanager.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontmanager.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontparser.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontparser.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontparsertruetype.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontparsertruetype.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontparsertype1.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontparsertype1.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontsubsetcff.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontsubsetcff.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontsubsettruetype.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontsubsettruetype.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdffontvolt.h">
++		<Unit filename="wxPdfDocument/include/wx/pdffontvolt.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfform.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfform.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfgradient.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfgradient.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfgraphics.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfgraphics.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfimage.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfimage.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfinfo.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfinfo.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdflayer.h">
++		<Unit filename="wxPdfDocument/include/wx/pdflayer.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdflinestyle.h">
++		<Unit filename="wxPdfDocument/include/wx/pdflinestyle.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdflinks.h">
++		<Unit filename="wxPdfDocument/include/wx/pdflinks.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfobjects.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfobjects.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfparser.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfparser.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfpattern.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfpattern.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfprint.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfprint.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfproperties.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfproperties.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfrijndael.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfrijndael.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfshape.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfshape.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfspotcolour.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfspotcolour.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdftemplate.h">
++		<Unit filename="wxPdfDocument/include/wx/pdftemplate.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfutility.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfutility.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\include\wx\pdfxml.h">
++		<Unit filename="wxPdfDocument/include/wx/pdfxml.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\makefont\makefont.cpp">
++		<Unit filename="wxPdfDocument/makefont/makefont.cpp">
+ 			<Option target="makefont" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\makefont\makefont.rc">
++		<Unit filename="wxPdfDocument/makefont/makefont.rc">
+ 			<Option compilerVar="WINDRES" />
+ 			<Option target="makefont" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\barcodes.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/barcodes.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\bookmark.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/bookmark.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\charting.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/charting.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\cjktest.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/cjktest.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\clipping.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/clipping.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\drawing.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/drawing.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\glyphwriting.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/glyphwriting.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\gradients.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/gradients.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\indicfonts.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/indicfonts.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\jsform.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/jsform.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\kerning.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/kerning.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\labels.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/labels.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\layers.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/layers.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\minimal.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/minimal.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\minimal.rc">
++		<Unit filename="wxPdfDocument/samples/minimal/minimal.rc">
+ 			<Option compilerVar="WINDRES" />
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\protection.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/protection.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\rotation.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/rotation.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\templates.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/templates.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\transformation.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/transformation.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\transparency.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/transparency.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial1.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial1.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial2.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial2.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial3.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial3.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial4.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial4.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial5.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial5.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial6.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial6.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\tutorial7.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/tutorial7.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\wmf.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/wmf.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\minimal\xmlwrite.cpp">
++		<Unit filename="wxPdfDocument/samples/minimal/xmlwrite.cpp">
+ 			<Option target="minimal" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\mondrian.ico">
++		<Unit filename="wxPdfDocument/samples/pdfdc/mondrian.ico">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\mondrian.xpm">
++		<Unit filename="wxPdfDocument/samples/pdfdc/mondrian.xpm">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\printing.cpp">
++		<Unit filename="wxPdfDocument/samples/pdfdc/printing.cpp">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\printing.h">
++		<Unit filename="wxPdfDocument/samples/pdfdc/printing.h">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\printing.rc">
++		<Unit filename="wxPdfDocument/samples/pdfdc/printing.rc">
+ 			<Option compilerVar="WINDRES" />
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\smile.jpg">
++		<Unit filename="wxPdfDocument/samples/pdfdc/smile.jpg">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\samples\pdfdc\up.gif">
++		<Unit filename="wxPdfDocument/samples/pdfdc/up.gif">
+ 			<Option target="pdfdc" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfannotation.cpp">
++		<Unit filename="wxPdfDocument/src/pdfannotation.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfbarcode.cpp">
++		<Unit filename="wxPdfDocument/src/pdfbarcode.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcffdecoder.cpp">
++		<Unit filename="wxPdfDocument/src/pdfcffdecoder.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcffindex.cpp">
++		<Unit filename="wxPdfDocument/src/pdfcffindex.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcjkfontdata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcjkfontdata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcmapdata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcmapdata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcodepagedata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcodepagedata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcolour.cpp">
++		<Unit filename="wxPdfDocument/src/pdfcolour.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcolourdata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcolourdata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcorefontdata.inc">
++		<Unit filename="wxPdfDocument/src/pdfcorefontdata.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfcorefontkerning.inc">
++		<Unit filename="wxPdfDocument/src/pdfcorefontkerning.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdc.cpp">
++		<Unit filename="wxPdfDocument/src/pdfdc.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdc28.inc">
++		<Unit filename="wxPdfDocument/src/pdfdc28.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdc29.inc">
++		<Unit filename="wxPdfDocument/src/pdfdc29.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdecode.cpp">
++		<Unit filename="wxPdfDocument/src/pdfdecode.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfdocument.cpp">
++		<Unit filename="wxPdfDocument/src/pdfdocument.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfencoding.cpp">
++		<Unit filename="wxPdfDocument/src/pdfencoding.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfencrypt.cpp">
++		<Unit filename="wxPdfDocument/src/pdfencrypt.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffont.cpp">
++		<Unit filename="wxPdfDocument/src/pdffont.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdata.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdata.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdatacore.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdatacore.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdataopentype.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdataopentype.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdatatruetype.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdatatruetype.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdatatype0.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdatatype0.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdatatype1.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdatatype1.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdescription.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdescription.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontdetails.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontdetails.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontextended.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontextended.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontmanager.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontmanager.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontparser.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontparser.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontparsertruetype.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontparsertruetype.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontparsertype1.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontparsertype1.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontsubsetcff.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontsubsetcff.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontsubsettruetype.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontsubsettruetype.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdffontvolt.cpp">
++		<Unit filename="wxPdfDocument/src/pdffontvolt.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfform.cpp">
++		<Unit filename="wxPdfDocument/src/pdfform.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfglyphnames.inc">
++		<Unit filename="wxPdfDocument/src/pdfglyphnames.inc">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfgradient.cpp">
++		<Unit filename="wxPdfDocument/src/pdfgradient.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfgraphics.cpp">
++		<Unit filename="wxPdfDocument/src/pdfgraphics.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfimage.cpp">
++		<Unit filename="wxPdfDocument/src/pdfimage.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfkernel.cpp">
++		<Unit filename="wxPdfDocument/src/pdfkernel.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdflayer.cpp">
++		<Unit filename="wxPdfDocument/src/pdflayer.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfobjects.cpp">
++		<Unit filename="wxPdfDocument/src/pdfobjects.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfocg.cpp">
++		<Unit filename="wxPdfDocument/src/pdfocg.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfparser.cpp">
++		<Unit filename="wxPdfDocument/src/pdfparser.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfpattern.cpp">
++		<Unit filename="wxPdfDocument/src/pdfpattern.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfprint.cpp">
++		<Unit filename="wxPdfDocument/src/pdfprint.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfrijndael.cpp">
++		<Unit filename="wxPdfDocument/src/pdfrijndael.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdftemplate.cpp">
++		<Unit filename="wxPdfDocument/src/pdftemplate.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfutility.cpp">
++		<Unit filename="wxPdfDocument/src/pdfutility.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\pdfxml.cpp">
++		<Unit filename="wxPdfDocument/src/pdfxml.cpp">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+-		<Unit filename="wxPdfDocument\src\wxmemdbg.h">
++		<Unit filename="wxPdfDocument/src/wxmemdbg.h">
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
+diff --git a/src/plugins/contrib/symtab/symtab.cbp b/src/plugins/contrib/symtab/symtab.cbp
+index a377c17..6b98cc2 100644
+--- a/src/plugins/contrib/symtab/symtab.cbp
++++ b/src/plugins/contrib/symtab/symtab.cbp
+@@ -9,10 +9,11 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\..\devel\share\CodeBlocks\plugins\SymTab.dll" prefix_auto="0" extension_auto="0" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\symtab" />
++				<Option output="../../../devel/share/CodeBlocks/plugins/SymTab.dll" prefix_auto="0" extension_auto="0" />
++				<Option object_output="../../../.objs/plugins/contrib/symtab" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="-Wall" />
+@@ -20,6 +21,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -42,8 +43,8 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -55,6 +56,6 @@
+ 			<Add library="codeblocks" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="../../../devel" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<ExtraCommands>
+@@ -62,7 +63,7 @@
+ 			<Mode after="always" />
+ 		</ExtraCommands>
+-		<Unit filename="resources\config_dialog.xrc" />
+-		<Unit filename="resources\exec_dialog.xrc" />
+-		<Unit filename="resources\manifest.xml" />
++		<Unit filename="resources/config_dialog.xrc" />
++		<Unit filename="resources/exec_dialog.xrc" />
++		<Unit filename="resources/manifest.xml" />
+ 		<Unit filename="symtab.cpp" />
+ 		<Unit filename="symtab.h" />
+diff --git a/src/plugins/contrib/wxSmith/wxSmith.cbp b/src/plugins/contrib/wxSmith/wxSmith.cbp
+index c23fb4e..f0e656c 100644
+--- a/src/plugins/contrib/wxSmith/wxSmith.cbp
++++ b/src/plugins/contrib/wxSmith/wxSmith.cbp
+@@ -24,5 +24,5 @@
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log --multiple-instance -na -ns -nd -p debug" />
+-				<Option host_application="..\..\..\devel\codeblocks.exe" />
++				<Option host_application="../../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Linker>
+@@ -55,19 +55,19 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 			<Add directory="$(#WX.include)" />
+-			<Add directory="..\..\..\include" />
+-			<Add directory="..\..\..\sdk\wxpropgrid\include" />
+-			<Add directory="..\..\..\sdk\wxscintilla\include" />
+-			<Add directory="..\..\..\include\scripting\include" />
+-			<Add directory="..\..\..\include\scripting\squirrel" />
+-			<Add directory="..\..\..\include\scripting\sqplus" />
+-			<Add directory="..\..\..\include\scripting\bindings" />
+-			<Add directory="..\..\..\include\mozilla_chardet" />
+-			<Add directory="..\..\..\include\mozilla_chardet\mfbt" />
+-			<Add directory="..\..\..\include\mozilla_chardet\nsprpub\pr\include" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\base" />
+-			<Add directory="..\..\..\include\mozilla_chardet\xpcom\glue" />
++			<Add directory="../../../include" />
++			<Add directory="../../../sdk/wxpropgrid/include" />
++			<Add directory="../../../sdk/wxscintilla/include" />
++			<Add directory="../../../include/scripting/include" />
++			<Add directory="../../../include/scripting/squirrel" />
++			<Add directory="../../../include/scripting/sqplus" />
++			<Add directory="../../../include/scripting/bindings" />
++			<Add directory="../../../include/mozilla_chardet" />
++			<Add directory="../../../include/mozilla_chardet/mfbt" />
++			<Add directory="../../../include/mozilla_chardet/nsprpub/pr/include" />
++			<Add directory="../../../include/mozilla_chardet/xpcom" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/base" />
++			<Add directory="../../../include/mozilla_chardet/xpcom/glue" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+@@ -83,8 +83,8 @@
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+ 			<Add library="codeblocks" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
+-			<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
+-			<Add directory="..\..\..\devel" />
+-			<Add directory="..\..\..\base\tinyxml" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
++			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../devel" />
++			<Add directory="../../../base/tinyxml" />
+ 		</Linker>
+ 		<ExtraCommands>
+diff --git a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
+index d726f87..508715d 100644
+--- a/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
++++ b/src/plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp
+@@ -8,7 +8,7 @@
+ 		<Build>
+ 			<Target title="IExplore">
+-				<Option output="..\..\..\devel\libIExplore" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel/IExplore" prefix_auto="1" extension_auto="1" />
+ 				<Option working_dir="" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\wxSmithIExplore\IExplore" />
++				<Option object_output="../../../.objs/plugins/contrib/wxSmithIExplore/IExplore" />
+ 				<Option type="2" />
+ 				<Option compiler="gcc" />
+@@ -16,11 +16,12 @@
+ 			</Target>
+ 			<Target title="wxSmithIExplore">
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\wxSmithIExplore" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\wxSmithIExplore" />
++				<Option output="../../../devel/share/codeblocks/plugins/wxSmithIExplore" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/wxSmithIExplore" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+ 				<Option parameters="--debug-log -na -ns -nd -p debug" />
+ 				<Option host_application="codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
+@@ -28,10 +29,10 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
+-					<Add directory="..\..\..\sdk\wxpropgrid\include" />
+-					<Add directory="..\wxSmith\properties" />
+-					<Add directory="..\wxSmith\wxwidgets" />
+-					<Add directory="..\wxSmith\wxwidgets\properties" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
++					<Add directory="../../../sdk/wxpropgrid/include" />
++					<Add directory="../wxSmith/properties" />
++					<Add directory="../wxSmith/wxwidgets" />
++					<Add directory="../wxSmith/wxwidgets/properties" />
+ 					<Add directory="images" />
+ 				</Compiler>
+@@ -45,5 +46,5 @@
+ 					<Add library="oleaut32" />
+ 					<Add library="gdi32" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -74,5 +75,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<Linker>
+@@ -81,5 +82,5 @@
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="IEHtmlWin.cpp">
+@@ -92,8 +93,8 @@
+ 			<Option target="IExplore" />
+ 		</Unit>
+-		<Unit filename="images\IE16.xpm">
++		<Unit filename="images/IE16.xpm">
+ 			<Option target="wxSmithIExplore" />
+ 		</Unit>
+-		<Unit filename="images\IE32.xpm">
++		<Unit filename="images/IE32.xpm">
+ 			<Option target="wxSmithIExplore" />
+ 		</Unit>
+diff --git a/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp b/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
+index edc2417..4cc64bb 100644
+--- a/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
++++ b/src/plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp
+@@ -9,7 +9,7 @@
+ 			<Target title="wxSTC">
+ 				<Option platforms="Windows;" />
+-				<Option output="..\..\..\devel\wxSTC" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\wxSmithSTC\wxSTC" />
++				<Option output="../../../devel/wxSTC" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/wxSmithSTC/wxSTC" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -25,7 +25,7 @@
+ 					<Add option="-DWXMAKINGDLL_STC" />
+ 					<Add directory="stc" />
+-					<Add directory="stc\include" />
+-					<Add directory="stc\scintilla\include" />
+-					<Add directory="stc\scintilla\src" />
++					<Add directory="stc/include" />
++					<Add directory="stc/scintilla/include" />
++					<Add directory="stc/scintilla/src" />
+ 				</Compiler>
+ 				<Linker>
+@@ -35,7 +35,7 @@
+ 			<Target title="wxSTEdit">
+ 				<Option platforms="Windows;" />
+-				<Option output="..\..\..\devel\wxSTEdit" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\wxSmithSTC\wxSTEdit" />
++				<Option output="../../../devel/wxSTEdit" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/wxSmithSTC/wxSTEdit" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -50,18 +50,18 @@
+ 					<Add option="-DLINK_LEXERS" />
+ 					<Add option="-DWXMAKINGDLL_STEDIT" />
+-					<Add directory="stedit\include" />
+-					<Add directory="stc\include" />
++					<Add directory="stedit/include" />
++					<Add directory="stc/include" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="gdi32" />
+ 					<Add library="wxSTC" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Target title="wxSmithSTC">
+ 				<Option platforms="Windows;" />
+-				<Option output="..\..\..\devel\share\codeblocks\plugins\wxSmithSTC" prefix_auto="0" extension_auto="1" />
+-				<Option working_dir="..\..\..\devel" />
+-				<Option object_output="..\..\..\.objs\plugins\contrib\wxSmithSTC" />
++				<Option output="../../../devel/share/codeblocks/plugins/wxSmithSTC" prefix_auto="0" extension_auto="1" />
++				<Option working_dir="../../../devel" />
++				<Option object_output="../../../.objs/plugins/contrib/wxSmithSTC" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -74,12 +74,12 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add directory="..\..\..\include" />
+-					<Add directory="..\..\..\sdk\wxpropgrid\include" />
+-					<Add directory="..\..\..\sdk\wxscintilla\include" />
+-					<Add directory="..\wxSmith\properties" />
+-					<Add directory="..\wxSmith\wxwidgets" />
+-					<Add directory="..\wxSmith\wxwidgets\properties" />
+-					<Add directory="stedit\include" />
+-					<Add directory="stc\include" />
++					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxpropgrid/include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
++					<Add directory="../wxSmith/properties" />
++					<Add directory="../wxSmith/wxwidgets" />
++					<Add directory="../wxSmith/wxwidgets/properties" />
++					<Add directory="stedit/include" />
++					<Add directory="stc/include" />
+ 					<Add directory="images" />
+ 				</Compiler>
+@@ -90,5 +90,5 @@
+ 					<Add library="wxpropgrid" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\..\devel" />
++					<Add directory="../../../devel" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -119,5 +119,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<Linker>
+@@ -127,22 +127,22 @@
+ 			<Add option="-Wl,--add-stdcall-alias" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+-		<Unit filename="images\RTF16.xpm">
++		<Unit filename="images/RTF16.xpm">
+ 			<Option target="wxSmithSTC" />
+ 		</Unit>
+-		<Unit filename="images\RTF32.xpm">
++		<Unit filename="images/RTF32.xpm">
+ 			<Option target="wxSmithSTC" />
+ 		</Unit>
+-		<Unit filename="images\STC16.xpm">
++		<Unit filename="images/STC16.xpm">
+ 			<Option target="wxSmithSTC" />
+ 		</Unit>
+-		<Unit filename="images\STC32.xpm">
++		<Unit filename="images/STC32.xpm">
+ 			<Option target="wxSmithSTC" />
+ 		</Unit>
+-		<Unit filename="images\STE16.xpm">
++		<Unit filename="images/STE16.xpm">
+ 			<Option target="wxSmithSTC" />
+ 		</Unit>
+-		<Unit filename="images\STE32.xpm">
++		<Unit filename="images/STE32.xpm">
+ 			<Option target="wxSmithSTC" />
+ 		</Unit>
+@@ -150,572 +150,572 @@
+ 			<Option target="wxSmithSTC" />
+ 		</Unit>
+-		<Unit filename="stc\PlatWX.cpp">
++		<Unit filename="stc/PlatWX.cpp">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\PlatWX.h">
++		<Unit filename="stc/PlatWX.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\ScintillaWX.cpp">
++		<Unit filename="stc/ScintillaWX.cpp">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\ScintillaWX.h">
++		<Unit filename="stc/ScintillaWX.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\include\wx\stc\stc.h">
++		<Unit filename="stc/include/wx/stc/stc.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\Accessor.h">
++		<Unit filename="stc/scintilla/include/Accessor.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\KeyWords.h">
++		<Unit filename="stc/scintilla/include/KeyWords.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\Platform.h">
++		<Unit filename="stc/scintilla/include/Platform.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\PropSet.h">
++		<Unit filename="stc/scintilla/include/PropSet.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\SString.h">
++		<Unit filename="stc/scintilla/include/SString.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\SciLexer.h">
++		<Unit filename="stc/scintilla/include/SciLexer.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\Scintilla.h">
++		<Unit filename="stc/scintilla/include/Scintilla.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\ScintillaWidget.h">
++		<Unit filename="stc/scintilla/include/ScintillaWidget.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\include\WindowAccessor.h">
++		<Unit filename="stc/scintilla/include/WindowAccessor.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\AutoComplete.cxx">
++		<Unit filename="stc/scintilla/src/AutoComplete.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\AutoComplete.h">
++		<Unit filename="stc/scintilla/src/AutoComplete.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\CallTip.cxx">
++		<Unit filename="stc/scintilla/src/CallTip.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\CallTip.h">
++		<Unit filename="stc/scintilla/src/CallTip.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\CellBuffer.cxx">
++		<Unit filename="stc/scintilla/src/CellBuffer.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\CellBuffer.h">
++		<Unit filename="stc/scintilla/src/CellBuffer.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\CharClassify.cxx">
++		<Unit filename="stc/scintilla/src/CharClassify.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\CharClassify.h">
++		<Unit filename="stc/scintilla/src/CharClassify.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\ContractionState.cxx">
++		<Unit filename="stc/scintilla/src/ContractionState.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\ContractionState.h">
++		<Unit filename="stc/scintilla/src/ContractionState.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\Document.cxx">
++		<Unit filename="stc/scintilla/src/Document.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\Document.h">
++		<Unit filename="stc/scintilla/src/Document.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\DocumentAccessor.cxx">
++		<Unit filename="stc/scintilla/src/DocumentAccessor.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\DocumentAccessor.h">
++		<Unit filename="stc/scintilla/src/DocumentAccessor.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\Editor.cxx">
++		<Unit filename="stc/scintilla/src/Editor.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\Editor.h">
++		<Unit filename="stc/scintilla/src/Editor.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\ExternalLexer.cxx">
++		<Unit filename="stc/scintilla/src/ExternalLexer.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\ExternalLexer.h">
++		<Unit filename="stc/scintilla/src/ExternalLexer.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\Indicator.cxx">
++		<Unit filename="stc/scintilla/src/Indicator.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\Indicator.h">
++		<Unit filename="stc/scintilla/src/Indicator.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\KeyMap.cxx">
++		<Unit filename="stc/scintilla/src/KeyMap.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\KeyMap.h">
++		<Unit filename="stc/scintilla/src/KeyMap.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\KeyWords.cxx">
++		<Unit filename="stc/scintilla/src/KeyWords.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexAPDL.cxx">
++		<Unit filename="stc/scintilla/src/LexAPDL.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexAU3.cxx">
++		<Unit filename="stc/scintilla/src/LexAU3.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexAVE.cxx">
++		<Unit filename="stc/scintilla/src/LexAVE.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexAda.cxx">
++		<Unit filename="stc/scintilla/src/LexAda.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexAsm.cxx">
++		<Unit filename="stc/scintilla/src/LexAsm.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexAsn1.cxx">
++		<Unit filename="stc/scintilla/src/LexAsn1.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexBaan.cxx">
++		<Unit filename="stc/scintilla/src/LexBaan.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexBash.cxx">
++		<Unit filename="stc/scintilla/src/LexBash.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexBasic.cxx">
++		<Unit filename="stc/scintilla/src/LexBasic.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexBullant.cxx">
++		<Unit filename="stc/scintilla/src/LexBullant.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexCLW.cxx">
++		<Unit filename="stc/scintilla/src/LexCLW.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexCPP.cxx">
++		<Unit filename="stc/scintilla/src/LexCPP.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexCSS.cxx">
++		<Unit filename="stc/scintilla/src/LexCSS.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexCaml.cxx">
++		<Unit filename="stc/scintilla/src/LexCaml.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexConf.cxx">
++		<Unit filename="stc/scintilla/src/LexConf.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexCrontab.cxx">
++		<Unit filename="stc/scintilla/src/LexCrontab.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexCsound.cxx">
++		<Unit filename="stc/scintilla/src/LexCsound.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexEScript.cxx">
++		<Unit filename="stc/scintilla/src/LexEScript.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexEiffel.cxx">
++		<Unit filename="stc/scintilla/src/LexEiffel.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexErlang.cxx">
++		<Unit filename="stc/scintilla/src/LexErlang.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexFlagship.cxx">
++		<Unit filename="stc/scintilla/src/LexFlagship.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexForth.cxx">
++		<Unit filename="stc/scintilla/src/LexForth.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexFortran.cxx">
++		<Unit filename="stc/scintilla/src/LexFortran.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexGui4Cli.cxx">
++		<Unit filename="stc/scintilla/src/LexGui4Cli.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexHTML.cxx">
++		<Unit filename="stc/scintilla/src/LexHTML.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexHaskell.cxx">
++		<Unit filename="stc/scintilla/src/LexHaskell.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexInno.cxx">
++		<Unit filename="stc/scintilla/src/LexInno.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexKix.cxx">
++		<Unit filename="stc/scintilla/src/LexKix.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexLisp.cxx">
++		<Unit filename="stc/scintilla/src/LexLisp.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexLout.cxx">
++		<Unit filename="stc/scintilla/src/LexLout.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexLua.cxx">
++		<Unit filename="stc/scintilla/src/LexLua.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexMMIXAL.cxx">
++		<Unit filename="stc/scintilla/src/LexMMIXAL.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexMPT.cxx">
++		<Unit filename="stc/scintilla/src/LexMPT.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexMSSQL.cxx">
++		<Unit filename="stc/scintilla/src/LexMSSQL.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexMatlab.cxx">
++		<Unit filename="stc/scintilla/src/LexMatlab.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexMetapost.cxx">
++		<Unit filename="stc/scintilla/src/LexMetapost.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexNsis.cxx">
++		<Unit filename="stc/scintilla/src/LexNsis.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexOpal.cxx">
++		<Unit filename="stc/scintilla/src/LexOpal.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexOthers.cxx">
++		<Unit filename="stc/scintilla/src/LexOthers.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexPB.cxx">
++		<Unit filename="stc/scintilla/src/LexPB.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexPOV.cxx">
++		<Unit filename="stc/scintilla/src/LexPOV.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexPS.cxx">
++		<Unit filename="stc/scintilla/src/LexPS.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexPascal.cxx">
++		<Unit filename="stc/scintilla/src/LexPascal.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexPerl.cxx">
++		<Unit filename="stc/scintilla/src/LexPerl.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexPython.cxx">
++		<Unit filename="stc/scintilla/src/LexPython.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexRebol.cxx">
++		<Unit filename="stc/scintilla/src/LexRebol.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexRuby.cxx">
++		<Unit filename="stc/scintilla/src/LexRuby.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexSQL.cxx">
++		<Unit filename="stc/scintilla/src/LexSQL.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexScriptol.cxx">
++		<Unit filename="stc/scintilla/src/LexScriptol.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexSmalltalk.cxx">
++		<Unit filename="stc/scintilla/src/LexSmalltalk.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexSpecman.cxx">
++		<Unit filename="stc/scintilla/src/LexSpecman.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexSpice.cxx">
++		<Unit filename="stc/scintilla/src/LexSpice.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexTADS3.cxx">
++		<Unit filename="stc/scintilla/src/LexTADS3.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexTCL.cxx">
++		<Unit filename="stc/scintilla/src/LexTCL.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexTeX.cxx">
++		<Unit filename="stc/scintilla/src/LexTeX.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexVB.cxx">
++		<Unit filename="stc/scintilla/src/LexVB.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexVHDL.cxx">
++		<Unit filename="stc/scintilla/src/LexVHDL.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexVerilog.cxx">
++		<Unit filename="stc/scintilla/src/LexVerilog.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LexYAML.cxx">
++		<Unit filename="stc/scintilla/src/LexYAML.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LineMarker.cxx">
++		<Unit filename="stc/scintilla/src/LineMarker.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\LineMarker.h">
++		<Unit filename="stc/scintilla/src/LineMarker.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\PropSet.cxx">
++		<Unit filename="stc/scintilla/src/PropSet.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\RESearch.cxx">
++		<Unit filename="stc/scintilla/src/RESearch.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\RESearch.h">
++		<Unit filename="stc/scintilla/src/RESearch.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\SVector.h">
++		<Unit filename="stc/scintilla/src/SVector.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\ScintillaBase.cxx">
++		<Unit filename="stc/scintilla/src/ScintillaBase.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\ScintillaBase.h">
++		<Unit filename="stc/scintilla/src/ScintillaBase.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\Style.cxx">
++		<Unit filename="stc/scintilla/src/Style.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\Style.h">
++		<Unit filename="stc/scintilla/src/Style.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\StyleContext.cxx">
++		<Unit filename="stc/scintilla/src/StyleContext.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\StyleContext.h">
++		<Unit filename="stc/scintilla/src/StyleContext.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\UniConversion.cxx">
++		<Unit filename="stc/scintilla/src/UniConversion.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\UniConversion.h">
++		<Unit filename="stc/scintilla/src/UniConversion.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\ViewStyle.cxx">
++		<Unit filename="stc/scintilla/src/ViewStyle.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\ViewStyle.h">
++		<Unit filename="stc/scintilla/src/ViewStyle.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\WindowAccessor.cxx">
++		<Unit filename="stc/scintilla/src/WindowAccessor.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\XPM.cxx">
++		<Unit filename="stc/scintilla/src/XPM.cxx">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\scintilla\src\XPM.h">
++		<Unit filename="stc/scintilla/src/XPM.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\stc.cpp">
++		<Unit filename="stc/stc.cpp">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\stc_cw.h">
++		<Unit filename="stc/stc_cw.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\stc_cw_d.h">
++		<Unit filename="stc/stc_cw_d.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\stc_cwc.h">
++		<Unit filename="stc/stc_cwc.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stc\stc_cwc_d.h">
++		<Unit filename="stc/stc_cwc_d.h">
+ 			<Option target="wxSTC" />
+ 		</Unit>
+-		<Unit filename="stedit\art\copy.xpm">
++		<Unit filename="stedit/art/copy.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\cross.xpm">
++		<Unit filename="stedit/art/cross.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\cut.xpm">
++		<Unit filename="stedit/art/cut.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\find.xpm">
++		<Unit filename="stedit/art/find.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\finddown.xpm">
++		<Unit filename="stedit/art/finddown.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\findnext.xpm">
++		<Unit filename="stedit/art/findnext.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\findup.xpm">
++		<Unit filename="stedit/art/findup.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\new.xpm">
++		<Unit filename="stedit/art/new.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\open.xpm">
++		<Unit filename="stedit/art/open.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\paste.xpm">
++		<Unit filename="stedit/art/paste.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\pencil.ico">
++		<Unit filename="stedit/art/pencil.ico">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\pencil16.xpm">
++		<Unit filename="stedit/art/pencil16.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\pencil32.xpm">
++		<Unit filename="stedit/art/pencil32.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\print.xpm">
++		<Unit filename="stedit/art/print.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\print_page_setup.xpm">
++		<Unit filename="stedit/art/print_page_setup.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\print_preview.xpm">
++		<Unit filename="stedit/art/print_preview.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\print_setup.xpm">
++		<Unit filename="stedit/art/print_setup.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\redo.xpm">
++		<Unit filename="stedit/art/redo.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\replace.xpm">
++		<Unit filename="stedit/art/replace.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\save.xpm">
++		<Unit filename="stedit/art/save.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\saveall.xpm">
++		<Unit filename="stedit/art/saveall.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\saveas.xpm">
++		<Unit filename="stedit/art/saveas.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\undo.xpm">
++		<Unit filename="stedit/art/undo.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\art\x_red.xpm">
++		<Unit filename="stedit/art/x_red.xpm">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\pairarr.h">
++		<Unit filename="stedit/include/wx/stedit/pairarr.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\setup.h">
++		<Unit filename="stedit/include/wx/stedit/setup.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\setup0.h">
++		<Unit filename="stedit/include/wx/stedit/setup0.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\steart.h">
++		<Unit filename="stedit/include/wx/stedit/steart.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stedefs.h">
++		<Unit filename="stedit/include/wx/stedit/stedefs.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stedit.h">
++		<Unit filename="stedit/include/wx/stedit/stedit.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stedlgs.h">
++		<Unit filename="stedit/include/wx/stedit/stedlgs.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\steevent.h">
++		<Unit filename="stedit/include/wx/stedit/steevent.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\steexprt.h">
++		<Unit filename="stedit/include/wx/stedit/steexprt.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stefindr.h">
++		<Unit filename="stedit/include/wx/stedit/stefindr.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\steframe.h">
++		<Unit filename="stedit/include/wx/stedit/steframe.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stelangs.h">
++		<Unit filename="stedit/include/wx/stedit/stelangs.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stemenum.h">
++		<Unit filename="stedit/include/wx/stedit/stemenum.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stenoteb.h">
++		<Unit filename="stedit/include/wx/stedit/stenoteb.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\steopts.h">
++		<Unit filename="stedit/include/wx/stedit/steopts.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\steprefs.h">
++		<Unit filename="stedit/include/wx/stedit/steprefs.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\steprint.h">
++		<Unit filename="stedit/include/wx/stedit/steprint.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\steshell.h">
++		<Unit filename="stedit/include/wx/stedit/steshell.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stesplit.h">
++		<Unit filename="stedit/include/wx/stedit/stesplit.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stestyls.h">
++		<Unit filename="stedit/include/wx/stedit/stestyls.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\include\wx\stedit\stetree.h">
++		<Unit filename="stedit/include/wx/stedit/stetree.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\precomp.cpp">
++		<Unit filename="stedit/src/precomp.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\precomp.h">
++		<Unit filename="stedit/src/precomp.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\steart.cpp">
++		<Unit filename="stedit/src/steart.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stedit.cpp">
++		<Unit filename="stedit/src/stedit.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stedit.xrc">
++		<Unit filename="stedit/src/stedit.xrc">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stedlgs.cpp">
++		<Unit filename="stedit/src/stedlgs.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stedlgs_wdr.cpp">
++		<Unit filename="stedit/src/stedlgs_wdr.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stedlgs_wdr.h">
++		<Unit filename="stedit/src/stedlgs_wdr.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\steevent.cpp">
++		<Unit filename="stedit/src/steevent.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\steexprt.cpp">
++		<Unit filename="stedit/src/steexprt.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stefindr.cpp">
++		<Unit filename="stedit/src/stefindr.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\steframe.cpp">
++		<Unit filename="stedit/src/steframe.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stelangs.cpp">
++		<Unit filename="stedit/src/stelangs.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stemenum.cpp">
++		<Unit filename="stedit/src/stemenum.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stenoteb.cpp">
++		<Unit filename="stedit/src/stenoteb.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\steopts.cpp">
++		<Unit filename="stedit/src/steopts.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\steprefs.cpp">
++		<Unit filename="stedit/src/steprefs.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\steprint.cpp">
++		<Unit filename="stedit/src/steprint.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\steshell.cpp">
++		<Unit filename="stedit/src/steshell.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stesplit.cpp">
++		<Unit filename="stedit/src/stesplit.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stestyls.cpp">
++		<Unit filename="stedit/src/stestyls.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\stetree.cpp">
++		<Unit filename="stedit/src/stetree.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\wxext.cpp">
++		<Unit filename="stedit/src/wxext.cpp">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\wxext.h">
++		<Unit filename="stedit/src/wxext.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+-		<Unit filename="stedit\src\wxtrunk.h">
++		<Unit filename="stedit/src/wxtrunk.h">
+ 			<Option target="wxSTEdit" />
+ 		</Unit>
+diff --git a/src/plugins/headerguard/headerguard.cbp b/src/plugins/headerguard/headerguard.cbp
+index 57fb756..b54a86e 100644
+--- a/src/plugins/headerguard/headerguard.cbp
++++ b/src/plugins/headerguard/headerguard.cbp
+@@ -8,9 +8,9 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\devel\share\codeblocks\plugins\headerguard" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\.objs\plugins\headerguard" />
++				<Option output="../../devel/share/codeblocks/plugins/headerguard" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../.objs/plugins/headerguard" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+-				<Option host_application="..\..\devel\codeblocks.exe" />
++				<Option host_application="../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+@@ -29,14 +29,14 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\include" />
+-					<Add directory="..\..\sdk\wxscintilla\include" />
++					<Add directory="../../include" />
++					<Add directory="../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="codeblocks" />
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+-					<Add directory="..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -46,6 +46,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+diff --git a/src/plugins/loghacker/loghacker.cbp b/src/plugins/loghacker/loghacker.cbp
+index 0794c46..d1b008f 100644
+--- a/src/plugins/loghacker/loghacker.cbp
++++ b/src/plugins/loghacker/loghacker.cbp
+@@ -8,9 +8,10 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\devel\share\codeblocks\plugins\loghacker" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\.objs\plugins\loghacker" />
++				<Option output="../../devel/share/codeblocks/plugins/loghacker" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../.objs/plugins/loghacker" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+-				<Option host_application="..\..\devel\codeblocks.exe" />
++				<Option host_application="../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -28,8 +29,8 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\include" />
+-					<Add directory="..\..\sdk\wxscintilla\include" />
++					<Add directory="../../include" />
++					<Add directory="../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+@@ -37,6 +38,6 @@
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -46,6 +47,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+diff --git a/src/plugins/modpoller/ModPoller.cbp b/src/plugins/modpoller/ModPoller.cbp
+index a2ed1e2..c59b41e 100644
+--- a/src/plugins/modpoller/ModPoller.cbp
++++ b/src/plugins/modpoller/ModPoller.cbp
+@@ -8,9 +8,10 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\devel\share\codeblocks\plugins\ModPoller" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\.objs\plugins\ModPoller" />
++				<Option output="../../devel/share/codeblocks/plugins/ModPoller" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../.objs/plugins/ModPoller" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+-				<Option host_application="..\..\devel\codeblocks.exe" />
++				<Option host_application="../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -28,8 +29,8 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\include" />
+-					<Add directory="..\..\sdk\wxscintilla\include" />
++					<Add directory="../../include" />
++					<Add directory="../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+@@ -37,6 +38,6 @@
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -46,6 +47,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+diff --git a/src/plugins/tidycmt/tidycmt.cbp b/src/plugins/tidycmt/tidycmt.cbp
+index dbebddd..972dadf 100644
+--- a/src/plugins/tidycmt/tidycmt.cbp
++++ b/src/plugins/tidycmt/tidycmt.cbp
+@@ -8,9 +8,10 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\devel\share\codeblocks\plugins\tidycmt" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\.objs\plugins\tidycmt" />
++				<Option output="../../devel/share/codeblocks/plugins/tidycmt" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../.objs/plugins/tidycmt" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+-				<Option host_application="..\..\devel\codeblocks.exe" />
++				<Option host_application="../../devel/codeblocks.exe" />
++				<Option run_host_application_in_terminal="0" />
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -28,14 +29,14 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+-					<Add directory="..\..\include" />
+-					<Add directory="..\..\sdk\wxscintilla\include" />
++					<Add directory="../../include" />
++					<Add directory="../../sdk/wxscintilla/include" />
+ 					<Add directory="$(#WX.include)" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 				</Compiler>
+ 				<Linker>
+ 					<Add library="wxmsw28$(WX_SUFFIX)" />
+ 					<Add library="codeblocks" />
+-					<Add directory="..\..\devel" />
+-					<Add directory="$(#WX.lib)\gcc_dll$(WX_CFG)" />
++					<Add directory="../../devel" />
++					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -45,6 +46,6 @@
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+diff --git a/src/tools/Addr2LineUI/Addr2LineUI.cbp b/src/tools/Addr2LineUI/Addr2LineUI.cbp
+index ef568e4..151f5e3 100644
+--- a/src/tools/Addr2LineUI/Addr2LineUI.cbp
++++ b/src/tools/Addr2LineUI/Addr2LineUI.cbp
+@@ -8,7 +8,7 @@
+ 			<Target title="default">
+ 				<Option platforms="Windows;" />
+-				<Option output="..\..\devel\Addr2LineUI" prefix_auto="1" extension_auto="1" />
+-				<Option working_dir="..\..\devel" />
+-				<Option object_output="..\..\.objs\tools\Addr2LineUI" />
++				<Option output="../../devel/Addr2LineUI" prefix_auto="1" extension_auto="1" />
++				<Option working_dir="../../devel" />
++				<Option object_output="../../.objs/tools/Addr2LineUI" />
+ 				<Option type="0" />
+ 				<Option compiler="gcc" />
+@@ -22,7 +22,7 @@
+ 			</Target>
+ 			<Environment>
++				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_VERSION" value="28" />
+-				<Variable name="WX_CFG" value="" />
+ 			</Environment>
+ 		</Build>
+@@ -40,14 +40,14 @@
+ 			<Add option="-DWX_PRECOMP" />
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+ 			<Add directory="$(#wx.include)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-mthreads" />
+ 			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="Addr2LineUIApp.cpp" />
+@@ -58,5 +58,5 @@
+ 			<Option compilerVar="WINDRES" />
+ 		</Unit>
+-		<Unit filename="wxsmith\Addr2LineUIDialog.wxs" />
++		<Unit filename="wxsmith/Addr2LineUIDialog.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+diff --git a/src/tools/CBLauncher/CbLauncher.cbp b/src/tools/CBLauncher/CbLauncher.cbp
+index 314a3b4..ab2bf5d 100644
+--- a/src/tools/CBLauncher/CbLauncher.cbp
++++ b/src/tools/CBLauncher/CbLauncher.cbp
+@@ -8,6 +8,6 @@
+ 		<Build>
+ 			<Target title="default">
+-				<Option output="..\..\devel\CbLauncher" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\.objs\tools\CbLauncher" />
++				<Option output="../../devel/CbLauncher" prefix_auto="1" extension_auto="1" />
++				<Option object_output="../../.objs/tools/CbLauncher" />
+ 				<Option type="1" />
+ 				<Option compiler="gcc" />
+@@ -35,53 +35,53 @@
+ 			<Add library="oleaut32" />
+ 		</Linker>
+-		<Unit filename="doc\CBicon.png" />
+-		<Unit filename="doc\README.txt" />
+-		<Unit filename="doc\doxyfile" />
+-		<Unit filename="doc\gpl-3.0.txt" />
+-		<Unit filename="doc\html\bc_s.png" />
+-		<Unit filename="doc\html\closed.png" />
+-		<Unit filename="doc\html\doxygen.css" />
+-		<Unit filename="doc\html\doxygen.png" />
+-		<Unit filename="doc\html\files.html" />
+-		<Unit filename="doc\html\ftv2blank.png" />
+-		<Unit filename="doc\html\ftv2doc.png" />
+-		<Unit filename="doc\html\ftv2folderclosed.png" />
+-		<Unit filename="doc\html\ftv2folderopen.png" />
+-		<Unit filename="doc\html\ftv2lastnode.png" />
+-		<Unit filename="doc\html\ftv2link.png" />
+-		<Unit filename="doc\html\ftv2mlastnode.png" />
+-		<Unit filename="doc\html\ftv2mnode.png" />
+-		<Unit filename="doc\html\ftv2node.png" />
+-		<Unit filename="doc\html\ftv2plastnode.png" />
+-		<Unit filename="doc\html\ftv2pnode.png" />
+-		<Unit filename="doc\html\ftv2vertline.png" />
+-		<Unit filename="doc\html\globals.html" />
+-		<Unit filename="doc\html\globals_func.html" />
+-		<Unit filename="doc\html\index.html" />
+-		<Unit filename="doc\html\installdox" />
+-		<Unit filename="doc\html\launcher_8cpp.html" />
+-		<Unit filename="doc\html\main.html" />
+-		<Unit filename="doc\html\mainpage_8h_source.html" />
+-		<Unit filename="doc\html\nav_f.png" />
+-		<Unit filename="doc\html\nav_h.png" />
+-		<Unit filename="doc\html\open.png" />
+-		<Unit filename="doc\html\pages.html" />
+-		<Unit filename="doc\html\tab_a.png" />
+-		<Unit filename="doc\html\tab_b.png" />
+-		<Unit filename="doc\html\tab_h.png" />
+-		<Unit filename="doc\html\tab_s.png" />
+-		<Unit filename="doc\html\tabs.css" />
+-		<Unit filename="doc\html\todo.html" />
+-		<Unit filename="doc\html\tree.html" />
+-		<Unit filename="fonts\Inconsolata-sq.ttf" />
+-		<Unit filename="fonts\OFL.txt" />
+-		<Unit filename="fonts\README-4-fonts.txt" />
++		<Unit filename="doc/CBicon.png" />
++		<Unit filename="doc/README.txt" />
++		<Unit filename="doc/doxyfile" />
++		<Unit filename="doc/gpl-3.0.txt" />
++		<Unit filename="doc/html/bc_s.png" />
++		<Unit filename="doc/html/closed.png" />
++		<Unit filename="doc/html/doxygen.css" />
++		<Unit filename="doc/html/doxygen.png" />
++		<Unit filename="doc/html/files.html" />
++		<Unit filename="doc/html/ftv2blank.png" />
++		<Unit filename="doc/html/ftv2doc.png" />
++		<Unit filename="doc/html/ftv2folderclosed.png" />
++		<Unit filename="doc/html/ftv2folderopen.png" />
++		<Unit filename="doc/html/ftv2lastnode.png" />
++		<Unit filename="doc/html/ftv2link.png" />
++		<Unit filename="doc/html/ftv2mlastnode.png" />
++		<Unit filename="doc/html/ftv2mnode.png" />
++		<Unit filename="doc/html/ftv2node.png" />
++		<Unit filename="doc/html/ftv2plastnode.png" />
++		<Unit filename="doc/html/ftv2pnode.png" />
++		<Unit filename="doc/html/ftv2vertline.png" />
++		<Unit filename="doc/html/globals.html" />
++		<Unit filename="doc/html/globals_func.html" />
++		<Unit filename="doc/html/index.html" />
++		<Unit filename="doc/html/installdox" />
++		<Unit filename="doc/html/launcher_8cpp.html" />
++		<Unit filename="doc/html/main.html" />
++		<Unit filename="doc/html/mainpage_8h_source.html" />
++		<Unit filename="doc/html/nav_f.png" />
++		<Unit filename="doc/html/nav_h.png" />
++		<Unit filename="doc/html/open.png" />
++		<Unit filename="doc/html/pages.html" />
++		<Unit filename="doc/html/tab_a.png" />
++		<Unit filename="doc/html/tab_b.png" />
++		<Unit filename="doc/html/tab_h.png" />
++		<Unit filename="doc/html/tab_s.png" />
++		<Unit filename="doc/html/tabs.css" />
++		<Unit filename="doc/html/todo.html" />
++		<Unit filename="doc/html/tree.html" />
++		<Unit filename="fonts/Inconsolata-sq.ttf" />
++		<Unit filename="fonts/OFL.txt" />
++		<Unit filename="fonts/README-4-fonts.txt" />
+ 		<Unit filename="icon.rc">
+ 			<Option compilerVar="WINDRES" />
+ 		</Unit>
+-		<Unit filename="icons\README_4_icon.txt" />
+-		<Unit filename="icons\hires.ico" />
+-		<Unit filename="icons\launcher.ico" />
+-		<Unit filename="icons\lores.ico" />
++		<Unit filename="icons/README_4_icon.txt" />
++		<Unit filename="icons/hires.ico" />
++		<Unit filename="icons/launcher.ico" />
++		<Unit filename="icons/lores.ico" />
+ 		<Unit filename="launcher.cpp" />
+ 		<Unit filename="mainpage.h" />
+-- 
+2.7.1.windows.2
+

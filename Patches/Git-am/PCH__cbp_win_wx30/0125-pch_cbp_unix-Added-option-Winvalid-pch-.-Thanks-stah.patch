@@ -1,0 +1,56 @@
+From f965cad86ff261b26fde650f595ae13902e61a79 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Fri, 25 Dec 2015 12:23:03 -0500
+Subject: [PATCH 125/159] - pch_cbp_unix: Added option "-Winvalid-pch". (Thanks
+ stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp | 1 +
+ src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp           | 1 +
+ src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp           | 1 +
+ src/plugins/contrib/symtab/symtab_wx30-unix.cbp                 | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
+index 85b136f..3695f0b 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
+@@ -19,4 +19,5 @@
+ 					<Add option="`$(WX_CONFIG) --cflags`" />
+ 					<Add option="-fPIC" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DPIC" />
+ 					<Add directory="../../../include" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp b/src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp
+index 2324cb7..1db1fd8 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp
+@@ -35,4 +35,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-fPIC" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp b/src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp
+index 60f9ba6..c0002d6 100644
+--- a/src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp
+@@ -30,4 +30,5 @@
+ 			<Add option="`$(WX_CONFIG) --cflags`" />
+ 			<Add option="-fPIC" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+diff --git a/src/plugins/contrib/symtab/symtab_wx30-unix.cbp b/src/plugins/contrib/symtab/symtab_wx30-unix.cbp
+index 59784b2..f15bb3a 100644
+--- a/src/plugins/contrib/symtab/symtab_wx30-unix.cbp
++++ b/src/plugins/contrib/symtab/symtab_wx30-unix.cbp
+@@ -30,4 +30,5 @@
+ 			<Add option="`$(WX_CONFIG) --cflags`" />
+ 			<Add option="-fPIC" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-- 
+2.7.1.windows.2
+

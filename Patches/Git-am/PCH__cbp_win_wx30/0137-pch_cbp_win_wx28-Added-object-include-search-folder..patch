@@ -1,0 +1,29 @@
+From b4e3a97e48df70fd91720f930d4a47111dda82bf Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 17 Dec 2015 08:42:32 -0500
+Subject: [PATCH 137/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/BrowseTracker/BrowseTracker.cbp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+index 5e1f882..4d6aee6 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker.cbp
+@@ -32,4 +32,5 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+@@ -78,4 +79,5 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DLOGGING" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

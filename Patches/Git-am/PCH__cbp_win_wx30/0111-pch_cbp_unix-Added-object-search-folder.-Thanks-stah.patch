@@ -1,0 +1,34 @@
+From 07eda24e9750f1b9e6762c36712f698d696b22cb Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Thu, 31 Dec 2015 11:03:12 -0500
+Subject: [PATCH 111/159] - pch_cbp_unix: Added object search folder. (Thanks
+ stahta01)
+
+---
+ src/plugins/contrib/help_plugin/help-plugin-unix.cbp      | 1 +
+ src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/help_plugin/help-plugin-unix.cbp b/src/plugins/contrib/help_plugin/help-plugin-unix.cbp
+index 8cfe855..f397f42 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin-unix.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin-unix.cbp
+@@ -65,4 +65,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
+index 12ebaf3..96ceb01 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30-unix.cbp
+@@ -68,4 +68,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

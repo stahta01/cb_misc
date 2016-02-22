@@ -1,0 +1,185 @@
+From fb8ada8deb05afccac354d4c4adf11b6133ed5ea Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Wed, 16 Dec 2015 10:31:19 -0500
+Subject: [PATCH 029/159] - lib_finder: Fixed PCH code issues using "sdk.h".
+ (Thanks stahta01)
+
+Added or moved "sdk.h" include at top of source file(s).
+---
+ src/plugins/contrib/lib_finder/defsdownloaddlg.cpp           | 2 ++
+ src/plugins/contrib/lib_finder/dirlistdlg.cpp                | 2 ++
+ src/plugins/contrib/lib_finder/headersdetectordlg.cpp        | 1 +
+ src/plugins/contrib/lib_finder/lib_finder.cpp                | 1 +
+ src/plugins/contrib/lib_finder/librariesdlg.cpp              | 3 ++-
+ src/plugins/contrib/lib_finder/librarydetectionmanager.cpp   | 2 ++
+ src/plugins/contrib/lib_finder/libraryresult.cpp             | 2 ++
+ src/plugins/contrib/lib_finder/libselectdlg.cpp              | 2 ++
+ src/plugins/contrib/lib_finder/pkgconfigmanager.cpp          | 2 ++
+ src/plugins/contrib/lib_finder/processingdlg.cpp             | 2 ++
+ src/plugins/contrib/lib_finder/projectconfiguration.cpp      | 2 ++
+ src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp | 2 ++
+ src/plugins/contrib/lib_finder/projectmissinglibs.cpp        | 2 ++
+ src/plugins/contrib/lib_finder/resultmap.cpp                 | 2 ++
+ src/plugins/contrib/lib_finder/webresourcesmanager.cpp       | 2 ++
+ 15 files changed, 28 insertions(+), 1 deletion(-)
+
+diff --git a/src/plugins/contrib/lib_finder/defsdownloaddlg.cpp b/src/plugins/contrib/lib_finder/defsdownloaddlg.cpp
+index d394291..30c3c09 100644
+--- a/src/plugins/contrib/lib_finder/defsdownloaddlg.cpp
++++ b/src/plugins/contrib/lib_finder/defsdownloaddlg.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <memory>
+ #include "defsdownloaddlg.h"
+diff --git a/src/plugins/contrib/lib_finder/dirlistdlg.cpp b/src/plugins/contrib/lib_finder/dirlistdlg.cpp
+index 44df2f6..5ce8abc 100644
+--- a/src/plugins/contrib/lib_finder/dirlistdlg.cpp
++++ b/src/plugins/contrib/lib_finder/dirlistdlg.cpp
+@@ -22,4 +22,6 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "dirlistdlg.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/headersdetectordlg.cpp b/src/plugins/contrib/lib_finder/headersdetectordlg.cpp
+index 690da7f..bd105a0 100644
+--- a/src/plugins/contrib/lib_finder/headersdetectordlg.cpp
++++ b/src/plugins/contrib/lib_finder/headersdetectordlg.cpp
+@@ -1,2 +1,3 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
+ //(*InternalHeaders(HeadersDetectorDlg)
+diff --git a/src/plugins/contrib/lib_finder/lib_finder.cpp b/src/plugins/contrib/lib_finder/lib_finder.cpp
+index b0e4061..415a278 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder.cpp
++++ b/src/plugins/contrib/lib_finder/lib_finder.cpp
+@@ -22,4 +22,5 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
+ #include <wx/arrstr.h>
+diff --git a/src/plugins/contrib/lib_finder/librariesdlg.cpp b/src/plugins/contrib/lib_finder/librariesdlg.cpp
+index 7ffadc6..d86ec61 100644
+--- a/src/plugins/contrib/lib_finder/librariesdlg.cpp
++++ b/src/plugins/contrib/lib_finder/librariesdlg.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "librariesdlg.h"
+ 
+@@ -16,5 +18,4 @@
+ 
+ #include <algorithm>
+-#include <sdk.h>
+ #include <manager.h>
+ #include <configmanager.h>
+diff --git a/src/plugins/contrib/lib_finder/librarydetectionmanager.cpp b/src/plugins/contrib/lib_finder/librarydetectionmanager.cpp
+index 886bbb7..6dd404e 100644
+--- a/src/plugins/contrib/lib_finder/librarydetectionmanager.cpp
++++ b/src/plugins/contrib/lib_finder/librarydetectionmanager.cpp
+@@ -22,4 +22,6 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <tinyxml/tinyxml.h>
+ #include <tinyxml/tinywxuni.h>
+diff --git a/src/plugins/contrib/lib_finder/libraryresult.cpp b/src/plugins/contrib/lib_finder/libraryresult.cpp
+index e1880ea..d21f0fc 100644
+--- a/src/plugins/contrib/lib_finder/libraryresult.cpp
++++ b/src/plugins/contrib/lib_finder/libraryresult.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "libraryresult.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/libselectdlg.cpp b/src/plugins/contrib/lib_finder/libselectdlg.cpp
+index 92d69b5..e38a7c8 100644
+--- a/src/plugins/contrib/lib_finder/libselectdlg.cpp
++++ b/src/plugins/contrib/lib_finder/libselectdlg.cpp
+@@ -22,4 +22,6 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "libselectdlg.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/pkgconfigmanager.cpp b/src/plugins/contrib/lib_finder/pkgconfigmanager.cpp
+index 66f492e..7b89e21 100644
+--- a/src/plugins/contrib/lib_finder/pkgconfigmanager.cpp
++++ b/src/plugins/contrib/lib_finder/pkgconfigmanager.cpp
+@@ -22,4 +22,6 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <wx/intl.h>
+ #include <wx/log.h>
+diff --git a/src/plugins/contrib/lib_finder/processingdlg.cpp b/src/plugins/contrib/lib_finder/processingdlg.cpp
+index 77ccfd2..2017e25 100644
+--- a/src/plugins/contrib/lib_finder/processingdlg.cpp
++++ b/src/plugins/contrib/lib_finder/processingdlg.cpp
+@@ -22,4 +22,6 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "processingdlg.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/projectconfiguration.cpp b/src/plugins/contrib/lib_finder/projectconfiguration.cpp
+index 5477fa6..e97d158 100644
+--- a/src/plugins/contrib/lib_finder/projectconfiguration.cpp
++++ b/src/plugins/contrib/lib_finder/projectconfiguration.cpp
+@@ -22,4 +22,6 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "projectconfiguration.h"
+ #include <wx/hashset.h>
+diff --git a/src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp b/src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp
+index a601285..5725f7e 100644
+--- a/src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp
++++ b/src/plugins/contrib/lib_finder/projectconfigurationpanel.cpp
+@@ -22,4 +22,6 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "projectconfigurationpanel.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/projectmissinglibs.cpp b/src/plugins/contrib/lib_finder/projectmissinglibs.cpp
+index e18244f..be600b1 100644
+--- a/src/plugins/contrib/lib_finder/projectmissinglibs.cpp
++++ b/src/plugins/contrib/lib_finder/projectmissinglibs.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "projectmissinglibs.h"
+ 
+diff --git a/src/plugins/contrib/lib_finder/resultmap.cpp b/src/plugins/contrib/lib_finder/resultmap.cpp
+index 50e865d..4a154af 100644
+--- a/src/plugins/contrib/lib_finder/resultmap.cpp
++++ b/src/plugins/contrib/lib_finder/resultmap.cpp
+@@ -22,4 +22,6 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <wx/arrstr.h>
+ #include <wx/dir.h>
+diff --git a/src/plugins/contrib/lib_finder/webresourcesmanager.cpp b/src/plugins/contrib/lib_finder/webresourcesmanager.cpp
+index 10d0b98..8eb5486 100644
+--- a/src/plugins/contrib/lib_finder/webresourcesmanager.cpp
++++ b/src/plugins/contrib/lib_finder/webresourcesmanager.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <memory>
+ #include "webresourcesmanager.h"
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,33 @@
+From 7233e79cdf081ffb215a9ebd7a699d571d60a1ad Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 10:35:58 -0500
+Subject: [PATCH 105/159] * cb_share_config: Removed unneeded "wx/wx.h" and
+ "wx/wxprec.h". (Thanks stahta01)
+
+If needed, added wx headers.
+---
+ src/tools/cb_share_config/app.h | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/src/tools/cb_share_config/app.h b/src/tools/cb_share_config/app.h
+index 87f4570..6180014 100644
+--- a/src/tools/cb_share_config/app.h
++++ b/src/tools/cb_share_config/app.h
+@@ -7,13 +7,5 @@
+ #define APP_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
++#include <wx/app.h>
+ 
+ class MyApp : public wxApp
+-- 
+2.7.1.windows.2
+

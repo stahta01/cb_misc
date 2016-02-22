@@ -1,0 +1,87 @@
+From f8a03d82a8c5309df82645d14752198652a52bf4 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 22 Nov 2015 13:12:08 -0500
+Subject: [PATCH 005/159] - win_cbp: Moved wxmsw$(WX_VERSION)$(WX_SUFFIX) from
+ project level to target level. (Thanks stahta01)
+
+---
+ src/CodeBlocks.cbp         | 4 +++-
+ src/CodeBlocks_wx30.cbp    | 3 ++-
+ src/CodeBlocks_wx30_64.cbp | 3 ++-
+ 3 files changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/src/CodeBlocks.cbp b/src/CodeBlocks.cbp
+index 682a8b8..4fb7954 100644
+--- a/src/CodeBlocks.cbp
++++ b/src/CodeBlocks.cbp
+@@ -121,4 +121,5 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 				</Linker>
+ 			</Target>
+@@ -164,4 +165,5 @@
+ 					<Add library="squirrel" />
+ 					<Add library="gdi32" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 					<Add directory="sdk/scripting/lib" />
+@@ -218,4 +220,5 @@
+ 					<Add library="advapi32" />
+ 					<Add library="wsock32" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel" />
+ 					<Add directory="exchndl/win32/lib" />
+@@ -738,5 +741,4 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+-			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="base/tinyxml" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)" />
+diff --git a/src/CodeBlocks_wx30.cbp b/src/CodeBlocks_wx30.cbp
+index 9fd17fa..f932555 100644
+--- a/src/CodeBlocks_wx30.cbp
++++ b/src/CodeBlocks_wx30.cbp
+@@ -149,4 +149,5 @@
+ 					<Add library="squirrel" />
+ 					<Add library="gdi32" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel30" />
+ 					<Add directory="sdk/scripting/lib" />
+@@ -202,4 +203,5 @@
+ 					<Add library="advapi32" />
+ 					<Add library="wsock32" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel30" />
+ 					<Add directory="exchndl/win32/lib" />
+@@ -734,5 +736,4 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+-			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="base/tinyxml" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)" />
+diff --git a/src/CodeBlocks_wx30_64.cbp b/src/CodeBlocks_wx30_64.cbp
+index 5082be3..995077e 100644
+--- a/src/CodeBlocks_wx30_64.cbp
++++ b/src/CodeBlocks_wx30_64.cbp
+@@ -148,4 +148,5 @@
+ 					<Add library="squirrel30_64" />
+ 					<Add library="gdi32" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel30_64" />
+ 					<Add directory="sdk/scripting/lib" />
+@@ -201,4 +202,5 @@
+ 					<Add library="advapi32" />
+ 					<Add library="wsock32" />
++					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 					<Add directory="devel30_64" />
+ 					<Add directory="exchndl/win64/lib" />
+@@ -736,5 +738,4 @@
+ 		</ResourceCompiler>
+ 		<Linker>
+-			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+ 			<Add directory="base/tinyxml" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)" />
+-- 
+2.7.1.windows.2
+

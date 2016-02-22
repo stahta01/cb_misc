@@ -1,0 +1,87 @@
+From e2bdfaeb43ef10a231c693e3e0d2c2184dded6f1 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 28 Nov 2015 21:02:07 -0500
+Subject: [PATCH 027/159] - pch_cbp_win_wx30: Enabled PCH files. (Thanks
+ stahta01)
+
+Added define of "CB_PRECOMP".
+And, moved define of NOPCH to scintilla target.
+Also, added option "-Winvalid-pch".
+---
+ src/CodeBlocks_wx30.cbp    | 5 ++++-
+ src/CodeBlocks_wx30_64.cbp | 8 ++++++--
+ 2 files changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/src/CodeBlocks_wx30.cbp b/src/CodeBlocks_wx30.cbp
+index f932555..322e670 100644
+--- a/src/CodeBlocks_wx30.cbp
++++ b/src/CodeBlocks_wx30.cbp
+@@ -720,9 +720,10 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="$(#WX30.include)" />
+@@ -1262,4 +1263,5 @@
+ 		</Unit>
+ 		<Unit filename="include/sdk.h">
++			<Option compile="1" />
+ 			<Option weight="1" />
+ 			<Option target="src" />
+@@ -1272,4 +1274,5 @@
+ 		</Unit>
+ 		<Unit filename="include/sdk_precomp.h">
++			<Option compile="1" />
+ 			<Option weight="0" />
+ 			<Option target="sdk" />
+diff --git a/src/CodeBlocks_wx30_64.cbp b/src/CodeBlocks_wx30_64.cbp
+index 995077e..90b140f 100644
+--- a/src/CodeBlocks_wx30_64.cbp
++++ b/src/CodeBlocks_wx30_64.cbp
+@@ -93,4 +93,5 @@
+ 					<Add option="-DSCI_LEXER" />
+ 					<Add option="-DWXMAKINGDLL_SCI" />
++					<Add option="-DNOPCH" />
+ 					<Add directory="sdk/wxscintilla/src/scintilla/include" />
+ 					<Add directory="sdk/wxscintilla/src/scintilla/src" />
+@@ -714,16 +715,17 @@
+ 		<Compiler>
+ 			<Add option="-Wall" />
++			<Add option="-m64" />
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
+ 			<Add option="-pipe" />
+ 			<Add option="-mthreads" />
+-			<Add option="-m64" />
+ 			<Add option="-fno-keep-inline-dllexport" />
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-D_WIN64" />
+@@ -1264,4 +1266,5 @@
+ 		</Unit>
+ 		<Unit filename="include/sdk.h">
++			<Option compile="1" />
+ 			<Option weight="1" />
+ 			<Option target="src" />
+@@ -1274,4 +1277,5 @@
+ 		</Unit>
+ 		<Unit filename="include/sdk_precomp.h">
++			<Option compile="1" />
+ 			<Option weight="0" />
+ 			<Option target="sdk" />
+-- 
+2.7.1.windows.2
+

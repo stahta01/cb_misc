@@ -1,0 +1,23 @@
+From 406d37f5038e1f577e8d50763ba1acf6e1521ac8 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 21:41:54 -0500
+Subject: [PATCH 037/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/lib_finder/lib_finder.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/lib_finder/lib_finder.cbp b/src/plugins/contrib/lib_finder/lib_finder.cbp
+index 4fe57cd..42f3943 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder.cbp
+@@ -44,4 +44,5 @@
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

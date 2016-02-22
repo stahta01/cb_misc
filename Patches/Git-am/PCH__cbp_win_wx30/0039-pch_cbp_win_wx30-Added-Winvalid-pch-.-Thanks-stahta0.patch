@@ -1,0 +1,23 @@
+From df3b334f02f98206f9928d742de7577f66d48c4a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 28 Dec 2015 05:33:01 -0500
+Subject: [PATCH 039/159] - pch_cbp_win_wx30: Added "-Winvalid-pch". (Thanks
+ stahta01)
+
+---
+ src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp b/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
+index 0bea9c1..5c8e070 100644
+--- a/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
++++ b/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
+@@ -41,4 +41,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+-- 
+2.7.1.windows.2
+

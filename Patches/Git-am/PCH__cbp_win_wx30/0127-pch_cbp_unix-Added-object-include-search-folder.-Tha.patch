@@ -1,0 +1,221 @@
+From d3282baf86c88cf6d347fa4dff12cd7188b93c59 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Mon, 28 Dec 2015 19:08:53 -0500
+Subject: [PATCH 127/159] - pch_cbp_unix: Added object include search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp          | 1 +
+ src/plugins/contrib/Cccc/Cccc_wx30-unix.cbp                              | 1 +
+ src/plugins/contrib/CppCheck/CppCheck_wx30-unix.cbp                      | 1 +
+ src/plugins/contrib/Cscope/Cscope_wx30-unix.cbp                          | 1 +
+ src/plugins/contrib/EditorConfig/EditorConfig_wx30-unix.cbp              | 1 +
+ src/plugins/contrib/EditorTweaks/EditorTweaks_wx30-unix.cbp              | 1 +
+ src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30-unix.cbp    | 1 +
+ src/plugins/contrib/MouseSap/MouseSap_wx30-unix.cbp                      | 1 +
+ .../ProjectOptionsManipulator/ProjectOptionsManipulator_wx30-unix.cbp    | 1 +
+ src/plugins/contrib/ReopenEditor/ReopenEditor_wx30-unix.cbp              | 1 +
+ src/plugins/contrib/byogames/byogames_wx30-unix.cbp                      | 1 +
+ src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp                    | 1 +
+ src/plugins/contrib/codestat/codestat_wx30-unix.cbp                      | 1 +
+ src/plugins/contrib/copystrings/copystrings_wx30-unix.cbp                | 1 +
+ src/plugins/contrib/dragscroll/DragScroll_wx30-unix.cbp                  | 1 +
+ src/plugins/contrib/envvars/envvars_wx30-unix.cbp                        | 1 +
+ src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp                    | 1 +
+ src/plugins/contrib/regex_testbed/RegExTestbed_wx30-unix.cbp             | 1 +
+ src/plugins/contrib/symtab/symtab_wx30-unix.cbp                          | 1 +
+ 19 files changed, 19 insertions(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
+index 3695f0b..8f4d94c 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
+@@ -21,4 +21,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DPIC" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 				</Compiler>
+diff --git a/src/plugins/contrib/Cccc/Cccc_wx30-unix.cbp b/src/plugins/contrib/Cccc/Cccc_wx30-unix.cbp
+index 0820e77..e2e47ba 100644
+--- a/src/plugins/contrib/Cccc/Cccc_wx30-unix.cbp
++++ b/src/plugins/contrib/Cccc/Cccc_wx30-unix.cbp
+@@ -35,4 +35,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/CppCheck/CppCheck_wx30-unix.cbp b/src/plugins/contrib/CppCheck/CppCheck_wx30-unix.cbp
+index 81d0fb2..54ded0d 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck_wx30-unix.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck_wx30-unix.cbp
+@@ -35,4 +35,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Cscope/Cscope_wx30-unix.cbp b/src/plugins/contrib/Cscope/Cscope_wx30-unix.cbp
+index 0aaa7da..10b0a4b 100644
+--- a/src/plugins/contrib/Cscope/Cscope_wx30-unix.cbp
++++ b/src/plugins/contrib/Cscope/Cscope_wx30-unix.cbp
+@@ -25,4 +25,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig_wx30-unix.cbp b/src/plugins/contrib/EditorConfig/EditorConfig_wx30-unix.cbp
+index e1fd785..3c0e7fc 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig_wx30-unix.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig_wx30-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30-unix.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30-unix.cbp
+index b371bcb..6bb89cb 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30-unix.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30-unix.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30-unix.cbp
+index 55de08b..7fe2188 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30-unix.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/MouseSap/MouseSap_wx30-unix.cbp b/src/plugins/contrib/MouseSap/MouseSap_wx30-unix.cbp
+index da84b00..c0f5cd4 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap_wx30-unix.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap_wx30-unix.cbp
+@@ -27,4 +27,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30-unix.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30-unix.cbp
+index a74e746..4b59b19 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30-unix.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30-unix.cbp
+@@ -27,4 +27,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30-unix.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30-unix.cbp
+index c648f45..9260634 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30-unix.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/byogames/byogames_wx30-unix.cbp b/src/plugins/contrib/byogames/byogames_wx30-unix.cbp
+index c1ada07..dfbae83 100644
+--- a/src/plugins/contrib/byogames/byogames_wx30-unix.cbp
++++ b/src/plugins/contrib/byogames/byogames_wx30-unix.cbp
+@@ -35,4 +35,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp b/src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp
+index 1db1fd8..1823026 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp
+@@ -38,4 +38,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/codestat/codestat_wx30-unix.cbp b/src/plugins/contrib/codestat/codestat_wx30-unix.cbp
+index 22e1486..417eb4a 100644
+--- a/src/plugins/contrib/codestat/codestat_wx30-unix.cbp
++++ b/src/plugins/contrib/codestat/codestat_wx30-unix.cbp
+@@ -35,4 +35,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/copystrings/copystrings_wx30-unix.cbp b/src/plugins/contrib/copystrings/copystrings_wx30-unix.cbp
+index f031c57..5c970d6 100644
+--- a/src/plugins/contrib/copystrings/copystrings_wx30-unix.cbp
++++ b/src/plugins/contrib/copystrings/copystrings_wx30-unix.cbp
+@@ -34,4 +34,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/dragscroll/DragScroll_wx30-unix.cbp b/src/plugins/contrib/dragscroll/DragScroll_wx30-unix.cbp
+index e712be8..5342fc8 100644
+--- a/src/plugins/contrib/dragscroll/DragScroll_wx30-unix.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll_wx30-unix.cbp
+@@ -35,4 +35,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/envvars/envvars_wx30-unix.cbp b/src/plugins/contrib/envvars/envvars_wx30-unix.cbp
+index 0080ca4..e6e387e 100644
+--- a/src/plugins/contrib/envvars/envvars_wx30-unix.cbp
++++ b/src/plugins/contrib/envvars/envvars_wx30-unix.cbp
+@@ -36,4 +36,5 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DcbDEBUG" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../include/scripting/include" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp b/src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp
+index c0002d6..d96335d 100644
+--- a/src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler_wx30-unix.cbp
+@@ -33,4 +33,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="$(CBDIR)/.objs30/include" />
+ 			<Add directory="$(CBDIR)/include" />
+ 			<Add directory="$(CBDIR)/sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30-unix.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30-unix.cbp
+index c326db9..4c9c06b 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30-unix.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30-unix.cbp
+@@ -26,4 +26,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/symtab/symtab_wx30-unix.cbp b/src/plugins/contrib/symtab/symtab_wx30-unix.cbp
+index f15bb3a..afa05ec 100644
+--- a/src/plugins/contrib/symtab/symtab_wx30-unix.cbp
++++ b/src/plugins/contrib/symtab/symtab_wx30-unix.cbp
+@@ -33,4 +33,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="$(CBDIR)/.objs30/include" />
+ 			<Add directory="$(CBDIR)/include" />
+ 			<Add directory="$(CBDIR)/sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

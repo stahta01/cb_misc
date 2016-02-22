@@ -1,0 +1,163 @@
+From 557074cb8a1fe94fb32591aa578ad88be4798887 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 14:56:06 -0500
+Subject: [PATCH 024/159] * wxspellchecker: Removed wx/wx.h and wx/wxprec.h
+ from header files. (Thanks stahta01)
+
+And, added needed wx header includes.
+---
+ .../SpellChecker/wxspellchecker/include/PersonalDictionary.h |  8 +-------
+ .../wxspellchecker/include/SpellCheckCmdLineInterface.h      |  6 ------
+ .../wxspellchecker/include/SpellCheckDialogInterface.h       |  6 ------
+ .../wxspellchecker/include/SpellCheckEngineInterface.h       |  6 ------
+ .../wxspellchecker/include/SpellCheckEngineOption.h          | 12 ------------
+ .../wxspellchecker/include/SpellCheckUserInterface.h         |  6 ------
+ .../wxspellchecker/include/SpellCheckerOptionsDialog.h       |  2 ++
+ .../wxspellchecker/include/XmlPersonalDictionaryDialog.h     |  7 +------
+ .../wxspellchecker/include/XmlSpellCheckDialog.h             |  7 +------
+ 9 files changed, 5 insertions(+), 55 deletions(-)
+
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/PersonalDictionary.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/PersonalDictionary.h
+index c68ff96..9b60cf0 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/PersonalDictionary.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/PersonalDictionary.h
+@@ -2,11 +2,5 @@
+ #define __WX_SPELL_CHECKER_PERSONAL_DICTIONARY__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+-
++#include <wx/arrstr.h>
+ #include "wx/string.h"
+ 
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckCmdLineInterface.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckCmdLineInterface.h
+index 5fcdc9b..e255b68 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckCmdLineInterface.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckCmdLineInterface.h
+@@ -2,10 +2,4 @@
+ #define __SPELL_CHECK_CMDLINE_INTERFACE__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+ 
+ #include "wx/string.h"
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckDialogInterface.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckDialogInterface.h
+index d31ec4c..562c390 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckDialogInterface.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckDialogInterface.h
+@@ -2,10 +2,4 @@
+ #define __SPELL_CHECK_DIALOG_INTERFACE__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+ 
+ #include "wx/dialog.h"
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckEngineInterface.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckEngineInterface.h
+index 9c6f45c..2114bd4 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckEngineInterface.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckEngineInterface.h
+@@ -2,10 +2,4 @@
+ #define __SPELL_CHECK_ENGINE_INTERFACE__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+ 
+ #include <wx/hashmap.h>
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckEngineOption.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckEngineOption.h
+index c5f48a4..a029d1c 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckEngineOption.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckEngineOption.h
+@@ -2,16 +2,4 @@
+ #define __SPELL_CHECK_ENGINE_OPTION__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-// for all others, include the necessary headers (this file is usually all you
+-// need because it includes almost all "standard" wxWindows headers)
+-#ifndef WX_PRECOMP
+-    #include "wx/wx.h"
+-#endif
+ 
+ #include <wx/dynarray.h>
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckUserInterface.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckUserInterface.h
+index ef418bd..84fd3a1 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckUserInterface.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckUserInterface.h
+@@ -2,10 +2,4 @@
+ #define __SPELL_CHECK_USER_INTERFACE__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
+ 
+ #include "wx/string.h"
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckerOptionsDialog.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckerOptionsDialog.h
+index bf6cebf..1e733b9 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckerOptionsDialog.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/SpellCheckerOptionsDialog.h
+@@ -2,4 +2,6 @@
+ #define __SPELL_CHECKER_OPTIONS_DIALOG__
+ 
++#include <wx/dialog.h>
++
+ #include "SpellCheckEngineInterface.h"
+ 
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/XmlPersonalDictionaryDialog.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/XmlPersonalDictionaryDialog.h
+index 3dc133c..d02cb38 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/XmlPersonalDictionaryDialog.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/XmlPersonalDictionaryDialog.h
+@@ -2,10 +2,5 @@
+ #define __XML_PERSONAL_DICTIONARY_DIALOG__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
++#include <wx/dialog.h>
+ 
+ #include "SpellCheckEngineInterface.h"
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/include/XmlSpellCheckDialog.h b/src/plugins/contrib/SpellChecker/wxspellchecker/include/XmlSpellCheckDialog.h
+index eeb05e1..5073351 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/include/XmlSpellCheckDialog.h
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/include/XmlSpellCheckDialog.h
+@@ -2,10 +2,5 @@
+ #define __XML_SPELL_CHECK_DIALOG__
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifndef WX_PRECOMP
+-#include "wx/wx.h"
+-#endif
++#include <wx/dialog.h>
+ 
+ #include "SpellCheckUserInterface.h"
+-- 
+2.7.1.windows.2
+

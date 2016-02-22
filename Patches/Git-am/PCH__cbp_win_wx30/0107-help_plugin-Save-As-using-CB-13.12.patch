@@ -1,0 +1,53 @@
+From ee75b9dd1ce9abe1e44e661a95cee8426eab3318 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 10 Nov 2015 10:32:12 -0500
+Subject: [PATCH 107/159] - help_plugin: Save-As using CB 13.12.
+
+---
+ src/plugins/contrib/help_plugin/help-plugin.cbp         | 4 ++--
+ src/plugins/contrib/help_plugin/help-plugin_wx30.cbp    | 4 ++--
+ src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/src/plugins/contrib/help_plugin/help-plugin.cbp b/src/plugins/contrib/help_plugin/help-plugin.cbp
+index bc3500f..7015570 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin.cbp
+@@ -65,6 +65,6 @@
+ 				<Linker>
+ 					<Add option="-mthreads" />
+-					<Add library="bzip2/libbzip2.a" />
+-					<Add library="zlib/libz.a" />
++					<Add library="bzip2\libbzip2.a" />
++					<Add library="zlib\libz.a" />
+ 				</Linker>
+ 				<ExtraCommands>
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
+index 900db57..54a8521 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
+@@ -63,6 +63,6 @@
+ 				<Linker>
+ 					<Add option="-mthreads" />
+-					<Add library="bzip2/libbzip2.a" />
+-					<Add library="zlib/libz.a" />
++					<Add library="bzip2\libbzip2.a" />
++					<Add library="zlib\libz.a" />
+ 				</Linker>
+ 				<ExtraCommands>
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
+index 3eba843..a58b339 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
+@@ -64,6 +64,6 @@
+ 				<Linker>
+ 					<Add option="-mthreads" />
+-					<Add library="bzip2/libbzip2_64.a" />
+-					<Add library="zlib/libz_64.a" />
++					<Add library="bzip2\libbzip2_64.a" />
++					<Add library="zlib\libz_64.a" />
+ 				</Linker>
+ 				<ExtraCommands>
+-- 
+2.7.1.windows.2
+

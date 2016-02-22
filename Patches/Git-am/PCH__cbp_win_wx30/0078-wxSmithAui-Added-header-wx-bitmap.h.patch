@@ -1,0 +1,37 @@
+From 0822eb2062b3bdde6dd0e16613485e57b86b8a35 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 7 Feb 2016 02:05:43 -0500
+Subject: [PATCH 078/159] * wxSmithAui: Added header "wx/bitmap.h".
+
+---
+ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp   | 4 +---
+ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp | 2 ++
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
+index d4fb927..c503ded 100644
+--- a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
++++ b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
+@@ -17,7 +17,5 @@
+ */
+ 
+-//#include <wx/bitmap.h>
+-//#include <wx/pen.h>
+-//#include <wx/sizer.h>
++#include <wx/bitmap.h>
+ 
+ #include "wxSmithAuiToolBar.h"
+diff --git a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp
+index 79b9717..092774f 100644
+--- a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp
++++ b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp
+@@ -17,4 +17,6 @@
+ */
+ 
++#include <wx/bitmap.h>
++
+ #include <wx/aui/auibar.h>
+ 
+-- 
+2.7.1.windows.2
+

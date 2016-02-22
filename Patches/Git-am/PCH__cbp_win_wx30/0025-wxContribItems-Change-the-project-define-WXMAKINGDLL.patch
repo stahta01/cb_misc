@@ -1,0 +1,171 @@
+From ebe0927121260afc46ba54ca1d075ef1f4f78de3 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 1 Dec 2015 03:00:44 -0500
+Subject: [PATCH 025/159] * wxContribItems: Change the project define
+ "WXMAKINGDLL" into target defines of "WXUSINGDLL". (Thanks stahta01)
+
+Added define of "WXMAKINGDLL_GIZMOS" to target wxLED.
+Added define of "NOPCH" to project.
+Removed use of macro "WXDLLEXPORT" from header file.
+---
+ src/plugins/contrib/wxContribItems/wxContribItems.cbp       | 13 ++++++++++++-
+ src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp  | 12 +++++++++++-
+ .../wxContribItems/wxTreeList/include/wx/treelistctrl.h     | 12 ++++++------
+ 3 files changed, 29 insertions(+), 8 deletions(-)
+
+diff --git a/src/plugins/contrib/wxContribItems/wxContribItems.cbp b/src/plugins/contrib/wxContribItems/wxContribItems.cbp
+index 3616678..c8e1720 100644
+--- a/src/plugins/contrib/wxContribItems/wxContribItems.cbp
++++ b/src/plugins/contrib/wxContribItems/wxContribItems.cbp
+@@ -17,4 +17,5 @@
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_FNB" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+@@ -41,4 +42,5 @@
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_CHART" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+@@ -53,4 +55,5 @@
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+@@ -64,4 +67,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+@@ -77,4 +81,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXUSINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+@@ -89,4 +96,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+@@ -103,4 +111,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxTreeList/include" />
+ 				</Compiler>
+@@ -114,4 +123,6 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL_GIZMOS" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+@@ -154,6 +165,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add option="-DNOPCH" />
+ 			<Add directory="$(#wx.include)" />
+ 			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+diff --git a/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp b/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+index 9c0a33f..460fb57 100644
+--- a/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
++++ b/src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+@@ -17,4 +17,5 @@
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_FNB" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxFlatNotebook/include" />
+ 				</Compiler>
+@@ -41,4 +42,5 @@
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_CHART" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxchart/include" />
+ 				</Compiler>
+@@ -53,4 +55,5 @@
+ 				<Compiler>
+ 					<Add option="-DWXMAKINGDLL_THINGS" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxthings/include" />
+ 				</Compiler>
+@@ -64,4 +67,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxImagePanel/include" />
+ 				</Compiler>
+@@ -77,4 +81,7 @@
+ 				<Option compiler="gcc" />
+ 				<Option createStaticLib="1" />
++				<Compiler>
++					<Add option="-DWXUSINGDLL" />
++				</Compiler>
+ 				<Linker>
+ 					<Add option="-Wl,--export-all-symbols" />
+@@ -89,4 +96,5 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+@@ -103,4 +111,6 @@
+ 				<Option createStaticLib="1" />
+ 				<Compiler>
++					<Add option="-DWXMAKINGDLL_GIZMOS" />
++					<Add option="-DWXUSINGDLL" />
+ 					<Add directory="wxled/ledpanel/include" />
+ 					<Add directory="wxled/lcdWindow/include" />
+@@ -143,6 +153,6 @@
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-			<Add option="-DWXMAKINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add option="-DNOPCH" />
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+diff --git a/src/plugins/contrib/wxContribItems/wxTreeList/include/wx/treelistctrl.h b/src/plugins/contrib/wxContribItems/wxTreeList/include/wx/treelistctrl.h
+index 8410c65..111aa19 100644
+--- a/src/plugins/contrib/wxContribItems/wxTreeList/include/wx/treelistctrl.h
++++ b/src/plugins/contrib/wxContribItems/wxTreeList/include/wx/treelistctrl.h
+@@ -24,7 +24,7 @@
+ #include <wx/listctrl.h> // for wxListEvent
+ 
+-class WXDLLEXPORT wxTreeListItem;
+-class WXDLLEXPORT wxTreeListHeaderWindow;
+-class WXDLLEXPORT wxTreeListMainWindow;
++class wxTreeListItem;
++class wxTreeListHeaderWindow;
++class wxTreeListMainWindow;
+ 
+ #define wxTR_COLUMN_LINES 0x1000 // put border around items
+@@ -44,5 +44,5 @@ enum {
+ };
+ 
+-class WXDLLEXPORT wxTreeListColumnInfo: public wxObject {
++class wxTreeListColumnInfo: public wxObject {
+ 
+ public:
+@@ -124,8 +124,8 @@ const int wxTL_MODE_FIND_NOCASE  = 0x0020;
+ // additional flag for HitTest
+ const int wxTREE_HITTEST_ONITEMCOLUMN = 0x2000;
+-extern WXDLLEXPORT const wxChar* wxTreeListCtrlNameStr;
++extern const wxChar* wxTreeListCtrlNameStr;
+ 
+ 
+-class WXDLLEXPORT wxTreeListCtrl : public wxControl
++class wxTreeListCtrl : public wxControl
+ {
+ friend class wxTreeListHeaderWindow;
+-- 
+2.7.1.windows.2
+

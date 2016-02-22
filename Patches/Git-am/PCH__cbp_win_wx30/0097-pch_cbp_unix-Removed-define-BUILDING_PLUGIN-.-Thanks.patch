@@ -1,0 +1,42 @@
+From 3361e2d34d408e30329dfb74eab02fff0b947080 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Wed, 16 Dec 2015 09:58:21 -0500
+Subject: [PATCH 097/159] - pch_cbp_unix: Removed define "BUILDING_PLUGIN".
+ (Thanks stahta01)
+
+And, added object include search folder.
+Also, may have removed define "WX_PRECOMP".
+---
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman-unix.cbp      | 3 +--
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30-unix.cbp | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman-unix.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman-unix.cbp
+index d895b9f..df1137e 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman-unix.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman-unix.cbp
+@@ -27,7 +27,6 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DBOOST_SYSTEM_NO_DEPRECATED" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30-unix.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30-unix.cbp
+index ca85ecc..0a69e05 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30-unix.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30-unix.cbp
+@@ -26,7 +26,6 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DCB_PRECOMP" />
+-					<Add option="-DWX_PRECOMP" />
+-					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DBOOST_SYSTEM_NO_DEPRECATED" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

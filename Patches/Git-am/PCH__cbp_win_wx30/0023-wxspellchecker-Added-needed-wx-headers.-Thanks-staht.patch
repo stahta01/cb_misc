@@ -1,0 +1,83 @@
+From 3cb8c9aef041b9e06ebff9c560898db0e344a078 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 14:51:51 -0500
+Subject: [PATCH 023/159] * wxspellchecker: Added needed wx headers. (Thanks
+ stahta01)
+
+---
+ .../wxspellchecker/src/SpellCheckCmdLineInterface.cpp          |  3 +++
+ .../wxspellchecker/src/SpellCheckEngineInterface.cpp           |  2 ++
+ .../wxspellchecker/src/SpellCheckUserInterface.cpp             |  2 ++
+ .../wxspellchecker/src/SpellCheckerOptionsDialog.cpp           | 10 ++++++++++
+ .../wxspellchecker/src/XmlPersonalDictionaryDialog.cpp         |  3 +++
+ .../SpellChecker/wxspellchecker/src/XmlSpellCheckDialog.cpp    |  3 +++
+ 6 files changed, 23 insertions(+)
+
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckCmdLineInterface.cpp b/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckCmdLineInterface.cpp
+index 3daa94e..4376a61 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckCmdLineInterface.cpp
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckCmdLineInterface.cpp
+@@ -1,2 +1,5 @@
++#include <wx/dynarray.h>
++#include <wx/intl.h>
++
+ #include "SpellCheckCmdLineInterface.h"
+ 
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckEngineInterface.cpp b/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckEngineInterface.cpp
+index de13881..d28c283 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckEngineInterface.cpp
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckEngineInterface.cpp
+@@ -1,2 +1,4 @@
++#include <wx/dynarray.h>
++
+ #include "SpellCheckEngineInterface.h"
+ #include "SpellCheckUserInterface.h"
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckUserInterface.cpp b/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckUserInterface.cpp
+index 931f7ac..a2cce70 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckUserInterface.cpp
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckUserInterface.cpp
+@@ -1,2 +1,4 @@
++#include <wx/dynarray.h>
++
+ #include "SpellCheckUserInterface.h"
+ 
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckerOptionsDialog.cpp b/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckerOptionsDialog.cpp
+index d42a079..cd4afbb 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckerOptionsDialog.cpp
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/src/SpellCheckerOptionsDialog.cpp
+@@ -1,2 +1,12 @@
++#include <wx/bmpbuttn.h>
++#include <wx/button.h>
++#include <wx/checkbox.h>
++#include <wx/combobox.h>
++#include <wx/dirdlg.h>
++#include <wx/dynarray.h>
++#include <wx/filedlg.h>
++#include <wx/sizer.h>
++#include <wx/stattext.h>
++
+ #include "SpellCheckerOptionsDialog.h"
+ #include <wx/statline.h>
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/src/XmlPersonalDictionaryDialog.cpp b/src/plugins/contrib/SpellChecker/wxspellchecker/src/XmlPersonalDictionaryDialog.cpp
+index 93f810f..36b9b8c 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/src/XmlPersonalDictionaryDialog.cpp
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/src/XmlPersonalDictionaryDialog.cpp
+@@ -1,2 +1,5 @@
++#include <wx/listbox.h>
++#include <wx/textctrl.h>
++
+ #include "XmlPersonalDictionaryDialog.h"
+ 
+diff --git a/src/plugins/contrib/SpellChecker/wxspellchecker/src/XmlSpellCheckDialog.cpp b/src/plugins/contrib/SpellChecker/wxspellchecker/src/XmlSpellCheckDialog.cpp
+index 5f95fd0..9987109 100644
+--- a/src/plugins/contrib/SpellChecker/wxspellchecker/src/XmlSpellCheckDialog.cpp
++++ b/src/plugins/contrib/SpellChecker/wxspellchecker/src/XmlSpellCheckDialog.cpp
+@@ -1,2 +1,5 @@
++#include <wx/stattext.h>
++#include <wx/textctrl.h>
++
+ #include "XmlSpellCheckDialog.h"
+ #include "XmlPersonalDictionaryDialog.h"
+-- 
+2.7.1.windows.2
+

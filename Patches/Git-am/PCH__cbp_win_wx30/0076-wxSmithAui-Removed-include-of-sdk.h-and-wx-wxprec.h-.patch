@@ -1,0 +1,111 @@
+From 08fa04824f851af84cfb1769175014812439e51f Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 7 Feb 2016 00:36:22 -0500
+Subject: [PATCH 076/159] * wxSmithAui: Removed include of "sdk.h" and
+ "wx/wxprec.h". (Thanks stahta01)
+
+And, reordered includes and added wx headers.
+Also, removed include of "wx/wx.h".
+---
+ src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h    | 2 +-
+ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp  | 5 ++++-
+ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h    | 2 +-
+ src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBar.cpp      | 1 +
+ .../contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp        | 7 ++++++-
+ src/plugins/contrib/wxSmithAui/wxSmithAui.cpp                      | 1 -
+ src/plugins/contrib/wxSmithAui/wxSmithAui.h                        | 6 ------
+ 7 files changed, 13 insertions(+), 11 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h b/src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h
+index 1ad8c31..bbac226 100644
+--- a/src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h
++++ b/src/plugins/contrib/wxSmithAui/wxAuiManager/wxSmithAuiManager.h
+@@ -3,5 +3,5 @@
+ 
+ #include <wx/aui/aui.h>
+-#include <wx/wx.h>
++
+ #include <wx/event.h>
+ 
+diff --git a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
+index 951ed56..f351e51 100644
+--- a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
++++ b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.cpp
+@@ -17,5 +17,8 @@
+ */
+ 
+-#include "wxSmithAuiToolBar.h"
++// In wx3.0.2, "wx/defs.h" is needed before wx/version.h under Linux
++//    or get [warning: "HAVE_VARIADIC_MACROS" redefined]
++#include <wx/defs.h>
++#include <wx/version.h>
+ 
+ // missing wxITEM_* items, the same as in wx/auibar.cpp, needed for adding spacer exception
+diff --git a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h
+index 6a17d0f..8463e66 100644
+--- a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h
++++ b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxSmithAuiToolBar.h
+@@ -20,5 +20,5 @@
+ #define WXSMITHAUITOOLBAR_H
+ 
+-#include <wx/wx.h>
++#include <wx/version.h>
+ 
+ #include <wx/aui/auibar.h>
+diff --git a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBar.cpp b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBar.cpp
+index 66b67ed..51058bc 100644
+--- a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBar.cpp
++++ b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBar.cpp
+@@ -17,4 +17,5 @@
+ */
+ 
++#include <wx/bitmap.h>
+ #include "wxsAuiToolBar.h"
+ 
+diff --git a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp
+index 8334d5d..72ca584 100644
+--- a/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp
++++ b/src/plugins/contrib/wxSmithAui/wxAuiToolBar/wxsAuiToolBarSpacer.cpp
+@@ -17,5 +17,8 @@
+ */
+ 
+-#include "wxsAuiToolBarSpacer.h"
++// In wx3.0.2, "wx/defs.h" is needed before wx/version.h under Linux
++//    or get [warning: "HAVE_VARIADIC_MACROS" redefined]
++#include <wx/defs.h>
++#include <wx/version.h>
+ 
+ #include <wx/aui/auibar.h>
+@@ -23,4 +26,6 @@
+ #include <wxwidgets/wxsflags.h>
+ 
++#include "wxsAuiToolBarSpacer.h"
++
+ using namespace wxsFlags;
+ 
+diff --git a/src/plugins/contrib/wxSmithAui/wxSmithAui.cpp b/src/plugins/contrib/wxSmithAui/wxSmithAui.cpp
+index 8e2973c..b505ee9 100644
+--- a/src/plugins/contrib/wxSmithAui/wxSmithAui.cpp
++++ b/src/plugins/contrib/wxSmithAui/wxSmithAui.cpp
+@@ -1,3 +1,2 @@
+-#include <sdk.h> // Code::Blocks SDK
+ #include <configurationpanel.h>
+ #include "wxSmithAui.h"
+diff --git a/src/plugins/contrib/wxSmithAui/wxSmithAui.h b/src/plugins/contrib/wxSmithAui/wxSmithAui.h
+index 9a82944..a0a78ab 100644
+--- a/src/plugins/contrib/wxSmithAui/wxSmithAui.h
++++ b/src/plugins/contrib/wxSmithAui/wxSmithAui.h
+@@ -11,10 +11,4 @@
+ #define WXSMITHAUI_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbPlugin"
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,28 @@
+From 7a2b3a5481551bcff17400f886e2d6ada624b99a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 27 Dec 2015 10:23:18 -0500
+Subject: [PATCH 044/159] * Test Only: Added wxContribItemsPlugins
+ workspace(s).
+
+---
+ src/wxContribItemsPlugins_wx30_64.workspace | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+ create mode 100644 src/wxContribItemsPlugins_wx30_64.workspace
+
+diff --git a/src/wxContribItemsPlugins_wx30_64.workspace b/src/wxContribItemsPlugins_wx30_64.workspace
+new file mode 100644
+index 0000000..44b443b
+--- /dev/null
++++ b/src/wxContribItemsPlugins_wx30_64.workspace
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="wxContribItems Plugins wx3.0.x (64 bit)">
++		<Project filename="plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp" />
++		<Project filename="plugins/contrib/lib_finder/lib_finder_wx30_64.cbp" />
++		<Project filename="plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+-- 
+2.7.1.windows.2
+

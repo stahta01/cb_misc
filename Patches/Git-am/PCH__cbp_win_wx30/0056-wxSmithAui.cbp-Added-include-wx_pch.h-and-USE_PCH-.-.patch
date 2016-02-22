@@ -1,0 +1,54 @@
+From f68dc5c356c72ddc8649a3a804f23982f9589042 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Wed, 16 Dec 2015 10:45:46 -0500
+Subject: [PATCH 056/159] * wxSmithAui.cbp: Added [-include "wx_pch.h"] and
+ "USE_PCH". (Thanks stahta01)
+
+And, moved defines to target level.
+The "wx_pch.h" is from wxSmith Project.
+---
+ src/plugins/contrib/wxSmithAui/wxSmithAui.cbp | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithAui/wxSmithAui.cbp b/src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
+index 803fe8e..3a552b9 100644
+--- a/src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
++++ b/src/plugins/contrib/wxSmithAui/wxSmithAui.cbp
+@@ -23,4 +23,6 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-fPIC" />
++					<Add option="-DcbDEBUG" />
++					<Add option="-DNOPCH" />
+ 				</Compiler>
+ 				<Linker>
+@@ -50,8 +52,16 @@
+ 					<Add option="-fexceptions" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
++					<Add option="-DUSE_PCH" />
++					<Add option="-DBUILDING_PLUGIN" />
++					<Add option="-DwxUSE_UNICODE" />
++					<Add option="-DWXUSINGDLL" />
++					<Add option="-DcbDEBUG" />
+ 					<Add directory="$(#wx.include)" />
+ 					<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs/plugins/contrib/wxSmithLib/pch" />
++					<Add directory="../wxSmith/pch" />
+ 				</Compiler>
+ 				<Linker>
+@@ -79,10 +89,4 @@
+ 		<Compiler>
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
+-			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DWXUSINGDLL" />
+-			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+-			<Add option="-DWX_PRECOMP" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

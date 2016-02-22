@@ -1,0 +1,23 @@
+From da444e976cd8217c00ca38a54dc8a19e3af50b91 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 28 Dec 2015 15:07:02 -0500
+Subject: [PATCH 068/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/SpellChecker/SpellChecker.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker.cbp b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
+index 2498e35..263124d 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
+@@ -82,4 +82,5 @@
+ 					<Add directory="hunspell/src" />
+ 					<Add directory="wxspellchecker/include" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

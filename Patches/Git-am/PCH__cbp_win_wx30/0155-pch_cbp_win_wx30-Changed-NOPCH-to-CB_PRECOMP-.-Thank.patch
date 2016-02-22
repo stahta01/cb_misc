@@ -1,0 +1,808 @@
+From 783f7d09f670f59eb324ed11ae5fcd93abf75674 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 10:04:07 -0500
+Subject: [PATCH 155/159] - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP".
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp             | 2 +-
+ src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp          | 2 +-
+ src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp               | 2 +-
+ src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp            | 2 +-
+ src/plugins/contrib/Cccc/Cccc_wx30.cbp                                 | 2 +-
+ src/plugins/contrib/Cccc/Cccc_wx30_64.cbp                              | 2 +-
+ src/plugins/contrib/CppCheck/CppCheck_wx30.cbp                         | 2 +-
+ src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp                      | 2 +-
+ src/plugins/contrib/Cscope/Cscope_wx30.cbp                             | 2 +-
+ src/plugins/contrib/Cscope/Cscope_wx30_64.cbp                          | 2 +-
+ src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp                     | 2 +-
+ src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp                  | 2 +-
+ src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp                 | 2 +-
+ src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp              | 2 +-
+ src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp                 | 2 +-
+ src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp              | 2 +-
+ src/plugins/contrib/FileManager/FileManager_wx30.cbp                   | 2 +-
+ src/plugins/contrib/FileManager/FileManager_wx30_64.cbp                | 2 +-
+ src/plugins/contrib/HexEditor/HexEditor_wx30.cbp                       | 2 +-
+ src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp                    | 2 +-
+ src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp       | 2 +-
+ src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp    | 2 +-
+ src/plugins/contrib/MouseSap/MouseSap_wx30.cbp                         | 2 +-
+ src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp                      | 2 +-
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp         | 2 +-
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp      | 2 +-
+ .../ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp       | 2 +-
+ .../ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp    | 2 +-
+ src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp                 | 2 +-
+ src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp              | 2 +-
+ src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp                   | 3 +--
+ src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp                | 3 +--
+ src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp                 | 2 +-
+ src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp              | 2 +-
+ src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp                       | 2 +-
+ src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp                    | 2 +-
+ src/plugins/contrib/byogames/byogames_wx30.cbp                         | 2 +-
+ src/plugins/contrib/byogames/byogames_wx30_64.cbp                      | 2 +-
+ src/plugins/contrib/cb_koders/cb_koders_wx30.cbp                       | 2 +-
+ src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp                    | 2 +-
+ src/plugins/contrib/codesnippets/codesnippets_wx30.cbp                 | 2 +-
+ src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp              | 2 +-
+ src/plugins/contrib/codestat/codestat_wx30.cbp                         | 2 +-
+ src/plugins/contrib/codestat/codestat_wx30_64.cbp                      | 2 +-
+ src/plugins/contrib/copystrings/copystrings_wx30.cbp                   | 2 +-
+ src/plugins/contrib/copystrings/copystrings_wx30_64.cbp                | 2 +-
+ src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp                | 2 +-
+ src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp             | 2 +-
+ src/plugins/contrib/dragscroll/DragScroll_wx30.cbp                     | 2 +-
+ src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp                  | 2 +-
+ src/plugins/contrib/envvars/envvars_wx30.cbp                           | 2 +-
+ src/plugins/contrib/envvars/envvars_wx30_64.cbp                        | 2 +-
+ src/plugins/contrib/headerfixup/headerfixup_wx30.cbp                   | 2 +-
+ src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp                | 2 +-
+ src/plugins/contrib/help_plugin/help-plugin_wx30.cbp                   | 2 +-
+ src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp                | 2 +-
+ src/plugins/contrib/keybinder/keybinder_wx30.cbp                       | 2 +-
+ src/plugins/contrib/keybinder/keybinder_wx30_64.cbp                    | 2 +-
+ src/plugins/contrib/profiler/cbprofiler_wx30.cbp                       | 2 +-
+ src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp                    | 2 +-
+ src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp                | 2 +-
+ src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp             | 2 +-
+ src/plugins/contrib/rndgen/rndgen_wx30.cbp                             | 2 +-
+ src/plugins/contrib/rndgen/rndgen_wx30_64.cbp                          | 2 +-
+ src/plugins/contrib/symtab/symtab_wx30.cbp                             | 2 +-
+ src/plugins/contrib/symtab/symtab_wx30_64.cbp                          | 2 +-
+ 66 files changed, 66 insertions(+), 68 deletions(-)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp
+index b1215a2..1d34d2a 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp
+@@ -27,5 +27,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30/include" />
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp
+index 779d591..0341d23 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp
+@@ -28,5 +28,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30_64/include" />
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp
+index f0196f7..9d0c610 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp
+@@ -27,5 +27,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp
+index 37d8c67..806fddf 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp
+@@ -28,5 +28,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
+diff --git a/src/plugins/contrib/Cccc/Cccc_wx30.cbp b/src/plugins/contrib/Cccc/Cccc_wx30.cbp
+index a39c676..41fba7d 100644
+--- a/src/plugins/contrib/Cccc/Cccc_wx30.cbp
++++ b/src/plugins/contrib/Cccc/Cccc_wx30.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/Cccc/Cccc_wx30_64.cbp b/src/plugins/contrib/Cccc/Cccc_wx30_64.cbp
+index be1dd37..30e9861 100644
+--- a/src/plugins/contrib/Cccc/Cccc_wx30_64.cbp
++++ b/src/plugins/contrib/Cccc/Cccc_wx30_64.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/CppCheck/CppCheck_wx30.cbp b/src/plugins/contrib/CppCheck/CppCheck_wx30.cbp
+index 1cbd1a1..98ac6e3 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck_wx30.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck_wx30.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp b/src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp
+index 7a9c18f..d1c2d11 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/Cscope/Cscope_wx30.cbp b/src/plugins/contrib/Cscope/Cscope_wx30.cbp
+index 90460f9..940e553 100644
+--- a/src/plugins/contrib/Cscope/Cscope_wx30.cbp
++++ b/src/plugins/contrib/Cscope/Cscope_wx30.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/Cscope/Cscope_wx30_64.cbp b/src/plugins/contrib/Cscope/Cscope_wx30_64.cbp
+index 35ddb45..786d7bf 100644
+--- a/src/plugins/contrib/Cscope/Cscope_wx30_64.cbp
++++ b/src/plugins/contrib/Cscope/Cscope_wx30_64.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp
+index 403dfa7..41d731b 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp
+@@ -29,5 +29,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30/include" />
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp
+index ee50562..685ce7a 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp
+@@ -30,5 +30,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30_64/include" />
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp b/src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp
+index 3532807..8b549a0 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp
+@@ -28,5 +28,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30/include" />
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp b/src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp
+index f4c9665..6a7a96f 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp
+@@ -29,5 +29,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30_64/include" />
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp
+index 31123f9..4898eba 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp
+@@ -28,5 +28,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30/include" />
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp
+index ed1c0c4..81d4003 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp
+@@ -29,5 +29,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30_64/include" />
+diff --git a/src/plugins/contrib/FileManager/FileManager_wx30.cbp b/src/plugins/contrib/FileManager/FileManager_wx30.cbp
+index 2c1dcb0..ed6ab9d 100644
+--- a/src/plugins/contrib/FileManager/FileManager_wx30.cbp
++++ b/src/plugins/contrib/FileManager/FileManager_wx30.cbp
+@@ -45,5 +45,5 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/FileManager/FileManager_wx30_64.cbp b/src/plugins/contrib/FileManager/FileManager_wx30_64.cbp
+index 43b9c92..cabba4c 100644
+--- a/src/plugins/contrib/FileManager/FileManager_wx30_64.cbp
++++ b/src/plugins/contrib/FileManager/FileManager_wx30_64.cbp
+@@ -46,5 +46,5 @@
+ 			<Add option="-D_WIN64" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/HexEditor/HexEditor_wx30.cbp b/src/plugins/contrib/HexEditor/HexEditor_wx30.cbp
+index c92b130..8e8129d 100644
+--- a/src/plugins/contrib/HexEditor/HexEditor_wx30.cbp
++++ b/src/plugins/contrib/HexEditor/HexEditor_wx30.cbp
+@@ -26,5 +26,5 @@
+ 					<Add option="-D__WXMSW__" />
+ 					<Add option="-DWXUSINGDLL" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DcbDEBUG" />
+diff --git a/src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp b/src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp
+index e88ec6e..26b808a 100644
+--- a/src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp
++++ b/src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp
+@@ -29,5 +29,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX30_64.include)" />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp
+index d0d2da0..1e0eac6 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp
+@@ -28,5 +28,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30/include" />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp
+index d26298f..da03b06 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp
+@@ -29,5 +29,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30_64/include" />
+diff --git a/src/plugins/contrib/MouseSap/MouseSap_wx30.cbp b/src/plugins/contrib/MouseSap/MouseSap_wx30.cbp
+index 48d64c4..8868ee6 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap_wx30.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap_wx30.cbp
+@@ -24,5 +24,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp b/src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp
+index ed48236..9f9f81d 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp
+@@ -24,5 +24,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp
+index 6a156c5..e1d0a07 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp
+@@ -28,5 +28,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DBOOST_SYSTEM_NO_DEPRECATED" />
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp
+index c9da93e..275f4fd 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp
+@@ -30,5 +30,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-D_WIN64" />
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp
+index aa1fce4..98aa194 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp
+@@ -40,5 +40,5 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="../../../.objs30/include" />
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp
+index 635fe48..d8b0bbc 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp
+@@ -41,5 +41,5 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add directory="../../../.objs30_64/include" />
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp
+index c064e19..68c6965 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp
+@@ -28,5 +28,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30/include" />
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp
+index e7bbfd4..25163fd 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp
+@@ -29,5 +29,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30_64/include" />
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp b/src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp
+index 75324f0..b4642ce 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp
+@@ -173,7 +173,6 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DNOPCH" />
+ 			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp b/src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp
+index a778463..f211971 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp
+@@ -174,7 +174,6 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add option="-DNOPCH" />
+ 			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
+index 8b6e7d6..69dd17f 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
+@@ -77,5 +77,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add directory="hunspell/src" />
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
+index dc29c9b..0a9a67e 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
+@@ -85,5 +85,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-D_WIN64" />
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp
+index 1c42c60..5f81062 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp
+@@ -45,5 +45,5 @@
+ 			<Add option="-D__WXMSW__" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp
+index 45e341c..2d58f7e 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp
+@@ -46,5 +46,5 @@
+ 			<Add option="-D_WIN64" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/byogames/byogames_wx30.cbp b/src/plugins/contrib/byogames/byogames_wx30.cbp
+index 925ba9e..5723ee5 100644
+--- a/src/plugins/contrib/byogames/byogames_wx30.cbp
++++ b/src/plugins/contrib/byogames/byogames_wx30.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/byogames/byogames_wx30_64.cbp b/src/plugins/contrib/byogames/byogames_wx30_64.cbp
+index 6d46914..729ceda 100644
+--- a/src/plugins/contrib/byogames/byogames_wx30_64.cbp
++++ b/src/plugins/contrib/byogames/byogames_wx30_64.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders_wx30.cbp b/src/plugins/contrib/cb_koders/cb_koders_wx30.cbp
+index 3266418..2fc8b90 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders_wx30.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders_wx30.cbp
+@@ -36,5 +36,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp b/src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp
+index 936cfac..94774a5 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp
+@@ -38,5 +38,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/codesnippets/codesnippets_wx30.cbp b/src/plugins/contrib/codesnippets/codesnippets_wx30.cbp
+index e4ad995..914956c 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets_wx30.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets_wx30.cbp
+@@ -18,5 +18,5 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 				</Compiler>
+ 				<Linker>
+diff --git a/src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp b/src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp
+index 3d73bfa..4262a3d 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp
+@@ -18,5 +18,5 @@
+ 				<Compiler>
+ 					<Add option="$(#CB_RELEASE_TYPE)" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 				</Compiler>
+ 				<Linker>
+diff --git a/src/plugins/contrib/codestat/codestat_wx30.cbp b/src/plugins/contrib/codestat/codestat_wx30.cbp
+index 0ee9672..6f8b043 100644
+--- a/src/plugins/contrib/codestat/codestat_wx30.cbp
++++ b/src/plugins/contrib/codestat/codestat_wx30.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/codestat/codestat_wx30_64.cbp b/src/plugins/contrib/codestat/codestat_wx30_64.cbp
+index 77e85f5..28607fd 100644
+--- a/src/plugins/contrib/codestat/codestat_wx30_64.cbp
++++ b/src/plugins/contrib/codestat/codestat_wx30_64.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/copystrings/copystrings_wx30.cbp b/src/plugins/contrib/copystrings/copystrings_wx30.cbp
+index 3da6b50..87712e4 100644
+--- a/src/plugins/contrib/copystrings/copystrings_wx30.cbp
++++ b/src/plugins/contrib/copystrings/copystrings_wx30.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/copystrings/copystrings_wx30_64.cbp b/src/plugins/contrib/copystrings/copystrings_wx30_64.cbp
+index 289e20c..2452c50 100644
+--- a/src/plugins/contrib/copystrings/copystrings_wx30_64.cbp
++++ b/src/plugins/contrib/copystrings/copystrings_wx30_64.cbp
+@@ -33,5 +33,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
+index c03cfbe..634f3b0 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
+@@ -37,5 +37,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
+index 107e333..95afd16 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
+@@ -37,5 +37,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/dragscroll/DragScroll_wx30.cbp b/src/plugins/contrib/dragscroll/DragScroll_wx30.cbp
+index e78414a..e4672db 100644
+--- a/src/plugins/contrib/dragscroll/DragScroll_wx30.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll_wx30.cbp
+@@ -34,5 +34,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp b/src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp
+index 54c34fa..7ef6415 100644
+--- a/src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp
+@@ -34,5 +34,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/envvars/envvars_wx30.cbp b/src/plugins/contrib/envvars/envvars_wx30.cbp
+index 6b8caba..56d4739 100644
+--- a/src/plugins/contrib/envvars/envvars_wx30.cbp
++++ b/src/plugins/contrib/envvars/envvars_wx30.cbp
+@@ -18,5 +18,5 @@
+ 				<Option projectIncludeDirsRelation="2" />
+ 				<Compiler>
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add directory="../../../.objs30/include" />
+ 				</Compiler>
+diff --git a/src/plugins/contrib/envvars/envvars_wx30_64.cbp b/src/plugins/contrib/envvars/envvars_wx30_64.cbp
+index b80c404..ec7447f 100644
+--- a/src/plugins/contrib/envvars/envvars_wx30_64.cbp
++++ b/src/plugins/contrib/envvars/envvars_wx30_64.cbp
+@@ -18,5 +18,5 @@
+ 				<Option projectIncludeDirsRelation="2" />
+ 				<Compiler>
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add directory="../../../.objs30_64/include" />
+ 				</Compiler>
+diff --git a/src/plugins/contrib/headerfixup/headerfixup_wx30.cbp b/src/plugins/contrib/headerfixup/headerfixup_wx30.cbp
+index 7d8cd3d..8f8b743 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup_wx30.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup_wx30.cbp
+@@ -27,5 +27,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX30.include)" />
+diff --git a/src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp b/src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp
+index 65e9f3e..e52c890 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp
+@@ -28,5 +28,5 @@
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="$(#WX30_64.include)" />
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
+index 92eff75..bfe8bb3 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
+@@ -53,5 +53,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
+index f61dd5f..15069cb 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
+@@ -53,5 +53,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/keybinder/keybinder_wx30.cbp b/src/plugins/contrib/keybinder/keybinder_wx30.cbp
+index 1ee4930..39f6a39 100644
+--- a/src/plugins/contrib/keybinder/keybinder_wx30.cbp
++++ b/src/plugins/contrib/keybinder/keybinder_wx30.cbp
+@@ -22,5 +22,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/keybinder/keybinder_wx30_64.cbp b/src/plugins/contrib/keybinder/keybinder_wx30_64.cbp
+index ac4ea0d..b010708 100644
+--- a/src/plugins/contrib/keybinder/keybinder_wx30_64.cbp
++++ b/src/plugins/contrib/keybinder/keybinder_wx30_64.cbp
+@@ -22,5 +22,5 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler_wx30.cbp b/src/plugins/contrib/profiler/cbprofiler_wx30.cbp
+index c777402..f8ee990 100644
+--- a/src/plugins/contrib/profiler/cbprofiler_wx30.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler_wx30.cbp
+@@ -32,5 +32,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp b/src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp
+index 956699b..c26c929 100644
+--- a/src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp
+@@ -32,5 +32,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp
+index eb50bf5..0cc1c7a 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp
+@@ -41,5 +41,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-Winvalid-pch" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp
+index 38ce335..bcd2941 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp
+@@ -41,5 +41,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-Winvalid-pch" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/rndgen/rndgen_wx30.cbp b/src/plugins/contrib/rndgen/rndgen_wx30.cbp
+index 013bebd..e46c5af 100644
+--- a/src/plugins/contrib/rndgen/rndgen_wx30.cbp
++++ b/src/plugins/contrib/rndgen/rndgen_wx30.cbp
+@@ -26,5 +26,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30/include" />
+diff --git a/src/plugins/contrib/rndgen/rndgen_wx30_64.cbp b/src/plugins/contrib/rndgen/rndgen_wx30_64.cbp
+index 7b3635b..e2ca3d7 100644
+--- a/src/plugins/contrib/rndgen/rndgen_wx30_64.cbp
++++ b/src/plugins/contrib/rndgen/rndgen_wx30_64.cbp
+@@ -27,5 +27,5 @@
+ 					<Add option="-DWXUSINGDLL" />
+ 					<Add option="-DcbDEBUG" />
+-					<Add option="-DNOPCH" />
++					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add directory="../../../.objs30_64/include" />
+diff --git a/src/plugins/contrib/symtab/symtab_wx30.cbp b/src/plugins/contrib/symtab/symtab_wx30.cbp
+index 102371b..eef1767 100644
+--- a/src/plugins/contrib/symtab/symtab_wx30.cbp
++++ b/src/plugins/contrib/symtab/symtab_wx30.cbp
+@@ -36,5 +36,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+diff --git a/src/plugins/contrib/symtab/symtab_wx30_64.cbp b/src/plugins/contrib/symtab/symtab_wx30_64.cbp
+index 7a93363..3573477 100644
+--- a/src/plugins/contrib/symtab/symtab_wx30_64.cbp
++++ b/src/plugins/contrib/symtab/symtab_wx30_64.cbp
+@@ -36,5 +36,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-- 
+2.7.1.windows.2
+

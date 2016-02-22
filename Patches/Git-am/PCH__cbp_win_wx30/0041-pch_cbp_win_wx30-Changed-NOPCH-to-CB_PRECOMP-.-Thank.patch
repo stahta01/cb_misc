@@ -1,0 +1,36 @@
+From eb155a2a13c632b204c573f21b6dd2fa7e7e8d3f Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 29 Dec 2015 21:54:34 -0500
+Subject: [PATCH 041/159] - pch_cbp_win_wx30: Changed "NOPCH" to "CB_PRECOMP".
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp | 2 +-
+ src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp b/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
+index 5c8e070..7d89701 100644
+--- a/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
++++ b/src/plugins/contrib/ThreadSearch/ThreadSearch_wx30_64.cbp
+@@ -47,5 +47,5 @@
+ 			<Add option="-D_WIN64" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+diff --git a/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp b/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
+index cc03fee..14b75b4 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
+@@ -36,5 +36,5 @@
+ 			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DNOPCH" />
++			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+-- 
+2.7.1.windows.2
+

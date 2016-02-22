@@ -1,0 +1,97 @@
+From 3470e23d3ef03c02aa28f518d9c19f954f9d4dce Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Thu, 24 Dec 2015 17:06:54 -0500
+Subject: [PATCH 158/159] * Test Only: Added wxSmithPlugins workspace(s).
+
+---
+ src/wxSmithPlugins-unix.workspace      |  8 ++++++++
+ src/wxSmithPlugins.workspace           | 14 ++++++++++++++
+ src/wxSmithPlugins_wx30-unix.workspace |  8 ++++++++
+ src/wxSmithPlugins_wx30.workspace      |  8 ++++++++
+ src/wxSmithPlugins_wx30_64.workspace   |  8 ++++++++
+ 5 files changed, 46 insertions(+)
+ create mode 100644 src/wxSmithPlugins-unix.workspace
+ create mode 100644 src/wxSmithPlugins.workspace
+ create mode 100644 src/wxSmithPlugins_wx30-unix.workspace
+ create mode 100644 src/wxSmithPlugins_wx30.workspace
+ create mode 100644 src/wxSmithPlugins_wx30_64.workspace
+
+diff --git a/src/wxSmithPlugins-unix.workspace b/src/wxSmithPlugins-unix.workspace
+new file mode 100644
+index 0000000..b1c0208
+--- /dev/null
++++ b/src/wxSmithPlugins-unix.workspace
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="wxSmith Plugins wx2.8.x (Unix)">
++		<Project filename="plugins/contrib/wxSmith/wxSmith-unix.cbp" />
++		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui.cbp" />
++		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems-unix.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+diff --git a/src/wxSmithPlugins.workspace b/src/wxSmithPlugins.workspace
+new file mode 100644
+index 0000000..7b73338
+--- /dev/null
++++ b/src/wxSmithPlugins.workspace
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="wxSmith Plugins wx2.8.x">
++		<Project filename="plugins/contrib/wxSmith/wxSmith.cbp" />
++		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems.cbp" />
++		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui.cbp" />
++		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlot.cbp" />
++		<Project filename="plugins/contrib/wxSmithDemo/wxSmithDemo.cbp" />
++		<Project filename="plugins/contrib/wxSmithIExplore/wxsSmithIExplore.cbp" />
++		<Project filename="plugins/contrib/wxSmithIExplore/test/IETest.cbp" />
++		<Project filename="plugins/contrib/wxSmithDateTimePicker/wxSmithDateTimePicker.cbp" />
++		<Project filename="plugins/contrib/wxSmithSTC/wxsSmithSTC.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+diff --git a/src/wxSmithPlugins_wx30-unix.workspace b/src/wxSmithPlugins_wx30-unix.workspace
+new file mode 100644
+index 0000000..9106437
+--- /dev/null
++++ b/src/wxSmithPlugins_wx30-unix.workspace
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="wxSmith Plugins wx3.0.x (Unix)">
++		<Project filename="plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp" />
++		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+diff --git a/src/wxSmithPlugins_wx30.workspace b/src/wxSmithPlugins_wx30.workspace
+new file mode 100644
+index 0000000..e6cf35b
+--- /dev/null
++++ b/src/wxSmithPlugins_wx30.workspace
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="wxSmith Plugins wx3.0.x">
++		<Project filename="plugins/contrib/wxSmith/wxSmith_wx30.cbp" />
++		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30.cbp" />
++		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui_wx30.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+diff --git a/src/wxSmithPlugins_wx30_64.workspace b/src/wxSmithPlugins_wx30_64.workspace
+new file mode 100644
+index 0000000..9ff478e
+--- /dev/null
++++ b/src/wxSmithPlugins_wx30_64.workspace
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="wxSmith Plugins wx3.0.x (64 bit)">
++		<Project filename="plugins/contrib/wxSmith/wxSmith_wx30_64.cbp" />
++		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30_64.cbp" />
++		<Project filename="plugins/contrib/wxSmithAui/wxSmithAui_wx30_64.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,437 @@
+From cbf42862640fd2b391cc4bf7cf5b63a8d4975df3 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 10 Nov 2015 14:07:27 -0500
+Subject: [PATCH 010/159] * Removed wxWidgets template files.(Thanks stahta01)
+
+Deleted wxWidgets files in templates/win32 and templates/unix folders.
+And, edited templates/win32/Makefile.am and unix/Makefile.am.
+---
+ src/templates/common/Makefile.am      |  11 +---
+ src/templates/common/wx-app-ash.cpp   |  11 ----
+ src/templates/common/wx-app-ash.h     |  20 -------
+ src/templates/common/wx-main-s.cpp    | 110 ----------------------------------
+ src/templates/common/wx-main-sh.cpp   |  86 --------------------------
+ src/templates/common/wx-main-sh.h     |  31 ----------
+ src/templates/common/wx_pch.h         |  23 -------
+ src/templates/unix/Makefile.am        |   4 +-
+ src/templates/unix/wxwidgets.cbp      |  23 -------
+ src/templates/unix/wxwidgets.template |  25 --------
+ 10 files changed, 2 insertions(+), 342 deletions(-)
+ delete mode 100644 src/templates/common/wx-app-ash.cpp
+ delete mode 100644 src/templates/common/wx-app-ash.h
+ delete mode 100644 src/templates/common/wx-main-s.cpp
+ delete mode 100644 src/templates/common/wx-main-sh.cpp
+ delete mode 100644 src/templates/common/wx-main-sh.h
+ delete mode 100644 src/templates/common/wx_pch.h
+ delete mode 100644 src/templates/unix/wxwidgets.cbp
+ delete mode 100644 src/templates/unix/wxwidgets.template
+
+diff --git a/src/templates/common/Makefile.am b/src/templates/common/Makefile.am
+index e68f5ad..4af3021 100644
+--- a/src/templates/common/Makefile.am
++++ b/src/templates/common/Makefile.am
+@@ -38,12 +38,3 @@ dist_pkgdata_DATA = console.cbp \
+ 		staticlib.cbp \
+ 		staticlib-sample.c \
+-		staticlib.template \
+-		wx-app-ash.cpp \
+-		wx-app-ash.h \
+-		wx-main-ash.cpp \
+-		wx-main-ash.h \
+-		wx-main-s.cpp \
+-		wx-main-sh.cpp \
+-		wx-main-sh.h \
+-		wx_pch.h\
+-		wxwidgets.png
++		staticlib.template
+diff --git a/src/templates/common/wx-app-ash.cpp b/src/templates/common/wx-app-ash.cpp
+deleted file mode 100644
+index 3aa417c..0000000
+--- a/src/templates/common/wx-app-ash.cpp
++++ /dev/null
+@@ -1,11 +0,0 @@
+-#include "app.h"
+-#include "main.h"
+-
+-IMPLEMENT_APP(MyApp);
+-
+-bool MyApp::OnInit()
+-{
+-	MyFrame* frame = new MyFrame(0L, _("wxWidgets Application Template"));
+-	frame->Show();
+-	return true;
+-}
+diff --git a/src/templates/common/wx-app-ash.h b/src/templates/common/wx-app-ash.h
+deleted file mode 100644
+index 265de9a..0000000
+--- a/src/templates/common/wx-app-ash.h
++++ /dev/null
+@@ -1,20 +0,0 @@
+-#ifndef APP_H
+-#define APP_H
+-
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+-class MyApp : public wxApp
+-{
+-	public:
+-		virtual bool OnInit();
+-};
+-
+-#endif // APP_H
+diff --git a/src/templates/common/wx-main-s.cpp b/src/templates/common/wx-main-s.cpp
+deleted file mode 100644
+index fe7bd77..0000000
+--- a/src/templates/common/wx-main-s.cpp
++++ /dev/null
+@@ -1,110 +0,0 @@
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+-//helper functions
+-enum wxbuildinfoformat {
+-    short_f, long_f };
+-
+-wxString wxbuildinfo(wxbuildinfoformat format)
+-{
+-    wxString wxbuild(wxVERSION_STRING);
+-
+-    if (format == long_f )
+-    {
+-#if defined(__WXMSW__)
+-        wxbuild << _T("-Windows");
+-#elif defined(__UNIX__)
+-        wxbuild << _T("-Linux");
+-#endif
+-
+-#if wxUSE_UNICODE
+-        wxbuild << _T("-unicode build");
+-#else
+-        wxbuild << _T("-ANSI build");
+-#endif // wxUSE_UNICODE
+-    }
+-
+-    return wxbuild;
+-}
+-
+-//wxWidgets Application
+-class MyApp : public wxApp
+-{
+-public:
+-    virtual bool OnInit();
+-};
+-IMPLEMENT_APP(MyApp);
+-
+-class MyFrame: public wxFrame
+-{
+-public:
+-    MyFrame(wxFrame *frame, const wxString& title);
+-    ~MyFrame();
+-private:
+-    void OnQuit(wxCommandEvent& event);
+-    void OnAbout(wxCommandEvent& event);
+-    DECLARE_EVENT_TABLE();
+-};
+-
+-bool MyApp::OnInit()
+-{
+-    MyFrame* frame = new MyFrame(0L, _("wxWidgets Application Template"));
+-    frame->Show();
+-    return true;
+-}
+-
+-int idMenuQuit = wxNewId();
+-int idMenuAbout = wxNewId();
+-
+-BEGIN_EVENT_TABLE(MyFrame, wxFrame)
+-    EVT_MENU(idMenuQuit, MyFrame::OnQuit)
+-    EVT_MENU(idMenuAbout, MyFrame::OnAbout)
+-END_EVENT_TABLE()
+-
+-MyFrame::MyFrame(wxFrame *frame, const wxString& title)
+-        : wxFrame(frame, -1, title)
+-{
+-#if wxUSE_MENUS
+-    // create a menu bar
+-    wxMenuBar* mbar = new wxMenuBar();
+-    wxMenu* fileMenu = new wxMenu(_T(""));
+-    fileMenu->Append(idMenuQuit, _("&Quit\tAlt-F4"), _("Quit the application"));
+-    mbar->Append(fileMenu, _("&File"));
+-
+-    wxMenu* helpMenu = new wxMenu(_T(""));
+-    helpMenu->Append(idMenuAbout, _("&About\tF1"), _("Show info about this application"));
+-    mbar->Append(helpMenu, _("&Help"));
+-
+-    SetMenuBar(mbar);
+-#endif // wxUSE_MENUS
+-
+-#if wxUSE_STATUSBAR
+-    // create a status bar with some information about the used wxWidgets version
+-    CreateStatusBar(2);
+-    SetStatusText(_("Hello Code::Blocks user !"),0);
+-    SetStatusText(wxbuildinfo(short_f),1);
+-#endif // wxUSE_STATUSBAR
+-}
+-
+-MyFrame::~MyFrame()
+-{
+-}
+-
+-void MyFrame::OnQuit(wxCommandEvent& event)
+-{
+-    Close();
+-}
+-
+-void MyFrame::OnAbout(wxCommandEvent& event)
+-{
+-    wxString msg = wxbuildinfo(long_f);
+-    wxMessageBox(msg, _("Welcome to..."));
+-}
+-
+diff --git a/src/templates/common/wx-main-sh.cpp b/src/templates/common/wx-main-sh.cpp
+deleted file mode 100644
+index 8096d4f..0000000
+--- a/src/templates/common/wx-main-sh.cpp
++++ /dev/null
+@@ -1,86 +0,0 @@
+-#include "main.h"
+-
+-//helper functions
+-enum wxbuildinfoformat {
+-    short_f, long_f };
+-
+-wxString wxbuildinfo(wxbuildinfoformat format)
+-{
+-    wxString wxbuild(wxVERSION_STRING);
+-
+-    if (format == long_f )
+-    {
+-#if defined(__WXMSW__)
+-        wxbuild << _T("-Windows");
+-#elif defined(__UNIX__)
+-        wxbuild << _T("-Linux");
+-#endif
+-
+-#if wxUSE_UNICODE
+-        wxbuild << _T("-unicode build");
+-#else
+-        wxbuild << _T("-ANSI build");
+-#endif // wxUSE_UNICODE
+-    }
+-
+-    return wxbuild;
+-}
+-
+-//wxApplication
+-IMPLEMENT_APP(MyApp);
+-
+-bool MyApp::OnInit()
+-{
+-    MyFrame* frame = new MyFrame(0L, _("wxWidgets Application Template"));
+-    frame->Show();
+-    return true;
+-}
+-
+-int idMenuQuit = wxNewId();
+-int idMenuAbout = wxNewId();
+-
+-BEGIN_EVENT_TABLE(MyFrame, wxFrame)
+-    EVT_MENU(idMenuQuit, MyFrame::OnQuit)
+-    EVT_MENU(idMenuAbout, MyFrame::OnAbout)
+-END_EVENT_TABLE()
+-
+-MyFrame::MyFrame(wxFrame *frame, const wxString& title)
+-    : wxFrame(frame, -1, title)
+-{
+-#if wxUSE_MENUS
+-    // create a menu bar
+-    wxMenuBar* mbar = new wxMenuBar();
+-    wxMenu* fileMenu = new wxMenu(_T(""));
+-    fileMenu->Append(idMenuQuit, _("&Quit\tAlt-F4"), _("Quit the application"));
+-    mbar->Append(fileMenu, _("&File"));
+-
+-    wxMenu* helpMenu = new wxMenu(_T(""));
+-    helpMenu->Append(idMenuAbout, _("&About\tF1"), _("Show info about this application"));
+-    mbar->Append(helpMenu, _("&Help"));
+-
+-    SetMenuBar(mbar);
+-#endif // wxUSE_MENUS
+-
+-#if wxUSE_STATUSBAR
+-    // create a status bar with some information about the used wxWidgets version
+-    CreateStatusBar(2);
+-    SetStatusText(_("Hello Code::Blocks user !"),0);
+-    SetStatusText(wxbuildinfo(short_f),1);
+-#endif // wxUSE_STATUSBAR
+-}
+-
+-MyFrame::~MyFrame()
+-{
+-}
+-
+-void MyFrame::OnQuit(wxCommandEvent& event)
+-{
+-    Close();
+-}
+-
+-void MyFrame::OnAbout(wxCommandEvent& event)
+-{
+-    wxString msg = wxbuildinfo(long_f);
+-    wxMessageBox(msg, _("Welcome to..."));
+-}
+-
+diff --git a/src/templates/common/wx-main-sh.h b/src/templates/common/wx-main-sh.h
+deleted file mode 100644
+index ed7d4e5..0000000
+--- a/src/templates/common/wx-main-sh.h
++++ /dev/null
+@@ -1,31 +0,0 @@
+-#ifndef MAIN_H
+-#define MAIN_H
+-
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+-class MyApp : public wxApp
+-{
+-	public:
+-		virtual bool OnInit();
+-};
+-
+-class MyFrame: public wxFrame
+-{
+-	public:
+-		MyFrame(wxFrame *frame, const wxString& title);
+-		~MyFrame();
+-	private:
+-		void OnQuit(wxCommandEvent& event);
+-		void OnAbout(wxCommandEvent& event);
+-		DECLARE_EVENT_TABLE();
+-};
+-
+-#endif // MAIN_H
+diff --git a/src/templates/common/wx_pch.h b/src/templates/common/wx_pch.h
+deleted file mode 100644
+index a8514fd..0000000
+--- a/src/templates/common/wx_pch.h
++++ /dev/null
+@@ -1,23 +0,0 @@
+-#ifndef WX_PCH_H_INCLUDED
+-#define WX_PCH_H_INCLUDED
+-
+-#if ( defined(USE_PCH) && !defined(WX_PRECOMP) )
+-    #define WX_PRECOMP
+-#endif // USE_PCH
+-
+-// basic wxWidgets headers
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+-#ifdef USE_PCH
+-	// put here all your rarely-changing header files
+-#endif // USE_PCH
+-
+-#endif // WX_PCH_H_INCLUDED
+diff --git a/src/templates/unix/Makefile.am b/src/templates/unix/Makefile.am
+index 707442e..2ed2f7d 100644
+--- a/src/templates/unix/Makefile.am
++++ b/src/templates/unix/Makefile.am
+@@ -6,5 +6,3 @@ dist_pkgdata_DATA = glfw-static.cbp \
+ 		ogre.template \
+ 		ogre_linux.cbp \
+-		sdlapp.cbp \
+-		wxwidgets.cbp \
+-		wxwidgets.template
++		sdlapp.cbp
+diff --git a/src/templates/unix/wxwidgets.cbp b/src/templates/unix/wxwidgets.cbp
+deleted file mode 100644
+index d268371..0000000
+--- a/src/templates/unix/wxwidgets.cbp
++++ /dev/null
+@@ -1,23 +0,0 @@
+-<?xml version="1.0"?>
+-<!DOCTYPE CodeBlocks_project_file>
+-<CodeBlocks_project_file>
+-	<FileVersion major="1" minor="1"/>
+-	<Project>
+-		<Option title="wxWidgets application"/>
+-		<Option makefile="Makefile"/>
+-		<Build>
+-			<Target title="default">
+-				<Option type="0"/>
+-			</Target>
+-		</Build>
+-		<Compiler>
+-			<Add option="-Winvalid-pch"/>
+-			<Add option="-include &quot;wx_pch.h&quot;"/>
+-			<Add option="-DUSE_PCH"/>
+-			<Add option="`wx-config --cflags`"/>
+-		</Compiler>
+-		<Linker>
+-			<Add option="`wx-config --libs`"/>
+-		</Linker>
+-	</Project>
+-</CodeBlocks_project_file>
+diff --git a/src/templates/unix/wxwidgets.template b/src/templates/unix/wxwidgets.template
+deleted file mode 100644
+index 57b9fb1..0000000
+--- a/src/templates/unix/wxwidgets.template
++++ /dev/null
+@@ -1,25 +0,0 @@
+-<?xml version="1.0"?>
+-<!DOCTYPE CodeBlocks_template_file>
+-<CodeBlocks_template_file>
+-    <Template name="wxWidgets" title="wxWidgets Application" category="GUI" bitmap="wxwidgets.png">
+-        <FileSet name="s" title="No header file">
+-            <File source="wx-main-s.cpp" destination="main.cpp"/>
+-            <File source="wx_pch.h" destination="wx_pch.h"/>
+-        </FileSet>
+-        <FileSet name="sh" title="With header file">
+-            <File source="wx-main-sh.cpp" destination="main.cpp"/>
+-            <File source="wx-main-sh.h" destination="main.h"/>
+-            <File source="wx_pch.h" destination="wx_pch.h"/>
+-        </FileSet>
+-        <FileSet name="ash" title="Use separate wxApp, wxFrame files">
+-            <File source="wx-app-ash.cpp" destination="app.cpp"/>
+-            <File source="wx-app-ash.h" destination="app.h"/>
+-            <File source="wx-main-ash.cpp" destination="main.cpp"/>
+-            <File source="wx-main-ash.h" destination="main.h"/>
+-            <File source="wx_pch.h" destination="wx_pch.h"/>
+-        </FileSet>
+-        <Option name="wxWidgets Application">
+-            <Project file="wxwidgets.cbp"/>
+-        </Option>
+-    </Template>
+-</CodeBlocks_template_file>
+-- 
+2.7.1.windows.2
+

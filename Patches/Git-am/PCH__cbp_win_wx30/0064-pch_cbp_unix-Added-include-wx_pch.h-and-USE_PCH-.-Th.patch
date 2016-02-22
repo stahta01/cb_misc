@@ -1,0 +1,52 @@
+From 927be33327ead9780a9fd858df6a3a5f6b121567 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Thu, 31 Dec 2015 12:20:47 -0500
+Subject: [PATCH 064/159] - pch_cbp_unix: Added [-include "wx_pch.h"] and
+ "USE_PCH". (Thanks stahta01)
+
+---
+ src/plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp b/src/plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp
+index abcfd49..ce234e3 100644
+--- a/src/plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp
++++ b/src/plugins/contrib/wxSmith/wxSmith_wx30-unix.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="wxSmith wx3.0.x (Unix)" />
+-		<Option pch_mode="0" />
+ 		<Option default_target="wxSmith" />
+ 		<Option compiler="gcc" />
+@@ -18,4 +17,7 @@
+ 				<Compiler>
+ 					<Add option="`$(WX_CONFIG) --cflags`" />
++					<Add option='-include &quot;wx_pch.h&quot;' />
++					<Add option="-DUSE_PCH" />
++					<Add directory="pch" />
+ 				</Compiler>
+ 				<Linker>
+@@ -34,4 +36,5 @@
+ 				<Compiler>
+ 					<Add option="`$(WX_CONFIG) --cflags`" />
++					<Add option="-DNOPCH" />
+ 				</Compiler>
+ 				<Linker>
+@@ -57,5 +60,4 @@
+ 			<Add option='[[if (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;)) print(_T(&quot;-Wno-attributes&quot;));]]' />
+ 			<Add option="-DcbDEBUG" />
+-			<Add option="-DCB_PRECOMP" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+@@ -80,4 +82,8 @@
+ 			<Mode after="always" />
+ 		</ExtraCommands>
++		<Unit filename="pch/wx_pch.h">
++			<Option compile="1" />
++			<Option target="wxSmithLib" />
++		</Unit>
+ 		<Unit filename="plugin/wxsmithpluginregistrants.cpp">
+ 			<Option target="wxSmith" />
+-- 
+2.7.1.windows.2
+

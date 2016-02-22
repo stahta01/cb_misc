@@ -1,0 +1,34 @@
+From a32d069760240ba7ca71e6bf47ab280651b1d708 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Mon, 28 Dec 2015 19:31:22 -0500
+Subject: [PATCH 134/159] - pch_cbp_unix: Added object include search folder.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/codesnippets/codesnippets-unix.cbp      | 1 +
+ src/plugins/contrib/codesnippets/codesnippets_wx30-unix.cbp | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/codesnippets/codesnippets-unix.cbp b/src/plugins/contrib/codesnippets/codesnippets-unix.cbp
+index 0da5923..6249299 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets-unix.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets-unix.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/codesnippets/codesnippets_wx30-unix.cbp b/src/plugins/contrib/codesnippets/codesnippets_wx30-unix.cbp
+index 1e07143..138ca04 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets_wx30-unix.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets_wx30-unix.cbp
+@@ -34,4 +34,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

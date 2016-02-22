@@ -1,0 +1,124 @@
+From ee50cae608f26b49b5743dd1ac68f4c3c1ac9d71 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 17 Dec 2015 12:44:53 -0500
+Subject: [PATCH 080/159] * SmartIndent: Removed "wx/wxprec.h" and "wx/wx.h"
+ from headers. (Thanks stahta01)
+
+---
+ src/plugins/contrib/SmartIndent/SmartIndentCpp.h     | 6 ------
+ src/plugins/contrib/SmartIndent/SmartIndentFortran.h | 6 ------
+ src/plugins/contrib/SmartIndent/SmartIndentHDL.h     | 6 ------
+ src/plugins/contrib/SmartIndent/SmartIndentLua.h     | 6 ------
+ src/plugins/contrib/SmartIndent/SmartIndentPascal.h  | 6 ------
+ src/plugins/contrib/SmartIndent/SmartIndentPython.h  | 6 ------
+ src/plugins/contrib/SmartIndent/SmartIndentXML.h     | 6 ------
+ 7 files changed, 42 deletions(-)
+
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentCpp.h b/src/plugins/contrib/SmartIndent/SmartIndentCpp.h
+index e902400..4962145 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndentCpp.h
++++ b/src/plugins/contrib/SmartIndent/SmartIndentCpp.h
+@@ -2,10 +2,4 @@
+ #define SMARTINDENTCPP_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentFortran.h b/src/plugins/contrib/SmartIndent/SmartIndentFortran.h
+index 601f3b9..4274402 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndentFortran.h
++++ b/src/plugins/contrib/SmartIndent/SmartIndentFortran.h
+@@ -2,10 +2,4 @@
+ #define SMARTINDENTFORTRAN_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentHDL.h b/src/plugins/contrib/SmartIndent/SmartIndentHDL.h
+index d93106f..a1bc892 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndentHDL.h
++++ b/src/plugins/contrib/SmartIndent/SmartIndentHDL.h
+@@ -2,10 +2,4 @@
+ #define SMARTINDENTHDL_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentLua.h b/src/plugins/contrib/SmartIndent/SmartIndentLua.h
+index 69a562c..5941a21 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndentLua.h
++++ b/src/plugins/contrib/SmartIndent/SmartIndentLua.h
+@@ -2,10 +2,4 @@
+ #define SMARTINDENTLUA_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentPascal.h b/src/plugins/contrib/SmartIndent/SmartIndentPascal.h
+index d9a6f08..3dc4036 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndentPascal.h
++++ b/src/plugins/contrib/SmartIndent/SmartIndentPascal.h
+@@ -2,10 +2,4 @@
+ #define SMARTINDENTPASCAL_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentPython.h b/src/plugins/contrib/SmartIndent/SmartIndentPython.h
+index 32ed49a..7296da5 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndentPython.h
++++ b/src/plugins/contrib/SmartIndent/SmartIndentPython.h
+@@ -2,10 +2,4 @@
+ #define SMARTINDENTPYTHON_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndentXML.h b/src/plugins/contrib/SmartIndent/SmartIndentXML.h
+index c59fa94..6b9c1c7 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndentXML.h
++++ b/src/plugins/contrib/SmartIndent/SmartIndentXML.h
+@@ -2,10 +2,4 @@
+ #define SMARTINDENTXML_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/string.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbSmartIndentPlugin"
+-- 
+2.7.1.windows.2
+

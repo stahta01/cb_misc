@@ -1,0 +1,46 @@
+From c5b4f2c1e45b52c06530f9e74883dcf765699bb8 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 7 Feb 2016 00:07:34 -0500
+Subject: [PATCH 021/159] - sdk: Removed include of "wx/wx.h" from source
+ files.
+
+Added needed wx headers to get SDK to compile under Windows.
+---
+ src/sdk/scrollingdialog.cpp | 9 ++++++++-
+ src/sdk/xtra_res.cpp        | 1 -
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/src/sdk/scrollingdialog.cpp b/src/sdk/scrollingdialog.cpp
+index 5b02539..2516711 100644
+--- a/src/sdk/scrollingdialog.cpp
++++ b/src/sdk/scrollingdialog.cpp
+@@ -10,8 +10,15 @@
+ /////////////////////////////////////////////////////////////////////////////
+ 
+-#include "wx/wx.h"
++
+ #include "wx/module.h"
+ #include "wx/display.h"
+ #include "wx/bookctrl.h"
++#include <wx/button.h>
++#include <wx/scrolwin.h>
++#include <wx/sizer.h>
++
++#ifdef __WXMSW__
++#include <wx/msw/wrapwin.h>
++#endif
+ 
+ #include "scrollingdialog.h"
+diff --git a/src/sdk/xtra_res.cpp b/src/sdk/xtra_res.cpp
+index d66237d..2072a28 100644
+--- a/src/sdk/xtra_res.cpp
++++ b/src/sdk/xtra_res.cpp
+@@ -15,5 +15,4 @@
+     #include "xtra_res.h"
+     #include "scrollingdialog.h"
+-    #include <wx/wx.h>
+ #endif
+ 
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,32 @@
+From 1b8e94c723ea50ee1ed2e73f76a757983ed4575e Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 13:52:31 -0500
+Subject: [PATCH 018/159] * defaultmimehandler: Removed "wx/wxprec.h" and
+ "wx/wx.h" from header. (Thanks stahta01)
+
+---
+ src/plugins/defaultmimehandler/mimetypesarray.h | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+diff --git a/src/plugins/defaultmimehandler/mimetypesarray.h b/src/plugins/defaultmimehandler/mimetypesarray.h
+index 6eaa9fc..dae2526 100644
+--- a/src/plugins/defaultmimehandler/mimetypesarray.h
++++ b/src/plugins/defaultmimehandler/mimetypesarray.h
+@@ -7,14 +7,4 @@
+ #define MIMETYPESARRAY_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <wx/dynarray.h>
+-- 
+2.7.1.windows.2
+

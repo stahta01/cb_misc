@@ -1,0 +1,64 @@
+From 0d4485ccfe6786dc19c5d6aaa13554bcfa2b35ee Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 25 Dec 2015 10:56:08 -0500
+Subject: [PATCH 061/159] - IETest.cbp: Save-As Windows project. (Thanks
+ stahta01)
+
+---
+ src/plugins/contrib/wxSmithIExplore/test/IETest.cbp | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/src/plugins/contrib/wxSmithIExplore/test/IETest.cbp b/src/plugins/contrib/wxSmithIExplore/test/IETest.cbp
+index c0b73ab..7c77f78 100644
+--- a/src/plugins/contrib/wxSmithIExplore/test/IETest.cbp
++++ b/src/plugins/contrib/wxSmithIExplore/test/IETest.cbp
+@@ -9,5 +9,5 @@
+ 			<Target title="Release">
+ 				<Option output="IETest" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="..\..\..\..\.objs\plugins\contrib\wxIExplore\test" />
++				<Option object_output="../../../../.objs/plugins/contrib/wxIExplore/test" />
+ 				<Option type="0" />
+ 				<Option compiler="gcc" />
+@@ -22,10 +22,10 @@
+ 					<Add library="oleaut32" />
+ 					<Add library="ole32" />
+-					<Add directory="..\..\..\..\devel" />
++					<Add directory="../../../../devel" />
+ 				</Linker>
+ 			</Target>
+ 			<Environment>
+-				<Variable name="WX_SUFFIX" value="u" />
+ 				<Variable name="WX_CFG" value="" />
++				<Variable name="WX_SUFFIX" value="u" />
+ 			</Environment>
+ 		</Build>
+@@ -39,15 +39,15 @@
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DwxUSE_UNICODE" />
+-			<Add directory="$(#wx)\include" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)" />
++			<Add directory="$(#wx)/include" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+ 			<Add directory=".." />
+ 		</Compiler>
+ 		<ResourceCompiler>
+-			<Add directory="$(#wx)\include" />
++			<Add directory="$(#wx)/include" />
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-Wl,--enable-auto-import" />
+ 			<Add library="wxmsw28$(WX_SUFFIX)" />
+-			<Add directory="$(#wx.lib)\gcc_dll$(WX_CFG)" />
++			<Add directory="$(#wx.lib)/gcc_dll$(WX_CFG)" />
+ 		</Linker>
+ 		<Unit filename="IETestApp.cpp" />
+@@ -58,5 +58,5 @@
+ 			<Option compilerVar="WINDRES" />
+ 		</Unit>
+-		<Unit filename="wxsmith\IETestframe.wxs" />
++		<Unit filename="wxsmith/IETestframe.wxs" />
+ 		<Extensions>
+ 			<code_completion />
+-- 
+2.7.1.windows.2
+

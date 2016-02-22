@@ -1,0 +1,44 @@
+From 1da189e69b6ce17e57f2dc69e97d2d003483ef1e Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 20 Dec 2015 12:41:15 -0500
+Subject: [PATCH 118/159] - MouseSap: Removed #pragma interface and
+ implementation. (Thanks stahta01)
+
+Also, removed unneeded "#pragma hdrstop".
+---
+ src/plugins/contrib/MouseSap/MouseSap.cpp | 4 ----
+ src/plugins/contrib/MouseSap/MouseSap.h   | 7 -------
+ 2 files changed, 11 deletions(-)
+
+diff --git a/src/plugins/contrib/MouseSap/MouseSap.cpp b/src/plugins/contrib/MouseSap/MouseSap.cpp
+index 32ccd6e..e13c156 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap.cpp
++++ b/src/plugins/contrib/MouseSap/MouseSap.cpp
+@@ -12,8 +12,4 @@
+ // If selected text, and user switches editors, copy selection to clipboard
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma implementation "MouseSap.h"
+-#endif
+-
+ 
+ #include <sdk.h>
+diff --git a/src/plugins/contrib/MouseSap/MouseSap.h b/src/plugins/contrib/MouseSap/MouseSap.h
+index 9ba090a..ba8cb64 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap.h
++++ b/src/plugins/contrib/MouseSap/MouseSap.h
+@@ -15,11 +15,4 @@
+ #define MouseSap_H
+ 
+-#if defined(__GNUG__) && !defined(__APPLE__)
+-	#pragma interface "MouseSap.h"
+-#endif
+-
+-#ifdef __BORLANDC__
+-	#pragma hdrstop
+-#endif
+ 
+ #include <wx/arrstr.h>
+-- 
+2.7.1.windows.2
+

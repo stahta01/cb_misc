@@ -1,0 +1,56 @@
+From edf747670d8c8607d70d653d282b8de17d801cc1 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Fri, 25 Dec 2015 11:56:17 -0500
+Subject: [PATCH 122/159] - pch_cbp_unix: Added option "-Winvalid-pch". (Thanks
+ stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp | 1 +
+ src/plugins/contrib/cb_koders/cb_koders-unix.cbp           | 1 +
+ src/plugins/contrib/profiler/cbprofiler.unix.cbp           | 1 +
+ src/plugins/contrib/symtab/symtab-unix.cbp                 | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
+index 4716da6..f9f41ce 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
+@@ -19,4 +19,5 @@
+ 					<Add option="`wx-config --version=2.8 --cflags`" />
+ 					<Add option="-fPIC" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DPIC" />
+ 					<Add directory="../../../include" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders-unix.cbp b/src/plugins/contrib/cb_koders/cb_koders-unix.cbp
+index eb38f71..fa42ded 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders-unix.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders-unix.cbp
+@@ -40,4 +40,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-fPIC" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler.unix.cbp b/src/plugins/contrib/profiler/cbprofiler.unix.cbp
+index d1f9013..9d25c9f 100644
+--- a/src/plugins/contrib/profiler/cbprofiler.unix.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler.unix.cbp
+@@ -29,4 +29,5 @@
+ 			<Add option="`wx-config --version=2.8 --cflags`" />
+ 			<Add option="-fPIC" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+diff --git a/src/plugins/contrib/symtab/symtab-unix.cbp b/src/plugins/contrib/symtab/symtab-unix.cbp
+index fd9373c..82ccd09 100644
+--- a/src/plugins/contrib/symtab/symtab-unix.cbp
++++ b/src/plugins/contrib/symtab/symtab-unix.cbp
+@@ -29,4 +29,5 @@
+ 			<Add option="`wx-config --version=2.8 --cflags`" />
+ 			<Add option="-fPIC" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DCB_PRECOMP" />
+-- 
+2.7.1.windows.2
+

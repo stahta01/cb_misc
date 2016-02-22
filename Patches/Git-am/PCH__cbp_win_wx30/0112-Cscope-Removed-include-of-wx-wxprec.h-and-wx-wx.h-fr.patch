@@ -1,0 +1,28 @@
+From 128f106c3018aa6d5acc09726c7d7c85d3bf0e92 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 19 Dec 2015 14:36:48 -0500
+Subject: [PATCH 112/159] * Cscope: Removed include of "wx/wxprec.h" and
+ "wx/wx.h" from files. (Thanks stahta01)
+
+---
+ src/plugins/contrib/Cscope/CscopePlugin.h | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/src/plugins/contrib/Cscope/CscopePlugin.h b/src/plugins/contrib/Cscope/CscopePlugin.h
+index 425c4a1..f5640fa 100644
+--- a/src/plugins/contrib/Cscope/CscopePlugin.h
++++ b/src/plugins/contrib/Cscope/CscopePlugin.h
+@@ -11,10 +11,5 @@
+ #define CSCOPE_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ #include <wx/timer.h>
+ 
+-- 
+2.7.1.windows.2
+

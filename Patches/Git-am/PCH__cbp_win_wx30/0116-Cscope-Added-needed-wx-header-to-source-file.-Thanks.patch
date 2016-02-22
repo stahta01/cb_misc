@@ -1,0 +1,23 @@
+From 37da8d9d2ade1ea588c2544bcc2ea60eab72ffaa Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 19 Dec 2015 16:19:57 -0500
+Subject: [PATCH 116/159] - Cscope: Added needed wx header to source file.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/Cscope/CscopePlugin.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/Cscope/CscopePlugin.cpp b/src/plugins/contrib/Cscope/CscopePlugin.cpp
+index ff3e74a..fd750f2 100644
+--- a/src/plugins/contrib/Cscope/CscopePlugin.cpp
++++ b/src/plugins/contrib/Cscope/CscopePlugin.cpp
+@@ -1,4 +1,5 @@
+ #include <sdk.h> // Code::Blocks SDK
+ #ifndef CB_PRECOMP
++    #include <wx/menu.h>
+     #include <wx/process.h>
+ 
+-- 
+2.7.1.windows.2
+

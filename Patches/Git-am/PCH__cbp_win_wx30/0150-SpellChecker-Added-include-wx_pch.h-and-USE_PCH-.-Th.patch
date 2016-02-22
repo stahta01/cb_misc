@@ -1,0 +1,71 @@
+From 50f6235158780f58f0dd2b77101a3b1772f0e6cf Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 25 Dec 2015 09:08:37 -0500
+Subject: [PATCH 150/159] * SpellChecker: Added [-include "wx_pch.h"] and
+ "USE_PCH". (Thanks stahta01)
+
+---
+ src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp    | 8 +++++++-
+ src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp | 8 +++++++-
+ 2 files changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
+index f99a41e..8b6e7d6 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="SpellChecker wx3.0.x" />
+-		<Option pch_mode="2" />
+ 		<Option default_target="plugin" />
+ 		<Option compiler="gcc" />
+@@ -47,5 +46,7 @@
+ 					<Add option="-mthreads" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DHUNSPELL_STATIC" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="hunspell/src" />
+ 					<Add directory="wxspellchecker/include" />
+@@ -348,4 +349,9 @@
+ 			<Option target="wxSpellChecker" />
+ 		</Unit>
++		<Unit filename="wxspellchecker/include/wx_pch.h">
++			<Option compile="1" />
++			<Option weight="0" />
++			<Option target="wxSpellChecker" />
++		</Unit>
+ 		<Unit filename="wxspellchecker/src/PersonalDictionary.cpp">
+ 			<Option target="wxSpellChecker" />
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
+index ccf0d88..dc29c9b 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="SpellChecker wx3.0.x (64 bit)" />
+-		<Option pch_mode="2" />
+ 		<Option default_target="plugin" />
+ 		<Option compiler="gcc" />
+@@ -52,6 +51,8 @@
+ 					<Add option="-fno-keep-inline-dllexport" />
+ 					<Add option="-Winvalid-pch" />
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DHUNSPELL_STATIC" />
+ 					<Add option="-D_WIN64" />
++					<Add option="-DUSE_PCH" />
+ 					<Add directory="hunspell/src" />
+ 					<Add directory="wxspellchecker/include" />
+@@ -357,4 +358,9 @@
+ 			<Option target="wxSpellChecker" />
+ 		</Unit>
++		<Unit filename="wxspellchecker/include/wx_pch.h">
++			<Option compile="1" />
++			<Option weight="0" />
++			<Option target="wxSpellChecker" />
++		</Unit>
+ 		<Unit filename="wxspellchecker/src/PersonalDictionary.cpp">
+ 			<Option target="wxSpellChecker" />
+-- 
+2.7.1.windows.2
+

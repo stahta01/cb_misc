@@ -1,0 +1,48 @@
+From a09863da5cf3d979317e9468980ea0bac99d9ef5 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 13:34:37 -0500
+Subject: [PATCH 013/159] - compilergcc: Removed "wx/wx.h" headers. (Thanks
+ stahta01)
+
+---
+ src/plugins/compilergcc/compilerMSVC.cpp   | 2 +-
+ src/plugins/compilergcc/compilerMSVC10.cpp | 2 +-
+ src/plugins/compilergcc/compilerMSVC8.cpp  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/plugins/compilergcc/compilerMSVC.cpp b/src/plugins/compilergcc/compilerMSVC.cpp
+index de4cdfe..04b03f3 100644
+--- a/src/plugins/compilergcc/compilerMSVC.cpp
++++ b/src/plugins/compilergcc/compilerMSVC.cpp
+@@ -10,5 +10,5 @@
+ #include <sdk.h>
+ #include "compilerMSVC.h"
+-#include <wx/wx.h>
++
+ #include <wx/intl.h>
+ #include <wx/regex.h>
+diff --git a/src/plugins/compilergcc/compilerMSVC10.cpp b/src/plugins/compilergcc/compilerMSVC10.cpp
+index 0957695..7975220 100644
+--- a/src/plugins/compilergcc/compilerMSVC10.cpp
++++ b/src/plugins/compilergcc/compilerMSVC10.cpp
+@@ -10,5 +10,5 @@
+ #include <sdk.h>
+ #include "compilerMSVC10.h"
+-#include <wx/wx.h>
++
+ #include <wx/intl.h>
+ #include <wx/regex.h>
+diff --git a/src/plugins/compilergcc/compilerMSVC8.cpp b/src/plugins/compilergcc/compilerMSVC8.cpp
+index fe4f232..68b091d 100644
+--- a/src/plugins/compilergcc/compilerMSVC8.cpp
++++ b/src/plugins/compilergcc/compilerMSVC8.cpp
+@@ -10,5 +10,5 @@
+ #include <sdk.h>
+ #include "compilerMSVC8.h"
+-#include <wx/wx.h>
++
+ #include <wx/intl.h>
+ #include <wx/regex.h>
+-- 
+2.7.1.windows.2
+

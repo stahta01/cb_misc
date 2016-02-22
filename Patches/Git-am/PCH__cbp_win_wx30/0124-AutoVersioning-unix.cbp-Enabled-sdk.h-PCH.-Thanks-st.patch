@@ -1,0 +1,29 @@
+From 4409fb58c7a98164579671fcebbc0c281e00d866 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Fri, 25 Dec 2015 12:15:38 -0500
+Subject: [PATCH 124/159] - AutoVersioning-unix.cbp: Enabled "sdk.h" PCH.
+ (Thanks stahta01)
+
+Added define of "CB_PRECOMP" and "cbDEBUG".
+Added search folder "sdk/wxscintilla/include".
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
+index 9b1c8e0..6bcf00c 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp
+@@ -21,6 +21,9 @@
+ 					<Add option="-Winvalid-pch" />
+ 					<Add option="-DPIC" />
++					<Add option="-DCB_PRECOMP" />
++					<Add option="-DcbDEBUG" />
+ 					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+-- 
+2.7.1.windows.2
+

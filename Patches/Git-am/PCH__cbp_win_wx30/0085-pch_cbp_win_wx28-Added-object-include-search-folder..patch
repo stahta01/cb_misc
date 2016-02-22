@@ -1,0 +1,23 @@
+From 433e3b0c648fac0dae6555f3537a9b2332e02358 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 21:14:34 -0500
+Subject: [PATCH 085/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/FileManager/FileManager.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/FileManager/FileManager.cbp b/src/plugins/contrib/FileManager/FileManager.cbp
+index 1cc5abc..c952f44 100644
+--- a/src/plugins/contrib/FileManager/FileManager.cbp
++++ b/src/plugins/contrib/FileManager/FileManager.cbp
+@@ -48,4 +48,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

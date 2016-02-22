@@ -1,0 +1,23 @@
+From 990385f8bbf6b09bd070bc9868e3d97dda4db371 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 21:29:05 -0500
+Subject: [PATCH 102/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/HexEditor/HexEditor.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/HexEditor/HexEditor.cbp b/src/plugins/contrib/HexEditor/HexEditor.cbp
+index 231b4a0..8d35fe5 100644
+--- a/src/plugins/contrib/HexEditor/HexEditor.cbp
++++ b/src/plugins/contrib/HexEditor/HexEditor.cbp
+@@ -33,4 +33,5 @@
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

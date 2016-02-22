@@ -1,0 +1,75 @@
+From c26984a686c947b2009d3fb57b5063f8ed12e0ff Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 21 Nov 2015 21:01:08 -0500
+Subject: [PATCH 006/159] * SpellChecker: Removed "*" from after "\" from
+ second xcopy param. (Thanks stahta01)
+
+---
+ src/plugins/contrib/SpellChecker/SpellChecker.cbp         | 6 +++---
+ src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp    | 6 +++---
+ src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp | 6 +++---
+ 3 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker.cbp b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
+index 241ae47..31860cb 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker.cbp
+@@ -99,6 +99,6 @@
+ 					<Add after="cmd /c if not exist ..\..\..\devel\share\CodeBlocks\images\settings mkdir ..\..\..\devel\share\CodeBlocks\images\settings" />
+ 					<Add after="zip -j9 ..\..\..\devel\share\CodeBlocks\SpellChecker.zip manifest.xml SpellCheckSettingsPanel.xrc" />
+-					<Add after='xcopy /D /Y *.png &quot;..\..\..\devel\share\Codeblocks\images\settings\*&quot;' />
+-					<Add after='xcopy /D /Y *.png &quot;..\..\..\output\share\Codeblocks\images\settings\*&quot;' />
++					<Add after='xcopy /D /Y *.png &quot;..\..\..\devel\share\Codeblocks\images\settings\&quot;' />
++					<Add after='xcopy /D /Y *.png &quot;..\..\..\output\share\Codeblocks\images\settings\&quot;' />
+ 					<Add after='xcopy /D /Y OnlineSpellChecking.xml  &quot;..\..\..\devel\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Add after='xcopy /D /Y dictionaries\*.aff &quot;..\..\..\devel\share\CodeBlocks\SpellChecker\&quot;' />
+@@ -107,5 +107,5 @@
+ 					<Add after='xcopy /D /Y dictionaries\th_*.idx &quot;..\..\..\devel\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Add after='xcopy /D /Y rc\*.png &quot;..\..\..\devel\share\CodeBlocks\SpellChecker\&quot;' />
+-					<Add after='xcopy /D /Y &quot;..\..\..\devel\share\CodeBlocks\SpellChecker\*&quot; &quot;..\..\..\output\share\CodeBlocks\SpellChecker\*&quot;' />
++					<Add after='xcopy /D /Y &quot;..\..\..\devel\share\CodeBlocks\SpellChecker\*&quot; &quot;..\..\..\output\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
+index 446189c..8bd7e9b 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
+@@ -96,6 +96,6 @@
+ 					<Add after="cmd /c if not exist ..\..\..\devel30\share\CodeBlocks\images\settings mkdir ..\..\..\devel30\share\CodeBlocks\images\settings" />
+ 					<Add after="zip -j9 ..\..\..\devel30\share\CodeBlocks\SpellChecker.zip manifest.xml SpellCheckSettingsPanel.xrc" />
+-					<Add after='xcopy /Y *.png &quot;..\..\..\devel30\share\Codeblocks\images\settings\*&quot;' />
+-					<Add after='xcopy /Y *.png &quot;..\..\..\output30\share\Codeblocks\images\settings\*&quot;' />
++					<Add after='xcopy /Y *.png &quot;..\..\..\devel30\share\Codeblocks\images\settings\&quot;' />
++					<Add after='xcopy /Y *.png &quot;..\..\..\output30\share\Codeblocks\images\settings\&quot;' />
+ 					<Add after='xcopy /Y OnlineSpellChecking.xml  &quot;..\..\..\devel30\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Add after='xcopy /Y dictionaries\*.aff &quot;..\..\..\devel30\share\CodeBlocks\SpellChecker\&quot;' />
+@@ -104,5 +104,5 @@
+ 					<Add after='xcopy /Y dictionaries\th_*.idx &quot;..\..\..\devel30\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Add after='xcopy /Y rc\*.png &quot;..\..\..\devel30\share\CodeBlocks\SpellChecker\&quot;' />
+-					<Add after='xcopy /Y &quot;..\..\..\devel30\share\CodeBlocks\SpellChecker\*&quot; &quot;..\..\..\output30\share\CodeBlocks\SpellChecker\*&quot;' />
++					<Add after='xcopy /Y &quot;..\..\..\devel30\share\CodeBlocks\SpellChecker\*&quot; &quot;..\..\..\output30\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
+index 36597d4..6b8e38c 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
+@@ -105,6 +105,6 @@
+ 					<Add after="cmd /c if not exist ..\..\..\devel30_64\share\CodeBlocks\images\settings mkdir ..\..\..\devel30_64\share\CodeBlocks\images\settings" />
+ 					<Add after="zip -j9 ..\..\..\devel30_64\share\CodeBlocks\SpellChecker.zip manifest.xml SpellCheckSettingsPanel.xrc" />
+-					<Add after='xcopy /Y *.png &quot;..\..\..\devel30_64\share\Codeblocks\images\settings\*&quot;' />
+-					<Add after='xcopy /Y *.png &quot;..\..\..\output30_64\share\Codeblocks\images\settings\*&quot;' />
++					<Add after='xcopy /Y *.png &quot;..\..\..\devel30_64\share\Codeblocks\images\settings\&quot;' />
++					<Add after='xcopy /Y *.png &quot;..\..\..\output30_64\share\Codeblocks\images\settings\&quot;' />
+ 					<Add after='xcopy /Y OnlineSpellChecking.xml  &quot;..\..\..\devel30_64\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Add after='xcopy /Y dictionaries\*.aff &quot;..\..\..\devel30_64\share\CodeBlocks\SpellChecker\&quot;' />
+@@ -113,5 +113,5 @@
+ 					<Add after='xcopy /Y dictionaries\th_*.idx &quot;..\..\..\devel30_64\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Add after='xcopy /Y rc\*.png &quot;..\..\..\devel30_64\share\CodeBlocks\SpellChecker\&quot;' />
+-					<Add after='xcopy /Y &quot;..\..\..\devel30_64\share\CodeBlocks\SpellChecker\*&quot; &quot;..\..\..\output30_64\share\CodeBlocks\SpellChecker\*&quot;' />
++					<Add after='xcopy /Y &quot;..\..\..\devel30_64\share\CodeBlocks\SpellChecker\*&quot; &quot;..\..\..\output30_64\share\CodeBlocks\SpellChecker\&quot;' />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+-- 
+2.7.1.windows.2
+

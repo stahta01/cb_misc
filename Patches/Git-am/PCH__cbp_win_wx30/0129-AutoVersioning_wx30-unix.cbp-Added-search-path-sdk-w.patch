@@ -1,0 +1,23 @@
+From 58eac2dcb9a04c9626f9e49373659a8f5451db02 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@gmail.com>
+Date: Mon, 28 Dec 2015 19:18:53 -0500
+Subject: [PATCH 129/159] - AutoVersioning_wx30-unix.cbp: Added search path
+ "sdk/wxscintilla/include". (Thanks stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
+index ff2ff65..05e82c6 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp
+@@ -25,4 +25,5 @@
+ 					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
++					<Add directory="../../../sdk/wxscintilla/include" />
+ 				</Compiler>
+ 				<Linker>
+-- 
+2.7.1.windows.2
+

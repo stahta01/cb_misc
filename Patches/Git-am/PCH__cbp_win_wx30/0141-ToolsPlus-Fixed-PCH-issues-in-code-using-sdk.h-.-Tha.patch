@@ -1,0 +1,246 @@
+From bd606170fc2223cbdb4b5672e4cd070ab17226ee Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sat, 20 Feb 2016 00:56:24 -0500
+Subject: [PATCH 141/159] - ToolsPlus: Fixed PCH issues in code using "sdk.h".
+ (Thanks stahta01)
+
+Added include of "sdk.h" to cpp files.
+Also, removed include of "wx/wxprec.h" and "wx/wx.h".
+And, added CB_PRECOMP and WX_PRECOMP sections.
+Removed improper include of "sdk.h" from headers.
+And, removed CB_PRECOMP sections from headers.
+Removed improper include of "wxprec.h" and "wx_pch.h".
+NOTE: Including an pre-compiled header (PCH) inside a header does NOT work as a PCH!
+Also, removed improper include of "wx.h".
+---
+ src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp  | 14 +++++++++----
+ src/plugins/contrib/ToolsPlus/CmdConfigDialog.h    | 11 ----------
+ src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp |  7 +++++++
+ src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h   | 12 +++--------
+ src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp    |  6 ++++++
+ src/plugins/contrib/ToolsPlus/ShellCtrlBase.h      |  9 +-------
+ src/plugins/contrib/ToolsPlus/ToolsPlus.cpp        | 22 ++++++++++++++++++++
+ src/plugins/contrib/ToolsPlus/ToolsPlus.h          |  7 -------
+ src/plugins/contrib/ToolsPlus/se_globals.cpp       |  7 +++++++
+ src/plugins/contrib/ToolsPlus/se_globals.h         | 24 ++++++----------------
+ 10 files changed, 62 insertions(+), 57 deletions(-)
+
+diff --git a/src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp b/src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp
+index 9bcaa6e..1bdbb23 100644
+--- a/src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp
++++ b/src/plugins/contrib/ToolsPlus/CmdConfigDialog.cpp
+@@ -1,3 +1,3 @@
+-#include "wx/wxprec.h"
++#include "sdk.h"
+ 
+ #ifdef __BORLANDC__
+@@ -5,7 +5,13 @@
+ #endif //__BORLANDC__
+ 
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif //WX_PRECOMP
++#ifndef CB_PRECOMP
++    #include <wx/checkbox.h>
++    #include <wx/filedlg.h>
++    #include <wx/listbox.h>
++    #include <wx/stattext.h>
++
++    #include <configmanager.h>
++#endif // CB_PRECOMP
++
+ 
+ #include "ToolsPlus.h"
+diff --git a/src/plugins/contrib/ToolsPlus/CmdConfigDialog.h b/src/plugins/contrib/ToolsPlus/CmdConfigDialog.h
+index 5ce4d8b..6a71ef5 100644
+--- a/src/plugins/contrib/ToolsPlus/CmdConfigDialog.h
++++ b/src/plugins/contrib/ToolsPlus/CmdConfigDialog.h
+@@ -2,14 +2,4 @@
+ #define __CMDCONFIGDIALOG__
+ 
+-// Define WX_GCH in order to support precompiled headers with GCC compiler.
+-// You have to create the header "wx_pch.h" and include all files needed
+-// for compile your gui inside it.
+-// Then, compile it and place the file "wx_pch.h.gch" into the same
+-// directory that "wx_pch.h".
+-#ifdef WX_GCH
+-#include <wx_pch.h>
+-#else
+-#include <wx/wx.h>
+-#endif
+ 
+ #include <wx/button.h>
+@@ -43,5 +33,4 @@
+ ///////////////////////////////////////////////////////////////////////////////
+ 
+-#include <sdk.h>
+ #include <configurationpanel.h>
+ 
+diff --git a/src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp b/src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp
+index 052be20..85f8609 100644
+--- a/src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp
++++ b/src/plugins/contrib/ToolsPlus/PipedProcessCtrl.cpp
+@@ -1,2 +1,9 @@
++#include "sdk.h"
++
++#ifndef CB_PRECOMP
++    #include <configmanager.h>
++    #include <editormanager.h>
++#endif // CB_PRECOMP
++
+ #include <wx/notebook.h>
+ #include <wx/textctrl.h>
+diff --git a/src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h b/src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h
+index b4c68d2..69808af 100644
+--- a/src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h
++++ b/src/plugins/contrib/ToolsPlus/PipedProcessCtrl.h
+@@ -2,17 +2,11 @@
+ #define PPCTRL_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+ 
+ #include <wx/process.h>
+ #include <wx/aui/aui.h>
+ 
+-#include <sdk.h>
+-#ifndef CB_PRECOMP
+-    #include <wx/wxscintilla.h>
+-#endif
++
++#include <wx/wxscintilla.h>  // C::B Header
++
+ #include "ShellCtrlBase.h"
+ 
+diff --git a/src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp b/src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp
+index 2014aa9..54d6c8b 100644
+--- a/src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp
++++ b/src/plugins/contrib/ToolsPlus/ShellCtrlBase.cpp
+@@ -1,2 +1,8 @@
++#include "sdk.h"
++
++#ifndef CB_PRECOMP
++    #include <wx/menu.h>
++#endif // CB_PRECOMP
++
+ #include <wx/notebook.h>
+ #include <wx/textctrl.h>
+diff --git a/src/plugins/contrib/ToolsPlus/ShellCtrlBase.h b/src/plugins/contrib/ToolsPlus/ShellCtrlBase.h
+index c41dfed..1ee9d0b 100644
+--- a/src/plugins/contrib/ToolsPlus/ShellCtrlBase.h
++++ b/src/plugins/contrib/ToolsPlus/ShellCtrlBase.h
+@@ -5,14 +5,7 @@
+ 
+ 
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+-
+ #include <wx/process.h>
+ #include <wx/aui/aui.h>
+-#include <sdk.h>
++
+ #include "se_globals.h"
+ 
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus.cpp b/src/plugins/contrib/ToolsPlus/ToolsPlus.cpp
+index c2e318e..5a3e92a 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus.cpp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus.cpp
+@@ -1,2 +1,24 @@
++#include "sdk.h"
++
++#ifndef WX_PRECOMP
++    #include <wx/defs.h>  // This header needs to be included before some wx headers.
++    #include <wx/dirdlg.h>
++#endif // WX_PRECOMP
++
++#ifndef CB_PRECOMP
++    #include <wx/checkbox.h>
++    #include <wx/filedlg.h>
++    #include <wx/listbox.h>
++    #include <wx/menu.h>
++    #include <wx/stattext.h>
++    #include <wx/textdlg.h>
++
++    #include <cbproject.h>
++    #include <configmanager.h>
++    #include <editorbase.h>
++    #include <editormanager.h>
++    #include <macrosmanager.h>
++#endif // CB_PRECOMP
++
+ #include "ToolsPlus.h"
+ #include "se_globals.h"
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus.h b/src/plugins/contrib/ToolsPlus/ToolsPlus.h
+index 5772eb1..3882895 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus.h
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus.h
+@@ -11,12 +11,5 @@
+ #define TOOLSPLUS_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+ 
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+-#include <sdk.h>
+ #include <cbplugin.h> // for "class cbPlugin"
+ #include "shellproperties.h"
+diff --git a/src/plugins/contrib/ToolsPlus/se_globals.cpp b/src/plugins/contrib/ToolsPlus/se_globals.cpp
+index 52519df..1dbb7d94 100644
+--- a/src/plugins/contrib/ToolsPlus/se_globals.cpp
++++ b/src/plugins/contrib/ToolsPlus/se_globals.cpp
+@@ -1,2 +1,9 @@
++#include "sdk.h"
++
++#ifndef CB_PRECOMP
++    #include <editorbase.h>
++    #include <editormanager.h>
++#endif // CB_PRECOMP
++
+ #include "se_globals.h"
+ 
+diff --git a/src/plugins/contrib/ToolsPlus/se_globals.h b/src/plugins/contrib/ToolsPlus/se_globals.h
+index 0ea394d..969e0dc 100644
+--- a/src/plugins/contrib/ToolsPlus/se_globals.h
++++ b/src/plugins/contrib/ToolsPlus/se_globals.h
+@@ -2,22 +2,10 @@
+ #define IL_GLOBALS_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-	#include <wx/wx.h>
+-#endif
+-
+-#include <sdk.h>
+-#ifndef CB_PRECOMP
+-    #include <wx/filename.h>
+- 
+-    #include <editorbase.h>
+-    #include <editormanager.h>
+-    #include <logmanager.h>
+-    #include <manager.h>
+-    #include <macrosmanager.h>
+-    #include <configmanager.h>
+-    #include <cbproject.h>
+-#endif
++
++#include <globals.h>
++#include <logmanager.h>
++
++class wxString;
++class wxFileName;
+ 
+ wxString GetParentDir(const wxString &path);
+-- 
+2.7.1.windows.2
+

@@ -1,0 +1,24 @@
+From b3017f135795bbfdb85c5ac72dd99ccac8ffb918 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 14 Feb 2016 17:40:31 -0500
+Subject: [PATCH 049/159] - ThreadSearch: Fixed PCH code issues using "sdk.h".
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/ThreadSearch/ThreadSearchLoggerBase.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/plugins/contrib/ThreadSearch/ThreadSearchLoggerBase.cpp b/src/plugins/contrib/ThreadSearch/ThreadSearchLoggerBase.cpp
+index e444512..83ebdaf 100644
+--- a/src/plugins/contrib/ThreadSearch/ThreadSearchLoggerBase.cpp
++++ b/src/plugins/contrib/ThreadSearch/ThreadSearchLoggerBase.cpp
+@@ -9,4 +9,6 @@
+  **************************************************************/
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <wx/gdicmn.h>
+ #include <wx/menu.h>
+-- 
+2.7.1.windows.2
+

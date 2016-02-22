@@ -1,0 +1,50 @@
+From e70697b9dc305f02c2b40a7800eac6c2d0fd85de Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 1 Feb 2016 01:30:37 -0500
+Subject: [PATCH 075/159] * SpellChecker: Rearranged headers so "sdk.h" is
+ first. (Thanks stahta01)
+
+---
+ src/plugins/contrib/SpellChecker/SpellCheckHelper.cpp   | 2 +-
+ src/plugins/contrib/SpellChecker/SpellCheckerConfig.cpp | 6 ++++--
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/src/plugins/contrib/SpellChecker/SpellCheckHelper.cpp b/src/plugins/contrib/SpellChecker/SpellCheckHelper.cpp
+index 559681d..941fafe 100644
+--- a/src/plugins/contrib/SpellChecker/SpellCheckHelper.cpp
++++ b/src/plugins/contrib/SpellChecker/SpellCheckHelper.cpp
+@@ -17,5 +17,4 @@
+ *
+ */
+-#include "SpellCheckHelper.h"
+ 
+ #include <sdk.h> // Code::Blocks SDK
+@@ -27,4 +26,5 @@
+ #endif
+ 
++#include "SpellCheckHelper.h"
+ #include "SpellCheckerPlugin.h"
+ 
+diff --git a/src/plugins/contrib/SpellChecker/SpellCheckerConfig.cpp b/src/plugins/contrib/SpellChecker/SpellCheckerConfig.cpp
+index b89969b..03dc046 100644
+--- a/src/plugins/contrib/SpellChecker/SpellCheckerConfig.cpp
++++ b/src/plugins/contrib/SpellChecker/SpellCheckerConfig.cpp
+@@ -17,6 +17,5 @@
+ *
+ */
+-#include "SpellCheckerConfig.h"
+-#include "SpellCheckerPlugin.h"
++
+ #include <sdk.h> // Code::Blocks SDK
+ #ifndef CB_PRECOMP
+@@ -28,4 +27,7 @@
+ #include <configmanager.h>
+ 
++#include "SpellCheckerConfig.h"
++#include "SpellCheckerPlugin.h"
++
+ #define CFG_SPELLCHECK_ENABLE_ONLINE_CHECK      _T("/SpellChecker/EnableOnlineChecker")
+ #define CFG_SPELLCHECK_SPELL_TOOLTIPS_CHECK     _T("/SpellChecker/SpellTooltips")
+-- 
+2.7.1.windows.2
+

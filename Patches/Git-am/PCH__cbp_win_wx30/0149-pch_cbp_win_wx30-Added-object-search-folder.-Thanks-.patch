@@ -1,0 +1,1135 @@
+From f2fdacd96673b761c083df2b07341c65a7e45315 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 10:00:02 -0500
+Subject: [PATCH 149/159] - pch_cbp_win_wx30: Added object search folder.
+ (Thanks stahta01)
+
+And, if needed added "-Winvalid-pch".
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp             | 2 ++
+ src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp          | 2 ++
+ src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp               | 2 ++
+ src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp            | 2 ++
+ src/plugins/contrib/Cccc/Cccc_wx30.cbp                                 | 2 ++
+ src/plugins/contrib/Cccc/Cccc_wx30_64.cbp                              | 2 ++
+ src/plugins/contrib/CppCheck/CppCheck_wx30.cbp                         | 2 ++
+ src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp                      | 2 ++
+ src/plugins/contrib/Cscope/Cscope_wx30.cbp                             | 2 ++
+ src/plugins/contrib/Cscope/Cscope_wx30_64.cbp                          | 2 ++
+ src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp                     | 2 ++
+ src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp                  | 2 ++
+ src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp                 | 2 ++
+ src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp              | 2 ++
+ src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp                 | 2 ++
+ src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp              | 2 ++
+ src/plugins/contrib/FileManager/FileManager_wx30.cbp                   | 2 ++
+ src/plugins/contrib/FileManager/FileManager_wx30_64.cbp                | 2 ++
+ src/plugins/contrib/HexEditor/HexEditor_wx30.cbp                       | 2 ++
+ src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp                    | 2 ++
+ src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp       | 2 ++
+ src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp    | 2 ++
+ src/plugins/contrib/MouseSap/MouseSap_wx30.cbp                         | 2 ++
+ src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp                      | 2 ++
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp         | 2 ++
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp      | 2 ++
+ .../ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp       | 2 ++
+ .../ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp    | 2 ++
+ src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp                 | 2 ++
+ src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp              | 2 ++
+ src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp                   | 2 ++
+ src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp                | 2 ++
+ src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp                 | 3 +++
+ src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp              | 3 +++
+ src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp                       | 2 ++
+ src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp                    | 2 ++
+ src/plugins/contrib/byogames/byogames_wx30.cbp                         | 2 ++
+ src/plugins/contrib/byogames/byogames_wx30_64.cbp                      | 1 +
+ src/plugins/contrib/cb_koders/cb_koders_wx30.cbp                       | 2 ++
+ src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp                    | 1 +
+ src/plugins/contrib/codesnippets/codesnippets_wx30.cbp                 | 2 ++
+ src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp              | 2 ++
+ src/plugins/contrib/codestat/codestat_wx30.cbp                         | 2 ++
+ src/plugins/contrib/codestat/codestat_wx30_64.cbp                      | 2 ++
+ src/plugins/contrib/copystrings/copystrings_wx30.cbp                   | 2 ++
+ src/plugins/contrib/copystrings/copystrings_wx30_64.cbp                | 2 ++
+ src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp                | 2 ++
+ src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp             | 2 ++
+ src/plugins/contrib/dragscroll/DragScroll_wx30.cbp                     | 2 ++
+ src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp                  | 2 ++
+ src/plugins/contrib/envvars/envvars_wx30.cbp                           | 3 +++
+ src/plugins/contrib/envvars/envvars_wx30_64.cbp                        | 3 +++
+ src/plugins/contrib/headerfixup/headerfixup_wx30.cbp                   | 2 ++
+ src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp                | 2 ++
+ src/plugins/contrib/help_plugin/help-plugin_wx30.cbp                   | 2 ++
+ src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp                | 1 +
+ src/plugins/contrib/keybinder/keybinder_wx30.cbp                       | 2 ++
+ src/plugins/contrib/keybinder/keybinder_wx30_64.cbp                    | 2 ++
+ src/plugins/contrib/profiler/cbprofiler_wx30.cbp                       | 2 ++
+ src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp                    | 2 ++
+ src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp                | 2 ++
+ src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp             | 2 ++
+ src/plugins/contrib/rndgen/rndgen_wx30.cbp                             | 2 ++
+ src/plugins/contrib/rndgen/rndgen_wx30_64.cbp                          | 2 ++
+ src/plugins/contrib/symtab/symtab_wx30.cbp                             | 2 ++
+ src/plugins/contrib/symtab/symtab_wx30_64.cbp                          | 2 ++
+ 66 files changed, 133 insertions(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp
+index 48134b2..b1215a2 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp
+@@ -21,4 +21,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -28,4 +29,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp
+index 10666e6..779d591 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp
+@@ -21,4 +21,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -29,4 +30,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp
+index 2b8e246..f0196f7 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30.cbp
+@@ -21,4 +21,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -29,4 +30,5 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp
+index 16e4e17..37d8c67 100644
+--- a/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp
++++ b/src/plugins/contrib/BrowseTracker/BrowseTracker_wx30_64.cbp
+@@ -21,4 +21,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -30,4 +31,5 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DNO_LOGGING" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Cccc/Cccc_wx30.cbp b/src/plugins/contrib/Cccc/Cccc_wx30.cbp
+index ba3f441..a39c676 100644
+--- a/src/plugins/contrib/Cccc/Cccc_wx30.cbp
++++ b/src/plugins/contrib/Cccc/Cccc_wx30.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -38,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Cccc/Cccc_wx30_64.cbp b/src/plugins/contrib/Cccc/Cccc_wx30_64.cbp
+index 4504dcb..be1dd37 100644
+--- a/src/plugins/contrib/Cccc/Cccc_wx30_64.cbp
++++ b/src/plugins/contrib/Cccc/Cccc_wx30_64.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -39,4 +40,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/CppCheck/CppCheck_wx30.cbp b/src/plugins/contrib/CppCheck/CppCheck_wx30.cbp
+index 927dc39..1cbd1a1 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck_wx30.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck_wx30.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -38,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp b/src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp
+index 870670e..7a9c18f 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck_wx30_64.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -39,4 +40,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Cscope/Cscope_wx30.cbp b/src/plugins/contrib/Cscope/Cscope_wx30.cbp
+index ec31a56..90460f9 100644
+--- a/src/plugins/contrib/Cscope/Cscope_wx30.cbp
++++ b/src/plugins/contrib/Cscope/Cscope_wx30.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -40,4 +41,5 @@
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Cscope/Cscope_wx30_64.cbp b/src/plugins/contrib/Cscope/Cscope_wx30_64.cbp
+index 84af791..35ddb45 100644
+--- a/src/plugins/contrib/Cscope/Cscope_wx30_64.cbp
++++ b/src/plugins/contrib/Cscope/Cscope_wx30_64.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -41,4 +42,5 @@
+ 			<Add directory="$(#WX30_64.include)" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp
+index cac9452..403dfa7 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp
+@@ -23,4 +23,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -30,4 +31,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp b/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp
+index 0d3ec05..ee50562 100644
+--- a/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp
++++ b/src/plugins/contrib/DoxyBlocks/DoxyBlocks_wx30_64.cbp
+@@ -23,4 +23,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -31,4 +32,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp b/src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp
+index b9bb112..3532807 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig_wx30.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -29,4 +30,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp b/src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp
+index a864440..f4c9665 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -30,4 +31,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp
+index 0d1b745..31123f9 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -29,4 +30,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp
+index 5148aa2..ed1c0c4 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -30,4 +31,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/FileManager/FileManager_wx30.cbp b/src/plugins/contrib/FileManager/FileManager_wx30.cbp
+index c90d783..2c1dcb0 100644
+--- a/src/plugins/contrib/FileManager/FileManager_wx30.cbp
++++ b/src/plugins/contrib/FileManager/FileManager_wx30.cbp
+@@ -40,4 +40,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -47,4 +48,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/FileManager/FileManager_wx30_64.cbp b/src/plugins/contrib/FileManager/FileManager_wx30_64.cbp
+index a7d1905..43b9c92 100644
+--- a/src/plugins/contrib/FileManager/FileManager_wx30_64.cbp
++++ b/src/plugins/contrib/FileManager/FileManager_wx30_64.cbp
+@@ -40,4 +40,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -48,4 +49,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/HexEditor/HexEditor_wx30.cbp b/src/plugins/contrib/HexEditor/HexEditor_wx30.cbp
+index 299f34c..c92b130 100644
+--- a/src/plugins/contrib/HexEditor/HexEditor_wx30.cbp
++++ b/src/plugins/contrib/HexEditor/HexEditor_wx30.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+@@ -31,4 +32,5 @@
+ 					<Add directory="$(#WX30.include)" />
+ 					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp b/src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp
+index 587f563..e88ec6e 100644
+--- a/src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp
++++ b/src/plugins/contrib/HexEditor/HexEditor_wx30_64.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+@@ -32,4 +33,5 @@
+ 					<Add directory="$(#WX30_64.include)" />
+ 					<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp
+index 9fd1992..d0d2da0 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+@@ -29,4 +30,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp
+index bc3c883..d26298f 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+@@ -30,4 +31,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/MouseSap/MouseSap_wx30.cbp b/src/plugins/contrib/MouseSap/MouseSap_wx30.cbp
+index 4e77f83..48d64c4 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap_wx30.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap_wx30.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -31,4 +32,5 @@
+ 					<Add directory="$(#WX30.include)" />
+ 					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp b/src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp
+index ac51631..ed48236 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap_wx30_64.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -32,4 +33,5 @@
+ 					<Add directory="$(#WX30_64.include)" />
+ 					<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp
+index d1d8570..6a156c5 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -30,4 +31,5 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DBOOST_SYSTEM_NO_DEPRECATED" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp
+index 67edb16..c9da93e 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman_wx30_64.cbp
+@@ -24,4 +24,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -33,4 +34,5 @@
+ 					<Add option="-D_WIN64" />
+ 					<Add option="-DBOOST_SYSTEM_NO_DEPRECATED" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp
+index b8f7a25..aa1fce4 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp
+@@ -34,4 +34,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -41,4 +42,5 @@
+ 			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp
+index 9535062..635fe48 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp
+@@ -34,4 +34,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -42,4 +43,5 @@
+ 			<Add option="-DNOPCH" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp
+index 21222e6..c064e19 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+@@ -29,4 +30,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="$(#WX30.include)" />
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp
+index dd23be8..e7bbfd4 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp
+@@ -22,4 +22,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+@@ -30,4 +31,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="$(#WX30_64.include)" />
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp b/src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp
+index 8da8e94..75324f0 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent_wx30.cbp
+@@ -168,4 +168,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+@@ -175,4 +176,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DNOPCH" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp b/src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp
+index 838de30..a778463 100644
+--- a/src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp
++++ b/src/plugins/contrib/SmartIndent/SmartIndent_wx30_64.cbp
+@@ -168,4 +168,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+@@ -176,4 +177,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DNOPCH" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
+index 8bd7e9b..f99a41e 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30.cbp
+@@ -46,4 +46,5 @@
+ 					<Add option="-pipe" />
+ 					<Add option="-mthreads" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHUNSPELL_STATIC" />
+ 					<Add directory="hunspell/src" />
+@@ -73,4 +74,5 @@
+ 					<Add option="-pipe" />
+ 					<Add option="-mthreads" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -78,4 +80,5 @@
+ 					<Add directory="hunspell/src" />
+ 					<Add directory="wxspellchecker/include" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
+index 6b8e38c..ccf0d88 100644
+--- a/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
++++ b/src/plugins/contrib/SpellChecker/SpellChecker_wx30_64.cbp
+@@ -51,4 +51,5 @@
+ 					<Add option="-m64" />
+ 					<Add option="-fno-keep-inline-dllexport" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHUNSPELL_STATIC" />
+ 					<Add option="-D_WIN64" />
+@@ -81,4 +82,5 @@
+ 					<Add option="-m64" />
+ 					<Add option="-fno-keep-inline-dllexport" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -87,4 +89,5 @@
+ 					<Add directory="hunspell/src" />
+ 					<Add directory="wxspellchecker/include" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp
+index cde221c..1c42c60 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30.cbp
+@@ -40,4 +40,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -47,4 +48,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp
+index 528d15d..45e341c 100644
+--- a/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp
++++ b/src/plugins/contrib/ToolsPlus/ToolsPlus_wx30_64.cbp
+@@ -40,4 +40,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -48,4 +49,5 @@
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-DBUILDING_PLUGIN" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/byogames/byogames_wx30.cbp b/src/plugins/contrib/byogames/byogames_wx30.cbp
+index 666e24b..925ba9e 100644
+--- a/src/plugins/contrib/byogames/byogames_wx30.cbp
++++ b/src/plugins/contrib/byogames/byogames_wx30.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-mthreads" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DNOPCH" />
+@@ -40,4 +41,5 @@
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/byogames/byogames_wx30_64.cbp b/src/plugins/contrib/byogames/byogames_wx30_64.cbp
+index 018b888..6d46914 100644
+--- a/src/plugins/contrib/byogames/byogames_wx30_64.cbp
++++ b/src/plugins/contrib/byogames/byogames_wx30_64.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-mthreads" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DNOPCH" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders_wx30.cbp b/src/plugins/contrib/cb_koders/cb_koders_wx30.cbp
+index 7a32444..3266418 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders_wx30.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders_wx30.cbp
+@@ -34,4 +34,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-mthreads" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DNOPCH" />
+@@ -43,4 +44,5 @@
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp b/src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp
+index 1f77caf..936cfac 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders_wx30_64.cbp
+@@ -36,4 +36,5 @@
+ 			<Add option="-m64" />
+ 			<Add option="-fno-keep-inline-dllexport" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DNOPCH" />
+diff --git a/src/plugins/contrib/codesnippets/codesnippets_wx30.cbp b/src/plugins/contrib/codesnippets/codesnippets_wx30.cbp
+index 8fd8f1e..e4ad995 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets_wx30.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets_wx30.cbp
+@@ -39,4 +39,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -46,4 +47,5 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp b/src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp
+index fbf7c24..3d73bfa 100644
+--- a/src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp
++++ b/src/plugins/contrib/codesnippets/codesnippets_wx30_64.cbp
+@@ -39,4 +39,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DWXUSINGDLL" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -47,4 +48,5 @@
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNO_LOGGING" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/codestat/codestat_wx30.cbp b/src/plugins/contrib/codestat/codestat_wx30.cbp
+index d856fe5..0ee9672 100644
+--- a/src/plugins/contrib/codestat/codestat_wx30.cbp
++++ b/src/plugins/contrib/codestat/codestat_wx30.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -38,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/codestat/codestat_wx30_64.cbp b/src/plugins/contrib/codestat/codestat_wx30_64.cbp
+index 88136ec..77e85f5 100644
+--- a/src/plugins/contrib/codestat/codestat_wx30_64.cbp
++++ b/src/plugins/contrib/codestat/codestat_wx30_64.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -39,4 +40,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/copystrings/copystrings_wx30.cbp b/src/plugins/contrib/copystrings/copystrings_wx30.cbp
+index 000b8f9..3da6b50 100644
+--- a/src/plugins/contrib/copystrings/copystrings_wx30.cbp
++++ b/src/plugins/contrib/copystrings/copystrings_wx30.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -40,4 +41,5 @@
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/copystrings/copystrings_wx30_64.cbp b/src/plugins/contrib/copystrings/copystrings_wx30_64.cbp
+index 7938dab..289e20c 100644
+--- a/src/plugins/contrib/copystrings/copystrings_wx30_64.cbp
++++ b/src/plugins/contrib/copystrings/copystrings_wx30_64.cbp
+@@ -31,4 +31,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -41,4 +42,5 @@
+ 			<Add directory="$(#WX30_64.include)" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
+index d1587c0..c03cfbe 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30.cbp
+@@ -35,4 +35,5 @@
+ 					<Add option="-mthreads" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -42,4 +43,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 				</Compiler>
+diff --git a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
+index 7f43620..107e333 100644
+--- a/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
++++ b/src/plugins/contrib/devpak_plugin/DevPakPlugin_wx30_64.cbp
+@@ -35,4 +35,5 @@
+ 					<Add option="-mthreads" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -43,4 +44,5 @@
+ 					<Add option="-DcbDEBUG" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 				</Compiler>
+diff --git a/src/plugins/contrib/dragscroll/DragScroll_wx30.cbp b/src/plugins/contrib/dragscroll/DragScroll_wx30.cbp
+index a4d5ae1..e78414a 100644
+--- a/src/plugins/contrib/dragscroll/DragScroll_wx30.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll_wx30.cbp
+@@ -32,4 +32,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -41,4 +42,5 @@
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../src" />
+diff --git a/src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp b/src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp
+index d488ecf..54c34fa 100644
+--- a/src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll_wx30_64.cbp
+@@ -32,4 +32,5 @@
+ 			<Add option="-fmessage-length=0" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -42,4 +43,5 @@
+ 			<Add directory="$(#WX30_64.include)" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../src" />
+diff --git a/src/plugins/contrib/envvars/envvars_wx30.cbp b/src/plugins/contrib/envvars/envvars_wx30.cbp
+index 93e58ef..6b8caba 100644
+--- a/src/plugins/contrib/envvars/envvars_wx30.cbp
++++ b/src/plugins/contrib/envvars/envvars_wx30.cbp
+@@ -16,6 +16,8 @@
+ 				<Option host_application="../../../devel30/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
++				<Option projectIncludeDirsRelation="2" />
+ 				<Compiler>
+ 					<Add option="-DNOPCH" />
++					<Add directory="../../../.objs30/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -46,4 +48,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DHAVE_W32API_H" />
+diff --git a/src/plugins/contrib/envvars/envvars_wx30_64.cbp b/src/plugins/contrib/envvars/envvars_wx30_64.cbp
+index 4a75f1d..b80c404 100644
+--- a/src/plugins/contrib/envvars/envvars_wx30_64.cbp
++++ b/src/plugins/contrib/envvars/envvars_wx30_64.cbp
+@@ -16,6 +16,8 @@
+ 				<Option host_application="../../../devel30_64/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
++				<Option projectIncludeDirsRelation="2" />
+ 				<Compiler>
+ 					<Add option="-DNOPCH" />
++					<Add directory="../../../.objs30_64/include" />
+ 				</Compiler>
+ 			</Target>
+@@ -46,4 +48,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DHAVE_W32API_H" />
+diff --git a/src/plugins/contrib/headerfixup/headerfixup_wx30.cbp b/src/plugins/contrib/headerfixup/headerfixup_wx30.cbp
+index b8989e5..7d8cd3d 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup_wx30.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup_wx30.cbp
+@@ -21,4 +21,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+@@ -30,4 +31,5 @@
+ 					<Add directory="$(#WX30.include)" />
+ 					<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp b/src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp
+index c72ff8d..65e9f3e 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp
++++ b/src/plugins/contrib/headerfixup/headerfixup_wx30_64.cbp
+@@ -21,4 +21,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DHAVE_W32API_H" />
+ 					<Add option="-D__WXMSW__" />
+@@ -31,4 +32,5 @@
+ 					<Add directory="$(#WX30_64.include)" />
+ 					<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
+index 928f3b7..92eff75 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30.cbp
+@@ -51,4 +51,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -89,4 +90,5 @@
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
+index 25c5bb0..f61dd5f 100644
+--- a/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
++++ b/src/plugins/contrib/help_plugin/help-plugin_wx30_64.cbp
+@@ -51,4 +51,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+diff --git a/src/plugins/contrib/keybinder/keybinder_wx30.cbp b/src/plugins/contrib/keybinder/keybinder_wx30.cbp
+index 5fa2840..1ee4930 100644
+--- a/src/plugins/contrib/keybinder/keybinder_wx30.cbp
++++ b/src/plugins/contrib/keybinder/keybinder_wx30.cbp
+@@ -20,4 +20,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -44,4 +45,5 @@
+ 			<Add option="-Wall" />
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/keybinder/keybinder_wx30_64.cbp b/src/plugins/contrib/keybinder/keybinder_wx30_64.cbp
+index 4514081..ac4ea0d 100644
+--- a/src/plugins/contrib/keybinder/keybinder_wx30_64.cbp
++++ b/src/plugins/contrib/keybinder/keybinder_wx30_64.cbp
+@@ -20,4 +20,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DNOPCH" />
+@@ -45,4 +46,5 @@
+ 			<Add option="-Wall" />
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler_wx30.cbp b/src/plugins/contrib/profiler/cbprofiler_wx30.cbp
+index 627d873..c777402 100644
+--- a/src/plugins/contrib/profiler/cbprofiler_wx30.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler_wx30.cbp
+@@ -30,4 +30,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -37,4 +38,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp b/src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp
+index c3acbeb..956699b 100644
+--- a/src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler_wx30_64.cbp
+@@ -30,4 +30,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -38,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp
+index a3470ac..eb50bf5 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp
+@@ -40,4 +40,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-mthreads" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -50,4 +51,5 @@
+ 			<Add directory="$(#WX30.include)" />
+ 			<Add directory="$(#WX30.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp
+index 61f52a0..38ce335 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp
+@@ -40,4 +40,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-mthreads" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DNOPCH" />
+ 			<Add option="-DHAVE_W32API_H" />
+@@ -51,4 +52,5 @@
+ 			<Add directory="$(#WX30_64.include)" />
+ 			<Add directory="$(#WX30_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/rndgen/rndgen_wx30.cbp b/src/plugins/contrib/rndgen/rndgen_wx30.cbp
+index f763a03..013bebd 100644
+--- a/src/plugins/contrib/rndgen/rndgen_wx30.cbp
++++ b/src/plugins/contrib/rndgen/rndgen_wx30.cbp
+@@ -20,4 +20,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -27,4 +28,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/rndgen/rndgen_wx30_64.cbp b/src/plugins/contrib/rndgen/rndgen_wx30_64.cbp
+index dcc902d..7b3635b 100644
+--- a/src/plugins/contrib/rndgen/rndgen_wx30_64.cbp
++++ b/src/plugins/contrib/rndgen/rndgen_wx30_64.cbp
+@@ -20,4 +20,5 @@
+ 					<Add option="-fmessage-length=0" />
+ 					<Add option="-fexceptions" />
++					<Add option="-Winvalid-pch" />
+ 					<Add option="-DBUILDING_PLUGIN" />
+ 					<Add option="-DHAVE_W32API_H" />
+@@ -28,4 +29,5 @@
+ 					<Add option="-DNOPCH" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs30_64/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/symtab/symtab_wx30.cbp b/src/plugins/contrib/symtab/symtab_wx30.cbp
+index 0ee245d..102371b 100644
+--- a/src/plugins/contrib/symtab/symtab_wx30.cbp
++++ b/src/plugins/contrib/symtab/symtab_wx30.cbp
+@@ -34,4 +34,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -41,4 +42,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/symtab/symtab_wx30_64.cbp b/src/plugins/contrib/symtab/symtab_wx30_64.cbp
+index 3f5c400..7a93363 100644
+--- a/src/plugins/contrib/symtab/symtab_wx30_64.cbp
++++ b/src/plugins/contrib/symtab/symtab_wx30_64.cbp
+@@ -34,4 +34,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DBUILDING_PLUGIN" />
+ 			<Add option="-DNOPCH" />
+@@ -42,4 +43,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs30_64/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

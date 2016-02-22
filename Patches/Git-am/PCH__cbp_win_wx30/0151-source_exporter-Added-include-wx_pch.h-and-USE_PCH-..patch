@@ -1,0 +1,83 @@
+From dff4fde0aa9ebeb35ee6e316ff40114c0f4155be Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Fri, 25 Dec 2015 09:23:09 -0500
+Subject: [PATCH 151/159] - source_exporter: Added [-include "wx_pch.h"] and
+ "USE_PCH". (Thanks stahta01)
+
+And, added "-Winvalid-pch". (Thanks stahta01)
+---
+ src/plugins/contrib/source_exporter/Exporter_wx30.cbp    | 9 ++++++++-
+ src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp | 9 ++++++++-
+ 2 files changed, 16 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/contrib/source_exporter/Exporter_wx30.cbp b/src/plugins/contrib/source_exporter/Exporter_wx30.cbp
+index 98abb1a..f6859a2 100644
+--- a/src/plugins/contrib/source_exporter/Exporter_wx30.cbp
++++ b/src/plugins/contrib/source_exporter/Exporter_wx30.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="Exporter wx3.0.x" />
+-		<Option pch_mode="0" />
+ 		<Option default_target="default" />
+ 		<Option compiler="gcc" />
+@@ -17,5 +16,7 @@
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXMAKINGLIB_PDFDOC" />
++					<Add option="-DUSE_PCH" />
+ 				</Compiler>
+ 			</Target>
+@@ -100,4 +101,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+@@ -324,4 +326,9 @@
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
++		<Unit filename="wxPdfDocument/include/wx_pch.h">
++			<Option compile="1" />
++			<Option weight="0" />
++			<Option target="wxPdfDocument" />
++		</Unit>
+ 		<Unit filename="wxPdfDocument/makefont/makefont.cpp">
+ 			<Option target="makefont" />
+diff --git a/src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp b/src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp
+index 961b603..8aad885 100644
+--- a/src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp
++++ b/src/plugins/contrib/source_exporter/Exporter_wx30_64.cbp
+@@ -4,5 +4,4 @@
+ 	<Project>
+ 		<Option title="Exporter wx3.0.x (64 bit)" />
+-		<Option pch_mode="0" />
+ 		<Option default_target="default" />
+ 		<Option compiler="gcc" />
+@@ -17,5 +16,7 @@
+ 				<Option projectLinkerOptionsRelation="2" />
+ 				<Compiler>
++					<Add option='-include &quot;wx_pch.h&quot;' />
+ 					<Add option="-DWXMAKINGLIB_PDFDOC" />
++					<Add option="-DUSE_PCH" />
+ 				</Compiler>
+ 			</Target>
+@@ -100,4 +101,5 @@
+ 			<Add option="-mthreads" />
+ 			<Add option="-fexceptions" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DHAVE_W32API_H" />
+ 			<Add option="-D__WXMSW__" />
+@@ -325,4 +327,9 @@
+ 			<Option target="wxPdfDocument" />
+ 		</Unit>
++		<Unit filename="wxPdfDocument/include/wx_pch.h">
++			<Option compile="1" />
++			<Option weight="0" />
++			<Option target="wxPdfDocument" />
++		</Unit>
+ 		<Unit filename="wxPdfDocument/makefont/makefont.cpp">
+ 			<Option target="makefont" />
+-- 
+2.7.1.windows.2
+

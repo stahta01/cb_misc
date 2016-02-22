@@ -1,0 +1,139 @@
+From 5580e156cb0366e59acbe0f4aa334d93eb2636d2 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 14:13:48 -0500
+Subject: [PATCH 022/159] * wxLed: Removed "wx/wx.h" and "wx/wxprec.h". (Thanks
+ stahta01)
+
+Added normal wx headers where needed.
+---
+ .../wxContribItems/wxled/lcdWindow/include/wx/lcdwindow.h     |  2 +-
+ .../contrib/wxContribItems/wxled/lcdWindow/src/lcdwindow.cpp  |  2 ++
+ .../wxContribItems/wxled/ledpanel/include/wx/matrixobject.h   |  7 ++++++-
+ .../wxContribItems/wxled/ledpanel/include/wx/wxledfont.h      |  1 -
+ .../wxContribItems/wxled/ledpanel/include/wx/wxledpanel.h     |  2 +-
+ .../wxContribItems/wxled/ledpanel/src/matrixobject.cpp        | 11 ++---------
+ .../contrib/wxContribItems/wxled/ledpanel/src/wxledfont.cpp   | 10 ----------
+ .../contrib/wxContribItems/wxled/ledpanel/src/wxledpanel.cpp  | 10 ----------
+ 8 files changed, 12 insertions(+), 33 deletions(-)
+
+diff --git a/src/plugins/contrib/wxContribItems/wxled/lcdWindow/include/wx/lcdwindow.h b/src/plugins/contrib/wxContribItems/wxled/lcdWindow/include/wx/lcdwindow.h
+index 6c4a0fd..e669592 100644
+--- a/src/plugins/contrib/wxContribItems/wxled/lcdWindow/include/wx/lcdwindow.h
++++ b/src/plugins/contrib/wxContribItems/wxled/lcdWindow/include/wx/lcdwindow.h
+@@ -2,5 +2,5 @@
+ #define __LCDWINDOW_H__
+ 
+-#include <wx/wx.h>
++#include <wx/window.h>
+ 
+ // This structure is used internally by the window.
+diff --git a/src/plugins/contrib/wxContribItems/wxled/lcdWindow/src/lcdwindow.cpp b/src/plugins/contrib/wxContribItems/wxled/lcdWindow/src/lcdwindow.cpp
+index c2dcd23..fc586f0 100644
+--- a/src/plugins/contrib/wxContribItems/wxled/lcdWindow/src/lcdwindow.cpp
++++ b/src/plugins/contrib/wxContribItems/wxled/lcdWindow/src/lcdwindow.cpp
+@@ -1,2 +1,4 @@
++#include <wx/dcclient.h>
++
+ #include "wx/lcdwindow.h"
+ 
+diff --git a/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/matrixobject.h b/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/matrixobject.h
+index c174c7a..fb37bf6 100644
+--- a/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/matrixobject.h
++++ b/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/matrixobject.h
+@@ -11,7 +11,12 @@
+ #define MATRIXOBJECT_H
+ 
+-#include <wx/wx.h>
++
+ #include <string.h>
+ 
++#include <wx/sizer.h>
++
++class wxImage;
++class wxPoint;
++
+ class MatrixObject
+ {
+diff --git a/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/wxledfont.h b/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/wxledfont.h
+index 3b961c4..d42833d 100644
+--- a/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/wxledfont.h
++++ b/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/wxledfont.h
+@@ -12,5 +12,4 @@
+ 
+ #include "advancedmatrixobject.h"
+-#include <wx/wx.h>
+ 
+ enum wxLEDFontType
+diff --git a/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/wxledpanel.h b/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/wxledpanel.h
+index 9245dec..a599a7a 100644
+--- a/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/wxledpanel.h
++++ b/src/plugins/contrib/wxContribItems/wxled/ledpanel/include/wx/wxledpanel.h
+@@ -13,5 +13,5 @@
+ #include "wx/wxledfont.h"
+ //#include "wx/wxledpaneldef.h"
+-#include <wx/wx.h>
++
+ #include <wx/animate.h>
+ 
+diff --git a/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/matrixobject.cpp b/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/matrixobject.cpp
+index b937a60..a56e4d4 100644
+--- a/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/matrixobject.cpp
++++ b/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/matrixobject.cpp
+@@ -7,14 +7,7 @@
+  * License:	  wxWindows licence
+  **************************************************************/
+-// For compilers that support precompilation, includes "wx.h".
+-#include "wx/wxprec.h"
+ 
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
++#include <wx/image.h>
++#include <wx/log.h>
+ 
+ #include "wx/matrixobject.h"
+diff --git a/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/wxledfont.cpp b/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/wxledfont.cpp
+index f3ea8bd..4fe939b 100644
+--- a/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/wxledfont.cpp
++++ b/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/wxledfont.cpp
+@@ -7,14 +7,4 @@
+  * License:	  wxWindows licence
+  **************************************************************/
+-// For compilers that support precompilation, includes "wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include "wx/wxledfont.h"
+diff --git a/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/wxledpanel.cpp b/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/wxledpanel.cpp
+index 9c76e71..a73ff8d 100644
+--- a/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/wxledpanel.cpp
++++ b/src/plugins/contrib/wxContribItems/wxled/ledpanel/src/wxledpanel.cpp
+@@ -8,14 +8,4 @@
+  **************************************************************/
+ 
+-// For compilers that support precompilation, includes "wx.h".
+-#include "wx/wxprec.h"
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <wx/dcbuffer.h>
+-- 
+2.7.1.windows.2
+

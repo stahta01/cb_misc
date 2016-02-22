@@ -1,0 +1,39 @@
+From 5cce21558d3aa124ba32317767fe68a750956900 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 13:09:47 -0500
+Subject: [PATCH 034/159] * wxContribItems: Added pch/wx_pch.h. (Thanks
+ stahta01)
+
+---
+ src/plugins/contrib/wxContribItems/pch/wx_pch.h | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+ create mode 100644 src/plugins/contrib/wxContribItems/pch/wx_pch.h
+
+diff --git a/src/plugins/contrib/wxContribItems/pch/wx_pch.h b/src/plugins/contrib/wxContribItems/pch/wx_pch.h
+new file mode 100644
+index 0000000..5a3e125
+--- /dev/null
++++ b/src/plugins/contrib/wxContribItems/pch/wx_pch.h
+@@ -0,0 +1,19 @@
++#ifndef WX_PCH_H_INCLUDED
++#define WX_PCH_H_INCLUDED
++
++#if ( defined(USE_PCH) && !defined(WX_PRECOMP) )
++    #define WX_PRECOMP
++#endif // USE_PCH
++
++// basic wxWidgets headers
++#include <wx/wxprec.h>
++
++#ifdef __BORLANDC__
++    #pragma hdrstop
++#endif
++
++#ifdef USE_PCH
++    // put here all your rarely-changing header files
++#endif // USE_PCH
++
++#endif // WX_PCH_H_INCLUDED
+-- 
+2.7.1.windows.2
+

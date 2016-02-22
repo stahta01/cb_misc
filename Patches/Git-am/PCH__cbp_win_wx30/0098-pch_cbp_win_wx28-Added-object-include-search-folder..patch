@@ -1,0 +1,23 @@
+From bd4201a625b72f1fc369c64809b93647f441d2cd Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 28 Dec 2015 20:48:26 -0500
+Subject: [PATCH 098/159] - pch_cbp_win_wx28: Added object include search
+ folder. (Thanks stahta01)
+
+---
+ src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp b/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
+index 1ede803..d0f4e1e 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
++++ b/src/plugins/contrib/NassiShneiderman/NassiShneiderman.cbp
+@@ -32,4 +32,5 @@
+ 					<Add option="-DwxUSE_UNICODE" />
+ 					<Add option="-DBOOST_SYSTEM_NO_DEPRECATED" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

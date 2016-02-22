@@ -1,0 +1,236 @@
+From ab19a1cbca0c768e97a7b4adb9c717e5d01841c2 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 20 Dec 2015 12:08:40 -0500
+Subject: [PATCH 121/159] * pch_cbp_win_wx28: Added object search folders.
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/AutoVersioning/AutoVersioning.cbp                   | 1 +
+ src/plugins/contrib/Cccc/Cccc.cbp                                       | 1 +
+ src/plugins/contrib/CppCheck/CppCheck.cbp                               | 1 +
+ src/plugins/contrib/Cscope/Cscope.cbp                                   | 1 +
+ src/plugins/contrib/EditorConfig/EditorConfig.cbp                       | 1 +
+ src/plugins/contrib/EditorTweaks/EditorTweaks.cbp                       | 1 +
+ src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp             | 1 +
+ src/plugins/contrib/MouseSap/MouseSap.cbp                               | 1 +
+ .../contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp     | 1 +
+ src/plugins/contrib/ReopenEditor/ReopenEditor.cbp                       | 1 +
+ src/plugins/contrib/byogames/byogames.cbp                               | 1 +
+ src/plugins/contrib/cb_koders/cb_koders.cbp                             | 1 +
+ src/plugins/contrib/codestat/codestat.cbp                               | 1 +
+ src/plugins/contrib/copystrings/copystrings.cbp                         | 1 +
+ src/plugins/contrib/dragscroll/DragScroll.cbp                           | 1 +
+ src/plugins/contrib/envvars/envvars.cbp                                 | 2 ++
+ src/plugins/contrib/profiler/cbprofiler.cbp                             | 1 +
+ src/plugins/contrib/regex_testbed/RegExTestbed.cbp                      | 1 +
+ src/plugins/contrib/rndgen/rndgen.cbp                                   | 1 +
+ src/plugins/contrib/symtab/symtab.cbp                                   | 1 +
+ 20 files changed, 21 insertions(+)
+
+diff --git a/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp b/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+index a9756a1..c2ad8c5 100644
+--- a/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
++++ b/src/plugins/contrib/AutoVersioning/AutoVersioning.cbp
+@@ -30,4 +30,5 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Cccc/Cccc.cbp b/src/plugins/contrib/Cccc/Cccc.cbp
+index 47a393d..b9880e1 100644
+--- a/src/plugins/contrib/Cccc/Cccc.cbp
++++ b/src/plugins/contrib/Cccc/Cccc.cbp
+@@ -39,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/CppCheck/CppCheck.cbp b/src/plugins/contrib/CppCheck/CppCheck.cbp
+index cd9a739..1fac7ce 100644
+--- a/src/plugins/contrib/CppCheck/CppCheck.cbp
++++ b/src/plugins/contrib/CppCheck/CppCheck.cbp
+@@ -39,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/Cscope/Cscope.cbp b/src/plugins/contrib/Cscope/Cscope.cbp
+index a872fc7..7e07192 100644
+--- a/src/plugins/contrib/Cscope/Cscope.cbp
++++ b/src/plugins/contrib/Cscope/Cscope.cbp
+@@ -41,4 +41,5 @@
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorConfig/EditorConfig.cbp b/src/plugins/contrib/EditorConfig/EditorConfig.cbp
+index 803fbd8..0355aec 100644
+--- a/src/plugins/contrib/EditorConfig/EditorConfig.cbp
++++ b/src/plugins/contrib/EditorConfig/EditorConfig.cbp
+@@ -31,4 +31,5 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp b/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+index eedaf6c..d0f3d6e 100644
+--- a/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
++++ b/src/plugins/contrib/EditorTweaks/EditorTweaks.cbp
+@@ -31,4 +31,5 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp b/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+index 6949418..f94a46b 100644
+--- a/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
++++ b/src/plugins/contrib/IncrementalSearch/IncrementalSearch.cbp
+@@ -31,4 +31,5 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/MouseSap/MouseSap.cbp b/src/plugins/contrib/MouseSap/MouseSap.cbp
+index 23febe2..f26c901 100644
+--- a/src/plugins/contrib/MouseSap/MouseSap.cbp
++++ b/src/plugins/contrib/MouseSap/MouseSap.cbp
+@@ -33,4 +33,5 @@
+ 					<Add directory="$(#WX.include)" />
+ 					<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+index fa33f0c..0e0d344 100644
+--- a/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
++++ b/src/plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp
+@@ -43,4 +43,5 @@
+ 			<Add option="-DWX_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp b/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+index 4b5f808..c59761d 100644
+--- a/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
++++ b/src/plugins/contrib/ReopenEditor/ReopenEditor.cbp
+@@ -31,4 +31,5 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="$(#WX.include)" />
+diff --git a/src/plugins/contrib/byogames/byogames.cbp b/src/plugins/contrib/byogames/byogames.cbp
+index 7f7e6e4..7493fcd 100644
+--- a/src/plugins/contrib/byogames/byogames.cbp
++++ b/src/plugins/contrib/byogames/byogames.cbp
+@@ -41,4 +41,5 @@
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/cb_koders/cb_koders.cbp b/src/plugins/contrib/cb_koders/cb_koders.cbp
+index d3333cb..e8a7179 100644
+--- a/src/plugins/contrib/cb_koders/cb_koders.cbp
++++ b/src/plugins/contrib/cb_koders/cb_koders.cbp
+@@ -45,4 +45,5 @@
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/codestat/codestat.cbp b/src/plugins/contrib/codestat/codestat.cbp
+index bf6557b..4f309b8 100644
+--- a/src/plugins/contrib/codestat/codestat.cbp
++++ b/src/plugins/contrib/codestat/codestat.cbp
+@@ -39,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/copystrings/copystrings.cbp b/src/plugins/contrib/copystrings/copystrings.cbp
+index d31a3c4..bdd028e 100644
+--- a/src/plugins/contrib/copystrings/copystrings.cbp
++++ b/src/plugins/contrib/copystrings/copystrings.cbp
+@@ -41,4 +41,5 @@
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/dragscroll/DragScroll.cbp b/src/plugins/contrib/dragscroll/DragScroll.cbp
+index 538eca2..f49b26a 100644
+--- a/src/plugins/contrib/dragscroll/DragScroll.cbp
++++ b/src/plugins/contrib/dragscroll/DragScroll.cbp
+@@ -43,4 +43,5 @@
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../src" />
+diff --git a/src/plugins/contrib/envvars/envvars.cbp b/src/plugins/contrib/envvars/envvars.cbp
+index 0573c34..dacea6d 100644
+--- a/src/plugins/contrib/envvars/envvars.cbp
++++ b/src/plugins/contrib/envvars/envvars.cbp
+@@ -16,7 +16,9 @@
+ 				<Option host_application="../../../devel/codeblocks.exe" />
+ 				<Option run_host_application_in_terminal="0" />
++				<Option projectIncludeDirsRelation="2" />
+ 				<Compiler>
+ 					<Add option="-DCB_PRECOMP" />
+ 					<Add option="-DWX_PRECOMP" />
++					<Add directory="../../../.objs/include" />
+ 				</Compiler>
+ 			</Target>
+diff --git a/src/plugins/contrib/profiler/cbprofiler.cbp b/src/plugins/contrib/profiler/cbprofiler.cbp
+index 6f2bff2..f437eab 100644
+--- a/src/plugins/contrib/profiler/cbprofiler.cbp
++++ b/src/plugins/contrib/profiler/cbprofiler.cbp
+@@ -39,4 +39,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/regex_testbed/RegExTestbed.cbp b/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+index f2213bd..9f36463 100644
+--- a/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
++++ b/src/plugins/contrib/regex_testbed/RegExTestbed.cbp
+@@ -51,4 +51,5 @@
+ 			<Add directory="$(#WX.include)" />
+ 			<Add directory="$(#WX.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/rndgen/rndgen.cbp b/src/plugins/contrib/rndgen/rndgen.cbp
+index 59361aa..465b740 100644
+--- a/src/plugins/contrib/rndgen/rndgen.cbp
++++ b/src/plugins/contrib/rndgen/rndgen.cbp
+@@ -29,4 +29,5 @@
+ 					<Add option="-DWX_PRECOMP" />
+ 					<Add option="-DwxUSE_UNICODE" />
++					<Add directory="../../../.objs/include" />
+ 					<Add directory="../../../include" />
+ 					<Add directory="../../../sdk/wxscintilla/include" />
+diff --git a/src/plugins/contrib/symtab/symtab.cbp b/src/plugins/contrib/symtab/symtab.cbp
+index 6b98cc2..9bd0023 100644
+--- a/src/plugins/contrib/symtab/symtab.cbp
++++ b/src/plugins/contrib/symtab/symtab.cbp
+@@ -43,4 +43,5 @@
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DwxUSE_UNICODE" />
++			<Add directory="../../../.objs/include" />
+ 			<Add directory="../../../include" />
+ 			<Add directory="../../../sdk/wxscintilla/include" />
+-- 
+2.7.1.windows.2
+

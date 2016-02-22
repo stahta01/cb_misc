@@ -1,0 +1,23 @@
+From 40e636e076b4c2151bb70e179f4c3623a526464a Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Thu, 24 Dec 2015 21:38:35 -0500
+Subject: [PATCH 036/159] - pch_cbp_win_wx30: Added option "-Winvalid-pch".
+ (Thanks stahta01)
+
+---
+ src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp b/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
+index 48c2724..90ebcc1 100644
+--- a/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
++++ b/src/plugins/contrib/lib_finder/lib_finder_wx30_64.cbp
+@@ -34,4 +34,5 @@
+ 			<Add option="-fexceptions" />
+ 			<Add option="-mthreads" />
++			<Add option="-Winvalid-pch" />
+ 			<Add option="-DcbDEBUG" />
+ 			<Add option="-DNOPCH" />
+-- 
+2.7.1.windows.2
+

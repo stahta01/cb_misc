@@ -1,0 +1,694 @@
+From e67114d4d1ca60948738cf8422d5ec554305951b Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Mon, 14 Dec 2015 20:35:01 -0500
+Subject: [PATCH 096/159] - NassiShneiderman: Fixed PCH issues in code using
+ "sdk.h". (Thanks stahta01)
+
+Rearranged includes so "sdk.h" is first.
+Removed include of "wx/wxprec.h" and "wx/wx.h".
+Removed unneeded #pragma.
+Added "sdk.h" and other headers.
+Also, added forward class declaration.
+---
+ src/plugins/contrib/NassiShneiderman/DataObject.cpp       |  3 ---
+ src/plugins/contrib/NassiShneiderman/DataObject.h         |  3 ---
+ src/plugins/contrib/NassiShneiderman/FileContent.h        |  3 ---
+ src/plugins/contrib/NassiShneiderman/GraphBricks.cpp      |  7 +++++++
+ src/plugins/contrib/NassiShneiderman/GraphBricks.h        |  6 ------
+ src/plugins/contrib/NassiShneiderman/GraphFabric.cpp      |  3 +++
+ src/plugins/contrib/NassiShneiderman/HooverDrawlet.cpp    |  3 +++
+ src/plugins/contrib/NassiShneiderman/HooverDrawlet.h      |  8 ++------
+ src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp  |  4 ++++
+ src/plugins/contrib/NassiShneiderman/InsertBrickTask.h    |  6 ------
+ .../contrib/NassiShneiderman/NassiDiagramWindow.cpp       | 15 +--------------
+ src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.h |  7 -------
+ src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp  |  7 ++-----
+ src/plugins/contrib/NassiShneiderman/NassiDropTarget.h    |  3 ---
+ src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp |  3 +++
+ src/plugins/contrib/NassiShneiderman/NassiFileContent.h   |  3 ---
+ src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp      |  5 ++++-
+ src/plugins/contrib/NassiShneiderman/NassiPlugin.h        |  6 ------
+ src/plugins/contrib/NassiShneiderman/NassiView.cpp        |  7 +++++++
+ src/plugins/contrib/NassiShneiderman/NassiView.h          |  9 +++------
+ src/plugins/contrib/NassiShneiderman/PasteTask.cpp        |  4 ++++
+ src/plugins/contrib/NassiShneiderman/PasteTask.h          |  6 ------
+ src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp  |  5 +++++
+ src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.h    |  1 +
+ src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp   |  4 ++++
+ src/plugins/contrib/NassiShneiderman/RedLineDrawlet.h     |  2 ++
+ src/plugins/contrib/NassiShneiderman/Task.cpp             |  2 ++
+ src/plugins/contrib/NassiShneiderman/Task.h               | 11 +++++------
+ src/plugins/contrib/NassiShneiderman/TextCtrl.cpp         |  4 ++++
+ src/plugins/contrib/NassiShneiderman/TextCtrl.h           |  7 +------
+ src/plugins/contrib/NassiShneiderman/TextCtrlTask.cpp     |  2 ++
+ src/plugins/contrib/NassiShneiderman/TextCtrlTask.h       |  6 ------
+ src/plugins/contrib/NassiShneiderman/TextGraph.cpp        |  4 ++++
+ src/plugins/contrib/NassiShneiderman/TextGraph.h          | 10 ++++------
+ src/plugins/contrib/NassiShneiderman/bricks.cpp           | 15 ++-------------
+ src/plugins/contrib/NassiShneiderman/bricks.h             |  3 ---
+ src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp    |  4 ++++
+ src/plugins/contrib/NassiShneiderman/cbEditorPanel.h      |  6 ------
+ src/plugins/contrib/NassiShneiderman/commands.cpp         | 15 ++-------------
+ src/plugins/contrib/NassiShneiderman/commands.h           |  5 +----
+ src/plugins/contrib/NassiShneiderman/logger.cpp           |  2 ++
+ src/plugins/contrib/NassiShneiderman/logger.h             |  6 ------
+ src/plugins/contrib/NassiShneiderman/parseactions.cpp     | 15 ++-------------
+ src/plugins/contrib/NassiShneiderman/parseactions.h       |  4 ----
+ 44 files changed, 90 insertions(+), 164 deletions(-)
+
+diff --git a/src/plugins/contrib/NassiShneiderman/DataObject.cpp b/src/plugins/contrib/NassiShneiderman/DataObject.cpp
+index bb22035..1216f6c 100644
+--- a/src/plugins/contrib/NassiShneiderman/DataObject.cpp
++++ b/src/plugins/contrib/NassiShneiderman/DataObject.cpp
+@@ -1,5 +1,2 @@
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
+ 
+ #include <wx/dcmemory.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/DataObject.h b/src/plugins/contrib/NassiShneiderman/DataObject.h
+index 1887557..e57116f 100644
+--- a/src/plugins/contrib/NassiShneiderman/DataObject.h
++++ b/src/plugins/contrib/NassiShneiderman/DataObject.h
+@@ -1,5 +1,2 @@
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
+ 
+ #ifndef __DATAOBJECT_H__
+diff --git a/src/plugins/contrib/NassiShneiderman/FileContent.h b/src/plugins/contrib/NassiShneiderman/FileContent.h
+index b1581fe..34c2cc9 100644
+--- a/src/plugins/contrib/NassiShneiderman/FileContent.h
++++ b/src/plugins/contrib/NassiShneiderman/FileContent.h
+@@ -1,5 +1,2 @@
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
+ 
+ #ifndef __FILE_CONTENT__
+diff --git a/src/plugins/contrib/NassiShneiderman/GraphBricks.cpp b/src/plugins/contrib/NassiShneiderman/GraphBricks.cpp
+index f0c398b..1470100 100644
+--- a/src/plugins/contrib/NassiShneiderman/GraphBricks.cpp
++++ b/src/plugins/contrib/NassiShneiderman/GraphBricks.cpp
+@@ -1,2 +1,9 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/brush.h>
++#include <wx/dc.h>
++#include <wx/font.h>
++#include <wx/pen.h>
++
+ #include <manager.h>
+ 
+diff --git a/src/plugins/contrib/NassiShneiderman/GraphBricks.h b/src/plugins/contrib/NassiShneiderman/GraphBricks.h
+index aefc8b2..be45296 100644
+--- a/src/plugins/contrib/NassiShneiderman/GraphBricks.h
++++ b/src/plugins/contrib/NassiShneiderman/GraphBricks.h
+@@ -2,10 +2,4 @@
+ #define _GRAPH_BRICK_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include "TextGraph.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/GraphFabric.cpp b/src/plugins/contrib/NassiShneiderman/GraphFabric.cpp
+index 6ab9a8b..90750d3 100644
+--- a/src/plugins/contrib/NassiShneiderman/GraphFabric.cpp
++++ b/src/plugins/contrib/NassiShneiderman/GraphFabric.cpp
+@@ -1,2 +1,5 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/dc.h>
+ 
+ #include "GraphFabric.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/HooverDrawlet.cpp b/src/plugins/contrib/NassiShneiderman/HooverDrawlet.cpp
+index 45c4f36..27fba98 100644
+--- a/src/plugins/contrib/NassiShneiderman/HooverDrawlet.cpp
++++ b/src/plugins/contrib/NassiShneiderman/HooverDrawlet.cpp
+@@ -1,2 +1,5 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/dc.h>
+ 
+ #include "HooverDrawlet.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/HooverDrawlet.h b/src/plugins/contrib/NassiShneiderman/HooverDrawlet.h
+index 35efad5..de7c3a7 100644
+--- a/src/plugins/contrib/NassiShneiderman/HooverDrawlet.h
++++ b/src/plugins/contrib/NassiShneiderman/HooverDrawlet.h
+@@ -4,13 +4,9 @@
+ #define HooverDrawlet_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ // END Interface Dependencies -----------------------------------------
+ 
++class wxDC;
++
+ class HooverDrawlet
+ {
+diff --git a/src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp b/src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp
+index 47d37a2..a83c521 100644
+--- a/src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp
++++ b/src/plugins/contrib/NassiShneiderman/InsertBrickTask.cpp
+@@ -1,2 +1,6 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/event.h>
++
+ #include "InsertBrickTask.h"
+ #include "GraphBricks.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/InsertBrickTask.h b/src/plugins/contrib/NassiShneiderman/InsertBrickTask.h
+index 0a698eb..1537a9f 100644
+--- a/src/plugins/contrib/NassiShneiderman/InsertBrickTask.h
++++ b/src/plugins/contrib/NassiShneiderman/InsertBrickTask.h
+@@ -4,10 +4,4 @@
+ #define InsertBrickTask_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include "Task.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp b/src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp
+index 069b5af..164449a 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp
++++ b/src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.cpp
+@@ -1,16 +1,3 @@
+-#ifdef __GNUG__
+-// #pragma implementation
+-#endif
+-
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-    #pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
+ #include <wx/bitmap.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.h b/src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.h
+index 0fad79a..47ca761 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.h
++++ b/src/plugins/contrib/NassiShneiderman/NassiDiagramWindow.h
+@@ -4,11 +4,4 @@
+ #define _NASSI_DIAGRAM_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+-
+ 
+ #include <wx/scrolwin.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp b/src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp
+index bdbfea9..e467b48 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp
++++ b/src/plugins/contrib/NassiShneiderman/NassiDropTarget.cpp
+@@ -1,9 +1,6 @@
+-
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
+ //#include <wx/dcmemory.h>
+-//#include <wx/msgdlg.h>
++#include <wx/msgdlg.h>
+ //#include <wx/mstream.h>
+ //#include <wx/txtstrm.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiDropTarget.h b/src/plugins/contrib/NassiShneiderman/NassiDropTarget.h
+index a59db27..95819bb 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiDropTarget.h
++++ b/src/plugins/contrib/NassiShneiderman/NassiDropTarget.h
+@@ -1,5 +1,2 @@
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
+ 
+ #ifndef __DropTarget_H__
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp b/src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp
+index 1bba468..7ca2643 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp
++++ b/src/plugins/contrib/NassiShneiderman/NassiEditorPanel.cpp
+@@ -1,2 +1,5 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/sizer.h>
+ 
+ #include <manager.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiFileContent.h b/src/plugins/contrib/NassiShneiderman/NassiFileContent.h
+index 343df1b..c1bdf15 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiFileContent.h
++++ b/src/plugins/contrib/NassiShneiderman/NassiFileContent.h
+@@ -1,5 +1,2 @@
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
+ 
+ #ifndef __NASSI_FILE_CONTENT__
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp b/src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
+index a6b4ffc..b8dc8b4 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
++++ b/src/plugins/contrib/NassiShneiderman/NassiPlugin.cpp
+@@ -1,7 +1,10 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include <wx/sstream.h>
+ #include <wx/txtstrm.h>
+ 
++#include <wx/menu.h>
++#include <wx/toolbar.h>
+ 
+-#include <sdk.h> // Code::Blocks SDK
+ #ifndef CB_PRECOMP
+     #include <cbeditor.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiPlugin.h b/src/plugins/contrib/NassiShneiderman/NassiPlugin.h
+index 652ce0d..2a29645 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiPlugin.h
++++ b/src/plugins/contrib/NassiShneiderman/NassiPlugin.h
+@@ -14,10 +14,4 @@
+ #define NASSISHNEIDERMAN_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h> // for "class cbMimePlugin"
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiView.cpp b/src/plugins/contrib/NassiShneiderman/NassiView.cpp
+index 5e36892..a0a772a 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiView.cpp
++++ b/src/plugins/contrib/NassiShneiderman/NassiView.cpp
+@@ -1,2 +1,9 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/dcclient.h>
++#include <wx/dcmemory.h>
++#include <wx/filedlg.h>
++#include <wx/font.h>
++
+ #include "NassiView.h"
+ #include "NassiFileContent.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/NassiView.h b/src/plugins/contrib/NassiShneiderman/NassiView.h
+index a408441..308c7a2 100644
+--- a/src/plugins/contrib/NassiShneiderman/NassiView.h
++++ b/src/plugins/contrib/NassiShneiderman/NassiView.h
+@@ -6,12 +6,7 @@
+ #define NASSIVIEW_H_INCLUDED
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <wx/dnd.h>
++#include <wx/font.h>
+ 
+ #include "FileContent.h"
+@@ -26,4 +21,6 @@ class wxCommand;
+ class HooverDrawlet;
+ class TextCtrl;
++class wxMouseEvent;
++class wxKeyEvent;
+ 
+ class Task;
+diff --git a/src/plugins/contrib/NassiShneiderman/PasteTask.cpp b/src/plugins/contrib/NassiShneiderman/PasteTask.cpp
+index f7f50dd..730bf08 100644
+--- a/src/plugins/contrib/NassiShneiderman/PasteTask.cpp
++++ b/src/plugins/contrib/NassiShneiderman/PasteTask.cpp
+@@ -1,2 +1,6 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/event.h>
++
+ #include "PasteTask.h"
+ #include "GraphBricks.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/PasteTask.h b/src/plugins/contrib/NassiShneiderman/PasteTask.h
+index 18c8f22..2129d70 100644
+--- a/src/plugins/contrib/NassiShneiderman/PasteTask.h
++++ b/src/plugins/contrib/NassiShneiderman/PasteTask.h
+@@ -4,10 +4,4 @@
+ #define PasteTask_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include "Task.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp b/src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp
+index 46db5ac..675f0c6 100644
+--- a/src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp
++++ b/src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.cpp
+@@ -1,2 +1,7 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/dc.h>
++#include <wx/gdicmn.h>
++
+ #include "RedHatchDrawlet.h"
+ 
+diff --git a/src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.h b/src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.h
+index d11c043..7ae6c5f 100644
+--- a/src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.h
++++ b/src/plugins/contrib/NassiShneiderman/RedHatchDrawlet.h
+@@ -4,4 +4,5 @@
+ #include "HooverDrawlet.h"
+ 
++class wxRect;
+ 
+ class RedHatchDrawlet : public HooverDrawlet
+diff --git a/src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp b/src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp
+index dd6123e..1f5df11 100644
+--- a/src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp
++++ b/src/plugins/contrib/NassiShneiderman/RedLineDrawlet.cpp
+@@ -1,2 +1,6 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/dc.h>
++
+ #include "RedLineDrawlet.h"
+ 
+diff --git a/src/plugins/contrib/NassiShneiderman/RedLineDrawlet.h b/src/plugins/contrib/NassiShneiderman/RedLineDrawlet.h
+index b99780b..cbeb3a2 100644
+--- a/src/plugins/contrib/NassiShneiderman/RedLineDrawlet.h
++++ b/src/plugins/contrib/NassiShneiderman/RedLineDrawlet.h
+@@ -2,4 +2,6 @@
+ #define REDLINEDRAWLET_H
+ 
++#include <wx/gdicmn.h>
++
+ #include "HooverDrawlet.h"
+ 
+diff --git a/src/plugins/contrib/NassiShneiderman/Task.cpp b/src/plugins/contrib/NassiShneiderman/Task.cpp
+index 80721a0..8ab0a9d 100644
+--- a/src/plugins/contrib/NassiShneiderman/Task.cpp
++++ b/src/plugins/contrib/NassiShneiderman/Task.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ // Dependencies ------------------------------------------------------
+ #include "Task.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/Task.h b/src/plugins/contrib/NassiShneiderman/Task.h
+index c73a67a..643ea67 100644
+--- a/src/plugins/contrib/NassiShneiderman/Task.h
++++ b/src/plugins/contrib/NassiShneiderman/Task.h
+@@ -4,10 +4,4 @@
+ #define Task_h
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ // END Interface Dependencies -----------------------------------------
+@@ -27,4 +21,9 @@
+ 
+ class HooverDrawlet;
++class wxCursor;
++class wxMouseEvent;
++class wxPoint;
++class wxKeyEvent;
++
+ 
+ class Task
+diff --git a/src/plugins/contrib/NassiShneiderman/TextCtrl.cpp b/src/plugins/contrib/NassiShneiderman/TextCtrl.cpp
+index d075b8a..5330dce 100644
+--- a/src/plugins/contrib/NassiShneiderman/TextCtrl.cpp
++++ b/src/plugins/contrib/NassiShneiderman/TextCtrl.cpp
+@@ -1,2 +1,6 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/dcclient.h>
++
+ #include "TextCtrl.h"
+ #include "NassiDiagramWindow.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/TextCtrl.h b/src/plugins/contrib/NassiShneiderman/TextCtrl.h
+index 2ef00c3..1a34912 100644
+--- a/src/plugins/contrib/NassiShneiderman/TextCtrl.h
++++ b/src/plugins/contrib/NassiShneiderman/TextCtrl.h
+@@ -2,10 +2,5 @@
+ #define TEXTCTRL_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
++#include <wx/textctrl.h>
+ 
+ class TextCtrl : public wxTextCtrl
+diff --git a/src/plugins/contrib/NassiShneiderman/TextCtrlTask.cpp b/src/plugins/contrib/NassiShneiderman/TextCtrlTask.cpp
+index 54a7992..02733d3 100644
+--- a/src/plugins/contrib/NassiShneiderman/TextCtrlTask.cpp
++++ b/src/plugins/contrib/NassiShneiderman/TextCtrlTask.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "TextCtrlTask.h"
+ #include "TextGraph.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/TextCtrlTask.h b/src/plugins/contrib/NassiShneiderman/TextCtrlTask.h
+index f15c2cc..64ebb9e 100644
+--- a/src/plugins/contrib/NassiShneiderman/TextCtrlTask.h
++++ b/src/plugins/contrib/NassiShneiderman/TextCtrlTask.h
+@@ -2,10 +2,4 @@
+ #define TEXTCTRLTASK_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include "Task.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/TextGraph.cpp b/src/plugins/contrib/NassiShneiderman/TextGraph.cpp
+index 377d9b0..d2d7ee7 100644
+--- a/src/plugins/contrib/NassiShneiderman/TextGraph.cpp
++++ b/src/plugins/contrib/NassiShneiderman/TextGraph.cpp
+@@ -1,2 +1,6 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/dc.h>
++
+ #include "TextGraph.h"
+ 
+diff --git a/src/plugins/contrib/NassiShneiderman/TextGraph.h b/src/plugins/contrib/NassiShneiderman/TextGraph.h
+index 5c575a3..ee5f752 100644
+--- a/src/plugins/contrib/NassiShneiderman/TextGraph.h
++++ b/src/plugins/contrib/NassiShneiderman/TextGraph.h
+@@ -2,16 +2,14 @@
+ #define TEXTGRAPH_H
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <vector>
+ 
++#include <wx/dynarray.h> // wxArrayInt
++#include <wx/gdicmn.h>   // wxPoint
++
+ class NassiView;
+ class NassiBrick;
+ class TextCtrlTask;
++class wxDC;
+ 
+ class TextGraph
+diff --git a/src/plugins/contrib/NassiShneiderman/bricks.cpp b/src/plugins/contrib/NassiShneiderman/bricks.cpp
+index ac54e47..cd7b53f 100644
+--- a/src/plugins/contrib/NassiShneiderman/bricks.cpp
++++ b/src/plugins/contrib/NassiShneiderman/bricks.cpp
+@@ -1,16 +1,5 @@
+-#ifdef __GNUG__
+-// #pragma implementation
+-#endif
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
++#include <wx/dynarray.h>
+ 
+ #include <wx/arrimpl.cpp> // this is a magic incantation which must be done!
+diff --git a/src/plugins/contrib/NassiShneiderman/bricks.h b/src/plugins/contrib/NassiShneiderman/bricks.h
+index 9b11fe4..36e0076 100644
+--- a/src/plugins/contrib/NassiShneiderman/bricks.h
++++ b/src/plugins/contrib/NassiShneiderman/bricks.h
+@@ -2,7 +2,4 @@
+ #define HEADER_F67D53FD621D8D05
+ 
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
+ 
+ #include <vector>
+diff --git a/src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp b/src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp
+index a208b4f..6c86b38 100644
+--- a/src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp
++++ b/src/plugins/contrib/NassiShneiderman/cbEditorPanel.cpp
+@@ -21,4 +21,8 @@
+ */
+ 
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
++#include <wx/filedlg.h>
++
+ #include <wx/cmdproc.h>
+ #include <configmanager.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/cbEditorPanel.h b/src/plugins/contrib/NassiShneiderman/cbEditorPanel.h
+index 0a126ce..da9f0fb 100644
+--- a/src/plugins/contrib/NassiShneiderman/cbEditorPanel.h
++++ b/src/plugins/contrib/NassiShneiderman/cbEditorPanel.h
+@@ -24,10 +24,4 @@
+ #define __CB_EDITOR_PANEL_H__
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ #include <manager.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/commands.cpp b/src/plugins/contrib/NassiShneiderman/commands.cpp
+index 789f929..5dc9ab5 100644
+--- a/src/plugins/contrib/NassiShneiderman/commands.cpp
++++ b/src/plugins/contrib/NassiShneiderman/commands.cpp
+@@ -1,16 +1,5 @@
+-#ifdef __GNUG__
+-// #pragma implementation
+-#endif
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
++#include <wx/intl.h>
+ 
+ #include <wx/txtstrm.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/commands.h b/src/plugins/contrib/NassiShneiderman/commands.h
+index f2dfd58..710bf14 100644
+--- a/src/plugins/contrib/NassiShneiderman/commands.h
++++ b/src/plugins/contrib/NassiShneiderman/commands.h
+@@ -2,7 +2,4 @@
+ #define HEADER_8420C535795AC84B
+ 
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
+ 
+ #ifndef __COMMAND_H__
+@@ -181,3 +178,3 @@ private:
+ #endif
+ 
+-#endif // header guard 
++#endif // header guard
+diff --git a/src/plugins/contrib/NassiShneiderman/logger.cpp b/src/plugins/contrib/NassiShneiderman/logger.cpp
+index 983af46..09d2acf 100644
+--- a/src/plugins/contrib/NassiShneiderman/logger.cpp
++++ b/src/plugins/contrib/NassiShneiderman/logger.cpp
+@@ -1,2 +1,4 @@
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
++
+ #include "logger.h"
+ #include <manager.h>
+diff --git a/src/plugins/contrib/NassiShneiderman/logger.h b/src/plugins/contrib/NassiShneiderman/logger.h
+index 64271c3..d5cd7ba 100644
+--- a/src/plugins/contrib/NassiShneiderman/logger.h
++++ b/src/plugins/contrib/NassiShneiderman/logger.h
+@@ -2,10 +2,4 @@
+ #define __LOGGER_H__
+ 
+-// For compilers that support precompilation, includes <wx/wx.h>
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-    #include <wx/wx.h>
+-#endif
+ 
+ class LoggerSingleton
+diff --git a/src/plugins/contrib/NassiShneiderman/parseactions.cpp b/src/plugins/contrib/NassiShneiderman/parseactions.cpp
+index 55b69dc..902d01a 100644
+--- a/src/plugins/contrib/NassiShneiderman/parseactions.cpp
++++ b/src/plugins/contrib/NassiShneiderman/parseactions.cpp
+@@ -1,16 +1,5 @@
+-#ifdef __GNUG__
+-// #pragma implementation
+-#endif
++#include "sdk.h" // Code::Blocks SDK and Precompiled Header
+ 
+-// For compilers that support precompilation, includes "wx/wx.h".
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+-
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
++#include <wx/intl.h>
+ 
+ #include "parseactions.h"
+diff --git a/src/plugins/contrib/NassiShneiderman/parseactions.h b/src/plugins/contrib/NassiShneiderman/parseactions.h
+index 73b9541..570d4f0 100644
+--- a/src/plugins/contrib/NassiShneiderman/parseactions.h
++++ b/src/plugins/contrib/NassiShneiderman/parseactions.h
+@@ -2,8 +2,4 @@
+ #define __PARSEACTIONS_H__
+ 
+-#ifdef __GNUG__
+-// #pragma interface
+-#endif
+-
+ 
+ #include <wx/string.h>
+-- 
+2.7.1.windows.2
+

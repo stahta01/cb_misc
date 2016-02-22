@@ -1,0 +1,72 @@
+From 0c2808ece1b3f987760a2bdf29a8c21012702cd2 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Wed, 20 Jan 2016 19:13:06 -0500
+Subject: [PATCH 101/159] * headerfixup: Removed includes of "wx/wx.h" and
+ "wx/wxprec.h" from headers. (Thanks stahta01)
+
+---
+ src/plugins/contrib/headerfixup/configuration.h | 5 -----
+ src/plugins/contrib/headerfixup/execution.h     | 5 -----
+ src/plugins/contrib/headerfixup/headerfixup.h   | 5 -----
+ src/plugins/contrib/headerfixup/protocol.h      | 5 -----
+ 4 files changed, 20 deletions(-)
+
+diff --git a/src/plugins/contrib/headerfixup/configuration.h b/src/plugins/contrib/headerfixup/configuration.h
+index f716e93..263cfe8 100644
+--- a/src/plugins/contrib/headerfixup/configuration.h
++++ b/src/plugins/contrib/headerfixup/configuration.h
+@@ -7,9 +7,4 @@
+ #define CONFIGURATION_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+ 
+ //(*Headers(Configuration)
+diff --git a/src/plugins/contrib/headerfixup/execution.h b/src/plugins/contrib/headerfixup/execution.h
+index 59cf2ad..9379161 100644
+--- a/src/plugins/contrib/headerfixup/execution.h
++++ b/src/plugins/contrib/headerfixup/execution.h
+@@ -7,9 +7,4 @@
+ #define EXECUTION_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+ 
+ //(*Headers(Execution)
+diff --git a/src/plugins/contrib/headerfixup/headerfixup.h b/src/plugins/contrib/headerfixup/headerfixup.h
+index ff593c6..4b31513 100644
+--- a/src/plugins/contrib/headerfixup/headerfixup.h
++++ b/src/plugins/contrib/headerfixup/headerfixup.h
+@@ -7,9 +7,4 @@
+ #define HEADERFIXUP_H_INCLUDED
+ 
+-#include <wx/wxprec.h>
+-
+-#ifndef WX_PRECOMP
+-#include <wx/wx.h>
+-#endif
+ 
+ #include <cbplugin.h>
+diff --git a/src/plugins/contrib/headerfixup/protocol.h b/src/plugins/contrib/headerfixup/protocol.h
+index aea21d1..42568d9 100644
+--- a/src/plugins/contrib/headerfixup/protocol.h
++++ b/src/plugins/contrib/headerfixup/protocol.h
+@@ -7,9 +7,4 @@
+ #define PROTOCOL_H
+ 
+-#include <wx/wxprec.h>
+-
+-#ifdef __BORLANDC__
+-#pragma hdrstop
+-#endif
+ 
+ //(*Headers(Protocol)
+-- 
+2.7.1.windows.2
+

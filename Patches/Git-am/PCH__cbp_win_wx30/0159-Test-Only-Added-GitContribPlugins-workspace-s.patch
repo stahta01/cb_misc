@@ -1,0 +1,174 @@
+From 0cefc96e2798198800527817e40fd4008638c6e4 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 22 Dec 2015 18:09:42 -0500
+Subject: [PATCH 159/159] * Test Only: Added GitContribPlugins workspace(s).
+
+---
+ src/GitContribPlugins-unix.workspace      | 24 ++++++++++++++++++++++++
+ src/GitContribPlugins.workspace           | 25 +++++++++++++++++++++++++
+ src/GitContribPlugins_wx30-unix.workspace | 24 ++++++++++++++++++++++++
+ src/GitContribPlugins_wx30.workspace      | 25 +++++++++++++++++++++++++
+ src/GitContribPlugins_wx30_64.workspace   | 25 +++++++++++++++++++++++++
+ 5 files changed, 123 insertions(+)
+ create mode 100644 src/GitContribPlugins-unix.workspace
+ create mode 100644 src/GitContribPlugins.workspace
+ create mode 100644 src/GitContribPlugins_wx30-unix.workspace
+ create mode 100644 src/GitContribPlugins_wx30.workspace
+ create mode 100644 src/GitContribPlugins_wx30_64.workspace
+
+diff --git a/src/GitContribPlugins-unix.workspace b/src/GitContribPlugins-unix.workspace
+new file mode 100644
+index 0000000..09a3024
+--- /dev/null
++++ b/src/GitContribPlugins-unix.workspace
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="Git contrib plugins (Unix)">
++		<Project filename="plugins/contrib/AutoVersioning/AutoVersioning-unix.cbp" />
++		<Project filename="plugins/contrib/byogames/byogames-unix.cbp" />
++		<Project filename="plugins/contrib/cb_koders/cb_koders-unix.cbp" />
++		<Project filename="plugins/contrib/Cccc/Cccc-unix.cbp" />
++		<Project filename="plugins/contrib/codestat/codestat-unix.cbp" />
++		<Project filename="plugins/contrib/copystrings/copystrings-unix.cbp" />
++		<Project filename="plugins/contrib/CppCheck/CppCheck-unix.cbp" />
++		<Project filename="plugins/contrib/Cscope/Cscope-unix.cbp" />
++		<Project filename="plugins/contrib/dragscroll/DragScroll-unix.cbp" />
++		<Project filename="plugins/contrib/EditorConfig/EditorConfig-unix.cbp" />
++		<Project filename="plugins/contrib/EditorTweaks/EditorTweaks-unix.cbp" />
++		<Project filename="plugins/contrib/envvars/envvars-unix.cbp" />
++		<Project filename="plugins/contrib/IncrementalSearch/IncrementalSearch-unix.cbp" />
++		<Project filename="plugins/contrib/MouseSap/MouseSap-unix.cbp" />
++		<Project filename="plugins/contrib/profiler/cbprofiler.unix.cbp" />
++		<Project filename="plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator-unix.cbp" />
++		<Project filename="plugins/contrib/regex_testbed/RegExTestbed-unix.cbp" />
++		<Project filename="plugins/contrib/ReopenEditor/ReopenEditor-unix.cbp" />
++		<Project filename="plugins/contrib/symtab/symtab-unix.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+diff --git a/src/GitContribPlugins.workspace b/src/GitContribPlugins.workspace
+new file mode 100644
+index 0000000..8a171cc
+--- /dev/null
++++ b/src/GitContribPlugins.workspace
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="Git contrib plugins">
++		<Project filename="plugins/contrib/AutoVersioning/AutoVersioning.cbp" />
++		<Project filename="plugins/contrib/byogames/byogames.cbp" />
++		<Project filename="plugins/contrib/cb_koders/cb_koders.cbp" />
++		<Project filename="plugins/contrib/Cccc/Cccc.cbp" />
++		<Project filename="plugins/contrib/codestat/codestat.cbp" />
++		<Project filename="plugins/contrib/copystrings/copystrings.cbp" />
++		<Project filename="plugins/contrib/CppCheck/CppCheck.cbp" />
++		<Project filename="plugins/contrib/Cscope/Cscope.cbp" />
++		<Project filename="plugins/contrib/dragscroll/DragScroll.cbp" />
++		<Project filename="plugins/contrib/EditorConfig/EditorConfig.cbp" />
++		<Project filename="plugins/contrib/EditorTweaks/EditorTweaks.cbp" />
++		<Project filename="plugins/contrib/envvars/envvars.cbp" />
++		<Project filename="plugins/contrib/IncrementalSearch/IncrementalSearch.cbp" />
++		<Project filename="plugins/contrib/MouseSap/MouseSap.cbp" />
++		<Project filename="plugins/contrib/profiler/cbprofiler.cbp" />
++		<Project filename="plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator.cbp" />
++		<Project filename="plugins/contrib/regex_testbed/RegExTestbed.cbp" />
++		<Project filename="plugins/contrib/ReopenEditor/ReopenEditor.cbp" />
++		<Project filename="plugins/contrib/rndgen/rndgen.cbp" />
++		<Project filename="plugins/contrib/symtab/symtab.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+diff --git a/src/GitContribPlugins_wx30-unix.workspace b/src/GitContribPlugins_wx30-unix.workspace
+new file mode 100644
+index 0000000..980c272
+--- /dev/null
++++ b/src/GitContribPlugins_wx30-unix.workspace
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="Git contrib plugins wx3.0.x (Unix)">
++		<Project filename="plugins/contrib/AutoVersioning/AutoVersioning_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/byogames/byogames_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/cb_koders/cb_koders_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/Cccc/Cccc_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/codestat/codestat_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/copystrings/copystrings_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/CppCheck/CppCheck_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/Cscope/Cscope_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/dragscroll/DragScroll_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/EditorConfig/EditorConfig_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/EditorTweaks/EditorTweaks_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/envvars/envvars_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/IncrementalSearch/IncrementalSearch_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/MouseSap/MouseSap_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/profiler/cbprofiler_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/regex_testbed/RegExTestbed_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/ReopenEditor/ReopenEditor_wx30-unix.cbp" />
++		<Project filename="plugins/contrib/symtab/symtab_wx30-unix.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+diff --git a/src/GitContribPlugins_wx30.workspace b/src/GitContribPlugins_wx30.workspace
+new file mode 100644
+index 0000000..96d019b
+--- /dev/null
++++ b/src/GitContribPlugins_wx30.workspace
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="Git contrib plugins">
++		<Project filename="plugins/contrib/AutoVersioning/AutoVersioning_wx30.cbp" />
++		<Project filename="plugins/contrib/byogames/byogames_wx30.cbp" />
++		<Project filename="plugins/contrib/cb_koders/cb_koders_wx30.cbp" />
++		<Project filename="plugins/contrib/Cccc/Cccc_wx30.cbp" />
++		<Project filename="plugins/contrib/codestat/codestat_wx30.cbp" />
++		<Project filename="plugins/contrib/copystrings/copystrings_wx30.cbp" />
++		<Project filename="plugins/contrib/CppCheck/CppCheck_wx30.cbp" />
++		<Project filename="plugins/contrib/Cscope/Cscope_wx30.cbp" />
++		<Project filename="plugins/contrib/dragscroll/DragScroll_wx30.cbp" />
++		<Project filename="plugins/contrib/EditorConfig/EditorConfig_wx30.cbp" />
++		<Project filename="plugins/contrib/EditorTweaks/EditorTweaks_wx30.cbp" />
++		<Project filename="plugins/contrib/envvars/envvars_wx30.cbp" />
++		<Project filename="plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp" />
++		<Project filename="plugins/contrib/MouseSap/MouseSap_wx30.cbp" />
++		<Project filename="plugins/contrib/profiler/cbprofiler_wx30.cbp" />
++		<Project filename="plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30.cbp" />
++		<Project filename="plugins/contrib/regex_testbed/RegExTestbed_wx30.cbp" />
++		<Project filename="plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp" />
++		<Project filename="plugins/contrib/rndgen/rndgen_wx30.cbp" />
++		<Project filename="plugins/contrib/symtab/symtab_wx30.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+diff --git a/src/GitContribPlugins_wx30_64.workspace b/src/GitContribPlugins_wx30_64.workspace
+new file mode 100644
+index 0000000..ca07c79
+--- /dev/null
++++ b/src/GitContribPlugins_wx30_64.workspace
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
++<CodeBlocks_workspace_file>
++	<Workspace title="Git contrib plugins">
++		<Project filename="plugins/contrib/AutoVersioning/AutoVersioning_wx30_64.cbp" />
++		<Project filename="plugins/contrib/byogames/byogames_wx30_64.cbp" />
++		<Project filename="plugins/contrib/cb_koders/cb_koders_wx30_64.cbp" />
++		<Project filename="plugins/contrib/Cccc/Cccc_wx30_64.cbp" />
++		<Project filename="plugins/contrib/codestat/codestat_wx30_64.cbp" />
++		<Project filename="plugins/contrib/copystrings/copystrings_wx30_64.cbp" />
++		<Project filename="plugins/contrib/CppCheck/CppCheck_wx30_64.cbp" />
++		<Project filename="plugins/contrib/Cscope/Cscope_wx30_64.cbp" />
++		<Project filename="plugins/contrib/dragscroll/DragScroll_wx30_64.cbp" />
++		<Project filename="plugins/contrib/EditorConfig/EditorConfig_wx30_64.cbp" />
++		<Project filename="plugins/contrib/EditorTweaks/EditorTweaks_wx30_64.cbp" />
++		<Project filename="plugins/contrib/envvars/envvars_wx30_64.cbp" />
++		<Project filename="plugins/contrib/IncrementalSearch/IncrementalSearch_wx30_64.cbp" />
++		<Project filename="plugins/contrib/MouseSap/MouseSap_wx30_64.cbp" />
++		<Project filename="plugins/contrib/profiler/cbprofiler_wx30_64.cbp" />
++		<Project filename="plugins/contrib/ProjectOptionsManipulator/ProjectOptionsManipulator_wx30_64.cbp" />
++		<Project filename="plugins/contrib/regex_testbed/RegExTestbed_wx30_64.cbp" />
++		<Project filename="plugins/contrib/ReopenEditor/ReopenEditor_wx30_64.cbp" />
++		<Project filename="plugins/contrib/rndgen/rndgen_wx30_64.cbp" />
++		<Project filename="plugins/contrib/symtab/symtab_wx30_64.cbp" />
++	</Workspace>
++</CodeBlocks_workspace_file>
+-- 
+2.7.1.windows.2
+
