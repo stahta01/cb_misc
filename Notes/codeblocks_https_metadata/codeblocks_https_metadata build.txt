@@ -77,7 +77,13 @@ git rebase origin/master && git status -uno
 
 ##  git rebase master && git push origin --force-with-lease
 
-git format-patch --unified=1 9d01f5cef9f4ac3be547d4f0066f87306ab2ae42
+git log -5
+git format-patch --unified=1 f8c67f9f0da18545751313b4c1961130149a4552
+
+0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
+git apply --reject 0002-win_cbp_wx30-Save-As-Windows-wx3.0-32-bit-projects.-.patch
+0003-win_cbp_wx30_64-Save-As-Windows-wx3.0-64-bit-project.patch
+git apply --reject 0004-win_cbp_wx28-Save-As-Windows-wx3.0-32-bit-projects.-.patch
 
 
 ###
@@ -110,7 +116,12 @@ git rebase origin/master && git status -uno
 # git rebase -i origin/master
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
-
+#
+#   git am --abort
+#
+#   git format-patch --unified=2  f8c67f9f0da18545751313b4c1961130149a4552
+#   git apply --reject 0001-wxContribItems-Change-the-project-define-WXMAKINGDLL.patch
+#
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/cb_projects && git status -uno
@@ -130,7 +141,7 @@ git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 # 
 # git log
-# git format-patch 6f2505261d4476202701c31574f1523925b40d21
+# git format-patch a1d0d95a703ec5a8b77db2322b486ed5c8e1e8d7
 0001-bat-Removed-output-folders-from-several-windows-batc.patch
 0002-bat-Created-res_dev.bat-from-update.bat.-Thanks-stah.patch
 0003-help_plugin-Removed-output-folder-from-WinOS-CB-proj.patch
@@ -149,10 +160,9 @@ git rebase origin/win_cbp_save_as && git status -uno
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
-#   git format-patch 5c879287ff41de2f0c8ba1a2f8ab85090b7d62de
-#   git am 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
-#   git am 0002-win_cbp-Moved-wxmsw-WX_VERSION-WX_SUFFIX-from-projec.patch
-#   git am 0003-SpellChecker-Removed-from-after-from-second-xcopy-pa.patch
+#   git format-patch a1d0d95a703ec5a8b77db2322b486ed5c8e1e8d7
+#   git am 0001-win_cbp-Moved-wxmsw-WX_VERSION-WX_SUFFIX-from-projec.patch
+#   git am 0002-SpellChecker-Removed-from-after-from-second-xcopy-pa.patch
 #
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno

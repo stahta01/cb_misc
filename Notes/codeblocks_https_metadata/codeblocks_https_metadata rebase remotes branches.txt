@@ -1,6 +1,5 @@
-
 ######################################################
-
+#
 cd ../codeblocks_https_metadata-git && \
 git fetch origin                && \
 git checkout deceased/removals  && \

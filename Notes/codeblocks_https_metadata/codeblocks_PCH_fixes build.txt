@@ -31,6 +31,7 @@ git checkout PCH/master && git status -uno
 ##  git rebase origin/portability/fixes
 #
 ##  git rebase origin/master && git status -uno
+##  git push pch_fixes --force-with-lease
 #
 ##  git rebase -i origin/master
 #
@@ -76,6 +77,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 git push pch_fixes -u
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 #
+git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 
 # git log
 # git format-patch --unified=1 6ec704e8e2de96c5450efacce53ddb503e541c02
@@ -493,7 +495,7 @@ git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 #
-# git format-patch --unified=2 e7fd713c67023161ed6b3411f18802efa4f25b4f
+# git format-patch --unified=2 f8c67f9f0da18545751313b4c1961130149a4552
 #
 ###########################
 
