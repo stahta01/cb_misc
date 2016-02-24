@@ -1,3 +1,5 @@
+http://forums.codeblocks.org/index.php/topic,20924.0.html
+
 CB Bug List.txt
 Settings -> Editor
 End of Line Option
