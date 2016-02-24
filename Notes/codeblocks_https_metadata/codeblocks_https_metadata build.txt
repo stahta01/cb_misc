@@ -119,20 +119,6 @@ git push origin
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout wxContribItems
-#
-git rebase origin/master && git status -uno
-# git rebase -i origin/master
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
-#
-#   git am --abort
-#
-#   git format-patch --unified=2  f8c67f9f0da18545751313b4c1961130149a4552
-#   git apply --reject 0001-wxContribItems-Change-the-project-define-WXMAKINGDLL.patch
-#
-###
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/cb_projects && git status -uno
 #
 git rebase origin/win_cbp_save_as && git status -uno
@@ -218,9 +204,7 @@ git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
 # git log
-# git format-patch --unified=1 674c6aa1dbd7e1405603d5f73416d35aa4670011
-0011 * msys2_wx_multilibs: Removed wx lib and CB Global vars.
-0012 * msys2_wx_multilibs: Added configure built wx multilibs.
+# git format-patch --unified=2 40803a69a7fdcb698c4c3a9021fad8d841a2442d
 0001-msys2_cb-copy-Replaced-copy-with-CMD_CP-macro.patch
 0002-msys2_cb-Added-UnixFilename2-using-added-enum-cbPath.patch
 0003-msys2_cb-Use-UnixFilename2-to-set-value-of-macro-TAR.patch
@@ -229,8 +213,8 @@ git push origin
 0006-msys2_cb-Changed-some-of-the-to.patch
 0007-msys2_cb-compiler-DO-NOT-USE-UPSTREAM.patch
 0008-msys2_wx_multilibs-Edited-WX-variables-for-configure.patch
-git apply --reject 0009-msys2_wx_multilibs-Removed-wx-lib-and-CB-Global-vars.patch
-git apply --reject 0010-msys2_wx_multilibs-Added-configure-built-wx-multilib.patch
+0009-msys2_wx_multilibs-Removed-wx-lib-and-CB-Global-vars.patch
+0010-msys2_wx_multilibs-Added-configure-built-wx-multilib.patch
 #
 ###
 #
@@ -247,12 +231,12 @@ git rebase origin/feature/cb_projects && git status -uno
 # git rebase -i HEAD~5
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
-
+#
 # git log
-# git format-patch  --unified=1 73ea0b0701039b8a404ad641fe5edadec2b61be6
-0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
-0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
-0003-wx_multilibs_gcc471TDM-Changed-to-make-built-wx-mult.patch
+# git format-patch  --unified=2 9e56ea6c3b2c2d6470fa48666db6703520fcd641
+git apply --reject 0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
+git apply --reject 0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
+0003-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
 ###
 #
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
