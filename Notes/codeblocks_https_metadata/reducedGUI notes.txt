@@ -19,6 +19,7 @@ new FileLogger(_T("codeblocks-debug.log")), LogManager::debug_log
 
 new FileLogger(_T("codeblocks-build.log")), LogManager::build_log
 
+Logs & others
 
 Logs that exist with all but Compiler Plugin Disabled
 Code::Blocks
@@ -58,6 +59,9 @@ GUI Libs that may need removed
     wxmsw30ud_xrc                   
     wxmsw30ud_core
     gdi32
+
+GUI Objects that need removed
+    m_pInfoPane
 
 GUI Classes that need removed
     DebuggerManager     debuggermanager.h      
