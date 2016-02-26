@@ -62,14 +62,27 @@ GUI Libs that may need removed
 
 GUI Objects that need removed
     m_pInfoPane
+    m_ToolsMenu
 
 GUI Classes that need removed
     DebuggerManager     debuggermanager.h      
                         cbdebugger_interfaces.h
-    CCManager           ccmanager.h                                        
-    TemplateManager     templatemanager.h                 
-    ToolsManager        toolsmanager.h                
-                        scrollingdialog.h
+    
+                        projectlayoutloader.h
+    EditorManager       editormanager.h             
+    cbSmartIndentPlugin cbplugin.h                  Removed in noGUI
+                        wxscintilla.h               Removed in noGUI
+    CCManager           ccmanager.h                 Removed in noGUI                                   
+    TemplateManager     templatemanager.h           Removed in noGUI                 
+    ToolsManager        toolsmanager.h              Removed in noGUI
+    AnnoyingDialog : public wxScrollingDialog
+    AnnoyingDialog      annoyingdialog.h                
+    wxScrollingDialog   scrollingdialog.h
+    AutoDetectCompilers : public wxScrollingDialog
+    cbConfigurationDialog : public wxScrollingDialog
+    ConfirmReplaceDlg : public wxScrollingDialog
+    and many more
+    VirtualBuildTargetsDlg: public wxScrollingDialog
 
                 
 SDK Classes that need removed

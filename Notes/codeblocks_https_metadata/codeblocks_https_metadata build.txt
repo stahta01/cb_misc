@@ -255,6 +255,9 @@ cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout build/nonGUI && git status -uno
 #  git branch --list
 ###
+#
+##  git rebase origin/reducedGUI
+#
 git rebase origin/master && git status -uno
 # git log -5
 # git rebase -i origin/master
