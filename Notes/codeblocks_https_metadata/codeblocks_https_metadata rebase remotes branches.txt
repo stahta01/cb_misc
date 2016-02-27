@@ -23,6 +23,10 @@ git rebase origin/master        && \
 git checkout win_cbp_save_as    && \
 git pull                        && \
 git rebase origin/master        && \
+git checkout feature/cb_projects  && \
+git rebase origin/win_cbp_save_as && \
+git pull                        && \
+git rebase origin/master        && \
 git checkout bugfix/plugins     && \
 git pull                        && \
 git rebase origin/master        && \

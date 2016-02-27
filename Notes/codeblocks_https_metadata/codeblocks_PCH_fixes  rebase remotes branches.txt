@@ -49,5 +49,8 @@ git pull                            && \
 git rebase pch_fixes/PCH/master     && \
 git checkout PCH/Valgrind           && \
 git pull                            && \
+git rebase pch_fixes/PCH/master     && \
+git checkout PCH/wxContribItems     && \
+git pull                            && \
 git rebase pch_fixes/PCH/master
 # EOF
