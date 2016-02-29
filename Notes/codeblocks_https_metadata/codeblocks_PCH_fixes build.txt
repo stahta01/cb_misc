@@ -143,24 +143,35 @@ git rebase pch_fixes/PCH/master && git status -uno
 git push pch_fixes 
 ##  git rebase origin/master && git push pch_fixes --force-with-lease
 
-git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/core
-- sdk: Removed include of "wx/wx.h" from source files.
-- sdk: Added wx headers to CB_PRECOMP section. (Thanks stahta01)
-* pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
-* defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
-* debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
-* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
-* occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
-* src: Added needed wx headers. (Thanks stahta01)
-- compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
-* astyle: Added needed wx headers. (Thanks stahta01)
+git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/core
 * abbreviations: Added needed wx headers. (Thanks stahta01)
+* astyle: Added needed wx headers. (Thanks stahta01)
+- compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
+* src: Added needed wx headers. (Thanks stahta01)
+* occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
+* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
+* debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
+* defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
+* pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
+- sdk: Added wx headers to CB_PRECOMP section. (Thanks stahta01)
+- sdk: Removed include of "wx/wx.h" from source files.
 
 git format-patch pch_fixes/PCH/master
 
 git log
 
-git format-patch --unified=1 1b53807139c30b4303f44f5903d574a26932ebb3
+git format-patch --unified=2 863b582b4512c1994d5ac8339597857a49990c70
+0001-abbreviations-Added-needed-wx-headers.-Thanks-stahta.patch
+0002-astyle-Added-needed-wx-headers.-Thanks-stahta01.patch
+0003-compilergcc-Removed-wx-wx.h-headers.-Thanks-stahta01.patch
+0004-src-Added-needed-wx-headers.-Thanks-stahta01.patch
+0005-occurrenceshighlighting-Added-needed-wx-headers.-Tha.patch
+0006-codecompletion-Removed-include-of-wx-wxprec.h-and-wx.patch
+0007-debuggergdb-Removed-wx-wxprec.h-from-header.-Thanks-.patch
+0008-defaultmimehandler-Removed-wx-wxprec.h-and-wx-wx.h-f.patch
+0009-pch_cbp_unix-Added-define-NOPCH-to-targets-scintilla.patch
+0010-sdk-Added-wx-headers-to-CB_PRECOMP-section.-Thanks-s.patch
+0011-sdk-Removed-include-of-wx-wx.h-from-source-files.patch
 
 
 ######

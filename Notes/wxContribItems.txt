@@ -8,5 +8,6 @@ Component            Likely upstream source
    wxled/led         wxCode/wxLed led
    wxled/ledpanel    wxCode/ledpanel
    wxSpeedButton     developed as part of wxSmith
-   wxthings          wxCode/wxthings
+   wxCustomButton    wxCode/wxthings
    wxTreeList        wxCode/treelistctrl
+   wxTimePickerCtrl  ??
