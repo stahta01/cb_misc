@@ -12,6 +12,19 @@
 ##
 ######
 #
+cd ../codeblocks_PCH_fixes-git && git status -uno
+git fetch pch_fixes --prune && git fetch origin --prune
+git checkout sdk_common_h && git status -uno
+#
+git rebase origin/cbstyledtextctrl
+#
+## git rebase -i origin/master
+#
+git push pch_fixes
+## git rebase origin/master && git push pch_fixes --force-with-lease
+git svn fetch && git svn info
+#
+#
 ### pch_fixes/PCH/master
 ##
 # cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
@@ -22,12 +35,14 @@ cd ../codeblocks_PCH_fixes-git && git status -uno
 git fetch pch_fixes --prune && git fetch origin --prune
 git svn fetch && git svn info
 git checkout PCH/master && git status -uno
+git rebase pch_fixes/sdk_common_h
 #   git gc && git prune
 #
 ##  git pull --rebase
 #
 ##  git rebase origin/deceased/removals
 ##  git rebase origin/portability/fixes
+##  git rebase pch_fixes/sdk_common_h
 #
 ##  git rebase origin/master && git status -uno
 ##  git push pch_fixes --force-with-lease
@@ -35,7 +50,7 @@ git checkout PCH/master && git status -uno
 ##  git rebase -i origin/master
 #
 git push pch_fixes
-##  git pull && git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull && git rebase pch_fixes/sdk_common_h && git push pch_fixes --force-with-lease
 #
 # git format-patch origin/master..pch_fixes/PCH/master
 # 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch

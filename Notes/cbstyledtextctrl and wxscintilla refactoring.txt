@@ -1,0 +1,8 @@
+cbstyledtextctrl and wxscintilla refactoring.txt
+
+Remove direct including of "wx/wxscintilla.h".
+Replace with including of "cbstyledtextctrl.h".
+Reasons:
+    1. I dislike "wx/wxscintilla.h" header being a CB Header used by CB Plugins.
+    2. Removes the need to have "wx/wxscintilla.h" in sdk_common.h.
+        2a. Makes it easier to fix PCH build issues.
