@@ -1,0 +1,17 @@
+Based on http://wxwidgets.blogspot.com/2011/06/choosing-gcc-for-building-wxwidgets.html
+
+Let's summarize the choices in a concise list:
+
+1.  Use makefiles: implies the use of MinGW compiler in DOS prompt.
+2.  Use configure+make; then choose between
+    a.  Using Cygwin and Cygwin compiler
+        i.  Cygwin 32 bit and Cygwin 32 bit compiler
+        ii. Cygwin 64 bit and Cygwin 32 bit compiler
+        iii.Cygwin 64 bit and Cygwin 64 bit compiler
+    b.  Using Cygwin and MinGW cross-compiler
+        i.  MinGW64 (i686) 32 bit compiler
+        ii. MinGW64 64 bit compiler
+    c.  Using MSys2 and MinGW compiler
+        i.  32 bit MinGW compiler
+        ii. 64 bit MinGW compiler
+
