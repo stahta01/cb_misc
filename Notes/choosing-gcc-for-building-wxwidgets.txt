@@ -1,4 +1,5 @@
 Based on http://wxwidgets.blogspot.com/2011/06/choosing-gcc-for-building-wxwidgets.html
+And, based on http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
 
 Let's summarize the choices in a concise list:
 
@@ -9,9 +10,123 @@ Let's summarize the choices in a concise list:
         ii. Cygwin 64 bit and Cygwin 32 bit compiler
         iii.Cygwin 64 bit and Cygwin 64 bit compiler
     b.  Using Cygwin and MinGW cross-compiler
-        i.  MinGW64 (i686) 32 bit compiler
+        i.  MinGW64 (i686) 32 bit cross-compiler
         ii. MinGW64 64 bit compiler
     c.  Using MSys2 and MinGW compiler
         i.  32 bit MinGW compiler
         ii. 64 bit MinGW compiler
 
+
+I.  Using Cygwin and wxWidgets-3.1.0.tar.bz2 file.
+$ mkdir ~/devel_cygwin
+$ cd ~/devel_cygwin
+#
+# download file from here https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0.tar.bz2
+#
+$ tar -vxjf wxWidgets-3.1.0.tar.bz2
+
+
+II. Using Cygwin 32-bit and MinGW64 (i686) 32 bit cross-compiler
+$ cd ~/devel_cygwin/wxWidgets-3.1.0
+$ mkdir build_msw_shared_multilib_unicode
+$ cd build_msw_shared_multilib_unicode
+# --enable-debug --disable-precomp-headers
+# --with-gtk[=VERSION]    use GTK+, VERSION can be 3, 2 (default), 1 or "any"
+# --with-qt               use Qt
+# --with-cxx=11|14        use the given C++11
+# --enable-cxx11          use C++11 compiler if available
+# --without-subdirs       don't generate makefiles for samples/demos/...
+# --with-flavour=NAME     specify a name to identify this build
+# --enable-compat28       enable wxWidgets 2.8 compatibility
+# --disable-sys-libs      disable all use of system libraries, use only built-in ones
+# --enable-official_build official build of wxWidgets (win32 DLL only)
+# --enable-vendor=VENDOR  vendor name (win32 DLL only)
+# --prefix=PREFIX         install architecture-independent files in PREFIX
+# --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+# --disable-shared        create static library instead of shared
+  --enable-debug          build library for debugging
+  --disable-debug_flag    disable all debugging support
+  --enable-debug_info     generate debug information
+  --enable-debug_gdb      create code with extra GDB debugging information
+#
+$ ../configure --prefix=/opt/wx/3.1.0 \
+       --exec-prefix=/opt/i686-w64-mingw32/wx/3.1.0 \
+       --disable-sys-libs \
+       --enable-compat28 \
+       --with-flavour=compat28 \
+       --with-msw \
+       --host=i686-w64-mingw32 \
+       --build=i686-pc-cygwin
+
+### output of configure command
+Configured wxWidgets 3.1.0 for `i686-w64-mingw32'
+
+  Which GUI toolkit should wxWidgets use?                 msw
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+### End of output of configure command
+#
+$ make clean
+$ make
+$ make install
+$ export PATH=/usr/bin:/opt/i686-w64-mingw32/wx/3.1.0/bin:$PATH
+$ wx-config --prefix
+$ which wx-config
+
+'pkg-config gtk+-2.0 --libs' 
+'gtk-config --libs' 
+III.Using Cygwin 32-bit and Cygwin 32 bit compiler
+$ cd ~/devel_cygwin/wxWidgets-3.1.0
+$ mkdir build_gtk3_shared_multilib_unicode
+$ cd build_gtk3_shared_multilib_unicode
+#
+$ ../configure --prefix=/opt/wx/3.1.0 \
+       --disable-sys-libs \
+       --enable-compat28 \
+       --with-flavour=compat28 \
+       --with-gtk=3 \
+       --host=i686-pc-cygwin \
+       --build=i686-pc-cygwin
+
+### output of configure command
+Configured wxWidgets 3.1.0 for `i686-pc-cygwin'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 3 with support for GTK+ printing
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+### End of output of configure command
+#
+$ make clean
+$ make
+$ make install
+$ export PATH=/usr/bin:/opt/wx/3.1.0/bin:$PATH
+$ wx-config --prefix
+$ which wx-config
