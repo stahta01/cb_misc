@@ -1,11 +1,11 @@
 CB Plugins that might be using wxScintilla class.txt
-    plugins\codecompletion\cctest   Likely true
-    plugins\contrib\codesnippets    Likely true
-    plugins\contrib\dragscroll      Likely true
-    plugins\contrib\keybinder       Likely true
-    plugins\contrib\ToolsPlus       Likely true
-    plugins\contrib\wxSmithSTC      Likely false
-    src                             Likely true
+    plugins\codecompletion\cctest   True
+    plugins\contrib\codesnippets    True
+    plugins\contrib\dragscroll      True
+    plugins\contrib\keybinder       Likely false
+    plugins\contrib\ToolsPlus       True
+    plugins\contrib\wxSmithSTC      Likely true
+    src                             True
 
 CB Plugins that might be using "SCIwindow" or wxSCINameStr
     plugins\contrib\BrowseTracker   Likely true
