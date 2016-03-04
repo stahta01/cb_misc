@@ -1,7 +1,8 @@
 ###############################################################################
 #
 # Steps needed to make git svn info return the correct information
-# I am using "git version 2.7.1.windows.2" under Windows 7
+# I am using "git version 2.7.2.windows.1" under Windows 7
+# I am using "git version 2.7.0" under CYGWIN_NT-6.1 2.4.1(0.293/5/3) i686
 #
 ###############################################################################
 #
@@ -13,13 +14,13 @@
 # Step 1: Record the result of the "git log" command.
 git log --grep="^git-svn-id: " --first-parent -1
 # Git Log message begins
-commit eca77d00eff51d29d0c7132af13ab9b69bd95d5e
-Author: T Petrov <tpetrov@codeblocks.org>
-Date:   Sat Feb 13 17:03:15 2016 +0000
+commit 04eef4cbf7b22f228c6a4a7323c14bc73e9dcac6
+Author: ollydbg <ollydbg@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Sun Feb 28 14:29:42 2016 +0000
 
-    - wx30: Fix assert when deleting a compiler
+    - CC: add some comments
 
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10781 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10798 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Git Log message ends
 
 # Step 2: Verify svn configuration
@@ -31,8 +32,8 @@ git config svn-remote.svn.url
 # git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
 
 
-# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10781"
-git svn fetch -r 10781
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10798"
+git svn fetch -r 10798
 
 # Step 3B: See what folder name is being used before trunk.
 git config svn-remote.svn.fetch
@@ -50,7 +51,7 @@ ls .git/refs/remotes/svn/trunk
 ########
 
 # Step 4: Use the commit hash from the git log message returned in the step 1 above.
-echo eca77d00eff51d29d0c7132af13ab9b69bd95d5e > .git/refs/remotes/svn/trunk
+echo 04eef4cbf7b22f228c6a4a7323c14bc73e9dcac6 > .git/refs/remotes/svn/trunk
 
 ########
 ### When doing inside git sub module the location of the trunk file differs.
@@ -58,11 +59,13 @@ echo eca77d00eff51d29d0c7132af13ab9b69bd95d5e > .git/refs/remotes/svn/trunk
 ###
 ########
 
-# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10381" part is needed.
-git svn fetch -r 10781
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10798" part is needed.
+git svn fetch -r 10798
 
 # Step 6: Run svn info to verify it is working
 git svn info
 
 # NOTE: Everytime I have used "git svn rebase" on Windows I seem to have to 
 #       redo these steps. Not sure if user error or bug in "Git for Windows".
+#       Or just "git svn rebase" is NOT safe to do on svn2git based repos.
+#       https://github.com/nirvdrum/svn2git
