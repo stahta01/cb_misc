@@ -3,19 +3,31 @@ And, based on http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_
 
 Let's summarize the choices in a concise list:
 
-1.  Use makefiles: implies the use of MinGW compiler in DOS prompt.
-2.  Use configure+make; then choose between
-    a.  Using Cygwin and Cygwin compiler
-        i.  Cygwin 32 bit and Cygwin 32 bit compiler
-        ii. Cygwin 64 bit and Cygwin 32 bit compiler
-        iii.Cygwin 64 bit and Cygwin 64 bit compiler
-    b.  Using Cygwin and MinGW cross-compiler
-        i.  MinGW64 (i686) 32 bit cross-compiler
-        ii. MinGW64 64 bit compiler
-    c.  Using MSys2 and MinGW compiler
-        i.  32 bit MinGW compiler
-        ii. 64 bit MinGW compiler
-
+I.  Use makefiles: implies the use of MinGW compiler in DOS prompt.
+II. Use configure+make; then choose between
+    1.  wxMSW
+        a.  Using Cygwin and MinGW cross-compiler
+            i.  MinGW64 (i686) 32 bit cross-compiler
+            ii. MinGW64 64 bit compiler
+        b.  Using MSys2 and MinGW compiler
+            i.  32 bit MinGW compiler
+            ii. 64 bit MinGW compiler
+    2.  wxGTK
+        a.  Using Cygwin and Cygwin compiler
+            i.  Cygwin 32 bit and Cygwin 32 bit compiler
+            ii. Cygwin 64 bit and Cygwin 32 bit compiler
+            iii.Cygwin 64 bit and Cygwin 64 bit compiler
+        b.  Using MSys2 and MinGW compiler
+            i.  32 bit MinGW compiler
+            ii. 64 bit MinGW compiler
+    3. wxQt
+        a.  Using Cygwin and Cygwin compiler
+            i.  Cygwin 32 bit and Cygwin 32 bit compiler
+            ii. Cygwin 64 bit and Cygwin 32 bit compiler
+            iii.Cygwin 64 bit and Cygwin 64 bit compiler
+        b.  Using MSys2 and MinGW compiler
+            i.  32 bit MinGW compiler
+            ii. 64 bit MinGW compiler
 
 I.  Using Cygwin and wxWidgets-3.1.0.tar.bz2 file.
 $ mkdir ~/devel_cygwin
@@ -30,24 +42,19 @@ II. Using Cygwin 32-bit and MinGW64 (i686) 32 bit cross-compiler
 $ cd ~/devel_cygwin/wxWidgets-3.1.0
 $ mkdir build_msw_shared_multilib_unicode
 $ cd build_msw_shared_multilib_unicode
-# --enable-debug --disable-precomp-headers
-# --with-gtk[=VERSION]    use GTK+, VERSION can be 3, 2 (default), 1 or "any"
-# --with-qt               use Qt
+# --disable-precomp-headers
 # --with-cxx=11|14        use the given C++11
 # --enable-cxx11          use C++11 compiler if available
 # --without-subdirs       don't generate makefiles for samples/demos/...
-# --with-flavour=NAME     specify a name to identify this build
-# --enable-compat28       enable wxWidgets 2.8 compatibility
-# --disable-sys-libs      disable all use of system libraries, use only built-in ones
 # --enable-official_build official build of wxWidgets (win32 DLL only)
 # --enable-vendor=VENDOR  vendor name (win32 DLL only)
 # --prefix=PREFIX         install architecture-independent files in PREFIX
 # --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
 # --disable-shared        create static library instead of shared
-  --enable-debug          build library for debugging
-  --disable-debug_flag    disable all debugging support
-  --enable-debug_info     generate debug information
-  --enable-debug_gdb      create code with extra GDB debugging information
+# --enable-debug          build library for debugging
+# --disable-debug_flag    disable all debugging support
+# --enable-debug_info     generate debug information
+# --enable-debug_gdb      create code with extra GDB debugging information
 #
 $ ../configure --prefix=/opt/wx/3.1.0 \
        --exec-prefix=/opt/i686-w64-mingw32/wx/3.1.0 \
@@ -86,9 +93,8 @@ $ make install
 $ export PATH=/usr/bin:/opt/i686-w64-mingw32/wx/3.1.0/bin:$PATH
 $ wx-config --prefix
 $ which wx-config
+$ wx-config --libs
 
-'pkg-config gtk+-2.0 --libs' 
-'gtk-config --libs' 
 III.Using Cygwin 32-bit and Cygwin 32 bit compiler
 $ cd ~/devel_cygwin/wxWidgets-3.1.0
 $ mkdir build_gtk3_shared_multilib_unicode
@@ -128,5 +134,92 @@ $ make clean
 $ make
 $ make install
 $ export PATH=/usr/bin:/opt/wx/3.1.0/bin:$PATH
-$ wx-config --prefix
 $ which wx-config
+$ wx-config --prefix
+$ wx-config --libs
+
+IV. Building wxQt using Cygwin 32-bit and Cygwin 32 bit compiler
+Qt5Core
+Qt5Gui
+Qt5OpenGL
+Qt5Test
+Qt5Widgets
+SM
+cairo
+iconv
+pthread
+http://x.cygwin.com/docs/ug/using.html
+mate-session-manager
+xorg-server
+xinit
+xlaunch
+$ cd ~/devel_cygwin/wxWidgets-3.1.0
+$ mkdir build_qt5_shared_multilib_unicode
+$ cd build_qt5_shared_multilib_unicode
+#
+$ export CXXFLAGS="-DWXUSINGDLL"
+$ export CFLAGS="-DWXUSINGDLL"
+$ ../configure --prefix=/opt/wx/3.1.0 \
+       --disable-sys-libs \
+       --enable-compat28 \
+       --with-flavour=compat28 \
+       --with-qt \
+       --host=i686-pc-cygwin \
+       --build=i686-pc-cygwin
+
+### output of configure command
+Configured wxWidgets 3.1.0 for `i686-pc-cygwin'
+
+  Which GUI toolkit should wxWidgets use?                 qt
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+### End of output of configure command
+#
+$ make clean
+$ make
+#
+Makefile:18415: warning: overriding recipe for target 'monodll_converter.o'
+Makefile:18412: warning: ignoring old recipe for target 'monodll_converter.o'
+Makefile:18685: warning: overriding recipe for target 'monodll_qt_utils.o'
+Makefile:18682: warning: ignoring old recipe for target 'monodll_qt_utils.o'
+Makefile:23242: warning: overriding recipe for target 'monolib_converter.o'
+Makefile:23239: warning: ignoring old recipe for target 'monolib_converter.o'
+Makefile:23512: warning: overriding recipe for target 'monolib_qt_utils.o'
+Makefile:23509: warning: ignoring old recipe for target 'monolib_qt_utils.o'
+i686-pc-cygwin-g++ -shared -o /cygdrive/c/Users/stahta01/devel_cygwin/wxWidgets-3.1.0/build_qt5_shared_multilib_unicode/lib/cygwx_qtu_compat28_core-3.1-0.dll  coredll_event.o coredll_fs_mem.o coredll_msgout.o coredll_utilscmn.o   coredll_qt_accel.o coredll_qt_app.o coredll_qt_apptraits.o coredll_qt_bitmap.o coredll_qt_bmpbuttn.o coredll_qt_brush.o coredll_qt_anybutton.o coredll_qt_button.o coredll_generic_caret.o coredll_qt_checkbox.o coredll_qt_checklst.o coredll_qt_choice.o coredll_qt_clipbrd.o coredll_qt_clrpicker.o coredll_clrpickerg.o coredll_collpaneg.o coredll_qt_colordlg.o coredll_qt_colour.o coredll_qt_combobox.o coredll_qt_control.o coredll_converter.o coredll_qt_ctrlsub.o coredll_qt_cursor.o coredll_qt_dataobj.o coredll_qt_dcclient.o coredll_qt_dc.o coredll_qt_dcmemory.o coredll_qt_dcprint.o coredll_qt_dcscreen.o coredll_defs.o coredll_qt_dialog.o coredll_unix_dialup.o coredll_qt_display.o coredll_qt_dnd.o coredll_qt_evtloop.o coredll_generic_fdrepdlg.o coredll_qt_filedlg.o coredll_filepickerg.o coredll_qt_font.o coredll_qt_fontdlg.o coredll_qt_fontutil.o coredll_qt_fontenum.o coredll_fontpickerg.o coredll_qt_frame.o coredll_qt_gauge.o coredll_generic_icon.o coredll_generic_imaglist.o coredll_qt_listbox.o coredll_qt_listctrl.o coredll_qt_mdi.o coredll_qt_menu.o coredll_qt_menuitem.o coredll_qt_minifram.o coredll_qt_msgdlg.o coredll_qt_notebook.o coredll_qt_palette.o coredll_qt_pen.o coredll_qt_popupwin.o coredll_qt_printdlg.o coredll_prntdlgg.o coredll_printqt.o coredll_qt_radiobox.o coredll_qt_radiobut.o coredll_qt_region.o coredll_qt_scrolbar.o coredll_qt_settings.o coredll_sockqt.o coredll_qt_slider.o coredll_qt_spinbutt.o coredll_qt_spinctrl.o coredll_qt_statbmp.o coredll_qt_statbox.o coredll_qt_statline.o coredll_qt_stattext.o coredll_qt_statusbar.o coredll_qt_textctrl.o coredll_qt_textentry.o coredll_generic_textmeasure.o coredll_qt_tglbtn.o coredll_qt_timer.o coredll_qt_toolbar.o coredll_qt_tooltip.o coredll_qt_toplevel.o coredll_qt_uiaction.o coredll_qt_utils.o coredll_qt_window.o coredll_unix_apptraits.o  coredll_accelcmn.o coredll_accesscmn.o coredll_anidecod.o coredll_affinematrix2d.o coredll_appcmn.o coredll_artprov.o coredll_artstd.o coredll_arttango.o coredll_bmpbase.o coredll_bmpbtncmn.o coredll_bookctrl.o coredll_btncmn.o coredll_cairo.o coredll_checkboxcmn.o coredll_checklstcmn.o coredll_choiccmn.o coredll_clipcmn.o coredll_clrpickercmn.o coredll_colourcmn.o coredll_colourdata.o coredll_combocmn.o coredll_cmdproc.o coredll_cmndata.o coredll_containr.o coredll_cshelp.o coredll_ctrlcmn.o coredll_common_ctrlsub.o coredll_dcbase.o coredll_dcbufcmn.o coredll_dcgraph.o coredll_dcsvg.o coredll_dirctrlcmn.o coredll_dlgcmn.o coredll_dndcmn.o coredll_dobjcmn.o coredll_docmdi.o coredll_docview.o coredll_dpycmn.o coredll_dseldlg.o coredll_effects.o coredll_fddlgcmn.o coredll_filectrlcmn.o coredll_filehistorycmn.o coredll_filepickercmn.o coredll_fontpickercmn.o coredll_fldlgcmn.o coredll_fontcmn.o coredll_fontdata.o coredll_graphicc.o coredll_fontenumcmn.o coredll_fontmap.o coredll_fontutilcmn.o coredll_framecmn.o coredll_gaugecmn.o coredll_gbsizer.o coredll_gdicmn.o coredll_geometry.o coredll_gifdecod.o coredll_graphcmn.o coredll_headercolcmn.o coredll_headerctrlcmn.o coredll_helpbase.o coredll_iconbndl.o coredll_imagall.o coredll_imagbmp.o coredll_image.o coredll_imagfill.o coredll_imaggif.o coredll_imagiff.o coredll_imagjpeg.o coredll_imagpcx.o coredll_imagpng.o coredll_imagpnm.o coredll_imagtga.o coredll_imagtiff.o coredll_imagxpm.o coredll_layout.o coredll_lboxcmn.o coredll_listctrlcmn.o coredll_markupparser.o coredll_matrix.o coredll_menucmn.o coredll_modalhook.o coredll_mousemanager.o coredll_nbkbase.o coredll_overlaycmn.o coredll_ownerdrwcmn.o coredll_paper.o coredll_panelcmn.o coredll_persist.o coredll_pickerbase.o coredll_popupcmn.o coredll_preferencescmn.o coredll_prntbase.o coredll_quantize.o coredll_radiobtncmn.o coredll_radiocmn.o coredll_rearrangectrl.o coredll_rendcmn.o coredll_rgncmn.o coredll_scrolbarcmn.o coredll_settcmn.o coredll_sizer.o coredll_slidercmn.o coredll_spinbtncmn.o coredll_spinctrlcmn.o coredll_srchcmn.o coredll_statbar.o coredll_statbmpcmn.o coredll_statboxcmn.o coredll_statlinecmn.o coredll_stattextcmn.o coredll_stockitem.o coredll_tbarbase.o coredll_textcmn.o coredll_textentrycmn.o coredll_textmeasurecmn.o coredll_toplvcmn.o coredll_treebase.o coredll_uiactioncmn.o coredll_valgen.o coredll_validate.o coredll_valtext.o coredll_valnum.o coredll_wincmn.o coredll_windowid.o coredll_wrapsizer.o coredll_xpmdecod.o coredll_busyinfo.o coredll_buttonbar.o coredll_choicdgg.o coredll_choicbkg.o coredll_collheaderctrlg.o coredll_combog.o coredll_dcpsg.o coredll_dirctrlg.o coredll_dragimgg.o coredll_filectrlg.o coredll_headerctrlg.o coredll_generic_infobar.o coredll_listbkg.o coredll_logg.o coredll_markuptext.o coredll_msgdlgg.o coredll_numdlgg.o coredll_progdlgg.o coredll_preferencesg.o coredll_printps.o coredll_renderg.o coredll_richmsgdlgg.o coredll_scrlwing.o coredll_selstore.o coredll_spinctlg.o coredll_splitter.o coredll_srchctlg.o coredll_statbmpg.o coredll_stattextg.o coredll_textdlgg.o coredll_tipwin.o coredll_toolbkg.o coredll_treectlg.o coredll_treebkg.o coredll_vlbox.o coredll_vscroll.o coredll_xmlreshandler.o -L/cygdrive/c/Users/stahta01/devel_cygwin/wxWidgets-3.1.0/build_qt5_shared_multilib_unicode/lib    -L/cygdrive/c/Users/stahta01/devel_cygwin/wxWidgets-3.1.0/build_qt5_shared_multilib_unicode/lib  -Wl,--out-implib=/cygdrive/c/Users/stahta01/devel_cygwin/wxWidgets-3.1.0/build_qt5_shared_multilib_unicode/lib/libwx_qtu_compat28_core-3.1.dll.a     -lwxtiff_compat28-3.1 -lwxjpeg_compat28-3.1 -lwxpng_compat28-3.1  -lQt5OpenGL -lQt5Widgets -lQt5Gui -lQt5Test -lQt5Core -lSM -lcairo -lwxzlib_compat28-3.1 -lwxregexu_compat28-3.1 -lwxexpat_compat28-3.1 -lpthread -liconv  -lwx_baseu_compat28-3.1 -lpthread -liconv
+coredll_event.o:event.cpp:(.text$_ZN14wxGUIEventLoopD1Ev[__ZN14wxGUIEventLoopD1Ev]+0xc): undefined reference to `_imp___ZN17wxQtEventLoopBaseD2Ev'
+coredll_event.o:event.cpp:(.text$_ZN14wxGUIEventLoopD0Ev[__ZN14wxGUIEventLoopD0Ev]+0x13): undefined reference to `_imp___ZN17wxQtEventLoopBaseD2Ev'
+coredll_event.o:event.cpp:(.text$_ZN16wxModalEventLoopD1Ev[__ZN16wxModalEventLoopD1Ev]+0xc): undefined reference to `_imp___ZN17wxQtEventLoopBaseD2Ev'
+coredll_event.o:event.cpp:(.text$_ZN16wxModalEventLoopD0Ev[__ZN16wxModalEventLoopD0Ev]+0x13): undefined reference to `_imp___ZN17wxQtEventLoopBaseD2Ev'
+coredll_event.o:event.cpp:(.text$_ZN11wxEventLoopD1Ev[__ZN11wxEventLoopD1Ev]+0xc): undefined reference to `_imp___ZN17wxQtEventLoopBaseD2Ev'
+coredll_event.o:event.cpp:(.text$_ZN11wxEventLoopD0Ev[__ZN11wxEventLoopD0Ev]+0x13): more undefined references to `_imp___ZN17wxQtEventLoopBaseD2Ev' follow
+coredll_qt_evtloop.o:evtloop.cpp:(.text+0x4): undefined reference to `_imp___ZTV17wxQtEventLoopBase'
+coredll_qt_evtloop.o:evtloop.cpp:(.text+0xb5): undefined reference to `_imp___ZTV17wxQtEventLoopBase'
+coredll_qt_evtloop.o:evtloop.cpp:(.text+0x735): undefined reference to `_imp___ZTV17wxQtEventLoopBase'
+coredll_unix_apptraits.o:apptraits.cpp:(.text+0x66): undefined reference to `_imp___ZN17wxQtEventLoopBaseD2Ev'
+coredll_unix_apptraits.o:apptraits.cpp:(.text+0xa0): undefined reference to `_imp___ZN17wxQtEventLoopBaseD2Ev'
+collect2: error: ld returned 1 exit status
+Makefile:14173: recipe for target '/cygdrive/c/Users/stahta01/devel_cygwin/wxWidgets-3.1.0/build_qt5_shared_multilib_unicode/lib/cygwx_qtu_compat28_core-3.1-0.dll' failed
+make: *** [/cygdrive/c/Users/stahta01/devel_cygwin/wxWidgets-3.1.0/build_qt5_shared_multilib_unicode/lib/cygwx_qtu_compat28_core-3.1-0.dll] Error 1
+#
+make coredll_qt_evtloop.o --assume-new=../src/qt/evtloop.cpp
+$ make install
+$ which wx-config
+$ export PATH=/usr/bin:/opt/wx/3.1.0/bin:$PATH
+$ which wx-config
+$ wx-config --prefix
+$ wx-config --libs
