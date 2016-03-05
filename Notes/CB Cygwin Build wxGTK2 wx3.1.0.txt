@@ -1,0 +1,198 @@
+####
+# Requires Cygwin packages:
+#   libgtk2.0-devel
+#
+####
+
+$   pkg-config gtk+-2.0 --libs
+### Good Result
+-lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -lgio-2.0 -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lXfixes -lX11 -lXext -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lintl -lfontconfig -lfreetype
+###
+
+####
+$   i686-pc-cygwin-g++ --version
+## Result
+i686-pc-cygwin-g++ (GCC) 5.3.0
+##
+$   i686-pc-cygwin-g++ -pthread
+### Good Result
+i686-pc-cygwin-g++: fatal error: no input files
+compilation terminated.
+###
+### Bad Result
+i686-pc-cygwin-g++: error: unrecognized command line option ‘-pthread’
+i686-pc-cygwin-g++: fatal error: no input files
+compilation terminated.
+####
+
+$   echo $CYGWIN
+## Result
+nodosfilewarning
+##
+$ cd ~/devel/wxWidgets-3.1.0
+$ mkdir build_cb_gtk2_wx3.1.0_shared_multilib_unicode
+$ cd build_cb_gtk2_wx3.1.0_shared_multilib_unicode
+
+# make uninstall
+
+$  export CPPFLAGS=""
+$  export CXXFLAGS="-Wno-attributes"
+# --enable-graphics_ctx   use graphics context 2D drawing API
+# --with-cxx=11|14        use the given C++11
+# Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
+$  ../configure --prefix=/opt/cb/gtk2/wx \
+      --disable-sys-libs \
+      --enable-compat28 \
+      --with-gtk=2 \
+      --disable-monolithic \
+      --enable-shared \
+      --enable-xrc \
+      --without-gtkprint \
+      --without-gnomeprint \
+      --disable-universal \
+      --disable-precomp-headers \
+      --enable-unicode
+###
+Configured wxWidgets 3.1.0 for `i686-pc-cygwin'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+###
+#$   make clean
+$   make
+$   make install
+###
+ The installation of wxWidgets is finished.  On certain
+ platforms (e.g. Linux) you'll now have to run ldconfig
+ if you installed a shared library and also modify the
+ LD_LIBRARY_PATH (or equivalent) environment variable.
+###
+$   which wx-config
+$   echo $PATH
+/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files/IDM Computer Solutions/UltraEdit:/cygdrive/c/Program Files/TortoiseGit/bin:/cygdrive/c/Apps/WATCOM/BINNT:/cygdrive/c/Apps/WATCOM/BINW:/cygdrive/c/PROGRA~1/git/bin:/cygdrive/c/Apps/misc:/cygdrive/c/Apps32/misc:/cygdrive/c/Users/stahta01/AppData/Local/M2OSW/pkg-explorer/WPKG_ROOT/bin:/cygdrive/c/Apps32/7za920:/cygdrive/c/Apps32/GnuWin32/bin:/cygdrive/c/Apps32/Apache-Subversion-1.9/bin:/cygdrive/c/Program Files/Git/cmd:/usr/lib/lapack
+$   export PATH=/usr/bin:/opt/cb/gtk2/wx/bin:$PATH
+$   which wx-config
+$   wx-config --prefix
+$   wx-config --libs
+
+
+#########
+
+/usr/local/cb/gtk2/bin/wx-config --list
+
+/usr/local/cb/gtk2/bin/wx-config --libs std,aui,propgrid
+
+## Git clone code begin
+git://cb.biplab.in/codeblocks.git
+
+cd ~/devel
+mkdir codeblocks
+cd ~/devel/codeblocks
+git clone git://cb.biplab.in/codeblocks.git codeblocks-git
+
+git config core.eol lf
+
+git reset --hard
+
+## Git clone code end
+
+####
+# Requires Cygwin packages:
+#   libtool 2.4-1
+#		automake
+#   zip
+#   gcc 4.9.2-1 does not work "g++: error: unrecognized command line option '-pthread'"
+#   gcc 4.8.3-2	seems to be working great.
+#
+####
+
+
+mount -a
+cd ~/devel/codeblocks_https_metadata-git
+
+/opt/cb/gtk2/wx/bin/wx-config --list
+
+echo $ACLOCAL_FLAGS
+export ACLOCAL_FLAGS="-I `/opt/cb/gtk2/wx/bin/wx-config --prefix`/share/aclocal"
+echo $ACLOCAL_FLAGS
+
+git checkout -- src/sdk/wxscintilla/Readme
+git pull
+
+./bootstrap
+export CPPFLAGS=""
+export CXXFLAGS="-Wno-attributes"
+echo $CXXFLAGS
+
+# export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
+# export CPPFLAGS="-U__STRICT_ANSI__"
+
+#  --enable-static
+ ./configure --prefix=/opt/cb/gtk2/wx --with-platform=gtk --enable-debug --enable-scripted-wizard --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/cb/gtk2/wx/bin/wx-config
+
+
+#$  make clean && make
+
+make
+
+make install
+
+
+
+In order to run Code::Blocks
+####
+# Requires Cygwin packages:
+#   These packages where suggested as good ones to add to get GNU Octave to run; I am hoping it workes for getting CB to run.
+#   xinit
+#   xlaunch
+#		??gnuplot
+####
+
+$		startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --prefix="/opt/cb/gtk2/wx"
+
+C:\Apps32\Cygwin\bin\mintty.exe /bin/sh -lc 'startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --prefix="/opt/cb/gtk2/wx"'
+
+
+
+stahta01@TimWin7-32 MINGW32 /c/SourceCode/OpenSourceCode/VC_Repos/Apps/IDE/Codeblocks/codeblocks_msys2-git (msys2)
+$ git remote -v
+msysup  https://github.com/stahta01/msys2_codeblocks.git (fetch)
+msysup  https://github.com/stahta01/msys2_codeblocks.git (push)
+origin  https://github.com/stahta01/codeblocks_windows.git (fetch)
+origin  https://github.com/stahta01/codeblocks_windows.git (push)
+
+$ uname
+CYGWIN_NT-6.1
+
+
+if test "x$LINUX_TRUE" = "x" -o \
+        "x$DARWIN_TRUE" = "x" ; then
+    AX_CXX_COMPILE_STDCXX(11, noext)
+else
+    AX_CXX_COMPILE_STDCXX(11, ext)
+fi
+
+if test "x$LINUX_TRUE" = "x" -o \
+        "x$DARWIN_TRUE" = "x" ; then
+    CPPFLAGS="$CPPFLAGS -ansi -DTIXML_USE_STL"
+else
+    CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
+fi
+
+libtool:   error: can't build i686-pc-cygwin shared library unless -no-undefined is specified
+Makefile:761: recipe for target 'libcodeblocks.la' failed

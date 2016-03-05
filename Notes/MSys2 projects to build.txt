@@ -1,0 +1,3 @@
+MSys2 projects to build.txt
+
+http://mamedev.org/tools/
