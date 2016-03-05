@@ -84,7 +84,7 @@ $   make install
 ###
 $   which wx-config
 $   echo $PATH
-/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files/IDM Computer Solutions/UltraEdit:/cygdrive/c/Program Files/TortoiseGit/bin:/cygdrive/c/Apps/WATCOM/BINNT:/cygdrive/c/Apps/WATCOM/BINW:/cygdrive/c/PROGRA~1/git/bin:/cygdrive/c/Apps/misc:/cygdrive/c/Apps32/misc:/cygdrive/c/Users/stahta01/AppData/Local/M2OSW/pkg-explorer/WPKG_ROOT/bin:/cygdrive/c/Apps32/7za920:/cygdrive/c/Apps32/GnuWin32/bin:/cygdrive/c/Apps32/Apache-Subversion-1.9/bin:/cygdrive/c/Program Files/Git/cmd:/usr/lib/lapack
+/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files/IDM Computer Solutions/UltraEdit:/cygdrive/c/Program Files/TortoiseGit/bin:/cygdrive/c/Apps/WATCOM/BINNT:/cygdrive/c/Apps/WATCOM/BINW:/cygdrive/c/PROGRA~1/git/bin:/cygdrive/c/Apps/misc:/cygdrive/c/Apps32/misc:/cygdrive/c/Users/USERNAME/AppData/Local/M2OSW/pkg-explorer/WPKG_ROOT/bin:/cygdrive/c/Apps32/7za920:/cygdrive/c/Apps32/GnuWin32/bin:/cygdrive/c/Apps32/Apache-Subversion-1.9/bin:/cygdrive/c/Program Files/Git/cmd:/usr/lib/lapack
 $   export PATH=/usr/bin:/opt/cb/gtk2/wx/bin:$PATH
 $   which wx-config
 $   wx-config --prefix
@@ -163,18 +163,17 @@ In order to run Code::Blocks
 #		??gnuplot
 ####
 
-$		startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --prefix="/opt/cb/gtk2/wx"
+echo $PATH
+export PATH=/opt/cb/gtk2/wx/lib:$PATH
+Fixed: C:/Apps32/Cygwin/opt/cb/gtk2/wx/bin/codeblocks.exe: error while loading shared libraries: cygwx_gtk2u_xrc-3.1-0.dll: cannot open shared object file: No such file or directory
 
+$   startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --prefix="/opt/cb/gtk2/wx"
+
+# Next line fails likely because the path has NOT been changed.
 C:\Apps32\Cygwin\bin\mintty.exe /bin/sh -lc 'startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --prefix="/opt/cb/gtk2/wx"'
 
 
-
-stahta01@TimWin7-32 MINGW32 /c/SourceCode/OpenSourceCode/VC_Repos/Apps/IDE/Codeblocks/codeblocks_msys2-git (msys2)
-$ git remote -v
-msysup  https://github.com/stahta01/msys2_codeblocks.git (fetch)
-msysup  https://github.com/stahta01/msys2_codeblocks.git (push)
-origin  https://github.com/stahta01/codeblocks_windows.git (fetch)
-origin  https://github.com/stahta01/codeblocks_windows.git (push)
+NOTES: Below ignore till have build issues.
 
 $ uname
 CYGWIN_NT-6.1
@@ -187,12 +186,10 @@ else
     AX_CXX_COMPILE_STDCXX(11, ext)
 fi
 
+# Not added this code; yet, because the error I expected did NOT happen.
 if test "x$LINUX_TRUE" = "x" -o \
         "x$DARWIN_TRUE" = "x" ; then
     CPPFLAGS="$CPPFLAGS -ansi -DTIXML_USE_STL"
 else
     CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
 fi
-
-libtool:   error: can't build i686-pc-cygwin shared library unless -no-undefined is specified
-Makefile:761: recipe for target 'libcodeblocks.la' failed
