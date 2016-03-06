@@ -44,6 +44,8 @@ $  ../configure --prefix=/opt/cb/gtk2/wx \
       --disable-sys-libs \
       --enable-compat28 \
       --with-gtk=2 \
+      --with-cxx=11 \
+      --enable-graphics_ctx \
       --disable-monolithic \
       --enable-shared \
       --enable-xrc \
@@ -55,7 +57,7 @@ $  ../configure --prefix=/opt/cb/gtk2/wx \
 ###
 Configured wxWidgets 3.1.0 for `i686-pc-cygwin'
 
-  Which GUI toolkit should wxWidgets use?                 GTK+ 2
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for libnotify
   Should wxWidgets be compiled into single library?       no
   Should wxWidgets be linked as a shared library?         yes
   Should wxWidgets support Unicode?                       yes (using wchar_t)
@@ -93,23 +95,7 @@ $   wx-config --libs
 
 #########
 
-/usr/local/cb/gtk2/bin/wx-config --list
 
-/usr/local/cb/gtk2/bin/wx-config --libs std,aui,propgrid
-
-## Git clone code begin
-git://cb.biplab.in/codeblocks.git
-
-cd ~/devel
-mkdir codeblocks
-cd ~/devel/codeblocks
-git clone git://cb.biplab.in/codeblocks.git codeblocks-git
-
-git config core.eol lf
-
-git reset --hard
-
-## Git clone code end
 
 ####
 # Requires Cygwin packages:
@@ -143,7 +129,7 @@ echo $CXXFLAGS
 # export CPPFLAGS="-U__STRICT_ANSI__"
 
 #  --enable-static
- ./configure --prefix=/opt/cb/gtk2/wx --with-platform=gtk --enable-debug --enable-scripted-wizard --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/cb/gtk2/wx/bin/wx-config
+ ./configure --prefix=/opt/cb/gtk2/wx --with-platform=gtk --enable-debug --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/cb/gtk2/wx/bin/wx-config
 
 
 #$  make clean && make
@@ -152,7 +138,7 @@ make
 
 make install
 
-
+#  make && make install
 
 In order to run Code::Blocks
 ####
@@ -163,14 +149,35 @@ In order to run Code::Blocks
 #		??gnuplot
 ####
 
+C:\Apps32\Cygwin\opt\cb\gtk2\wx\lib\codeblocks\plugins
+
 echo $PATH
 export PATH=/opt/cb/gtk2/wx/lib:$PATH
 Fixed: C:/Apps32/Cygwin/opt/cb/gtk2/wx/bin/codeblocks.exe: error while loading shared libraries: cygwx_gtk2u_xrc-3.1-0.dll: cannot open shared object file: No such file or directory
 
-$   startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --prefix="/opt/cb/gtk2/wx"
+$   startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --debug-log
 
 # Next line fails likely because the path has NOT been changed.
 C:\Apps32\Cygwin\bin\mintty.exe /bin/sh -lc 'startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --prefix="/opt/cb/gtk2/wx"'
+
+Scanning for plugins in /cygdrive/c/Users/stahta01/.codeblocks/share/codeblocks/plugins
+Loaded 0 plugins
+Scanning for plugins in /opt/cb/gtk2/wx/lib/codeblocks/plugins
+Plugin resource not found: cygabbreviations.zip
+Plugin resource not found: cygastyle.zip
+Plugin resource not found: cygautosave.zip
+Plugin resource not found: cygclasswizard.zip
+Plugin resource not found: cygcodecompletion.zip
+Plugin resource not found: cygdebugger.zip
+Plugin resource not found: cygdefaultmimehandler.zip
+Plugin resource not found: cygoccurrenceshighlighting.zip
+Plugin resource not found: cygopenfileslist.zip
+Plugin resource not found: cygprojectsimporter.zip
+Plugin resource not found: cygtodo.zip
+Loaded 0 plugins
+
+platform::windows
+platform::macosx
 
 
 NOTES: Below ignore till have build issues.
@@ -193,3 +200,25 @@ if test "x$LINUX_TRUE" = "x" -o \
 else
     CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
 fi
+
+$ mintty --help
+Usage: mintty [OPTION]... [ PROGRAM [ARG]... | - ]
+
+Start a new terminal session running the specified program or the user's shell.
+If a dash is given instead of a program, invoke the shell as a login shell.
+
+Options:
+  -c, --config FILE     Load specified config file
+  -e, --exec            Treat remaining arguments as the command to execute
+  -h, --hold never|start|error|always  Keep window open after command finishes
+  -i, --icon FILE[,IX]  Load window icon from file, optionally with index
+  -l, --log FILE|-      Log output to file or stdout
+  -o, --option OPT=VAL  Override config file option with given value
+  -p, --position X,Y    Open window at specified coordinates
+  -s, --size COLS,ROWS  Set screen size in characters
+  -t, --title TITLE     Set window title (default: the invoked command)
+  -u, --utmp            Create a utmp entry
+  -w, --window normal|min|max|full|hide  Set initial window state
+      --class CLASS     Set window class name (default: mintty)
+  -H, --help            Display help and exit
+  -V, --version         Print version information and exit
