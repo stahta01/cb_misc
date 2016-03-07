@@ -27,6 +27,21 @@ git rebase origin/master
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout build_cfg/msys2_and_cygwin && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+## git rebase -i origin/master
+#
+git push origin 
+##  git rebase origin/master && git push origin --force-with-lease
+#
+#   git format-patch  origin/master
+#
+###
+
+###
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout cbstyledtextctrl && git status -uno
 #
 git rebase origin/master && git status -uno
