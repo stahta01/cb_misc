@@ -1,4 +1,4 @@
-Ones I am trying " --no-admin --no-replaceonreboot --package-manager"
+Ones I am trying " --no-admin --package-manager"
 
 Command Line Options:
 

@@ -1,0 +1,54 @@
+https://www.cygwin.com/cygwin-ug-net/mount.html
+https://www.cygwin.com/cygwin-ug-net/using.html#mount-table
+https://www.cygwin.com/cygwin-ug-net/ntsec.html#ntsec-mapping-nsswitch
+https://cygwin.com/ml/cygwin/2014-08/msg00418.html
+
+In windows user env. variables set
+CYGWIN="dosfilewarning"
+CYGWIN_NOWINPATH=" "
+
+
+nano /etc/nsswitch.conf
+# Add the next line to end of file.
+db_home:  /%H/cygwin
+
+# "auto - Ignored" might no longer be true; I added auto to maybe fix issue with mount.
+(The issue might have been caused by a hang Cygwin process; in other words user error.)
+# posix=0 - Switch off case sensitivity for paths under this mount point (default for the cygdrive prefix).
+# posix=1 - Switch on case sensitivity for paths under this mount point (default for all other mount points).
+
+# nano is a simple non-GUI text editor I use in CygWin and Linux
+$   nano /etc/fstab
+# My username used in this example is stahta01
+# Add the next line to end of file.
+C:/Users/stahta01/cygwin /home/stahta01 ntfs auto,binary,posix=1,user 0 0
+
+# Reloads the /etc/fstab values.
+$   mount -a
+
+nano /etc/profile
+
+# Find line with CYGWIN_NOWINPATH in it.
+if [ ${CYGWIN_NOWINPATH-addwinpath} = "addwinpath" ] ; then
+# Change to line below
+if [ -z ${CYGWIN_NOWINPATH+true} ] ; then
+# This get rid of start warning/error when CYGWIN_NOWINPATH in defined in windows as a space.
+
+
+# Add the next 5 lines to middle of file.
+  # Tim S. added commands
+  if [ -d "${HOME}/cygwin" ]; then
+    HOME="${HOME}/cygwin"
+  fi
+  # End of added commands
+# Just before these lines
+  if [ ! -d "${HOME}" ]; then
+    if mkdir -p "${HOME}"; then
+      echo "Copying skeleton files."
+# And just after these lines
+  # Here is how HOME is set, in order of priority, when starting from Windows
+  #  1) From existing HOME in the Windows environment, translated to a Posix path
+  #  2) from /etc/passwd, if there is an entry with a non empty directory field
+  #  3) from HOMEDRIVE/HOMEPATH
+  #  4) / (root)
+  # If the home directory doesn't exist, create it.
