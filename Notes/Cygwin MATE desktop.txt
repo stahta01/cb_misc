@@ -1,0 +1,16 @@
+These steps failed to get a good MATE install on my Old Windows 7 32 bit machine.
+
+http://x.cygwin.com/docs/ug/using.html
+
+Cygwin/X packages are located in the X11 category.
+    xorg-server (required, the Cygwin/X X Server)
+    xinit (required, scripts for starting the X server: xinit, startx, startwin (and a shortcut on the Start Menu to run it), startxdmcp.bat )
+    xorg-docs (optional, man pages)
+    xlaunch (optional, a wizard for starting X sessions)
+MATE Desktop Environment: install the mate-session-manager package
+
+
+startx /usr/bin/dbus-launch mate-session
+
+startxwin /usr/bin/dbus-launch mate-session
+
