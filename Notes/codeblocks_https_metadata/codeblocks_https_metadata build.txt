@@ -7,7 +7,6 @@ git fetch origin --prune
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info
 # Update branches by rebasing with master branch
-git checkout tims_readme && git rebase master && git push origin --force-with-lease
 git checkout deceased/removals && git rebase master && git push origin --force-with-lease
 git checkout bugfix/sdk && git rebase master && git push origin --force-with-lease
 
