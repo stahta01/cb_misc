@@ -1,0 +1,191 @@
+####
+# Requires Cygwin packages: libQt5Gui-devel
+#
+####
+
+$   pkg-config 
+### Good Result
+###
+
+checking for QT5... configure: error: Qt5 libraries are not available
+
+Qt5Core Qt5Widgets Qt5Gui Qt5OpenGL Qt5Test
+
+####
+$   i686-pc-cygwin-g++ --version
+## Result
+i686-pc-cygwin-g++ (GCC) 5.3.0
+##
+$   i686-pc-cygwin-g++ -pthread
+### Good Result
+i686-pc-cygwin-g++: fatal error: no input files
+compilation terminated.
+###
+### Bad Result
+i686-pc-cygwin-g++: error: unrecognized command line option ‘-pthread’
+i686-pc-cygwin-g++: fatal error: no input files
+compilation terminated.
+####
+
+$   echo $CYGWIN
+## Result
+nodosfilewarning
+##
+$ cd ~/devel/wxWidgets-git
+
+$ git status -uno
+$ git fetch --prune
+$ git checkout master
+$ git pull
+
+$ mkdir build_cb_qt5_wx3.1.x_static_multilib_unicode
+
+$ cd ~/devel/wxWidgets-git/build_cb_qt5_wx3.1.x_static_multilib_unicode
+# make uninstall
+$  export CPPFLAGS=""
+$  export CXXFLAGS="-Wno-attributes"
+# Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
+$  ../configure --prefix=/opt/cb/qt5/wx \
+      --disable-sys-libs \
+      --enable-compat28 \
+      --with-qt \
+      --with-cxx=11 \
+      --enable-graphics_ctx \
+      --disable-monolithic \
+      --disable-shared \
+      --enable-xrc \
+      --without-gnomeprint \
+      --disable-universal \
+      --disable-precomp-headers \
+      --enable-unicode
+###
+Configured wxWidgets 3.1.1 for `i686-pc-cygwin'
+
+  Which GUI toolkit should wxWidgets use?                 qt
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         no
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+###
+#$   make clean
+$   make
+## First set of warning I hope to work on fixing
+Makefile:18443: warning: overriding recipe for target 'monodll_converter.o'
+Makefile:18440: warning: ignoring old recipe for target 'monodll_converter.o'
+Makefile:18713: warning: overriding recipe for target 'monodll_qt_utils.o'
+Makefile:18710: warning: ignoring old recipe for target 'monodll_qt_utils.o'
+Makefile:23273: warning: overriding recipe for target 'monolib_converter.o'
+Makefile:23270: warning: ignoring old recipe for target 'monolib_converter.o'
+Makefile:23543: warning: overriding recipe for target 'monolib_qt_utils.o'
+Makefile:23540: warning: ignoring old recipe for target 'monolib_qt_utils.o'
+##
+$   make install
+###
+ The installation of wxWidgets is finished.  On certain
+ platforms (e.g. Linux) you'll now have to run ldconfig
+ if you installed a shared library and also modify the
+ LD_LIBRARY_PATH (or equivalent) environment variable.
+###
+$   which wx-config
+$   echo $PATH
+/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files/IDM Computer Solutions/UltraEdit:/cygdrive/c/Program Files/TortoiseGit/bin:/cygdrive/c/Apps/WATCOM/BINNT:/cygdrive/c/Apps/WATCOM/BINW:/cygdrive/c/PROGRA~1/git/bin:/cygdrive/c/Apps/misc:/cygdrive/c/Apps32/misc:/cygdrive/c/Users/USERNAME/AppData/Local/M2OSW/pkg-explorer/WPKG_ROOT/bin:/cygdrive/c/Apps32/7za920:/cygdrive/c/Apps32/GnuWin32/bin:/cygdrive/c/Apps32/Apache-Subversion-1.9/bin:/cygdrive/c/Program Files/Git/cmd:/usr/lib/lapack
+$   export PATH=/usr/bin:/opt/cb/???/wx/bin:$PATH
+$   which wx-config
+$   wx-config --prefix
+$   wx-config --libs
+
+
+#########
+
+
+
+####
+# Requires Cygwin packages:
+#   libtool 2.4-1
+#		automake
+#   zip
+#   gcc 4.9.2-1 does not work "g++: error: unrecognized command line option '-pthread'"
+#   gcc 4.8.3-2	seems to be working great.
+#
+####
+
+
+mount -a
+cd ~/devel/codeblocks_https_metadata-git
+
+/opt/cb/???/wx/bin/wx-config --list
+
+echo $ACLOCAL_FLAGS
+export ACLOCAL_FLAGS="-I `/opt/cb/???/wx/bin/wx-config --prefix`/share/aclocal"
+echo $ACLOCAL_FLAGS
+
+git checkout -- src/sdk/wxscintilla/Readme
+git pull
+
+./bootstrap
+export CPPFLAGS=""
+export CXXFLAGS="-Wno-attributes"
+echo $CXXFLAGS
+
+# export CXXFLAGS="-Wno-attributes"
+
+#  --enable-static --with-platform=gtk
+ ./configure --enable-static --prefix=/opt/cb/???/wx --enable-debug --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/cb/???/wx/bin/wx-config
+
+#$  make clean && make
+
+make
+
+make install
+
+#  make && make install
+
+In order to run Code::Blocks
+####
+# Requires Cygwin packages:
+#   These packages where suggested as good ones to add to get GNU Octave to run; I am hoping it workes for getting CB to run.
+#   xinit
+#   xlaunch
+#		??gnuplot
+####
+
+C:\Apps32\Cygwin\opt\cb\???\wx\lib\codeblocks\plugins
+
+echo $PATH
+export PATH=/opt/cb/???/wx/lib:$PATH
+
+$   startxwin /opt/cb/???/wx/bin/codeblocks.exe --debug-log
+
+# Next line fails likely because the path has NOT been changed.
+C:\Apps32\Cygwin\bin\mintty.exe /bin/sh -lc 'startxwin /opt/cb/???/wx/bin/codeblocks.exe --prefix="/opt/cb/???/wx"'
+
+Scanning for plugins in /cygdrive/c/Users/stahta01/.codeblocks/share/codeblocks/plugins
+Loaded 0 plugins
+Scanning for plugins in /opt/cb/???/wx/lib/codeblocks/plugins
+
+
+NOTES: Below ignore till have build issues.
+
+$ uname
+CYGWIN_NT-6.1
+
+# Not added this code; yet, because the error I expected did NOT happen.
+if test "x$LINUX_TRUE" = "x" -o \
+        "x$DARWIN_TRUE" = "x" ; then
+    CPPFLAGS="$CPPFLAGS -ansi -DTIXML_USE_STL"
+else
+    CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
+fi
+
