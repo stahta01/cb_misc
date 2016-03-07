@@ -92,6 +92,13 @@ Makefile:23543: warning: overriding recipe for target 'monolib_qt_utils.o'
 Makefile:23540: warning: ignoring old recipe for target 'monolib_qt_utils.o'
 ##
 $   make install
+/usr/bin/install: cannot stat ‘../include/wx/qt/apptbase.h’: No such file or directory
+/usr/bin/install: cannot stat ‘../include/wx/qt/apptrait.h’: No such file or directory
+/usr/bin/install: cannot stat ‘../include/wx/qt/generic/clrpickerg.h’: No such file or directory
+/usr/bin/install: cannot stat ‘../include/wx/qt/converter.h’: No such file or directory
+/usr/bin/install: cannot stat ‘../include/wx/qt/textdlg.h’: No such file or directory
+/usr/bin/install: cannot stat ‘../include/wx/qt/utils.h’: No such file or directory
+
 ###
  The installation of wxWidgets is finished.  On certain
  platforms (e.g. Linux) you'll now have to run ldconfig
