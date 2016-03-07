@@ -98,8 +98,6 @@ $   wx-config --libs
 
 #########
 
-
-
 ####
 # Requires Cygwin packages:
 #   libtool 2.4-1
@@ -149,7 +147,7 @@ In order to run Code::Blocks
 #   These packages where suggested as good ones to add to get GNU Octave to run; I am hoping it workes for getting CB to run.
 #   xinit
 #   xlaunch
-#		??gnuplot
+#       ??gnuplot
 ####
 
 C:\Apps32\Cygwin\opt\cb\gtk2\wx\lib\codeblocks\plugins
@@ -162,25 +160,6 @@ $   startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --debug-log
 
 # Next line fails likely because the path has NOT been changed.
 C:\Apps32\Cygwin\bin\mintty.exe /bin/sh -lc 'startxwin /opt/cb/gtk2/wx/bin/codeblocks.exe --prefix="/opt/cb/gtk2/wx"'
-
-Scanning for plugins in /cygdrive/c/Users/stahta01/.codeblocks/share/codeblocks/plugins
-Loaded 0 plugins
-Scanning for plugins in /opt/cb/gtk2/wx/lib/codeblocks/plugins
-Plugin resource not found: cygabbreviations.zip
-Plugin resource not found: cygastyle.zip
-Plugin resource not found: cygautosave.zip
-Plugin resource not found: cygclasswizard.zip
-Plugin resource not found: cygcodecompletion.zip
-Plugin resource not found: cygdebugger.zip
-Plugin resource not found: cygdefaultmimehandler.zip
-Plugin resource not found: cygoccurrenceshighlighting.zip
-Plugin resource not found: cygopenfileslist.zip
-Plugin resource not found: cygprojectsimporter.zip
-Plugin resource not found: cygtodo.zip
-Loaded 0 plugins
-
-platform::windows
-platform::macosx
 
 
 NOTES: Below ignore till have build issues.
