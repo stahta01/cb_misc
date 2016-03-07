@@ -1,24 +1,36 @@
-## codeblocks_https_metadata
-### This Repo is where I am going to put Code::Blocks branches with changes I hope other will want.
+### This README is to Documents my Code::Blocks related Git Repos.
 
-| Branch Name                | Purpose |
-|:---------------------------|:-------:|
-| master                     |Based on upstream Code::Blocks trunk/master |
-| tims_readme                |Based on master and holds this README.md file about the other branches of mine. |
-| build_cbp/lib_folder_type1 |Based on pch_fixes/win_cbp_saveas; with added folders lib, lib28, and lib30. |
-| build_cbp/lib_folder_type2 |Based on pch_fixes/win_cbp_saveas; with added folders lib and lib30. |
-| build_cbp/wx30x            |Based on obf_sf/builds/wx31; with fixes needed for windows building with wx3.0.x. |
-| deceased/removals          |Based on master; with code removed that looks like it has not worked in years. |
-| remove/do_not_edit         |Based on master; with "DO NOT EDIT" comments removed from some files. |
-| cygwin_support             |Based on pch_fixes/PCH/cbp_fixes; with changes to support Cygwin Compiler. |
-| bugfix/sdk                 |Based on master; with patched bugs in CB SDK. |
-| feature/sdk                |Based on bugfix/sdk; with added features to CB SDK. |
-| build/move_output          |Based on portability/fixes; with "output" folder moved to src/update files. |
-| bugfix/project_n_workspace |Based on master; with fixes to CB Projects and workspaces. |
-| compiler/watcom            |Based on master. |
+| Branch Name   | Branch URL                                                    | Purpose               |
+|:--------------|:--------------------------------------------------------------|:---------------------:|
+| origin        | https://github.com/stahta01/codeblocks_https_metadata.git     | Changes I hope upstream will accept. |
+| pch_fixes     | https://github.com/stahta01/codeblocks_PCH_fixes.git          | My PCH related changes. |
 
-| wxContribItems             |Based on master; fixes to wxContribItems WinOS Projects. |
-| portability/fixes          |Based on master; with changes that makes code or project more portable. |
+| Branch Name                           | Purpose |
+|:--------------------------------------|:-------:|
+| origin/bugfix/plugins                 | ??? |
+| origin/bugfix/sdk                     |Based on master; with patched bugs in CB SDK. |
+| origin/bugfix/wxNewId                 | ??? |
+| origin/build/move_output              |Based on portability/fixes; with "output" folder moved to src/update files. |
+| origin/build/msys2_codeblocks         | ??? |
+| origin/build/nonGUI                   | ??? |
+| origin/build/wx_multilibs_gcc471TDM   | ??? |
+| origin/build_cbp/lib_folder_type1     |Based on pch_fixes/win_cbp_saveas; with added folders lib, lib28, and lib30. |
+| origin/build_cbp/lib_folder_type2     |Based on pch_fixes/win_cbp_saveas; with added folders lib and lib30. |
+| origin/build_cbp/wx30x                |Based on obf_sf/builds/wx31; with fixes needed for windows building with wx3.0.x. |
+| origin/build_cfg/msys2_and_cygwin     | ??? |
+| origin/cbstyledtextctrl               | ??? |
+| origin/deceased/removals              |Based on master; with code removed that looks like it has not worked in years. |
+| origin/feature/cb_projects            | ??? |
+| origin/feature/compiler               | ??? |
+| origin/feature/sdk                    |Based on bugfix/sdk; with added features to CB SDK. |
+| origin/feature/wizards                | ??? |
+| origin/master                         |Based on upstream Code::Blocks trunk/master |
+| origin/port/sqrat                     | ??? |
+| origin/portability/fixes              |Based on master; with changes that makes code or project more portable. |
+| origin/reducedGUI                     | ??? |
+| origin/win_cbp_save_as                | ??? |
+
+
 | PCH branches are in        | https://github.com/stahta01/codeblocks_PCH_fixes |
 | PCH/toolsplus              |Based on master; with Precompiled Header (PCH) related fixes. |
 | PCH/cbp_fixes              |Based on portability/fixes; all other PCH branches are combined in this branch. |
