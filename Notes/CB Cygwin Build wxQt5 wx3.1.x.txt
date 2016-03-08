@@ -116,6 +116,93 @@ $   wx-config --libs
 
 #########
 
+$ cd ~/devel/wxWidgets-git
+
+$ git status -uno
+$ git fetch --prune
+$ git checkout master
+$ git pull
+
+$ mkdir build_cb_qt5_wx3.1.x_shared_monolib_unicode
+
+$ cd ~/devel/wxWidgets-git/build_cb_qt5_wx3.1.x_shared_monolib_unicode
+# make uninstall
+$  export CPPFLAGS=""
+$  export CXXFLAGS="-Wno-attributes"
+# Do NOT use host unless it differs from build and maybe not even then --host=i686-pc-cygwin \
+$  ../configure --prefix=/opt/cb/qt5/wx \
+      --disable-sys-libs \
+      --enable-compat28 \
+      --with-qt \
+      --with-cxx=11 \
+      --enable-graphics_ctx \
+      --enable-monolithic \
+      --enable-shared \
+      --enable-xrc \
+      --without-gnomeprint \
+      --disable-universal \
+      --disable-precomp-headers \
+      --enable-unicode
+###
+Configured wxWidgets 3.1.1 for `i686-pc-cygwin'
+
+  Which GUI toolkit should wxWidgets use?                 qt
+  Should wxWidgets be compiled into single library?       yes
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+###
+#$   make clean
+$   make
+## First set of warning I hope to work on fixing
+Makefile:18443: warning: overriding recipe for target 'monodll_converter.o'
+Makefile:18440: warning: ignoring old recipe for target 'monodll_converter.o'
+Makefile:18713: warning: overriding recipe for target 'monodll_qt_utils.o'
+Makefile:18710: warning: ignoring old recipe for target 'monodll_qt_utils.o'
+Makefile:23273: warning: overriding recipe for target 'monolib_converter.o'
+Makefile:23270: warning: ignoring old recipe for target 'monolib_converter.o'
+Makefile:23543: warning: overriding recipe for target 'monolib_qt_utils.o'
+Makefile:23540: warning: ignoring old recipe for target 'monolib_qt_utils.o'
+## First error of MonoLib DLL build
+/cygdrive/c/Users/stahta01/cygwin/devel/wxWidgets-git/build_cb_qt5_wx3.1.x_shared_monolib_unicode/bk-deps g++ -c -o monodll_utilsunx.o  -D__WXQT__      -DWXBUILDING -I/cygdrive/c/Users/stahta01/cygwin/devel/wxWidgets-git/build_cb_qt5_wx3.1.x_shared_monolib_unicode/src/tiff/libtiff -I../src/tiff/libtiff -I../src/jpeg -I../src/png -I../src/zlib -I../src/regex -I../src/expat/lib -I../src/stc/scintilla/include -I../src/stc/scintilla/lexlib -I../src/stc/scintilla/src -D__WX__ -DSCI_LEXER -DLINK_LEXERS -DwxUSE_BASE=1 -DWXMAKINGDLL  -Wall -Wundef -Wunused-parameter -Wno-ctor-dtor-privacy -Woverloaded-virtual -D_FILE_OFFSET_BITS=64 -I/cygdrive/c/Users/stahta01/cygwin/devel/wxWidgets-git/build_cb_qt5_wx3.1.x_shared_monolib_unicode/lib/wx/include/qt-unicode-3.1 -I../include -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5 -I/usr/include/qt5/QtGui -I/usr/include/qt5 -I/usr/include/qt5/QtTest -I/usr/include/qt5 -I/usr/include/qt5/QtCore -I/usr/include/qt5 -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/libpng16 -O2 -Wno-attributes -std=gnu++11  ../src/unix/utilsunx.cpp
+In file included from ../src/unix/utilsunx.cpp:70:0:
+../include/wx/unix/private/executeiohandler.h: In constructor ‘wxExecuteEventLoopSourceHandler::wxExecuteEventLoopSourceHandler(int, wxStreamTempInputBuffer&)’:
+../include/wx/unix/private/executeiohandler.h:116:78: error: cannot call member function ‘virtual wxEventLoopSource* wxQtEventLoopBase::AddSourceForFD(int, wxEventLoopSourceHandler*, int)’ without object
+         m_source = wxEventLoop::AddSourceForFD(fd, this, wxEVENT_SOURCE_INPUT);
+                                                                              ^
+Makefile:17246: recipe for target 'monodll_utilsunx.o' failed
+make: *** [monodll_utilsunx.o] Error 1
+
+$   make install
+
+###
+ The installation of wxWidgets is finished.  On certain
+ platforms (e.g. Linux) you'll now have to run ldconfig
+ if you installed a shared library and also modify the
+ LD_LIBRARY_PATH (or equivalent) environment variable.
+###
+$   which wx-config
+$   echo $PATH
+/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files/IDM Computer Solutions/UltraEdit:/cygdrive/c/Program Files/TortoiseGit/bin:/cygdrive/c/Apps/WATCOM/BINNT:/cygdrive/c/Apps/WATCOM/BINW:/cygdrive/c/PROGRA~1/git/bin:/cygdrive/c/Apps/misc:/cygdrive/c/Apps32/misc:/cygdrive/c/Users/USERNAME/AppData/Local/M2OSW/pkg-explorer/WPKG_ROOT/bin:/cygdrive/c/Apps32/7za920:/cygdrive/c/Apps32/GnuWin32/bin:/cygdrive/c/Apps32/Apache-Subversion-1.9/bin:/cygdrive/c/Program Files/Git/cmd:/usr/lib/lapack
+$   export PATH=/usr/bin:/opt/cb/???/wx/bin:$PATH
+$   which wx-config
+$   wx-config --prefix
+$   wx-config --libs
+
+
+#########
 
 
 ####

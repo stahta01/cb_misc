@@ -109,8 +109,11 @@ $   wx-config --libs
 ####
 
 
-mount -a
 cd ~/devel/codeblocks_https_metadata-git
+
+git status -uno
+git checkout -- src/sdk/wxscintilla/Readme
+git pull
 
 /opt/cb/gtk2/wx/bin/wx-config --list
 
@@ -118,16 +121,10 @@ echo $ACLOCAL_FLAGS
 export ACLOCAL_FLAGS="-I `/opt/cb/gtk2/wx/bin/wx-config --prefix`/share/aclocal"
 echo $ACLOCAL_FLAGS
 
-git checkout -- src/sdk/wxscintilla/Readme
-git pull
-
 ./bootstrap
 export CPPFLAGS=""
 export CXXFLAGS="-Wno-attributes"
 echo $CXXFLAGS
-
-# export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
-# export CPPFLAGS="-U__STRICT_ANSI__"
 
 #  --enable-static
  ./configure --prefix=/opt/cb/gtk2/wx --with-platform=gtk --enable-debug --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/cb/gtk2/wx/bin/wx-config
