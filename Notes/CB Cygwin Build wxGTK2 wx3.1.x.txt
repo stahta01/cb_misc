@@ -113,7 +113,8 @@ cd ~/devel/codeblocks_https_metadata-git
 
 git status -uno
 git checkout -- src/sdk/wxscintilla/Readme
-git pull
+git pull --rebase
+
 
 /opt/cb/gtk2/wx/bin/wx-config --list
 
