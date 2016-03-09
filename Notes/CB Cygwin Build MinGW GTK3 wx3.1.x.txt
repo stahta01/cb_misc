@@ -50,15 +50,19 @@ $ mkdir build_mingw_cb_gtk_wx3.1.x_shared_multilib_unicode
 
 $ cd ~/devel/wxWidgets-git/build_mingw_cb_gtk_wx3.1.x_shared_multilib_unicode
 # make uninstall
-$  export CPPFLAGS=""
-$  export CXXFLAGS="-Wno-attributes"
+export CPPFLAGS=""
+export CXXFLAGS="-Wno-attributes"
+##
+--enable-checklst # ?needed to stop tiff build error?
 --disable-rearrangectrl # ?needed to stop tiff build error?
 --disable-debugreport # QA lib errors out 
 --disable-gtktest # gtk test failed
+##
 # Do NOT use host unless it differs from build and maybe not even then
 $  ../configure --prefix=/opt/mingw/cb/gtk/wx \
       --host=i686-w64-mingw32 \
       --disable-gtktest \
+      --enable-checklst \
       --disable-rearrangectrl \
       --disable-debugreport \
       --disable-sys-libs \
@@ -95,12 +99,11 @@ Configured wxWidgets 3.1.1 for `i686-w64-mingw32'
                                        libmspack          no
                                        sdl                no
 ###
-#!! Hand edited Makefile removed X11 from EXTRALIBS_GUI
-#!! Hand edited Makefile removed coredll_msw_display.o from GTK_WIN32_SRC (src/msw/display.cpp)
+#!! Hand edited Makefile removed -lX11 from EXTRALIBS_GUI
+#!! Hand edited Makefile.in removed coredll_msw_display.o from GTK_WIN32_SRC (src/msw/display.cpp)
 #
-#   make clean && make
-$   make
-$   make install
+#   make clean && make && make install
+$   make && make install
 ###
  The installation of wxWidgets is finished.  On certain
  platforms (e.g. Linux) you'll now have to run ldconfig
@@ -130,6 +133,7 @@ cd ~/devel/codeblocks_https_metadata-git
 
 git status -uno
 git checkout -- src/sdk/wxscintilla/Readme
+git checkout -- debian/changelog
 git pull --rebase
 
 
@@ -141,14 +145,14 @@ echo $ACLOCAL_FLAGS
 
 ./bootstrap
 export CPPFLAGS=""
-export CXXFLAGS="-Wno-attributes"
+export CXXFLAGS="-DGTK -Wno-attributes"
 echo $CXXFLAGS
 
 #  --enable-static
- ./configure --prefix=/opt/mingw/cb/gtk/wx --with-platform=gtk --enable-debug --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/mingw/cb/gtk/wx/bin/wx-config
+ ./configure --host=i686-w64-mingw32 --prefix=/opt/mingw/cb/gtk/wx --with-platform=gtk --enable-debug --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/mingw/cb/gtk/wx/bin/wx-config
 
 
-#$  make clean && make
+#$  make clean && make && make install
 
 make
 
@@ -156,26 +160,23 @@ make install
 
 #  make && make install
 
+
 In order to run Code::Blocks
 ####
 # Requires Cygwin packages:
-#   These packages where suggested as good ones to add to get GNU Octave to run; I am hoping it workes for getting CB to run.
-#   xinit
-#   xlaunch
-#       ??gnuplot
+#
 ####
 
-C:\Apps32\Cygwin\opt\cb\gtk2\wx\lib\codeblocks\plugins
 
 echo $PATH
 export PATH=/opt/mingw/cb/gtk/wx/lib:$PATH
-Fixed: C:/Apps32/Cygwin/opt/mingw/cb/gtk/wx/bin/codeblocks.exe: error while loading shared libraries: cygwx_gtk2u_xrc-3.1-0.dll: cannot open shared object file: No such file or directory
 
-$   startxwin /opt/mingw/cb/gtk/wx/bin/codeblocks.exe --debug-log
 
-# Next line fails likely because the path has NOT been changed.
-C:\Apps32\Cygwin\bin\mintty.exe /bin/sh -lc 'startxwin /opt/mingw/cb/gtk/wx/bin/codeblocks.exe --prefix="/opt/mingw/cb/gtk/wx"'
+$   /opt/mingw/cb/gtk/wx/bin/codeblocks.exe --debug-log
 
+if test "$USE_WIN32" = 1 ; then
+if test "$USE_UNIX" = 1 ; then
+if test "$wxUSE_UNIX" = "yes"; then
 
 NOTES: Below ignore till have build issues.
 
