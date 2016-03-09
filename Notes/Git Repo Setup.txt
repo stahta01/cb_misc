@@ -36,5 +36,8 @@ git config --list
 
 git config pull.rebase
 
+git config pull.rebase true
+
+
 git config core.ignorecase true
 # git config core.ignorecase false
