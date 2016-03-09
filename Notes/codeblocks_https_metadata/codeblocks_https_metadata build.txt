@@ -8,7 +8,6 @@ git checkout master && git pull && git status -uno
 git svn fetch && git svn info
 # Update branches by rebasing with master branch
 git checkout deceased/removals && git rebase master && git push origin --force-with-lease
-git checkout bugfix/sdk && git rebase master && git push origin --force-with-lease
 
 git checkout build_cbp/wx30x 
 git rebase origin/master 
@@ -136,8 +135,8 @@ git apply --reject 0001-NotifyMissingFile-Commented-out-Manager-LoadResource.pat
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/sdk && git status -uno
 #
-git rebase bugfix/sdk && git status -uno
-##  git rebase master && git status -uno
+##  git rebase bugfix/sdk && git status -uno
+git rebase master && git status -uno
 #
 #  git rebase -i master
 #
@@ -250,8 +249,8 @@ git checkout build/wx_multilibs_gcc471TDM && git status -uno
 #  git branch --list
 ###
 # Only rebase this section after one is added to top.
-    git rebase origin/bugfix/plugins        && \
-    git rebase origin/bugfix/sdk
+    git rebase origin/bugfix/plugins
+##    git rebase origin/bugfix/sdk
 ###
 git rebase origin/feature/cb_projects && git status -uno
 # git log -5

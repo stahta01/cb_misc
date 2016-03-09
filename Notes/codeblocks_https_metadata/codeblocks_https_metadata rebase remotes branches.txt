@@ -5,9 +5,9 @@ git fetch origin                && \
 git checkout deceased/removals  && \
 git pull                        && \
 git rebase origin/master        && \
-git checkout bugfix/sdk         && \
-git pull                        && \
-git rebase origin/master        && \
+# git checkout bugfix/sdk         && \
+# git pull                        && \
+# git rebase origin/master        && \
 git checkout build_cbp/wx30x    && \
 git pull                        && \
 git rebase origin/master        && \
