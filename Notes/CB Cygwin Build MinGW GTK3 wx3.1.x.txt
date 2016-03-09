@@ -1,0 +1,221 @@
+####
+# Requires Cygwin packages:
+#   mingw64-i686-gtk3
+#   mingw64-i686-pkg-config
+#
+# For wx3.0, You will need GTK+ 2.6 or higher.
+# For wx2.8, You will need GTK+ 2.0 or higher.
+#
+####
+
+C:\Apps32\Cygwin\usr\i686-w64-mingw32\sys-root\mingw
+C:\Apps32\Cygwin\usr\i686-w64-mingw32\sys-root\mingw\lib\pkgconfig
+
+pkg-config --list-all
+
+echo $PKG_CONFIG_PATH 
+export PKG_CONFIG_PATH=/usr/i686-w64-mingw32/sys-root/mingw/lib/pkgconfig
+
+i686-w64-mingw32-pkg-config gtk+-3.0 --libs
+### Good Result
+-lgtk-3 -lgdk-3 -lgdi32 -limm32 -lshell32 -lole32 -Wl,-luuid -lwinmm -ldwmapi -lz -lepoxy -lpangocairo-1.0 -lpangoft2-1.0 -lharfbuzz -lpangowin32-1.0 -lgdi32 -lusp10 -lpango-1.0 -lm -latk-1.0 -lcairo-gobject -lcairo -lz -lpixman-1 -lfontconfig -lexpat -lfreetype -lbz2 -lz -lpng16 -lz -lexpat -lfreetype -lbz2 -lz -lpng16 -lz -lgdk_pixbuf-2.0 -lpng16 -lz -lgio-2.0 -lz -lgmodule-2.0 -lgobject-2.0 -lffi -lglib-2.0 -lintl -lws2_32 -lole32 -lwinmm -lshlwapi -lintl
+###
+
+
+####
+$   i686-w64-mingw32-g++ --version
+## Result
+i686-w64-mingw32-g++ (GCC) 4.9.2
+##
+$   i686-w64-mingw32-g++ -pthread
+### Good Result
+i686-w64-mingw32-g++: fatal error: no input files
+compilation terminated.
+###
+### Bad Result
+####
+
+$   echo $CYGWIN
+## Result
+nodosfilewarning
+##
+$ cd ~/devel/wxWidgets-git
+
+$ git status -uno
+$ git fetch --prune
+$ git checkout master
+$ git pull
+
+$ mkdir build_mingw_cb_gtk_wx3.1.x_shared_multilib_unicode
+
+$ cd ~/devel/wxWidgets-git/build_mingw_cb_gtk_wx3.1.x_shared_multilib_unicode
+# make uninstall
+$  export CPPFLAGS=""
+$  export CXXFLAGS="-Wno-attributes"
+--disable-rearrangectrl # ?needed to stop tiff build error?
+--disable-debugreport # QA lib errors out 
+--disable-gtktest # gtk test failed
+# Do NOT use host unless it differs from build and maybe not even then
+$  ../configure --prefix=/opt/mingw/cb/gtk/wx \
+      --host=i686-w64-mingw32 \
+      --disable-gtktest \
+      --disable-rearrangectrl \
+      --disable-debugreport \
+      --disable-sys-libs \
+      --enable-compat28 \
+      --with-gtk=3 \
+      --with-cxx=11 \
+      --enable-graphics_ctx \
+      --disable-monolithic \
+      --enable-shared \
+      --enable-xrc \
+      --without-gtkprint \
+      --without-gnomeprint \
+      --disable-universal \
+      --disable-precomp-headers \
+      --enable-unicode
+###
+Configured wxWidgets 3.1.1 for `i686-w64-mingw32'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 3
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+###
+#!! Hand edited Makefile removed X11 from EXTRALIBS_GUI
+#!! Hand edited Makefile removed coredll_msw_display.o from GTK_WIN32_SRC (src/msw/display.cpp)
+#
+#   make clean && make
+$   make
+$   make install
+###
+ The installation of wxWidgets is finished.  On certain
+ platforms (e.g. Linux) you'll now have to run ldconfig
+ if you installed a shared library and also modify the
+ LD_LIBRARY_PATH (or equivalent) environment variable.
+###
+$   which wx-config
+$   echo $PATH
+$   export PATH=/usr/bin:/opt/mingw/cb/gtk/wx/bin:$PATH
+$   which wx-config
+$   wx-config --prefix
+$   wx-config --libs
+
+
+#########
+
+####
+# Requires Cygwin packages:
+#   libtool     2.4.6-3
+#   automake
+#   zip
+#
+####
+
+
+cd ~/devel/codeblocks_https_metadata-git
+
+git status -uno
+git checkout -- src/sdk/wxscintilla/Readme
+git pull --rebase
+
+
+/opt/mingw/cb/gtk/wx/bin/wx-config --list
+
+echo $ACLOCAL_FLAGS
+export ACLOCAL_FLAGS="-I `/opt/mingw/cb/gtk/wx/bin/wx-config --prefix`/share/aclocal"
+echo $ACLOCAL_FLAGS
+
+./bootstrap
+export CPPFLAGS=""
+export CXXFLAGS="-Wno-attributes"
+echo $CXXFLAGS
+
+#  --enable-static
+ ./configure --prefix=/opt/mingw/cb/gtk/wx --with-platform=gtk --enable-debug --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=/opt/mingw/cb/gtk/wx/bin/wx-config
+
+
+#$  make clean && make
+
+make
+
+make install
+
+#  make && make install
+
+In order to run Code::Blocks
+####
+# Requires Cygwin packages:
+#   These packages where suggested as good ones to add to get GNU Octave to run; I am hoping it workes for getting CB to run.
+#   xinit
+#   xlaunch
+#       ??gnuplot
+####
+
+C:\Apps32\Cygwin\opt\cb\gtk2\wx\lib\codeblocks\plugins
+
+echo $PATH
+export PATH=/opt/mingw/cb/gtk/wx/lib:$PATH
+Fixed: C:/Apps32/Cygwin/opt/mingw/cb/gtk/wx/bin/codeblocks.exe: error while loading shared libraries: cygwx_gtk2u_xrc-3.1-0.dll: cannot open shared object file: No such file or directory
+
+$   startxwin /opt/mingw/cb/gtk/wx/bin/codeblocks.exe --debug-log
+
+# Next line fails likely because the path has NOT been changed.
+C:\Apps32\Cygwin\bin\mintty.exe /bin/sh -lc 'startxwin /opt/mingw/cb/gtk/wx/bin/codeblocks.exe --prefix="/opt/mingw/cb/gtk/wx"'
+
+
+NOTES: Below ignore till have build issues.
+
+$ uname
+CYGWIN_NT-6.1
+
+
+if test "x$LINUX_TRUE" = "x" -o \
+        "x$DARWIN_TRUE" = "x" ; then
+    AX_CXX_COMPILE_STDCXX(11, noext)
+else
+    AX_CXX_COMPILE_STDCXX(11, ext)
+fi
+
+# Not added this code; yet, because the error I expected did NOT happen.
+if test "x$LINUX_TRUE" = "x" -o \
+        "x$DARWIN_TRUE" = "x" ; then
+    CPPFLAGS="$CPPFLAGS -ansi -DTIXML_USE_STL"
+else
+    CPPFLAGS="$CPPFLAGS -DTIXML_USE_STL"
+fi
+
+$ mintty --help
+Usage: mintty [OPTION]... [ PROGRAM [ARG]... | - ]
+
+Start a new terminal session running the specified program or the user's shell.
+If a dash is given instead of a program, invoke the shell as a login shell.
+
+Options:
+  -c, --config FILE     Load specified config file
+  -e, --exec            Treat remaining arguments as the command to execute
+  -h, --hold never|start|error|always  Keep window open after command finishes
+  -i, --icon FILE[,IX]  Load window icon from file, optionally with index
+  -l, --log FILE|-      Log output to file or stdout
+  -o, --option OPT=VAL  Override config file option with given value
+  -p, --position X,Y    Open window at specified coordinates
+  -s, --size COLS,ROWS  Set screen size in characters
+  -t, --title TITLE     Set window title (default: the invoked command)
+  -u, --utmp            Create a utmp entry
+  -w, --window normal|min|max|full|hide  Set initial window state
+      --class CLASS     Set window class name (default: mintty)
+  -H, --help            Display help and exit
+  -V, --version         Print version information and exit
