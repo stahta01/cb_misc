@@ -51,6 +51,7 @@ git format-patch upstream/master
 0002-wxQT-Removed-files-that-do-NOT-exist.-Thanks-stahta0.patch
 0003-wxGTK-Changed-guards-for-wxUSE_SOCKETS-files.-Thanks.patch
 0004-configure.in-wxGTK-fixes-under-Windows-Thanks-stahta.patch
+0005-wxQT-Removed-two-duplicate-files.patch
 
 $ mkdir build_mingw_cb_gtk_wx3.1.x_shared_multilib_unicode
 
