@@ -9,8 +9,8 @@ git svn fetch && git svn info
 # Update branches by rebasing with master branch
 git checkout deceased/removals && git rebase master && git push origin --force-with-lease
 
-git checkout build_cbp/wx30x 
-git rebase origin/master 
+git checkout build_cbp/wx30x
+git rebase origin/master
 # git rebase -i origin/master
 ##  git rebase origin/master && git push origin --force-with-lease
 
@@ -25,13 +25,41 @@ git rebase origin/master
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout wxUSE_guard && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+## git rebase -i origin/master
+#
+git push origin
+##  git rebase origin/master && git push origin --force-with-lease
+#
+#   git format-patch  origin/master
+#
+###
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout build_cfg/wxMSW && git status -uno
+#
+# git rebase origin/wxUSE_guard && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+## git rebase -i origin/master
+#
+git push origin
+##  git rebase origin/master && git push origin --force-with-lease
+#
+#   git format-patch  origin/master
+#
+###
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout build_cfg/msys2_and_cygwin && git status -uno
 #
 git rebase origin/master && git status -uno
 #
 ## git rebase -i origin/master
 #
-git push origin 
+git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
 #   git format-patch  origin/master
@@ -46,7 +74,7 @@ git rebase origin/master && git status -uno
 #
 ## git rebase -i origin/master
 #
-git push origin 
+git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
 #   git format-patch  origin/master
@@ -59,7 +87,7 @@ git rebase origin/master && git status -uno
 #
 ## git rebase -i origin/master
 #
-git push origin 
+git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
 #   git log
@@ -97,7 +125,7 @@ git rebase origin/master && git status -uno
 # git rebase -i origin/master
 #
 
-git push origin 
+git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 
 ###
@@ -124,7 +152,7 @@ git checkout bugfix/plugins && git status -uno
 #
 git rebase origin/master && git status -uno
 #
-git push origin 
+git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 
 git format-patch --unified=1 ac088c61c30a837d5dfe5ef37035aecc297e932f
@@ -140,7 +168,7 @@ git rebase master && git status -uno
 #
 #  git rebase -i master
 #
-git push origin 
+git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 
 ###
@@ -149,7 +177,7 @@ git checkout feature/cb_projects && git status -uno
 #
 git rebase origin/win_cbp_save_as && git status -uno
 ##  git status -uno
-git push origin 
+git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
 ###
@@ -158,9 +186,9 @@ git checkout build/move_output && git status -uno
 #
 git rebase origin/feature/cb_projects && git status -uno
 ##  git status -uno
-git push origin 
+git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
-# 
+#
 # git log
 # git format-patch a1d0d95a703ec5a8b77db2322b486ed5c8e1e8d7
 0001-bat-Removed-output-folders-from-several-windows-batc.patch
@@ -191,10 +219,10 @@ git push origin
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout build_cbp/lib_folder_type1 && git status -uno
-##  
+##
 git rebase origin/feature/cb_projects && git status -uno
 ##
-git.exe push origin 
+git.exe push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
 # git format-patch --unified=1 73c02da242d1b5ac45d32b1e50df0e857c2fc2a8
@@ -202,14 +230,14 @@ git.exe push origin
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout build_cbp/lib_folder_type2 && git status -uno 
-##  
-git rebase origin/feature/cb_projects && git status -uno 
-## 
-git.exe push origin 
+git checkout build_cbp/lib_folder_type2 && git status -uno
+##
+git rebase origin/feature/cb_projects && git status -uno
+##
+git.exe push origin
 ##  git rebase origin/master && git push origin --force-with-lease
 #
-# git log 
+# git log
 # git format-patch --unified=1 875e6d30114811f0b437d59d09967ce986706c81
 # git apply --reject 0001-win-cbp-Added-lib-folders-to-some-CB-projects.-Thank.patch
 #
@@ -305,14 +333,14 @@ Branches that need updated/rebased
 git checkout
 git log
 git format-patch
-git reset --hard 
-git rebase master 
+git reset --hard
+git rebase master
 git am
 git rebase master && git push origin --force-with-lease
 
 Update this repo
     https://github.com/stahta01/codeblocks_setup_svn2git_https_metadata.git
-    
+
   git remote add origin https://github.com/stahta01/tims_codeblocks_installer.git
   git push -u origin master
 

@@ -22,13 +22,14 @@
 | origin/deceased/removals              |Based on master; with code removed that looks like it has not worked in years. |
 | origin/feature/cb_projects            | Edits or Adds Virtural Targets |
 | origin/feature/compiler               | ??? |
-| origin/feature/sdk                    |Based on bugfix/sdk; with added features to CB SDK. |
+| origin/feature/sdk                    |Based on master; with added features to CB SDK. |
 | origin/feature/wizards                | ??? |
 | origin/master                         |Based on upstream Code::Blocks trunk/master |
 | origin/port/sqrat                     | ??? |
 | origin/portability/fixes              |Based on master; with changes that makes code or project more portable. |
 | origin/reducedGUI                     | ??? |
 | origin/win_cbp_save_as                |Based on master; but with a projects save as done for most Windows Projects. |
+| origin/wxUSE_guard                    |Based on master; but with added wx guards like wxUSE_URL. |
 | pch_fixes/PCH/DoxyBlocks              | ??? |
 | pch_fixes/PCH/FileManager             | ??? |
 | pch_fixes/PCH/HexEditor               | ??? |
