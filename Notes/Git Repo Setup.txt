@@ -41,3 +41,6 @@ git config pull.rebase true
 
 git config core.ignorecase true
 # git config core.ignorecase false
+
+# Setting for Windows (this includes Cygwin and MSys2)
+git config core.fileMode false
