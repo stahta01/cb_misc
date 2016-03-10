@@ -1,0 +1,19 @@
+wxUSE_CHOICEDLG             Used in sdk (incorrectly)
+wxUSE_CLIPBOARD             Used in sdk/wxscintilla
+wxUSE_CMDLINE_PARSER        Used in CB_Core_App
+wxUSE_DATAOBJ               Used in sdk/wxscintilla
+wxUSE_DEBUGREPORT           Used in CB_Core_App
+wxUSE_DISPLAY               Used in sdk/wxscintilla
+wxUSE_DRAG_AND_DROP         Used in sdk/wxscintilla
+wxUSE_FS_INET               to be added if needed, 1st
+wxUSE_GRAPHICS_CONTEXT      Used in sdk/wxscintilla
+wxUSE_ON_FATAL_EXCEPTION    Used in CB_Core_App
+wxUSE_POPUPWIN              Used in sdk and others.
+wxUSE_PROTOCOL              to be added, 3rd
+wxUSE_SOCKETS               to be added, 4th
+wxUSE_STATUSBAR             Used in sdk and others.
+wxUSE_TEXTCTRL              Used in sdk/wxscintilla (commented out by CB Team)
+wxUSE_UNICODE               Used in sdk and others.
+wxUSE_URL                   to be added, 2nd
+wxUSE_UXTHEME               Used in CB_Core_App
+wxUSE_XML                   Used in CB_Core_App
