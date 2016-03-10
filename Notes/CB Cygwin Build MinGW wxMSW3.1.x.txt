@@ -167,3 +167,14 @@ export PATH=/opt/mingw/cb/msw/wx/lib:$PATH
 
 
 $   /opt/mingw/cb/msw/wx/bin/codeblocks.exe --debug-log
+
+## Compile error(s) below
+libtool: compile:  i686-w64-mingw32-g++ -DHAVE_CONFIG_H -I. -I../../src/include -I/opt/mingw/cb/msw/wx/lib/wx/include/i686-w64-mingw32-msw-unicode-3.1 -I/opt/mingw/cb/msw/wx/include/wx-3.1 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -mthreads -I../../src/include -I../../src/sdk/wxscintilla/include -I../../src/include/tinyxml -I../../src/include/scripting/include -I../../src/include/scripting/bindings -I../../src/include/scripting/sqplus -I../../src/include/mozilla_chardet -I../../src/include/mozilla_chardet/mfbt -I../../src/include/mozilla_chardet/nsprpub/pr/include -I../../src/include/mozilla_chardet/xpcom -I../../src/include/mozilla_chardet/xpcom/base -I../../src/include/mozilla_chardet/xpcom/glue -DEXPORT_LIB -DEXPORT_EVENTS -DWXMAKINGDLL_SCI -DWXUSINGDLL -ansi -DTIXML_USE_STL -g -DDEBUG -DCB_AUTOCONF -Wno-attributes -std=gnu++11 -DPIC -fexceptions -MT configmanager.lo -MD -MP -MF .deps/configmanager.Tpo -c configmanager.cpp  -DDLL_EXPORT -DPIC -o .libs/configmanager.o
+configmanager.cpp: In static member function ‘static void ConfigManager::InitPaths()’:
+configmanager.cpp:1513:98: error: ‘const class wxStandardPaths’ has no member named ‘GetInstallPrefix’
+             ConfigManager::plugin_path_global = ((const wxStandardPaths&)wxStandardPaths::Get()).GetInstallPrefix() + _T("/lib/codeblocks/plugins");
+                                                                                                  ^
+configmanager.cpp:1518:102: error: ‘const class wxStandardPaths’ has no member named ‘GetInstallPrefix’
+                 ConfigManager::plugin_path_global = ((const wxStandardPaths&)wxStandardPaths::Get()).GetInstallPrefix() + _T("/lib64/codeblocks/plugins");
+                                                                                                      ^
+Makefile:949: recipe for target 'configmanager.lo' failed
