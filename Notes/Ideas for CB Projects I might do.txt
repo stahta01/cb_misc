@@ -1,0 +1,10 @@
+Ideas for CB Projects I might do.txt
+
+Build Code::Blocks using batch_build_all_30.bat, batch_build_all.bat, or batch_build_all
+
+Do a simple CC using suggestion from http://forums.codeblocks.org/index.php/topic,20963.0.html
+    Pascal
+    Ada
+    Ruby
+
+Build "MAME - Multiple Arcade Machine Emulator" using Code::Blocks and MSys2
