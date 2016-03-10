@@ -41,10 +41,16 @@ nodosfilewarning
 ##
 $ cd ~/devel/wxWidgets-git
 
-$ git status -uno
-$ git fetch --prune
-$ git checkout master
-$ git pull
+git status -uno
+git fetch upstream --prune && git fetch origin --prune
+git checkout cygwin
+git rebase upstream/master
+git pull
+git format-patch upstream/master
+0001-wxQT-Fixed-warnings-variable-may-be-undefined.-Thank.patch
+0002-wxQT-Removed-files-that-do-NOT-exist.-Thanks-stahta0.patch
+0003-wxGTK-Changed-guards-for-wxUSE_SOCKETS-files.-Thanks.patch
+0004-configure.in-wxGTK-fixes-under-Windows-Thanks-stahta.patch
 
 $ mkdir build_mingw_cb_gtk_wx3.1.x_shared_multilib_unicode
 
@@ -57,6 +63,10 @@ export CXXFLAGS="-Wno-attributes"
 --disable-rearrangectrl # ?needed to stop tiff build error?
 --disable-debugreport # QA lib errors out 
 --disable-gtktest # gtk test failed
+--disable-sockets # done to speed up build of wxWidgets; since sockets does NOT work.
+                  # CB needs edited to comment out wxURL code.
+##  configure:34222: WARNING: socket library not found - sockets will be disabled
+#!! Cygwin built MinGW wxGTK likely does NOT have ability to support sockets
 ##
 # Do NOT use host unless it differs from build and maybe not even then
 $  ../configure --prefix=/opt/mingw/cb/gtk/wx \
@@ -99,8 +109,14 @@ Configured wxWidgets 3.1.1 for `i686-w64-mingw32'
                                        libmspack          no
                                        sdl                no
 ###
-#!! Hand edited Makefile removed -lX11 from EXTRALIBS_GUI
-#!! Hand edited Makefile.in removed coredll_msw_display.o from GTK_WIN32_SRC (src/msw/display.cpp)
+#!! Hand edit Makefile removed -lX11 from EXTRALIBS_GUI
+#!! Hand edit Makefile.in removed coredll_msw_display.o from GTK_WIN32_SRC (src/msw/display.cpp)
+<set var="NET_WIN32_SRC" hints="files">
+    src/msw/sockmsw.cpp
+    src/msw/urlmsw.cpp
+</set>
+<set var="NET_WIN32_HDR" hints="files">
+</set>
 #
 #   make clean && make && make install
 $   make && make install
@@ -174,9 +190,59 @@ export PATH=/opt/mingw/cb/gtk/wx/lib:$PATH
 
 $   /opt/mingw/cb/gtk/wx/bin/codeblocks.exe --debug-log
 
+git add configure.in
+git commit --message="configure.in: wxGTK fixes under Windows (Thanks stahta01)"
+
+diff --git a/Makefile.in b/Makefile.in
+old mode 100644
+new mode 100755
+index 4a192c1..073fae6
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -2194,6 +2194,7 @@ COND_PLATFORM_WIN32_1_GTK_PLATFORM_HDR =  \
+        wx/msw/ole/safearray.h \
+        wx/msw/ole/uuid.h \
+        wx/msw/dib.h \
++       wx/msw/init.h \
+        wx/unix/fontutil.h
+ @COND_PLATFORM_WIN32_1@GTK_PLATFORM_HDR = $(COND_PLATFORM_WIN32_1_GTK_PLATFORM_HDR)
+ @COND_TOOLKIT_MSW@UNIV_PLATFORM_HDR = wx/msw/evtloop.h
+@@ -13574,7 +13575,6 @@ COND_PLATFORM_WIN32_1___GTK_PLATFORM_SRC_OBJECTS_1_1 =  \
+        coredll_uuid.o \
+        coredll_msw_dialup.o \
+        coredll_dib.o \
+-       coredll_msw_display.o \
+        coredll_utilswin.o \
+        coredll_unix_fontenum.o \
+        coredll_unix_fontutil.o
+
 if test "$USE_WIN32" = 1 ; then
 if test "$USE_UNIX" = 1 ; then
 if test "$wxUSE_UNIX" = "yes"; then
+if test "$wxUSE_STACKWALKER" = "yes" -a "$USE_WIN32" != 1 -a "$USE_UNIX" != 1; then
+    AC_MSG_WARN([wxStackWalker is only available on Win32 and UNIX... disabled])
+    wxUSE_STACKWALKER=no
+fi
+
+if test "$wxUSE_SOCKETS" = "yes"; then
+    dnl under MSW we always have sockets
+    if test "$TOOLKIT" != "MSW"; then
+        dnl under Solaris and OS/2, socket functions live in -lsocket
+        AC_CHECK_FUNC(socket,,
+            [
+                AC_CHECK_LIB(socket, socket,
+                    if test "$INET_LINK" != " -lsocket"; then
+                        INET_LINK="$INET_LINK -lsocket"
+                    fi,
+                    [
+                        AC_MSG_WARN([socket library not found - sockets will be disabled])
+                        wxUSE_SOCKETS=no
+                    ]
+                )
+            ]
+        )
+    fi
+fi
 
 NOTES: Below ignore till have build issues.
 
