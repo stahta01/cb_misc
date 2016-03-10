@@ -1,0 +1,167 @@
+####
+# Requires Cygwin packages:
+#   mingw64-i686-pkg-config
+#
+#
+####
+
+C:\Apps32\Cygwin\usr\i686-w64-mingw32\sys-root\mingw\lib\pkgconfig
+
+pkg-config --list-all
+
+echo $PKG_CONFIG_PATH 
+export PKG_CONFIG_PATH=/usr/i686-w64-mingw32/sys-root/mingw/lib/pkgconfig
+
+
+####
+$   i686-w64-mingw32-g++ --version
+## Result
+i686-w64-mingw32-g++ (GCC) 4.9.2
+##
+$   i686-w64-mingw32-g++ -pthread
+### Good Result
+i686-w64-mingw32-g++: fatal error: no input files
+compilation terminated.
+###
+### Bad Result
+####
+
+$   echo $CYGWIN
+## Result
+nodosfilewarning
+##
+$ cd ~/devel/wxWidgets-git
+
+git status -uno
+git fetch upstream --prune && git fetch origin --prune
+git checkout master
+git rebase upstream/master
+git push
+git status -uno
+
+
+$ mkdir build_mingw_cb_msw_wx3.1.x_shared_multilib_unicode
+
+$ cd ~/devel/wxWidgets-git/build_mingw_cb_msw_wx3.1.x_shared_multilib_unicode
+# make uninstall
+export CPPFLAGS=""
+export CXXFLAGS="-Wno-attributes"
+##
+##
+# Do NOT use host unless it differs from build and maybe not even then
+$  ../configure --prefix=/opt/mingw/cb/msw/wx \
+      --host=i686-w64-mingw32 \
+      --disable-sys-libs \
+      --enable-compat28 \
+      --with-msw \
+      --with-cxx=11 \
+      --enable-graphics_ctx \
+      --disable-monolithic \
+      --enable-shared \
+      --enable-xrc \
+      --disable-universal \
+      --disable-precomp-headers \
+      --enable-unicode
+###
+Configured wxWidgets 3.1.1 for `i686-w64-mingw32'
+
+  Which GUI toolkit should wxWidgets use?                 msw
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               builtin
+                                       png                builtin
+                                       regex              builtin
+                                       tiff               builtin
+                                       zlib               builtin
+                                       expat              builtin
+                                       libmspack          no
+                                       sdl                no
+###
+#
+#   make clean && make && make install
+$   make && make install
+###
+ The installation of wxWidgets is finished.  On certain
+ platforms (e.g. Linux) you'll now have to run ldconfig
+ if you installed a shared library and also modify the
+ LD_LIBRARY_PATH (or equivalent) environment variable.
+###
+$   which wx-config
+$   echo $PATH
+$   export PATH=/usr/bin:/opt/mingw/cb/msw/wx/bin:$PATH
+$   which wx-config
+$   wx-config --prefix
+$   wx-config --libs
+
+
+#########
+
+####
+# Requires Cygwin packages:
+#   libtool     2.4.6-3
+#   automake
+#   zip
+#
+####
+
+
+cd ~/devel/codeblocks_https_metadata-git
+
+git status -uno
+git checkout -- src/sdk/wxscintilla/Readme
+git checkout -- debian/changelog
+git checkout build_cfg/wxMSW
+git pull --rebase
+
+git rebase downstream/master
+# git rebase -i downstream/master
+# git push downstream --force-with-lease
+
+git format-patch downstream/master
+
+/opt/mingw/cb/msw/wx/bin/wx-config --list
+
+echo $ACLOCAL_FLAGS
+export ACLOCAL_FLAGS="-I `/opt/mingw/cb/msw/wx/bin/wx-config --prefix`/share/aclocal"
+echo $ACLOCAL_FLAGS
+
+./bootstrap
+export CPPFLAGS=""
+export CXXFLAGS="-Wno-attributes"
+echo $CXXFLAGS
+
+./configure --host=i686-w64-mingw32 \
+    --prefix=/opt/mingw/cb/msw/wx \
+    --with-platform=msw \
+    --enable-debug \
+    --disable-pch \
+    --with-wx-config=/opt/mingw/cb/msw/wx/bin/wx-config
+
+
+#$  make clean && make && make install
+
+make
+
+make install
+
+#  make && make install
+
+
+In order to run Code::Blocks
+####
+# Requires Cygwin packages:
+#
+####
+
+
+echo $PATH
+export PATH=/opt/mingw/cb/msw/wx/lib:$PATH
+
+
+$   /opt/mingw/cb/msw/wx/bin/codeblocks.exe --debug-log
