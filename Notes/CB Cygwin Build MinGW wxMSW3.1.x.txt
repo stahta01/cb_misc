@@ -143,6 +143,8 @@ echo $CXXFLAGS
     --disable-pch \
     --with-wx-config=/opt/mingw/cb/msw/wx/bin/wx-config
 
+# export below fixes auto_revision.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory
+export PATH=$PATH:/usr/i686-w64-mingw32/sys-root/mingw/bin:/cygdrive/c/Windows/system32
 
 #$  make clean && make && make install
 
