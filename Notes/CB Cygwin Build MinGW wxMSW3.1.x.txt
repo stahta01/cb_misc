@@ -5,13 +5,8 @@
 #
 ####
 
-C:\Apps32\Cygwin\usr\i686-w64-mingw32\sys-root\mingw\lib\pkgconfig
-
-pkg-config --list-all
-
 echo $PKG_CONFIG_PATH 
 export PKG_CONFIG_PATH=/usr/i686-w64-mingw32/sys-root/mingw/lib/pkgconfig
-
 
 ####
 $   i686-w64-mingw32-g++ --version
@@ -49,7 +44,7 @@ export CXXFLAGS="-Wno-attributes"
 ##
 ##
 # Do NOT use host unless it differs from build and maybe not even then
-$  ../configure --prefix=/opt/mingw/cb/msw/wx \
+$  ../configure --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt \
       --host=i686-w64-mingw32 \
       --disable-sys-libs \
       --enable-compat28 \
@@ -82,6 +77,7 @@ Configured wxWidgets 3.1.1 for `i686-w64-mingw32'
                                        expat              builtin
                                        libmspack          no
                                        sdl                no
+
 ###
 #
 #   make clean && make && make install
@@ -94,13 +90,14 @@ $   make && make install
 ###
 $   which wx-config
 $   echo $PATH
-$   export PATH=/usr/bin:/opt/mingw/cb/msw/wx/bin:$PATH
+# 
+$   export PATH=/usr/bin:/usr/i686-w64-mingw32/sys-root/mingw/opt/bin:$PATH
 $   which wx-config
 $   wx-config --prefix
 $   wx-config --libs
 
 # Work around bug in wx-config
-cd /opt/mingw/cb/msw/wx/lib
+cd /usr/i686-w64-mingw32/sys-root/mingw/opt/lib
 cp --update libwx_baseu-3.1-i686-w64-mingw32.dll.a          libwx_baseu-3.1.a
 cp --update libwx_baseu_net-3.1-i686-w64-mingw32.dll.a      libwx_baseu_net-3.1.a
 cp --update libwx_baseu_xml-3.1-i686-w64-mingw32.dll.a      libwx_baseu_xml-3.1.a
@@ -138,10 +135,10 @@ git rebase downstream/master
 
 git format-patch downstream/master
 
-/opt/mingw/cb/msw/wx/bin/wx-config --list
+/usr/i686-w64-mingw32/sys-root/mingw/opt/bin/wx-config --list
 
 echo $ACLOCAL_FLAGS
-export ACLOCAL_FLAGS="-I `/opt/mingw/cb/msw/wx/bin/wx-config --prefix`/share/aclocal"
+export ACLOCAL_FLAGS="-I `/usr/i686-w64-mingw32/sys-root/mingw/opt/bin/wx-config --prefix`/share/aclocal"
 echo $ACLOCAL_FLAGS
 
 echo $PATH
@@ -154,11 +151,11 @@ export CXXFLAGS="-Wno-attributes"
 export LDFLAGS=""
 
 ./configure --host=i686-w64-mingw32 \
-    --prefix=/opt/mingw/cb/msw/wx \
+    --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt \
     --with-platform=msw \
     --enable-debug \
     --disable-pch \
-    --with-wx-config=/opt/mingw/cb/msw/wx/bin/wx-config
+    --with-wx-config=/usr/i686-w64-mingw32/sys-root/mingw/opt/bin/wx-config
 
 # export below fixes auto_revision.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory
 # export PATH=$PATH:/usr/i686-w64-mingw32/sys-root/mingw/bin
@@ -180,41 +177,19 @@ In order to run Code::Blocks
 ####
 
 echo $PATH
-export PATH=/opt/mingw/cb/msw/wx/lib:$PATH
+export PATH=/usr/i686-w64-mingw32/sys-root/mingw/opt/lib:/usr/i686-w64-mingw32/sys-root/mingw/bin:$PATH
 
+$   /usr/i686-w64-mingw32/sys-root/mingw/opt/bin/codeblocks.exe --debug-log
 
-$   /opt/mingw/cb/msw/wx/bin/codeblocks.exe --debug-log
+## Run errors
 
 ##
 CODEBLOCKS_PLATFORM is this gtk or msw
 
 ## Compile error(s) below
-libtool: compile:  i686-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I../../../../../src/include -ansi -DTIXML_USE_STL -Wall -g -DDEPSLIB_UNIX -fno-strict-aliasing -g -DDEBUG -DCB_AUTOCONF -g -O2 -MT fileunix.lo -MD -MP -MF .deps/fileunix.Tpo -c fileunix.c  -DDLL_EXPORT -DPIC -o .libs/fileunix.o
-fileunix.c:125:17: fatal error: ar.h: No such file or directory
- # include <ar.h>
-                 ^
-compilation terminated.
-Makefile:463: recipe for target 'fileunix.lo' failed
+
 
 ## Link error(s) below
 
-libtool: link: i686-w64-mingw32-g++ -shared -nostdlib /usr/i686-w64-mingw32/sys-root/mingw/lib/../lib/dllcrt2.o /usr/lib/gcc/i686-w64-mingw32/4.9.2/crtbegin.o  .libs/advancedcompileroptionsdlg.o .libs/compiler_defs.o .libs/compilerCYGWIN.o .libs/compilererrors.o .libs/compilerflagdlg.o .libs/compilergcc.o .libs/compilerGDC.o .libs/compilerICC.o .libs/compilerIAR.o .libs/compilerKeilC51.o .libs/compilerLCC.o .libs/compilermessages.o .libs/compilerMINGW.o .libs/compilerMINGWgenerator.o .libs/compilerMSVC.o .libs/compilerMSVC8.o .libs/compilerMSVC10.o .libs/compileroptionsdlg.o .libs/compilerOW.o .libs/compilerOWgenerator.o .libs/compilerG95.o .libs/compilerGNUARM.o .libs/compilerGNUFortran.o .libs/compilerXML.o .libs/directcommands.o  -Wl,--whole-archive depslib/src/.libs/libdepslib.a -Wl,--no-whole-archive  ../../sdk/.libs/libcodeblocks.dll.a -L/opt/mingw/cb/msw/wx/lib -L/usr/lib/gcc/i686-w64-mingw32/4.9.2 -lgdi32 -lwx_mswu_aui-3.1 -lwx_mswu_propgrid-3.1 -lwx_mswu_richtext-3.1 -lwx_mswu_xrc-3.1 -lwx_mswu_html-3.1 -lwx_mswu_qa-3.1 -lwx_mswu_adv-3.1 -lwx_mswu_core-3.1 -lwx_baseu_xml-3.1 -lwx_baseu_net-3.1 -lwx_baseu-3.1 -lpthread -L/usr/lib/gcc/i686-w64-mingw32/4.9.2/../../../../i686-w64-mingw32/lib/../lib -L/usr/i686-w64-mingw32/sys-root/mingw/lib/../lib -L/usr/lib/gcc/i686-w64-mingw32/4.9.2/../../../../i686-w64-mingw32/lib -L/usr/i686-w64-mingw32/sys-root/mingw/lib /usr/lib/gcc/i686-w64-mingw32/4.9.2/libstdc++.dll.a -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt /usr/lib/gcc/i686-w64-mingw32/4.9.2/crtend.o  -g -Wl,--no-undefined -Wl,--subsystem -Wl,windows -mwindows   -o .libs/libcompiler.dll -Wl,--enable-auto-image-base -Xlinker --out-implib -Xlinker .libs/libcompiler.dll.a
-depslib/src/.libs/libdepslib.a(timestamp.o): In function `timestamp':
-/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/plugins/compilergcc/depslib/src/timestamp.c:171: undefined reference to `file_time'
-/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/plugins/compilergcc/depslib/src/timestamp.c:162: undefined reference to `file_archscan'
-/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/plugins/compilergcc/depslib/src/timestamp.c:137: undefined reference to `file_dirscan'
-collect2: error: ld returned 1 exit status
-Makefile:560: recipe for target 'libcompiler.la' failed
-make[4]: *** [libcompiler.la] Error 1
-make[4]: Leaving directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/plugins/compilergcc'
-Makefile:631: recipe for target 'all-recursive' failed
-make[3]: *** [all-recursive] Error 1
-make[3]: Leaving directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/plugins/compilergcc'
-Makefile:448: recipe for target 'all-recursive' failed
-make[2]: *** [all-recursive] Error 1
-make[2]: Leaving directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/plugins'
-Makefile:458: recipe for target 'all-recursive' failed
-make[1]: *** [all-recursive] Error 1
-make[1]: Leaving directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src'
-Makefile:498: recipe for target 'all-recursive' failed
-make: *** [all-recursive] Error 1
+
+echo | i686-w64-mingw32-gcc -dM -E -
