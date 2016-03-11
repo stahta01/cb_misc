@@ -144,13 +144,14 @@ echo $ACLOCAL_FLAGS
 export ACLOCAL_FLAGS="-I `/opt/mingw/cb/msw/wx/bin/wx-config --prefix`/share/aclocal"
 echo $ACLOCAL_FLAGS
 
+echo $PATH
+# /usr/local/bin:/usr/bin:/usr/lib/lapack
+
 ./bootstrap
 
-
-
 export CPPFLAGS=""
-export CXXFLAGS="-Wno-attributes -I../exchndl/win32/include -L../exchndl/win32/lib"
-echo $CXXFLAGS
+export CXXFLAGS="-Wno-attributes"
+export LDFLAGS=""
 
 ./configure --host=i686-w64-mingw32 \
     --prefix=/opt/mingw/cb/msw/wx \
@@ -160,7 +161,8 @@ echo $CXXFLAGS
     --with-wx-config=/opt/mingw/cb/msw/wx/bin/wx-config
 
 # export below fixes auto_revision.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory
-# export PATH=$PATH:/usr/i686-w64-mingw32/sys-root/mingw/bin:/cygdrive/c/Windows/system32
+# export PATH=$PATH:/usr/i686-w64-mingw32/sys-root/mingw/bin
+echo $PATH
 
 #$  make clean && make && make install
 
@@ -183,17 +185,15 @@ export PATH=/opt/mingw/cb/msw/wx/lib:$PATH
 
 $   /opt/mingw/cb/msw/wx/bin/codeblocks.exe --debug-log
 
-## Add to configure.ac to set "-I../exchndl/win32/include"
-dnl sets build, host variables and the same with _alias
-AC_CANONICAL_BUILD
-AC_CANONICAL_HOST
-
-            case "${host}" in
-                i*86-w64-mingw32 )
-                    CXXFLAGS="$CXXFLAGS -I../exchndl/win32/include -L../exchndl/win32/lib"
-                ;;
-            esac
+##
+CODEBLOCKS_PLATFORM is this gtk or msw
 
 ## Compile error(s) below
+libtool: compile:  i686-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I../../../../../src/include -ansi -DTIXML_USE_STL -Wall -g -DDEPSLIB_UNIX -fno-strict-aliasing -g -DDEBUG -DCB_AUTOCONF -g -O2 -MT fileunix.lo -MD -MP -MF .deps/fileunix.Tpo -c fileunix.c  -DDLL_EXPORT -DPIC -o .libs/fileunix.o
+fileunix.c:125:17: fatal error: ar.h: No such file or directory
+ # include <ar.h>
+                 ^
+compilation terminated.
+Makefile:463: recipe for target 'fileunix.lo' failed
 
 ## Link error(s) below
