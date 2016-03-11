@@ -99,6 +99,19 @@ $   which wx-config
 $   wx-config --prefix
 $   wx-config --libs
 
+# Work around bug in wx-config
+cd /opt/mingw/cb/msw/wx/lib
+cp --update libwx_baseu-3.1-i686-w64-mingw32.dll.a          libwx_baseu-3.1.a
+cp --update libwx_baseu_net-3.1-i686-w64-mingw32.dll.a      libwx_baseu_net-3.1.a
+cp --update libwx_baseu_xml-3.1-i686-w64-mingw32.dll.a      libwx_baseu_xml-3.1.a
+cp --update libwx_mswu_adv-3.1-i686-w64-mingw32.dll.a       libwx_mswu_adv-3.1.a
+cp --update libwx_mswu_aui-3.1-i686-w64-mingw32.dll.a       libwx_mswu_aui-3.1.a
+cp --update libwx_mswu_core-3.1-i686-w64-mingw32.dll.a      libwx_mswu_core-3.1.a
+cp --update libwx_mswu_html-3.1-i686-w64-mingw32.dll.a      libwx_mswu_html-3.1.a
+cp --update libwx_mswu_propgrid-3.1-i686-w64-mingw32.dll.a  libwx_mswu_propgrid-3.1.a
+cp --update libwx_mswu_qa-3.1-i686-w64-mingw32.dll.a        libwx_mswu_qa-3.1.a
+cp --update libwx_mswu_richtext-3.1-i686-w64-mingw32.dll.a  libwx_mswu_richtext-3.1.a
+cp --update libwx_mswu_xrc-3.1-i686-w64-mingw32.dll.a       libwx_mswu_xrc-3.1.a
 
 #########
 
@@ -132,8 +145,11 @@ export ACLOCAL_FLAGS="-I `/opt/mingw/cb/msw/wx/bin/wx-config --prefix`/share/acl
 echo $ACLOCAL_FLAGS
 
 ./bootstrap
+
+
+
 export CPPFLAGS=""
-export CXXFLAGS="-Wno-attributes"
+export CXXFLAGS="-Wno-attributes -I../exchndl/win32/include -L../exchndl/win32/lib"
 echo $CXXFLAGS
 
 ./configure --host=i686-w64-mingw32 \
@@ -144,7 +160,7 @@ echo $CXXFLAGS
     --with-wx-config=/opt/mingw/cb/msw/wx/bin/wx-config
 
 # export below fixes auto_revision.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory
-export PATH=$PATH:/usr/i686-w64-mingw32/sys-root/mingw/bin:/cygdrive/c/Windows/system32
+# export PATH=$PATH:/usr/i686-w64-mingw32/sys-root/mingw/bin:/cygdrive/c/Windows/system32
 
 #$  make clean && make && make install
 
@@ -161,20 +177,23 @@ In order to run Code::Blocks
 #
 ####
 
-
 echo $PATH
 export PATH=/opt/mingw/cb/msw/wx/lib:$PATH
 
 
 $   /opt/mingw/cb/msw/wx/bin/codeblocks.exe --debug-log
 
+## Add to configure.ac to set "-I../exchndl/win32/include"
+dnl sets build, host variables and the same with _alias
+AC_CANONICAL_BUILD
+AC_CANONICAL_HOST
+
+            case "${host}" in
+                i*86-w64-mingw32 )
+                    CXXFLAGS="$CXXFLAGS -I../exchndl/win32/include -L../exchndl/win32/lib"
+                ;;
+            esac
+
 ## Compile error(s) below
-libtool: compile:  i686-w64-mingw32-g++ -DHAVE_CONFIG_H -I. -I../../src/include -I/opt/mingw/cb/msw/wx/lib/wx/include/i686-w64-mingw32-msw-unicode-3.1 -I/opt/mingw/cb/msw/wx/include/wx-3.1 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -mthreads -I../../src/include -I../../src/sdk/wxscintilla/include -I../../src/include/tinyxml -I../../src/include/scripting/include -I../../src/include/scripting/bindings -I../../src/include/scripting/sqplus -I../../src/include/mozilla_chardet -I../../src/include/mozilla_chardet/mfbt -I../../src/include/mozilla_chardet/nsprpub/pr/include -I../../src/include/mozilla_chardet/xpcom -I../../src/include/mozilla_chardet/xpcom/base -I../../src/include/mozilla_chardet/xpcom/glue -DEXPORT_LIB -DEXPORT_EVENTS -DWXMAKINGDLL_SCI -DWXUSINGDLL -ansi -DTIXML_USE_STL -g -DDEBUG -DCB_AUTOCONF -Wno-attributes -std=gnu++11 -DPIC -fexceptions -MT configmanager.lo -MD -MP -MF .deps/configmanager.Tpo -c configmanager.cpp  -DDLL_EXPORT -DPIC -o .libs/configmanager.o
-configmanager.cpp: In static member function ‘static void ConfigManager::InitPaths()’:
-configmanager.cpp:1513:98: error: ‘const class wxStandardPaths’ has no member named ‘GetInstallPrefix’
-             ConfigManager::plugin_path_global = ((const wxStandardPaths&)wxStandardPaths::Get()).GetInstallPrefix() + _T("/lib/codeblocks/plugins");
-                                                                                                  ^
-configmanager.cpp:1518:102: error: ‘const class wxStandardPaths’ has no member named ‘GetInstallPrefix’
-                 ConfigManager::plugin_path_global = ((const wxStandardPaths&)wxStandardPaths::Get()).GetInstallPrefix() + _T("/lib64/codeblocks/plugins");
-                                                                                                      ^
-Makefile:949: recipe for target 'configmanager.lo' failed
+
+## Link error(s) below
