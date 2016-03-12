@@ -90,7 +90,7 @@ $   make && make install
 ###
 $   which wx-config
 $   echo $PATH
-# 
+#   /opt/mingw/cb/msw/wx/lib:/usr/i686-w64-mingw32/sys-root/mingw/bin:/opt/mingw/cb/msw/wx/lib:/usr/local/bin:/usr/bin:/usr/lib/lapack:/usr/i686-w64-mingw32/sys-root/mingw/bin
 $   export PATH=/usr/bin:/usr/i686-w64-mingw32/sys-root/mingw/opt/bin:$PATH
 $   which wx-config
 $   wx-config --prefix
@@ -136,6 +136,16 @@ git rebase downstream/master
 git format-patch downstream/master
 
 /usr/i686-w64-mingw32/sys-root/mingw/opt/bin/wx-config --list
+##
+    Default config is msw-unicode-3.1
+
+  Default config will be used for output
+  though it is not installed in: /usr/i686-w64-mingw32/sys-root/mingw/opt
+
+  Also available in /usr/i686-w64-mingw32/sys-root/mingw/opt:
+    i686-w64-mingw32-msw-unicode-3.1
+##
+
 
 echo $ACLOCAL_FLAGS
 export ACLOCAL_FLAGS="-I `/usr/i686-w64-mingw32/sys-root/mingw/opt/bin/wx-config --prefix`/share/aclocal"
@@ -149,6 +159,8 @@ echo $PATH
 export CPPFLAGS=""
 export CXXFLAGS="-Wno-attributes"
 export LDFLAGS=""
+
+# --with-contrib-plugins=all \
 
 ./configure --host=i686-w64-mingw32 \
     --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt \
@@ -179,7 +191,17 @@ In order to run Code::Blocks
 echo $PATH
 export PATH=/usr/i686-w64-mingw32/sys-root/mingw/opt/lib:/usr/i686-w64-mingw32/sys-root/mingw/bin:$PATH
 
-$   /usr/i686-w64-mingw32/sys-root/mingw/opt/bin/codeblocks.exe --debug-log
+# Copied the src\exchndl\win32\bin files to usr\i686-w64-mingw32\sys-root\mingw\opt\bin
+
+$   /usr/i686-w64-mingw32/sys-root/mingw/opt/bin/codeblocks.exe --debug-log --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt/share/codeblocks
+
+Run message box
+---------------------------
+Cannot find resources...
+Code::Blocks was configured to be installed in '\usr\i686-w64-mingw32\sys-root\mingw\opt\share\codeblocks\share\codeblocks'.
+Please use the command-line switch '--prefix' or set the CODEBLOCKS_DATA_DIR environment variable to point where Code::Blocks is installed,
+or try re-installing the application...
+---------------------------
 
 ## Run errors
 
@@ -191,5 +213,3 @@ CODEBLOCKS_PLATFORM is this gtk or msw
 
 ## Link error(s) below
 
-
-echo | i686-w64-mingw32-gcc -dM -E -
