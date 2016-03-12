@@ -8,3 +8,11 @@ Do a simple CC using suggestion from http://forums.codeblocks.org/index.php/topi
     Ruby
 
 Build "MAME - Multiple Arcade Machine Emulator" using Code::Blocks and MSys2
+
+Build scite for Cygwin
+hg clone http://hg.code.sf.net/p/scintilla/scite scintilla-scite
+
+Build Code::Blocks with this triple
+    --build=i686-pc-cygwin
+    --host=i686-w64-mingw32
+    --target=i686-pc-cygwin
