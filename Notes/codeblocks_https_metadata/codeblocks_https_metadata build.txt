@@ -278,7 +278,6 @@ git checkout build/wx_multilibs_gcc471TDM && git status -uno
 ###
 # Only rebase this section after one is added to top.
     git rebase origin/bugfix/plugins
-##    git rebase origin/bugfix/sdk
 ###
 git rebase origin/feature/cb_projects && git status -uno
 # git log -5
