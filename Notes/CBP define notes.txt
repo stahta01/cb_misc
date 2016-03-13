@@ -1,0 +1,43 @@
+ASTYLE_LIB                      Third-Party
+BOOST_SYSTEM_NO_DEPRECATED      Third-Party
+BUILDING_PLUGIN                 Code::Blocks
+CB_PRECOMP                      Code::Blocks        PCH
+CB_TEST_PROJECT                 Code::Blocks
+CC_NO_COLLAPSE_ITEM             Code::Blocks
+DEPSLIB_UNIX                    Third-Party
+DEPSLIB_WINDOWS                 Third-Party
+ENABLE_BINRELOC                 ?Code::Blocks
+EXPORT_EVENTS                   Code::Blocks        DLL
+EXPORT_LIB                      Code::Blocks        DLL
+GTK                             Third-Party
+HAVE_W32API_H                   wxWidgets
+HUNSPELL_STATIC                 Third-Party
+LINK_LEXERS                     Third-Party
+NOPCH                           wxWidgets           PCH
+NO_LOGGING
+PIC                             GCC
+SCI_LEXER                       Third-Party
+SUPPORT_UTF8
+UNICODE                         wxWidgets
+USE_GTK_NOTEBOOK                Code::Blocks
+USE_PCH                         Code::Blocks        PCH
+WINVER=0x0500                   MinGW_GCC
+WINVER=0x0501                   MinGW_GCC
+WXMAKINGDLL                     wxWidgets
+WXMAKINGDLL_CHART               Third-Party
+WXMAKINGDLL_FNB                 Third-Party
+WXMAKINGDLL_PDFDOC              Third-Party
+WXMAKINGDLL_SCI                 Third-Party
+WXMAKINGDLL_THINGS              Third-Party
+WXMAKINGLIB_PDFDOC              Third-Party
+WXUSINGDLL                      wxWidgets
+WX_PRECOMP                      wxWidgets           PCH
+_UNICODE                        wxWidgets
+_WIN64                          MinGW_GCC
+__FAM__
+__GNUWIN32__                    wxWidgets
+__WXMSW__                       wxWidgets
+__WX__                          wxWidgets
+cbDEBUG                         Code::Blocks
+wxPDF_USE_WXMODULE=0            Third-Party
+wxUSE_UNICODE                   wxWidgets
