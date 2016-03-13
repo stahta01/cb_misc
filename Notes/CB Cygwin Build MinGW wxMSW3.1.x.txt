@@ -43,9 +43,13 @@ export CPPFLAGS=""
 export CXXFLAGS="-Wno-attributes"
 ##
 ##
-# Do NOT use host unless it differs from build and maybe not even then
-$  ../configure --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt \
+# Do NOT use host unless it differs from build
+../configure --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt \
       --host=i686-w64-mingw32 \
+      --disable-fs_inet \
+      --disable-url \
+      --disable-protocol \
+      --disable-sockets \
       --disable-sys-libs \
       --enable-compat28 \
       --with-msw \
@@ -77,7 +81,6 @@ Configured wxWidgets 3.1.1 for `i686-w64-mingw32'
                                        expat              builtin
                                        libmspack          no
                                        sdl                no
-
 ###
 #
 #   make clean && make && make install
@@ -90,7 +93,7 @@ $   make && make install
 ###
 $   which wx-config
 $   echo $PATH
-#   /opt/mingw/cb/msw/wx/lib:/usr/i686-w64-mingw32/sys-root/mingw/bin:/opt/mingw/cb/msw/wx/lib:/usr/local/bin:/usr/bin:/usr/lib/lapack:/usr/i686-w64-mingw32/sys-root/mingw/bin
+#   /usr/local/bin:/usr/bin:/usr/lib/lapack
 $   export PATH=/usr/bin:/usr/i686-w64-mingw32/sys-root/mingw/opt/bin:$PATH
 $   which wx-config
 $   wx-config --prefix
@@ -127,7 +130,7 @@ git fetch && git status -uno
 git checkout -- src/sdk/wxscintilla/Readme
 git checkout -- debian/changelog
 git checkout build_cfg/wxMSW
-git pull --rebase
+git pull --rebase && git status -uno
 
 git rebase downstream/master
 # git rebase -i downstream/master
@@ -160,10 +163,6 @@ echo $PATH
 
 ./bootstrap
 
-export CPPFLAGS=""
-export CXXFLAGS="-Wno-attributes"
-export LDFLAGS=""
-
 ##
 # AutoVersioning, BrowseTracker, byogames, Cccc, CppCheck, cbkoders, codesnippets,
 # codestat, copystrings, Cscope, DoxyBlocks, dragscroll, 
@@ -180,6 +179,9 @@ export LDFLAGS=""
 #   keybinder uses wxWidgets files wrong under wxMSW; not worth fixing
 #   Valgrind makes no sense to build under windows.
 
+export CPPFLAGS=""
+export CXXFLAGS="-Wno-attributes"
+export LDFLAGS=""
 ./configure --host=i686-w64-mingw32 \
     --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt \
     --with-contrib-plugins="all,-keybinder,-spellchecker" \
@@ -204,7 +206,9 @@ echo $PATH
 
 #  make clean && make && make install
 
-make ## && make install
+make clean && make
+
+## make && make install
 
 
 In order to run Code::Blocks
@@ -262,3 +266,5 @@ Remove sdk/wxscintilla/Makefile.am from 0004-Makefile.am-Added-DLL-import-export
 Create new patch to patch sdk/wxscintilla/Makefile.am
 
 ## ToDo: change LogError() to output to a file.
+
+Changed to testing for define of WIN32 in patch file.
