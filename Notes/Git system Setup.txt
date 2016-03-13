@@ -7,6 +7,9 @@ git config --global core.editor /usr/bin/scite
 git config --global user.email "stahta01@users.sourceforge.net"
 git config --global user.name  "Tim S"
 
+# On Windows computers set core.fileMode to false; this includes Cygwin.
+git config --global core.fileMode false
+git config --system core.fileMode false
 
 # On Windows computers set eol to crlf; else set to lf
 git config --system core.eol       crlf

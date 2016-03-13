@@ -7,6 +7,11 @@ git config --list
 
 git config pull.rebase
 
+git config --system core.fileMode
+git config --global core.fileMode
+git config --local core.fileMode
+
+
 remote codeblocks_sf_fork origin/
   build/split_cb_project
   build/templates
