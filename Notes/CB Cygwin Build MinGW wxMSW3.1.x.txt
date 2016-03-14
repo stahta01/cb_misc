@@ -200,17 +200,16 @@ export LDFLAGS=""
 echo $PATH
 # /usr/local/bin:/usr/bin:/usr/lib/lapack:/usr/i686-w64-mingw32/sys-root/mingw/bin
 
-make
-
 #  make clean && make && make install
 
 #  make clean && make
 
-## make && make install
+make && make install
 
 
 In order to run Code::Blocks
 ####
+#
 # Requires Cygwin packages:
 #
 ####
@@ -245,23 +244,10 @@ or try re-installing the application...
 
 ## Makefile error(s) below
 
-make[5]: Entering directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/plugins/contrib/SpellChecker/hunspell'
-make[5]: *** No rule to make target 'all'.  Stop.
-make[5]: Leaving directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/plugins/contrib/SpellChecker/hunspell'
-Makefile:695: recipe for target 'all-recursive' failed
-make[4]: *** [all-recursive] Error 1
-
-
 ## Notes
-CODEBLOCKS_PLATFORM is this gtk or msw
-
-see why mingw64-i686-hunspell-1.3.3-1.src created no lib
 
 CB_HUNSPELL_CFLAGS
 CB_HUNSPELL_LIBS
-
-Remove sdk/wxscintilla/Makefile.am from 0004-Makefile.am-Added-DLL-import-export-defines.-Thanks-.patch
-Create new patch to patch sdk/wxscintilla/Makefile.am
 
 ## ToDo: change LogError() to output to a file.
 
