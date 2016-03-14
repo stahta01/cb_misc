@@ -30,7 +30,7 @@ $ cd ~/devel/wxWidgets-git
 git status -uno
 git fetch upstream --prune && git fetch origin --prune
 git checkout master
-git rebase upstream/master
+git rebase upstream/master && git status -uno
 git push
 git status -uno
 
@@ -46,10 +46,6 @@ export CXXFLAGS="-Wno-attributes"
 # Do NOT use host unless it differs from build
 ../configure --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt \
       --host=i686-w64-mingw32 \
-      --disable-fs_inet \
-      --disable-url \
-      --disable-protocol \
-      --disable-sockets \
       --disable-sys-libs \
       --enable-compat28 \
       --with-msw \
@@ -204,9 +200,11 @@ export LDFLAGS=""
 echo $PATH
 # /usr/local/bin:/usr/bin:/usr/lib/lapack:/usr/i686-w64-mingw32/sys-root/mingw/bin
 
+make
+
 #  make clean && make && make install
 
-make clean && make
+#  make clean && make
 
 ## make && make install
 
@@ -268,3 +266,15 @@ Create new patch to patch sdk/wxscintilla/Makefile.am
 ## ToDo: change LogError() to output to a file.
 
 Changed to testing for define of WIN32 in patch file.
+
+In wxscintilla, ignore the define of GTK.
+
+acinclude.m4
+    PLATFORM_CFLAGS
+    PLATFORM_LIBS               Add to Makefile
+    CODEBLOCKS_PLATFORM
+    SHARED_FLAGS                Add to Makefile
+    PLUGIN_FLAGS                Add to Makefile
+
+Remove "-Xlinker --export-all-symbols" from acinclude.m4
+Move configure.ac part of "* configure: Added AM_CONDITIONAL HOST_MINGW32." to acinclude.m4
