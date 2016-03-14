@@ -1,43 +1,44 @@
-ASTYLE_LIB                      Third-Party
-BOOST_SYSTEM_NO_DEPRECATED      Third-Party
-BUILDING_PLUGIN                 Code::Blocks
+ASTYLE_LIB                      Support_Lib
+BOOST_SYSTEM_NO_DEPRECATED      Support_Lib
+BUILDING_PLUGIN                 Code::Blocks        DLL
 CB_PRECOMP                      Code::Blocks        PCH
 CB_TEST_PROJECT                 Code::Blocks
 CC_NO_COLLAPSE_ITEM             Code::Blocks
-DEPSLIB_UNIX                    Third-Party
-DEPSLIB_WINDOWS                 Third-Party
-ENABLE_BINRELOC                 ?Code::Blocks
+DEPSLIB_UNIX                    depslib             OS
+DEPSLIB_WINDOWS                 depslib             OS
+ENABLE_BINRELOC                 Configure/Make
 EXPORT_EVENTS                   Code::Blocks        DLL
 EXPORT_LIB                      Code::Blocks        DLL
-GTK                             Third-Party
-HAVE_W32API_H                   wxWidgets
-HUNSPELL_STATIC                 Third-Party
-LINK_LEXERS                     Third-Party
+GTK                             Scintilla           Opt     define __WX__ instead.
+HAVE_W32API_H                   wxWidgets           Hdr
+HUNSPELL_STATIC                 Support_Lib         Opt
+LINK_LEXERS                     wxScintilla         Opt
 NOPCH                           wxWidgets           PCH
-NO_LOGGING
-PIC                             GCC
-SCI_LEXER                       Third-Party
-SUPPORT_UTF8
-UNICODE                         wxWidgets
-USE_GTK_NOTEBOOK                Code::Blocks
+NO_LOGGING                      Code::Blocks Obsolete
+PIC                             Linux_OS            Opt
+SCI_LEXER                       Scintilla           Opt
+SUPPORT_UTF8                    Code::Blocks Obsolete
+UNICODE                         wxWidgets           Opt     defined if wxUSE_UNICODE is set to 1
+USE_GTK_NOTEBOOK                Code::Blocks        Opt
 USE_PCH                         Code::Blocks        PCH
-WINVER=0x0500                   MinGW_GCC
-WINVER=0x0501                   MinGW_GCC
-WXMAKINGDLL                     wxWidgets
-WXMAKINGDLL_CHART               Third-Party
-WXMAKINGDLL_FNB                 Third-Party
-WXMAKINGDLL_PDFDOC              Third-Party
-WXMAKINGDLL_SCI                 Third-Party
-WXMAKINGDLL_THINGS              Third-Party
-WXMAKINGLIB_PDFDOC              Third-Party
-WXUSINGDLL                      wxWidgets
-WX_PRECOMP                      wxWidgets           PCH
-_UNICODE                        wxWidgets
-_WIN64                          MinGW_GCC
-__FAM__
+WINVER=0x0500                   MinGW_GCC           Opt
+WINVER=0x0501                   MinGW_GCC           Opt
+WXMAKINGDLL                     wxWidgets           DLL     used internally and defined when building the library XXX as a DLL; when a monolithic wxWidgets build is used only a single WXMAKINGDLL symbol is defined
+WXMAKINGDLL_CHART               wxWidgets 3rd party DLL     used internally and defined when building the library XXX as a DLL
+WXMAKINGDLL_FNB                 wxWidgets 3rd party DLL     used internally and defined when building the library XXX as a DLL
+WXMAKINGDLL_PDFDOC              wxWidgets 3rd party DLL     used internally and defined when building the library XXX as a DLL
+WXMAKINGDLL_SCI                 wxScintilla         DLL     used internally and defined when building the library XXX as a DLL
+WXMAKINGDLL_THINGS              wxWidgets 3rd party DLL     used internally and defined when building the library XXX as a DLL
+WXMAKINGLIB_PDFDOC              wxWidgets 3rd party DLL     used internally and defined when building the library XXX as a DLL
+WXUSINGDLL                      wxWidgets           DLL     defined when compiling code which uses wxWidgets as a DLL/shared library 
+WX_PRECOMP                      wxWidgets           PCH     is defined if precompiled headers (PCH) are in use.
+_UNICODE                        wxWidgets                   defined if wxUSE_UNICODE is set to 1
+_WIN32                          Windows_OS                  Defined for both 32-bit and 64-bit environments
+_WIN64                          Windows_OS                  Defined for 64-bit environments
+__FAM__                         Linux_OS
 __GNUWIN32__                    wxWidgets
 __WXMSW__                       wxWidgets
-__WX__                          wxWidgets
-cbDEBUG                         Code::Blocks
-wxPDF_USE_WXMODULE=0            Third-Party
-wxUSE_UNICODE                   wxWidgets
+__WX__                          Scintilla           Opt     wxWindows on any supported platform
+cbDEBUG                         Code::Blocks        Opt
+wxPDF_USE_WXMODULE=0            wxWidgets 3rd party Opt
+wxUSE_UNICODE                   wxWidgets           Opt
