@@ -5,7 +5,7 @@
 cd ../codeblocks_https_metadata-git && git status -uno
 git fetch origin --prune
 git checkout master && git pull && git status -uno
-git svn fetch && git svn info
+git svn fetch && git svn info && git svn log -1
 # Update branches by rebasing with master branch
 git checkout deceased/removals && git rebase master && git push origin --force-with-lease
 
