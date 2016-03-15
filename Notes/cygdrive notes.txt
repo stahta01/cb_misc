@@ -1,0 +1,41 @@
+see gdb_driver.h/cpp, globals.cpp, compilercommandgenerator.cpp, and compilerCYGWIN.h/cpp files
+keywords: cygdrive, DetectCygwinMount, CorrectCygwinPath, reCygwin, 
+"Cygnus Solutions", ExpandBackticks, m_Backticks, SearchDirsFromBackticks
+
+Add a menu function that does m_Backticks.clear();
+
+HKEY_CURRENT_USER\Software\Cygwin\setup rootdir := C:\Apps32\Cygwin
+HKEY_LOCAL_MACHINE\SOFTWARE\Cygwin\setup rootdir := C:\Apps32\Cygwin
+key.SetName(_T("HKEY_LOCAL_MACHINE\\Software\\Cygwin\\setup"));
+
+next line if from /etc/fstab on Cygwin 32 bit
+none /cygdrive cygdrive binary,posix=0,user 0 0
+
+
+http://cygwin-lite.sourceforge.net/html/cygpath.html
+
+Usage: cygpath [-p|--path] (-u|--unix)|(-w|--windows [-s|--short-name]) filename
+       cygpath [-v|--version]
+       cygpath [-W|--windir|-S|--sysdir]
+  -u|--unix       print UNIX form of filename
+  -w|--windows    print Windows form of filename
+  -s|--short-name print Windows short form of filename
+  -p|--path       filename argument is a path
+  -v|--version    print program version
+  -W|--windir     print Windows directory
+  -S|--sysdir     print Windows system directory
+  -i|--ignore     ignore missing filename argument
+
+cygpath --windir --windows
+# C:\Windows
+cygpath --sysdir --windows
+# C:\Windows\system32
+cygpath --windows $HOME
+# C:\Users\stahta01\cygwin
+cygpath --windows --path $PATH
+# C:\Apps32\Cygwin\usr\local\bin;C:\Apps32\Cygwin\bin;C:\Apps32\Cygwin\lib\lapack
+
+C:\Apps32\Cygwin\bin\cygpath.exe -w /cygdrive/c
+# C:\
+
+To CompilerCommandGenerator::SearchDirsFromBackticks add cygpath call if under Cygwin
