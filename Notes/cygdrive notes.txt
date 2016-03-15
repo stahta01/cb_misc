@@ -26,6 +26,8 @@ Usage: cygpath [-p|--path] (-u|--unix)|(-w|--windows [-s|--short-name]) filename
   -S|--sysdir     print Windows system directory
   -i|--ignore     ignore missing filename argument
 
+cygpath --windir --unix
+# /cygdrive/c/Windows
 cygpath --windir --windows
 # C:\Windows
 cygpath --sysdir --windows
@@ -39,3 +41,12 @@ C:\Apps32\Cygwin\bin\cygpath.exe -w /cygdrive/c
 # C:\
 
 To CompilerCommandGenerator::SearchDirsFromBackticks add cygpath call if under Cygwin
+
+GDB_driver::CorrectCygwinPath
+GDB_driver::DetectCygwinMount
+m_CygdrivePrefix normally is either "/" or "/cygdrive" on Cygwin
+m_CygwinPresent
+
+        // find the target's compiler (to see which debugger to use)
+        actualCompiler = CompilerFactory::GetCompiler(target ? target->GetCompilerID()
+                                                             : m_pProject->GetCompilerID());
