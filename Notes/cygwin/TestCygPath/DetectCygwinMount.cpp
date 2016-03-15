@@ -14,7 +14,7 @@
 
 #include "globals.h"
 
-#define BUFSIZE 100
+enum{ BUFSIZE = 64 };
 
 // routines to handle cygwin compiled programs on a Windows compiled C::B IDE
 void DetectCygwinMount(void)
