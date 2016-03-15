@@ -6,6 +6,16 @@
  * $Id$
  * $HeadURL$
  */
+
+#ifdef __WXMSW__
+// for Registry detection of Cygwin
+#include "wx/msw/wrapwin.h"     // Wraps windows.h
+#endif
+
+#include "globals.h"
+
+#define BUFSIZE 100
+
 // routines to handle cygwin compiled programs on a Windows compiled C::B IDE
 void DetectCygwinMount(void)
 {

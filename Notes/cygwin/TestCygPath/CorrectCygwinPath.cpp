@@ -6,6 +6,9 @@
  * $Id$
  * $HeadURL$
  */
+
+#include "globals.h"
+
 void CorrectCygwinPath(wxString& path)
 {
     unsigned int i=0, EscCount=0;
