@@ -1,0 +1,4 @@
+Cygwin or Debugging Wiki Links.txt
+
+http://wiki.codeblocks.org/index.php/Debugging_with_Code::Blocks
+http://wiki.codeblocks.org/index.php/Installing_Cygwin_Compiler
