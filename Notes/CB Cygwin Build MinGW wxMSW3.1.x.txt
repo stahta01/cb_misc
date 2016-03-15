@@ -246,8 +246,8 @@ or try re-installing the application...
 
 ## Notes
 
-CB_HUNSPELL_CFLAGS
-CB_HUNSPELL_LIBS
+CB_HUNSPELL_CFLAGS  in configure.ac, Makefile.am
+CB_HUNSPELL_LIBS    in configure.ac, Makefile.am
 
 ## ToDo: change LogError() to output to a file.
 
