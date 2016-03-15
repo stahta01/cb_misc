@@ -2,11 +2,9 @@
 #
 # Requires Cygwin packages:
 #   mingw64-i686-pkg-config
+#   mingw64-i686-wxWidgets3.0
 #
 ####
-
-echo $PKG_CONFIG_PATH 
-export PKG_CONFIG_PATH=/usr/i686-w64-mingw32/sys-root/mingw/lib/pkgconfig
 
 ####
 $   i686-w64-mingw32-g++ --version
@@ -26,6 +24,30 @@ $   echo $CYGWIN
 nodosfilewarning
 ##
 
+echo $PKG_CONFIG_PATH 
+export PKG_CONFIG_PATH=/usr/i686-w64-mingw32/sys-root/mingw/lib/pkgconfig
+
+echo $PATH 
+export PATH=/usr/i686-w64-mingw32/sys-root/mingw/bin:$PATH
+
+which wx-config-3.0
+# /usr/i686-w64-mingw32/sys-root/mingw/bin/wx-config-3.0
+wx-config-3.0 --prefix
+# /usr/i686-w64-mingw32/sys-root/mingw
+wx-config-3.0 --libs
+# -L/usr/i686-w64-mingw32/sys-root/mingw/lib   -Wl,--subsystem,windows -mwindows -lwx_mswu_xrc-3.0-i686-w64-mingw32 -lwx_mswu_webview-3.0-i686-w64-mingw32 -lwx_mswu_html-3.0-i686-w64-mingw32 -lwx_mswu_qa-3.0-i686-w64-mingw32 -lwx_mswu_adv-3.0-i686-w64-mingw32 -lwx_mswu_core-3.0-i686-w64-mingw32 -lwx_baseu_xml-3.0-i686-w64-mingw32 -lwx_baseu_net-3.0-i686-w64-mingw32 -lwx_baseu-3.0-i686-w64-mingw32
+
+wx-config-3.0 --list
+##
+    Default config is i686-w64-mingw32-msw-unicode-3.0
+
+  Default config will be used for output
+
+  Alternate matches:
+    i686-w64-mingw32-msw-unicode-static-3.0
+##
+
+
 #########
 
 ####
@@ -36,30 +58,6 @@ nodosfilewarning
 #
 ####
 
-$   which wx-config
-$   echo $PATH
-#   /usr/local/bin:/usr/bin:/usr/lib/lapack
-$   which wx-config
-$   wx-config --prefix
-$   wx-config --libs
-
-wx-config --exec-prefix=i686-w64-mingw32 --list
-
-wx-config --host=i686-w64-mingw32 --list
-
-wx-config --list
-##
-    Default config is msw-unicode-3.1
-
-  Default config will be used for output
-  though it is not installed in: /usr/i686-w64-mingw32/sys-root/mingw/opt
-
-  Also available in /usr/i686-w64-mingw32/sys-root/mingw/opt:
-    i686-w64-mingw32-msw-unicode-3.1
-##
-
-#####
-
 cd ~/devel/codeblocks_https_metadata-git
 
 git fetch && git status -uno
@@ -68,18 +66,13 @@ git checkout -- debian/changelog
 git checkout build_cfg/wxMSW
 git pull --rebase && git status -uno
 
-git rebase downstream/master
-# git rebase -i downstream/master
-# git push downstream --force-with-lease
-
-git format-patch downstream/master
 
 echo $ACLOCAL_FLAGS
-export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
+export ACLOCAL_FLAGS="-I `wx-config-3.0 --prefix`/share/aclocal"
 echo $ACLOCAL_FLAGS
 
 echo $PATH
-# /usr/local/bin:/usr/bin:/usr/lib/lapack
+# /usr/i686-w64-mingw32/sys-root/mingw/bin:/usr/local/bin:/usr/bin:/usr/lib/lapack
 
 ./bootstrap
 
@@ -100,7 +93,6 @@ echo $PATH
 #   Valgrind makes no sense to build under windows.
 
 #   --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt \
-#   --with-wx-config=/usr/i686-w64-mingw32/sys-root/mingw/opt/bin/wx-config    
 export CPPFLAGS=""
 export CXXFLAGS="-Wno-attributes"
 export LDFLAGS=""
@@ -108,6 +100,7 @@ export LDFLAGS=""
     --with-contrib-plugins="all,-keybinder,-spellchecker" \
     --with-platform=msw \
     --enable-debug \
+    --with-wx-config=wx-config-3.0 \
     --disable-pch
 
 ####
@@ -119,10 +112,7 @@ export LDFLAGS=""
 #
 ####
 
-# export below fixes auto_revision.exe: error while loading shared libraries: ?: cannot open shared object file: No such file or directory
-# export PATH=$PATH:/usr/i686-w64-mingw32/sys-root/mingw/bin
-echo $PATH
-# /usr/local/bin:/usr/bin:/usr/lib/lapack:/usr/i686-w64-mingw32/sys-root/mingw/bin
+# /usr/local is the default install location
 
 make
 
@@ -141,24 +131,50 @@ In order to run Code::Blocks
 ####
 
 echo $PATH
-# export PATH=/usr/i686-w64-mingw32/sys-root/mingw/opt/lib:/usr/i686-w64-mingw32/sys-root/mingw/bin:$PATH
+#
+export PATH=$PATH:/usr/local/lib
 
-# Copied the src\exchndl\win32\bin files to usr\i686-w64-mingw32\sys-root\mingw\opt\bin
+# Copied the src\exchndl\win32\bin files to /usr/local/lib
 
-$   /usr/i686-w64-mingw32/sys-root/mingw/opt/bin/codeblocks.exe --help
+# Check to see if the help message works
+/usr/local/bin/codeblocks.exe --help
 
 # --prefix=C:/Apps32/Cygwin/usr/i686-w64-mingw32/sys-root/mingw/opt/share/codeblocks
 # --prefix=/usr/i686-w64-mingw32/sys-root/mingw/opt/share/codeblocks
 # --prefix=<str>            # Sets the shared data directory prefix. 
 # --verbose                 # Enable logging of c::b errors 
 # --user-data-dir=<path>    # specify an alternative directory for user settings and user installed plugins 
-$   /usr/i686-w64-mingw32/sys-root/mingw/opt/bin/codeblocks.exe --verbose --debug-log --prefix=C:/Apps32/Cygwin/usr/i686-w64-mingw32/sys-root/mingw/opt/share/codeblocks
+$   /usr/local/bin/codeblocks.exe --verbose --debug-log --prefix=C:/Apps32/Cygwin/usr/i686-w64-mingw32/sys-root/mingw/opt/share/codeblocks
 
 ## Run message box
 
 ## Run errors
 
 ## Link error(s) below
+/bin/sh ../../libtool  --tag=CXX   --mode=link i686-w64-mingw32-g++  -g -DDEBUG -DCB_AUTOCONF -Wno-attributes -std=gnu++                                   11  -DPIC -fexceptions  -Wl,--no-undefined  -o codeblocks.exe app.o appglobals.o backtracedlg.o breakpointsdlg.o compile                                   rsettingsdlg.o cpuregistersdlg.o crashhandler.o debugger_interface_creator.o debuggermenu.o debuggersettingscommonpanel.                                   o debuggersettingsdlg.o debuggersettingspanel.o disassemblydlg.o dlgabout.o dlgaboutplugin.o editkeywordsdlg.o editorcon                                   figurationdlg.o environmentsettingsdlg.o examinememorydlg.o find_replace.o infopane.o main.o notebookstyles.o prefix.o p                                   rintdlg.o projectmanagerui.o projectdepsdlg.o projectoptionsdlg.o recentitemslist.o scriptconsole.o scriptingsettingsdlg                                   .o splashscreen.o startherepage.o switcherdlg.o threadsdlg.o virtualbuildtargetsdlg.o watchesdlg.o associations.o ipc.o                                    ../sdk/libcodeblocks.la -L/usr/i686-w64-mingw32/sys-root/mingw/lib   -Wl,--subsystem,windows -mwindows -lwx_mswu_aui-3.0                                   -i686-w64-mingw32 -lwx_mswu_propgrid-3.0-i686-w64-mingw32 -lwx_mswu_richtext-3.0-i686-w64-mingw32 -lwx_mswu_xrc-3.0-i686                                   -w64-mingw32 -lwx_mswu_webview-3.0-i686-w64-mingw32 -lwx_mswu_html-3.0-i686-w64-mingw32 -lwx_mswu_qa-3.0-i686-w64-mingw3                                   2 -lwx_mswu_adv-3.0-i686-w64-mingw32 -lwx_mswu_core-3.0-i686-w64-mingw32 -lwx_baseu_xml-3.0-i686-w64-mingw32 -lwx_baseu_                                   net-3.0-i686-w64-mingw32 -lwx_baseu-3.0-i686-w64-mingw32   -lexchndl -lcomctl32 -L../exchndl/win32/lib
+libtool: link: i686-w64-mingw32-g++ -g -DDEBUG -DCB_AUTOCONF -Wno-attributes -std=gnu++11 -DPIC -fexceptions -Wl,--no-un                                   defined -o .libs/codeblocks.exe app.o appglobals.o backtracedlg.o breakpointsdlg.o compilersettingsdlg.o cpuregistersdlg                                   .o crashhandler.o debugger_interface_creator.o debuggermenu.o debuggersettingscommonpanel.o debuggersettingsdlg.o debugg                                   ersettingspanel.o disassemblydlg.o dlgabout.o dlgaboutplugin.o editkeywordsdlg.o editorconfigurationdlg.o environmentset                                   tingsdlg.o examinememorydlg.o find_replace.o infopane.o main.o notebookstyles.o prefix.o printdlg.o projectmanagerui.o p                                   rojectdepsdlg.o projectoptionsdlg.o recentitemslist.o scriptconsole.o scriptingsettingsdlg.o splashscreen.o startherepag                                   e.o switcherdlg.o threadsdlg.o virtualbuildtargetsdlg.o watchesdlg.o associations.o ipc.o -Wl,--subsystem -Wl,windows -m                                   windows  ../sdk/.libs/libcodeblocks.dll.a -lgdi32 /usr/lib/gcc/i686-w64-mingw32/4.9.2/libstdc++.dll.a -L/usr/i686-w64-mi                                   ngw32/sys-root/mingw/lib -lwx_mswu_aui-3.0-i686-w64-mingw32 -lwx_mswu_propgrid-3.0-i686-w64-mingw32 -lwx_mswu_richtext-3                                   .0-i686-w64-mingw32 -lwx_mswu_xrc-3.0-i686-w64-mingw32 -lwx_mswu_webview-3.0-i686-w64-mingw32 -lwx_mswu_html-3.0-i686-w6                                   4-mingw32 -lwx_mswu_qa-3.0-i686-w64-mingw32 -lwx_mswu_adv-3.0-i686-w64-mingw32 -lwx_mswu_core-3.0-i686-w64-mingw32 -lwx_                                   baseu_xml-3.0-i686-w64-mingw32 -lwx_baseu_net-3.0-i686-w64-mingw32 -lwx_baseu-3.0-i686-w64-mingw32 -lexchndl -lcomctl32                                    -L../exchndl/win32/lib -L/usr/local/lib -L/usr/lib/gcc/i686-w64-mingw32/4.9.2
+prefix.o: In function `br_thread_local_store_fini':
+/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src/prefix.cpp:242: undefined reference to `pt                                   hread_getspecific'
+/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src/prefix.cpp:246: undefined reference to `pt                                   hread_setspecific'
+/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src/prefix.cpp:248: undefined reference to `pt                                   hread_key_delete'
+prefix.o: In function `br_thread_local_store_init':
+/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src/prefix.cpp:264: undefined reference to `pt                                   hread_key_create'
+prefix.o: In function `br_thread_local_store':
+/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src/prefix.cpp:301: undefined reference to `pt                                   hread_once'
+/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src/prefix.cpp:303: undefined reference to `pt                                   hread_getspecific'
+/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src/prefix.cpp:305: undefined reference to `pt                                   hread_setspecific'
+collect2: error: ld returned 1 exit status
+Makefile:605: recipe for target 'codeblocks.exe' failed
+make[3]: *** [codeblocks.exe] Error 1
+make[3]: Leaving directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src'
+Makefile:734: recipe for target 'all-recursive' failed
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src/src'
+Makefile:458: recipe for target 'all-recursive' failed
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory '/cygdrive/c/Users/stahta01/cygwin/devel/codeblocks_https_metadata-git/src'
+Makefile:498: recipe for target 'all-recursive' failed
+make: *** [all-recursive] Error 1
 
 ## Compile error(s) below
 
