@@ -36,6 +36,10 @@ cygpath --windows $HOME
 # C:\Users\stahta01\cygwin
 cygpath --windows --path $PATH
 # C:\Apps32\Cygwin\usr\local\bin;C:\Apps32\Cygwin\bin;C:\Apps32\Cygwin\lib\lapack
+cygpath --windows /cygdrive/c/path
+# C:\path
+cygpath --windows /home/stahta01
+# C:\Users\stahta01\cygwin
 
 C:\Apps32\Cygwin\bin\cygpath.exe -w /cygdrive/c
 # C:\
@@ -50,3 +54,7 @@ m_CygwinPresent
         // find the target's compiler (to see which debugger to use)
         actualCompiler = CompilerFactory::GetCompiler(target ? target->GetCompilerID()
                                                              : m_pProject->GetCompilerID());
+
+
+C:/Apps32/Cygwin/bin/sh.exe C:/Apps32/Cygwin/usr/i686-w64-mingw32/sys-root/mingw/bin/wx-config-3.0 --list
+C:/Apps32/Cygwin/bin
