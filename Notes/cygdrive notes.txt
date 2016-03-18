@@ -58,3 +58,5 @@ m_CygwinPresent
 
 C:/Apps32/Cygwin/bin/sh.exe C:/Apps32/Cygwin/usr/i686-w64-mingw32/sys-root/mingw/bin/wx-config-3.0 --list
 C:/Apps32/Cygwin/bin
+
+m_Programs
