@@ -1,0 +1,6 @@
+wxUSE_QT
+
+__WXQT__
+
+
+wxGraphicsContext
