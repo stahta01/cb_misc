@@ -47,7 +47,7 @@
 | pch_fixes/PCH/master                  | ??? |
 | pch_fixes/PCH/misc                    | ??? |
 | pch_fixes/PCH/wxCode                  | ??? |
-| pch_fixes/PCH/wxContribItems          |Based on wxContribItems; contains PCH fixes to three CB Projects. |
+| pch_fixes/PCH/wxContribItems          |Contains PCH fixes to wxContribItems and two other CB Projects. |
 | pch_fixes/PCH/wxFormBuilder           | ??? |
 | pch_fixes/PCH/wx_pch_h                | ??? |
 | pch_fixes/sdk_common_h                | ??? |
