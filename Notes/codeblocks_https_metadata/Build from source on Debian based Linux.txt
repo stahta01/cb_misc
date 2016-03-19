@@ -55,6 +55,9 @@ $   update-alternatives --display wx-config
 
 cd ~/devel/version_control/codeblocks_https_metadata-git
 
+$ aclocal
+$ automake --add-missing
+
 # If you are going to change the wxWidgets version; you need to uninstall the old version before doing so.
 $   su
 $   make uninstall
