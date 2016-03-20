@@ -3,50 +3,42 @@
 cd ../codeblocks_https_metadata-git && \
 git fetch origin                && \
 git checkout cbstyledtextctrl   && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
 git checkout build_cfg/msys2_and_cygwin && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
 git checkout deceased/removals  && \
 git pull                        && \
 git rebase origin/master        && \
-# git checkout bugfix/sdk         && \
-# git pull                        && \
-# git rebase origin/master        && \
 git checkout build_cbp/wx30x    && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
 git checkout feature/wizards    && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
 git checkout feature/compiler   && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
 git checkout bugfix/wxNewId     && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
 git checkout win_cbp_save_as    && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
-# git checkout feature/cb_projects  && \
-# git rebase origin/win_cbp_save_as && \
-# git pull                        && \
-# git rebase origin/master        && \
 git checkout bugfix/plugins     && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
 git checkout feature/sdk        && \
+git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master
-# git checkout build/move_output  && \
-# git rebase origin/win_cbp_save_as && \
-# git pull                        && \
-# git rebase origin/master        && \
-# git checkout build_cbp/lib_folder_type1 && \
-# git pull                        && \
-# git rebase origin/master        && \
-# git checkout build_cbp/lib_folder_type2 && \
-# git pull                        && \
-# git rebase origin/master
 # EOF

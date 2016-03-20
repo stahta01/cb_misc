@@ -157,7 +157,7 @@ git rebase origin/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
 ##  git rebase -i origin/master
 #
-##  git rebase master && git push origin --force-with-lease
+##  git rebase origin/master && git push origin --force-with-lease
 
 git log -5
 git format-patch --unified=1 f8c67f9f0da18545751313b4c1961130149a4552
