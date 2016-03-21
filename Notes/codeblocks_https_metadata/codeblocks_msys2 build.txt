@@ -1,0 +1,13 @@
+######################################################
+#
+#   git clone git remote add cb_msys2 https://stahta01@github.com/stahta01/codeblocks_msys2.git codeblocks_msys2-git 
+#   git remote add origin https://github.com/stahta01/codeblocks_https_metadata.git
+#
+cd ../codeblocks_msys2-git && git status -uno
+git fetch cb_msys2 --prune
+git checkout master && git pull && git status -uno
+git svn fetch && git svn info && git svn log -1
+#
+#   git checkout -b codeblocks_msys2
+#
+######################################################

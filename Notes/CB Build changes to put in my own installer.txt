@@ -1,0 +1,14 @@
+CB Build changes to put in my own installer.txt
+
+Template fix
+removed wx/sci header from sdk_common.h
+build using MSys2 Compiler and wxWidgets 3.0.2
+Change most "\" to "/".
+Add Docs folder to put document files into instead of "Others"
+Add wx-config command
+Add pkg-config command
+CB Wizard fixes
+CB PCH fixes
+
+git remote add cb_msys2 https://github.com/stahta01/codeblocks_msys2.git
+git push -u cb_msys2 master
