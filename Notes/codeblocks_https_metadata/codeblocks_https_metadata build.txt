@@ -275,35 +275,6 @@ git.exe push origin
 # git apply --reject 0001-win-cbp-Added-lib-folders-to-some-CB-projects.-Thank.patch
 #
 ###
-# Add Option to change shell in GUI         environmentsettingsdlg.cpp
-# Use prefix "msys2_cb:" or "msys2_wx_multilibs:"
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout build/msys2_codeblocks && git status -uno
-#   git branch --list
-#
-##  git rebase origin/feature/cb_projects && git status -uno
-#
-git rebase origin/feature/compiler && git status -uno
-#
-##  git format-patch origin/feature/compiler..HEAD
-#
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
-#
-# git log
-# git format-patch --unified=2 40803a69a7fdcb698c4c3a9021fad8d841a2442d
-0001-msys2_cb-copy-Replaced-copy-with-CMD_CP-macro.patch
-0002-msys2_cb-Added-UnixFilename2-using-added-enum-cbPath.patch
-0003-msys2_cb-Use-UnixFilename2-to-set-value-of-macro-TAR.patch
-0004-msys2_cb-DO-NOT-USE-UPSTREAM-Changed-to.patch
-0005-msys2_cb-mkdir-Use-macros-CMD_MKDIR-and-CMD_MKDIR_IG.patch
-0006-msys2_cb-Changed-some-of-the-to.patch
-0007-msys2_cb-compiler-DO-NOT-USE-UPSTREAM.patch
-0008-msys2_wx_multilibs-Edited-WX-variables-for-configure.patch
-0009-msys2_wx_multilibs-Removed-wx-lib-and-CB-Global-vars.patch
-0010-msys2_wx_multilibs-Added-configure-built-wx-multilib.patch
-#
-###
 #
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout build/wx_multilibs_gcc471TDM && git status -uno

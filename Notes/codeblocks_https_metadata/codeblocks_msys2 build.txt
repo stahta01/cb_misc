@@ -35,11 +35,14 @@ git push cb_msys2
 #
 ###
 #
+# Add Option to change shell in GUI         environmentsettingsdlg.cpp
+# Use prefix "msys2_cb:"
 cd ../codeblocks_msys2-git && git status -uno
 git checkout codeblocks_msys2 && git status -uno
 #
 #   git rebase cb_msys2/build/templates && git status -uno
-#   git rebase pch_fixes/sdk_common_h && git status -uno
+#   git rebase pch_fixes/PCH/master && git status -uno
+#   git rebase origin/feature/cb_projects && git status -uno
 #   git rebase origin/feature/compiler && git status -uno
 #   git rebase origin/feature/sdk && git status -uno
 #   git rebase origin/git/fixes && git status -uno
@@ -57,6 +60,42 @@ git push cb_msys2
 # Output End
 #
 ###
-
-
+# Use prefix "msys2_wx_multilibs:"
+cd ../codeblocks_msys2-git && git status -uno
+git checkout msys2_wx_multilibs && git status -uno
+#
+#   git rebase origin/git/fixes && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
+##  git rebase -i origin/master
+#
+git push cb_msys2
+##  git rebase origin/master && git push cb_msys2 --force-with-lease
+#
+#   git format-patch origin/master
+# Output Begin
+0001-git-Added-src-plugins-contrib-SmartIndent-manifest.x.patch
+0002-git-Convert-CRLF-to-LF-to-stop-Git-issues.-Thanks-st.patch
+0003-git-Added-.gitattributes-.-Thanks-stahta01.patch
+0004-cygwin_support-Change-the-macros-values-listed-below.patch
+0005-OpenWatcom-Compiler-fixes.-Thanks-stata01.patch
+0006-cygwin_support-INWORK-on-method-CompilerCommandGener.patch
+0007-win_cbp_wx30_64-Save-As-Windows-wx3.0-64-bit-project.patch
+0008-win_cbp_wx28-Save-As-Windows-wx2.8-32-bit-projects.-.patch
+0009-cbp-Added-Third-party-libs-virtual-target.-Thanks-st.patch
+git am 0010-msys2_cb-copy-Replaced-copy-with-CMD_CP-macro.patch
+git am 0011-msys2_cb-Added-UnixFilename2-using-added-enum-cbPath.patch
+git am 0012-msys2_cb-Use-UnixFilename2-to-set-value-of-macro-TAR.patch
+git am 0013-msys2_cb-DO-NOT-USE-UPSTREAM-Changed-to.patch
+git am 0014-msys2_cb-mkdir-Use-macros-CMD_MKDIR-and-CMD_MKDIR_IG.patch
+git am 0015-msys2_cb-Changed-some-of-the-to.patch
+git am 0016-msys2_cb-compiler-DO-NOT-USE-UPSTREAM.patch
+0017-msys2_wx_multilibs-Edited-WX-variables-for-configure.patch
+0018-msys2_wx_multilibs-Removed-wx-lib-and-CB-Global-vars.patch
+0019-msys2_wx_multilibs-Added-configure-built-wx-multilib.patch
+# Output End
+#
+###
 ######################################################
