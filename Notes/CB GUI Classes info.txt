@@ -1,0 +1,20 @@
+class CompilerMessages : public wxEvtHandler, public ListCtrlLogger
+class DLLIMPORT cbSearchResultsLog : public ListCtrlLogger, public wxEvtHandler
+class SelectTargetDlg : public wxScrollingDialog
+class DLLIMPORT TextCtrlLogger : public Logger // contains a wxTextCtrl
+class DLLIMPORT ListCtrlLogger : public Logger // contains a wxListCtrl
+class BuildLogger : public TextCtrlLogger
+class DLLIMPORT cbEditor : public EditorBase
+class DLLIMPORT EditorBase : public wxPanel
+class PLUGIN_EXPORT cbDebuggerPlugin: public cbPlugin
+class PLUGIN_EXPORT cbToolPlugin : public cbPlugin
+class PLUGIN_EXPORT cbMimePlugin : public cbPlugin
+class PLUGIN_EXPORT cbCodeCompletionPlugin : public cbPlugin
+class PLUGIN_EXPORT cbWizardPlugin : public cbPlugin
+class cbSmartIndentPlugin : public cbPlugin
+class DLLIMPORT wxScrollingDialog: public wxDialog
+
+wxDialog has very many sub-classes
+wxPanel has several sub-classes
+wxTextCtrl has only sub-class wxSearchCtrl
+wxListCtrl has only sub-class wxListView
