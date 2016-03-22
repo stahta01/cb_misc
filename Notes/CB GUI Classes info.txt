@@ -14,7 +14,8 @@ class PLUGIN_EXPORT cbWizardPlugin : public cbPlugin
 class cbSmartIndentPlugin : public cbPlugin
 class DLLIMPORT wxScrollingDialog: public wxDialog
 
-wxDialog has very many sub-classes
+
+wxTextCtrl has only sub-class wxSearchCtrl  --enable-textctrl --enable-searchctrl
+wxListCtrl has only sub-class wxListView    --enable-listctrl
 wxPanel has several sub-classes
-wxTextCtrl has only sub-class wxSearchCtrl
-wxListCtrl has only sub-class wxListView
+wxDialog has very many sub-classes
