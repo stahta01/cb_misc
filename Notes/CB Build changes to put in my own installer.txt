@@ -24,6 +24,7 @@ Add pkg-config command
 CB Wizard fixes
 CB PCH fixes
 Cygwin Compiler fixes
+Add some of the patches in branch build/msys2_codeblocks
 
 
 git remote add cb_msys2 https://github.com/stahta01/codeblocks_msys2.git

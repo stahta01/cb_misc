@@ -14,6 +14,8 @@ git checkout master && git status -uno
 git rebase origin/master && git status -uno
 git svn fetch && git svn info && git svn log -1
 #
+#   git push
+#
 ###
 #
 cd ../codeblocks_msys2-git && git status -uno
@@ -40,6 +42,7 @@ git checkout codeblocks_msys2 && git status -uno
 #   git rebase pch_fixes/sdk_common_h && git status -uno
 #   git rebase origin/feature/compiler && git status -uno
 #   git rebase origin/feature/sdk && git status -uno
+#   git rebase origin/git/fixes && git status -uno
 #
 git rebase origin/master && git status -uno
 #
@@ -49,7 +52,7 @@ git rebase origin/master && git status -uno
 git push cb_msys2
 ##  git rebase origin/master && git push cb_msys2 --force-with-lease
 #
-#   git format-patch origin/master
+#   git format-patch origin/git/fixes
 # Output Begin
 # Output End
 #
