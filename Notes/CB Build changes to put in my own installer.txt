@@ -1,9 +1,23 @@
 CB Build changes to put in my own installer.txt
 
-Template fix
+Template fix (seems to be in svn trunk after 16.01 release)
 removed wx/sci header from sdk_common.h
 build using MSys2 64 bit Compiler and wxWidgets 3.0.2 64 bit
 Change most "\" to "/".
+create branch code/forwardslash
+    platform::windows       
+    "\\"                    
+    '\\'                    186
+    \\codeblocks              4
+    \\CodeBlocks              2
+    "\\\\"                   19
+    wxPATH_UNIX              26
+    wxPATH_DOS                3
+    wxPATH_NATIVE             9
+    wxFILE_SEP_PATH         275
+    wxPATH_GET_SEPARATOR     39
+    wxPATH_WIN                5
+    GetNameWithSep            0
 Add Docs folder to put document files into instead of "Others"
 Add wx-config command
 Add pkg-config command
@@ -14,3 +28,13 @@ Cygwin Compiler fixes
 
 git remote add cb_msys2 https://github.com/stahta01/codeblocks_msys2.git
 git push -u cb_msys2 master
+
+filename                        Title
+CodeBlocks_wxMSW28.cbp          Code::Blocks wxMSW2.8.x
+CodeBlocks_wxMSW30.cbp          Code::Blocks wxMSW3.0.x
+CodeBlocks_wxMSW30-win64.cbp    Code::Blocks wxMSW3.0.x Win64
+
+Missing cbstyledtextctrl_enums.h
+
+
+||warning: name not matched: plugins\occurrenceshighlighting\resources\manifest.xml|

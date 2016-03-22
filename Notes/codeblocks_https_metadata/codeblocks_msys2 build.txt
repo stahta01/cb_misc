@@ -1,13 +1,59 @@
 ######################################################
 #
-#   git clone git remote add cb_msys2 https://stahta01@github.com/stahta01/codeblocks_msys2.git codeblocks_msys2-git 
+#   cd ..
+#   git clone --origin cb_msys2 https://stahta01@github.com/stahta01/codeblocks_msys2.git codeblocks_msys2-git
+#   cd codeblocks_msys2-git
+#
+#   git remote -v
 #   git remote add origin https://github.com/stahta01/codeblocks_https_metadata.git
+#   git remote add pch_fixes https://github.com/stahta01/codeblocks_PCH_fixes.git
 #
 cd ../codeblocks_msys2-git && git status -uno
-git fetch cb_msys2 --prune
-git checkout master && git pull && git status -uno
+git fetch cb_msys2 --prune && git fetch origin --prune && git fetch pch_fixes --prune
+git checkout master && git status -uno
+git rebase origin/master && git status -uno
 git svn fetch && git svn info && git svn log -1
 #
-#   git checkout -b codeblocks_msys2
+###
 #
+cd ../codeblocks_msys2-git && git status -uno
+git checkout build/templates && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
+##  git rebase -i origin/master
+#
+git push cb_msys2
+##  git rebase origin/master && git push cb_msys2 --force-with-lease
+#
+#   git format-patch  origin/master
+# Output Begin
+# Output End
+#
+###
+#
+cd ../codeblocks_msys2-git && git status -uno
+git checkout codeblocks_msys2 && git status -uno
+#
+#   git rebase cb_msys2/build/templates && git status -uno
+#   git rebase pch_fixes/sdk_common_h && git status -uno
+#   git rebase origin/feature/compiler && git status -uno
+#   git rebase origin/feature/sdk && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
+##  git rebase -i origin/master
+#
+git push cb_msys2
+##  git rebase origin/master && git push cb_msys2 --force-with-lease
+#
+#   git format-patch origin/master
+# Output Begin
+# Output End
+#
+###
+
+
 ######################################################
