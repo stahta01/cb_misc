@@ -6,10 +6,6 @@ git checkout cbstyledtextctrl   && \
 git rebase origin/git/fixes     && \
 git pull                        && \
 git rebase origin/master        && \
-git checkout build_cfg/msys2_and_cygwin && \
-git rebase origin/git/fixes     && \
-git pull                        && \
-git rebase origin/master        && \
 git checkout deceased/removals  && \
 git pull                        && \
 git rebase origin/master        && \
