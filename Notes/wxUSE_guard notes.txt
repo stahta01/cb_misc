@@ -14,3 +14,6 @@ wxUSE_UNICODE               Used in sdk and others.
 wxUSE_URL                   Added, --disable-url
 wxUSE_UXTHEME               Used in CB_Core_App
 wxUSE_XML                   Used in CB_Core_App
+wxUSE_SEARCHCTRL            Add 1st, wxSearchCtrl  --disable-searchctrl
+wxUSE_TEXTCTRL              Add 2nd, wxTextCtrl    --disable-textctrl
+wxUSE_LISTCTRL              Add 3rd, wxListCtrl    --disable-listctrl
