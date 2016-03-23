@@ -19,23 +19,21 @@ Interesting Windows config options
 --with-flavour=NAME     specify a name to identify this build
 
 
-cd ~/devel/source_code/wxWidgets-2.8.12 && mkdir build_shared_multilib_gtk2_unicode_2.8_2.8
+cd ~/devel/source_code/wxWidgets-2.8.12 && mkdir build_shared_multilib_gtk2_unicode_nocompat26
 
-cd ~/devel/source_code/wxWidgets-2.8.12/build_shared_multilib_gtk2_unicode_2.8_2.8
+cd ~/devel/source_code/wxWidgets-2.8.12/build_shared_multilib_gtk2_unicode_nocompat26
 
 make uninstall
 
-# error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL"
-# --disable-textctrl does NOT work in 2.8.12 try using wxWidgets trunk and see if it works.
+
+## Next time I have weird configure issues search for and delete config.cache if found.
 
 ../configure --disable-compat26 \
        --prefix=/opt/wx2.8_GTK2 \
        --with-gtk=2 \
        --enable-xrc \
-       --enable-unicode \
-       --disable-searchctrl \
-       --disable-textctrl \
-       --disable-logwin
+       --enable-unicode
+
 make
 su
 make install
@@ -96,6 +94,7 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 ./configure --prefix=/opt/wx2.8_GTK2 --with-wx-config="wx-config --version=2.8" --disable-code-completion --with-contrib-plugins=envvars
 
+#   make clean
 make
 
 # run as root to install
