@@ -1,6 +1,6 @@
-Building wxWidgets 2.8.txt
+Building wxWidgets 3.1.x and CodeBlocks on Linux in opt folder.txt
 
-wxABI_VERSION=20800 for 2.8.0 # only good to change the last two digits. So, 2.8.x can only change value of x to smaller value.
+wxABI_VERSION=30100 for 3.1.0 # only good to change the last two digits. So, 3.1.x can only change value of x to smaller value.
 
 Some influential environment variables:
   CFLAGS      C compiler flags
@@ -19,46 +19,83 @@ Interesting Windows config options
 --with-flavour=NAME     specify a name to identify this build
 
 
-cd ~/devel/source_code/wxWidgets-2.8.12 && mkdir build_shared_multilib_gtk2_unicode_2.8_2.8
+cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
 
-cd ~/devel/source_code/wxWidgets-2.8.12/build_shared_multilib_gtk2_unicode_2.8_2.8
+cd ~/devel/version_control/wxWidgets-git/build_shared_multilib_gtk2_unicode_3.1.x_2.8 && git status -uno
 
 make uninstall
 
-# error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL"
-# --disable-textctrl does NOT work in 2.8.12 try using wxWidgets trunk and see if it works.
+## Configure Options start that I have used in the past
+       --without-gnomeprint \
+       --with-sdl \
+       --with-regex=builtin \
+       --with-libjpeg=sys \
+       --with-libpng=sys \
+       --with-libtiff=sys \
+       --with-zlib=sys \
+       --with-expat=sys \
+       --enable-geometry \
+       --enable-display \
+       --enable-mediactrl \
+       --enable-sound \
+       --enable-graphics_ctx \
+       --enable-xrc \
+       --enable-unicode
+# Configure Options end
 
-../configure --disable-compat26 \
-       --prefix=/opt/wx2.8_GTK2 \
+# error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL" --disable-logwin
+# error: #error "wxListbook requires wxListCtrl"
+# error: #error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
+
+
+
+## Next time I have weird configure issues search for and delete config.cache if found.
+
+../configure --enable-compat28 \
+       --prefix=/opt/wx3.1.x_GTK2 \
        --with-gtk=2 \
+       --with-flavour=reducedGUI \
        --enable-xrc \
        --enable-unicode \
+       --disable-printarch \
+       --disable-help \
+       --disable-colourpicker \
+       --disable-spinctrl \
+       --disable-calendar \
+       --disable-combobox \
        --disable-searchctrl \
+       --disable-logwin \
+       --disable-textdlg \
+       --disable-finddlg \
        --disable-textctrl \
-       --disable-logwin
+       --disable-listbook \
+       --disable-logdialog \
+       --disable-listctrl
+
+#   make clean && make
+
 make
 su
 make install
 exit
 
 ## Start of configure final output
-Configured wxWidgets 2.8.12 for `x86_64-unknown-linux-gnu'
+Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
 
-  Which GUI toolkit should wxWidgets use?                 GTK+ 2
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
   Should wxWidgets be compiled into single library?       no
-  Should wxWidgets be compiled in debug mode?             no
   Should wxWidgets be linked as a shared library?         yes
-  Should wxWidgets be compiled in Unicode mode?           yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
   What level of wxWidgets compatibility should be enabled?
-                                       wxWidgets 2.4      no
-                                       wxWidgets 2.6      no
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
   Which libraries should wxWidgets use?
+                                       STL                no
                                        jpeg               sys
                                        png                sys
                                        regex              builtin
                                        tiff               sys
                                        zlib               sys
-                                       odbc               no
                                        expat              sys
                                        libmspack          no
                                        sdl                no
@@ -69,24 +106,24 @@ Configured wxWidgets 2.8.12 for `x86_64-unknown-linux-gnu'
 which wx-config
 
 # run as root to install
-update-alternatives --install /usr/bin/wx-config wx-config /opt/wx2.8_GTK2/bin/wx-config 50
+update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.1.x_GTK2/bin/wx-config 50
 
 # run as root to change
 update-alternatives --config wx-config
 
-export PATH=/usr/bin:/opt/wx2.8_GTK2/bin:$PATH
+export PATH=/usr/bin:/opt/wx3.1.x_GTK2/bin:$PATH
 
 which wx-config
 
-wx-config --prefix # /opt/wx2.8_GTK2
+wx-config --prefix # /opt/wx3.1.x_GTK2
 
 wx-config --libs
 
 wx-config --list
 
-wx-config --cflags # -I/opt/wx2.8_GTK2/lib/wx/include/gtk2-unicode-release-2.8 -I/opt/wx2.8_GTK2/include/wx-2.8 -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D__WXGTK__ -pthread
+wx-config --cflags #
 
-cd ~/devel/version_control/codeblocks_https_metadata-git
+cd ~/devel/version_control/codeblocks_reducedGUI-git
 
 export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
@@ -94,39 +131,39 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 # wx-config --static=no
 
-./configure --prefix=/opt/wx2.8_GTK2 --with-wx-config="wx-config --version=2.8" --disable-code-completion --with-contrib-plugins=envvars
+./configure --prefix=/opt/wx3.1.x_GTK2 --with-wx-config="wx-config --version=3.1" --disable-code-completion --with-contrib-plugins=envvars
 
 make
 
 # run as root to install
 make install
 
-echo $PATH         # /usr/bin:/opt/wx2.8_GTK2/bin:/usr/bin:/opt/wx2.8_GTK2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+echo $PATH         # /usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 which codeblocks
 
 
 llvm-config --includedir            # /usr/lib/llvm-3.6/include
 llvm-config --libdir                # /usr/lib/llvm-3.6/lib
-wx-config --version=2.8 --cflags    # -I/opt/wx2.8_GTK2/lib/wx/include/gtk2-unicode-release-2.8 -I/opt/wx2.8_GTK2/include/wx-2.8 -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D__WXGTK__ -pthread
-wx-config --version=2.8 --libs      # -L/opt/wx2.8_GTK2/lib -pthread   -lwx_gtk2u_richtext-2.8 -lwx_gtk2u_aui-2.8 -lwx_gtk2u_xrc-2.8 -lwx_gtk2u_qa-2.8 -lwx_gtk2u_html-2.8 -lwx_gtk2u_adv-2.8 -lwx_gtk2u_core-2.8 -lwx_baseu_xml-2.8 -lwx_baseu_net-2.8 -lwx_baseu-2.8 
+wx-config --version=3.1 --cflags    # 
+wx-config --version=3.1 --libs      # 
 
 ##
 #  Warning I got the first time I tried "pkg-config --libs codeblocks"
 #  Perhaps you should add the directory containing `codeblock.pc' to the PKG_CONFIG_PATH environment variable
 ##
 echo $PKG_CONFIG_PATH
-export PKG_CONFIG_PATH=/opt/wx2.8_GTK2/lib/pkgconfig
+export PKG_CONFIG_PATH=/opt/wx3.1.x_GTK2/lib/pkgconfig
 
-pkg-config --libs codeblocks        # -L/opt/wx2.8_GTK2/lib -lcodeblocks
-pkg-config --cflags codeblocks      # -I/opt/wx2.8_GTK2/include/codeblocks -I/opt/wx2.8_GTK2/include/codeblocks/tinyxml -I/opt/wx2.8_GTK2/include/codeblocks/scripting/include -I/opt/wx2.8_GTK2/include/codeblocks/scripting/bindings -I/opt/wx2.8_GTK2/include/codeblocks/scripting/sqplus -I/opt/wx2.8_GTK2/include/codeblocks/wxscintilla/include
+pkg-config --libs codeblocks        # -L/opt/wx3.1.x_GTK2/lib -lcodeblocks
+pkg-config --cflags codeblocks      # -I/opt/wx3.1.x_GTK2/include/codeblocks -I/opt/wx3.1.x_GTK2/include/codeblocks/tinyxml -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/include -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/bindings -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/sqplus -I/opt/wx3.1.x_GTK2/include/codeblocks/wxscintilla/include
 
 
 CB Global Variable this is needed for target no_pch and use_pch for ClangLib CC Plugin.
 # I used the src folder of the Git Repo I built CB from as the base location.
 base: /home/stahta01/devel/version_control/codeblocks_https_metadata-git/src
-include: /opt/wx2.8_GTK2/include/codeblocks
-lib: /opt/wx2.8_GTK2/lib
+include: /opt/wx3.1.x_GTK2/include/codeblocks
+lib: /opt/wx3.1.x_GTK2/lib
 
 CB Target name: use_pkg_config_to_find_cb requires "pkg-config --libs codeblocks" and "pkg-config --cflags codeblocks" to work.
 
