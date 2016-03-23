@@ -46,7 +46,7 @@ make uninstall
 # error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL" --disable-logwin
 # error: #error "wxListbook requires wxListCtrl"
 # error: #error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
-
+# error "wxDatePickerCtrl requires wxUSE_COMBOCTRL"
 
 
 ## Next time I have weird configure issues search for and delete config.cache if found.
@@ -62,6 +62,8 @@ make uninstall
        --disable-colourpicker \
        --disable-spinctrl \
        --disable-calendar \
+       --disable-datepick \
+       --disable-comboctrl \
        --disable-combobox \
        --disable-searchctrl \
        --disable-logwin \
@@ -70,6 +72,7 @@ make uninstall
        --disable-textctrl \
        --disable-listbook \
        --disable-logdialog \
+       --disable-dirdlg \
        --disable-listctrl
 
 #   make clean && make
