@@ -14,6 +14,17 @@ wxUSE_UNICODE               Used in sdk and others.
 wxUSE_URL                   Added, --disable-url
 wxUSE_UXTHEME               Used in CB_Core_App
 wxUSE_XML                   Used in CB_Core_App
-wxUSE_SEARCHCTRL            Add 1st, wxSearchCtrl  --disable-searchctrl
-wxUSE_TEXTCTRL              Add 2nd, wxTextCtrl    --disable-textctrl
-wxUSE_LISTCTRL              Add 3rd, wxListCtrl    --disable-listctrl
+wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch
+wxUSE_HELP                                                  --disable-help
+wxUSE_COLOURPICKERCTRL               wxColourPickerCtrl     --disable-colourpicker
+wxUSE_SPINCTRL                       wxSpinCtrl             --disable-spinctrl
+wxUSE_CALCTRL                        wxCalendarCtrl         --disable-calendar
+wxUSE_COMBOBOX                       wxComboBox             --disable-combobox
+wxUSE_SEARCHCTRL                     wxSearchCtrl           --disable-searchctrl
+wxUSE_FINDREPLDLG                    wxFindReplaceDialog    --disable-finddlg
+wxUSE_LOG_DIALOG                     wxLogDialog            --disable-logdialog
+wxUSE_LISTBOOK                       wxListbook             --disable-listbook
+wxUSE_LISTCTRL                       wxListCtrl             --disable-listctrl
+wxUSE_LOGWINDOW                      wxLogWindow            --disable-logwin
+wxUSE_TEXTDLG                        wxTextDialog           --disable-textdlg
+wxUSE_TEXTCTRL                       wxTextCtrl             --disable-textctrl
