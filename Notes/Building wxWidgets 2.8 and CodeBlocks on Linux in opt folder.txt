@@ -30,7 +30,8 @@ make uninstall
        --with-gtk=2 \
        --enable-xrc \
        --enable-unicode \
-       --disable-searchctrl
+       --disable-searchctrl \
+       --disable-textctrl
 make
 su
 make install
