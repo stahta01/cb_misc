@@ -1,0 +1,8 @@
+llvm-config --includedir
+llvm-config --libdir
+wx-config --version=2.8 --cflags
+wx-config --version=2.8 --libs
+pkg-config --libs codeblocks
+pkg-config --cflags codeblocks
+
+

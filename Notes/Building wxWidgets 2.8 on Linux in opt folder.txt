@@ -16,8 +16,6 @@ Interesting Windows config options
 
 --enable-graphics_ctx
 
---with-gtk=2
-
 --with-flavour=NAME     specify a name to identify this build
 
 git checkout -WX_2_8_BRANCH
@@ -26,6 +24,7 @@ mkdir build_shared_multilib_gtk2_unicode_2.8_2.8
 cd build_shared_multilib_gtk2_unicode_2.8_2.8
 ../configure --disable-compat26 \
        --prefix=/opt/wx2.8_GTK2 \
+       --with-gtk=2 \
        --enable-xrc \
        --enable-unicode
 make
