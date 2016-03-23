@@ -1,0 +1,13 @@
+wxWidgets Debian stretch info.txt
+
+
+libwxgtk3.0-0v5 wxWidgets Cross-platform C++ GUI toolkit (GTK+ runtime)
+version 3.0.2+dfsg-1.3
+
+libwxgtk3.0-dev wxWidgets Cross-platform C++ GUI toolkit (GTK+ development)
+version 3.0.2+dfsg-1.3
+
+uname -a
+Linux debian 4.3.0-1-amd64 #1 SMP Debian 4.3.5-1 (2016-02-06) x86_64 GNU/Linux
+
+https://packages.debian.org/stretch/libwxgtk3.0-0v5
