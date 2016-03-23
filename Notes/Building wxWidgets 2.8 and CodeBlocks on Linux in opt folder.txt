@@ -18,15 +18,19 @@ Interesting Windows config options
 
 --with-flavour=NAME     specify a name to identify this build
 
-git checkout -WX_2_8_BRANCH
 
-mkdir build_shared_multilib_gtk2_unicode_2.8_2.8
-cd build_shared_multilib_gtk2_unicode_2.8_2.8
+cd ~/devel/source_code/wxWidgets-2.8.12 && mkdir build_shared_multilib_gtk2_unicode_2.8_2.8
+
+cd ~/devel/source_code/wxWidgets-2.8.12/build_shared_multilib_gtk2_unicode_2.8_2.8
+
+make uninstall
+
 ../configure --disable-compat26 \
        --prefix=/opt/wx2.8_GTK2 \
        --with-gtk=2 \
        --enable-xrc \
-       --enable-unicode
+       --enable-unicode \
+       --disable-searchctrl
 make
 su
 make install
@@ -83,7 +87,9 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 ./bootstrap
 
-./configure --prefix=/opt/wx2.8_GTK2 --with-wx-config="wx-config --version=2.8" --with-contrib-plugins=envvars
+# wx-config --static=no
+
+./configure --prefix=/opt/wx2.8_GTK2 --with-wx-config="wx-config --version=2.8" --disable-code-completion --with-contrib-plugins=envvars
 
 make
 
