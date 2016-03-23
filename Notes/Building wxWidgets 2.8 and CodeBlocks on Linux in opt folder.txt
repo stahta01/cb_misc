@@ -25,13 +25,16 @@ cd ~/devel/source_code/wxWidgets-2.8.12/build_shared_multilib_gtk2_unicode_2.8_2
 
 make uninstall
 
+# error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL"
+
 ../configure --disable-compat26 \
        --prefix=/opt/wx2.8_GTK2 \
        --with-gtk=2 \
        --enable-xrc \
        --enable-unicode \
        --disable-searchctrl \
-       --disable-textctrl
+       --disable-textctrl \
+       --disable-logwin
 make
 su
 make install
