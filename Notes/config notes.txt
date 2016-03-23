@@ -6,3 +6,6 @@ pkg-config --libs codeblocks
 pkg-config --cflags codeblocks
 
 
+pkg-config codeblocks --cflags
+
+export PKG_CONFIG_PATH=/opt/wx2.8_GTK2/lib/pkgconfig
