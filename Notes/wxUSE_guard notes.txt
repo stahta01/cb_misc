@@ -1,4 +1,3 @@
-wxUSE_CHOICEDLG             Used in sdk (incorrectly)
 wxUSE_CLIPBOARD             Used in sdk/wxscintilla
 wxUSE_CMDLINE_PARSER        Used in CB_Core_App
 wxUSE_DATAOBJ               Used in sdk/wxscintilla
@@ -16,18 +15,26 @@ wxUSE_UXTHEME               Used in CB_Core_App
 wxUSE_XML                   Used in CB_Core_App
 wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
 wxUSE_HELP                                                  --disable-help
-wxUSE_TEXTDLG                        wxTextDialog           --disable-textdlg           Not Used
-wxUSE_LOGWINDOW                      wxLogWindow            --disable-logwin            Used in Contrib Plugins
-wxUSE_COLOURPICKERCTRL               wxColourPickerCtrl     --disable-colourpicker      Used in Contrib Plugins
 wxUSE_CALCTRL                        wxCalendarCtrl         --disable-calendar          Used in Contrib Plugins
 wxUSE_DATEPICKCTRL                   wxDatePickerCtrl       --disable-datepick          Used in Contrib Plugins
+wxUSE_LOGWINDOW                      wxLogWindow            --disable-logwin            Used in Contrib Plugins
 wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl         Used in Contrib Plugins
 wxUSE_SEARCHCTRL                     wxSearchCtrl           --disable-searchctrl        Used in Contrib Plugins
 wxUSE_FINDREPLDLG                    wxFindReplaceDialog    --disable-finddlg           Used in Contrib Plugins and CC Plugin
 wxUSE_LOG_DIALOG                     wxLogDialog            --disable-logdialog         Used in Contrib Plugins
+wxUSE_COLOURPICKERCTRL               wxColourPickerCtrl     --disable-colourpicker      Used in Contrib Plugins
 wxUSE_COMBOBOX                       wxComboBox             --disable-combobox          Used in Core Plugins
 wxUSE_SPINCTRL                       wxSpinCtrl             --disable-spinctrl          Used in Core Plugins
+wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg
+wxUSE_FONTDLG                        wxFontDialog           --disable-fontdlg
+wxUSE_CHOICEDLG                      wxChoiceDialog         --disable-choicedlg         Used in SDK (incorrectly used MACRO)
+wxUSE_TEXTDLG                        wxTextEntryDialog      --disable-textdlg           Used in SDK
 wxUSE_LISTBOOK                       wxListbook             --disable-listbook          Used in SDK
 wxUSE_LISTCTRL                       wxListCtrl             --disable-listctrl          Used in SDK
 wxUSE_TEXTCTRL                       wxTextCtrl             --disable-textctrl          Used in SDK
 wxUSE_DIRDLG                         wxDirDialog            --disable-dirdlg            Used in SDK
+
+error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL"
+error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
+error "wxListbook requires wxListCtrl"
+wxUSE_FONTDLG || wxUSE_FILEDLG || wxUSE_CHOICEDLG requires wxUSE_TEXTCTRL
