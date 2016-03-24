@@ -21,9 +21,6 @@ Interesting Windows config options
 
 cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
 
-cd ~/devel/version_control/wxWidgets-git/build_shared_multilib_gtk2_unicode_3.1.x_2.8 && git status -uno
-
-make uninstall
 
 ## Configure Options start that I have used in the past
        --without-gnomeprint \
@@ -64,6 +61,13 @@ make uninstall
 
 ## Next time I have weird configure issues search for and delete config.cache if found.
 
+cd ~/devel/version_control/wxWidgets-git/build_shared_multilib_gtk2_unicode_3.1.x_2.8 && git status -uno
+
+make uninstall
+
+## ../include/wx/generic/logg.h
+
+
 ../configure --enable-compat28 \
        --prefix=/opt/wx3.1.x_GTK2 \
        --with-gtk=2 \
@@ -72,6 +76,9 @@ make uninstall
        --enable-xrc \
        --enable-unicode \
        --disable-printarch \
+       --disable-calendar \
+       --disable-datepick \
+       --disable-logwin \
        --disable-help
        
 
@@ -84,11 +91,30 @@ make install
 exit
 
 ## Start of configure final output
+Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
 ## End of configure final output
 
 ## See http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
 
-which wx-config
+which wx-config # /usr/bin/wx-config
 
 # run as root to install
 update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.1.x_GTK2/bin/wx-config 40
@@ -100,7 +126,7 @@ export PATH=/usr/bin:/opt/wx3.1.x_GTK2/bin:$PATH
 
 which wx-config
 
-wx-config --prefix # /opt/wx3.1.x_GTK2
+
 
 wx-config --libs
 
@@ -110,6 +136,8 @@ wx-config --cflags #
 
 cd ~/devel/version_control/codeblocks_reducedGUI-git
 
+wx-config --prefix # /opt/wx3.1.x_GTK2
+
 export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 ./bootstrap
@@ -117,6 +145,8 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 # wx-config --static=no
 
 ./configure --prefix=/opt/wx3.1.x_GTK2 --with-wx-config="wx-config --version=3.1" --disable-code-completion --with-contrib-plugins=envvars
+
+#  make clean && make
 
 make
 
