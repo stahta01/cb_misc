@@ -120,17 +120,6 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 make
 
-g++ -DHAVE_CONFIG_H  -I/opt/wx3.1.x_GTK2/lib/wx/include/gtk2-unicode-3.1-reducedGUI -I/opt/wx3.1.x_GTK2/include/wx-3.1-reducedGUI -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXGTK__ -pthread -I../../src/include -I../../src/include -I../../src/sdk/wxscintilla/include -I../../src/include/tinyxml -I../../src/include/scripting/include -I../../src/include/scripting/sqplus -I../../src/include/mozilla_chardet -I../../src/include/mozilla_chardet/mfbt -I../../src/include/mozilla_chardet/nsprpub/pr/include -I../../src/include/mozilla_chardet/xpcom -I../../src/include/mozilla_chardet/xpcom/base -I../../src/include/mozilla_chardet/xpcom/glue -ansi -DTIXML_USE_STL  -O2 -ffast-math -DCB_AUTOCONF -g -O2 -std=c++11 -DCB_PRECOMP -Winvalid-pch -fPIC -DPIC -fexceptions -o sdk_precomp.h.gch -xc++-header ./sdk_precomp.h
-In file included from ./cbeditor.h:16:0,
-                 from ./sdk_common.h:118,
-                 from ./sdk_precomp.h:13:
-./printing_types.h:13:8: error: ‘wxPrinter’ does not name a type
- extern wxPrinter* g_printer;
-        ^
-./printing_types.h:16:8: error: ‘wxPageSetupData’ does not name a type
- extern wxPageSetupData* g_pageSetupData;
-        ^
-Makefile:987: recipe for target 'sdk_precomp.h.gch' failed
 
 
 # run as root to install
@@ -139,6 +128,9 @@ make install
 echo $PATH         # /usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 which codeblocks
+
+codeblocks --help
+codeblocks --debug-log   
 
 
 llvm-config --includedir            # /usr/lib/llvm-3.6/include
