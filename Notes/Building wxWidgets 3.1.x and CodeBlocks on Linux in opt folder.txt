@@ -155,12 +155,14 @@ make
 # run as root to install
 make install
 
+# export PATH=/usr/bin:/opt/wx3.1.x_GTK2/bin:$PATH
 echo $PATH         # /usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 which codeblocks
 
 codeblocks --help
-codeblocks --debug-log   
+mkdir -p ~/wx3.1.x_GTK2/CB_settings
+codeblocks --debug-log --user-data-dir=/home/stahta01/wx3.1.x_GTK2/CB_settings
 
 
 llvm-config --includedir            # /usr/lib/llvm-3.6/include
