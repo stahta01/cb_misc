@@ -38,12 +38,46 @@ wxUSE_LISTBOOK                       wxListbook             --disable-listbook  
 wxUSE_LISTCTRL                       wxListCtrl             --disable-listctrl          Used in SDK
 wxUSE_TEXTCTRL                       wxTextCtrl             --disable-textctrl          Used in SDK
 wxUSE_DIRDLG                         wxDirDialog            --disable-dirdlg            Used in SDK
+wxUSE_WEBVIEW
+wxUSE_MEDIACTRL
+wxUSE_STC
+wxUSE_CLIPBOARD
+wxUSE_TREELISTCTRL
+wxUSE_PREFERENCES_EDITOR
 
 
 error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL"
 error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
 error "wxListbook requires wxListCtrl"
 wxUSE_FONTDLG || wxUSE_FILEDLG || wxUSE_CHOICEDLG requires wxUSE_TEXTCTRL
-wxBitmapComboBox requires wxComboCtrl
-wxUSE_ODCOMBOBOX requires wxComboCtrl
 wxUSE_PROPGRID requires wxUSE_ODCOMBOBOX added to end of chkconf.h
+wxUSE_BITMAPCOMBOBOX requires wxUSE_COMBOCTRL   needs check code added
+wxUSE_ODCOMBOBOX requires wxUSE_COMBOCTRL       needs check code added
+
+// code(s) to use as example.
+#if !wxUSE_ODCOMBOBOX
+#   if wxUSE_BITMAPCOMBOBOX
+#       ifdef wxABORT_ON_CONFIG_ERROR
+#           error "wxBitmapComboBox requires wxOwnerDrawnComboBox"
+#       else
+#           undef wxUSE_BITMAPCOMBOBOX
+#           define wxUSE_BITMAPCOMBOBOX 0
+#       endif
+#   endif
+#endif /* !wxUSE_ODCOMBOBOX */
+
+#if wxUSE_DATEPICKCTRL
+    /* Only the generic implementation, not used under MSW and OSX, needs
+     * wxComboCtrl. */
+#   if !wxUSE_COMBOCTRL && (defined(__WXUNIVERSAL__) || \
+            !(defined(__WXMSW__) || defined(__WXOSX_COCOA__)))
+#       ifdef wxABORT_ON_CONFIG_ERROR
+#           error "wxDatePickerCtrl requires wxUSE_COMBOCTRL"
+#       else
+#           undef wxUSE_COMBOCTRL
+#           define wxUSE_COMBOCTRL 1
+#       endif
+#   endif
+#endif /* wxUSE_DATEPICKCTRL */
+
+
