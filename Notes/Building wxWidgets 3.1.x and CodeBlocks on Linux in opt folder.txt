@@ -82,6 +82,9 @@ make uninstall
        --disable-searchctrl \
        --disable-bmpcombobox \
        --disable-finddlg \
+       --disable-logdialog \
+       --disable-colourpicker \
+       --disable-odcombobox \
        --disable-help
        
 
