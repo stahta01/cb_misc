@@ -79,6 +79,10 @@ make uninstall
        --disable-calendar \
        --disable-datepick \
        --disable-logwin \
+       --disable-searchctrl \
+       --disable-bmpcombobox \
+       --disable-odcombobox \
+       --disable-comboctrl \
        --disable-help
        
 
@@ -134,7 +138,7 @@ wx-config --list
 
 wx-config --cflags #
 
-cd ~/devel/version_control/codeblocks_reducedGUI-git
+cd ~/devel/version_control/codeblocks_reducedGUI-git && git status -uno
 
 wx-config --prefix # /opt/wx3.1.x_GTK2
 
