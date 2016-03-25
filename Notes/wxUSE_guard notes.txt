@@ -46,16 +46,4 @@ error "wxListbook requires wxListCtrl"
 wxUSE_FONTDLG || wxUSE_FILEDLG || wxUSE_CHOICEDLG requires wxUSE_TEXTCTRL
 wxBitmapComboBox requires wxComboCtrl
 wxUSE_ODCOMBOBOX requires wxComboCtrl
-wxUSE_PROPGRID requires wxUSE_ODCOMBOBOX added as error in config checker file. Added to end of chkconf.h
-
-#if wxUSE_PROPGRID
-#   if !wxUSE_ODCOMBOBOX
-#       ifdef wxABORT_ON_CONFIG_ERROR
-#           error "wxUSE_PROPGRID requires wxUSE_ODCOMBOBOX"
-#       else
-#           undef wxUSE_PROPGRID
-#           define wxUSE_PROPGRID 0
-#       endif
-#   endif
-#endif /* wxUSE_PROPGRID */
-
+wxUSE_PROPGRID requires wxUSE_ODCOMBOBOX added to end of chkconf.h
