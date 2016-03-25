@@ -81,8 +81,7 @@ make uninstall
        --disable-logwin \
        --disable-searchctrl \
        --disable-bmpcombobox \
-       --disable-odcombobox \
-       --disable-comboctrl \
+       --disable-finddlg \
        --disable-help
        
 
