@@ -1,0 +1,87 @@
+## See http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
+
+which wx-config # /usr/bin/wx-config
+
+# run as root to change
+update-alternatives --config wx-config
+
+export PATH=/usr/bin:/opt/wx3.0.x_GTK2/bin:$PATH
+
+which wx-config
+
+
+
+wx-config --libs
+
+wx-config --list
+
+wx-config --cflags #
+
+cd ~/devel/version_control/codeblocks_reducedGUI-git && git status -uno
+
+wx-config --prefix # /opt/wx3.0.x_GTK2
+
+export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
+
+./bootstrap
+
+
+# --enable-debug
+
+./configure --prefix=/opt/wx3.0.x_GTK2 \
+    --with-wx-config="wx-config --version=3.0" \
+    --disable-code-completion \
+    --disable-source-formatter \
+    --disable-autosave  \
+    --disable-class-wizard  \
+    --disable-debugger   \
+    --disable-mime-handler   \
+    --disable-open-files-list \
+    --disable-occurrences-highlighting \
+    --disable-projects-importer \
+    --disable-scripted-wizard \
+    --disable-todo \
+    --disable-abbreviations \
+    --with-contrib-plugins=envvars \
+    --disable-pch
+
+#  make clean && make
+
+make
+
+
+
+# run as root to install
+make install
+
+# export PATH=/usr/bin:/opt/wx3.0.x_GTK2/bin:$PATH
+echo $PATH         # /usr/bin:/opt/wx3.0.x_GTK2/bin:/usr/bin:/opt/wx3.0.x_GTK2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+which codeblocks
+
+codeblocks --help
+mkdir -p ~/wx3.0.x_GTK2/CB_settings
+codeblocks --debug-log --user-data-dir=/home/stahta01/wx3.0.x_GTK2/CB_settings
+
+
+##
+#  Warning I got the first time I tried "pkg-config --libs codeblocks"
+#  Perhaps you should add the directory containing `codeblock.pc' to the PKG_CONFIG_PATH environment variable
+##
+echo $PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/opt/wx3.0.x_GTK2/lib/pkgconfig
+
+pkg-config --libs codeblocks        # 
+pkg-config --cflags codeblocks      # 
+
+
+CB Global Variable this is needed for target no_pch and use_pch for ClangLib CC Plugin.
+# I used the src folder of the Git Repo I built CB from as the base location.
+base: /home/stahta01/devel/version_control/codeblocks_https_metadata-git/src
+include: /opt/wx3.0.x_GTK2/include/codeblocks
+lib: /opt/wx3.0.x_GTK2/lib
+
+CB Target name: use_pkg_config_to_find_cb requires "pkg-config --libs codeblocks" and "pkg-config --cflags codeblocks" to work.
+
+
+
