@@ -24,6 +24,11 @@ wxUSE_FINDREPLDLG                    wxFindReplaceDialog    --disable-finddlg   
 wxUSE_LOG_DIALOG                     wxLogDialog            --disable-logdialog         Used in Contrib Plugins
 wxUSE_COLOURPICKERCTRL               wxColourPickerCtrl     --disable-colourpicker      Used in Contrib Plugins
 
+wxUSE_STC                            wxStyledTextCtrl       --disable-stc               Not used in CB; an old fork is used.
+wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
+wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
+wxUSE_RIBBON                         wxRibbon               --disable-ribbon
+
 wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_ODCOMBOBOX                     wxOwnerDrawnComboBox   --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl         Used in Contrib Plugins
@@ -38,9 +43,7 @@ wxUSE_LISTBOOK                       wxListbook             --disable-listbook  
 wxUSE_LISTCTRL                       wxListCtrl             --disable-listctrl          Used in SDK
 wxUSE_TEXTCTRL                       wxTextCtrl             --disable-textctrl          Used in SDK
 wxUSE_DIRDLG                         wxDirDialog            --disable-dirdlg            Used in SDK
-wxUSE_WEBVIEW
-wxUSE_MEDIACTRL
-wxUSE_STC
+
 wxUSE_CLIPBOARD
 wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
