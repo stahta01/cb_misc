@@ -1,0 +1,50 @@
+Batch Build Common Options
+-na 
+-nd 
+-ns 
+--batch-build-notify
+-p
+--target
+--no-batch-window-close
+
+HOSTCC does NOT exist; but, it is a good search term.
+
+git am 0001-git-Added-src-plugins-contrib-SmartIndent-manifest.x.patch && \
+git am 0002-git-Convert-CRLF-to-LF-to-stop-Git-issues.-Thanks-st.patch && \
+git am 0003-git-Added-.gitattributes-.-Thanks-stahta01.patch && \
+
+git am 0011-autorevision.h.in-Set-to-SVN-0-and-year-2000.patch
+
+git am 0004-wxUSE_URL-Added-if-endif-guard.-Thanks-stahta01.patch
+git am 0005-wxUSE_PRINTING_ARCHITECTURE-Added-if-endif-guard.-Th.patch
+git am 0006-wxUSE_TEXTDLG-Added-if-endif-guard.-Thanks-stahta01.patch
+
+wxUSE_STATLINE
+wxUSE_MENUS
+wxUSE_NOTEBOOK
+wxUSE_MSGDLG
+wxUSE_LOGGUI
+wxUSE_LOG_DIALOG
+wxUSE_STD_CONTAINERS
+wxUSE_CONSOLE_EVENTLOOP
+wxUSE_SOCKETS
+wxUSE_VARIANT
+wxUSE_ANY
+wxUSE_GRAPHICS_CONTEXT
+wxUSE_STATUSBAR
+wxUSE_TOOLBAR
+wxUSE_STARTUP_TIPS
+wxUSE_SPLASH
+wxUSE_RICHTEXT
+
+
+sed --in-place "s/#define wxUSE_STC 1/#define wxUSE_STC 0/" include\wx\msw\setup.h
+sed --in-place "s/#define wxUSE_GLCANVAS       1/#define wxUSE_GLCANVAS       0/" include\wx\msw\setup.h
+
+#if wxUSE_PROPGRID
+    WatchesDlg *dialog = new WatchesDlg;
+#endif // wxUSE_PROPGRID
+
+* wxUSE_PROPGRID: Added #if/endif guard. (Thanks stahta01)
+
+CB_REDUCED_GUI check and see what is the correct define I am already using in other branch
