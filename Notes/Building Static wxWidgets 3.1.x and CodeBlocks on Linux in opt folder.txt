@@ -1,0 +1,206 @@
+Building wxWidgets 3.1.x and CodeBlocks on Linux in opt folder.txt
+
+wxABI_VERSION=30100 for 3.1.0 # only good to change the last two digits. So, 3.1.x can only change value of x to smaller value.
+
+Some influential environment variables:
+  CFLAGS      C compiler flags
+  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+              nonstandard directory <lib dir>
+  CPPFLAGS    C/C++ preprocessor flags, e.g. -I<include dir> if you have
+              headers in a nonstandard directory <include dir>
+  CXXFLAGS    C++ compiler flags
+
+Interesting Windows config options
+  --enable-official_build official build of wxWidgets (win32 DLL only)
+  --enable-vendor=VENDOR  vendor name (win32 DLL only)
+
+--enable-graphics_ctx
+
+--with-flavour=NAME     specify a name to identify this build
+
+
+cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
+
+
+## Configure Options start that I have used in the past
+       --without-gnomeprint \
+       --with-sdl \
+       --with-regex=builtin \
+       --with-libjpeg=sys \
+       --with-libpng=sys \
+       --with-libtiff=sys \
+       --with-zlib=sys \
+       --with-expat=sys \
+       --enable-geometry \
+       --enable-display \
+       --enable-mediactrl \
+       --enable-sound \
+       --enable-graphics_ctx \
+       --disable-colourpicker \
+       --disable-spinctrl \
+       --disable-calendar \
+       --disable-datepick \
+       --disable-comboctrl \
+       --disable-combobox \
+       --disable-searchctrl \
+       --disable-logwin \
+       --disable-textdlg \
+       --disable-finddlg \
+       --disable-textctrl \
+       --disable-listbook \
+       --disable-logdialog \
+       --disable-dirdlg \
+       --disable-listctrl
+# Configure Options end
+
+# error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL" --disable-logwin
+# error: #error "wxListbook requires wxListCtrl"
+# error: #error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
+# error "wxDatePickerCtrl requires wxUSE_COMBOCTRL"
+
+
+## Next time I have weird configure issues search for and delete config.cache if found.
+
+cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_static_multilib_gtk2_unicode_3.1.x_2.8
+
+cd ~/devel/version_control/wxWidgets-git/build_static_multilib_gtk2_unicode_3.1.x_2.8 && git status -uno
+
+make uninstall
+
+## ../include/wx/generic/logg.h
+
+# 
+
+../configure --prefix=/opt/wx3.1.x_GTK2 \
+       --with-gtk=2 \
+       --with-flavour=reducedGUI \
+       --with-regex=builtin \
+       --without-opengl \
+       --enable-compat28 \
+       --enable-xrc \
+       --enable-unicode \
+       --disable-printarch \
+       --disable-help \
+       --disable-calendar \
+       --disable-datepick \
+       --disable-logwin \
+       --disable-searchctrl \
+       --disable-bmpcombobox \
+       --disable-finddlg \
+       --disable-logdialog \
+       --disable-colourpicker \
+       --disable-stc \
+       --disable-mediactrl \
+       --disable-webviewwebkit \
+       --disable-ribbon \
+       --disable-shared \
+       --disable-precomp-headers
+
+
+#   make clean && make
+
+make
+su
+make install
+exit
+
+## Start of configure final output
+## End of configure final output
+
+## See http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
+
+which wx-config # /usr/bin/wx-config
+
+# run as root to install
+update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.1.x_GTK2/bin/wx-config 40
+
+# run as root to change
+update-alternatives --config wx-config
+
+export PATH=/usr/bin:/opt/wx3.1.x_GTK2/bin:$PATH
+
+which wx-config
+
+
+
+wx-config --libs
+
+wx-config --list
+
+wx-config --cflags #
+
+cd ~/devel/version_control/codeblocks_reducedGUI-git && git status -uno
+
+wx-config --prefix # /opt/wx3.1.x_GTK2
+
+export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
+
+./bootstrap
+
+
+# --enable-static
+# wx-config --static
+# --enable-debug
+
+./configure --prefix=/opt/wx3.1.x_GTK2 \
+    --with-wx-config="wx-config --version=3.1" \
+    --disable-code-completion \
+    --disable-source-formatter \
+    --disable-autosave  \
+    --disable-class-wizard  \
+    --disable-debugger   \
+    --disable-mime-handler   \
+    --disable-open-files-list \
+    --disable-occurrences-highlighting \
+    --disable-projects-importer \
+    --disable-scripted-wizard \
+    --disable-todo \
+    --disable-abbreviations \
+    --with-contrib-plugins=envvars \
+    --enable-pch
+
+#  make clean && make
+
+make
+
+
+
+# run as root to install
+make install
+
+# export PATH=/usr/bin:/opt/wx3.1.x_GTK2/bin:$PATH
+echo $PATH         # /usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+which codeblocks
+
+codeblocks --help
+mkdir -p ~/wx3.1.x_GTK2/CB_settings
+codeblocks --debug-log --user-data-dir=/home/stahta01/wx3.1.x_GTK2/CB_settings
+
+
+llvm-config --includedir            # /usr/lib/llvm-3.6/include
+llvm-config --libdir                # /usr/lib/llvm-3.6/lib
+wx-config --version=3.1 --cflags    # 
+wx-config --version=3.1 --libs      # 
+
+##
+#  Warning I got the first time I tried "pkg-config --libs codeblocks"
+#  Perhaps you should add the directory containing `codeblock.pc' to the PKG_CONFIG_PATH environment variable
+##
+echo $PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/opt/wx3.1.x_GTK2/lib/pkgconfig
+
+pkg-config --libs codeblocks        # -L/opt/wx3.1.x_GTK2/lib -lcodeblocks
+pkg-config --cflags codeblocks      # -I/opt/wx3.1.x_GTK2/include/codeblocks -I/opt/wx3.1.x_GTK2/include/codeblocks/tinyxml -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/include -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/bindings -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/sqplus -I/opt/wx3.1.x_GTK2/include/codeblocks/wxscintilla/include
+
+
+CB Global Variable this is needed for target no_pch and use_pch for ClangLib CC Plugin.
+# I used the src folder of the Git Repo I built CB from as the base location.
+base: /home/stahta01/devel/version_control/codeblocks_https_metadata-git/src
+include: /opt/wx3.1.x_GTK2/include/codeblocks
+lib: /opt/wx3.1.x_GTK2/lib
+
+CB Target name: use_pkg_config_to_find_cb requires "pkg-config --libs codeblocks" and "pkg-config --cflags codeblocks" to work.
+
+
+
