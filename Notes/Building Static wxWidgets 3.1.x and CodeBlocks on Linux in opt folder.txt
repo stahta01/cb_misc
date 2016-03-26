@@ -105,6 +105,25 @@ make install
 exit
 
 ## Start of configure final output
+Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         no
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
 ## End of configure final output
 
 ## See http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
@@ -143,7 +162,8 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 # --enable-debug
 
 ./configure --prefix=/opt/wx3.1.x_GTK2 \
-    --with-wx-config="wx-config --version=3.1" \
+    --with-wx-config="wx-config --static --version=3.1" \
+    --enable-static \
     --disable-code-completion \
     --disable-source-formatter \
     --disable-autosave  \
@@ -168,14 +188,8 @@ make
 # run as root to install
 make install
 
-# export PATH=/usr/bin:/opt/wx3.1.x_GTK2/bin:$PATH
-echo $PATH         # /usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/bin:/opt/wx3.1.x_GTK2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
-
-which codeblocks
-
-codeblocks --help
 mkdir -p ~/wx3.1.x_GTK2/CB_settings
-codeblocks --debug-log --user-data-dir=/home/stahta01/wx3.1.x_GTK2/CB_settings
+/opt/wx3.1.x_GTK2/bin/codeblocks --debug-log --user-data-dir=/home/stahta01/wx3.1.x_GTK2/CB_settings
 
 
 llvm-config --includedir            # /usr/lib/llvm-3.6/include
