@@ -29,6 +29,9 @@ wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
 wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
 wxUSE_RIBBON                         wxRibbon               --disable-ribbon
 
+wxUSE_TOOLBOOK                       wxToolbook             --disable-toolbook
+wxUSE_TOOLBAR                        wxToolBar              --disable-toolbar
+
 wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_ODCOMBOBOX                     wxOwnerDrawnComboBox   --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl         Used in Contrib Plugins
@@ -47,8 +50,10 @@ wxUSE_DIRDLG                         wxDirDialog            --disable-dirdlg    
 wxUSE_CLIPBOARD
 wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
+wxUSE_AUI                                                   --disable-aui
 
 
+#error "wxToolbook requires wxToolBar"
 error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL"
 error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
 error "wxListbook requires wxListCtrl"
