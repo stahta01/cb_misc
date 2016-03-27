@@ -93,6 +93,8 @@ make uninstall
        --disable-mediactrl \
        --disable-webviewwebkit \
        --disable-ribbon \
+       --disable-toolbook \
+       --disable-toolbar \
        --disable-shared \
        --disable-precomp-headers
 
