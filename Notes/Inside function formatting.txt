@@ -1,0 +1,60 @@
+Inside function formatting of #if/#endif
+
+void Manager::InitXRC(bool force)
+{
+    static bool xrcok = false;
+    if (!xrcok || force)
+    {
+        wxFileSystem::AddHandler(new wxZipFSHandler);
+        wxXmlResource::Get()->InsertHandler(new wxToolBarAddOnXmlHandler);
+        wxXmlResource::Get()->InitAllHandlers();
+
+        xrcok = true;
+    }
+}
+
+void Manager::InitXRC(bool force)
+{
+    static bool xrcok = false;
+    if (!xrcok || force)
+    {
+        wxFileSystem::AddHandler(new wxZipFSHandler);
+#if wxUSE_TOOLBAR
+        wxXmlResource::Get()->InsertHandler(new wxToolBarAddOnXmlHandler);
+#endif // wxUSE_TOOLBAR
+        wxXmlResource::Get()->InitAllHandlers();
+
+        xrcok = true;
+    }
+}
+
+void Manager::InitXRC(bool force)
+{
+    static bool xrcok = false;
+    if (!xrcok || force)
+    {
+        wxFileSystem::AddHandler(new wxZipFSHandler);
+        #if wxUSE_TOOLBAR
+        wxXmlResource::Get()->InsertHandler(new wxToolBarAddOnXmlHandler);
+        #endif // wxUSE_TOOLBAR
+        wxXmlResource::Get()->InitAllHandlers();
+
+        xrcok = true;
+    }
+}
+
+void Manager::InitXRC(bool force)
+{
+    static bool xrcok = false;
+    if (!xrcok || force)
+    {
+        wxFileSystem::AddHandler(new wxZipFSHandler);
+        #if wxUSE_TOOLBAR
+            wxXmlResource::Get()->InsertHandler(new wxToolBarAddOnXmlHandler);
+        #endif // wxUSE_TOOLBAR
+        wxXmlResource::Get()->InitAllHandlers();
+
+        xrcok = true;
+    }
+}
+
