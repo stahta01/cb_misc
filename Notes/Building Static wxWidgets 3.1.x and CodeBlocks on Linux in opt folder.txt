@@ -61,21 +61,23 @@ cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p buil
 
 ## Next time I have weird configure issues search for and delete config.cache if found.
 
-cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_static_multilib_gtk2_unicode_3.1.x_2.8
-
-cd ~/devel/version_control/wxWidgets-git/build_static_multilib_gtk2_unicode_3.1.x_2.8 && git status -uno
-
-make uninstall
 
 ## ../include/wx/generic/logg.h
 
 # 
+cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_static_monolib_gtk2_unicode_3.1.x_2.8
+
+cd ~/devel/version_control/wxWidgets-git/build_static_monolib_gtk2_unicode_3.1.x_2.8 && git status -uno
+
+make uninstall
+
 
 ../configure --prefix=/opt/wx3.1.x_GTK2_static \
        --with-gtk=2 \
        --with-flavour=reducedGUI \
        --with-regex=builtin \
        --without-opengl \
+       --enable-monolithic \
        --enable-compat28 \
        --enable-xrc \
        --enable-unicode \
@@ -110,28 +112,10 @@ make uninstall
 make
 su
 make install
+update-alternatives --help
 exit
 
 ## Start of configure final output
-Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
-
-  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
-  Should wxWidgets be compiled into single library?       no
-  Should wxWidgets be linked as a shared library?         no
-  Should wxWidgets support Unicode?                       yes (using wchar_t)
-  What level of wxWidgets compatibility should be enabled?
-                                       wxWidgets 2.8      yes
-                                       wxWidgets 3.0      yes
-  Which libraries should wxWidgets use?
-                                       STL                no
-                                       jpeg               sys
-                                       png                sys
-                                       regex              builtin
-                                       tiff               sys
-                                       zlib               sys
-                                       expat              sys
-                                       libmspack          no
-                                       sdl                no
 ## End of configure final output
 
 ## See http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
