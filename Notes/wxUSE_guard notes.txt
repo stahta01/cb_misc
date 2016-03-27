@@ -29,6 +29,8 @@ wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
 wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
 wxUSE_RIBBON                         wxRibbon               --disable-ribbon
 
+wxUSE_RICHTEXT                       wxRichTextCtrl         --disable-richtext          ?Used in Contrib Plugins
+
 wxUSE_TOOLBOOK                       wxToolbook             --disable-toolbook
 wxUSE_ADDREMOVECTRL                  wxAddRemoveCtrl        --disable-addremovectrl
 wxUSE_TOOLBAR                        wxToolBar              --disable-toolbar
@@ -37,23 +39,40 @@ wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_ODCOMBOBOX                     wxOwnerDrawnComboBox   --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl         Used in Contrib Plugins
 
-wxUSE_COMBOBOX                       wxComboBox             --disable-combobox          Used in Core Plugins
-wxUSE_SPINCTRL                       wxSpinCtrl             --disable-spinctrl          Used in Core Plugins
-wxUSE_FONTDLG                        wxFontDialog           --disable-fontdlg
-wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg
+wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
+wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview
 wxUSE_CHOICEDLG                      wxChoiceDialog         --disable-choicedlg         Used in SDK (incorrectly used MACRO)
-wxUSE_TEXTDLG                        wxTextEntryDialog      --disable-textdlg           Used in SDK
+
 wxUSE_LISTBOOK                       wxListbook             --disable-listbook          Used in SDK
+
+wxUSE_COMBOBOX                       wxComboBox             --disable-combobox          Used in Core App & Plugins
+wxUSE_SPINCTRL                       wxSpinCtrl             --disable-spinctrl          Used in Core App & Plugins
+wxUSE_FONTDLG                        wxFontDialog           --disable-fontdlg           Used in Core App
+wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg           Used in SDK
+wxUSE_TEXTDLG                        wxTextEntryDialog      --disable-textdlg           Used in SDK
+
 wxUSE_LISTCTRL                       wxListCtrl             --disable-listctrl          Used in SDK
 wxUSE_TEXTCTRL                       wxTextCtrl             --disable-textctrl          Used in SDK
 wxUSE_DIRDLG                         wxDirDialog            --disable-dirdlg            Used in SDK
-
 wxUSE_CLIPBOARD
 wxUSE_TREELISTCTRL
+
+
 wxUSE_PREFERENCES_EDITOR
-wxUSE_AUI                                                   --disable-aui
+wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
 
 
+ToDo:
+CompilerMessages    -> ListCtrlLogger -> wxListCtrl
+cbSearchResultsLog  -> ListCtrlLogger -> wxListCtrl
+ThreadsDlg -> wxListCtrl
+BacktraceDlg -> wxListCtrl
+BreakpointsDlg -> wxListCtrl
+CPURegistersDlg -> wxListCtrl
+wxListbook -> wxListCtrl
+
+error "wxUSE_MDI_ARCHITECTURE requires wxUSE_DOC_VIEW_ARCHITECTURE"
+error "DocView requires wxUSE_CHOICEDLG"
 #error "wxToolbook requires wxToolBar"
 error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL"
 error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
