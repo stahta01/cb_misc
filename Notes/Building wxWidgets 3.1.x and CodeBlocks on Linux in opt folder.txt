@@ -95,6 +95,7 @@ make uninstall
        --disable-webviewwebkit \
        --disable-ribbon \
        --disable-toolbook \
+       --disable-toolbar \
        --enable-shared \
        --disable-precomp-headers
 
