@@ -30,6 +30,7 @@ wxUSE_WEBVIEW                        wxWebView              --disable-webviewweb
 wxUSE_RIBBON                         wxRibbon               --disable-ribbon
 
 wxUSE_TOOLBOOK                       wxToolbook             --disable-toolbook
+wxUSE_ADDREMOVECTRL                  wxAddRemoveCtrl        --disable-addremovectrl
 wxUSE_TOOLBAR                        wxToolBar              --disable-toolbar
 
 wxUSE_PROPGRID                                              --disable-propgrid
@@ -61,6 +62,29 @@ wxUSE_FONTDLG || wxUSE_FILEDLG || wxUSE_CHOICEDLG requires wxUSE_TEXTCTRL
 wxUSE_PROPGRID requires wxUSE_ODCOMBOBOX added to end of chkconf.h
 wxUSE_BITMAPCOMBOBOX requires wxUSE_COMBOCTRL   needs check code added
 wxUSE_ODCOMBOBOX requires wxUSE_COMBOCTRL       needs check code added
+wxUSE_ADDREMOVECTRL under wxGTK requires wxToolBar  needs check code added
+
+
+
+#if wxUSE_ADDREMOVECTRL
+#   if !wxUSE_BMPBUTTON
+#       ifdef wxABORT_ON_CONFIG_ERROR
+#           error "wxUSE_ADDREMOVECTRL requires wxUSE_BMPBUTTON"
+#       else
+#           undef wxUSE_ADDREMOVECTRL
+#           define wxUSE_ADDREMOVECTRL 0
+#       endif
+#   endif
+    /* Only the GTK implementation needs wxToolBar */
+#   if !wxUSE_TOOLBAR && defined(__WXGTK__)
+#       ifdef wxABORT_ON_CONFIG_ERROR
+#           error "wxUSE_ADDREMOVECTRL requires wxUSE_TOOLBAR"
+#       else
+#           undef wxUSE_ADDREMOVECTRL
+#           define wxUSE_ADDREMOVECTRL 0
+#       endif
+#   endif
+#endif /* wxUSE_ADDREMOVECTRL */
 
 // code(s) to use as example.
 #if !wxUSE_ODCOMBOBOX
@@ -88,4 +112,14 @@ wxUSE_ODCOMBOBOX requires wxUSE_COMBOCTRL       needs check code added
 #   endif
 #endif /* wxUSE_DATEPICKCTRL */
 
+#if wxUSE_TOOLBOOK
+#   if !wxUSE_TOOLBAR
+#       ifdef wxABORT_ON_CONFIG_ERROR
+#           error "wxToolbook requires wxToolBar"
+#       else
+#           undef wxUSE_TOOLBAR
+#           define wxUSE_TOOLBAR 1
+#       endif
+#   endif
+#endif /* wxUSE_TOOLBOOK */
 
