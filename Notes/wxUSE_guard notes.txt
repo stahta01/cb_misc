@@ -1,18 +1,17 @@
-wxUSE_CLIPBOARD             Used in sdk/wxscintilla
-wxUSE_CMDLINE_PARSER        Used in CB_Core_App
-wxUSE_DATAOBJ               Used in sdk/wxscintilla
-wxUSE_DEBUGREPORT           Used in CB_Core_App
-wxUSE_DISPLAY               Used in sdk/wxscintilla
-wxUSE_DRAG_AND_DROP         Used in sdk/wxscintilla
-wxUSE_GRAPHICS_CONTEXT      Used in sdk/wxscintilla
-wxUSE_ON_FATAL_EXCEPTION    Used in CB_Core_App
-wxUSE_POPUPWIN              Used in sdk and others.
-wxUSE_STATUSBAR             Used in sdk and others.
-wxUSE_TEXTCTRL              Used in sdk/wxscintilla (commented out by CB Team)
-wxUSE_UNICODE               Used in sdk and others.
-wxUSE_URL                   Added, --disable-url
-wxUSE_UXTHEME               Used in CB_Core_App
-wxUSE_XML                   Used in CB_Core_App
+wxUSE_CLIPBOARD                                                                         Used in sdk/wxscintilla
+wxUSE_CMDLINE_PARSER                                                                    Used in CB_Core_App
+wxUSE_DATAOBJ                                                                           Used in sdk/wxscintilla
+wxUSE_DEBUGREPORT                                                                       Used in CB_Core_App
+wxUSE_DISPLAY                                                                           Used in sdk/wxscintilla
+wxUSE_DRAG_AND_DROP                                                                     Used in sdk/wxscintilla
+wxUSE_GRAPHICS_CONTEXT                                                                  Used in sdk/wxscintilla
+wxUSE_ON_FATAL_EXCEPTION                                                                Used in CB_Core_App
+wxUSE_POPUPWIN                                                                          Used in sdk and others.
+wxUSE_STATUSBAR                                                                         Used in sdk and others.
+wxUSE_UNICODE                                                                           Used in sdk and others.
+wxUSE_URL                                                   --disable-url
+wxUSE_UXTHEME                                                                           Used in CB_Core_App
+wxUSE_XML                                                                               Used in CB_Core_App
 wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
 wxUSE_HELP                                                  --disable-help
 wxUSE_CALCTRL                        wxCalendarCtrl         --disable-calendar          Used in Contrib Plugins
@@ -52,12 +51,9 @@ wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg   
 wxUSE_TEXTDLG                        wxTextEntryDialog      --disable-textdlg           Used in SDK
 
 wxUSE_LISTCTRL                       wxListCtrl             --disable-listctrl          Used in SDK
-wxUSE_TEXTCTRL                       wxTextCtrl             --disable-textctrl          Used in SDK
+wxUSE_TEXTCTRL                       wxTextCtrl             --disable-textctrl          Used in SDK sdk/wxscintilla (commented out by CB Team)
 wxUSE_DIRDLG                         wxDirDialog            --disable-dirdlg            Used in SDK
-wxUSE_CLIPBOARD
 wxUSE_TREELISTCTRL
-
-
 wxUSE_PREFERENCES_EDITOR
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
 
