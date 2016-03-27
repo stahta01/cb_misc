@@ -61,9 +61,9 @@ cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p buil
 
 ## Next time I have weird configure issues search for and delete config.cache if found.
 
-cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
+cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_shared_monolib_gtk2_unicode_3.1.x_2.8
 
-cd ~/devel/version_control/wxWidgets-git/build_shared_multilib_gtk2_unicode_3.1.x_2.8 && git status -uno
+cd ~/devel/version_control/wxWidgets-git/build_shared_monolib_gtk2_unicode_3.1.x_2.8 && git status -uno
 
 make uninstall
 
@@ -76,6 +76,7 @@ make uninstall
        --with-flavour=reducedGUI \
        --with-regex=builtin \
        --without-opengl \
+       --enable-monolithic \
        --enable-compat28 \
        --enable-xrc \
        --enable-unicode \
@@ -93,6 +94,7 @@ make uninstall
        --disable-mediactrl \
        --disable-webviewwebkit \
        --disable-ribbon \
+       --disable-toolbook \
        --enable-shared \
        --disable-precomp-headers
 
@@ -108,7 +110,7 @@ exit
 Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
 
   Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
-  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be compiled into single library?       yes
   Should wxWidgets be linked as a shared library?         yes
   Should wxWidgets support Unicode?                       yes (using wchar_t)
   What level of wxWidgets compatibility should be enabled?
@@ -142,9 +144,13 @@ which wx-config
 
 
 
-wx-config --libs
+wx-config --static=no --libs
 
 wx-config --list
+
+wx-config --static=no --version=3.1 --list
+
+wx-config --static=no --version=3.1 --libs
 
 wx-config --cflags #
 
@@ -158,11 +164,11 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 
 # --enable-static
-# wx-config --static
+# wx-config --static=no
 # --enable-debug
 
 ./configure --prefix=/opt/wx3.1.x_GTK2 \
-    --with-wx-config="wx-config --version=3.1" \
+    --with-wx-config="wx-config --static=no --version=3.1" \
     --disable-code-completion \
     --disable-source-formatter \
     --disable-autosave  \
