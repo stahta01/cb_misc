@@ -48,3 +48,5 @@ sed --in-place "s/#define wxUSE_GLCANVAS       1/#define wxUSE_GLCANVAS       0/
 * wxUSE_PROPGRID: Added #if/endif guard. (Thanks stahta01)
 
 CB_REDUCED_GUI check and see what is the correct define I am already using in other branch
+CB_DISABLE_DEBUGGER
+CB_DISABLE_COMPILER_MESSAGES
