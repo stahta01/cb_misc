@@ -71,6 +71,7 @@ cd ~/devel/version_control/wxWidgets-git/build_static_monolib_gtk2_unicode_3.1.x
 
 make uninstall
 
+export CXXFLAGS="-fPIC -DPIC"
 
 ../configure --prefix=/opt/wx3.1.x_GTK2_static \
        --with-gtk=2 \
@@ -102,6 +103,8 @@ make uninstall
        --disable-propgrid \
        --disable-odcombobox \
        --disable-comboctrl \
+       --disable-rearrangectrl \
+       --disable-checklst \
        --disable-mdidoc \
        --disable-shared \
        --disable-precomp-headers
@@ -112,19 +115,36 @@ make uninstall
 make
 su
 make install
-update-alternatives --help
+update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.1.x_GTK2_static/bin/wx-config 41
 exit
 
 ## Start of configure final output
+Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
+  Should wxWidgets be compiled into single library?       yes
+  Should wxWidgets be linked as a shared library?         no
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
 ## End of configure final output
 
 ## See http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
 
 which wx-config # /usr/bin/wx-config
 
-# run as root to install
-update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.1.x_GTK2_static/bin/wx-config 41
-
+update-alternatives --display wx-config
 # run as root to change
 update-alternatives --config wx-config
 
@@ -148,8 +168,10 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 ./bootstrap
 
-
+# --with-contrib-plugins=envvars \
 # --enable-debug
+
+export CXXFLAGS=""
 
 ./configure --prefix=/opt/wx3.1.x_GTK2_static \
     --enable-static \
@@ -165,7 +187,6 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
     --disable-scripted-wizard \
     --disable-todo \
     --disable-abbreviations \
-    --with-contrib-plugins=envvars \
     --disable-pch
 
 #  make clean && make

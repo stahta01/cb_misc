@@ -101,6 +101,8 @@ make uninstall
        --disable-propgrid \
        --disable-odcombobox \
        --disable-comboctrl \
+       --disable-rearrangectrl \
+       --disable-checklst \
        --disable-mdidoc \
        --enable-shared \
        --disable-precomp-headers

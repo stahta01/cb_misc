@@ -38,9 +38,18 @@ wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_ODCOMBOBOX                     wxOwnerDrawnComboBox   --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl         Used in Contrib Plugins
 
+wxUSE_REARRANGECTRL             wxRearrangeList/Ctrl/Dialog --disable-rearrangectrl     Not Used
+wxUSE_CHECKLISTBOX                   wxCheckListBox         --disable-checklst          Used in Core App
+wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
+
 wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
-wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview
+wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Opt still needs to be added! Also, all the ones below.
 wxUSE_CHOICEDLG                      wxChoiceDialog         --disable-choicedlg         Used in SDK (incorrectly used MACRO)
+
+       
+
+
+
 
 wxUSE_LISTBOOK                       wxListbook             --disable-listbook          Used in SDK
 
@@ -58,6 +67,7 @@ wxUSE_PREFERENCES_EDITOR
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
 
 
+
 ToDo:
 CompilerMessages    -> ListCtrlLogger -> wxListCtrl
 cbSearchResultsLog  -> ListCtrlLogger -> wxListCtrl
@@ -67,6 +77,7 @@ BreakpointsDlg -> wxListCtrl
 CPURegistersDlg -> wxListCtrl
 wxListbook -> wxListCtrl
 
+#error "wxRearrangeCtrl requires wxCheckListBox"
 error "wxUSE_MDI_ARCHITECTURE requires wxUSE_DOC_VIEW_ARCHITECTURE"
 error "DocView requires wxUSE_CHOICEDLG"
 #error "wxToolbook requires wxToolBar"

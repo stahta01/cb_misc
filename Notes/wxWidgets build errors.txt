@@ -37,3 +37,15 @@ g++: error: /opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI_richtext-3.1.a: 
 Makefile:836: recipe for target 'libcodeblocks.la' failed
 make[3]: *** [libcodeblocks.la] Error 1
 make[3]: Leaving directory '/home/stahta01/devel/version_control/codeblocks_reducedGUI-git/src/sdk'
+
+I am thinking "cbMessageOutputNull" is the cause of the problem.
+/usr/bin/ld: /opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a(monolib_appbase.o): relocation R_X86_64_32S against `_ZTV21wxMessageOutputStderr' can not be used when making a shared object; recompile with -fPIC
+/opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a: error adding symbols: Bad value
+collect2: error: ld returned 1 exit status
+Makefile:836: recipe for target 'libcodeblocks.la' failed
+
+/usr/bin/ld: /opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a(monolib_treeentry_gtk.o): relocation R_X86_64_32S against `.text' can not be used when making a shared object; recompile with -fPIC
+/opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a: error adding symbols: Bad value
+collect2: error: ld returned 1 exit status
+Makefile:836: recipe for target 'libcodeblocks.la' failed
+
