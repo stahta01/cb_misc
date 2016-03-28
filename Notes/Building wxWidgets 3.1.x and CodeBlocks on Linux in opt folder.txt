@@ -102,6 +102,7 @@ make uninstall
        --disable-odcombobox \
        --disable-comboctrl \
        --disable-rearrangectrl \
+       --disable-debugreport \
        --disable-checklst \
        --disable-mdidoc \
        --enable-shared \

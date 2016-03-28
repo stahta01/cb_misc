@@ -38,7 +38,9 @@ wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_ODCOMBOBOX                     wxOwnerDrawnComboBox   --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl         Used in Contrib Plugins
 
+
 wxUSE_REARRANGECTRL             wxRearrangeList/Ctrl/Dialog --disable-rearrangectrl     Not Used
+wxUSE_DEBUGREPORT                    wxDebugReport          --disable-debugreport       Used in Core App
 wxUSE_CHECKLISTBOX                   wxCheckListBox         --disable-checklst          Used in Core App
 wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
 
@@ -47,8 +49,8 @@ wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview   
 wxUSE_CHOICEDLG                      wxChoiceDialog         --disable-choicedlg         Used in SDK (incorrectly used MACRO)
 
        
-
-
+wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
+wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
 
 wxUSE_LISTBOOK                       wxListbook             --disable-listbook          Used in SDK
@@ -65,7 +67,6 @@ wxUSE_DIRDLG                         wxDirDialog            --disable-dirdlg    
 wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
-
 
 
 ToDo:

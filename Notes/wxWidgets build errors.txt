@@ -49,3 +49,5 @@ Makefile:836: recipe for target 'libcodeblocks.la' failed
 collect2: error: ld returned 1 exit status
 Makefile:836: recipe for target 'libcodeblocks.la' failed
 
+../src/generic/dbgrptg.cpp:273:5: error: ‘wxCheckListBox’ does not name a type
+     wxCheckListBox *m_checklst;
