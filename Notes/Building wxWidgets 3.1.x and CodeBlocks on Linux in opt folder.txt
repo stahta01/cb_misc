@@ -175,6 +175,7 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 ./bootstrap
 
 
+# --with-contrib-plugins=envvars \
 # --enable-debug
 
 ./configure --prefix=/opt/wx3.1.x_GTK2 \
@@ -190,7 +191,6 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
     --disable-scripted-wizard \
     --disable-todo \
     --disable-abbreviations \
-    --with-contrib-plugins=envvars \
     --disable-pch
 
 #  make clean && make

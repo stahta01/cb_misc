@@ -45,12 +45,13 @@ wxUSE_CHECKLISTBOX                   wxCheckListBox         --disable-checklst  
 
 
 wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
-wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Opt still needs to be added! Also, all the ones below.
+wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview
 wxUSE_CHOICEDLG                      wxChoiceDialog         --disable-choicedlg         Used in SDK (incorrectly used MACRO)
-wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
-       
-wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
+wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used; Opts below here still needs done!
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
+Try building static code::blocks at this point.
+
+wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
 
 
 wxUSE_LISTBOOK                       wxListbook             --disable-listbook          Used in SDK
@@ -75,6 +76,10 @@ CB_DISABLE_COMPILER_MESSAGES    use in new branch reduced/compiler
 git commit --amend
 
 ToDo:
+    Fix this hard coded value of 3 to some constant!
+        if (ret.GetCount() == 3)
+            txtP->SetValue(_("All"));
+
 CompilerMessages    -> ListCtrlLogger -> wxListCtrl
 cbSearchResultsLog  -> ListCtrlLogger -> wxListCtrl
 ThreadsDlg -> wxListCtrl
