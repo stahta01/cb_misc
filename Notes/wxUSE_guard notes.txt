@@ -42,12 +42,12 @@ wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl 
 wxUSE_REARRANGECTRL             wxRearrangeList/Ctrl/Dialog --disable-rearrangectrl     Not Used
 wxUSE_DEBUGREPORT                    wxDebugReport          --disable-debugreport       Used in Core App
 wxUSE_CHECKLISTBOX                   wxCheckListBox         --disable-checklst          Used in Core App
-wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
+
 
 wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Opt still needs to be added! Also, all the ones below.
 wxUSE_CHOICEDLG                      wxChoiceDialog         --disable-choicedlg         Used in SDK (incorrectly used MACRO)
-
+wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
        
 wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
@@ -68,6 +68,8 @@ wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
 
+# How to edit the last commit message before pushing it upstream
+git commit --amend
 
 ToDo:
 CompilerMessages    -> ListCtrlLogger -> wxListCtrl
@@ -78,6 +80,7 @@ BreakpointsDlg -> wxListCtrl
 CPURegistersDlg -> wxListCtrl
 wxListbook -> wxListCtrl
 
+#error "Choice dialogs requires wxListBox"
 #error "wxRearrangeCtrl requires wxCheckListBox"
 error "wxUSE_MDI_ARCHITECTURE requires wxUSE_DOC_VIEW_ARCHITECTURE"
 error "DocView requires wxUSE_CHOICEDLG"
@@ -87,10 +90,10 @@ error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
 error "wxListbook requires wxListCtrl"
 wxUSE_FONTDLG || wxUSE_FILEDLG || wxUSE_CHOICEDLG requires wxUSE_TEXTCTRL
 wxUSE_PROPGRID requires wxUSE_ODCOMBOBOX added to end of chkconf.h
-wxUSE_BITMAPCOMBOBOX requires wxUSE_COMBOCTRL   needs check code added
-wxUSE_ODCOMBOBOX requires wxUSE_COMBOCTRL       needs check code added
+wxUSE_BITMAPCOMBOBOX requires wxUSE_COMBOCTRL       needs check code added
+wxUSE_ODCOMBOBOX requires wxUSE_COMBOCTRL           needs check code added
 wxUSE_ADDREMOVECTRL under wxGTK requires wxToolBar  needs check code added
-
+wxUSE_DEBUGREPORT requires wxUSE_CHECKLISTBOX       needs check code added
 
 
 #if wxUSE_ADDREMOVECTRL

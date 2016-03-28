@@ -105,6 +105,7 @@ make uninstall
        --disable-debugreport \
        --disable-checklst \
        --disable-mdidoc \
+       --disable-docview \
        --enable-shared \
        --disable-precomp-headers
 
