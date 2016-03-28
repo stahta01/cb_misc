@@ -51,3 +51,8 @@ Makefile:836: recipe for target 'libcodeblocks.la' failed
 
 ../src/generic/dbgrptg.cpp:273:5: error: ‘wxCheckListBox’ does not name a type
      wxCheckListBox *m_checklst;
+
+
+../src/gtk/filedlg.cpp: In function ‘void gtk_filedialog_ok_callback(GtkWidget*, wxFileDialog*)’:
+../src/gtk/filedlg.cpp:60:17: error: ‘wxMessageDialog’ was not declared in this scope
+                 wxMessageDialog dlg(dialog, msg, _("Confirm"),

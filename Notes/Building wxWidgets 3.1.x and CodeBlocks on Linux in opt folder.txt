@@ -107,6 +107,8 @@ make uninstall
        --disable-mdidoc \
        --disable-docview \
        --disable-choicedlg \
+       --disable-richmsgdlg \
+       --disable-msgdlg \
        --enable-shared \
        --disable-precomp-headers
 

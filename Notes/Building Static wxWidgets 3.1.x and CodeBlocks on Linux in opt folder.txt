@@ -109,6 +109,8 @@ export CXXFLAGS="-fPIC -DPIC"
        --disable-mdidoc \
        --disable-docview \
        --disable-choicedlg \
+       --disable-richmsgdlg \
+       --disable-msgdlg \
        --disable-shared \
        --disable-precomp-headers
 
