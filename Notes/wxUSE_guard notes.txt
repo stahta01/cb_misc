@@ -1,3 +1,4 @@
+# wxUSE that was in C::B before my changes that I have not tried to disable.
 wxUSE_CLIPBOARD                                                                         Used in sdk/wxscintilla
 wxUSE_CMDLINE_PARSER                                                                    Used in CB_Core_App
 wxUSE_DATAOBJ                                                                           Used in sdk/wxscintilla
@@ -13,14 +14,16 @@ wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
 
-# Trying these 4 disable only to build wxWidgets at this time.
+# These 4 disabled to build wxWidgets at this time.
 wxUSE_STC                            wxStyledTextCtrl       --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
 wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
 wxUSE_RIBBON                         wxRibbon               --disable-ribbon
 
-# Try building static code::blocks at this point.
+# wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
+wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
 
+# Ones that I plan to try to disable in the future.
 wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
 wxUSE_HELP                                                  --disable-help
 wxUSE_CALCTRL                        wxCalendarCtrl         --disable-calendar          Used in Contrib Plugins
@@ -50,17 +53,11 @@ wxUSE_CHECKLISTBOX                   wxCheckListBox         --disable-checklst  
 
 
 wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
-wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview
 wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)
 wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
 wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker
 wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker
 
-
-Can NOT figure out what option to disable next the few I tried causes wxWidgets to have build errors.
-Found out that I edited an wxWidgets file and forgot about it; that may have caused the wxWidgets build errors.
-Need to review all my wxWidgets changes before trying to disable more options.
-Reverted all my wxWidgets changes.
 
 wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg           Used in SDK
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
