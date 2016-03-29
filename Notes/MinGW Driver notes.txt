@@ -1,0 +1,27 @@
+
+WDK     Windows Driver Kit
+WDF     Windows Driver Frameworks  
+KMDF    Kernel-Mode Driver Framework
+UMDF    User-Mode Driver Framework
+
+http://blogs.msdn.com/b/dhavalshah/archive/2014/02/11/writing-your-first-driver-for-windows.aspx
+http://forums.codeblocks.org/index.php/topic,21050.msg143749.html#msg143749
+https://myworks2012.wordpress.com/2014/05/26/how-to-compile-windows-x64-driver-using-mingw-w64-gcc/
+
+https://sourceforge.net/p/mingw-w64/mailman/message/25159071/
+https://github.com/libusb/libusb/wiki/Windows
+https://www.reactos.org/wiki/ReactOS_Driver_Model
+https://www.osronline.com/showthread.cfm?link=210644
+http://www.codeproject.com/Articles/13090/Building-and-deploying-a-basic-WDF-Kernel-Mode-Dri
+http://www.codeproject.com/Articles/13620/Developing-a-WDF-USB-Kernel-Mode-Driver-for-the-OS
+http://www.osronline.com/article.cfm?article=451
+http://www.osronline.com/article.cfm?id=449
+
+https://github.com/Microsoft/Windows-driver-frameworks
+https://github.com/Microsoft/Windows-Driver-Samples
+
+https://msdn.microsoft.com/library/windows/hardware/hh439659%28v=vs.85%29.aspx
+
+https://github.com/kaviteshsingh/MSFT_ECHO_UMDFv2
+
+https://reactos.org/wiki/ReactOS_Build_Environment
