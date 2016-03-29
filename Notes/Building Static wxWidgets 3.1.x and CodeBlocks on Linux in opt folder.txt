@@ -112,7 +112,6 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-richmsgdlg \
        --disable-dirpicker \
        --disable-filepicker \
-       --disable-filedlg \
        --disable-shared \
        --disable-precomp-headers
 
