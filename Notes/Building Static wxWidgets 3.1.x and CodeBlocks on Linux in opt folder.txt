@@ -177,7 +177,7 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 # --with-contrib-plugins=envvars \
 # --enable-debug
 
-export CXXFLAGS=""
+
 export CPPFLAGS=""
 
 ./configure --prefix=/opt/wx3.1.x_GTK2_static \

@@ -51,11 +51,14 @@ wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg
 wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker
 wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker
 
+Try building static code::blocks at this point.
+
+Can NOT figure out what option to disable next the few I tried causes wxWidgets to have build errors.
 
 wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg           Used in SDK; Opts below here still needs done!
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
-Try building static code::blocks at this point.
+
 
 wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl
 wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
@@ -75,7 +78,7 @@ wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
 
-CB_DISABLE_PLUGIN_API_DEBUGGER  use in new branch pluginAPI
+CB_DISABLE_PLUGIN_API_DEBUGGER  use in new branch reduced/pluginAPI
 CB_DISABLE_COMPILER_MESSAGES    use in new branch reduced/compiler 
 
 # How to edit the last commit message before pushing it upstream
