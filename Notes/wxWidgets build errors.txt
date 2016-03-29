@@ -103,3 +103,33 @@ Making of Shared wxWidgets error
                     ^
 Makefile:19853: recipe for target 'monodll_filectrlg.o' failed
 
+
+Static CB Build error; after adding flags for C and C++
+/opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a(monolib_xml.o): In function `PIHnd':
+xml.cpp:(.text+0x21da): undefined reference to `XML_GetCurrentLineNumber'
+/opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a(monolib_xml.o): In function `StartCdataHnd':
+xml.cpp:(.text+0x39d4): undefined reference to `XML_GetCurrentLineNumber'
+/opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a(monolib_xml.o): In function `CommentHnd':
+xml.cpp:(.text+0x3cb2): undefined reference to `XML_GetCurrentLineNumber'
+/opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a(monolib_xml.o): In function `StartElementHnd':
+xml.cpp:(.text+0x4150): undefined reference to `XML_GetCurrentLineNumber'
+/opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a(monolib_xml.o): In function `wxXmlDocument::Load(wxInputStream&, wxString const&, int)':
+xml.cpp:(.text+0x4b2c): undefined reference to `XML_ParserCreate'
+xml.cpp:(.text+0x4cd2): undefined reference to `XML_SetUserData'
+xml.cpp:(.text+0x4ce8): undefined reference to `XML_SetElementHandler'
+xml.cpp:(.text+0x4cf7): undefined reference to `XML_SetCharacterDataHandler'
+xml.cpp:(.text+0x4d0d): undefined reference to `XML_SetCdataSectionHandler'
+xml.cpp:(.text+0x4d1c): undefined reference to `XML_SetCommentHandler'
+xml.cpp:(.text+0x4d2b): undefined reference to `XML_SetProcessingInstructionHandler'
+xml.cpp:(.text+0x4d41): undefined reference to `XML_SetDoctypeDeclHandler'
+xml.cpp:(.text+0x4d50): undefined reference to `XML_SetDefaultHandler'
+xml.cpp:(.text+0x4d61): undefined reference to `XML_SetUnknownEncodingHandler'
+xml.cpp:(.text+0x4d8d): undefined reference to `XML_Parse'
+xml.cpp:(.text+0x4ded): undefined reference to `XML_GetErrorCode'
+xml.cpp:(.text+0x4df4): undefined reference to `XML_ErrorString'
+xml.cpp:(.text+0x50e3): undefined reference to `XML_GetCurrentLineNumber'
+xml.cpp:(.text+0x5617): undefined reference to `XML_ParserFree'
+/opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a(monolib_xml.o): In function `TextHnd':
+xml.cpp:(.text+0x6213): undefined reference to `XML_GetCurrentLineNumber'
+collect2: error: ld returned 1 exit status
+Makefile:836: recipe for target 'libcodeblocks.la' failed
