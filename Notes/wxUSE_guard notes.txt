@@ -48,12 +48,13 @@ wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview
 wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)
 wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used; Opts below here still needs done!
-wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
-Try building static code::blocks at this point.
-
 wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker
 wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker
+
 wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg           Used in SDK
+wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
+
+Try building static code::blocks at this point.
 
 wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
 
@@ -107,6 +108,7 @@ wxUSE_ADDREMOVECTRL under wxGTK requires wxToolBar  needs check code added
 wxUSE_DEBUGREPORT requires wxUSE_CHECKLISTBOX       needs check code added
 wxUSE_MSGDLG requires wxUSE_FILEDLG                 needs check code added
 wxUSE_FILEPICKERCTRL || wxUSE_DIRPICKERCTRL requires wxUSE_FILEDLG
+wxUSE_FILEDLG requires wxMessageDialog
 
 
 #if wxUSE_ADDREMOVECTRL

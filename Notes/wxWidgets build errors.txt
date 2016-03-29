@@ -56,3 +56,25 @@ Makefile:836: recipe for target 'libcodeblocks.la' failed
 ../src/gtk/filedlg.cpp: In function ‘void gtk_filedialog_ok_callback(GtkWidget*, wxFileDialog*)’:
 ../src/gtk/filedlg.cpp:60:17: error: ‘wxMessageDialog’ was not declared in this scope
                  wxMessageDialog dlg(dialog, msg, _("Confirm"),
+
+Error when I added option --disable-filepicker
+../src/gtk/filepicker.cpp:174:22: error: variable or field ‘file_set’ declared void
+ static void file_set(GtkFileChooser* widget, wxDirButton* p)
+                      ^
+../src/gtk/filepicker.cpp:174:22: error: ‘GtkFileChooser’ was not declared in this scope
+../src/gtk/filepicker.cpp:174:38: error: ‘widget’ was not declared in this scope
+ static void file_set(GtkFileChooser* widget, wxDirButton* p)
+                                      ^
+../src/gtk/filepicker.cpp:174:46: error: ‘wxDirButton’ was not declared in this scope
+ static void file_set(GtkFileChooser* widget, wxDirButton* p)
+                                              ^
+../src/gtk/filepicker.cpp:174:59: error: ‘p’ was not declared in this scope
+ static void file_set(GtkFileChooser* widget, wxDirButton* p)
+                                                           ^
+../src/gtk/filepicker.cpp:332:1: error: expected ‘}’ at end of input
+ }
+ ^
+Makefile:18863: recipe for target 'monodll_filepicker.o' failed
+make: *** [monodll_filepicker.o] Error 1
+stahta01@debian:~/devel/version_control/wxWidgets-git/build_shared_monolib_gtk2_unicode_3.1.x_2.8$ 
+

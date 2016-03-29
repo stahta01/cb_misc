@@ -108,7 +108,8 @@ make uninstall
        --disable-docview \
        --disable-choicedlg \
        --disable-richmsgdlg \
-       --disable-msgdlg \
+       --disable-dirpicker \
+       --disable-filepicker \
        --enable-shared \
        --disable-precomp-headers
 
