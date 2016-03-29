@@ -47,11 +47,11 @@ wxUSE_CHECKLISTBOX                   wxCheckListBox         --disable-checklst  
 wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview
 wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)
-wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used; Opts below here still needs done!
+wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
 wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker
 wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker
 
-wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg           Used in SDK
+wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg           Used in SDK; Opts below here still needs done!
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
 Try building static code::blocks at this point.

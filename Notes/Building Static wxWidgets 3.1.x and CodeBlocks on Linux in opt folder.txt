@@ -111,6 +111,9 @@ export CXXFLAGS="-fPIC -DPIC"
        --disable-choicedlg \
        --disable-richmsgdlg \
        --disable-dirpicker \
+       --disable-filepicker \
+       --disable-filedlg \
+       --disable-msgdlg \
        --disable-shared \
        --disable-precomp-headers
 

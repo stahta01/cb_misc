@@ -110,6 +110,7 @@ make uninstall
        --disable-richmsgdlg \
        --disable-dirpicker \
        --disable-filepicker \
+       --disable-filedlg \
        --enable-shared \
        --disable-precomp-headers
 
