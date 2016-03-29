@@ -128,7 +128,9 @@ update-alternatives --config wx-config
 which wx-config
 
 
-wx-config --libs
+wx-config --libs   # -L/opt/wx3.1.x_GTK2_static/lib -pthread   /opt/wx3.1.x_GTK2_static/lib/libwx_gtk2u_reducedGUI-3.1.a -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lfontconfig -lfreetype -lgthread-2.0 -pthread -lglib-2.0 -lX11 -lXxf86vm -lSM -lnotify -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lpng -lz -ljpeg -ltiff -lwxregexu_reducedGUI-3.1 -lz -ldl -lm 
+
+wx-config --linkdeps  #
 
 wx-config --list
 
@@ -147,8 +149,12 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 # --with-contrib-plugins=envvars \
 # --enable-debug
 
+# -lexpat
+# libwxexpat.a
+
 
 export CPPFLAGS=""
+export LDFLAGS="-lexpat"
 
 ./configure --prefix=/opt/wx3.1.x_GTK2_static \
     --enable-static \
