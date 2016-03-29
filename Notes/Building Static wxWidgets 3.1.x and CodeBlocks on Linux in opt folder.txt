@@ -71,7 +71,7 @@ cd ~/devel/version_control/wxWidgets-git/build_static_monolib_gtk2_unicode_3.1.x
 
 make uninstall
 
-export CXXFLAGS="-fPIC -DPIC"
+export CPPFLAGS="-fPIC -DPIC"
 
 ../configure --prefix=/opt/wx3.1.x_GTK2_static \
        --with-gtk=2 \
@@ -113,7 +113,6 @@ export CXXFLAGS="-fPIC -DPIC"
        --disable-dirpicker \
        --disable-filepicker \
        --disable-filedlg \
-       --disable-msgdlg \
        --disable-shared \
        --disable-precomp-headers
 
@@ -180,6 +179,7 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 # --enable-debug
 
 export CXXFLAGS=""
+export CPPFLAGS=""
 
 ./configure --prefix=/opt/wx3.1.x_GTK2_static \
     --enable-static \
