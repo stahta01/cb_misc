@@ -12,6 +12,15 @@ wxUSE_UNICODE                                                                   
 wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
+
+# Trying these 4 disable only to build wxWidgets at this time.
+wxUSE_STC                            wxStyledTextCtrl       --disable-stc               Not used in CB; an old fork is used.
+wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
+wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
+wxUSE_RIBBON                         wxRibbon               --disable-ribbon
+
+# Try building static code::blocks at this point.
+
 wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
 wxUSE_HELP                                                  --disable-help
 wxUSE_CALCTRL                        wxCalendarCtrl         --disable-calendar          Used in Contrib Plugins
@@ -23,10 +32,6 @@ wxUSE_FINDREPLDLG                    wxFindReplaceDialog    --disable-finddlg   
 wxUSE_LOG_DIALOG                     wxLogDialog            --disable-logdialog         Used in Contrib Plugins
 wxUSE_COLOURPICKERCTRL               wxColourPickerCtrl     --disable-colourpicker      Used in Contrib Plugins
 
-wxUSE_STC                            wxStyledTextCtrl       --disable-stc               Not used in CB; an old fork is used.
-wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
-wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
-wxUSE_RIBBON                         wxRibbon               --disable-ribbon
 
 wxUSE_RICHTEXT                       wxRichTextCtrl         --disable-richtext          ?Used in Contrib Plugins
 
@@ -51,17 +56,19 @@ wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg
 wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker
 wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker
 
-Try building static code::blocks at this point.
 
 Can NOT figure out what option to disable next the few I tried causes wxWidgets to have build errors.
+Found out that I edited an wxWidgets file and forgot about it; that may have caused the wxWidgets build errors.
+Need to review all my wxWidgets changes before trying to disable more options.
+Reverted all my wxWidgets changes.
 
-wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg           Used in SDK; Opts below here still needs done!
+wxUSE_FILEDLG                        wxFileDialog           --disable-filedlg           Used in SDK
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
 
 
 wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl
-wxUSE_LISTBOX                        wxListBox              --disable-listbox           Opt still needs to be added! Used in Core App
+wxUSE_LISTBOX                        wxListBox              --disable-listbox           Used in Core App
 
 
 wxUSE_LISTBOOK                       wxListbook             --disable-listbook          Used in SDK
