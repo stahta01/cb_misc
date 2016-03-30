@@ -29,6 +29,38 @@ git push origin
 #   git format-patch  origin/master
 #
 ###
+cd ../codeblocks_reducedGUI-git && git fetch origin && git status -uno
+git checkout reduced/pluginAPI && git status -uno
+#
+#   git pull
+#
+#   git rebase origin/git/fixes && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
+##  git rebase -i origin/master
+#
+git push origin
+##  git rebase origin/master && git push origin --force-with-lease
+#
+###
+cd ../codeblocks_reducedGUI-git && git fetch origin && git status -uno
+git checkout reduced/compiler && git status -uno
+#
+#   git pull
+#
+#   git rebase origin/git/fixes && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
+##  git rebase -i origin/master
+#
+git push origin
+##  git rebase origin/master && git push origin --force-with-lease
+#
+###
 #
 cd ../codeblocks_reducedGUI-git && git fetch origin && git status -uno
 git checkout reducedGUI && git status -uno

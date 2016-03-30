@@ -93,6 +93,10 @@ ToDo:
         if (ret.GetCount() == 3)
             txtP->SetValue(_("All"));
 
+Remove most of the classes that depend on wxScrollingDialog
+
+m_pListLog
+
 CompilerMessages    -> ListCtrlLogger -> wxListCtrl
 cbSearchResultsLog  -> ListCtrlLogger -> wxListCtrl
 ThreadsDlg -> wxListCtrl
@@ -179,3 +183,5 @@ wxUSE_FILECTRL requires wxFileDialogBase
 #   endif
 #endif /* wxUSE_TOOLBOOK */
 
+#ifndef CB_DISABLE_COMPILER_MESSAGES
+#endif // CB_DISABLE_COMPILER_MESSAGES
