@@ -14,7 +14,7 @@ wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
 
-# These 7 disabled to build wxWidgets at this time.
+# These 9 disabled to build wxWidgets at this time.
 wxUSE_OPENGL                                                --without-opengl
 wxUSE_STC                            wxStyledTextCtrl       --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
@@ -29,6 +29,13 @@ wxUSE_RICHTEXT                       wxRichTextCtrl         --disable-richtext  
 
 wxUSE_HTML                                                  --disable-html
 
+wxUSE_HELP                                                  --disable-help
+
+wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
+
+wxUSE_REARRANGECTRL             wxRearrangeList/Ctrl/Dialog --disable-rearrangectrl     Not Used
+
+
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
@@ -36,7 +43,6 @@ wxUSE_XRC                                                                       
 
 # Ones that I plan to try to disable in the future.
 
-wxUSE_HELP                                                  --disable-help
 wxUSE_CALCTRL                        wxCalendarCtrl         --disable-calendar          Used in Contrib Plugins
 wxUSE_DATEPICKCTRL                   wxDatePickerCtrl       --disable-datepick          Used in Contrib Plugins
 wxUSE_LOGWINDOW                      wxLogWindow            --disable-logwin            Used in Contrib Plugins
@@ -55,12 +61,11 @@ wxUSE_ODCOMBOBOX                     wxOwnerDrawnComboBox   --disable-odcombobox
 wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl         Used in Contrib Plugins
 
 
-wxUSE_REARRANGECTRL             wxRearrangeList/Ctrl/Dialog --disable-rearrangectrl     Not Used
 wxUSE_DEBUGREPORT                    wxDebugReport          --disable-debugreport       Used in Core App
 wxUSE_CHECKLISTBOX                   wxCheckListBox         --disable-checklst          Used in Core App
 
 
-wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
+
 wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)
 wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
 wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker
