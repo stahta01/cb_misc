@@ -62,8 +62,7 @@ cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p
   --enable-debug          build library for debugging
   --enable-cxx11          use C++11 compiler if available
   --disable-controls      disable compilation of all standard controls
-  --with-libnotify        use libnotify for notifications
-  --with-opengl           use OpenGL (or Mesa)
+
 
 # Configure Options end
 
@@ -88,6 +87,9 @@ make uninstall
 export CPPFLAGS="-fPIC -DPIC"
 
 ../configure --prefix=/opt/wx3.1.x_GTK2_static \
+       --enable-cxx11 \
+       --enable-std_iostreams \
+       --enable-std_string \
        --with-gtk=2 \
        --with-flavour=reducedGUI \
        --with-regex=builtin \
@@ -106,6 +108,7 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-printarch \
        --disable-propgrid \
        --disable-richtext \
+       --disable-html \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers
