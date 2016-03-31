@@ -1,14 +1,14 @@
 
 ######################################################
+git remote -v
 
-#
+git remote add cb_console https://stahta01@github.com/stahta01/codeblocks_console.git
+
+###
 cd ../codeblocks_reducedGUI-git && git status -uno
-git fetch origin --prune
+git fetch origin --prune && git fetch cb_console --prune
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info && git svn log -1
-# Update branches by rebasing with master branch
-git checkout git/fixes && git rebase origin/master && git push origin --force-with-lease
-
 
 ###
 cd ../codeblocks_reducedGUI-git && git fetch origin && git status -uno
@@ -23,8 +23,8 @@ git rebase origin/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
 ##  git rebase -i origin/master
 #
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
+git push cb_console -u
+##  git rebase origin/master && git push cb_console --force-with-lease
 #
 #   git format-patch  origin/master
 #
@@ -41,8 +41,8 @@ git rebase origin/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
 ##  git rebase -i origin/master
 #
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
+git push cb_console -u
+##  git rebase origin/master && git push cb_console --force-with-lease
 #
 ###
 cd ../codeblocks_reducedGUI-git && git fetch origin && git status -uno
@@ -57,8 +57,8 @@ git rebase origin/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
 ##  git rebase -i origin/master
 #
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
+git push cb_console -u
+##  git rebase origin/master && git push cb_console --force-with-lease
 #
 ###
 #
@@ -69,8 +69,8 @@ git checkout reducedGUI && git status -uno
 #
 git rebase origin/master && git status -uno
 # git rebase -i origin/master
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
+git push cb_console -u
+##  git rebase origin/master && git push cb_console --force-with-lease
 #
 git format-patch origin/wxUSE_guard
 #
@@ -84,8 +84,8 @@ git checkout build/nonGUI && git status -uno
 git rebase origin/master && git status -uno
 # git log -5
 # git rebase -i origin/master
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
+git push cb_console -u
+##  git rebase origin/master && git push cb_console --force-with-lease
 #
 # git format-patch origin/master
 0001-nonGUI-SDK-scripting-work.patch
