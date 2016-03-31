@@ -51,6 +51,20 @@ cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p buil
        --disable-logdialog \
        --disable-dirdlg \
        --disable-listctrl
+
+  --enable-stl            use standard C++ classes for everything
+  --enable-std_containers use standard C++ container classes
+  --enable-std_containers_compat     use standard C++ container classes when it can be done compatible
+  --enable-std_iostreams  use standard C++ stream classes
+  --enable-std_string     use standard C++ string classes
+  --disable-gui           don't build GUI parts of the library
+  --disable-sys-libs      disable all use of system libraries, use only built-in one
+  --enable-debug          build library for debugging
+  --enable-cxx11          use C++11 compiler if available
+  --disable-controls      disable compilation of all standard controls
+  --with-libnotify        use libnotify for notifications
+  --with-opengl           use OpenGL (or Mesa)
+
 # Configure Options end
 
 # error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL" --disable-logwin
@@ -81,6 +95,11 @@ export CPPFLAGS="-fPIC -DPIC"
        --enable-monolithic \
        --enable-compat28 \
        --enable-xrc \
+       --without-subdirs \
+       --disable-stc \
+       --disable-mediactrl \
+       --disable-webviewwebkit \
+       --disable-ribbon \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers
