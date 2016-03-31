@@ -63,7 +63,7 @@ git push cb_console -u
 ###
 #
 cd ../codeblocks_reducedGUI-git && git fetch origin && git status -uno
-git checkout reducedGUI && git status -uno
+git checkout build/reducedGUI && git status -uno
 #
 #   git rebase origin/wxUSE_guard && git status -uno
 #
