@@ -23,7 +23,6 @@ wxUSE_RIBBON                         wxRibbon               --disable-ribbon
 
 wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
 wxUSE_GTKPRINT                                              --without-gtkprint
-
 wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_RICHTEXT                       wxRichTextCtrl         --disable-richtext          ?Used in Contrib Plugins
 
@@ -39,7 +38,7 @@ wxUSE_REARRANGECTRL             wxRearrangeList/Ctrl/Dialog --disable-rearrangec
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
-wxUSE_XRC                                                                               Used in SDK or Core App
+wxUSE_XRC                                                                               Used in SDK and/or Core App
 
 # Ones that I plan to try to disable in the future.
 
