@@ -19,7 +19,7 @@ Interesting Windows config options
 --with-flavour=NAME     specify a name to identify this build
 
 
-cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
+cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
 
 
 ## Configure Options start that I have used in the past
@@ -94,7 +94,7 @@ Configs that worked end
 
 ## Next time I have weird configure issues search for and delete config.cache if found.
 
-cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_shared_monolib_gtk2_unicode_3.1.x_2.8
+cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p build_shared_monolib_gtk2_unicode_3.1.x_2.8
 
 cd ~/devel/version_control/wxWidgets-git/build_shared_monolib_gtk2_unicode_3.1.x_2.8 && git status -uno
 
@@ -102,19 +102,27 @@ make uninstall
 
 ## ../include/wx/generic/logg.h
 
-# --with-flavour=reducedGUI \
+# 
+
+export CPPFLAGS=""
 
 ../configure --prefix=/opt/wx3.1.x_GTK2 \
        --with-gtk=2 \
        --with-regex=builtin \
        --without-opengl \
+       --without-libnotify \
+       --without-gtkprint \
        --enable-monolithic \
        --enable-compat28 \
        --enable-xrc \
+       --without-subdirs \
        --disable-stc \
        --disable-mediactrl \
        --disable-webviewwebkit \
        --disable-ribbon \
+       --with-flavour=reducedGUI \
+       --disable-printarch \
+       --disable-propgrid \
        --enable-unicode \
        --enable-shared \
        --disable-precomp-headers
@@ -130,7 +138,7 @@ exit
 ## Start of configure final output
 Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
 
-  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2
   Should wxWidgets be compiled into single library?       yes
   Should wxWidgets be linked as a shared library?         yes
   Should wxWidgets support Unicode?                       yes (using wchar_t)

@@ -14,17 +14,22 @@ wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
 
-# These 4 disabled to build wxWidgets at this time.
+# These 7 disabled to build wxWidgets at this time.
 wxUSE_STC                            wxStyledTextCtrl       --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
 wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
 wxUSE_RIBBON                         wxRibbon               --disable-ribbon
 
+wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
+wxUSE_GTKPRINT                                              --without-gtkprint
+
+wxUSE_PROPGRID                                              --disable-propgrid
+
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
 
 # Ones that I plan to try to disable in the future.
-wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
+
 wxUSE_HELP                                                  --disable-help
 wxUSE_CALCTRL                        wxCalendarCtrl         --disable-calendar          Used in Contrib Plugins
 wxUSE_DATEPICKCTRL                   wxDatePickerCtrl       --disable-datepick          Used in Contrib Plugins
@@ -42,7 +47,6 @@ wxUSE_TOOLBOOK                       wxToolbook             --disable-toolbook
 wxUSE_ADDREMOVECTRL                  wxAddRemoveCtrl        --disable-addremovectrl
 wxUSE_TOOLBAR                        wxToolBar              --disable-toolbar
 
-wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_ODCOMBOBOX                     wxOwnerDrawnComboBox   --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                      wxComboCtrl            --disable-comboctrl         Used in Contrib Plugins
 

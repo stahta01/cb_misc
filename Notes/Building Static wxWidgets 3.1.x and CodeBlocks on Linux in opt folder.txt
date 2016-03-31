@@ -19,7 +19,7 @@ Interesting Windows config options
 --with-flavour=NAME     specify a name to identify this build
 
 
-cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
+cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
 
 
 ## Configure Options start that I have used in the past
@@ -79,7 +79,7 @@ cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p buil
 ## ../include/wx/generic/logg.h
 
 # 
-cd ~/devel/version_control/wxWidgets-git && git checkout master && mkdir -p build_static_monolib_gtk2_unicode_3.1.x_2.8
+cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p build_static_monolib_gtk2_unicode_3.1.x_2.8
 
 cd ~/devel/version_control/wxWidgets-git/build_static_monolib_gtk2_unicode_3.1.x_2.8 && git status -uno
 
@@ -92,6 +92,8 @@ export CPPFLAGS="-fPIC -DPIC"
        --with-flavour=reducedGUI \
        --with-regex=builtin \
        --without-opengl \
+       --without-libnotify \
+       --without-gtkprint \
        --enable-monolithic \
        --enable-compat28 \
        --enable-xrc \
@@ -100,6 +102,9 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-mediactrl \
        --disable-webviewwebkit \
        --disable-ribbon \
+       --with-flavour=reducedGUI \
+       --disable-printarch \
+       --disable-propgrid \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers
@@ -116,7 +121,7 @@ exit
 ## Start of configure final output
 Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
 
-  Which GUI toolkit should wxWidgets use?                 GTK+ 2 with support for GTK+ printing libnotify
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2
   Should wxWidgets be compiled into single library?       yes
   Should wxWidgets be linked as a shared library?         no
   Should wxWidgets support Unicode?                       yes (using wchar_t)
