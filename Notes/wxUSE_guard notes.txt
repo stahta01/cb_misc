@@ -14,21 +14,20 @@ wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
 
-# These 9 disabled to build wxWidgets at this time.
+# These 11 disabled to build wxWidgets at this time.
 wxUSE_OPENGL                                                --without-opengl
 wxUSE_STC                            wxStyledTextCtrl       --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
 wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
 wxUSE_RIBBON                         wxRibbon               --disable-ribbon
 
+wxUSE_HELP                                                  --disable-help
 wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
 wxUSE_GTKPRINT                                              --without-gtkprint
 wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_RICHTEXT                       wxRichTextCtrl         --disable-richtext          ?Used in Contrib Plugins
-
 wxUSE_HTML                                                  --disable-html
 
-wxUSE_HELP                                                  --disable-help
 
 wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
 
