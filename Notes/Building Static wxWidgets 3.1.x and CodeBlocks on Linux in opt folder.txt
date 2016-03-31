@@ -105,6 +105,7 @@ export CPPFLAGS="-fPIC -DPIC"
        --with-flavour=reducedGUI \
        --disable-printarch \
        --disable-propgrid \
+       --disable-richtext \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers

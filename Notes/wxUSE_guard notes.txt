@@ -15,6 +15,7 @@ wxUSE_UXTHEME                                                                   
 wxUSE_XML                                                                               Used in CB_Core_App
 
 # These 7 disabled to build wxWidgets at this time.
+wxUSE_OPENGL                                                --without-opengl
 wxUSE_STC                            wxStyledTextCtrl       --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                      wxMediaCtrl            --disable-mediactrl
 wxUSE_WEBVIEW                        wxWebView              --disable-webviewwebkit
@@ -24,9 +25,14 @@ wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch 
 wxUSE_GTKPRINT                                              --without-gtkprint
 
 wxUSE_PROPGRID                                              --disable-propgrid
+wxUSE_RICHTEXT                       wxRichTextCtrl         --disable-richtext          ?Used in Contrib Plugins
+
+wxUSE_HTML                                                  --disable-html
 
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
+wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
+wxUSE_XRC                                                                               Used in SDK or Core App
 
 # Ones that I plan to try to disable in the future.
 
@@ -40,8 +46,6 @@ wxUSE_FINDREPLDLG                    wxFindReplaceDialog    --disable-finddlg   
 wxUSE_LOG_DIALOG                     wxLogDialog            --disable-logdialog         Used in Contrib Plugins
 wxUSE_COLOURPICKERCTRL               wxColourPickerCtrl     --disable-colourpicker      Used in Contrib Plugins
 
-
-wxUSE_RICHTEXT                       wxRichTextCtrl         --disable-richtext          ?Used in Contrib Plugins
 
 wxUSE_TOOLBOOK                       wxToolbook             --disable-toolbook
 wxUSE_ADDREMOVECTRL                  wxAddRemoveCtrl        --disable-addremovectrl
@@ -84,7 +88,7 @@ wxUSE_TEXTCTRL                       wxTextCtrl             --disable-textctrl  
 wxUSE_DIRDLG                         wxDirDialog            --disable-dirdlg            Used in SDK
 wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
-wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
+
 
 CB_DISABLE_PLUGIN_API_DEBUGGER  use in new branch reduced/pluginAPI
 CB_DISABLE_COMPILER_MESSAGES    use in new branch reduced/compiler 
@@ -186,6 +190,7 @@ wxUSE_FILECTRL requires wxFileDialogBase
 #       endif
 #   endif
 #endif /* wxUSE_TOOLBOOK */
+
 
 #ifndef CB_DISABLE_COMPILER_MESSAGES
 #endif // CB_DISABLE_COMPILER_MESSAGES
