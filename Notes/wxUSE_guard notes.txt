@@ -36,7 +36,6 @@ wxUSE_BITMAPCOMBOBOX            wxBitmapComboBox            --disable-bmpcombobo
 wxUSE_FINDREPLDLG               wxFindReplaceDialog         --disable-finddlg           Used in Contrib Plugins and CC Plugin
 wxUSE_LOG_DIALOG                wxLogDialog                 --disable-logdialog         Used in Contrib Plugins
 wxUSE_COLOURPICKERCTRL          wxColourPickerCtrl          --disable-colourpicker      Used in Contrib Plugins
-
 wxUSE_REARRANGECTRL             wxRearrangeList/Ctrl/Dialog --disable-rearrangectrl     Not Used
 
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
@@ -45,9 +44,14 @@ wxUSE_AUI                                                   --disable-aui       
 wxUSE_XRC                                                                               Used in SDK and/or Core App
 
 # Ones that I plan to try to disable in the future.
-wxUSE_TOOLBOOK                  wxToolbook                  --disable-toolbook
-wxUSE_ADDREMOVECTRL             wxAddRemoveCtrl             --disable-addremovectrl
-wxUSE_TOOLBAR                   wxToolBar                   --disable-toolbar
+wxUSE_TOOLBOOK                  wxToolbook                  --disable-toolbook          Not Used
+wxUSE_ADDREMOVECTRL             wxAddRemoveCtrl             --disable-addremovectrl     Not Used
+wxUSE_TOOLBAR                   wxToolBar                   --disable-toolbar           Used in SDK
+
+wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)
+wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
+wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker         Used in Tools
+wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker        Used in Contrib Plugins
 
 wxUSE_ODCOMBOBOX                wxOwnerDrawnComboBox        --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                 wxComboCtrl                 --disable-comboctrl         Used in Contrib Plugins
@@ -55,15 +59,10 @@ wxUSE_COMBOCTRL                 wxComboCtrl                 --disable-comboctrl 
 wxUSE_DEBUGREPORT               wxDebugReport               --disable-debugreport       Used in Core App
 wxUSE_CHECKLISTBOX              wxCheckListBox              --disable-checklst          Used in Core App
 
-wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)
-wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
-wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker
-wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker
-
 wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
-wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl
+wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl          Used in wxContribItems
 wxUSE_LISTBOX                   wxListBox                   --disable-listbox           Used in Core App
 
 wxUSE_LISTBOOK                  wxListbook                  --disable-listbook          Used in SDK

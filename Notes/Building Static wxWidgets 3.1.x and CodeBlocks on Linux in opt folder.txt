@@ -119,6 +119,7 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-finddlg \
        --disable-logdialog \
        --disable-colourpicker \
+       --disable-rearrangectrl \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers
