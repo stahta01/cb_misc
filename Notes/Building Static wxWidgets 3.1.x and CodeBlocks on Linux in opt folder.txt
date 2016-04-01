@@ -110,6 +110,7 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-propgrid \
        --disable-richtext \
        --disable-html \
+       --disable-mdidoc \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers
