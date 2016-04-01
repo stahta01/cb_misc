@@ -111,6 +111,14 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-richtext \
        --disable-html \
        --disable-mdidoc \
+       --disable-calendar \
+       --disable-datepick \
+       --disable-logwin \
+       --disable-searchctrl \
+       --disable-bmpcombobox \
+       --disable-finddlg \
+       --disable-logdialog \
+       --disable-colourpicker \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers

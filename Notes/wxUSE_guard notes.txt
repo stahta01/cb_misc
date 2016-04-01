@@ -14,7 +14,7 @@ wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
 
-# These 12 disabled to build wxWidgets at this time.
+# These 20 disabled to build wxWidgets at this time.
 wxUSE_OPENGL                                                --without-opengl
 wxUSE_STC                       wxStyledTextCtrl            --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                 wxMediaCtrl                 --disable-mediactrl
@@ -28,8 +28,6 @@ wxUSE_PROPGRID                                              --disable-propgrid
 wxUSE_RICHTEXT                  wxRichTextCtrl              --disable-richtext          ?Used in Contrib Plugins
 wxUSE_HTML                                                  --disable-html              Used in ccmanager.cpp
 wxUSE_MDI_ARCHITECTURE                                      --disable-mdidoc
-
-
 wxUSE_CALCTRL                   wxCalendarCtrl              --disable-calendar          Used in Contrib Plugins
 wxUSE_DATEPICKCTRL              wxDatePickerCtrl            --disable-datepick          Used in Contrib Plugins
 wxUSE_LOGWINDOW                 wxLogWindow                 --disable-logwin            Used in Contrib Plugins
