@@ -1,3 +1,7 @@
+svn checkout svn://svn.code.sf.net/p/xpmeditor/code/ xpmeditor-svn
+
+
+
 ||WARNING: Target 'wxSmith - Contrib Items (Unix) - wxSmithContribItems': Unable to resolve 1 external dependency/ies:|
 ||        ../../../devel/libwxdatetimepicker.so|
 
