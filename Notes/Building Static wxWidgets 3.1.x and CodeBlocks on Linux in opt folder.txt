@@ -120,6 +120,9 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-logdialog \
        --disable-colourpicker \
        --disable-rearrangectrl \
+       --disable-toolbook \
+       --disable-addremovectrl \
+       --disable-toolbar \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers

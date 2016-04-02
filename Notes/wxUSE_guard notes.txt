@@ -37,6 +37,9 @@ wxUSE_FINDREPLDLG               wxFindReplaceDialog         --disable-finddlg   
 wxUSE_LOG_DIALOG                wxLogDialog                 --disable-logdialog         Used in Contrib Plugins
 wxUSE_COLOURPICKERCTRL          wxColourPickerCtrl          --disable-colourpicker      Used in Contrib Plugins
 wxUSE_REARRANGECTRL             wxRearrangeList/Ctrl/Dialog --disable-rearrangectrl     Not Used
+wxUSE_TOOLBOOK                  wxToolbook                  --disable-toolbook          Not Used
+wxUSE_ADDREMOVECTRL             wxAddRemoveCtrl             --disable-addremovectrl     Not Used
+wxUSE_TOOLBAR                   wxToolBar                   --disable-toolbar           Used in SDK
 
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
@@ -44,9 +47,6 @@ wxUSE_AUI                                                   --disable-aui       
 wxUSE_XRC                                                                               Used in SDK and/or Core App
 
 # Ones that I plan to try to disable in the future.
-wxUSE_TOOLBOOK                  wxToolbook                  --disable-toolbook          Not Used
-wxUSE_ADDREMOVECTRL             wxAddRemoveCtrl             --disable-addremovectrl     Not Used
-wxUSE_TOOLBAR                   wxToolBar                   --disable-toolbar           Used in SDK
 
 wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)
 wxUSE_RICHMSGDLG                wxRichMessageDialog         --disable-richmsgdlg        Not Used
