@@ -123,6 +123,8 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-toolbook \
        --disable-addremovectrl \
        --disable-toolbar \
+       --disable-dirpicker \
+       --disable-filepicker \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers
