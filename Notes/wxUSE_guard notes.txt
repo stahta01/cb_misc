@@ -44,7 +44,6 @@ wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker 
 wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker        Used in Contrib Plugins
 wxUSE_ODCOMBOBOX                wxOwnerDrawnComboBox        --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                 wxComboCtrl                 --disable-comboctrl         Used in Contrib Plugins
-
 wxUSE_DEBUGREPORT               wxDebugReport               --disable-debugreport       Used in Core App
 wxUSE_CHECKLISTBOX              wxCheckListBox              --disable-checklst          Used in Core App
 
