@@ -194,17 +194,11 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 ./bootstrap
 
-# --with-contrib-plugins=envvars \
-# --enable-debug
-
-# -lexpat
-# libwxexpat.a
-
-
 export CPPFLAGS=""
 export LDFLAGS="-lexpat"
 
 ./configure --prefix=/opt/wx3.1.x_GTK2_static \
+    --enable-debug \
     --enable-static \
     --disable-code-completion \
     --disable-source-formatter \
@@ -220,10 +214,9 @@ export LDFLAGS="-lexpat"
     --disable-abbreviations \
     --disable-pch
 
-#  make clean && make
-
 make
 
+#  make clean && make
 
 
 # run as root to install
