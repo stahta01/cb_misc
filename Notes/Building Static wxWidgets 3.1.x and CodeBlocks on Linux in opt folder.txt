@@ -127,6 +127,8 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-filepicker \
        --disable-odcombobox \
        --disable-comboctrl \
+       --disable-debugreport \
+       --disable-checklst \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers

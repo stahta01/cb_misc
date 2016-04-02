@@ -42,9 +42,11 @@ wxUSE_ADDREMOVECTRL             wxAddRemoveCtrl             --disable-addremovec
 wxUSE_TOOLBAR                   wxToolBar                   --disable-toolbar           Used in SDK
 wxUSE_DIRPICKERCTRL             wxDirPickerCtrl             --disable-dirpicker         Used in Tools
 wxUSE_FILEPICKERCTRL            wxFilePickerCtrl            --disable-filepicker        Used in Contrib Plugins
-
 wxUSE_ODCOMBOBOX                wxOwnerDrawnComboBox        --disable-odcombobox        Used in wx3x propgrid
 wxUSE_COMBOCTRL                 wxComboCtrl                 --disable-comboctrl         Used in Contrib Plugins
+
+wxUSE_DEBUGREPORT               wxDebugReport               --disable-debugreport       Used in Core App
+wxUSE_CHECKLISTBOX              wxCheckListBox              --disable-checklst          Used in Core App
 
 
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
@@ -55,9 +57,6 @@ wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg 
 
 
 # Ones that I plan to try to disable in the future.
-
-wxUSE_DEBUGREPORT               wxDebugReport               --disable-debugreport       Used in Core App
-wxUSE_CHECKLISTBOX              wxCheckListBox              --disable-checklst          Used in Core App
 
 wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
