@@ -1,4 +1,12 @@
 reducedGUI notes.txt
+Needed files:
+CodeBlocks_wx30.cbp
+CodeBlocks_wx30-unix.cbp
+update30
+update30.bat
+batch_build_core_30.bat
+batch_build_core
+
 
 git am 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
 
