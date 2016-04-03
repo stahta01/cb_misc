@@ -4,6 +4,8 @@ git remote -v
 
 git remote add cb_console https://stahta01@github.com/stahta01/codeblocks_console.git
 
+git remote add reducedGUI https://stahta01@github.com/stahta01/codeblocks_reducedGUI.git
+
 ###
 cd ../codeblocks_reducedGUI-git && git status -uno
 git fetch origin --prune && git fetch cb_console --prune
