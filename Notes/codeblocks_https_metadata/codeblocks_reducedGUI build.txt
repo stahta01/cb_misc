@@ -13,9 +13,6 @@ git checkout master && git rebase origin/master && git status -uno
 git svn fetch && git svn info && git svn log -1
 
 ###
-cd ../codeblocks_reducedGUI-git && git checkout master && git status -uno
-git checkout noPCH_fix && git status -uno
-###
 cd ../codeblocks_reducedGUI-git && git fetch cb_console && git status -uno
 git checkout wxUSE_guard && git status -uno
 #

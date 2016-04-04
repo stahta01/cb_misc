@@ -75,7 +75,17 @@ wxUSE_TEXTCTRL                  wxTextCtrl                  --disable-textctrl  
 wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
 wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
-
+start MSW options (only partial list)
+wxUSE_DRAG_AND_DROP
+wxUSE_OLE_AUTOMATION
+wxUSE_ACTIVEX
+wxUSE_DATAOBJ
+wxUSE_OLE
+wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW
+wxUSE_REGKEY
+wxUSE_RICHEDIT
+wxUSE_OWNER_DRAWN
+end MSW options
 
 CB_DISABLE_PLUGIN_API_DEBUGGER  use in new branch reduced/pluginAPI
 CB_DISABLE_COMPILER_MESSAGES    use in new branch reduced/compiler 
