@@ -199,7 +199,7 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 export CPPFLAGS=""
 export LDFLAGS="-lexpat"
 
-./configure --prefix=/opt/wx3.1.x_GTK2_static \
+./configure --prefix=/opt/cb_static \
     --enable-debug \
     --enable-static \
     --disable-code-completion \
@@ -225,7 +225,7 @@ make
 make install
 
 mkdir -p ~/wx3.1.x_GTK2/CB_settings
-/opt/wx3.1.x_GTK2_static/bin/codeblocks --debug-log --user-data-dir=/home/stahta01/wx3.1.x_GTK2/CB_settings
+/opt/cb_static/bin/codeblocks --debug-log --user-data-dir=/home/stahta01/wx3.1.x_GTK2/CB_settings
 
 
 llvm-config --includedir            # /usr/lib/llvm-3.6/include
