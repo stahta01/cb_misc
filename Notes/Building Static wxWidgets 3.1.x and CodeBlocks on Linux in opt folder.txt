@@ -78,9 +78,9 @@ cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p
 ## ../include/wx/generic/logg.h
 
 # 
-cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p build_static_monolib_gtk2_unicode_3.1.x_2.8
+cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p build_static_multilib_gtk2_unicode_3.1.x_2.8
 
-cd ~/devel/version_control/wxWidgets-git/build_static_monolib_gtk2_unicode_3.1.x_2.8 && git status -uno
+cd ~/devel/version_control/wxWidgets-git/build_static_multilib_gtk2_unicode_3.1.x_2.8 && git status -uno
 
 make uninstall
 
@@ -96,7 +96,7 @@ export CPPFLAGS="-fPIC -DPIC"
        --without-opengl \
        --without-libnotify \
        --without-gtkprint \
-       --enable-monolithic \
+       --disable-monolithic \
        --enable-compat28 \
        --enable-xrc \
        --without-subdirs \
@@ -148,7 +148,7 @@ exit
 Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
 
   Which GUI toolkit should wxWidgets use?                 GTK+ 2
-  Should wxWidgets be compiled into single library?       yes
+  Should wxWidgets be compiled into single library?       no
   Should wxWidgets be linked as a shared library?         no
   Should wxWidgets support Unicode?                       yes (using wchar_t)
   What level of wxWidgets compatibility should be enabled?
