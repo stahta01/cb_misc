@@ -58,7 +58,7 @@ wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg 
 # Ones that I plan to try to disable in the future.
 
 wxUSE_TASKBARICON               wxTaskBarIcon               --disable-taskbaricon
-wxUSE_STARTUP_TIPS
+wxUSE_STARTUP_TIPS                                          --disable-tipdlg
 
 wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
