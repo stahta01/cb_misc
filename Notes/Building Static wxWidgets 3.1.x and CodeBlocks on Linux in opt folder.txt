@@ -224,8 +224,8 @@ make
 # run as root to install
 make install
 
-mkdir -p ~/wx3.1.x_GTK2/CB_settings
-/opt/cb_static/bin/codeblocks --debug-log --user-data-dir=/home/stahta01/wx3.1.x_GTK2/CB_settings
+
+mkdir -p ~/CB_static_settings && /opt/cb_static/bin/codeblocks --debug-log --user-data-dir=/home/stahta01/CB_static_settings
 
 
 llvm-config --includedir            # /usr/lib/llvm-3.6/include
