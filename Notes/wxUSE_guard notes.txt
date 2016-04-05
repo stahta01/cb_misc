@@ -46,7 +46,6 @@ wxUSE_ODCOMBOBOX                wxOwnerDrawnComboBox        --disable-odcombobox
 wxUSE_COMBOCTRL                 wxComboCtrl                 --disable-comboctrl         Used in Contrib Plugins
 wxUSE_DEBUGREPORT               wxDebugReport               --disable-debugreport       Used in Core App
 wxUSE_CHECKLISTBOX              wxCheckListBox              --disable-checklst          Used in Core App
-
 wxUSE_TASKBARICON               wxTaskBarIcon               --disable-taskbaricon
 wxUSE_STARTUP_TIPS                                          --disable-tipdlg
 
