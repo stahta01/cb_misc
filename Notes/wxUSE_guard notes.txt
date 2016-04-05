@@ -14,7 +14,7 @@ wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
 
-# These 20 disabled to build wxWidgets at this time.
+# These 35 disabled to build wxWidgets at this time.
 wxUSE_OPENGL                                                --without-opengl
 wxUSE_STC                       wxStyledTextCtrl            --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                 wxMediaCtrl                 --disable-mediactrl
@@ -50,7 +50,9 @@ wxUSE_TASKBARICON               wxTaskBarIcon               --disable-taskbarico
 wxUSE_STARTUP_TIPS                                          --disable-tipdlg
 
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
+wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)    #error "DocView requires wxUSE_CHOICEDLG"
 wxUSE_WXHTML_HELP                                           --disable-htmlhelp
+
 wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
 wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
 wxUSE_CLIPBOARD                                             --disable-clipboard
@@ -69,8 +71,6 @@ wxUSE_XRC                                                   --disable-xrc       
 
 
 # Ones that I plan to try to disable in the future.
-
-wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)    #error "DocView requires wxUSE_CHOICEDLG"
 
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 

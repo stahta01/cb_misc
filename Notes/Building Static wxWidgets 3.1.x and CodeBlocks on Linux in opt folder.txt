@@ -19,9 +19,6 @@ Interesting Windows config options
 --with-flavour=NAME     specify a name to identify this build
 
 
-cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
-
-
 ## Configure Options start that I have used in the past
        --without-gnomeprint \
        --with-sdl \
@@ -84,7 +81,10 @@ cd ~/devel/version_control/wxWidgets-git/build_static_multilib_gtk2_unicode_3.1.
 
 make uninstall
 
+# export CXXFLAGS="-std=gnu++11"
+
 export CPPFLAGS="-fPIC -DPIC"
+export LDFLAGS=""
 ../configure --prefix=/opt/wx3.1.x_GTK2_static \
        --enable-cxx11 \
        --enable-std_iostreams \
@@ -131,6 +131,10 @@ export CPPFLAGS="-fPIC -DPIC"
        --disable-checklst \
        --disable-taskbaricon \
        --disable-tipdlg \
+       --disable-docview \
+       --disable-choicedlg \
+       --disable-htmlhelp \
+       --disable-ole \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers
@@ -196,9 +200,9 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 ./bootstrap
 
+
 export CPPFLAGS=""
 export LDFLAGS="-lexpat"
-
 ./configure --prefix=/opt/cb_static \
     --enable-debug \
     --enable-static \
