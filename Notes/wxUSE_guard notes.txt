@@ -49,17 +49,29 @@ wxUSE_CHECKLISTBOX              wxCheckListBox              --disable-checklst  
 wxUSE_TASKBARICON               wxTaskBarIcon               --disable-taskbaricon
 wxUSE_STARTUP_TIPS                                          --disable-tipdlg
 
+wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
+wxUSE_WXHTML_HELP                                           --disable-htmlhelp
+wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
+wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
+wxUSE_CLIPBOARD                                             --disable-clipboard
+wxUSE_DATAOBJ                                               --disable-dataobj
+start MSW options (only partial list)
+wxUSE_DRAG_AND_DROP                                         --disable-dnd
+wxUSE_OLE_AUTOMATION
+wxUSE_ACTIVEX
+wxUSE_OLE                                                   --disable-ole
+end MSW options
+
 
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
-wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
-wxUSE_XRC                                                                               Used in SDK and/or Core App
-wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)    #error "DocView requires wxUSE_CHOICEDLG"
+wxUSE_XRC                                                   --disable-xrc               Used in SDK and/or Core App
 
 
 # Ones that I plan to try to disable in the future.
 
-wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
+wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)    #error "DocView requires wxUSE_CHOICEDLG"
+
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
 wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl          Used in wxContribItems
@@ -74,18 +86,12 @@ wxUSE_TEXTDLG                   wxTextEntryDialog           --disable-textdlg   
 
 wxUSE_LISTCTRL                  wxListCtrl                  --disable-listctrl          Used in SDK
 wxUSE_TEXTCTRL                  wxTextCtrl                  --disable-textctrl          Used in SDK sdk/wxscintilla (commented out by CB Team)
-wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
 wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
 wxUSE_NOTEBOOK                                              --disable-notebook
 wxUSE_CHOICEBOOK                                            --disable-choicebook
 wxUSE_TREEBOOK                                              --disable-treebook
 start MSW options (only partial list)
-wxUSE_DRAG_AND_DROP
-wxUSE_OLE_AUTOMATION
-wxUSE_ACTIVEX
-wxUSE_DATAOBJ
-wxUSE_OLE
 wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW
 wxUSE_REGKEY
 wxUSE_RICHEDIT
