@@ -137,7 +137,6 @@ export LDFLAGS=""
        --disable-filectrl \
        --disable-filedlg \
        --disable-dirdlg \
-       --disable-clipboard \
        --disable-ole \
        --disable-dnd \
        --enable-unicode \
