@@ -14,13 +14,12 @@ wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
 
-# These 35 disabled to build wxWidgets at this time.
+# These 43 disabled to build wxWidgets at this time.
 wxUSE_OPENGL                                                --without-opengl
 wxUSE_STC                       wxStyledTextCtrl            --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                 wxMediaCtrl                 --disable-mediactrl
 wxUSE_WEBVIEW                   wxWebView                   --disable-webviewwebkit
 wxUSE_RIBBON                    wxRibbon                    --disable-ribbon
-
 wxUSE_HELP                                                  --disable-help
 wxUSE_PRINTING_ARCHITECTURE                                 --disable-printarch         Used in SDK
 wxUSE_GTKPRINT                                              --without-gtkprint
@@ -51,7 +50,6 @@ wxUSE_STARTUP_TIPS                                          --disable-tipdlg
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
 wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)    #error "DocView requires wxUSE_CHOICEDLG"
 wxUSE_WXHTML_HELP                                           --disable-htmlhelp
-
 wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl          Used in wxContribItems
 wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
 wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
