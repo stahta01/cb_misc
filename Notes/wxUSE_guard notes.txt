@@ -53,8 +53,9 @@ wxUSE_WXHTML_HELP                                           --disable-htmlhelp
 wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl          Used in wxContribItems
 wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
 wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
+wxUSE_TREELISTCTRL              wxTreeListCtrl              --disable-treelist
+wxUSE_DATAVIEWCTRL              wxDataViewCtrl              --disable-dataviewctrl
 
-wxUSE_DATAOBJ                                               --disable-dataobj
 start MSW options (only partial list)
 wxUSE_DRAG_AND_DROP                                         --disable-dnd
 wxUSE_OLE_AUTOMATION
@@ -63,12 +64,14 @@ wxUSE_OLE                                                   --disable-ole
 end MSW options
 
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
-wxUSE_CLIPBOARD                                             --disable-clipboard         Used in sdk/wxscintilla
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
 wxUSE_XRC                                                   --disable-xrc               Used in SDK and/or Core App
 
 
 # Ones that I plan to try to disable in the future.
+
+wxUSE_DATAOBJ                                               --disable-dataobj
+wxUSE_CLIPBOARD                                             --disable-clipboard         Used in sdk/wxscintilla
 
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
@@ -83,7 +86,6 @@ wxUSE_TEXTDLG                   wxTextEntryDialog           --disable-textdlg   
 
 wxUSE_LISTCTRL                  wxListCtrl                  --disable-listctrl          Used in SDK
 wxUSE_TEXTCTRL                  wxTextCtrl                  --disable-textctrl          Used in SDK sdk/wxscintilla (commented out by CB Team)
-wxUSE_TREELISTCTRL
 wxUSE_PREFERENCES_EDITOR
 wxUSE_NOTEBOOK                                              --disable-notebook
 wxUSE_CHOICEBOOK                                            --disable-choicebook
