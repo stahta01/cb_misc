@@ -134,6 +134,7 @@ export LDFLAGS=""
        --disable-docview \
        --disable-choicedlg \
        --disable-htmlhelp \
+       --disable-filectrl \
        --disable-filedlg \
        --disable-dirdlg \
        --disable-clipboard \

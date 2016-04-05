@@ -52,6 +52,7 @@ wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview   
 wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)    #error "DocView requires wxUSE_CHOICEDLG"
 wxUSE_WXHTML_HELP                                           --disable-htmlhelp
 
+wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl          Used in wxContribItems
 wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
 wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
 wxUSE_CLIPBOARD                                             --disable-clipboard
@@ -73,7 +74,6 @@ wxUSE_XRC                                                   --disable-xrc       
 
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
-wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl          Used in wxContribItems
 wxUSE_LISTBOX                   wxListBox                   --disable-listbox           Used in Core App
 
 wxUSE_LISTBOOK                  wxListbook                  --disable-listbook          Used in SDK
