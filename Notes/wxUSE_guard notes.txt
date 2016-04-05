@@ -48,7 +48,6 @@ wxUSE_DEBUGREPORT               wxDebugReport               --disable-debugrepor
 wxUSE_CHECKLISTBOX              wxCheckListBox              --disable-checklst          Used in Core App
 wxUSE_TASKBARICON               wxTaskBarIcon               --disable-taskbaricon
 wxUSE_STARTUP_TIPS                                          --disable-tipdlg
-
 wxUSE_DOC_VIEW_ARCHITECTURE                                 --disable-docview           Uses wx/docview.h in Core App
 wxUSE_CHOICEDLG                 wx*ChoiceDialog             --disable-choicedlg         Used in SDK (incorrectly used MACRO)    #error "DocView requires wxUSE_CHOICEDLG"
 wxUSE_WXHTML_HELP                                           --disable-htmlhelp
