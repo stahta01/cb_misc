@@ -56,6 +56,7 @@ wxUSE_FILECTRL                  wxFileCtrl                  --disable-filectrl  
 wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg           Used in SDK
 wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
 wxUSE_CLIPBOARD                                             --disable-clipboard
+
 wxUSE_DATAOBJ                                               --disable-dataobj
 start MSW options (only partial list)
 wxUSE_DRAG_AND_DROP                                         --disable-dnd
@@ -63,7 +64,6 @@ wxUSE_OLE_AUTOMATION
 wxUSE_ACTIVEX
 wxUSE_OLE                                                   --disable-ole
 end MSW options
-
 
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App

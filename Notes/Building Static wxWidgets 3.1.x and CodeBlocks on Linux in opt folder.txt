@@ -138,9 +138,6 @@ export LDFLAGS=""
        --disable-filedlg \
        --disable-dirdlg \
        --disable-clipboard \
-       --disable-dataobj \
-       --disable-dnd \
-       --disable-ole \
        --enable-unicode \
        --disable-shared \
        --disable-precomp-headers
