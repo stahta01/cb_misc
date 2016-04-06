@@ -55,9 +55,8 @@ wxUSE_FILEDLG                   wxFileDialog                --disable-filedlg   
 wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg            Used in SDK
 wxUSE_TREELISTCTRL              wxTreeListCtrl              --disable-treelist
 wxUSE_DATAVIEWCTRL              wxDataViewCtrl              --disable-dataviewctrl
-
-start MSW options (only partial list)
 wxUSE_DRAG_AND_DROP                                         --disable-dnd
+start MSW options (only partial list)
 wxUSE_OLE_AUTOMATION
 wxUSE_ACTIVEX
 wxUSE_OLE                                                   --disable-ole
