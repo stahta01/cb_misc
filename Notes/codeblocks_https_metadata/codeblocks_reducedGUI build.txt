@@ -78,8 +78,12 @@ git format-patch origin/master
 cd ../codeblocks_reducedGUI-git && git fetch cb_console && git status -uno
 git checkout build/reducedGUI && git status -uno
 #
-#   git rebase cb_console/wxUSE_guard && git status -uno
 #   git rebase cb_console/noPCH_fix && git status -uno
+#   git rebase cb_console/wxUSE_guard && git status -uno
+#
+#   git rebase -i cb_console/wxUSE_guard && git status -uno
+#
+#   git format-patch cb_console/wxUSE_guard
 #
 git fetch origin && git rebase origin/master && git status -uno
 #   git rebase -i origin/master && git status -uno

@@ -69,6 +69,9 @@ wxUSE_XRC                                                   --disable-xrc       
 
 # Ones that I plan to try to disable in the future.
 
+wxUSE_DIALUP_MANAGER                                        --disable-dialupman
+wxUSE_TIMEPICKCTRL                                          --disable-datepick
+
 wxUSE_DATAOBJ                                               --disable-dataobj
 wxUSE_CLIPBOARD                                             --disable-clipboard         Used in sdk/wxscintilla
 
@@ -201,3 +204,20 @@ wxUSE_FILECTRL requires wxFileDialogBase
 
 #ifndef CB_DISABLE_COMPILER_MESSAGES
 #endif // CB_DISABLE_COMPILER_MESSAGES
+
+C:\SourceCode\OpenSourceCode\no_Repos\Libs\wx\wxMSW-3.0\wxWidgets-3.0.2\build\ms
+w/../../src/msw/dialup.cpp:788: undefined reference to `wxGetSingleChoice(wxStri
+ng const&, wxString const&, int, wxString const*, wxWindow*, int, int, bool, int
+, int, int)'
+collect2.exe: error: ld returned 1 exit status
+mingw32-make: *** [..\..\lib\gcc_dllreducedGUI\wxmsw30ud_core_gcc_47Xsjlj.dll] E
+rror 1
+
+
+Creating library file: ..\..\lib\gcc_dllreducedGUI\libwxmsw30ud_xrc.a
+gcc_mswuddllreducedGUI\xrcdll_xh_timectrl.o: In function `ZN16wxTimePickerCtrlC1Ev':
+C:\SourceCode\OpenSourceCode\no_Repos\Libs\wx\wxMSW-3.0\wxWidgets-3.0.2\build\msw/../../include/wx/msw/timectrl.h:21: undefined reference to `vtable for wxTimePickerCtrl'
+gcc_mswuddllreducedGUI\xrcdll_xh_timectrl.o: In function `Z11wxCheckCastI16wxTimePickerCtrlEPT_PKvS2_':
+C:\SourceCode\OpenSourceCode\no_Repos\Libs\wx\wxMSW-3.0\wxWidgets-3.0.2\build\msw/../../include/wx/object.h:160: undefined reference to `wxTimePickerCtrl::ms_classInfo'
+collect2.exe: error: ld returned 1 exit status
+mingw32-make: *** [..\..\lib\gcc_dllreducedGUI\wxmsw30ud_xrc_gcc_47Xsjlj.dll] Error 1
