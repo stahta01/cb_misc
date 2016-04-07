@@ -63,6 +63,9 @@ wxUSE_OLE_AUTOMATION
 wxUSE_ACTIVEX
 wxUSE_OLE                                                   --disable-ole
 end MSW options
+wxUSE_DIALUP_MANAGER                                        --disable-dialupman
+wxUSE_TIMEPICKCTRL                                          Already disabled with --disable-datepick                                      
+
 
 # wxUSE that CB assumes to be true and NOT worth trying to fix at this time.
 wxUSE_AUI                                                   --disable-aui               Used in SDK and Core App
@@ -71,8 +74,6 @@ wxUSE_XRC                                                   --disable-xrc       
 
 # Ones that I plan to try to disable in the future.
 
-wxUSE_DIALUP_MANAGER                                        --disable-dialupman
-wxUSE_TIMEPICKCTRL                                          --disable-datepick
 
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 

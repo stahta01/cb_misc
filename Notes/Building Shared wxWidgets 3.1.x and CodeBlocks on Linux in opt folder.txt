@@ -1,0 +1,264 @@
+Building wxWidgets 3.1.x and CodeBlocks on Linux in opt folder.txt
+
+wxABI_VERSION=30100 for 3.1.0 # only good to change the last two digits. So, 3.1.x can only change value of x to smaller value.
+
+Some influential environment variables:
+  CFLAGS      C compiler flags
+  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+              nonstandard directory <lib dir>
+  CPPFLAGS    C/C++ preprocessor flags, e.g. -I<include dir> if you have
+              headers in a nonstandard directory <include dir>
+  CXXFLAGS    C++ compiler flags
+
+Interesting Windows config options
+  --enable-official_build official build of wxWidgets (win32 DLL only)
+  --enable-vendor=VENDOR  vendor name (win32 DLL only)
+
+--enable-graphics_ctx
+
+--with-flavour=NAME     specify a name to identify this build
+
+
+## Configure Options start that I have used in the past
+       --without-gnomeprint \
+       --with-sdl \
+       --with-regex=builtin \
+       --with-libjpeg=sys \
+       --with-libpng=sys \
+       --with-libtiff=sys \
+       --with-zlib=sys \
+       --with-expat=sys \
+       --enable-geometry \
+       --enable-display \
+       --enable-mediactrl \
+       --enable-sound \
+       --enable-graphics_ctx \
+       --disable-colourpicker \
+       --disable-spinctrl \
+       --disable-calendar \
+       --disable-datepick \
+       --disable-comboctrl \
+       --disable-combobox \
+       --disable-searchctrl \
+       --disable-logwin \
+       --disable-textdlg \
+       --disable-finddlg \
+       --disable-textctrl \
+       --disable-listbook \
+       --disable-logdialog \
+       --disable-dirdlg \
+       --disable-listctrl
+
+  --enable-stl            use standard C++ classes for everything
+  --enable-std_containers use standard C++ container classes
+  --enable-std_containers_compat     use standard C++ container classes when it can be done compatible
+  --enable-std_iostreams  use standard C++ stream classes
+  --enable-std_string     use standard C++ string classes
+  --disable-gui           don't build GUI parts of the library
+  --disable-sys-libs      disable all use of system libraries, use only built-in one
+  --enable-debug          build library for debugging
+  --enable-cxx11          use C++11 compiler if available
+  --disable-controls      disable compilation of all standard controls
+
+
+# Configure Options end
+
+# error "wxUSE_LOGWINDOW requires wxUSE_TEXTCTRL" --disable-logwin
+# error: #error "wxListbook requires wxListCtrl"
+# error: #error "wxUSE_LOG_DIALOG requires wxUSE_LISTCTRL and wxUSE_BUTTON"
+# error "wxDatePickerCtrl requires wxUSE_COMBOCTRL"
+
+
+## Next time I have weird configure issues search for and delete config.cache if found.
+
+
+## ../include/wx/generic/logg.h
+
+# 
+cd ~/devel/version_control/wxWidgets-git && git checkout wxUSE_guard && mkdir -p build_shared_multilib_gtk2_unicode_3.1.x_2.8
+
+cd ~/devel/version_control/wxWidgets-git/build_shared_multilib_gtk2_unicode_3.1.x_2.8 && git status -uno
+
+make uninstall
+
+# export CXXFLAGS="-std=gnu++11"
+
+export CPPFLAGS=""
+export LDFLAGS=""
+../configure --prefix=/opt/wx3.1.x_GTK2_shared \
+       --enable-cxx11 \
+       --enable-std_iostreams \
+       --enable-std_string \
+       --enable-std_containers_compat \
+       --with-gtk=2 \
+       --with-flavour=reducedGUI \
+       --with-regex=builtin \
+       --without-opengl \
+       --without-libnotify \
+       --without-gtkprint \
+       --disable-monolithic \
+       --enable-compat28 \
+       --enable-xrc \
+       --without-subdirs \
+       --disable-stc \
+       --disable-mediactrl \
+       --disable-webviewwebkit \
+       --disable-ribbon \
+       --with-flavour=reducedGUI \
+       --disable-help \
+       --disable-printarch \
+       --disable-propgrid \
+       --disable-richtext \
+       --disable-html \
+       --disable-mdidoc \
+       --disable-calendar \
+       --disable-datepick \
+       --disable-logwin \
+       --disable-searchctrl \
+       --disable-bmpcombobox \
+       --disable-finddlg \
+       --disable-logdialog \
+       --disable-colourpicker \
+       --disable-rearrangectrl \
+       --disable-toolbook \
+       --disable-addremovectrl \
+       --disable-toolbar \
+       --disable-dirpicker \
+       --disable-filepicker \
+       --disable-odcombobox \
+       --disable-comboctrl \
+       --disable-debugreport \
+       --disable-checklst \
+       --disable-taskbaricon \
+       --disable-tipdlg \
+       --disable-docview \
+       --disable-choicedlg \
+       --disable-htmlhelp \
+       --disable-filectrl \
+       --disable-filedlg \
+       --disable-dirdlg \
+       --disable-treelist \
+       --disable-dataviewctrl \
+       --disable-ole \
+       --disable-dnd \
+       --disable-dialupman \
+       --enable-unicode \
+       --enable-shared \
+       --disable-precomp-headers
+
+
+#   make clean && make
+
+make
+su
+make install
+update-alternatives --install /usr/bin/wx-config wx-config /opt/wx3.1.x_GTK2_shared/bin/wx-config 42
+exit
+
+## Start of configure final output
+Configured wxWidgets 3.1.1 for `x86_64-unknown-linux-gnu'
+
+  Which GUI toolkit should wxWidgets use?                 GTK+ 2
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
+## End of configure final output
+
+## See http://wiki.codeblocks.org/index.php/Installing_Code::Blocks_from_source_on_Linux
+
+which wx-config # /usr/bin/wx-config
+
+update-alternatives --display wx-config
+# run as root to change
+update-alternatives --config wx-config
+
+
+which wx-config
+
+
+wx-config --libs   # 
+
+wx-config --linkdeps  #
+
+wx-config --version=3.1 --list
+
+wx-config --cflags #
+
+cd ~/devel/version_control/codeblocks_reducedGUI-git && git checkout build/reducedGUI && git status -uno
+
+wx-config --prefix # /opt/wx3.1.x_GTK2_shared
+
+export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
+
+./bootstrap
+
+
+export CPPFLAGS=""
+export LDFLAGS=""
+./configure --prefix=/opt/cb_shared \
+    --enable-debug \
+    --disable-code-completion \
+    --disable-source-formatter \
+    --disable-autosave  \
+    --disable-class-wizard  \
+    --disable-debugger   \
+    --disable-mime-handler   \
+    --disable-open-files-list \
+    --disable-occurrences-highlighting \
+    --disable-projects-importer \
+    --disable-scripted-wizard \
+    --disable-todo \
+    --disable-abbreviations \
+    --disable-pch
+
+make
+
+#  make clean && make
+
+
+# run as root to install
+make install
+
+
+mkdir -p ~/CB_shared_settings && /opt/cb_shared/bin/codeblocks --debug-log --user-data-dir=/home/stahta01/CB_shared_settings
+
+
+llvm-config --includedir            # /usr/lib/llvm-3.6/include
+llvm-config --libdir                # /usr/lib/llvm-3.6/lib
+wx-config --version=3.1 --cflags    # 
+wx-config --version=3.1 --libs      # 
+
+##
+#  Warning I got the first time I tried "pkg-config --libs codeblocks"
+#  Perhaps you should add the directory containing `codeblock.pc' to the PKG_CONFIG_PATH environment variable
+##
+echo $PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/opt/wx3.1.x_GTK2/lib/pkgconfig
+
+pkg-config --libs codeblocks        # -L/opt/wx3.1.x_GTK2/lib -lcodeblocks
+pkg-config --cflags codeblocks      # -I/opt/wx3.1.x_GTK2/include/codeblocks -I/opt/wx3.1.x_GTK2/include/codeblocks/tinyxml -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/include -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/bindings -I/opt/wx3.1.x_GTK2/include/codeblocks/scripting/sqplus -I/opt/wx3.1.x_GTK2/include/codeblocks/wxscintilla/include
+
+
+CB Global Variable this is needed for target no_pch and use_pch for ClangLib CC Plugin.
+# I used the src folder of the Git Repo I built CB from as the base location.
+base: /home/stahta01/devel/version_control/codeblocks_https_metadata-git/src
+include: /opt/wx3.1.x_GTK2/include/codeblocks
+lib: /opt/wx3.1.x_GTK2/lib
+
+CB Target name: use_pkg_config_to_find_cb requires "pkg-config --libs codeblocks" and "pkg-config --cflags codeblocks" to work.
+
+
+
