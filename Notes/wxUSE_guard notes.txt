@@ -56,6 +56,8 @@ wxUSE_DIRDLG                    wxDirDialog                 --disable-dirdlg    
 wxUSE_TREELISTCTRL              wxTreeListCtrl              --disable-treelist
 wxUSE_DATAVIEWCTRL              wxDataViewCtrl              --disable-dataviewctrl
 wxUSE_DRAG_AND_DROP                                         --disable-dnd
+wxUSE_DATAOBJ                                               --disable-dataobj
+wxUSE_CLIPBOARD                                             --disable-clipboard         Used in sdk/wxscintilla
 start MSW options (only partial list)
 wxUSE_OLE_AUTOMATION
 wxUSE_ACTIVEX
@@ -71,9 +73,6 @@ wxUSE_XRC                                                   --disable-xrc       
 
 wxUSE_DIALUP_MANAGER                                        --disable-dialupman
 wxUSE_TIMEPICKCTRL                                          --disable-datepick
-
-wxUSE_DATAOBJ                                               --disable-dataobj
-wxUSE_CLIPBOARD                                             --disable-clipboard         Used in sdk/wxscintilla
 
 wxUSE_MSGDLG                    wxMessageDialog             --disable-msgdlg            Used in SDK
 
