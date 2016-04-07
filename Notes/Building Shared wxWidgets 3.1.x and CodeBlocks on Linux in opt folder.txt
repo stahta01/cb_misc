@@ -208,7 +208,7 @@ export ACLOCAL_FLAGS="-I `wx-config --prefix`/share/aclocal"
 
 export CPPFLAGS=""
 export LDFLAGS=""
-./configure --prefix=/opt/cb_shared \
+./configure --prefix=/opt/wx3.1.x_GTK2_shared \
     --enable-debug \
     --disable-code-completion \
     --disable-source-formatter \
@@ -232,8 +232,7 @@ make
 # run as root to install
 make install
 
-
-mkdir -p ~/CB_shared_settings && /opt/cb_shared/bin/codeblocks --debug-log --user-data-dir=/home/stahta01/CB_shared_settings
+mkdir -p ~/CB_shared_settings && /opt/wx3.1.x_GTK2_shared/bin/codeblocks --debug-log --user-data-dir=/home/stahta01/CB_shared_settings
 
 
 llvm-config --includedir            # /usr/lib/llvm-3.6/include
