@@ -14,7 +14,7 @@ wxUSE_URL                                                   --disable-url
 wxUSE_UXTHEME                                                                           Used in CB_Core_App
 wxUSE_XML                                                                               Used in CB_Core_App
 
-# These 43 disabled to build wxWidgets at this time.
+# These 45 disabled to build Linux wxWidgets at this time.
 wxUSE_OPENGL                                                --without-opengl
 wxUSE_STC                       wxStyledTextCtrl            --disable-stc               Not used in CB; an old fork is used.
 wxUSE_MEDIACTRL                 wxMediaCtrl                 --disable-mediactrl
@@ -101,7 +101,7 @@ end MSW options
 
 CB_DISABLE_PLUGIN_API_DEBUGGER  use in new branch reduced/pluginAPI
 CB_DISABLE_COMPILER_MESSAGES    use in new branch reduced/compiler 
-CB_DISABLE_SCROLLINGDIALOG
+CB_DISABLE_SCROLLINGDIALOG      use in branch build/reducedGUI
 
 # How to edit the last commit message before pushing it upstream
 git commit --amend

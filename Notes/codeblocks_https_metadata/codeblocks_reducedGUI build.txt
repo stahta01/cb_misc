@@ -36,6 +36,7 @@ git checkout reduced/pluginAPI && git status -uno
 #
 #   git pull
 #
+#   git fetch origin && git rebase origin/build_cbp/lib_folder_type1 && git status -uno
 #   git fetch origin && git rebase origin/git/fixes && git status -uno
 #
 git rebase origin/master && git status -uno
@@ -79,6 +80,8 @@ cd ../codeblocks_reducedGUI-git && git fetch cb_console && git status -uno
 git checkout build/reducedGUI && git status -uno
 #
 #   git rebase cb_console/noPCH_fix && git status -uno
+#   git rebase cb_console/reduced/compiler && git status -uno
+#   git rebase cb_console/reduced/pluginAPI && git status -uno
 #   git rebase cb_console/wxUSE_guard && git status -uno
 #
 #   git rebase -i cb_console/wxUSE_guard && git status -uno
