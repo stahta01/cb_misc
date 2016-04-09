@@ -1,66 +1,35 @@
-
 ######################################################
+#
+#
+#
+## Move to different repo??
 
+## Move back to this Repo??
+
+###
 #
 cd ../codeblocks_https_metadata-git && git status -uno
 git fetch origin --prune
 git checkout master && git pull && git status -uno
 git svn fetch && git svn info && git svn log -1
+
 # Update branches by rebasing with master branch
 git checkout git/fixes && git rebase origin/master && git push origin --force-with-lease
 git checkout deceased/removals && git rebase origin/master && git push origin --force-with-lease
-
-git checkout build_cbp/wx30x
-git rebase origin/master
-# git rebase -i origin/master
-##  git rebase origin/master && git push origin --force-with-lease
-
-
-## Move to different repo??
-# obf_sf/builds/wx31
-# msys2/wx30_libs       # 2nd Best so far to keep in this repo.
-# msys2/codeblocks      # Best so far to keep in this repo.
-
-## Move back to this Repo??
-# build_cbp/wx_multilib
+#
 
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout wxUSE_guard && git status -uno
-#
-#   git rebase origin/git/fixes && git status -uno
-#
+git checkout build_cbp/wx30x
 git rebase origin/master && git status -uno
-#
-##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
-##  git rebase -i origin/master
-#
-git push origin
+# git rebase -i origin/master
 ##  git rebase origin/master && git push origin --force-with-lease
 #
-#   git format-patch  origin/master
-#
 ###
+#
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout build_cfg/wxMSW && git status -uno
 #
-# git rebase origin/wxUSE_guard && git status -uno
-#
-git rebase origin/master && git status -uno
-#
-## git rebase -i origin/master
-#
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
-#
-#   git format-patch  origin/master
-#
-###
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout build_cfg/msys2_and_cygwin && git status -uno
-#
-#   git rebase origin/git/fixes && git status -uno
-#
 git rebase origin/master && git status -uno
 #
 ##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
@@ -72,8 +41,7 @@ git push origin
 #   git format-patch  origin/master
 #
 ###
-
-###
+#
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout cbstyledtextctrl && git status -uno
 #
@@ -260,19 +228,6 @@ git.exe push origin
 #
 # git format-patch --unified=1 73c02da242d1b5ac45d32b1e50df0e857c2fc2a8
 # git apply --reject 0001-unix-cbp-Added-lib-lib28-and-lib30-folders-to-some-C.patch
-
-###
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout build_cbp/lib_folder_type2 && git status -uno
-##
-git rebase origin/feature/cb_projects && git status -uno
-##
-git.exe push origin
-##  git rebase origin/master && git push origin --force-with-lease
-#
-# git log
-# git format-patch --unified=1 875e6d30114811f0b437d59d09967ce986706c81
-# git apply --reject 0001-win-cbp-Added-lib-folders-to-some-CB-projects.-Thank.patch
 #
 ###
 #
@@ -294,42 +249,6 @@ git push origin
 git apply --reject 0001-wx_compiler-Added-CB-variable-of-WX_COMPILER-with-va.patch
 git apply --reject 0002-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
 0003-wx_multilibs_gcc471TDM-Edited-WX-variables.patch
-###
-#
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout reducedGUI && git status -uno
-#
-#   git rebase origin/wxUSE_guard && git status -uno
-#
-git rebase origin/master && git status -uno
-# git rebase -i origin/master
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
-#
-git format-patch origin/wxUSE_guard
-#
-###
-# nonGUI:
-#
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout build/nonGUI && git status -uno
-#  git branch --list
-#
-git rebase origin/master && git status -uno
-# git log -5
-# git rebase -i origin/master
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
-#
-# git format-patch origin/master
-0001-nonGUI-SDK-scripting-work.patch
-0002-nonGUI-Compiler-work.patch
-0003-nonGUI-SDK-work.patch
-0004-nonGUI-Core-App-work.patch
-0005-nonGUI-Saved-envvars_wx30.cbp.patch
-0006-nonGUI-Saved-CodeBlocks_wx30.cbp.patch
-0007-DO-NOT-USE-UPSTREAM-Delete-headers-to-cause-compile-.patch
-#
 ###############################################
 
 Branches that need updated/rebased
@@ -354,11 +273,7 @@ Update this repo
 
 https://github.com/stahta01/codeblocks_unofficial_installers.git
 Need to do a installer release for
-  build_cbp/wx_multilib
-  msys2/codeblocks
-
-https://github.com/Alexpux/MSYS2-packages/tree/master/coreutils
-
+  build/wx_multilibs_gcc471TDM
 
 - PCH_build_fix: Changed "USE_PCH" to "NOPCH". (Thanks stahta01)
 
