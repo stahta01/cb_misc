@@ -11,7 +11,9 @@ cd ../codeblocks_reducedGUI-git && git status -uno
 git fetch origin --prune && git fetch cb_console --prune
 git checkout master && git rebase origin/master && git status -uno
 git svn fetch && git svn info && git svn log -1
-
+#
+#   git push
+#
 ###
 cd ../codeblocks_reducedGUI-git && git fetch cb_console && git status -uno
 git checkout wxUSE_guard && git status -uno
