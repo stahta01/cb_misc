@@ -168,8 +168,30 @@ git rebase master && git status -uno
 #
 git push origin
 ##  git rebase origin/master && git push origin --force-with-lease
-
+#
+#####################
+#
 ###
+#
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout portability/fixes && git status -uno
+#  git branch --list
+###
+git rebase origin/win_cbp_save_as && git status -uno
+# git log -5
+##  git rebase -i origin/win_cbp_save_as && git status -uno
+git push origin
+##  git rebase origin/master && git push origin --force-with-lease
+#
+#   git format-patch origin/master
+#   git am 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
+#   git am 0002-win_cbp_wx30_64-Save-As-Windows-wx3.0-64-bit-project.patch
+#   git am 0003-win_cbp_wx28-Save-As-Windows-wx2.8-32-bit-projects.-.patch
+#   git am 0004-win_cbp-Moved-wxmsw-WX_VERSION-WX_SUFFIX-from-projec.patch
+#   git am 0005-SpellChecker-Removed-from-after-from-second-xcopy-pa.patch
+#
+###
+#
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout feature/cb_projects && git status -uno
 #
@@ -196,26 +218,6 @@ git push origin
 0002-bat-Created-res_dev.bat-from-update.bat.-Thanks-stah.patch
 0003-help_plugin-Removed-output-folder-from-WinOS-CB-proj.patch
 0004-SpellChecker-Removed-output-folder-from-WinOS-CB-pro.patch
-#
-###
-#
-#
-cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout portability/fixes && git status -uno
-#  git branch --list
-###
-git rebase origin/win_cbp_save_as && git status -uno
-# git log -5
-##  git rebase -i origin/win_cbp_save_as && git status -uno
-git push origin
-##  git rebase origin/master && git push origin --force-with-lease
-#
-#   git format-patch origin/master
-#   git am 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
-#   git am 0002-win_cbp_wx30_64-Save-As-Windows-wx3.0-64-bit-project.patch
-#   git am 0003-win_cbp_wx28-Save-As-Windows-wx2.8-32-bit-projects.-.patch
-#   git am 0004-win_cbp-Moved-wxmsw-WX_VERSION-WX_SUFFIX-from-projec.patch
-#   git am 0005-SpellChecker-Removed-from-after-from-second-xcopy-pa.patch
 #
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
