@@ -1,0 +1,9 @@
+files that need checked in SVN repo for line feed issues.txt
+/src/sdk/filemanager.cpp
+/src/sdk/wxpropgrid/build_wx26/propgrid.sln
+/src/tools/cbp2make/src/buildtools.h
+/src/tools/cbp2make/src/cbp2make.cpp
+/src/tools/cbp2make/src/cbproject.cpp
+/src/tools/cbp2make/src/cbptarget.cpp
+/src/tools/cbp2make/src/platforms.cpp
+/src/tools/cbp2make/src/platforms.h
