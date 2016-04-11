@@ -7,3 +7,33 @@ files that need checked in SVN repo for line feed issues.txt
 /src/tools/cbp2make/src/cbptarget.cpp
 /src/tools/cbp2make/src/platforms.cpp
 /src/tools/cbp2make/src/platforms.h
+
+svn proplist -v src/tools/cbp2make/src/buildtools.h
+NO RESULTS this needs fixed
+
+svn proplist -v src/tools/cbp2make/src/cbp2make.cpp
+NO RESULTS this needs fixed
+
+svn proplist -v src/tools/cbp2make/src/cbproject.cpp
+NO RESULTS this needs fixed
+
+svn proplist -v src/tools/cbp2make/src/cbptarget.cpp
+NO RESULTS this needs fixed
+
+svn proplist -v src/tools/cbp2make/src/platforms.cpp
+NO RESULTS this needs fixed
+
+svn proplist -v src/tools/cbp2make/src/platforms.h
+NO RESULTS this needs fixed
+
+svn proplist -v src/sdk/wxpropgrid/build_wx26/propgrid.sln
+Properties on 'src\sdk\wxpropgrid\build_wx26\propgrid.sln':
+  svn:eol-style
+    CRLF
+
+svn proplist -v src/sdk/filemanager.cpp
+Properties on 'src\sdk\filemanager.cpp':
+  svn:eol-style
+    native
+  svn:keywords
+    Date Revision Author URL Id
