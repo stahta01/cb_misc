@@ -1,0 +1,24 @@
+CB setup for MSys2 wxWidgets.txt
+
+pacman -S mingw-w64-x86_64-wxWidgets
+pacman -S sed
+
+CB Global Variables
+MSYS2=C:\Apps64\MSys2
+
+Compiler Install Dir: C:\Apps64\MSys2\mingw64
+Addt path: C:\Apps64\MSys2\usr\bin
+
+Compiler Custom Variables
+COMPILER_PREFIX=C:/Apps64/msys64/mingw64
+WX_CONFIG=/mingw64/bin/wx-config
+
+CB Project Custom Variables
+WX_CONFIG_CFLAGS=$(#MSYS2)\usr\bin\sh.exe -c '$(WX_CONFIG)  --prefix=$(COMPILER_PREFIX) --cflags'
+
+
+$ wx-config --cflags
+-IC:/Apps64/MSys2/mingw64/lib/wx/include/msw-unicode-3.0 -IC:/Apps64/MSys2/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -fpermissive
+
+C:\Apps64\msys64\mingw64/include\wx-3.0
+C:\Apps64\MSys2\mingw64\lib\wx\include\msw-unicode-3.0
