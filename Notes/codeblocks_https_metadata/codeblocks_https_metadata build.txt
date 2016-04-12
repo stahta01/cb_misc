@@ -40,7 +40,7 @@ git push origin
 #
 #   git format-patch  origin/master
 #
-###
+#######
 #
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout cbstyledtextctrl && git status -uno
