@@ -61,5 +61,5 @@ Create Project using created Custom Vars
 Stage 1 of Wizard Changes Apply all my old wxWidgets changes
 Stage 2 of Wizard Changes get wizard to use wx-config.exe with normal mingw makefile build
 Stage 3 of Wizard Changes get wizard to use MSys2 wx-config
-Stage 4 of Wizard Changes get wizard to use Sygwin wx-config for native GCC Compiler
-Stage 5 of Wizard Changes get wizard to use Sygwin wx-config for MinGW64 64bit GCC Compiler
+Stage 4 of Wizard Changes get wizard to use Cygwin wx-config for native GCC Compiler
+Stage 5 of Wizard Changes get wizard to use Cygwin wx-config for MinGW64 64bit GCC Compiler
