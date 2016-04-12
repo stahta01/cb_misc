@@ -43,6 +43,21 @@ git push origin
 #######
 #
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
+git checkout feature/wxwidegets_msys2_wizard && git status -uno
+#
+git rebase origin/master && git status -uno
+#
+##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
+##  git rebase -i origin/master
+#
+git push origin
+##  git rebase origin/master && git push origin --force-with-lease
+#
+#   git format-patch  origin/master
+#
+###
+#
+cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
 git checkout cbstyledtextctrl && git status -uno
 #
 #   git rebase origin/git/fixes && git status -uno
@@ -73,13 +88,12 @@ git push origin
 #
 #   git log
 # --unified=1
-#   git format-patch  origin/master
-0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
-0002-scriptedwizard-Added-support-for-GTK-v3.-Thanks-stah.patch
-0003-scriptedwizard-Added-support-for-GLFW-v3.-Thanks-sta.patch
-0004-scriptedwizard-Added-support-for-freeglut-lib-in-GLU.patch
-0005-NEEDS-FIXED-scriptedwizard-Added-support-for-SDL-v2-.patch
-0006-scriptedwizard-Fixed-PCH-related-issues.-Thanks-stah.patch
+#   git format-patch  origin/git/fixes
+0001-scriptedwizard-Added-support-for-GTK-v3.-Thanks-stah.patch
+0002-scriptedwizard-Added-support-for-GLFW-v3.-Thanks-sta.patch
+0003-scriptedwizard-Added-support-for-freeglut-lib-in-GLU.patch
+0004-NEEDS-FIXED-scriptedwizard-Added-support-for-SDL-v2-.patch
+0005-scriptedwizard-Fixed-PCH-related-issues.-Thanks-stah.patch
 #
 ###
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno

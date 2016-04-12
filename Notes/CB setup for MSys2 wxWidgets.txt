@@ -58,8 +58,45 @@ Maybe calculate value needed to check for headers or libs
 Create Project Custom Vars
 Create Project using created Custom Vars
 
+Done 
+Stage 0 create git branch https://github.com/stahta01/codeblocks_https_metadata/tree/feature/wxwidegets_msys2_wizard
 Stage 1 of Wizard Changes Apply all my old wxWidgets changes
+ToDo
 Stage 2 of Wizard Changes get wizard to use wx-config.exe with normal mingw makefile build
+Start work on Laptop after I do what can be done on Desktop PC.
 Stage 3 of Wizard Changes get wizard to use MSys2 wx-config
 Stage 4 of Wizard Changes get wizard to use Cygwin wx-config for native GCC Compiler
 Stage 5 of Wizard Changes get wizard to use Cygwin wx-config for MinGW64 64bit GCC Compiler
+
+Wizard script notes below
+# need to change WxConf or add WxConfWin
+# Should I rename WxConfUnix to something else?
+        if (PLATFORM == PLATFORM_MSW)
+            Wizard.AddPage(_T("WxConf")); // only for windows
+        else
+            Wizard.AddPage(_T("WxConfUnix")); // just PCH option
+
+# Wizard pages that are for the old way
+// Same page for Windows and Unix
+WxIntro
+// Seperate page for Windows and Unix
+wxVersionPage   // Selects the wxWidgets version
+// Same page for Windows and Unix
+WxProjDetails   // gets Author info
+WxGuiSelect     // gets (wxSmith, wxFormBuilder, or none) and Dialog or Frame.
+// only for Unix
+WxConfUnix      // just PCH option
+// only for windows
+WxConf          // gets many types of wxWidgets info
+WxConfAdvOpt    // Wizard page to select target type 
+WxAddLib        // Add additional wx libraries
+WxPath          // gets the path to the wxWidgets lib
+
+
+# Wizard methods that I need to understand better before I start editing the wizard
+Wizard.AddInfoPage
+Wizard.AddGenericSingleChoiceListPage
+Wizard.AddProjectPathPage
+Wizard.AddPage
+Wizard.AddCompilerPage
+Wizard.AddBuildTargetPage
