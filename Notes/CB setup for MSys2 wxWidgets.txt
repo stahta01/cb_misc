@@ -37,6 +37,9 @@ CB Project Custom Variables
 WX_CONFIG_CFLAGS=$(#MSYS2)\usr\bin\sh.exe -c '$(WX_CONFIG)  --prefix=$(COMPILER_PREFIX) --cflags'
 WX_CONFIG_LIBS=$(#MSYS2)\usr\bin\sh.exe -c '$(WX_CONFIG)  --prefix=$(COMPILER_PREFIX) --libs'
 
+
+Below stuff NOT part of the directions; part of troubling the issues I had.
+
 $ wx-config --cflags
 -IC:/Apps64/MSys2/mingw64/lib/wx/include/msw-unicode-3.0 -IC:/Apps64/MSys2/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -fpermissive
 
