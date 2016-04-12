@@ -46,7 +46,20 @@ Stuff I might do in the future below
 
 ## Wizard changes needed for wxWidgets wizard to work for MSys2.
 Ask if want to use wx-config or not (In Windows the current way is to NOT use wx-config; the MSys2 way uses wx-config)
+Ask if sh.exe is needed to use wx-config (It is normmaly needed for MSys2 and Cygwin)
+If yes, ask the path to sh.exe
+Ask if Cygwin
+If Cygwin, ask if using 64bit or 32bit compiler
+If Cygwin, ask for Compiler Prefix (Default to native Cygwin Compiler)
 Ask if MSys2
-Ask if mingw64 or mingw32
-Ask for MSys2 install folder
-Calculate value needed to check for headers and maybe libs
+If yes, ask if mingw64 or mingw32
+Ask for MSys2 or Cygwin install folder
+Maybe calculate value needed to check for headers or libs
+Create Project Custom Vars
+Create Project using created Custom Vars
+
+Stage 1 of Wizard Changes Apply all my old wxWidgets changes
+Stage 2 of Wizard Changes get wizard to use wx-config.exe with normal mingw makefile build
+Stage 3 of Wizard Changes get wizard to use MSys2 wx-config
+Stage 4 of Wizard Changes get wizard to use Sygwin wx-config for native GCC Compiler
+Stage 5 of Wizard Changes get wizard to use Sygwin wx-config for MinGW64 64bit GCC Compiler
