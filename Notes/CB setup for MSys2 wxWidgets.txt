@@ -1,7 +1,27 @@
 CB setup for MSys2 wxWidgets.txt
 
+# Install MSys2 from http://msys2.github.io/ or http://sourceforge.net/projects/msys2
+
+# Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
+# Open MSYS2-shell
+# First update msys2 core components (if you have not done it yet): 
+update-core
+# Close MSYS2-shell; ALT-F4 or the X in the upper right corner is needed to exit out.
+
+# Open MSYS2-shell
+pacman -Su
+# Exit out of MSYS2-shell, restart MSYS2-shell, then you are ready to use MSYS2-shell.
+
+# Open MSYS2-shell
+pacman --version # Pacman v4.2.1-516-g52073-dirty - libalpm v10.0.1
+
+
+pacman -S mingw-w64-x86_64-gcc
 pacman -S mingw-w64-x86_64-wxWidgets
-pacman -S sed
+pacman -S sed                           ## Appears to be needed for wx-config to work
+
+
+My MSys2 installation folder is C:\Apps64\MSys2
 
 CB Global Variables
 MSYS2=C:\Apps64\MSys2
@@ -10,15 +30,21 @@ Compiler Install Dir: C:\Apps64\MSys2\mingw64
 Addt path: C:\Apps64\MSys2\usr\bin
 
 Compiler Custom Variables
-COMPILER_PREFIX=C:/Apps64/msys64/mingw64
+COMPILER_PREFIX=C:/Apps64/MSys2/mingw64
 WX_CONFIG=/mingw64/bin/wx-config
 
 CB Project Custom Variables
 WX_CONFIG_CFLAGS=$(#MSYS2)\usr\bin\sh.exe -c '$(WX_CONFIG)  --prefix=$(COMPILER_PREFIX) --cflags'
-
+WX_CONFIG_LIBS=$(#MSYS2)\usr\bin\sh.exe -c '$(WX_CONFIG)  --prefix=$(COMPILER_PREFIX) --libs'
 
 $ wx-config --cflags
 -IC:/Apps64/MSys2/mingw64/lib/wx/include/msw-unicode-3.0 -IC:/Apps64/MSys2/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -fpermissive
 
 C:\Apps64\msys64\mingw64/include\wx-3.0
 C:\Apps64\MSys2\mingw64\lib\wx\include\msw-unicode-3.0
+
+$ pacman -Q mingw-w64-x86_64-gcc
+mingw-w64-x86_64-gcc 5.3.0-5
+
+cd C:/SourceCode/test/wx30Msys2
+x86_64-w64-mingw32-g++.exe -Wall -pipe -mthreads -D__GNUWIN32__ -D__WXMSW__ -DWXUSINGDLL -DwxUSE_UNICODE -g -I/mingw64/lib/wx/include/msw-unicode-3.0 -I/mingw64/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -fpermissive  -c C:/SourceCode/test/wx30Msys2/wx30Msys2App.cpp -o obj/Debug/wx30Msys2App.o
