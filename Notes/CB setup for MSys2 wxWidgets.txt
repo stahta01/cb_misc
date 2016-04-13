@@ -23,8 +23,11 @@ pacman -S mingw-w64-x86_64-wxWidgets
 pacman -S mingw-w64-i686-gcc
 pacman -S mingw-w64-i686-wxWidgets
 
-# Msys2 packages needed
+# Msys2 packages needed; it likely is already installed
 pacman -S sed                           ## Appears to be needed for wx-config to work
+
+# I am having timeouts and a user post suggested the next step.
+pacman -S pacman-mirrors
 
 
 My 64bit MSys2 installation folder is C:\Apps64\MSys2
@@ -65,7 +68,7 @@ Output of Trouble Shooting steps using an bad CB GCC Compiler Setup using the TD
     CMD /C "sh.exe -c 'which sed'"
     /usr/bin/sed
     CMD /C "sh.exe -c 'which wx-config'"
-    which: no wx-config in (
+    which: no wx-config in
 
 Output of Trouble Shooting steps using an good CB GCC Compiler Setup using the MSys2 MinGW64 32bit Compiler.
     Running target pre-build steps
@@ -87,3 +90,94 @@ Output of Trouble Shooting steps using an good CB GCC Compiler Setup using the M
     CMD /C "sh.exe -c 'which wx-config'"
     /mingw32/bin/wx-config
 
+Output of Trouble Shooting steps using an partial good CB GCC Compiler Setup using the MSys2 MinGW64 32bit Compiler.
+  [Results are from my Windows 7 32 bit computer; 
+   the COMPILER_PREFIX is NOT defined and 
+   the Additional path needed to find the correct sed is missing.
+  ]
+    Running target pre-build steps
+    i686-w64-mingw32-g++.exe --version
+    i686-w64-mingw32-g++.exe (Rev5, Built by MSYS2 project) 5.3.0
+    Copyright (C) 2015 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    CMD /C echo C:\Apps32\MSys2\mingw32\
+    C:\Apps32\MSys2\mingw32\
+    CMD /C echo 
+    ECHO is on.
+    CMD /C where where
+    C:\Windows\System32\where.exe
+    CMD /C where sh.exe
+    C:\Program Files\Git\bin\sh.exe
+    CMD /C "sh.exe -c 'which sed'"
+    /usr/bin/sed
+    CMD /C "sh.exe -c 'which wx-config'"
+    which: no wx-config in
+
+Output of Trouble Shooting steps using an partial good CB GCC Compiler Setup using the MSys2 MinGW64 32bit Compiler.
+  [Results are from my Windows 7 32 bit computer;
+   wxWidgets package is NOT installed; therefore wx-config was NOT found.
+  ]
+    Running target pre-build steps
+    i686-w64-mingw32-g++.exe --version
+    i686-w64-mingw32-g++.exe (Rev5, Built by MSYS2 project) 5.3.0
+    Copyright (C) 2015 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    CMD /C echo C:\Apps32\MSys2\mingw32\
+    C:\Apps32\MSys2\mingw32\
+    CMD /C echo C:/Apps32/MSys2/mingw32
+    C:/Apps32/MSys2/mingw32
+    CMD /C where where
+    C:\Windows\System32\where.exe
+    CMD /C where sh.exe
+    C:\Apps32\MSys2\usr\bin\sh.exe
+    C:\Program Files\Git\bin\sh.exe
+    CMD /C "sh.exe -c 'which sed'"
+    /usr/bin/sed
+    CMD /C "sh.exe -c 'which wx-config'"
+    which: no wx-config in
+
+Output of Trouble Shooting steps using an good CB GCC Compiler Setup using the MSys2 MinGW64 32bit Compiler.
+  [Results are from my Windows 7 32 bit computer;
+  ]
+    Running target pre-build steps
+    i686-w64-mingw32-g++.exe --version
+    i686-w64-mingw32-g++.exe (Rev5, Built by MSYS2 project) 5.3.0
+    Copyright (C) 2015 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    CMD /C echo C:\Apps32\MSys2\mingw32\
+    C:\Apps32\MSys2\mingw32\
+    CMD /C echo C:/Apps32/MSys2/mingw32
+    C:/Apps32/MSys2/mingw32
+    CMD /C where where
+    C:\Windows\System32\where.exe
+    CMD /C where sh.exe
+    C:\Apps32\MSys2\usr\bin\sh.exe
+    C:\Program Files\Git\bin\sh.exe
+    CMD /C "sh.exe -c 'which sed'"
+    /usr/bin/sed
+    CMD /C "sh.exe -c 'which wx-config'"
+    /mingw32/bin/wx-config
+
+Example of a Bad Build Log; I have to exit out of Code::Blocks 
+because some changes only take effect after restart of CB.
+-------------- Build: Debug in wx30Msys2 (compiler: GNU GCC Compiler)---------------
+i686-w64-mingw32-g++.exe -Wall -pipe -mthreads -D__GNUWIN32__ -D__WXMSW__ -DWXUSINGDLL -DwxUSE_UNICODE -g  -c C:\SourceCode\OpenSourceCode\VC_Repos\Apps\IDE\Codeblocks\cb_misc-git\Notes\MSys2\wx30Msys2\wx30Msys2App.cpp -o obj\Debug\wx30Msys2App.o
+In file included from C:\SourceCode\OpenSourceCode\VC_Repos\Apps\IDE\Codeblocks\cb_misc-git\Notes\MSys2\wx30Msys2\wx30Msys2App.cpp:18:0:
+C:\SourceCode\OpenSourceCode\VC_Repos\Apps\IDE\Codeblocks\cb_misc-git\Notes\MSys2\wx30Msys2\wx30Msys2App.h:13:20: fatal error: wx/app.h: No such file or directory
+compilation terminated.
+
+After restarting Code::Blocks; I have been told by CB Devs 
+ that closing the project should be enough to fix this issue; but, it has never worked for me.
+ The issue is the the value between backticks is never updated in CB.
+A Good build log.
+-------------- Build: Debug in wx30Msys2 (compiler: GNU GCC Compiler)---------------
+
+i686-w64-mingw32-g++.exe -Wall -pipe -mthreads -D__GNUWIN32__ -D__WXMSW__ -DWXUSINGDLL -DwxUSE_UNICODE -g -IC:/Apps32/MSys2/mingw32/lib/wx/include/msw-unicode-3.0 -IC:/Apps32/MSys2/mingw32/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -mthreads -fpermissive  -c C:\SourceCode\OpenSourceCode\VC_Repos\Apps\IDE\Codeblocks\cb_misc-git\Notes\MSys2\wx30Msys2\wx30Msys2App.cpp -o obj\Debug\wx30Msys2App.o
+i686-w64-mingw32-g++.exe -Wall -pipe -mthreads -D__GNUWIN32__ -D__WXMSW__ -DWXUSINGDLL -DwxUSE_UNICODE -g -IC:/Apps32/MSys2/mingw32/lib/wx/include/msw-unicode-3.0 -IC:/Apps32/MSys2/mingw32/include/wx-3.0 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMSW__ -mthreads -fpermissive  -c C:\SourceCode\OpenSourceCode\VC_Repos\Apps\IDE\Codeblocks\cb_misc-git\Notes\MSys2\wx30Msys2\wx30Msys2Main.cpp -o obj\Debug\wx30Msys2Main.o
+i686-w64-mingw32-g++.exe  -o bin\Debug\wx30Msys2.exe obj\Debug\wx30Msys2App.o obj\Debug\wx30Msys2Main.o  -LC:/Apps32/MSys2/mingw32/lib   -pipe -Wl,--subsystem,windows -mwindows -lwx_mswu_xrc-3.0 -lwx_mswu_webview-3.0 -lwx_mswu_html-3.0 -lwx_mswu_qa-3.0 -lwx_mswu_adv-3.0 -lwx_mswu_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0  -mthreads  
+Output file is bin\Debug\wx30Msys2.exe with size 796.98 KB
+Process terminated with status 0 (1 minute(s), 39 second(s))
+0 error(s), 0 warning(s) (1 minute(s), 39 second(s))
