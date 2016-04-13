@@ -1,6 +1,6 @@
 CB setup for MSys2 wxWidgets.txt
 
-# Install MSys2 from http://msys2.github.io/ or http://sourceforge.net/projects/msys2
+# Install MSys2 from http://msys2.github.io/ or https://sourceforge.net/projects/msys2/files/Base
 
 # Note: for initial installation & setup, please also see this page http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 # Open MSYS2-shell
