@@ -92,3 +92,6 @@ function SetupTarget(target, is_debug)
 function SubstituteMacros(buffer)
 
 function BeginWizard()
+
+
+http://docs.wxwidgets.org/trunk/classwx_app_console.html
