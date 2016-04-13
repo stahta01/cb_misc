@@ -66,3 +66,24 @@ Output of Trouble Shooting steps using an bad CB GCC Compiler Setup using the TD
     /usr/bin/sed
     CMD /C "sh.exe -c 'which wx-config'"
     which: no wx-config in (
+
+Output of Trouble Shooting steps using an good CB GCC Compiler Setup using the MSys2 MinGW64 32bit Compiler.
+    Running target pre-build steps
+    i686-w64-mingw32-g++.exe --version
+    i686-w64-mingw32-g++.exe (Rev5, Built by MSYS2 project) 5.3.0
+    Copyright (C) 2015 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    echo C:\Apps64\MSys2\mingw32\
+    C:\Apps64\MSys2\mingw32\
+    echo C:/Apps64/MSys2/mingw32
+    C:/Apps64/MSys2/mingw32
+    CMD /C where where
+    C:\Windows\System32\where.exe
+    CMD /C where sh.exe
+    C:\Apps64\MSys2\usr\bin\sh.exe
+    CMD /C "sh.exe -c 'which sed'"
+    /usr/bin/sed
+    CMD /C "sh.exe -c 'which wx-config'"
+    /mingw32/bin/wx-config
+
