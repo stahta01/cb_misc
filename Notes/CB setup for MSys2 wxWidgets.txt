@@ -161,7 +161,7 @@ Output of Trouble Shooting steps using an good CB GCC Compiler Setup using the M
     CMD /C "sh.exe -c 'which wx-config'"
     /mingw32/bin/wx-config
 
-Example of a Bad Build Log; I have to exit out of Code::Blocks 
+Example of a Bad Build Log; I had to exit out of Code::Blocks 
 because some changes only take effect after restart of CB.
 -------------- Build: Debug in wx30Msys2 (compiler: GNU GCC Compiler)---------------
 i686-w64-mingw32-g++.exe -Wall -pipe -mthreads -D__GNUWIN32__ -D__WXMSW__ -DWXUSINGDLL -DwxUSE_UNICODE -g  -c C:\SourceCode\OpenSourceCode\VC_Repos\Apps\IDE\Codeblocks\cb_misc-git\Notes\MSys2\wx30Msys2\wx30Msys2App.cpp -o obj\Debug\wx30Msys2App.o
