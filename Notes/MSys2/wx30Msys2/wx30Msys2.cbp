@@ -21,8 +21,8 @@
 				</Linker>
 				<ExtraCommands>
 					<Add before="$(TARGET_CPP) --version" />
-					<Add before="echo $(TARGET_COMPILER_DIR)" />
-					<Add before="echo $(COMPILER_PREFIX)" />
+					<Add before="CMD /C echo $(TARGET_COMPILER_DIR)" />
+					<Add before="CMD /C echo $(COMPILER_PREFIX)" />
 					<Add before="CMD /C where where" />
 					<Add before="CMD /C where sh.exe" />
 					<Add before='CMD /C &quot;sh.exe -c &apos;which sed&apos;&quot;' />
