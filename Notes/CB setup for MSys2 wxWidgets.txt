@@ -27,7 +27,7 @@ pacman -S mingw-w64-i686-wxWidgets
 pacman -S sed                           ## Appears to be needed for wx-config to work
 
 
-My MSys2 installation folder is C:\Apps64\MSys2
+My 64bit MSys2 installation folder is C:\Apps64\MSys2
 
 Compiler Install Dir: C:\Apps64\MSys2\mingw32
 Additional path: C:\Apps64\MSys2\usr\bin
@@ -40,12 +40,29 @@ WX_CONFIG_CFLAGS=sh.exe -c 'wx-config  --prefix=$(COMPILER_PREFIX) --cflags'
 WX_CONFIG_LIBS=sh.exe -c 'wx-config  --prefix=$(COMPILER_PREFIX) --libs'
 
 
+My 32bit MSys2 installation folder is C:\Apps32\MSys2
 
-Stuff I might do in the future below
+Compiler Install Dir: C:\Apps32\MSys2\mingw32
+Additional path: C:\Apps32\MSys2\usr\bin
 
-Add troubleshooting steps of
-echo $(TARGET_COMPILER_DIR)
-echo $(COMPILER_PREFIX)
-echo `where sh.exe`
-echo `sh.exe 'which wx-config'`
+Compiler Custom Variables
+COMPILER_PREFIX=C:/Apps32/MSys2/mingw32
 
+Output of Trouble Shooting steps using an bad CB GCC Compiler Setup using the TDM's MinGW Compiler.
+    Running target pre-build steps
+    mingw32-g++.exe --version
+    mingw32-g++.exe (tdm-1) 4.7.1
+    Copyright (C) 2012 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    echo C:\Apps32\MinGW-4.7.1-save\
+    C:\Apps32\MinGW-4.7.1-save\
+    echo 
+    CMD /C where where
+    C:\Windows\System32\where.exe
+    CMD /C where sh.exe
+    C:\Program Files\Git\bin\sh.exe
+    CMD /C "sh.exe -c 'which sed'"
+    /usr/bin/sed
+    CMD /C "sh.exe -c 'which wx-config'"
+    which: no wx-config in (
