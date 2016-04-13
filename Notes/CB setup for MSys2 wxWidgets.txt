@@ -43,38 +43,39 @@ WX_CONFIG_LIBS=sh.exe -c 'wx-config  --prefix=$(COMPILER_PREFIX) --libs'
 
 Stuff I might do in the future below
 
+The CB wxWidgets wizard features I want are:
+1. Better PCH support in default code
+2. Able to use wxWidgets team pre-build binaries
+3. Able to use wx-config.exe under windows
+4. Able to use MSys2 wx-config and wxSmith/none (No support currently planned for wxFormBuilder under MSys2)
 
 ## Wizard changes needed for wxWidgets wizard to work for MSys2.
 Ask if want to use wx-config or not (In Windows the current way is to NOT use wx-config; the MSys2 way uses wx-config)
-Ask if sh.exe is needed to use wx-config (It is normmaly needed for MSys2 and Cygwin)
-If yes, ask the path to sh.exe
-Ask if Cygwin
-If Cygwin, ask if using 64bit or 32bit compiler
-If Cygwin, ask for Compiler Prefix (Default to native Cygwin Compiler)
-Ask if MSys2
-If yes, ask if mingw64 or mingw32
-Ask for MSys2 or Cygwin install folder
-Maybe calculate value needed to check for headers or libs
-Create Project Custom Vars
-Create Project using created Custom Vars
 
-Done 
+Done stages
 Stage 0 create git branch https://github.com/stahta01/codeblocks_https_metadata/tree/feature/wxwidegets_msys2_wizard
 Stage 1 of Wizard Changes Apply all my old wxWidgets changes
-ToDo
-Stage 2 of Wizard Changes get wizard to use wx-config.exe with normal mingw makefile build
-Start work on Laptop after I do what can be done on Desktop PC.
-Stage 3 of Wizard Changes get wizard to use MSys2 wx-config
-Stage 4 of Wizard Changes get wizard to use Cygwin wx-config for native GCC Compiler
-Stage 5 of Wizard Changes get wizard to use Cygwin wx-config for MinGW64 64bit GCC Compiler
 
-Wizard script notes below
-# need to change WxConf or add WxConfWin
-# Should I rename WxConfUnix to something else?
-        if (PLATFORM == PLATFORM_MSW)
-            Wizard.AddPage(_T("WxConf")); // only for windows
-        else
-            Wizard.AddPage(_T("WxConfUnix")); // just PCH option
+ToDo stages
+Stage 2a of Wizard Changes add CB Project variables
+    WX_VERSION      Yes
+    WX_SUFFIX       Yes
+    WX_CFG          Maybe
+    WX_CONFIG       Yes for Unix and MSys2
+    WX_COMPILER     New for normal Windows builds; needed to use wxWidgets built binaries
+
+Stage 2b of Wizard Changes add support for wxWidgets version 3.1.
+
+Stage 2c of Wizard Changes verify wxWidgets built binaries work.
+
+Stage 3 of Wizard Changes get wizard to use wx-config.exe with normal mingw makefile build
+
+Start work on Laptop after I do what can be done on Desktop PC.
+
+Stage 4 of Wizard Changes create special wx-config.exe that works with MSys2 wx-config script.
+(Decided it would be much easier to write an exe to wrap MSys2 and maybe Cygwin wx-config shell script.)
+
+Reseach notes about wxWidgets wizard below
 
 # Wizard pages that are for the old way
 // Same page for Windows and Unix
@@ -92,11 +93,45 @@ WxConfAdvOpt    // Wizard page to select target type
 WxAddLib        // Add additional wx libraries
 WxPath          // gets the path to the wxWidgets lib
 
-
-# Wizard methods that I need to understand better before I start editing the wizard
+# Wizard methods that I need to understand/document better before I start editing the wizard
 Wizard.AddInfoPage
 Wizard.AddGenericSingleChoiceListPage
 Wizard.AddProjectPathPage
 Wizard.AddPage
 Wizard.AddCompilerPage
 Wizard.AddBuildTargetPage
+
+GuiBuilder <- 0; // Default to None. 0-None, 1-wxSmith, 2-wxFormBuilder
+GuiAppType <- 1; // Default to Dialog. 0-Dialog, 1-Frame
+WxVersion  <- 1; // 0 - wx 2.6, 1 - wx 2.8, 2 - wx 3.0
+
+# Need to check each PLATFORM_MSW to see which ones needs removed
+PLATFORM_MAC Used  1 time
+PLATFORM_MSW Used 11 times
+
+# List of HandleDirective(s)
+WXDIALOG
+WXFRAME
+NONE
+WXFB
+WINDOWS
+
+// -----------------------------------------------------------------------------
+// if <enabled> is true, removes the [IF <directive>] and [ENDIF <directive>]
+// macros.
+// if <enabled> is false, removes everything enclosed by the [IF <directive>]
+// and [ENDIF <directive>] macros (including them).
+function HandleDirective(buffer, directive, enabled)
+
+// return the files this project contains
+function GetFilesDir()
+
+// setup the already created project
+function SetupProject(project)
+
+function SetupTarget(target, is_debug)
+
+// substitute all plugin macros in <buffer>
+function SubstituteMacros(buffer)
+
+function BeginWizard()
