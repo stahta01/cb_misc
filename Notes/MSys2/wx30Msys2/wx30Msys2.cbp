@@ -19,6 +19,13 @@
 				<Linker>
 					<Add option="`$(WX_CONFIG_LIBS)`" />
 				</Linker>
+				<ExtraCommands>
+					<Add before="$(TARGET_CPP) --version" />
+					<Add before="echo $(TARGET_COMPILER_DIR)" />
+					<Add before="echo $(COMPILER_PREFIX)" />
+					<Add before="echo `where sh.exe`" />
+					<Add before="echo `sh.exe &apos;which wx-config&apos;`" />
+				</ExtraCommands>
 			</Target>
 			<Environment>
 				<Variable name="WX_CONFIG_CFLAGS" value="sh.exe -c &apos;wx-config  --prefix=$(COMPILER_PREFIX) --cflags&apos;" />
