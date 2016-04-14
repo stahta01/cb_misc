@@ -102,6 +102,9 @@ end MSW options
 CB_DISABLE_PLUGIN_API_DEBUGGER  use in new branch reduced/pluginAPI
 CB_DISABLE_COMPILER_MESSAGES    use in new branch reduced/compiler 
 CB_DISABLE_SCROLLINGDIALOG      use in branch build/reducedGUI
+CB_DISABLE_COMPILER_AUTO_DETECT use in new branch remove/AutoDetectCompilers
+CB_DISABLE_BACK_SLASH           use in new branch remove/backslash
+
 
 # How to edit the last commit message before pushing it upstream
 git commit --amend
