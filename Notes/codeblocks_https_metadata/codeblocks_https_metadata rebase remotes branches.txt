@@ -2,6 +2,10 @@
 #
 cd ../codeblocks_https_metadata-git && \
 git fetch origin                && \
+git checkout feature/wxwidgets_msys2_wizard   && \
+git rebase origin/git/fixes     && \
+git pull                        && \
+git rebase origin/master        && \
 git checkout cbstyledtextctrl   && \
 git rebase origin/git/fixes     && \
 git pull                        && \
