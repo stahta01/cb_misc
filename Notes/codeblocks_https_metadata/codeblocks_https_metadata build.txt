@@ -43,7 +43,7 @@ git push origin
 #######
 #
 cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-git checkout feature/wxwidegets_msys2_wizard && git status -uno
+git checkout feature/wxwidgets_msys2_wizard && git status -uno
 #
 git rebase origin/master && git status -uno
 #
