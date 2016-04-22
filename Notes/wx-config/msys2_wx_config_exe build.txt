@@ -1,0 +1,29 @@
+#
+#
+#
+
+cd ../msys2_wx_config_exe-git && git fetch origin && git status -uno
+git checkout master && git status -uno
+
+cd ../msys2_wx_config_exe-git && git fetch origin && git status -uno
+git checkout codeblocks && git status -uno
+
+git push origin -u
+
+cd ../msys2_wx_config_exe-git && git status -uno
+git fetch origin
+git checkout testing && git status -uno
+
+
+
+
+git rebase origin/master && git push origin --force-with-lease
+
+git rebase origin/master && git status -uno
+
+##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
+##  git rebase -i origin/master
+
+git format-patch  origin/master
+
+git checkout master

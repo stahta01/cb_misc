@@ -1,0 +1,4 @@
+git version info header file.txt
+from http://stackoverflow.com/questions/1704907/how-can-i-get-my-c-code-to-automatically-print-out-its-git-version-hash
+
+git describe --abbrev=4 --dirty --always --tags

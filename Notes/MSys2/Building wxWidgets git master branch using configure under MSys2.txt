@@ -1,0 +1,74 @@
+# Likely needed MSys2 packages for building using Configure/make method
+pacman -S automake                  #
+pacman -S make                      #
+pacman -S libtool                   # Fixes "libtoolize: command not found"
+pacman -S automake-wrapper          # Fixes "aclocal: command not found"
+pacman -S autoconf                  # Fixes "sh: autom4te: command not found"
+# End of needed packages for building using Configure/make method
+
+
+# Step A1a
+mkdir devel; cd devel          # I like my development stuff under a single top folder.
+
+# Step A1b
+git clone --config core.eol=lf https://github.com/stahta01/wxWidgets.git wxWidgets-git
+cd wxWidgets-git && git status
+
+# Step A2a
+git config core.eol            # Confirm value is lf
+# Step A2b
+git config core.autocrlf input # True seems to cause more work than it saves.
+# Step A2c
+git config core.safecrlf warn  # True seems to cause more work than it saves.
+# Step A2d
+git status                     # Verify no problem with settings
+
+
+# Step A3a
+git config master.rebase true  # Force master to automatically use rebase
+# Step A3b
+git config branch.autosetuprebase always # Force all new branches to automatically use rebase
+# Step A3c
+# No idea what is the best push.default I am trying "simple" or "current" most of the time.
+git config push.default simple # set to push only current branch
+# Step A3d
+git status
+
+
+cd ~/devel/wxWidgets-git && git status
+mkdir build_msw_static_multilib_unicode
+cd build_msw_static_multilib_unicode
+# --prefix=/opt/wx3.1.x
+../configure  \
+    --with-msw \
+    --disable-shared \
+    --disable-monolithic \
+    --enable-compat28 \
+    --enable-unicode \
+    --enable-cxx11 \
+    --enable-graphics_ctx \
+    --enable-xrc
+
+make
+make install
+
+Configured wxWidgets 3.1.1 for `i686-pc-mingw32'
+
+  Which GUI toolkit should wxWidgets use?                 msw
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be linked as a shared library?         no
+  Should wxWidgets support Unicode?                       yes (using wchar_t)
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.8      yes
+                                       wxWidgets 3.0      yes
+  Which libraries should wxWidgets use?
+                                       STL                no
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
+
