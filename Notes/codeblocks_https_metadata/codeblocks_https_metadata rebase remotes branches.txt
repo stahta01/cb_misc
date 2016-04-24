@@ -2,6 +2,10 @@
 #
 cd ../codeblocks_https_metadata-git && \
 git fetch origin                && \
+git checkout remove/backslash   && \
+git rebase origin/git/fixes     && \
+git pull                        && \
+git rebase origin/master        && \
 git checkout feature/wxwidgets_msys2_wizard   && \
 git rebase origin/git/fixes     && \
 git pull                        && \
@@ -40,5 +44,8 @@ git rebase origin/master        && \
 git checkout feature/sdk        && \
 git rebase origin/git/fixes     && \
 git pull                        && \
-git rebase origin/master
+git rebase origin/master        # && \
+# git checkout build_cfg/wxMSW    && \
+# git pull                        && \
+# git rebase origin/master
 # EOF
