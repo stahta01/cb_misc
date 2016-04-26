@@ -38,7 +38,6 @@ git status
 cd ~/devel/wxWidgets-git && git status
 mkdir build_msw_static_multilib_unicode
 cd build_msw_static_multilib_unicode
-# --prefix=/opt/wx3.1.x
 ../configure  \
     --with-msw \
     --disable-shared \
@@ -49,10 +48,9 @@ cd build_msw_static_multilib_unicode
     --enable-graphics_ctx \
     --enable-xrc
 
-make
-make install
+make && make install
 
-Configured wxWidgets 3.1.1 for `i686-pc-mingw32'
+Configured wxWidgets 3.1.1 for `x86_64-pc-mingw32'
 
   Which GUI toolkit should wxWidgets use?                 msw
   Should wxWidgets be compiled into single library?       no
@@ -71,4 +69,3 @@ Configured wxWidgets 3.1.1 for `i686-pc-mingw32'
                                        expat              sys
                                        libmspack          no
                                        sdl                no
-
