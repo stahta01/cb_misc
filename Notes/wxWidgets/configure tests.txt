@@ -1,18 +1,15 @@
 #$  git checkout master && git pull upstream master
 
-#$  git checkout master && git checkout -b build/autoconf
-# Change "WX_ARG_DISABLE(dbghelp" to "WX_ARG_FEATURE(dbghelp" on Linux.
-# After this, regenerate configure from configure.in
-#   by running "autoconf" on a Unix system in the corresponding directory.
-#$  git push origin -u
+
+git checkout master && git fetch && git status -uno
+
 
 
 ## Verify that option "--disable-precomp-headers" works
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_test && cd build_test && make clean && \
-../configure --disable-precomp-headers && make
-
-#!!! noPCH build needs tested on Linux to be sure it works!!!
+../configure --disable-precomp-headers && make && cd samples && make
+# It worked!
 
 
 # option "--without-subdirs" added to speed up the tests.
@@ -22,16 +19,45 @@ cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --enable-universal --without-subdirs && make
 
-#!!! Universal build needs tested on Linux to be sure it works!!!
-
+##
+#!!! Universal build FAILS on Linux!!!
+In file included from ../src/gtk/webview_webkit.cpp:16:0:
+../include/wx/gtk/control.h:20:24: error: redefinition of ‘class wxControl’
+ class WXDLLIMPEXP_CORE wxControl : public wxControlBase
+                        ^
+In file included from ../include/wx/control.h:205:0,
+                 from ../include/wx/statusbr.h:18,
+                 from ../include/wx/frame.h:19,
+                 from ../include/wx/wx.h:42,
+                 from ../include/wx/wxprec.h:42:
+../include/wx/univ/control.h:40:24: error: previous definition of ‘class wxControl’
+ class WXDLLIMPEXP_CORE wxControl : public wxControlBase, public wxInputConsumer
+                        ^
+../src/gtk/webview_webkit.cpp: In member function ‘virtual bool wxWebViewWebKit::Create(wxWindow*, wxWindowID, const wxString&, const wxPoint&, const wxSize&, long int, const wxString&)’:
+../src/gtk/webview_webkit.cpp:493:22: error: no matching function for call to ‘wxWebViewWebKit::PostCreation(const wxSize&)’
+     PostCreation(size);
+                      ^
+In file included from ../include/wx/window.h:1943:0,
+                 from ../include/wx/wx.h:38,
+                 from ../include/wx/wxprec.h:42:
+../include/wx/gtk/window.h:147:10: note: candidate: void wxWindowGTK::PostCreation()
+     void PostCreation();
+          ^
+../include/wx/gtk/window.h:147:10: note:   candidate expects 0 arguments, 1 provided
+../src/gtk/webview_webkit.cpp: In static member function ‘static wxVisualAttributes wxWebViewWebKit::GetClassDefaultAttributes(wxWindowVariant)’:
+../src/gtk/webview_webkit.cpp:1069:68: error: ‘GetDefaultAttributesFromGTKWidget’ was not declared in this scope
+      return GetDefaultAttributesFromGTKWidget(webkit_web_view_new());
+##
 
 ## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --disable-all-features --enable-universal --without-subdirs && make
 
-#!!! Universal disable-all-features build needs tested on Linux to be sure it works!!!
-
+#!!! Universal disable-all-features build FAILS on Linux!!!
+../src/univ/anybutton.cpp:31:6: error: ‘wxAnyButton’ has not been declared
+ void wxAnyButton::Press()
+##
 
 
 ## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
