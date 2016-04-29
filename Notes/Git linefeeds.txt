@@ -1,7 +1,11 @@
 git config core.eol
 git config core.autocrlf
 git config core.safecrlf
+
+# http://stackoverflow.com/questions/3372822/git-trim-whitespace
 git config core.whitespace
+git config apply.whitespace
+
 
 # Suggested setting; but, seems bad to add git attribute file.
 git config --local core.eol      crlf
