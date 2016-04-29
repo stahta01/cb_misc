@@ -1,3 +1,19 @@
+#$  git checkout master && git pull upstream master
+
+#$  git checkout master && git checkout -b build/autoconf
+# Change "WX_ARG_DISABLE(dbghelp" to "WX_ARG_FEATURE(dbghelp" on Linux.
+# After this, regenerate configure from configure.in
+#   by running "autoconf" on a Unix system in the corresponding directory.
+#$  git push origin -u
+
+
+## Verify that option "--disable-precomp-headers" works
+cd ~/devel/version_control/wxWidgets-git && \
+mkdir -p build_test && cd build_test && make clean && \
+../configure --disable-precomp-headers && make
+
+#!!! noPCH build needs tested on Linux to be sure it works!!!
+
 
 # option "--without-subdirs" added to speed up the tests.
 
@@ -7,6 +23,16 @@ mkdir -p build_test && cd build_test && make clean && \
 ../configure --enable-universal --without-subdirs && make
 
 #!!! Universal build needs tested on Linux to be sure it works!!!
+
+
+## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
+cd ~/devel/version_control/wxWidgets-git && \
+mkdir -p build_test && cd build_test && make clean && \
+../configure --disable-all-features --enable-universal --without-subdirs && make
+
+#!!! Universal disable-all-features build needs tested on Linux to be sure it works!!!
+
+
 
 ## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
 cd ~/devel/version_control/wxWidgets-git && \
@@ -35,23 +61,58 @@ mkdir -p build_test && cd build_test && make clean && \
 cd ~/devel/wxWidgets-git && git status -uno && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --with-msw --without-subdirs --disable-all-features \
-    --enable-controls --disable-dbghelp --enable-regkey \
-    --enable-menus && make
-## Try above with "--enable-regkey" removed to see if it was really needed; record results.
-## Try above with "--enable-notifmsg" removed to see if there is a better fix.
-## Try using "--enable-universal" instead of "--enable-menus"
-# Trying with options "--enable-notifmsg" and "--enable-timer" removed
-!!!RECORD the Error!!! Trying adding "wxUSE_NOTIFICATION_MESSAGE" if block to stop error
+    --enable-controls --disable-dbghelp --enable-menus && make
 
-
-../include/wx/msw/chkconf.h:302:13: error: #error "wxUSE_DBGHELP requires wxUSE_DYNLIB_CLASS"
 ##
-# Use "--enable-menus" or maybe "--enable-universal" to stop error on next two lines.
+#  Errors stopped with option "--enable-menus"
+#  Errors changed with option "--enable-universal"
+#  Errors with "--enable-menus" removed
+../src/msw/toplevel.cpp: In member function 'virtual WXLRESULT wxTopLevelWindowMSW::MSWWindowProc(WXUINT, WXWPARAM, WXLPARAM)':
 ../src/msw/toplevel.cpp:312:38: error: invalid use of incomplete type 'class wxMenu'
                      if ( m_menuSystem->MSWCommand(0 /* unused anyhow */, id) )
+                                      ^
+In file included from ../include/wx/window.h:18:0,
+                 from ../include/wx/msw/private.h:21,
+                 from ../include/wx/wxprec.h:33:
+../include/wx/event.h:51:32: note: forward declaration of 'class wxMenu'
+     class WXDLLIMPEXP_FWD_CORE wxMenu;
+                                ^
+../src/msw/toplevel.cpp: In destructor 'virtual wxTopLevelWindowMSW::~wxTopLevelWindowMSW()':
+../src/msw/toplevel.cpp:509:12: warning: possible problem detected in invocation of delete operator: [-Wdelete-incomplete]
+     delete m_menuSystem;
+            ^
+../src/msw/toplevel.cpp:509:12: warning: invalid use of incomplete type 'class wxMenu'
+In file included from ../include/wx/window.h:18:0,
+                 from ../include/wx/msw/private.h:21,
+                 from ../include/wx/wxprec.h:33:
+../include/wx/event.h:51:32: note: forward declaration of 'class wxMenu'
+     class WXDLLIMPEXP_FWD_CORE wxMenu;
+                                ^
+../src/msw/toplevel.cpp:509:12: note: neither the destructor nor the class-specific operator delete will be called, even if they are declared when the class is defined
+     delete m_menuSystem;
+            ^
+../src/msw/toplevel.cpp: In member function 'wxMenu* wxTopLevelWindowMSW::MSWGetSystemMenu() const':
+../src/msw/toplevel.cpp:1121:30: error: incomplete type 'wxMenu' used in nested name specifier
+         self->m_menuSystem = wxMenu::MSWNewFromHMENU(hmenu);
+                              ^
+../src/msw/toplevel.cpp:1132:21: error: invalid use of incomplete type 'class wxMenu'
+         m_menuSystem->SetInvokingWindow(self);
+                     ^
+In file included from ../include/wx/window.h:18:0,
+                 from ../include/wx/msw/private.h:21,
+                 from ../include/wx/wxprec.h:33:
+../include/wx/event.h:51:32: note: forward declaration of 'class wxMenu'
+     class WXDLLIMPEXP_FWD_CORE wxMenu;
+#
 ##
-../include/wx/private/notifmsg.h:16:56: error: expected ')' before '*' token
-     wxNotificationMessageImpl(wxNotificationMessageBase* notification):
+#  Errors with "--disable-dbghelp" removed
+In file included from ../include/wx/chkconf.h:1244:0,
+                 from ../include/wx/platform.h:485,
+                 from ../include/wx/defs.h:20,
+                 from ../include/wx/wxprec.h:12:
+../include/wx/msw/chkconf.h:302:13: error: #error "wxUSE_DBGHELP requires wxUSE_DYNLIB_CLASS"
+ #           error "wxUSE_DBGHELP requires wxUSE_DYNLIB_CLASS"
+#
 ##
 ######
 
