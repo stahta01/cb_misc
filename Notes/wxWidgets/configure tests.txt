@@ -2,7 +2,20 @@
 # option "--without-subdirs" added to speed up the tests.
 
 ## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
-../configure --disable-all-features --without-subdirs && make
+cd ~/devel/version_control/wxWidgets-git && \
+mkdir -p build_test && cd build_test && make clean && \
+../configure --disable-all-features --enable-controls --without-subdirs && make
+
+# might be missing an "USES_CONTROLS=1" in configure.in
+# Error below happens unless option "--enable-controls" is used.
+../src/generic/renderg.cpp: In member function ‘virtual void wxRendererGeneric::DrawItemText(wxWindow*, wxDC&, const wxString&, const wxRect&, int, int, wxEllipsizeMode)’:
+../src/generic/renderg.cpp:957:32: error: incomplete type ‘wxControl’ used in nested name specifier
+     const wxString paintText = wxControl::Ellipsize(text, dc,
+
+
 
 ## Verify an non GUI build works.
+cd ~/devel/version_control/wxWidgets-git && \
+mkdir -p build_test && cd build_test && make clean && \
 ../configure --disable-gui --without-subdirs && make
+# This worked on Linux!
