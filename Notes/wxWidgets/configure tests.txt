@@ -1,6 +1,13 @@
 
 # option "--without-subdirs" added to speed up the tests.
 
+## Verify that option "--enable-universal"
+cd ~/devel/version_control/wxWidgets-git && \
+mkdir -p build_test && cd build_test && make clean && \
+../configure --enable-universal --without-subdirs && make
+
+#!!! Universal build needs tested on Linux to be sure it works!!!
+
 ## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_test && cd build_test && make clean && \
@@ -13,9 +20,51 @@ mkdir -p build_test && cd build_test && make clean && \
      const wxString paintText = wxControl::Ellipsize(text, dc,
 
 
-
 ## Verify an non GUI build works.
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --disable-gui --without-subdirs && make
 # This worked on Linux!
+
+
+######
+##
+##  !!!Testing with multiple patches applied!!!
+##
+#   cd ~/devel/wxWidgets-git && git checkout build/cfg_fixes && git status
+cd ~/devel/wxWidgets-git && git status -uno && \
+mkdir -p build_test && cd build_test && make clean && \
+../configure --with-msw --without-subdirs --disable-all-features \
+    --enable-controls --disable-dbghelp --enable-regkey \
+    --enable-menus && make
+## Try above with "--enable-regkey" removed to see if it was really needed; record results.
+## Try above with "--enable-notifmsg" removed to see if there is a better fix.
+## Try using "--enable-universal" instead of "--enable-menus"
+# Trying with options "--enable-notifmsg" and "--enable-timer" removed
+!!!RECORD the Error!!! Trying adding "wxUSE_NOTIFICATION_MESSAGE" if block to stop error
+
+
+../include/wx/msw/chkconf.h:302:13: error: #error "wxUSE_DBGHELP requires wxUSE_DYNLIB_CLASS"
+##
+# Use "--enable-menus" or maybe "--enable-universal" to stop error on next two lines.
+../src/msw/toplevel.cpp:312:38: error: invalid use of incomplete type 'class wxMenu'
+                     if ( m_menuSystem->MSWCommand(0 /* unused anyhow */, id) )
+##
+../include/wx/private/notifmsg.h:16:56: error: expected ')' before '*' token
+     wxNotificationMessageImpl(wxNotificationMessageBase* notification):
+##
+######
+
+if test "$wxUSE_MSW" = 1 ; then
+WX_ARG_DISABLE(dbghelp,     [  --enable-dbghelp        use dbghelp.dll API (Win32 only)], wxUSE_DBGHELP)
+WX_ARG_ENABLE(iniconf,      [  --enable-iniconf        use wxIniConfig (Win32 only)], wxUSE_INICONF)
+WX_ARG_FEATURE(regkey,      [  --enable-regkey         use wxRegKey class (Win32 only)], wxUSE_REGKEY)
+fi
+
+WX_ARG_FEATURE(notifmsg,    [  --enable-notifmsg       use wxNotificationMessage class], wxUSE_NOTIFICATION_MESSAGE)
+
+WX_ARG_FEATURE(timer,         [  --enable-timer          use wxTimer class], wxUSE_TIMER)
+
+WX_ARG_FEATURE(menus,       [  --enable-menus          use wxMenu/wxMenuBar/wxMenuItem classes], wxUSE_MENUS)
+
+WX_ARG_DISABLE(controls,    [  --disable-controls      disable compilation of all standard controls], wxUSE_CONTROLS)
