@@ -33,3 +33,5 @@ https://en.wikipedia.org/wiki/PacBSD
 Distros I might try on old XP Laptop.
 http://www.capaman.8m.com/pavilionze4300.html
 
+
+https://chakraos.org/?get     KDE and pacman
