@@ -1,0 +1,291 @@
+"--disable-all-features" with "--enable-universal" instead of "--enable-menus".
+
+Makefile:19948: warning: overriding recipe for target 'monodll_generic_activityindicator.o'
+Makefile:19945: warning: ignoring old recipe for target 'monodll_generic_activityindicator.o'
+Makefile:24781: warning: overriding recipe for target 'monolib_generic_activityindicator.o'
+Makefile:24778: warning: ignoring old recipe for target 'monolib_generic_activityindicator.o'
+/c/Users/stahta01/devel/wxWidgets-git/build_test/bk-deps g++ -c -o coredll_univ_anybutton.o -I./.pch/wxprec_coredll -D__WXMSW__ -D__WXUNIVERSAL__     -DWXBUILDING        -DWXUSINGDLL -DWXMAKINGDLL_CORE -DwxUSE_BASE=0  -Wall -Wundef -Wunused-parameter -Wno-ctor-dtor-privacy -Woverloaded-virtual -D_FILE_OFFSET_BITS=64 -I/c/Users/stahta01/devel/wxWidgets-git/build_test/lib/wx/include/mswuniv-unicode-3.1 -I../include -DWX_PRECOMP -O2  ../src/univ/anybutton.cpp
+../src/univ/anybutton.cpp:31:6: error: 'wxAnyButton' has not been declared
+ void wxAnyButton::Press()
+      ^
+../src/univ/anybutton.cpp: In function 'void Press()':
+../src/univ/anybutton.cpp:33:11: error: 'm_isPressed' was not declared in this scope
+     if ( !m_isPressed )
+           ^
+../src/univ/anybutton.cpp:37:17: error: 'Refresh' was not declared in this scope
+         Refresh();
+                 ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:41:6: error: 'wxAnyButton' has not been declared
+ void wxAnyButton::Release()
+      ^
+../src/univ/anybutton.cpp: In function 'void Release()':
+../src/univ/anybutton.cpp:43:10: error: 'm_isPressed' was not declared in this scope
+     if ( m_isPressed )
+          ^
+../src/univ/anybutton.cpp:47:17: error: 'Refresh' was not declared in this scope
+         Refresh();
+                 ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:51:6: error: 'wxAnyButton' has not been declared
+ void wxAnyButton::Toggle()
+      ^
+../src/univ/anybutton.cpp: In function 'void Toggle()':
+../src/univ/anybutton.cpp:53:10: error: 'm_isPressed' was not declared in this scope
+     if ( m_isPressed )
+          ^
+../src/univ/anybutton.cpp:58:11: error: 'm_isPressed' was not declared in this scope
+     if ( !m_isPressed )
+           ^
+../src/univ/anybutton.cpp:61:15: error: 'Click' was not declared in this scope
+         Click();
+               ^
+../src/univ/anybutton.cpp:63:13: error: 'Refresh' was not declared in this scope
+     Refresh();
+             ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:66:6: error: 'wxAnyButton' has not been declared
+ bool wxAnyButton::PerformAction(const wxControlAction& action,
+      ^
+../src/univ/anybutton.cpp: In function 'bool PerformAction(const wxControlAction&, long int, const wxString&)':
+../src/univ/anybutton.cpp:70:20: error: 'wxACTION_BUTTON_TOGGLE' was not declared in this scope
+     if ( action == wxACTION_BUTTON_TOGGLE )
+                    ^
+../src/univ/anybutton.cpp:72:25: error: 'wxACTION_BUTTON_CLICK' was not declared in this scope
+     else if ( action == wxACTION_BUTTON_CLICK )
+                         ^
+../src/univ/anybutton.cpp:73:15: error: 'Click' was not declared in this scope
+         Click();
+               ^
+../src/univ/anybutton.cpp:74:25: error: 'wxACTION_BUTTON_PRESS' was not declared in this scope
+     else if ( action == wxACTION_BUTTON_PRESS )
+                         ^
+../src/univ/anybutton.cpp:76:25: error: 'wxACTION_BUTTON_RELEASE' was not declared in this scope
+     else if ( action == wxACTION_BUTTON_RELEASE )
+                         ^
+../src/univ/anybutton.cpp:79:63: error: cannot call member function 'virtual bool wxInputConsumer::PerformAction(const wxControlAction&, long int, const wxString&)' without object
+         return wxControl::PerformAction(action, numArg, strArg);
+                                                               ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:85:17: error: 'wxAnyButton' has not been declared
+ wxInputHandler *wxAnyButton::GetStdInputHandler(wxInputHandler *handlerDef)
+                 ^
+../src/univ/anybutton.cpp: In function 'wxInputHandler* GetStdInputHandler(wxInputHandler*)':
+../src/univ/anybutton.cpp:87:12: error: 'wxStdAnyButtonInputHandler' does not name a type
+     static wxStdAnyButtonInputHandler s_handlerBtn(handlerDef);
+            ^
+../src/univ/anybutton.cpp:89:13: error: 's_handlerBtn' was not declared in this scope
+     return &s_handlerBtn;
+             ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:85:65: warning: unused parameter 'handlerDef' [-Wunused-parameter]
+ wxInputHandler *wxAnyButton::GetStdInputHandler(wxInputHandler *handlerDef)
+                                                                 ^
+../src/univ/anybutton.cpp:96:8: error: 'wxAnyButton' has not been declared
+ wxSize wxAnyButton::DoGetBestClientSize() const
+        ^
+../src/univ/anybutton.cpp:96:43: error: non-member function 'wxSize DoGetBestClientSize()' cannot have cv-qualifier
+ wxSize wxAnyButton::DoGetBestClientSize() const
+                                           ^
+In file included from ../include/wx/wxprec.h:12:0:
+../src/univ/anybutton.cpp: In function 'wxSize DoGetBestClientSize()':
+../src/univ/anybutton.cpp:98:37: error: 'wxAnyButton' does not name a type
+     wxClientDC dc(wxConstCast(this, wxAnyButton));
+                                     ^
+../include/wx/defs.h:292:40: note: in definition of macro 'wx_const_cast'
+ #define wx_const_cast(t, x) const_cast<t>(x)
+                                        ^
+../src/univ/anybutton.cpp:98:19: note: in expansion of macro 'wxConstCast'
+     wxClientDC dc(wxConstCast(this, wxAnyButton));
+                   ^
+../include/wx/defs.h:340:61: error: expected '>' before '*' token
+ #define wxConstCast(obj, className) wx_const_cast(className *, obj)
+                                                             ^
+../include/wx/defs.h:292:40: note: in definition of macro 'wx_const_cast'
+ #define wx_const_cast(t, x) const_cast<t>(x)
+                                        ^
+../src/univ/anybutton.cpp:98:19: note: in expansion of macro 'wxConstCast'
+     wxClientDC dc(wxConstCast(this, wxAnyButton));
+                   ^
+../include/wx/defs.h:340:61: error: expected '(' before '*' token
+ #define wxConstCast(obj, className) wx_const_cast(className *, obj)
+                                                             ^
+../include/wx/defs.h:292:40: note: in definition of macro 'wx_const_cast'
+ #define wx_const_cast(t, x) const_cast<t>(x)
+                                        ^
+../src/univ/anybutton.cpp:98:19: note: in expansion of macro 'wxConstCast'
+     wxClientDC dc(wxConstCast(this, wxAnyButton));
+                   ^
+../include/wx/defs.h:292:41: error: expected primary-expression before '>' token
+ #define wx_const_cast(t, x) const_cast<t>(x)
+                                         ^
+../include/wx/defs.h:340:37: note: in expansion of macro 'wx_const_cast'
+ #define wxConstCast(obj, className) wx_const_cast(className *, obj)
+                                     ^
+../src/univ/anybutton.cpp:98:19: note: in expansion of macro 'wxConstCast'
+     wxClientDC dc(wxConstCast(this, wxAnyButton));
+                   ^
+../src/univ/anybutton.cpp:98:31: error: invalid use of 'this' in non-member function
+     wxClientDC dc(wxConstCast(this, wxAnyButton));
+                               ^
+../include/wx/defs.h:292:43: note: in definition of macro 'wx_const_cast'
+ #define wx_const_cast(t, x) const_cast<t>(x)
+                                           ^
+../src/univ/anybutton.cpp:98:19: note: in expansion of macro 'wxConstCast'
+     wxClientDC dc(wxConstCast(this, wxAnyButton));
+                   ^
+../src/univ/anybutton.cpp:100:40: error: 'GetLabel' was not declared in this scope
+     dc.GetMultiLineTextExtent(GetLabel(), &width, &height);
+                                        ^
+../src/univ/anybutton.cpp:102:10: error: 'm_bitmap' was not declared in this scope
+     if ( m_bitmap.IsOk() )
+          ^
+../src/univ/anybutton.cpp:105:54: error: 'm_marginBmpY' was not declared in this scope
+         wxCoord heightBmp = m_bitmap.GetHeight() + 2*m_marginBmpY;
+                                                      ^
+../src/univ/anybutton.cpp:109:42: error: 'm_marginBmpX' was not declared in this scope
+         width += m_bitmap.GetWidth() + 2*m_marginBmpX;
+                                          ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:136:6: error: 'wxAnyButton' has not been declared
+ void wxAnyButton::DoDraw(wxControlRenderer *renderer)
+      ^
+../src/univ/anybutton.cpp: In function 'void DoDraw(wxControlRenderer*)':
+../src/univ/anybutton.cpp:138:27: error: 'GetWindowStyle' was not declared in this scope
+     if ( !(GetWindowStyle() & wxBORDER_NONE) )
+                           ^
+../src/univ/anybutton.cpp:143:31: error: 'm_bitmap' was not declared in this scope
+     renderer->DrawButtonLabel(m_bitmap, m_marginBmpX, m_marginBmpY);
+                               ^
+../src/univ/anybutton.cpp:143:41: error: 'm_marginBmpX' was not declared in this scope
+     renderer->DrawButtonLabel(m_bitmap, m_marginBmpX, m_marginBmpY);
+                                         ^
+../src/univ/anybutton.cpp:143:55: error: 'm_marginBmpY' was not declared in this scope
+     renderer->DrawButtonLabel(m_bitmap, m_marginBmpX, m_marginBmpY);
+                                                       ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:146:6: error: 'wxAnyButton' has not been declared
+ bool wxAnyButton::DoDrawBackground(wxDC& dc)
+      ^
+../src/univ/anybutton.cpp: In function 'bool DoDrawBackground(wxDC&)':
+../src/univ/anybutton.cpp:149:27: error: 'GetSize' was not declared in this scope
+     wxSize size = GetSize();
+                           ^
+../src/univ/anybutton.cpp:153:30: error: 'GetBackgroundBitmap' was not declared in this scope
+     if ( GetBackgroundBitmap().IsOk() )
+                              ^
+../src/univ/anybutton.cpp:163:9: error: 'm_renderer' was not declared in this scope
+         m_renderer->DrawButtonSurface(dc, wxTHEME_BG_COLOUR(this),
+         ^
+In file included from ../src/univ/anybutton.cpp:24:0:
+../src/univ/anybutton.cpp:163:61: error: invalid use of 'this' in non-member function
+         m_renderer->DrawButtonSurface(dc, wxTHEME_BG_COLOUR(this),
+                                                             ^
+../include/wx/univ/colschem.h:100:54: note: in definition of macro 'wxTHEME_BG_COLOUR'
+     wxTheme::Get()->GetColourScheme()->GetBackground(win)
+                                                      ^
+../src/univ/anybutton.cpp:164:59: error: 'GetStateFlags' was not declared in this scope
+                                       rect, GetStateFlags());
+                                                           ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:174:1: error: 'wxStdAnyButtonInputHandler' does not name a type
+ wxStdAnyButtonInputHandler::wxStdAnyButtonInputHandler(wxInputHandler *handler)
+ ^
+../src/univ/anybutton.cpp:181:6: error: 'wxStdAnyButtonInputHandler' has not been declared
+ bool wxStdAnyButtonInputHandler::HandleKey(wxInputConsumer *consumer,
+      ^
+../src/univ/anybutton.cpp: In function 'bool HandleKey(wxInputConsumer*, const wxKeyEvent&, bool)':
+../src/univ/anybutton.cpp:188:33: error: 'wxACTION_BUTTON_TOGGLE' was not declared in this scope
+         consumer->PerformAction(wxACTION_BUTTON_TOGGLE);
+                                 ^
+../src/univ/anybutton.cpp:193:65: error: cannot call member function 'virtual bool wxStdInputHandler::HandleKey(wxInputConsumer*, const wxKeyEvent&, bool)' without object
+     return wxStdInputHandler::HandleKey(consumer, event, pressed);
+                                                                 ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:196:6: error: 'wxStdAnyButtonInputHandler' has not been declared
+ bool wxStdAnyButtonInputHandler::HandleMouse(wxInputConsumer *consumer,
+      ^
+../src/univ/anybutton.cpp: In function 'bool HandleMouse(wxInputConsumer*, const wxMouseEvent&)':
+../src/univ/anybutton.cpp:211:13: error: 'm_winCapture' was not declared in this scope
+             m_winCapture = consumer->GetInputWindow();
+             ^
+../src/univ/anybutton.cpp:213:13: error: 'm_winHasMouse' was not declared in this scope
+             m_winHasMouse = true;
+             ^
+../src/univ/anybutton.cpp:215:37: error: 'wxACTION_BUTTON_PRESS' was not declared in this scope
+             consumer->PerformAction(wxACTION_BUTTON_PRESS);
+                                     ^
+../src/univ/anybutton.cpp:221:18: error: 'm_winCapture' was not declared in this scope
+             if ( m_winCapture )
+                  ^
+../src/univ/anybutton.cpp:227:18: error: 'm_winHasMouse' was not declared in this scope
+             if ( m_winHasMouse )
+                  ^
+../src/univ/anybutton.cpp:230:41: error: 'wxACTION_BUTTON_TOGGLE' was not declared in this scope
+                 consumer->PerformAction(wxACTION_BUTTON_TOGGLE);
+                                         ^
+../src/univ/anybutton.cpp:240:58: error: cannot call member function 'virtual bool wxStdInputHandler::HandleMouse(wxInputConsumer*, const wxMouseEvent&)' without object
+     return wxStdInputHandler::HandleMouse(consumer, event);
+                                                          ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:243:6: error: 'wxStdAnyButtonInputHandler' has not been declared
+ bool wxStdAnyButtonInputHandler::HandleMouseMove(wxInputConsumer *consumer,
+      ^
+../src/univ/anybutton.cpp: In function 'bool HandleMouseMove(wxInputConsumer*, const wxMouseEvent&)':
+../src/univ/anybutton.cpp:248:36: error: 'm_winCapture' was not declared in this scope
+     if ( event.GetEventObject() == m_winCapture )
+                                    ^
+../src/univ/anybutton.cpp:254:13: error: 'm_winHasMouse' was not declared in this scope
+             m_winHasMouse = false;
+             ^
+../src/univ/anybutton.cpp:258:37: error: 'wxACTION_BUTTON_RELEASE' was not declared in this scope
+             consumer->PerformAction(wxACTION_BUTTON_RELEASE);
+                                     ^
+../src/univ/anybutton.cpp:267:13: error: 'm_winHasMouse' was not declared in this scope
+             m_winHasMouse = true;
+             ^
+../src/univ/anybutton.cpp:272:37: error: 'wxACTION_BUTTON_PRESS' was not declared in this scope
+             consumer->PerformAction(wxACTION_BUTTON_PRESS);
+                                     ^
+../src/univ/anybutton.cpp:278:62: error: cannot call member function 'virtual bool wxStdInputHandler::HandleMouseMove(wxInputConsumer*, const wxMouseEvent&)' without object
+     return wxStdInputHandler::HandleMouseMove(consumer, event);
+                                                              ^
+../src/univ/anybutton.cpp: At global scope:
+../src/univ/anybutton.cpp:281:6: error: 'wxStdAnyButtonInputHandler' has not been declared
+ bool wxStdAnyButtonInputHandler::HandleFocus(wxInputConsumer * WXUNUSED(consumer),
+      ^
+../src/univ/anybutton.cpp:289:6: error: 'wxStdAnyButtonInputHandler' has not been declared
+ bool wxStdAnyButtonInputHandler::HandleActivation(wxInputConsumer *consumer,
+      ^
+In file included from ../include/wx/event.h:16:0,
+                 from ../include/wx/window.h:18,
+                 from ../include/wx/msw/private.h:21,
+                 from ../include/wx/wxprec.h:33:
+../src/univ/anybutton.cpp: In function 'bool HandleActivation(wxInputConsumer*, bool)':
+../src/univ/anybutton.cpp:294:53: error: 'wxAnyButton' was not declared in this scope
+     return wxStaticCast(consumer->GetInputWindow(), wxAnyButton)->IsDefault();
+                                                     ^
+../include/wx/object.h:162:50: note: in definition of macro 'wxStaticCast'
+ #define wxStaticCast(obj, className) wxCheckCast<className>(obj)
+                                                  ^
+../include/wx/object.h:162:64: error: no matching function for call to 'wxCheckCast(wxWindow*)'
+ #define wxStaticCast(obj, className) wxCheckCast<className>(obj)
+                                                                ^
+../src/univ/anybutton.cpp:294:12: note: in expansion of macro 'wxStaticCast'
+     return wxStaticCast(consumer->GetInputWindow(), wxAnyButton)->IsDefault();
+            ^
+../include/wx/object.h:156:11: note: candidate: template<class T> T* wxCheckCast(const void*)
+ inline T *wxCheckCast(const void *ptr)
+           ^
+../include/wx/object.h:156:11: note:   template argument deduction/substitution failed:
+../include/wx/object.h:162:64: error: template argument 1 is invalid
+ #define wxStaticCast(obj, className) wxCheckCast<className>(obj)
+                                                                ^
+../src/univ/anybutton.cpp:294:12: note: in expansion of macro 'wxStaticCast'
+     return wxStaticCast(consumer->GetInputWindow(), wxAnyButton)->IsDefault();
+            ^
+Makefile:26890: recipe for target 'coredll_univ_anybutton.o' failed
+make: *** [coredll_univ_anybutton.o] Error 1
+
+stahta01@TimWin7-32 MINGW32 ~/devel/wxWidgets-git/build_test
+$
