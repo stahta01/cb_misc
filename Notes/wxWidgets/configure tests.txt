@@ -1,0 +1,8 @@
+
+# option "--without-subdirs" added to speed up the tests.
+
+## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
+../configure --disable-all-features --without-subdirs && make
+
+## Verify an non GUI build works.
+../configure --disable-gui --without-subdirs && make
