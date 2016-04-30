@@ -1,4 +1,4 @@
-Change "WX_ARG_FEATURE(regkey," to "WX_ARG_ENABLE(regkey,"
+Change back to "WX_ARG_FEATURE(regkey,"
 
 #$  git checkout master && git pull upstream master
 
