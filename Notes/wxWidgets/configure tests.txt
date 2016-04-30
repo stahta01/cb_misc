@@ -10,6 +10,9 @@ Think about checking with wxWidgets 2.8.
 Think about checking with wxQT 3.1.
 Think about checking with wxGTK 3.1.
 
+Think about porting tortoisegit to wxWidgets and then to Linux
+https://gitlab.com/tortoisegit/tortoisegit
+
 
 #$  git checkout master && git fetch upstream && git rebase upstream/master
 
