@@ -1,3 +1,5 @@
+Change "WX_ARG_FEATURE(regkey,      [  --enable-regkey" to "WX_ARG_DISABLE(regkey,      [  --disable-regkey"
+
 #$  git checkout master && git pull upstream master
 
 
@@ -87,7 +89,7 @@ mkdir -p build_test && cd build_test && make clean && \
 cd ~/devel/wxWidgets-git && git status -uno && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --with-msw --without-subdirs --disable-all-features \
-    --enable-controls --disable-dbghelp --enable-menus && make
+    --enable-controls --enable-menus && make
 
 ##
 #  Errors stopped with option "--enable-menus"
