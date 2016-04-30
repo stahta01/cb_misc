@@ -7,11 +7,15 @@ Then, add files that are needed for wxCmdLineParser and wxExecute.
 #
 Check that it works with wxWidgets 3.0 and 3.1.
 Think about checking with wxWidgets 2.8.
-Think about checking with wxQT 3.1.
 Think about checking with wxGTK 3.1.
+Think about checking with wxQT 3.1.
+
 
 Think about porting tortoisegit to wxWidgets and then to Linux
 https://gitlab.com/tortoisegit/tortoisegit
+Created github repo already.
+Install MSVC 2013 community Edition on Windows
+Verify the MFC wxWidgets sample builds.
 
 
 #$  git checkout master && git fetch upstream && git rebase upstream/master
@@ -28,11 +32,12 @@ mkdir -p build_test && cd build_test && make clean && \
 # It worked!
 
 
+
 ## Verify that option "--enable-monolithic" and "--disable-shared" works
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --enable-monolithic --disable-shared && make && cd samples && make
-
+# It built wxGTK and samples
 
 
 
@@ -40,6 +45,7 @@ mkdir -p build_test && cd build_test && make clean && \
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_qt_test && cd build_qt_test && make clean && \
 ../configure --with-qt && make && cd samples && make
+# It built wxQT and samples.
 
 
 
@@ -47,6 +53,7 @@ mkdir -p build_qt_test && cd build_qt_test && make clean && \
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_compat28_test && cd build_compat28_test && make clean && \
 ../configure --enable-compat28 --disable-precomp-headers && make && cd samples && make
+# It built (compat28) wxGTK and ?? samples
 
 
 
