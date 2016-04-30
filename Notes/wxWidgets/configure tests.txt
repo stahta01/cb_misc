@@ -1,4 +1,4 @@
-Change "WX_ARG_FEATURE(regkey,      [  --enable-regkey" to "WX_ARG_DISABLE(regkey,      [  --disable-regkey"
+Change "WX_ARG_FEATURE(regkey," to "WX_ARG_ENABLE(regkey,"
 
 #$  git checkout master && git pull upstream master
 
