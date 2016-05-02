@@ -53,7 +53,7 @@ mkdir -p build_qt_test && cd build_qt_test && make clean && \
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_compat28_test && cd build_compat28_test && make clean && \
 ../configure --enable-compat28 --disable-precomp-headers && make && cd samples && make
-# It built (compat28) wxGTK and ?? samples
+# It built (compat28) wxGTK and samples
 
 
 
@@ -69,12 +69,15 @@ mkdir -p build_qt_test && cd build_qt_test && make clean && \
 
 
 
-## Verify that option "--enable-universal"
+## Verify that option "--enable-universal" works
 cd ~/devel/version_control/wxWidgets-git && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --enable-universal --without-subdirs && make
 #
-#!!! Universal build FAILS on Linux!!!
+#!!! Universal build FAILS on Linux with wxGTK!!!
+# src/gtk/webview_webkit.cpp includes header "wx/gtk/control.h" this is likely the cause of the error!
+#
+wxWidgets-git/build_test/bk-deps g++ -c -o webviewdll_gtk_webview_webkit.o -I./.pch/wxprec_webviewdll -D__WXGTK__ -D__WXUNIVERSAL__     -DWXBUILDING      -I../src/regex  -DWXUSINGDLL -DWXMAKINGDLL_WEBVIEW -fPIC -DPIC -Wall -Wundef -Wunused-parameter -Wno-ctor-dtor-privacy -Woverloaded-virtual -D_FILE_OFFSET_BITS=64 -I/home/stahta01/devel/version_control/wxWidgets-git/build_test/lib/wx/include/gtk2univ-unicode-3.1 -I../include -pthread -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -pthread -I/usr/include/webkitgtk-1.0 -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/libsoup-2.4 -I/usr/include/libxml2 -I/usr/include/webkitgtk-1.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DWX_PRECOMP -pthread -O2 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -pthread -I/usr/include/gtk-unix-print-2.0 -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -fvisibility=hidden -fvisibility-inlines-hidden ../src/gtk/webview_webkit.cpp
 In file included from ../src/gtk/webview_webkit.cpp:16:0:
 ../include/wx/gtk/control.h:20:24: error: redefinition of ‘class wxControl’
  class WXDLLIMPEXP_CORE wxControl : public wxControlBase
@@ -101,7 +104,7 @@ In file included from ../include/wx/window.h:1943:0,
 ../src/gtk/webview_webkit.cpp: In static member function ‘static wxVisualAttributes wxWebViewWebKit::GetClassDefaultAttributes(wxWindowVariant)’:
 ../src/gtk/webview_webkit.cpp:1069:68: error: ‘GetDefaultAttributesFromGTKWidget’ was not declared in this scope
       return GetDefaultAttributesFromGTKWidget(webkit_web_view_new());
-##
+#
 
 ## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
 cd ~/devel/version_control/wxWidgets-git && \
