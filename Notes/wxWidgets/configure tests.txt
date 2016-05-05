@@ -1,6 +1,8 @@
 Directory structure to copy to Windows MSys2
 ~/devel/open_source_code/version_control
 ~/devel/open_source_code/no_version_control
+C:/Devel/open_source_code/version_control
+C:/Devel/open_source_code/no_version_control
 
 Create target wxBeta on MSys2 wx-config project using folder wxMSW3.1.x/src/msw
 Then, add files that are needed for wxCmdLineParser and wxExecute.
