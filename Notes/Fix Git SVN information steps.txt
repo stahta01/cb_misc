@@ -14,13 +14,13 @@
 # Step 1: Record the result of the "git log" command.
 git log --grep="^git-svn-id: " --first-parent -1
 # Git Log message begins
-commit a9654716221625ea6718be3641a8e7d9b6fc4851
-Author: jenslody <jenslody@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Sun Apr 17 22:10:58 2016 +0000
+commit c1610c9d4f76a3679e2836d128a167406da833f4
+Author: fuscated <fuscated@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Thu May 5 16:41:42 2016 +0000
 
-    - Autofoo: put -std=c90 in CFLAGS instead of CPPFLAGS to avoid warnings.
-    
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10834 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    * ThreadSearch: Add option to disable/enable the autosizing of log columns (fixes #324, thanks  Sergey Bezgodov)
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@10850 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Git Log message ends
 
 # Step 2: Verify svn configuration
@@ -32,8 +32,8 @@ git config svn-remote.svn.url
 # git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
 
 
-# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10834"
-git svn fetch -r 10834
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@10850"
+git svn fetch -r 10850
 
 # Step 3B: See what folder name is being used before trunk.
 git config svn-remote.svn.fetch
@@ -51,7 +51,7 @@ ls .git/refs/remotes/svn/trunk
 ########
 
 # Step 4: Use the commit hash from the git log message returned in the step 1 above.
-echo a9654716221625ea6718be3641a8e7d9b6fc4851 > .git/refs/remotes/svn/trunk
+echo c1610c9d4f76a3679e2836d128a167406da833f4 > .git/refs/remotes/svn/trunk
 
 ########
 ### When doing inside git sub module the location of the trunk file differs.
@@ -59,8 +59,8 @@ echo a9654716221625ea6718be3641a8e7d9b6fc4851 > .git/refs/remotes/svn/trunk
 ###
 ########
 
-# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10834" part is needed.
-git svn fetch -r 10834
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 10850" part is needed.
+git svn fetch -r 10850
 
 # Step 6: Run svn info to verify it is working
 git svn info
