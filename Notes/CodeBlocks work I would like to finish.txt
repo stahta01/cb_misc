@@ -1,0 +1,8 @@
+CodeBlocks work I would like to finish
+
+KiCad Wiki directions
+lib30 and lib28 patch
+PCH Patches
+wxWidgets CB Projects
+noGUI Code::Blocks
+Fix git svn info directions
