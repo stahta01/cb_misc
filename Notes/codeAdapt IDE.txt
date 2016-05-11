@@ -1,0 +1,21 @@
+codeAdapt IDE.txt
+
+Idea merge Code::Blocks PlugIn design with parts of CodeLite and Geany.
+
+I do NOT like the looks of CodeLite way to busy; but, some features of it are very nice.
+
+I like Geany and it uses GPL lic.
+
+I like Code::Blocks; but, I wish to do some changes that are NOT likely to be accepted.
+
+I wish to remove all but the Compiler Plugin from CB.
+I will then replace the custom Scintilla editor with the standard Scintilla editor
+I wish to have better support for custom makefile build projects.
+I wish to use wxlua as the scripting engine.
+I wish to target the MSys2 platform
+I wish the build system to be CMake or premake.
+
+http://www.codeblocks.org/license
+https://svn.code.sf.net/p/geany/code/trunk/COPYING
+https://github.com/eranif/codelite/blob/master/LICENSE
+http://wxlua.sourceforge.net/license.php
