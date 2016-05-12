@@ -14,8 +14,13 @@ I wish to have better support for custom makefile build projects.
 I wish to use wxlua as the scripting engine.
 I wish to target the MSys2 platform
 I wish the build system to be CMake or premake.
+I wish to use wxGTK instead of wxMSW.
+I wish to use wx-config.exe to build the IDE.
+See if I like wxCrafter. https://github.com/eranif/wxCrafterCB
 
 http://www.codeblocks.org/license
 https://svn.code.sf.net/p/geany/code/trunk/COPYING
 https://github.com/eranif/codelite/blob/master/LICENSE
 http://wxlua.sourceforge.net/license.php
+
+http://codelite.org/Developers/BuildingWxWidgetsWin
