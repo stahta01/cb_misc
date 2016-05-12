@@ -24,3 +24,18 @@ https://github.com/eranif/codelite/blob/master/LICENSE
 http://wxlua.sourceforge.net/license.php
 
 http://codelite.org/Developers/BuildingWxWidgetsWin
+
+git log COPYING
+git format-patch origin/master COPYING
+
+commit d0debfa8b78bde2de3af12a891f0cb115a1c8fd1
+Author: mandrav <mandrav@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Tue Feb 26 21:55:24 2008 +0000
+
+    - Changed label's color from grey to black (was almost invisible) in GCV
+    dialog.
+    * Changed license text to GPL-3.0 (still the file headers remain),
+    * Updated about-box.
+
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@4908 2a5c6006-c6dd-42ca-98ab-0921f2732cef
