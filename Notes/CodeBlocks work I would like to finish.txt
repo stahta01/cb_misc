@@ -1,8 +1,10 @@
 CodeBlocks work I would like to finish
 
-KiCad Wiki directions
-lib30 and lib28 patch
-PCH Patches
+Code::Blocks for MSys2
 wxWidgets CB Projects
+lib, lib30, and lib28 patch
+PCH Patches
+Build Code::Blocks using batch_build_all_30.bat
 noGUI Code::Blocks
-Fix git svn info directions
+Fix git svn info directions (find them on Wiki)
+KiCad Wiki directions
