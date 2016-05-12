@@ -1,0 +1,57 @@
+Building CodeLite under MSys2.txt
+
+Possible package list from http://codelite.org/Developers/Linux
+clang-format-3.5
+libclang-3.5-dev
+libclang-dev
+cmake
+git
+libedit-dev
+libhunspell-dev
+liblldb-3.5-dev
+libsqlite3-dev
+libssh-dev
+libgtk2.0-dev
+libwxgtk3.0-dev
+pkg-config
+xterm
+
+Building On Windows (from http://codelite.org/Developers/Windows)
+
+w64_gcc5.3 C:/Apps32/w64-mingw32-5.3.0-release-win32-sjlj-rt_v4-rev0/bin
+
+m32_gcc4.9 C:/Apps32/TDM-GCC492-use
+
+Try building 64 bit on Laptop; 32 bit seems to have broken CL sqlite project 
+
+    0. Deleted wx-config.exe from codelite program folder.
+    1. Launch codelite
+    2. Settings -> Env Var.
+        CodeLiteDir=C:\Program Files\CodeLite
+        WXWIN=C:/Devel/open_source_code/no_version_control/wxMSW-3.0/wxWidgets-3.0.2_codelite
+        WXCFG=gcc_dll/mswu
+
+    3a. Open the workspace wxconfig.workspace (inside the codelite/sdk/wxconfig folder)
+    3b1. Change Compiler to the correct one.
+    3b2. Change Env var
+    3c1. Select the configuration Win_x64_Release or Win_x86_Release
+    3c2. Build the project (F7)
+    3d. When the compilation is over, close the workspace
+    3e. Exit out of codelite
+    
+    4a. Open the workspace LiteEditor.workspace (inside the codelite folder)
+    4b1. Make sure that the project CodeLiteIDE is the active one (marked in bold)
+    4b2. Change Compiler to the correct one.
+    4b2. Change Env var
+    4c1. Select the configuration Win_x64_Release or Win_x86_Release
+    4c2. Build the project (F7)
+Still errors out appears to be wanting a static wxWidgets build
+    4d. When the compilation is over, close the workspace
+
+    5a.
+    Next, locate the workspace codelite_utils/codelite_utils.workspce and open it
+    Make sure that the project Build_All is the active one (marked in bold)
+    Select the Release build configuration hit F7 and wait for the compilation to end
+    Close codelite
+    To update your installation with the new codelite, close codelite and from a CMD.EXE window navigate to codelite-sources/Runtime/ and run the file
+    update.bat 
