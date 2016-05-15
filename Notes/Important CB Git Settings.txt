@@ -3,7 +3,7 @@ Settings -> Editor
  End of Line Options
 
 Currently trying these values
-Checked "Strip Trailing Blanks"
+Unchecked "Strip Trailing Blanks"
 Checked "End files with blank line"
 Checked "Ensure consistent EOL"
-EOL Mode: Auto
+EOL Mode: LF
