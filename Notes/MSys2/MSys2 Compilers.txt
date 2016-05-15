@@ -1,0 +1,18 @@
+?mingw-w64-SDCC                 Maybe       Do I want to port SDCC to MSys2?
+gcc                             Yes
+mingw-w64-arm-none-eabi-gcc     Yes
+mingw-w64-clang                 Yes
+mingw-w64-cross-gcc             ??
+mingw-w64-gcc                   Yes
+mingw-w64-go                    No
+mingw-w64-lua                   Yes
+mingw-w64-python2               ??
+mingw-w64-python3               ??
+mingw-w64-ruby                  ??
+mingw-w64-rust                  No
+mingw-w64-tcl                   No
+mingw-w64-vala                  ??
+perl                            No
+python2                         ??
+python3                         ??
+ruby                            ??
