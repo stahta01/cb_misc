@@ -31,20 +31,6 @@ Build related changes
     Replace "DEPSLIB_WINDOWS" with "DEPSLIB_UNIX"
     Remove from compiler option "-fpermissive"
 
-Code related changes
-    Replace std::auto_ptr with std::unique_ptr
-        http://stackoverflow.com/questions/3451099/stdauto-ptr-to-stdunique-ptr
-    Change all wxT() and _T() to wxT_2()
-    wxWidgets 3.0 problem files
-        "sdk\base64.cpp"                Try using "wx/base64.h" to fix. 
-            See src/common/base64.cpp and tests/base64/base64.cpp
-        "sdk\filemanager.cpp"           Need to understand the problem better before trying to fix!
-            Maybe try wxUniChar or wxMemoryBuffer for 3.0
-                http://docs.wxwidgets.org/3.0/classwx_memory_buffer.html
-    
-Crash related changes
-    Add CodeLite classes AsyncExeCmd and clProcess to replace PipedProcess which is crashing
-
 Project file formatting related changes
     Change the "\" in projects to "/".
         Replace GetPathSeparator() with ??
@@ -56,6 +42,27 @@ PCH Related changes
         -iquote../../../.objs/include
     Replace <sdk.h> with "sdk.h"
     Remove include of "prep.h" from most cpp files; replace with "sdk.h" in most cases.
+
+Crash related changes
+    Add CodeLite classes AsyncExeCmd and clProcess to replace PipedProcess which is crashing
+
+Code related changes
+    Replace std::auto_ptr with std::unique_ptr
+        http://stackoverflow.com/questions/3451099/stdauto-ptr-to-stdunique-ptr
+    Change all wxT() and _T() to wxT_2()
+    wxWidgets 3.0 problem files
+        "sdk\base64.cpp"                Try using "wx/base64.h" to fix. 
+            See src/common/base64.cpp and tests/base64/base64.cpp
+            ConfigManager::WriteBinary
+            ConfigManager::ReadBinary
+            ConfigManager::Write
+            ConfigManager::Read
+            ConfigManager::Write
+        "sdk\filemanager.cpp"
+            Commented out parameter [bool reuseEditors] to FileManager::Load
+            And, nothing seems to be using the broken code.
+
+
 
 wxWidgets 3.0 notes
     wxID_ANY
