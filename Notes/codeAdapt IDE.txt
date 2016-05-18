@@ -39,3 +39,69 @@ Date:   Tue Feb 26 21:55:24 2008 +0000
 
 
     git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@4908 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+
+git svn find-rev r4907
+
+Github recommends every repository include a README, LICENSE, and .gitignore.
+
+Plugins I want are:
+Compiler                Add parts of CodeLite compiler to it.
+ToDo                    No changes for now.
+defaultmimehandler      No changes for now.
+projectsimporter        try to add changes so it can import codelite projects/workspaces.
+scriptedwizard          Update with newest version and then do a lot of changes
+AStyle                  with a complete re-write using Uncrustify
+EnvVar                  with some changes from codelite; codelite's EnvVar code seems to work better.
+devpak_plugin           ToDo: Keep GPL2 version and then do a lot of changes
+ToolsPlus               updated to new GPL3 version of this plugin
+source_exporter         updated to new GPL3 version of this plugin
+
+Share Config            Rewrite to work better with MSys2
+
+in wx2.8.12 change all wxT() and _T() to wxT_2()
+
+wxFlatNotebook          See where it is used; try to remove or replace
+wxAUI                   Use wxWidgets 3.0 version
+scintilla               Use wxWidgets 3.0 version
+Squirrel                See about replacing with Lua or wxLua
+Compiler depslib        See about figuring out a replacement or at least an API
+
+Removed targets "Debugger" and "Code-completion".
+
+wxbase$(WX_VERSION)$(WX_SUFFIX)
+wxbase$(WX_VERSION)$(WX_SUFFIX)_net
+wxbase$(WX_VERSION)$(WX_SUFFIX)_xml
+
+wxmsw$(WX_VERSION)$(WX_SUFFIX)_core
+wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv
+wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc
+wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui
+wxmsw$(WX_VERSION)$(WX_SUFFIX)_html
+
+-std=gnu++11
+
+Project Settings
+
+wxcp    wxCrafter designer file
+
+/* from ps_compiler_page.cpp */
+        wxString value = prop->GetValueAsString();
+        wxString cmpName = m_gp->GetCompiler();
+        CompilerPtr cmp = BuildSettingsConfigST::Get()->GetCompiler(cmpName);
+        if(PopupAddOptionCheckDlg(value, _("Compiler options"), cmp->GetCompilerOptions())) {
+            prop->SetValueFromString(value);
+        }
+
+codeadapt
+
+
+* build: Changed to using lib28 and lib folders.
+
+lib
+        src/sdk/scripting/lib/
+        src/base/tinyxml/libtxml.a
+        src/plugins/compilergcc/depslib/libdepslib.a
+lib28
+        src/sdk/wxFlatNotebook/libwxflatnotebook.a
+        src/src/wxAUI/libwxaui.a
+        src/plugins/contrib/source_exporter/wxPdfDocument/lib/libwxPdfDocument.a

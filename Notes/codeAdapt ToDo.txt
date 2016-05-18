@@ -1,69 +1,120 @@
 codeAdapt ToDo.txt
 
+DONE:       Updated wxFlatNotebook with wxContribItems\wxFlatNotebook from CB repo.
+DONE:       Fix class EditArrayOrderDlg was an GCC 5.3 issues NOT an wxWidgets 3.0 issue.
+DONE:       Classes that need disabled from project DDEServer and DDEConnection
+DONE:       Command line options that need disabled no-check-associations and no-dde
 DONE:       Remove use of the PCH file "sdk_precomp.h"; leave header, just stop using it as PCH.
-Started:    Remove define of "WX_PRECOMP" in project files.
-?? USE_PCH in project files.
-Replace "cbDEBUG" with "caDEBUG"
-Replace "CB_PRECOMP" with "CA_USEPCH" in projects file and in pch header.
-Replace "DEPSLIB_WINDOWS" with "DEPSLIB_UNIX"
-in wx2.8.12 change all wxT() and _T() to wxT_2()
-
-Replace wxFlatNotebook used for editors by wxAuiNotebook (See switcherdlg.h and switcherdlg.cpp)
-    NOTE: Try replacing with wxflatnotebook_v2.2.zip, first.
-    NOTE: Try replacing wxFlatNotebook with code under wxContribItems\wxFlatNotebook from CB repo.
-Fix method wxString wxBase64::Decode in file base64.cpp 
-    See https://github.com/wxWidgets/wxWidgets/blob/master/src/common/base64.cpp
-    tests/base64/base64.cpp
-Fix code that uses GetWriteBuf and UngetWriteBuf
-Fix sdk/crc32.cpp
-Fix sdk/editorcolourset.cpp
-Fix class EditArrayOrderDlg : public wxDialog
-    error: could not convert '0l' from 'long int' to 'const wxArrayString&'
-        sdk/projectoptionsdlg.cpp
-    error:
-        sdk\scripting\bindings\sc_util_dialogs.cpp
-
-Fix wx30 errors
-    sdk\scripting\bindings\sc_wxtypes.cpp
-    sdk\uservarmanager.cpp
-
-invalid cast from type 'wxCStrData' to type 'char*'|
-sdk\filemanager.cpp
-
-error: conversion from 'wxString' to 'bool' is ambiguous|
-sdk\projectfile.cpp
+DONE:       Comment out or remove AutoDetectInstallationDir()
+DONE:       Changed WINVER to at least as high as 0x0500
 
 
+Started:    * build: Add option "-std=gnu++11" to some project files.
+Started:    * build: Add search "-iquote../../../.objs/include"
+Started:    - build: Remove define of "WX_PRECOMP" in some project files.
+Started:    * build: Replaced "CB_PRECOMP" with "CA_USEPCH" in projects file.
+?Started:    - build: Replaced "$(#CB_RELEASE_TYPE)" with "-g".
 
-libwx_baseu_net-3.0.dll.a
-wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
-wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
-wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
+Started:    * build: Changed "share\CodeBlocks" to "share/codeadapt"
+Started:    * build: Changed "CodeBlocks.exe" to "codeadapt.exe"
 
-wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
+Code::Blocks branding related changes
+    See also "Edit these files to remove most of the CB Stuff" below
 
-<Add directory="$(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)" />
-<Add directory="$(TARGET_COMPILER_DIR)lib/wx/include/msw-unicode-$(WX_VERSION)" />
+MSys2 or CygWin related changes
+    Add global method caIsMSYSEnvironment based on codelite's clIsMSYSEnvironment
+    Add global method caIsCygwinEnvironment based on codelite's clIsCygwinEnvironment
+
+Build related changes
+    Reduce warnings from this high of 164 on 16May16 in nine projects.
+    Replace "cbDEBUG" with "caDEBUG"
+    Replace "DEPSLIB_WINDOWS" with "DEPSLIB_UNIX"
+    Remove from compiler option "-fpermissive"
+
+Code related changes
+    Replace std::auto_ptr with std::unique_ptr
+        http://stackoverflow.com/questions/3451099/stdauto-ptr-to-stdunique-ptr
+    Change all wxT() and _T() to wxT_2()
+    wxWidgets 3.0 problem files
+        "sdk\base64.cpp"                Try using "wx/base64.h" to fix. 
+            See src/common/base64.cpp and tests/base64/base64.cpp
+        "sdk\filemanager.cpp"           Need to understand the problem better before trying to fix!
+            Maybe try wxUniChar or wxMemoryBuffer for 3.0
+                http://docs.wxwidgets.org/3.0/classwx_memory_buffer.html
+    
+Crash related changes
+    Add CodeLite classes AsyncExeCmd and clProcess to replace PipedProcess which is crashing
+
+Project file formatting related changes
+    Change the "\" in projects to "/".
+        Replace GetPathSeparator() with ??
+        wxFILE_SEP_PATH
+
+PCH Related changes
+    Add wx_pch.h to include folder and use to compile the sdk.
+    Add PCH to projects DevPak, lib_finder, exporter, and ToolsPlus
+        -iquote../../../.objs/include
+    Replace <sdk.h> with "sdk.h"
+    Remove include of "prep.h" from most cpp files; replace with "sdk.h" in most cases.
+
+wxWidgets 3.0 notes
+    wxID_ANY
+
+    wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
+    wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
+    wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
+
+    wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
+
+    $(TARGET_COMPILER_DIR)lib/wx/include/msw-unicode-$(WX_VERSION)
+    $(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)
+
+String constants that need changed
+    "CodeBlocksConfig"
+    "CodeBlocks_lexer_properties"
+    "CODEBLOCKS"
+    "CodeBlocks_plugin_manifest_file"
+    "CodeBlocks_layout_file"
+    "CodeBlocks_project_file"
+    "CodeBlocks_template_file"
+    "CodeBlocks_workspace_file"
+    "codeblocks.log"
+    "CodeBlocks."
+    "CodeBlocks"
+    "CodeBlocksDDEServer"
+    "CodeBlocksWindowsApp"
+
+Methods that need renamed
+    cbGetTextFromUser
+
+Source files that need removed from project
+    associations.cpp/h
+
+Source files that need editing
+    dlgabout.cpp
+    startherepage.cpp
+    app.cpp/h
+    appglobals.cpp
+    dlgaboutplugin.cpp
+    main.cpp/h
 
 Edit these files to remove most of the CB Stuff:
-README
-BUILD
-NEWS
-AUTHORS
-main.cpp
-startherepage.cpp
-CodeBlocks_Core.iss
-Forums.url
-WebSite.url
-WiKi.url
-start_here.html
-app_compiler_settings.xrc
-manifest.xml
-wizard.script
-README.txt
-setup.bmp
-setupsmall.bmp
-Forums.url
-ReportBugs.url
-WebSite.url
-WiKi.url
+    README
+    BUILD
+    NEWS
+    AUTHORS
+    CodeBlocks_Core.iss
+    Forums.url
+    WebSite.url
+    WiKi.url
+    start_here.html
+    app_compiler_settings.xrc
+    manifest.xml
+    wizard.script
+    README.txt
+    setup.bmp
+    setupsmall.bmp
+    Forums.url
+    ReportBugs.url
+    WebSite.url
+    WiKi.url
