@@ -7,34 +7,81 @@ DONE:       Command line options that need disabled no-check-associations and no
 DONE:       Remove use of the PCH file "sdk_precomp.h"; leave header, just stop using it as PCH.
 DONE:       Comment out or remove AutoDetectInstallationDir()
 DONE:       Changed WINVER to at least as high as 0x0500
+DONE:       Removed from compiler option "-fpermissive" from Global Compiler settings
+DONE:       * build: Added option "-fpermissive" to targets that needed it to compile.
+DONE:       * build: Added tinywxuni.cpp/h back to project from their new location.
+DONE:       - build: Replaced "$(#CB_RELEASE_TYPE)" with "-g".
 
 
+API Related changes "api/plugin.h"  // new name
+    class cbEditor;                 // caEditor
+    class cbProject;                // caProject
+    class ProjectBuildTarget;       // caProjectBuildTarget
+    class CompileTargetBase;        // caCompileTargetBase
+    class FileTreeData;             // caFileTreeData
+    class cbConfigurationPanel;     // caConfigurationPanel
+    struct PluginInfo;              // caPluginInfo
+
+Cancelled:    * cbproject.h: Split file into two files ca/project.h and ca/filetreedata.h
+
+
+Remove option "-fpermissive" by fixing the code to NOT need it.
+
+MSys2 or CygWin related changes
+DONE: Add global method caIsMSYSEnvironment based on codelite's clIsMSYSEnvironment
+DONE: Add global method caIsCygwinEnvironment based on codelite's clIsCygwinEnvironment
+
+
+Started:    - build: Replaced "$(#CB.include)" or $(#CB.INCLUDE) with ??.
+Started:    - build: Replaced "$(#CB.LIB)" or "$(#CB.lib)" with ??.
+Started:    - build: Replaced "$(#CB)" with ??.
+
+Started:    * sdk: Changed some wxT() or _T() to wxT_2().
+Started:    * sdk: Replaced wxFILE_SEP_PATH with wxT_2('/')
+Started:    - compiler: Replaced <sdk.h> with "sdk.h".
 Started:    * build: Add option "-std=gnu++11" to some project files.
 Started:    * build: Add search "-iquote../../../.objs/include"
 Started:    - build: Remove define of "WX_PRECOMP" in some project files.
 Started:    * build: Replaced "CB_PRECOMP" with "CA_USEPCH" in projects file.
-?Started:    - build: Replaced "$(#CB_RELEASE_TYPE)" with "-g".
 
 Started:    * build: Changed "share\CodeBlocks" to "share/codeadapt"
 Started:    * build: Changed "CodeBlocks.exe" to "codeadapt.exe"
 
+Replace wxScintilla with wxWidgets 3.0 stc looks harder than I thought it would be.
+
+Remove wxSmith comments from sdk //(*
+
+Msys2 symptoms
+Cleaned has garbage target and project names
+
+---------------------------
+wxWidgets Debug Alert
+---------------------------
+C:/Apps32/MSys2/mingw32/include/wx-3.0/wx/object.h(160): assert "wxDynamicCast(ptr, T)" failed in wxCheckCast(): wxStaticCast() used incorrectly
+Do you want to stop the program?
+You can also choose [Cancel] to suppress further warnings.
+---------------------------
+Yes   No   Cancel   
+---------------------------
+
+
+
 Code::Blocks branding related changes
     See also "Edit these files to remove most of the CB Stuff" below
-
-MSys2 or CygWin related changes
-    Add global method caIsMSYSEnvironment based on codelite's clIsMSYSEnvironment
-    Add global method caIsCygwinEnvironment based on codelite's clIsCygwinEnvironment
 
 Build related changes
     Reduce warnings from this high of 164 on 16May16 in nine projects.
     Replace "cbDEBUG" with "caDEBUG"
     Replace "DEPSLIB_WINDOWS" with "DEPSLIB_UNIX"
-    Remove from compiler option "-fpermissive"
+    
 
 Project file formatting related changes
+    Remove most of this [.a" />] from project files.
     Change the "\" in projects to "/".
         Replace GetPathSeparator() with ??
         wxFILE_SEP_PATH
+        wxGetCwd
+        Editing UnixFilename fixed most of this problem!!
 
 PCH Related changes
     Add wx_pch.h to include folder and use to compile the sdk.
@@ -45,36 +92,15 @@ PCH Related changes
 
 Crash related changes
     Add CodeLite classes AsyncExeCmd and clProcess to replace PipedProcess which is crashing
+    MSys2 build crashes on shutdown related to LogManager destruction.
+        Need to diagram the parents of CompilerMessages and SearchResultsLog classes.
+            with the difference between 2.8.12 and 3.0.2.
 
 Code related changes
     Replace std::auto_ptr with std::unique_ptr
         http://stackoverflow.com/questions/3451099/stdauto-ptr-to-stdunique-ptr
     Change all wxT() and _T() to wxT_2()
-    wxWidgets 3.0 problem files
-        "sdk\base64.cpp"                Try using "wx/base64.h" to fix. 
-            See src/common/base64.cpp and tests/base64/base64.cpp
-            ConfigManager::WriteBinary
-            ConfigManager::ReadBinary
-            ConfigManager::Write
-            ConfigManager::Read
-            ConfigManager::Write
-        "sdk\filemanager.cpp"
-            Commented out parameter [bool reuseEditors] to FileManager::Load
-            And, nothing seems to be using the broken code.
 
-
-
-wxWidgets 3.0 notes
-    wxID_ANY
-
-    wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
-    wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
-    wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
-
-    wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
-
-    $(TARGET_COMPILER_DIR)lib/wx/include/msw-unicode-$(WX_VERSION)
-    $(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)
 
 String constants that need changed
     "CodeBlocksConfig"
@@ -95,7 +121,7 @@ Methods that need renamed
     cbGetTextFromUser
 
 Source files that need removed from project
-    associations.cpp/h
+    DONE:   associations.cpp/h
 
 Source files that need editing
     dlgabout.cpp
@@ -104,6 +130,7 @@ Source files that need editing
     appglobals.cpp
     dlgaboutplugin.cpp
     main.cpp/h
+    logmanager.cpp
 
 Edit these files to remove most of the CB Stuff:
     README
@@ -125,3 +152,36 @@ Edit these files to remove most of the CB Stuff:
     ReportBugs.url
     WebSite.url
     WiKi.url
+
+wxWidgets 3.0 notes
+    wxID_ANY
+    
+    #if wxCHECK_VERSION(3, 0, 0)
+
+    wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
+    wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
+    wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
+
+    wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
+    wx_msw$(WX_SUFFIX)_html-$(WX_VERSION).dll
+
+    $(TARGET_COMPILER_DIR)lib/wx/include/msw-unicode-$(WX_VERSION)
+    $(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)
+
+
+src/sdk/cbeditor.cpp:492: undefined reference to `_imp___ZN11wxScintilla7SetZoomEi'
+.objs30/sdk/cbeditor.o: In function `ZNK8cbEditor11GetModifiedEv':
+src/sdk/cbeditor.cpp:549: undefined reference to `_imp___ZN11wxScintilla9GetModifyEv'
+.objs30/sdk/cbeditor.o: In function `ZN8cbEditor11SetModifiedEb':
+src/sdk/cbeditor.cpp:559: undefined reference to `_imp___ZN11wxScintilla12SetSavePointEv'
+src/sdk/cbeditor.cpp:565: undefined reference to `_imp___ZN11wxScintilla11GetReadOnlyEv'
+.objs30/sdk/cbeditor.o: In function `ZN8cbEditor14SetProjectFileEP11ProjectFileb':
+src/sdk/cbeditor.cpp:596: undefined reference to `_imp___ZN11wxScintilla7GotoPosEi'
+src/sdk/cbeditor.cpp:597: undefined reference to `_imp___ZN11wxScintilla12ScrollToLineEi'
+src/sdk/cbeditor.cpp:598: undefined reference to `_imp___ZN11wxScintilla14ScrollToColumnEi'
+.objs30/sdk/cbeditor.o: In function `ZN8cbEditor17UpdateProjectFileEv':
+src/sdk/cbeditor.cpp:631: undefined reference to `_imp___ZN11wxScintilla13GetCurrentPosEv'
+src/sdk/cbeditor.cpp:632: undefined reference to `_imp___ZN11wxScintilla19GetFirstVisibleLineEv'
+.objs30/sdk/cbeditor.o: In function `ZN8cbEditor14SetMarkerStyleEii8wxColourS0_':
+src/sdk/cbeditor.cpp:639: undefined reference to `_imp___ZN11wxScintilla12MarkerDefineEii'
+Process terminated with status 1 (0 minutes, 49 seconds)
