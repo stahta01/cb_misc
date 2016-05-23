@@ -11,18 +11,22 @@ DONE:       Removed from compiler option "-fpermissive" from Global Compiler set
 DONE:       * build: Added option "-fpermissive" to targets that needed it to compile.
 DONE:       * build: Added tinywxuni.cpp/h back to project from their new location.
 DONE:       - build: Replaced "$(#CB_RELEASE_TYPE)" with "-g".
-
-
-API Related changes "api/plugin.h"  // new name
-    class cbEditor;                 // caEditor
-    class cbProject;                // caProject
-    class ProjectBuildTarget;       // caProjectBuildTarget
-    class CompileTargetBase;        // caCompileTargetBase
-    class FileTreeData;             // caFileTreeData
-    class cbConfigurationPanel;     // caConfigurationPanel
-    struct PluginInfo;              // caPluginInfo
-
-Cancelled:    * cbproject.h: Split file into two files ca/project.h and ca/filetreedata.h
+DONE:   API Related changes "api/plugin.h"
+* rename: Renamed struct and classes, below, to start with ca instead of cb or added ca prefix.
+struct PluginInfo
+class cbCodeCompletionPlugin
+class cbDebuggerPlugin
+class cbCompilerPlugin
+class cbWizardPlugin
+class cbMimePlugin
+class CompileTargetBase
+class ProjectBuildTarget
+class FileTreeData
+class cbProject
+class cbToolPlugin
+class cbPlugin
+class cbConfigurationPanel
+class cbEditor
 
 
 Remove option "-fpermissive" by fixing the code to NOT need it.
@@ -51,6 +55,8 @@ Replace wxScintilla with wxWidgets 3.0 stc looks harder than I thought it would 
 
 Remove wxSmith comments from sdk //(*
 
+https://www.wxwidgets.org/downloads/logos/
+
 Msys2 symptoms
 Cleaned has garbage target and project names
 
@@ -61,7 +67,7 @@ C:/Apps32/MSys2/mingw32/include/wx-3.0/wx/object.h(160): assert "wxDynamicCast(p
 Do you want to stop the program?
 You can also choose [Cancel] to suppress further warnings.
 ---------------------------
-Yes   No   Cancel   
+Yes   No   Cancel
 ---------------------------
 
 
@@ -73,7 +79,7 @@ Build related changes
     Reduce warnings from this high of 164 on 16May16 in nine projects.
     Replace "cbDEBUG" with "caDEBUG"
     Replace "DEPSLIB_WINDOWS" with "DEPSLIB_UNIX"
-    
+
 
 Project file formatting related changes
     Remove most of this [.a" />] from project files.
@@ -155,7 +161,7 @@ Edit these files to remove most of the CB Stuff:
 
 wxWidgets 3.0 notes
     wxID_ANY
-    
+
     #if wxCHECK_VERSION(3, 0, 0)
 
     wx_base$(WX_SUFFIX)-$(WX_VERSION).dll

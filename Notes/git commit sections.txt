@@ -1,41 +1,41 @@
-????        help_plugin:        src/plugins/contrib/help_plugin
-????        scintilla:          src/sdk/wxscintilla
-????        scripting:          src/sdk/scripting
-????        scripts:            src/scripts
-GPL2        autorevision:       src/build_tools/autorevision
-GPL2        autoversion:        src/plugins/contrib/AutoVersioning
-GPL2        caApp:              src/src
-GPL2        codestat:           src/plugins/contrib/codestat
-GPL2        compiler:           src/plugins/compilergcc
-GPL2        consolerunner:      src/tools/ConsoleRunner
-GPL2        devpak:             src/plugins/contrib/devpak_plugin
-GPL2        games:              src/plugins/contrib/byogames
-GPL2        importer:           src/plugins/projectsimporter
-GPL2        installer:          src/setup
-GPL2        lib_finder:         src/plugins/contrib/lib_finder
-GPL2        loghacker:          src/plugins/loghacker
-GPL2        mimehandler:        src/plugins/defaultmimehandler
-GPL2        modpoller:          src/plugins/modpoller
-GPL2        openfiles:          src/plugins/openfileslist
-GPL2        share_config:       src/tools/ca_share_config
-GPL2        symtab:             src/plugins/contrib/symtab
-GPL2        todo:               src/plugins/todo
-GPL2        xpmanifest:         src/plugins/xpmanifest
-GPL3        astyle:             src/plugins/astyle
-GPL3        autosave:           src/plugins/autosave
-GPL3        classwizard:        src/plugins/classwizard
-GPL3        copystrings:        src/plugins/contrib/copystrings
-GPL3        envvars:            src/plugins/contrib/envvars
-GPL3        headerfixup:        src/plugins/contrib/headerfixup
-GPL3        profiler:           src/plugins/contrib/profiler
-GPL3        regex_testbed:      src/plugins/contrib/regex_testbed
-GPL3        scriptedwizard:     src/plugins/scriptedwizard
-GPL3        threadsearch:       src/plugins/contrib/ThreadSearch
-GPL3        tidycmt:            src/plugins/tidycmt
-GPL3?       exporter:           src/plugins/contrib/source_exporter
-GPL3?       toolsplus:          src/plugins/contrib/ToolsPlus
-LGPL2       sdk:                src/sdk
-Unknown     ????:               src/wxsmith
-Unknown     build:              any cbp or workspace files.
-wx3         flatnotebook:       src/sdk/wxFlatNotebook
-zlib/libpng tinyxml:            src/base/tinyxml
+any cbp or workspace files.            Unknown     build:           Ver
+src/base/tinyxml                       zlib/libpng tinyxml:         CB16.01
+src/build_tools/autorevision           GPL2        autorevision:
+src/plugins/astyle                     GPL3        astyle:
+src/plugins/autosave                   GPL3        autosave:
+src/plugins/classwizard                GPL3        classwizard:
+src/plugins/compilergcc                GPL2        compiler:
+src/plugins/contrib/AutoVersioning     GPL2        autoversion:
+src/plugins/contrib/ThreadSearch       GPL3        threadsearch:
+src/plugins/contrib/ToolsPlus          GPL3?       toolsplus:       CB16.01
+src/plugins/contrib/byogames           GPL2        games:
+src/plugins/contrib/codestat           GPL2        codestat:
+src/plugins/contrib/copystrings        GPL3        copystrings:
+src/plugins/contrib/devpak_plugin      GPL2        devpak:
+src/plugins/contrib/envvars            GPL3        envvars:
+src/plugins/contrib/headerfixup        GPL3        headerfixup:     CB16.01 
+src/plugins/contrib/help_plugin        ????        help_plugin:
+src/plugins/contrib/lib_finder         GPL2        lib_finder:
+src/plugins/contrib/profiler           GPL3        profiler:
+src/plugins/contrib/regex_testbed      GPL3        regex_testbed:
+src/plugins/contrib/source_exporter    GPL3?       exporter:        CB16.01
+src/plugins/contrib/symtab             GPL2        symtab:
+src/plugins/defaultmimehandler         GPL2        mimehandler:
+src/plugins/loghacker                  GPL2        loghacker:
+src/plugins/modpoller                  GPL2        modpoller:
+src/plugins/openfileslist              GPL2        openfiles:
+src/plugins/projectsimporter           GPL2        importer:
+src/plugins/scriptedwizard             GPL3        scriptedwizard:
+src/plugins/tidycmt                    GPL3        tidycmt:
+src/plugins/todo                       GPL2        todo:
+src/plugins/xpmanifest                 GPL2        xpmanifest:
+src/scripts                            ????        scripts:
+src/sdk                                LGPL2       sdk:
+src/sdk/scripting                      ????        scripting:
+src/sdk/wxFlatNotebook                 wx3         flatnotebook:    CB16.01
+src/sdk/wxscintilla                    ????        scintilla:
+src/setup                              GPL2        installer:
+src/src                                GPL2        caApp:
+src/tools/ConsoleRunner                GPL2        consolerunner:
+src/tools/ca_share_config              GPL2        share_config:
+src/wxsmith                            Unknown     ????:
