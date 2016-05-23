@@ -12,10 +12,15 @@ git config --local core.eol      crlf
 git config --local core.safecrlf true
 git config --local core.autocrlf true
 
-# Setting for Windows; when I am trying to work with adding git attribute file.
+# Old Setting for Windows; when I am trying to work with adding git attribute file.
 git config --local core.eol      lf
 git config --local core.safecrlf true
 git config --local core.autocrlf input
+
+# New Setting for Windows; when I am trying to work with adding git attribute file.
+git config --local core.eol      lf
+git config --local core.safecrlf true
+git config --local core.autocrlf false
 
 git config --system core.eol
 git config --local  core.eol
