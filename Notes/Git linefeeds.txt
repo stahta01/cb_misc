@@ -22,6 +22,11 @@ git config --local core.eol      lf
 git config --local core.safecrlf true
 git config --local core.autocrlf false
 
+git config --global core.eol      lf
+git config --global core.safecrlf true
+git config --global core.autocrlf false
+
+
 git config --system core.eol
 git config --local  core.eol
 git config --global core.eol
