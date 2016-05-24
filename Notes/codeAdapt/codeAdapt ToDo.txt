@@ -1,5 +1,15 @@
 codeAdapt ToDo.txt
 
+Remove the auto add of PCH object folder
+
+Update scintilla to CB 16.01
+Update squirrel to CB 16.01
+Update sqplus to CB 16.01
+DO NOT UPDATE src/sdk/scripting/bindings stuff
+
+CB 16.01 needs FIXED for use forward slash adv. compiler option to work with static lib.
+See if my compiler needs same fix.
+
 DONE:       Updated wxFlatNotebook with wxContribItems\wxFlatNotebook from CB repo.
 DONE:       Fix class EditArrayOrderDlg was an GCC 5.3 issues NOT an wxWidgets 3.0 issue.
 DONE:       Classes that need disabled from project DDEServer and DDEConnection

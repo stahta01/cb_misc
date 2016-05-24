@@ -31,9 +31,12 @@ src/plugins/todo                       GPL2        todo:
 src/plugins/xpmanifest                 GPL2        xpmanifest:
 src/scripts                            ????        scripts:
 src/sdk                                LGPL2       sdk:
-src/sdk/scripting                      ????        scripting:
+src/sdk/scripting/bindings             GPL2?       binding:
+src/sdk/scripting/sqplus               sqplus      sqplus:
+src/sdk/scripting/sqstdlib             squirrel    squirrel:
+src/sdk/scripting/squirrel             squirrel    squirrel:
 src/sdk/wxFlatNotebook                 wx3         flatnotebook:    CB16.01
-src/sdk/wxscintilla                    ????        scintilla:
+src/sdk/wxscintilla                    wx          scintilla:       ?CB16.01?
 src/setup                              GPL2        installer:
 src/src                                GPL2        caApp:
 src/tools/ConsoleRunner                GPL2        consolerunner:
