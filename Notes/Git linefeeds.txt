@@ -165,3 +165,44 @@ System wide gitconfig
 	textconv = astextplain
 [rebase]
 	autosquash = true
+
+
+	
+git config --global --list
+user.name=Tim S
+user.email=stahta01@users.sourceforge.net
+core.autocrlf=false
+core.safecrlf=warn
+core.editor=C:/CI_Work_Apps/wscite/SciTE.exe
+core.eol=lf
+branch.autosetuprebase=always
+pull.rebase=true
+push.default=current
+filter.rcs-keywords.clean=.git_filters/remove-rcs-keywords.clean
+pack.windowmemory=100m
+pack.packsizelimit=100m
+pack.threads=1
+gui.recentrepo=C:/SourceCode/OpenSourceCode/VC_Repos/Apps/IDE/Codeblocks/cb_projects_for_wxWidgets-git
+
+git config --system --list
+credential.helper=manager
+core.eol=lf
+core.autocrlf=false
+
+https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+
+/etc/gitconfig
+
+$ ls ~/.gitconfig
+/c/Users/stahta01/.gitconfig
+
+~/.config/git/config
+
+%ProgramFiles(x86)%\Git\etc\gitconfig
+
+https://www.onwebsecurity.com/windows/git-on-windows-location-of-global-configuration-file
+
+Set to string value "auto"
+    When text is set to "auto", the path is marked for automatic end-of-line normalization. If Git decides that the content is text, its line endings are normalized to LF on checkin.
+
+C:\ProgramData\Git
