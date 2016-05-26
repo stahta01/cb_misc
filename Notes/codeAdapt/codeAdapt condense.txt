@@ -1,0 +1,85 @@
+git checkout build/codeadapt && git status -uno
+
+git status -uno
+git checkout condense && git status -uno
+
+git clean -i
+git clean -i -x
+git clean -i -d
+
+git rebase -i origin/master
+
+git push --force-with-lease
+
+git checkout testing && git status -uno
+
+FAILED ON * 
+
+git rebase origin/staging
+git rebase origin/master
+
+git rebase -i origin/master
+git rebase -i 41d7762a43a6431f0d9f01a80a0a48264490fbe1
+
+git rebase -i origin/staging
+
+git push --force-with-lease
+
+git format-patch origin/master
+
+git checkout master
+git checkout staging
+
+
+First, git ignore file changes
+Second, repo deletes
+Third, repo adds from CB 16.01
+
+    + repo: Added ToolsPlus from CB 16.01.
+    + repo: Added headerfixup from CB 16.01.
+    + repo: Added Source Exporter from CB 16.01.
+    + scrollingdialog: Added scrollingdialog from CB 16.01.
+    + repo: Updated to TinyXML from CB 16.01.
+
+Forth, wxWidgets 3.0 build changes
+
+Fifth, renames of classes and structs
+
+Next to Last, build changes
+
++ codelite: Added files from codelite repo.
++ sdk: Added PCH file "wx_pch.h".
+
+git am 0154-share_config-Removed-unneeded-include-of-tinyxml-tin.patch
+
+Done: git am 0159-sdk-Changed-UnixFilename-to-output-even-under-window.patch
+
+Last, Git Attribute changes
+
+src/plugins/scriptedwizard/filepathpanel.cpp
+
+
+# Add stuff from origin/testing
+git checkout scratch && git status -uno
+git rebase origin/testing
+git rebase -i origin/scratch && git status -uno
+#   git format-patch origin/scratch
+git rebase origin/master && git status -uno
+git push
+
+# Reorder scratch
+git checkout scratch && git status -uno
+git rebase -i origin/master
+git rebase origin/master && git status -uno
+#   git push --force-with-lease
+
+git log -6
+git format-patch 
+git rebase -i 
+
+# Update Testing to match staging
+git checkout testing && git status -uno
+git rebase origin/scratch && git status -uno
+#   git push --force-with-lease
+
+git format-patch origin/scratch

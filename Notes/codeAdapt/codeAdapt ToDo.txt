@@ -1,5 +1,14 @@
 codeAdapt ToDo.txt
 
+* codesnippets: Built with WXWIN_COMPATIBILITY_2_6=0.
+
+And, fixed compile errors from that setting.
+
+
+* codesnippets: Changed includes to "wx/wxscintilla.h".
+
+Create "Script Binding" target
+
 Remove file "sdk_precomp.h" and fix the resulting errors.
 
 Fix the include folder to match SDK object folder.
