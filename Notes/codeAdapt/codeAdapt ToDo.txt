@@ -1,15 +1,19 @@
 codeAdapt ToDo.txt
 
-Remove the auto add of PCH object folder
+Remove file "sdk_precomp.h" and fix the resulting errors.
 
-Update scintilla to CB 16.01
-Update squirrel to CB 16.01
-Update sqplus to CB 16.01
+Fix the include folder to match SDK object folder.
+
 DO NOT UPDATE src/sdk/scripting/bindings stuff
 
 CB 16.01 needs FIXED for use forward slash adv. compiler option to work with static lib.
 See if my compiler needs same fix.
 
+DONE:       * sdk: Replaced wxSCI_SCMOD_NULL with wxSCI_SCMOD_NORM
+DONE:       * compiler: Remove the auto add of PCH object folder
+DONE:       Update scintilla to CB 16.01
+DONE:       Update squirrel to CB 16.01
+DONE:       Update sqplus to CB 16.01
 DONE:       Updated wxFlatNotebook with wxContribItems\wxFlatNotebook from CB repo.
 DONE:       Fix class EditArrayOrderDlg was an GCC 5.3 issues NOT an wxWidgets 3.0 issue.
 DONE:       Classes that need disabled from project DDEServer and DDEConnection
@@ -42,8 +46,8 @@ class cbEditor
 Remove option "-fpermissive" by fixing the code to NOT need it.
 
 MSys2 or CygWin related changes
-DONE: Add global method caIsMSYSEnvironment based on codelite's clIsMSYSEnvironment
-DONE: Add global method caIsCygwinEnvironment based on codelite's clIsCygwinEnvironment
+ReDo: Add global method caIsMSYSEnvironment based on codelite's clIsMSYSEnvironment
+ReDo: Add global method caIsCygwinEnvironment based on codelite's clIsCygwinEnvironment
 
 
 Started:    - build: Replaced "$(#CB.include)" or $(#CB.INCLUDE) with ??.
