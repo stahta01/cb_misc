@@ -1,0 +1,91 @@
+
+###
+# Move from upstream to Testing
+#
+
+# Update staging from master
+
+# Update scratch from staging
+
+# Update Testing from scratch
+git checkout testing && git status -uno
+git rebase origin/scratch && git status -uno
+git rebase -i origin/scratch && git status -uno
+#   git log -4
+#   git push --force-with-lease
+###
+
+###
+# Move from Testing to upstream
+#
+
+# Add stuff from origin/testing
+git checkout scratch && git status -uno
+git rebase origin/testing && git status -uno
+git rebase -i origin/scratch && git status -uno
+#   git format-patch origin/staging
+git rebase origin/staging && git status -uno
+git push
+
+# Reorder scratch
+git checkout scratch && git status -uno
+git rebase -i origin/staging
+git rebase origin/staging && git status -uno
+#   git push --force-with-lease
+#
+###
+
+# The last CB commit is rev 4907 e16f77696daba618649784492a6873ba706532b8
+git format-patch e16f77696daba618649784492a6873ba706532b8
+
+git format-patch origin/staging
+
+Section 1 Git Ignore
+    0001-git-Added-git-ignore-file.patch
+Section 2 Delete modules
+    0002-repo-Deleted-wxAUI-folder.patch
+    0003-repo-Removed-templates-folder.patch
+    0004-repo-Removed-codecompletion-and-debuggergdb-folders.patch
+    0005-repo-Removed-BrowseTracker-folder.patch
+    0006-repo-Removed-keybinder-folder.patch
+    0007-repo-Removed-dragscroll-folder.patch
+    0008-repo-Removed-wxSmithContribItems-folder.patch
+    0009-repo-Removed-wxSmith-folder.patch
+    0010-repo-Removed-ThreadSearch-folder.patch
+    0011-repo-Deleted-cb_koders-folder.patch
+    0012-repo-Deleted-folders-src-include-wxscintilla-and-src.patch
+    0013-repo-Deleted-Squirrel-folders.patch
+    0014-repo-Deleted-sqplus-folders.patch
+    0015-repo-Deleted-selected-files-like-CB-projects-batch-f.patch
+    0016-repo-Deleted-source_exporter-folder.patch
+Section 3 Add Modules
+    0017-repo-Added-ToolsPlus-plugin-source-files-from-CB-16..patch
+    0018-repo-Added-headerfixup-plugin-source-files-from-CB-1.patch
+    0019-repo-Added-Exporter-plugin-source-files-from-CB-16.0.patch Needs deleted from staging
+    0020-repo-Added-wxscintilla-library-source-files-from-CB-.patch
+    0021-repo-Added-sqplus-library-source-files-from-CB-16.01.patch
+    0022-repo-Added-Squirrel-library-source-files-from-CB-16..patch
+    0023-repo-Updated-TinyXML-library-source-files-to-CB-16.0.patch
+    0024-repo-Updated-wxFlatNotebook-library-source-files-to-.patch
+
+STOP Staging branch here
+
+0025-repo-Deleted-all-Makefile.am-files.patch KEEP and move to staging
+* repo: Deleted "samples" folder under "source_exporter/wxPdfDocument".  KEEP and move to staging
+
+git checkout staging
+git am patches/0026-repo-Deleted-samples-folder-under-source_exporter-wx.patch Failed to Apply
+git am patches/0025-repo-Deleted-all-Makefile.am-files.patch
+
+git rebase -i e16f77696daba618649784492a6873ba706532b8
+
++ repo: Added Source Exporter from CB 16.01. DELETE
+
+
+
+Section 4 Add files
+git am 0022-scrollingdialog-Added-scrollingdialog-from-CB-16.01.patch
+git am 0023-wx_pch-Added-PCH-file-wx_pch.h.patch
+
+Section ? Renamed folders
+    0014-repo-Renamed-folder-cb_share_config-to-ca_share_conf.patch
