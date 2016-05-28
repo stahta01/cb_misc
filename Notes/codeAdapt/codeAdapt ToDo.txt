@@ -1,5 +1,41 @@
 codeAdapt ToDo.txt
 
+Valid wx includes that use double quote
+    "wx/wxscintilla.h"
+    "wx/wxprec.h"
+    "wx/wxFlatNotebook/wxFlatNotebook.h"
+
+Invalid wx includes that use double quote
+    "wx/wx.h"
+    "wx/mac/corefoundation/cfstring.h"
+    "wx/intl.h"
+    "wx/module.h"
+    "wx/display.h"
+    "wx/bookctrl.h"
+    "wx/textdlg.h"
+    "wx/utils.h"
+    "wx/sizer.h"
+    "wx/log.h"
+    "wx/notebook.h"
+    "wx/imaglist.h"
+    "wx/panel.h"
+    "wx/thread.h"
+    "wx/dialog.h"
+    "wx/propdlg.h"
+    "wx/xrc/xmlres.h"
+    "wx/mimetype.h"
+
+#ifdef USE_PCH
+    #include "wx_pch.h"
+#else
+    #include <wx/defs.h> // Keep as first wx include.
+#endif // USE_PCH
+
+Create ca/types.h by adding types from "globals.h" file to it.
+    HighlightLanguage
+
+Delete scriptedwizard Plugin and Add it from CB 16.01
+
 * codesnippets: Built with WXWIN_COMPATIBILITY_2_6=0.
 
 And, fixed compile errors from that setting.
@@ -18,6 +54,7 @@ DO NOT UPDATE src/sdk/scripting/bindings stuff
 CB 16.01 needs FIXED for use forward slash adv. compiler option to work with static lib.
 See if my compiler needs same fix.
 
+DONE:       Removed header "aui_compat.h" and fix the errors.
 DONE:       * sdk: Replaced wxSCI_SCMOD_NULL with wxSCI_SCMOD_NORM
 DONE:       * compiler: Remove the auto add of PCH object folder
 DONE:       Update scintilla to CB 16.01
