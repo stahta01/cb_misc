@@ -26,3 +26,8 @@ git config merge.ff only
 
 git config core.editor
 
+From tortoisegit
+C:\Program Files\Git\bin; 
+C:\Program Files\Git\mingw32\; 
+C:\Program Files\Git\mingw32\etc\gitconfig; 
+C:\ProgramData\Git\config
