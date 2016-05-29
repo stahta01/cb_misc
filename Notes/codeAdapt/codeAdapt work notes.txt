@@ -4,9 +4,24 @@
 #
 
 # Update staging from master
+git checkout staging && git status -uno
+#? git rebase origin/master && git status -uno
+#? git rebase -i origin/master && git status -uno
+#   git rebase -i e16f77696daba618649784492a6873ba706532b8
+#   git log -4
+#   git push --force-with-lease
+#
+##
 
 # Update scratch from staging
-
+git checkout scratch && git status -uno
+git rebase origin/staging && git status -uno
+git rebase -i origin/staging && git status -uno
+#   git log -4
+#   git push --force-with-lease
+#
+##
+#
 # Update Testing from scratch
 git checkout testing && git status -uno
 git rebase origin/scratch && git status -uno
@@ -15,23 +30,39 @@ git rebase -i origin/scratch && git status -uno
 #   git push --force-with-lease
 ###
 
+
 ###
+#
 # Move from Testing to upstream
 #
-
-# Add stuff from origin/testing
+##
+# Add to scratch from origin/testing
 git checkout scratch && git status -uno
 git rebase origin/testing && git status -uno
 git rebase -i origin/scratch && git status -uno
 #   git format-patch origin/staging
 git rebase origin/staging && git status -uno
 git push
-
+#
 # Reorder scratch
 git checkout scratch && git status -uno
 git rebase -i origin/staging
 git rebase origin/staging && git status -uno
 #   git push --force-with-lease
+##
+#
+##
+# Add to staging from origin/scratch
+git format-patch origin/staging
+git checkout staging && git status -uno
+#   git am 0001-repo-Added-Exporter-plugin-source-files-from-CB-16.0.patch
+git push
+#
+# Reorder staging
+git checkout staging && git status -uno
+git rebase -i origin/master && git status -uno
+#   git push --force-with-lease
+##
 #
 ###
 
@@ -56,36 +87,104 @@ Section 2 Delete modules
     0012-repo-Deleted-folders-src-include-wxscintilla-and-src.patch
     0013-repo-Deleted-Squirrel-folders.patch
     0014-repo-Deleted-sqplus-folders.patch
-    0015-repo-Deleted-selected-files-like-CB-projects-batch-f.patch
     0016-repo-Deleted-source_exporter-folder.patch
 Section 3 Add Modules
     0017-repo-Added-ToolsPlus-plugin-source-files-from-CB-16..patch
     0018-repo-Added-headerfixup-plugin-source-files-from-CB-1.patch
-    0019-repo-Added-Exporter-plugin-source-files-from-CB-16.0.patch Needs deleted from staging
-    0020-repo-Added-wxscintilla-library-source-files-from-CB-.patch
-    0021-repo-Added-sqplus-library-source-files-from-CB-16.01.patch
-    0022-repo-Added-Squirrel-library-source-files-from-CB-16..patch
-    0023-repo-Updated-TinyXML-library-source-files-to-CB-16.0.patch
-    0024-repo-Updated-wxFlatNotebook-library-source-files-to-.patch
+    0019-repo-Added-wxscintilla-library-source-files-from-CB-.patch
+    0020-repo-Added-sqplus-library-source-files-from-CB-16.01.patch
+    0021-repo-Added-Squirrel-library-source-files-from-CB-16..patch
+    0022-repo-Updated-TinyXML-library-source-files-to-CB-16.0.patch
+    0023-repo-Updated-wxFlatNotebook-library-source-files-to-.patch
+    0025-repo-Added-Exporter-plugin-source-files-from-CB-16.0.patch
 
 STOP Staging branch here
 
-0025-repo-Deleted-all-Makefile.am-files.patch KEEP and move to staging
-* repo: Deleted "samples" folder under "source_exporter/wxPdfDocument".  KEEP and move to staging
-
-git checkout staging
-git am patches/0026-repo-Deleted-samples-folder-under-source_exporter-wx.patch Failed to Apply
-git am patches/0025-repo-Deleted-all-Makefile.am-files.patch
 
 git rebase -i e16f77696daba618649784492a6873ba706532b8
 
 + repo: Added Source Exporter from CB 16.01. DELETE
 
+Section 4 Renamed folders
+    0026-repo-Renamed-folder-cb_share_config-to-ca_share_conf.patch
+
+Section 5 Delete selected files
+    0015-repo-Deleted-selected-files-like-CB-projects-batch-f.patch
+    0024-repo-Deleted-all-Makefile.am-files.patch
+
+Section 6 Add selected files
+    0027-scrollingdialog-Added-scrollingdialog-from-CB-16.01.patch
+    0028-wx_pch-Added-PCH-file-wx_pch.h.patch
+
+Section 7 Reformatted files
+    0029-sdk-Git-wants-these-files-reformatted.patch
+    0030-bindings-Git-wants-this-file-reformatted.patch
+    0031-caApp-Changed-line-feeds-to-LF.patch
+    0032-scriptedwizard-Git-wants-this-file-reformatted.patch
+    0033-codesnippets-Git-wants-these-files-reformatted.patch
 
 
-Section 4 Add files
-git am 0022-scrollingdialog-Added-scrollingdialog-from-CB-16.01.patch
-git am 0023-wx_pch-Added-PCH-file-wx_pch.h.patch
+0034-sdk-Added-method-GetFilesList-to-class-cbProject.patch
+0035-devpak-Fix-wxWidgets-2.8.12-and-GCC-5.3-build-issue.patch
+0036-ToolsPlus-commented-out-cb_unused.patch
+0037-sdk-Added-autorevision.h.patch
+0038-sdk-Fix-wxWidgets-3.0-issues-in-several-files.patch
+0039-sdk-Fix-wxWidgets-and-GCC-5.3-build-issue-with-class.patch
+0040-sdk-Created-name-space-caBase64-from-wxBase64.patch
+0041-sdk-Commented-out-parameter-bool-reuseEditors-to-Fil.patch
+0042-sdk-Added-and-removed-includes-in-sdk-xtra_res.cpp.patch
+0043-sdk-Changed-UnixFilename-to-output-even-under-window.patch
+0044-sdk-Replaced-wxSCI_SCMOD_NULL-with-wxSCI_SCMOD_NORM.patch
+0045-sdk-Deleted-MACRO-DLLIMPORT-in-template.patch
+0046-sdk-Fix-wxWidgets-3.0-issues-in-projectfile.cpp.patch
+0047-sdk-Added-if-0-guard-around-null_pointer_t.patch
+0048-bindings-Added-using-SqPlus-Push-to-header.patch
+0049-bindings-Fixed-compile-errors-from-setting-WXWIN_COM.patch
+0050-bindings-Fix-wxWidgets-3.0-issues-in-sc_wxtypes.cpp.patch
+0051-bindings-Fixed-compiler-errors-related-to-wxWidgets-.patch
+0052-caApp-Fixed-wxWidgets-3.0-compile-errors.patch
+0053-compiler-Added-wxString2_cstr-macro-and-fixed-wxWidg.patch
+0054-compiler-Bugfix-noticed-using-wxWidgets-3.0.patch
+0055-compiler-MSys2-related-change-set-compiler-to-defaul.patch
+0056-compiler-CygWin-related-change-removed-option-mno-cy.patch
+0057-compiler-Remove-the-auto-add-of-PCH-object-folder-fr.patch
+0058-share_config-Changed-TiXmlNode-ELEMENT-to-TiXmlNode-.patch
+0059-codesnippets-Changed-includes-to-wx-wxscintilla.h.patch
+0060-compiler-Added-wx-headers.patch
+0061-classwizard-Added-wx-headers.patch
+0062-sdk-Added-wx-headers.patch
+0063-sdk-Tested-with-WXWIN_COMPATIBILITY_2_6-0.patch
+0064-caApp-Tested-with-WXWIN_COMPATIBILITY_2_6-0.patch
+0065-compiler-Built-with-WXWIN_COMPATIBILITY_2_6-0.patch
+0066-mimehandler-Built-with-WXWIN_COMPATIBILITY_2_6-0.patch
+0067-scriptedwizard-Built-with-WXWIN_COMPATIBILITY_2_6-0.patch
+0068-share_config-Built-with-WXWIN_COMPATIBILITY_2_6-0.patch
+0069-codesnippets-Built-with-WXWIN_COMPATIBILITY_2_6-0.patch
+0070-sdk-Edited-sdk.h.patch
+0071-sdk-Edited-sdk_common.h.patch
+0072-sdk-Removed-CB_PRECOMP-from-header-files.patch
+0073-sdk-Moved-defining-of-CB_PRECOMP-to-inside-sdk_commo.patch
+0074-sdk-Removed-headers-wx-wxscintilla.h-and-editorcolou.patch
+0075-bindings-Added-include-wx_pch.h-and-related-changes.patch
+0076-caApp-Removed-CB_PRECOMP-from-header-file.patch
+0077-mimehandler-Removed-CB_PRECOMP-from-header-file.patch
+0078-projectsimporter-Added-missing-header-for-nonPCH-bui.patch
+0079-caApp-Removed-before-wxWidgets-2.8-code.patch
+0080-caApp-Removed-before-wxWidgets-2.8-code-guards.patch
+0081-codesnippets-Removed-before-wxWidgets-2.8-code.patch
+0082-sdk-Removed-include-of-wx-wx.h-from-sdk-scrollingdia.patch
+0083-caApp-Removed-use-of-header-aui_compat.h.patch
+0084-caApp-Git-wanted-the-line-feeds-set-to-LF.patch
+0085-compiler-Removed-include-of-wx-wx.h-from-files.patch
+0086-wxPdfDocument-Commented-out-include-wx-wx.h.patch
+0087-toolsplus-Removed-CB_PRECOMP-guard.patch
 
-Section ? Renamed folders
-    0014-repo-Renamed-folder-cb_share_config-to-ca_share_conf.patch
+
+0088-caSDK-Changed-codeblocks-to-codeadapt.patch
+0089-caApp-Changed-codeblocks-to-codeadapt.patch
+
+
+0090-git-Added-git-attributes-file-to-repo.patch
+0091-build-Added-highly-edited-project-files-And-added-ba.patch
+0092-build-Added-iquote-CA_OBJ-include-to-projects.patch
+0093-build-Disabled-the-post-build-commands.patch
