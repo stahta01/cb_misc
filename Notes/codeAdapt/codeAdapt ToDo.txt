@@ -1,35 +1,36 @@
 codeAdapt ToDo.txt
 
+Update depslib
+
 Valid wx includes that use double quote
     "wx/wxscintilla.h"
     "wx/wxprec.h"
     "wx/wxFlatNotebook/wxFlatNotebook.h"
 
 Invalid wx includes that use double quote
-    "wx/wx.h"
-    "wx/mac/corefoundation/cfstring.h"
-    "wx/intl.h"
-    "wx/module.h"
-    "wx/display.h"
-    "wx/bookctrl.h"
-    "wx/textdlg.h"
-    "wx/utils.h"
-    "wx/sizer.h"
-    "wx/log.h"
-    "wx/notebook.h"
-    "wx/imaglist.h"
-    "wx/panel.h"
-    "wx/thread.h"
-    "wx/dialog.h"
-    "wx/propdlg.h"
-    "wx/xrc/xmlres.h"
-    "wx/mimetype.h"
+    "wx/wx.h"                           // wxPdfDocument
+    "wx/mac/corefoundation/cfstring.h"  // MAC
+    "wx/intl.h"                         // MAC
+    "wx/sizer.h"                        // wxFlatNotebook
+    "wx/log.h"                          // wxFlatNotebook
+    "wx/notebook.h"                     // wxFlatNotebook
+    "wx/imaglist.h"                     // wxFlatNotebook
+    "wx/panel.h"                        // wxFlatNotebook
+    "wx/dialog.h"                       // wxFlatNotebook
+    "wx/xrc/xmlres.h"                   // wxFlatNotebook
+
+
+Replace "sdk_precomp.h" with "wx_pch.h" like below
 
 #ifdef USE_PCH
-    #include "wx_pch.h"
+    #ifndef WX_PCH_H_INCLUDED
+        #include "wx_pch.h"
+    #endif
 #else
     #include <wx/defs.h> // Keep as first wx include.
 #endif // USE_PCH
+
+DONE: Removed class AutoBuffer.
 
 Create ca/types.h by adding types from "globals.h" file to it.
     HighlightLanguage
@@ -137,9 +138,14 @@ Code::Blocks branding related changes
 
 Build related changes
     Reduce warnings from this high of 164 on 16May16 in nine projects.
-    Replace "cbDEBUG" with "caDEBUG"
     Replace "DEPSLIB_WINDOWS" with "DEPSLIB_UNIX"
+    HOLD:   Replace "cbDEBUG" with "caDEBUG" (looks like a lot of work to do it right)
 
+search term         count
+GetPathSeparator     48
+wxFILE_SEP_PATH      98
+wxFileName          465
+wxGetCwd             18
 
 Project file formatting related changes
     Remove most of this [.a" />] from project files.

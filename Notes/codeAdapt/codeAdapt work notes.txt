@@ -7,7 +7,7 @@
 git checkout staging && git status -uno
 #? git rebase origin/master && git status -uno
 #? git rebase -i origin/master && git status -uno
-#   git rebase -i e16f77696daba618649784492a6873ba706532b8
+#   git rebase -i 
 #   git log -4
 #   git push --force-with-lease
 #
@@ -26,6 +26,7 @@ git rebase -i origin/staging && git status -uno
 git checkout testing && git status -uno
 git rebase origin/scratch && git status -uno
 git rebase -i origin/scratch && git status -uno
+#   git format-patch origin/scratch
 #   git log -4
 #   git push --force-with-lease
 ###
