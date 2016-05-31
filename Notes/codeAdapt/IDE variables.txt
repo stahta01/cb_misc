@@ -1,3 +1,4 @@
+Masks of files likely to use these variables: *.cbp,*.script,*.cpp,*.xrc
 Code::Blocks                    codeAdapt
 ACTIVE_EDITOR_COLUMN                                            Return the column of the current line in the active editor.
 ACTIVE_EDITOR_COLUMN_0
@@ -9,7 +10,7 @@ ACTIVE_EDITOR_LINE_0
 ACTIVE_EDITOR_SELECTION
 ACTIVE_EDITOR_STEM              ACTIVE_EDITOR_STEM              Currently active file's base name (without extension.
 ALL_PROJECT_FILES               ALL_PROJECT_FILES               A string containing the names of all files in the current project.
-AMP                             AMP
+AMP                             AMP                             _T("&")
 APP-PATH                        APP-PATH                        The path to the currently running instance of Code::Blocks
 APPPATH                         APPPATH
 APP_PATH                        APP_PATH
@@ -21,14 +22,14 @@ CMD_RM                          CMD_RM
 CMD_RMDIR                       CMD_RMDIR
 CODEBLOCKS                      CODEBLOCKS
 COIN                            COIN                            This variable tosses a virtual coin (once per invokation and returns 0 or 1.
-DATA-PATH                                                       The 'shared' directory of the currently running instance of Code::Blocks
-DATAPATH
-DATA_PATH
+DATA-PATH                       DATA-PATH                       The 'shared' directory of the currently running instance of Code::Blocks
+DATAPATH                        DATAPATH
+DATA_PATH                       DATA_PATH
 DAYCOUNT                                                        The number of the days passed since an arbitrarily chosen day zero (January 1, 2009. Useful as last component of a version/build number.
-ENCODING                                                        The character encoding in human readable form.
-FOOBAR_OUTPUT_BASENAME                                          A specific target's output file's base name (no path, no extension.
-FOOBAR_OUTPUT_DIR                                               A specific target's output directory.
-FOOBAR_OUTPUT_FILE                                              A specific target's output file.
+ENCODING                        ENCODING                        The character encoding in human readable form.
+FOOBAR_OUTPUT_BASENAME          FOOBAR_OUTPUT_BASENAME          A specific target's output file's base name (no path, no extension.
+FOOBAR_OUTPUT_DIR               FOOBAR_OUTPUT_DIR               A specific target's output directory.
+FOOBAR_OUTPUT_FILE              FOOBAR_OUTPUT_FILE              A specific target's output file.
 GET_CONFIG_DIR
 GET_DATA_DIR
 GET_DOCUMENTS_DIR
@@ -37,47 +38,46 @@ GET_TEMP_DIR
 GET_USER_CONFIG_DIR
 GET_USER_DATA_DIR
 GET_USER_LOCAL_DATA_DIR
-LANGUAGE                                                        The system language in human readable form.
-MAKEFILE                                                        The filename of the makefile.
-NOW                                                             Timestamp in the form YYYY-MM-DD-hh.mm (for example 2005-12-28-07.15
-NOW_L                                                           Timestamp in the form YYYY-MM-DD-hh.mm.ss (for example 2005-12-28-07.15.45
-NOW_L_UTC
-NOW_UTC
-PLUGINS                                                         The 'plugins' directory of the currently running instance of Code::Blocks
-PROJECTDIR
-PROJECTDIRECTORY
-PROJECTFILE
-PROJECTFILENAME
-PROJECTNAME
-PROJECTTOPDIR
-PROJECTTOPDIRECTORY
-PROJECT_DIR
-PROJECT_DIRECTORY
-PROJECT_FILE
-PROJECT_FILENAME
-PROJECT_FILE_NAME
-PROJECT_NAME
-PROJECT_TOPDIR
-PROJECT_TOPDIRECTORY
-RANDOM                                                          A 16bit positive random number (0-65535
-TARGET_CC
+LANGUAGE                        LANGUAGE                        The system language in human readable form.
+MAKEFILE                        MAKEFILE                        The filename of the makefile.
+NOW                             NOW                             Timestamp in the form YYYY-MM-DD-hh.mm (for example 2005-12-28-07.15
+NOW_L                           NOW_L                           Timestamp in the form YYYY-MM-DD-hh.mm.ss (for example 2005-12-28-07.15.45
+NOW_L_UTC                       NOW_L_UTC
+NOW_UTC                         NOW_UTC
+PLUGINS                         PLUGINS                         The 'plugins' directory of the currently running instance of Code::Blocks
+PROJECTDIR                      PROJECTDIR
+PROJECTDIRECTORY                PROJECTDIRECTORY
+PROJECTFILE                     PROJECTFILE
+PROJECTFILENAME                 PROJECTFILENAME
+PROJECTNAME                     PROJECTNAME
+PROJECTTOPDIR                   PROJECTTOPDIR
+PROJECTTOPDIRECTORY             PROJECTTOPDIRECTORY
+PROJECT_DIR                     PROJECT_DIR
+PROJECT_DIRECTORY               PROJECT_DIRECTORY
+PROJECT_FILE                    PROJECT_FILE
+PROJECT_FILENAME                PROJECT_FILENAME
+PROJECT_FILE_NAME               PROJECT_FILE_NAME
+PROJECT_NAME                    PROJECT_NAME
+PROJECT_TOPDIR                  PROJECT_TOPDIR
+PROJECT_TOPDIRECTORY            PROJECT_TOPDIRECTORY
+RANDOM                          RANDOM                          A 16bit positive random number (0-65535
+TARGET_CC                       TARGET_CC
 TARGET_COMPILER_DIR             TARGET_COMPILER_DIR             The compiler installation directory so-called master path.
-TARGET_CPP
-TARGET_LD
-TARGET_LIB                                                      The current target's build tool executable (compiler, linker, etc.
-TARGET_NAME
-TARGET_NAME                                                     The current target's name.
-TARGET_OBJECT_DIR                                               The current target's object directory.
-TARGET_OUTPUT_BASENAME                                          The current target's output file's base name (no path, no extension.
-TARGET_OUTPUT_DIR                                               The current target's output directory.
-TARGET_OUTPUT_FILE                                              The current target's output file.
+TARGET_CPP                      TARGET_CPP
+TARGET_LD                       TARGET_LD
+TARGET_LIB                      TARGET_LIB                      The current target's build tool executable (compiler, linker, etc.
+TARGET_NAME                     TARGET_NAME                     The current target's name.
+TARGET_OBJECT_DIR               TARGET_OBJECT_DIR               The current target's object directory.
+TARGET_OUTPUT_BASENAME          TARGET_OUTPUT_BASENAME          The current target's output file's base name (no path, no extension.
+TARGET_OUTPUT_DIR               TARGET_OUTPUT_DIR               The current target's output directory.
+TARGET_OUTPUT_FILE              TARGET_OUTPUT_FILE              The current target's output file.
 TARGET_OUTPUT_FILENAME
-TDAY                                                            Current date in the form YYYYMMDD (for example 20051228
-TDAY_UTC
-TODAY                                                           Current date in the form YYYY-MM-DD (for example 2005-12-28
-TODAY_UTC
-WEEKDAY                                                         Human-readable day of the week (for example "Wednesday"
-WEEKDAY_UTC                                                     These are identical to the preceding types, but are expressed relative to UTC.
+TDAY                            TDAY                            Current date in the form YYYYMMDD (for example 20051228
+TDAY_UTC                        TDAY_UTC
+TODAY                           TODAY                           Current date in the form YYYY-MM-DD (for example 2005-12-28
+TODAY_UTC                       TODAY_UTC
+WEEKDAY                         WEEKDAY                         Human-readable day of the week (for example "Wednesday"
+WEEKDAY_UTC                     WEEKDAY_UTC
 WORKSPACEDIR
 WORKSPACEDIRECTORY
 WORKSPACEFILE
