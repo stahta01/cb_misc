@@ -1,0 +1,90 @@
+ACTIVE_EDITOR_COLUMN                                            Return the column of the current line in the active editor.
+ACTIVE_EDITOR_COLUMN_0
+ACTIVE_EDITOR_DIRNAME                                           Currently active file's containing directory (relative to the common top level path
+ACTIVE_EDITOR_EXT                                               Currently active file's extension.
+ACTIVE_EDITOR_FILENAME
+ACTIVE_EDITOR_LINE
+ACTIVE_EDITOR_LINE_0
+ACTIVE_EDITOR_SELECTION
+ACTIVE_EDITOR_STEM                                              Currently active file's base name (without extension.
+ALL_PROJECT_FILES                                               A string containing the names of all files in the current project.
+AMP
+APP-PATH                                                        The path to the currently running instance of Code::Blocks
+APPPATH
+APP_PATH
+CMD_CP                          CMD_CP    
+CMD_MKDIR                       CMD_MKDIR 
+CMD_MV                          CMD_MV    
+CMD_NULL                        CMD_NULL  
+CMD_RM                          CMD_RM    
+CMD_RMDIR                       CMD_RMDIR 
+CODEBLOCKS
+COIN                                                            This variable tosses a virtual coin (once per invokation and returns 0 or 1.
+DATA-PATH                                                       The 'shared' directory of the currently running instance of Code::Blocks
+DATAPATH
+DATA_PATH
+DAYCOUNT                                                        The number of the days passed since an arbitrarily chosen day zero (January 1, 2009. Useful as last component of a version/build number.
+ENCODING                                                        The character encoding in human readable form.
+FOOBAR_OUTPUT_BASENAME                                          A specific target's output file's base name (no path, no extension.
+FOOBAR_OUTPUT_DIR                                               A specific target's output directory.
+FOOBAR_OUTPUT_FILE                                              A specific target's output file.
+GET_CONFIG_DIR
+GET_DATA_DIR
+GET_DOCUMENTS_DIR
+GET_LOCAL_DATA_DIR
+GET_TEMP_DIR
+GET_USER_CONFIG_DIR
+GET_USER_DATA_DIR
+GET_USER_LOCAL_DATA_DIR
+LANGUAGE                                                        The system language in human readable form.
+MAKEFILE                                                        The filename of the makefile.
+NOW                                                             Timestamp in the form YYYY-MM-DD-hh.mm (for example 2005-12-28-07.15
+NOW_L                                                           Timestamp in the form YYYY-MM-DD-hh.mm.ss (for example 2005-12-28-07.15.45
+NOW_L_UTC
+NOW_UTC
+PLUGINS                                                         The 'plugins' directory of the currently running instance of Code::Blocks
+PROJECTDIR
+PROJECTDIRECTORY
+PROJECTFILE
+PROJECTFILENAME
+PROJECTNAME
+PROJECTTOPDIR
+PROJECTTOPDIRECTORY
+PROJECT_DIR
+PROJECT_DIRECTORY
+PROJECT_FILE
+PROJECT_FILENAME
+PROJECT_FILE_NAME
+PROJECT_NAME
+PROJECT_TOPDIR
+PROJECT_TOPDIRECTORY
+RANDOM                                                          A 16bit positive random number (0-65535
+TARGET_CC
+TARGET_COMPILER_DIR             TARGET_COMPILER_DIR             The compiler installation directory so-called master path.
+TARGET_CPP
+TARGET_LD
+TARGET_LIB                                                      The current target's build tool executable (compiler, linker, etc.
+TARGET_NAME
+TARGET_NAME                                                     The current target's name.
+TARGET_OBJECT_DIR                                               The current target's object directory.
+TARGET_OUTPUT_BASENAME                                          The current target's output file's base name (no path, no extension.
+TARGET_OUTPUT_DIR                                               The current target's output directory.
+TARGET_OUTPUT_FILE                                              The current target's output file.
+TARGET_OUTPUT_FILENAME
+TDAY                                                            Current date in the form YYYYMMDD (for example 20051228
+TDAY_UTC
+TODAY                                                           Current date in the form YYYY-MM-DD (for example 2005-12-28
+TODAY_UTC
+WEEKDAY                                                         Human-readable day of the week (for example "Wednesday"
+WEEKDAY_UTC                                                     These are identical to the preceding types, but are expressed relative to UTC.
+WORKSPACEDIR
+WORKSPACEDIRECTORY
+WORKSPACEFILE
+WORKSPACEFILENAME
+WORKSPACENAME                                                   The name of the workspace that is displayed in the tab Projects of the Management panel.
+WORKSPACE_DIR                                                   The location of the workspace directory.
+WORKSPACE_DIRECTORY
+WORKSPACE_FILE
+WORKSPACE_FILENAME                                              The filename of the current workspace project (.workspace).
+WORKSPACE_FILE_NAME
+WORKSPACE_NAME
