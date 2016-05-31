@@ -1,5 +1,10 @@
 codeAdapt ToDo.txt
 
+And, add test for MSY2 and Cygwin where
+    platform::WindowsVersion in compilercommandgenerator.cpp
+    platform::windows in macrosmanager.cpp
+    !platform::windows in compilergcc.cpp
+
 Update depslib
 
 Valid wx includes that use double quote
@@ -31,6 +36,8 @@ Replace "sdk_precomp.h" with "wx_pch.h" like below
 #endif // USE_PCH
 
 DONE: Removed class AutoBuffer.
+
+ReDo: cbLoadBitmap using type wxBitmapType
 
 Create ca/types.h by adding types from "globals.h" file to it.
     HighlightLanguage

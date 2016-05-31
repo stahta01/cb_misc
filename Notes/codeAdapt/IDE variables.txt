@@ -1,25 +1,26 @@
+Code::Blocks                    codeAdapt
 ACTIVE_EDITOR_COLUMN                                            Return the column of the current line in the active editor.
 ACTIVE_EDITOR_COLUMN_0
-ACTIVE_EDITOR_DIRNAME                                           Currently active file's containing directory (relative to the common top level path
-ACTIVE_EDITOR_EXT                                               Currently active file's extension.
-ACTIVE_EDITOR_FILENAME
+ACTIVE_EDITOR_DIRNAME           ACTIVE_EDITOR_DIRNAME           Currently active file's containing directory (relative to the common top level path
+ACTIVE_EDITOR_EXT               ACTIVE_EDITOR_EXT               Currently active file's extension.
+ACTIVE_EDITOR_FILENAME          ACTIVE_EDITOR_FILENAME
 ACTIVE_EDITOR_LINE
 ACTIVE_EDITOR_LINE_0
 ACTIVE_EDITOR_SELECTION
-ACTIVE_EDITOR_STEM                                              Currently active file's base name (without extension.
-ALL_PROJECT_FILES                                               A string containing the names of all files in the current project.
-AMP
-APP-PATH                                                        The path to the currently running instance of Code::Blocks
-APPPATH
-APP_PATH
-CMD_CP                          CMD_CP    
-CMD_MKDIR                       CMD_MKDIR 
-CMD_MV                          CMD_MV    
-CMD_NULL                        CMD_NULL  
-CMD_RM                          CMD_RM    
-CMD_RMDIR                       CMD_RMDIR 
-CODEBLOCKS
-COIN                                                            This variable tosses a virtual coin (once per invokation and returns 0 or 1.
+ACTIVE_EDITOR_STEM              ACTIVE_EDITOR_STEM              Currently active file's base name (without extension.
+ALL_PROJECT_FILES               ALL_PROJECT_FILES               A string containing the names of all files in the current project.
+AMP                             AMP
+APP-PATH                        APP-PATH                        The path to the currently running instance of Code::Blocks
+APPPATH                         APPPATH
+APP_PATH                        APP_PATH
+CMD_CP                          CMD_CP
+CMD_MKDIR                       CMD_MKDIR
+CMD_MV                          CMD_MV
+CMD_NULL                        CMD_NULL
+CMD_RM                          CMD_RM
+CMD_RMDIR                       CMD_RMDIR
+CODEBLOCKS                      CODEBLOCKS
+COIN                            COIN                            This variable tosses a virtual coin (once per invokation and returns 0 or 1.
 DATA-PATH                                                       The 'shared' directory of the currently running instance of Code::Blocks
 DATAPATH
 DATA_PATH
