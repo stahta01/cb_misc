@@ -22,8 +22,10 @@ $ rm .git/index     # Remove the index to force git to
 $ git reset         # re-scan the working directory
 $ git status        # Show files that will be normalized
 $ git add -u
-$ git add .gitattributes
 $ git commit -m "Introduce end-of-line normalization"
+
+$ git add .gitattributes
+$ git commit -m "+ git: Added Git Attributes file."
 
 # I set core.safecrlf to true at this time.
 git config --local core.safecrlf true
