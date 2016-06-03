@@ -4,16 +4,16 @@
 # The value of core.safecrlf must be false at this time.
 #
 # Need to record the old values in case you want to change them back
-git config --global core.eol
-git config --global core.autocrlf
-git config --global core.safecrlf
+git config --global core.eol            # lf
+git config --global core.autocrlf       # false
+git config --global core.safecrlf       # true
 
-git config --global core.eol      crlf  ## Set to the auto line ending you want.
-git config --global core.autocrlf true  ## if core.eol=crlf, use true else false
+git config --global core.eol      lf    ## Set to the auto line ending you want.
+git config --global core.autocrlf false ## if core.eol=crlf, use true else false
 git config --global core.safecrlf false ## Needs to be false
 
-git config --local core.eol      crlf   ## Set to the auto line ending you want.
-git config --local core.autocrlf true   ## if core.eol=crlf, use true else false
+git config --local core.eol      lf     ## Set to the auto line ending you want.
+git config --local core.autocrlf false  ## if core.eol=crlf, use true else false
 git config --local core.safecrlf false  ## Needs to be false
 
 ### How to normalize ###
