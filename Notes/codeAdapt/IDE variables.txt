@@ -1,13 +1,13 @@
 Masks of files likely to use these variables: *.cbp,*.script,*.cpp,*.xrc
 Code::Blocks                    codeAdapt
-ACTIVE_EDITOR_COLUMN                                            Return the column of the current line in the active editor.
+ACTIVE_EDITOR_COLUMN            No need to add at this time.    Return the column of the current line in the active editor.
 ACTIVE_EDITOR_COLUMN_0
 ACTIVE_EDITOR_DIRNAME           ACTIVE_EDITOR_DIRNAME           Currently active file's containing directory (relative to the common top level path
 ACTIVE_EDITOR_EXT               ACTIVE_EDITOR_EXT               Currently active file's extension.
 ACTIVE_EDITOR_FILENAME          ACTIVE_EDITOR_FILENAME
-ACTIVE_EDITOR_LINE
+ACTIVE_EDITOR_LINE              No need to add at this time.
 ACTIVE_EDITOR_LINE_0
-ACTIVE_EDITOR_SELECTION
+ACTIVE_EDITOR_SELECTION         No need to add at this time.
 ACTIVE_EDITOR_STEM              ACTIVE_EDITOR_STEM              Currently active file's base name (without extension.
 ALL_PROJECT_FILES               ALL_PROJECT_FILES               A string containing the names of all files in the current project.
 AMP                             AMP                             _T("&")
@@ -25,19 +25,19 @@ COIN                            COIN                            This variable to
 DATA-PATH                       DATA-PATH                       The 'shared' directory of the currently running instance of Code::Blocks
 DATAPATH                        DATAPATH
 DATA_PATH                       DATA_PATH
-DAYCOUNT                                                        The number of the days passed since an arbitrarily chosen day zero (January 1, 2009. Useful as last component of a version/build number.
+DAYCOUNT                        No need to add at this time.    The number of the days passed since an arbitrarily chosen day zero (January 1, 2009. Useful as last component of a version/build number.
 ENCODING                        ENCODING                        The character encoding in human readable form.
 FOOBAR_OUTPUT_BASENAME          FOOBAR_OUTPUT_BASENAME          A specific target's output file's base name (no path, no extension.
 FOOBAR_OUTPUT_DIR               FOOBAR_OUTPUT_DIR               A specific target's output directory.
 FOOBAR_OUTPUT_FILE              FOOBAR_OUTPUT_FILE              A specific target's output file.
-GET_CONFIG_DIR
-GET_DATA_DIR
-GET_DOCUMENTS_DIR
-GET_LOCAL_DATA_DIR
-GET_TEMP_DIR
-GET_USER_CONFIG_DIR
-GET_USER_DATA_DIR
-GET_USER_LOCAL_DATA_DIR
+GET_CONFIG_DIR                  Would be nice to add.
+GET_DATA_DIR                    Would be nice to add.
+GET_DOCUMENTS_DIR               Would be nice to add.
+GET_LOCAL_DATA_DIR              Would be nice to add.
+GET_TEMP_DIR                    Would be nice to add.
+GET_USER_CONFIG_DIR             Would be nice to add.
+GET_USER_DATA_DIR               Would be nice to add.
+GET_USER_LOCAL_DATA_DIR         Would be nice to add.
 LANGUAGE                        LANGUAGE                        The system language in human readable form.
 MAKEFILE                        MAKEFILE                        The filename of the makefile.
 NOW                             NOW                             Timestamp in the form YYYY-MM-DD-hh.mm (for example 2005-12-28-07.15
@@ -71,14 +71,14 @@ TARGET_OBJECT_DIR               TARGET_OBJECT_DIR               The current targ
 TARGET_OUTPUT_BASENAME          TARGET_OUTPUT_BASENAME          The current target's output file's base name (no path, no extension.
 TARGET_OUTPUT_DIR               TARGET_OUTPUT_DIR               The current target's output directory.
 TARGET_OUTPUT_FILE              TARGET_OUTPUT_FILE              The current target's output file.
-TARGET_OUTPUT_FILENAME
+TARGET_OUTPUT_FILENAME          No need to add at this time.
 TDAY                            TDAY                            Current date in the form YYYYMMDD (for example 20051228
 TDAY_UTC                        TDAY_UTC
 TODAY                           TODAY                           Current date in the form YYYY-MM-DD (for example 2005-12-28
 TODAY_UTC                       TODAY_UTC
 WEEKDAY                         WEEKDAY                         Human-readable day of the week (for example "Wednesday"
 WEEKDAY_UTC                     WEEKDAY_UTC
-WORKSPACEDIR
+WORKSPACEDIR                    No need to add at this time.
 WORKSPACEDIRECTORY
 WORKSPACEFILE
 WORKSPACEFILENAME

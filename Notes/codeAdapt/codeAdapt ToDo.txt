@@ -62,6 +62,12 @@ DO NOT UPDATE src/sdk/scripting/bindings stuff
 CB 16.01 needs FIXED for use forward slash adv. compiler option to work with static lib.
 See if my compiler needs same fix.
 
+
+* ToolsPlus: Changed some wxT() or _T() to wxT_2().
+
+And, changed some _T() to wxT(), instead.
+
+DONE:       * sdk: Changed some wxT() or _T() to wxT_2().
 DONE:       Removed header "aui_compat.h" and fix the errors.
 DONE:       * sdk: Replaced wxSCI_SCMOD_NULL with wxSCI_SCMOD_NORM
 DONE:       * compiler: Remove the auto add of PCH object folder
@@ -108,7 +114,6 @@ Started:    - build: Replaced "$(#CB.include)" or $(#CB.INCLUDE) with ??.
 Started:    - build: Replaced "$(#CB.LIB)" or "$(#CB.lib)" with ??.
 Started:    - build: Replaced "$(#CB)" with ??.
 
-Started:    * sdk: Changed some wxT() or _T() to wxT_2().
 Started:    * sdk: Replaced wxFILE_SEP_PATH with wxT_2('/')
 Started:    - compiler: Replaced <sdk.h> with "sdk.h".
 Started:    * build: Add option "-std=gnu++11" to some project files.
