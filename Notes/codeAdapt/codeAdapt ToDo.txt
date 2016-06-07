@@ -1,5 +1,11 @@
 codeAdapt ToDo.txt
 
+Add CA_BASE, CA_BIN, CA_LIB, and CA_OBJ to all projects.
+1.  CA_OBJ
+2.  CA_BASE
+3.  CA_LIB
+4.  CA_BIN
+
 And, add test for MSY2 and Cygwin where
     platform::WindowsVersion in compilercommandgenerator.cpp
     platform::windows in macrosmanager.cpp
@@ -62,8 +68,16 @@ DO NOT UPDATE src/sdk/scripting/bindings stuff
 CB 16.01 needs FIXED for use forward slash adv. compiler option to work with static lib.
 See if my compiler needs same fix.
 
+C:\Devel\open_source_code\version_control\codeAdapt_IDE-LF_git\src\plugins\contrib\profiler
+C:\Devel\open_source_code\version_control\codeAdapt_IDE-LF_git\src\plugins\contrib\symtab
 
-* ToolsPlus: Changed some wxT() or _T() to wxT_2().
+
+* symtab: Built with WXWIN_COMPATIBILITY_2_6=0.
+
+And, fixed compile errors from that setting.
+
+
+* LogHacker: Changed some wxT() or _T() to wxT_2().
 
 And, changed some _T() to wxT(), instead.
 
