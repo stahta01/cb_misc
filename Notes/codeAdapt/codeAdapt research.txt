@@ -12,14 +12,14 @@ Windows Updater
     http://wingup.org/
 
 FLOSS Multi-Language IDEs or Editors
-            Python  http://komodoide.com/komodo-edit/   https://github.com/Komodo/KomodoEdit
-    GPL?    C++     https://notepad-plus-plus.org/      https://github.com/notepad-plus-plus/notepad-plus-plus
+    GPL2    C++     https://notepad-plus-plus.org/      https://github.com/notepad-plus-plus/notepad-plus-plus
     GPL2    C/C++   http://www.geany.org/               https://github.com/geany
-    MIT     C/Lua   http://foicica.com/textadept/
+    wx      C++,Lua http://wxlua.sourceforge.net        https://sourceforge.net/p/wxlua/svn/HEAD/tree/trunk/wxLua/
     GPL2    C++     http://www.emeraldeditor.com/       http://svn.emeraldeditor.com/viewvc.cgi/EmeraldEditor/
     GPL3    C++                                         https://github.com/yetanothergeek/fxite
-    wx,MIT  Lua                                         https://sourceforge.net/projects/estrelaeditor/
-    wx      C++,Lua http://wxlua.sourceforge.net        https://sourceforge.net/p/wxlua/svn/HEAD/tree/trunk/wxLua/
+    wx,MIT  C++,Lua sf.net/projects/estrelaeditor/      git://git.code.sf.net/p/estrelaeditor/code estrelaeditor-code
+    MIT     C/Lua   http://foicica.com/textadept/
+            Python  http://komodoide.com/komodo-edit/   https://github.com/Komodo/KomodoEdit
 
 http://lua-users.org/wiki/LuaEditorSupport
 Lua Editors
