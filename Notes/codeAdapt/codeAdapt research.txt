@@ -1,0 +1,29 @@
+IDE
+Editor
+wxWidgets
+lua
+wxLua
+premake
+
+Editor Component
+    http://www.scintilla.org/
+
+Windows Updater
+    http://wingup.org/
+
+FLOSS Multi-Language IDEs or Editors
+            Python  http://komodoide.com/komodo-edit/   https://github.com/Komodo/KomodoEdit
+    GPL?    C++     https://notepad-plus-plus.org/      https://github.com/notepad-plus-plus/notepad-plus-plus
+    GPL2    C/C++   http://www.geany.org/               https://github.com/geany
+    MIT     C/Lua   http://foicica.com/textadept/
+    GPL2    C++     http://www.emeraldeditor.com/       http://svn.emeraldeditor.com/viewvc.cgi/EmeraldEditor/
+    GPL3    C++                                         https://github.com/yetanothergeek/fxite
+    wx,MIT  Lua                                         https://sourceforge.net/projects/estrelaeditor/
+    wx      C++,Lua http://wxlua.sourceforge.net        https://sourceforge.net/p/wxlua/svn/HEAD/tree/trunk/wxLua/
+
+http://lua-users.org/wiki/LuaEditorSupport
+Lua Editors
+
+
+Lua IDEs; that are written in Lua
+    https://studio.zerobrane.com/features
