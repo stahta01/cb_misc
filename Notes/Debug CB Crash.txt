@@ -1,0 +1,17 @@
+I can confirm:
+No crash with SVN revision 10856 wx2.8 TDM-GCC 4.9.2
+
+Crash with wx2.8 TDM-GCC 5.1.0
+
+# Setup path and change to devel folder
+$ set PATH=C:/Apps32/MingwGCC510TDM/bin;%PATH%
+$ cd c:/SourceCode/OpenSourceCode/Apps/IDEs/CodeBlocks/cb_misc-git/svn-codeblocks-trunk/src/devel
+# Start of debug commands
+$ gdb32 codeblocks.exe
+run --user-data-dir=C:/SourceCode/test/cb
+bt -100
+# End of debug commands
+
+From http://wiki.freepascal.org/Creating_a_Backtrace_with_GDB
+
+Testing Revision: 10862 to see if I see the problem.
