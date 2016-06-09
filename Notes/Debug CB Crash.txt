@@ -7,7 +7,7 @@ Crash with wx2.8 TDM-GCC 5.1.0
 $ set PATH=C:/Apps32/MingwGCC510TDM/bin;%PATH%
 $ cd c:/SourceCode/OpenSourceCode/Apps/IDEs/CodeBlocks/cb_misc-git/svn-codeblocks-trunk/src/devel
 # Start of debug commands
-$ gdb32 codeblocks.exe
+gdb32 codeblocks.exe
 run --user-data-dir=C:/SourceCode/test/cb
 bt -100
 # End of debug commands
@@ -15,3 +15,34 @@ bt -100
 From http://wiki.freepascal.org/Creating_a_Backtrace_with_GDB
 
 Testing Revision: 10862 to see if I see the problem.
+
+C:\SourceCode\OpenSourceCode\Libs\GUI\wxWidgets\wxWidgets-git
+2.8.x_510TDM
+
+
+The default mode has been changed to -std=gnu11.
+The default mode for C is now -std=gnu11 instead of -std=gnu89.
+
+HAVE_TR1_TYPE_TRAITS
+
+Program received signal SIGSEGV, Segmentation fault.
+0x6f31f555 in wxCheckDynamicCast(wxObject*, wxClassInfo*) ()
+   from c:\SourceCode\OpenSourceCode\Apps\IDEs\CodeBlocks\cb_misc-git\svn-codeblocks-trunk\src\devel\wxmsw28u_gcc_510TDM.dll
+
+#22692 0xfeeefeee in ?? ()
+#22693 0xfeeefeee in ?? ()
+#22694 0xfeeefeee in ?? ()
+#22695 0xfeeefeee in ?? ()
+#22696 0xfeeefeee in ?? ()
+#22697 0xfeeefeee in ?? ()
+#22698 0x2b97dc51 in ?? ()
+#22699 0x1c453230 in ?? ()
+#22700 0x00000001 in ?? ()
+#22701 0x00000016 in ?? ()
+#22702 0x00000023 in ?? ()
+#22703 0x004b0048 in __static_initialization_and_destruction_0 (
+    __initialize_p=<error reading variable: Cannot access memory at address 0xfeeefef6>,
+    __priority=<error reading variable: Cannot access memory at address 0xfeeefefa>)
+    at C:/SourceCode/OpenSourceCode/Apps/IDEs/CodeBlocks/cb_misc-git/svn-codeblocks-trunk/src/include/logger.h:19
+Backtrace stopped: Cannot access memory at address 0xfeeefef2
+
