@@ -1,17 +1,61 @@
-Basenames of packages needed
+http://pyqt.sourceforge.net/Docs/PyQt5/installation.html
+http://pyqt.sourceforge.net/Docs/PyQt5/installation.html#building-and-installing-from-source
+
+Basenames of packages needed that I tried to add and use; it failed!!
 	mingw-w64-python3
 	mingw-w64-pyqt5
 	mingw-w64-python-pip
 
-# Commands to install the 64 bit mingw packages needed
-pacman -S mingw-w64-x86_64-python3
-pacman -S mingw-w64-x86_64-python3-pyqt5		# 4+ GB installation size
-pacman -S mingw-w64-x86_64-python3-pip
+# Commands to uninstall the 64 bit mingw python packages
+pacman -R mingw-w64-x86_64-python3-pyqt5
+pacman -R mingw-w64-x86_64-python3-pip
+pacman -R mingw-w64-x86_64-python3-sip
+pacman -R mingw-w64-x86_64-python3-setuptools
+pacman -R mingw-w64-x86_64-python3
+rm -fr c:/apps64/msys2/mingw64/lib/python3.5
 
 
-# installing mingw-w64-x86_64-fontconfig ## Takes a few minutes and gives this message; just wait a few minutes.
-  Fontconfig configuration is done via /mingw64/etc/fonts/conf.avail and conf.d.
-  Read /mingw64/etc/fonts/conf.d/README for more information.
+Basenames of packages needed that I trying to add
+	mingw-w64-x86_64-qt5
+
+# Commands to install the 64 bit mingw qt5 packages
+	pacman -S mingw-w64-x86_64-qt5
+
+
+
+
+$ python3 -m ensurepip --upgrade --default-pip
+Ignoring indexes: https://pypi.python.org/simple
+Requirement already up-to-date: setuptools in c:/apps64/msys2/mingw64/lib/python3.5/site-packages
+Requirement already up-to-date: pip in c:/apps64/msys2/mingw64/lib/python3.5/site-packages
+
+
+mkdir -p ~/devel/version_control && cd ~/devel/version_control && pwd -W
+# C:/Apps64/MSys2/home/stahta01/devel/version_control
+
+git clone https://github.com/stahta01/dupeguru.git dupeguru-git
+
+cd ~/devel/version_control/dupeguru-git
+
+python3 -m pip install -r requirements.txt
+
+python3 -m pip install virtualenv
+
+pyvenv --system-site-packages --upgrade --without-pip env
+
+[--symlinks | --copies] [--clear] [--upgrade]
+
+python3 -m venv --system-site-packages --without-pip env
+
+./bootstrap.sh
+
+python3 build.py
+
+Traceback (most recent call last):
+  File "build.py", line 16, in <module>
+    from hscommon import sphinxgen
+ImportError: cannot import name 'sphinxgen'
+
 
 # From https://docs.python.org/3/library/venv.html
 
@@ -85,9 +129,6 @@ run `tox`.
 You can also run automated tests without Tox. Extra requirements for running tests are in
 `requirements-extra.txt`. So, you can do `pip install -r requirements-extra.txt` inside your
 virtualenv and then `py.test core hscommon`
-
-
-https://github.com/stahta01/dupeguru.git
 
 https://wiki.qt.io/MSYS2
 http://stackoverflow.com/questions/13270877/how-to-manually-install-a-pypi-module-without-pip-easy-install
@@ -165,4 +206,47 @@ python3 -m venv -h
 	  --without-pip         Skips installing or upgrading pip in the virtual
 							environment (pip is bootstrapped by default)
 
+$ virtualenv -h
+Usage: virtualenv [OPTIONS] DEST_DIR
 
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -v, --verbose         Increase verbosity.
+  -q, --quiet           Decrease verbosity.
+  -p PYTHON_EXE, --python=PYTHON_EXE
+                        The Python interpreter to use, e.g.,
+                        --python=python2.5 will use the python2.5 interpreter
+                        to create the new environment.  The default is the
+                        interpreter that virtualenv was installed with
+                        (C:/apps64/msys2/mingw64/bin/python3.exe)
+  --clear               Clear out the non-root install and start from scratch.
+  --no-site-packages    DEPRECATED. Retained only for backward compatibility.
+                        Not having access to global site-packages is now the
+                        default behavior.
+  --system-site-packages
+                        Give the virtual environment access to the global
+                        site-packages.
+  --always-copy         Always copy files rather than symlinking.
+  --unzip-setuptools    Unzip Setuptools when installing it.
+  --relocatable         Make an EXISTING virtualenv environment relocatable.
+                        This fixes up scripts and makes all .pth files
+                        relative.
+  --no-setuptools       Do not install setuptools in the new virtualenv.
+  --no-pip              Do not install pip in the new virtualenv.
+  --no-wheel            Do not install wheel in the new virtualenv.
+  --extra-search-dir=DIR
+                        Directory to look for setuptools/pip distributions in.
+                        This option can be used multiple times.
+  --download            Download preinstalled packages from PyPI.
+  --no-download, --never-download
+                        Do not download preinstalled packages from PyPI.
+  --prompt=PROMPT       Provides an alternative prompt prefix for this
+                        environment.
+  --setuptools          DEPRECATED. Retained only for backward compatibility.
+                        This option has no effect.
+  --distribute          DEPRECATED. Retained only for backward compatibility.
+                        This option has no effect.
+
+
+https://www.onwebsecurity.com/category/msys
