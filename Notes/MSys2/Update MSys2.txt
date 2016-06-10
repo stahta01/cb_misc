@@ -1,3 +1,3 @@
+# From https://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 
- pacman -Sy
- pacman -Su
+$  pacman -Syuu
