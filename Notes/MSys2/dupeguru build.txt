@@ -1,0 +1,40 @@
+Basenames of packages needed
+	mingw-w64-python3
+	mingw-w64-pyqt5
+	mingw-w64-python-pip
+
+# Commands to install the 64 bit mingw packages needed
+pacman -S mingw-w64-x86_64-python3
+pacman -S mingw-w64-x86_64-python3-pip
+pacman -S mingw-w64-x86_64-python3-pyqt5		# 4+ GB installation size
+
+
+For Linux (`--system-site-packages` is to be able to import PyQt):
+
+    $ pyvenv --system-site-packages env
+    $ source env/bin/activate
+    $ pip install -r requirements.txt
+
+With your virtualenv activated, you can build and run dupeGuru with these commands:
+
+    $ python build.py
+    $ python run.py
+
+You can also package dupeGuru into an installable package with:
+
+    $ python package.py
+
+### Running tests
+
+The complete test suite is ran with [Tox 1.7+][tox]. If you have it installed system-wide, you
+don't even need to set up a virtualenv. Just `cd` into the root project folder and run `tox`.
+
+If you don't have Tox system-wide, install it in your virtualenv with `pip install tox` and then
+run `tox`.
+
+You can also run automated tests without Tox. Extra requirements for running tests are in
+`requirements-extra.txt`. So, you can do `pip install -r requirements-extra.txt` inside your
+virtualenv and then `py.test core hscommon`
+
+
+https://github.com/stahta01/dupeguru.git
