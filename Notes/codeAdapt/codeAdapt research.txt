@@ -16,6 +16,7 @@ FLOSS Multi-Language IDEs or Editors
     wx      C++,Lua http://wxlua.sourceforge.net        https://sourceforge.net/p/wxlua/svn/HEAD/tree/trunk/wxLua/
     GPL2    C++     https://notepad-plus-plus.org/      https://github.com/notepad-plus-plus/notepad-plus-plus
     GPL2    C/C++   http://www.geany.org/               https://github.com/geany
+    GPL3    C++     http://www.emblocks.org				http://www.emblocks.org/web/licensing-main
     GPL2    C++     http://www.emeraldeditor.com/       http://svn.emeraldeditor.com/viewvc.cgi/EmeraldEditor/
     GPL3    C++                                         https://github.com/yetanothergeek/fxite
     wx,MIT  C++,Lua sf.net/projects/estrelaeditor/      git://git.code.sf.net/p/estrelaeditor/code estrelaeditor-code
