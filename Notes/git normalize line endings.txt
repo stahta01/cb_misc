@@ -27,8 +27,8 @@ $ git commit -m "Introduce end-of-line normalization"
 $ git add .gitattributes
 $ git commit -m "+ git: Added Git Attributes file."
 
-# I set core.safecrlf to true at this time.
-git config --local core.safecrlf true
+# I set core.safecrlf to warn at this time.
+git config --local core.safecrlf warn
 
 # I also set global back to what I want them to be.
 git config --global core.eol      lf
