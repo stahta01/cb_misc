@@ -15,12 +15,14 @@ pacman -R mingw-w64-x86_64-python3
 rm -fr c:/apps64/msys2/mingw64/lib/python3.5
 
 
-Basenames of packages needed that I trying to add
+Basenames of packages needed that I am trying to add
 	mingw-w64-x86_64-qt5
 
 # Commands to install the 64 bit mingw qt5 packages
 	pacman -S mingw-w64-x86_64-qt5
 
+
+OLD STEPS BELOW; Likely needs rewritten!!
 
 
 
