@@ -4,7 +4,7 @@ Add CA_BASE, CA_BIN, CA_LIB, and CA_OBJ to all projects.
 1.  CA_OBJ
 2.  CA_BASE     Path to folder that contains "sdk" folder       
 3.  CA_WXSC     Path to folder that contains "wxscintilla" folder   default: $(CA_BASE)/sdk
-4.  CA_INC      Path to folder that contains "include" folder       default: $(CA_BASE)
+4.  CA_INCL     Path to folder that contains "include" folder       default: $(CA_BASE)
 5.  CA_LIB
 6.  CA_BIN
 
