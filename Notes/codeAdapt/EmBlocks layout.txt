@@ -1,0 +1,21 @@
+EmBlocks layout.txt
+
+Added
+    src\sdk\include\scripting\sqrat
+
+Missing
+    src/build_tools
+    src\i18n
+    src\scripts
+    src\base\exchndl
+    src\sdk\wxscintilla to  src\wxscintilla
+    src\sdk\wxpropgrid  to  src\wxpropgrid
+
+Moved
+    src\base\tinyxml    to  src\sdk\tinyxml
+    src/include         to  src/sdk/include
+
+???
+    src\mime
+    src\wxsmith
+    src\tools
