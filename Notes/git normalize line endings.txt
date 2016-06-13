@@ -22,7 +22,7 @@ $ rm .git/index     # Remove the index to force git to
 $ git reset         # re-scan the working directory
 $ git status        # Show files that will be normalized
 $ git add -u
-$ git commit -m "Introduce end-of-line normalization"
+$ git commit -m "* repo: Introduce end-of-line normalization"
 
 $ git add .gitattributes
 $ git commit -m "+ git: Added Git Attributes file."
