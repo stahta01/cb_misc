@@ -20,7 +20,7 @@ git config --local core.safecrlf false  ## Needs to be false
 After creating ".gitattributes" with the settings you want.
 $ rm .git/index     # Remove the index to force git to
 $ git reset         # re-scan the working directory
-$ git status        # Show files that will be normalized
+$ git status -uno   # Show files that will be normalized
 $ git add -u
 $ git commit -m "* repo: Introduce end-of-line normalization"
 
