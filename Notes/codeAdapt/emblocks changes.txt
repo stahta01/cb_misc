@@ -1,6 +1,11 @@
 emblocks changes.txt
 
+wxmsw$(WX_VERSION)$(WX_SUFFIX)
+
 * build: Changed to "WX_VERSION=28" in CB Projects.
+
+And, changed to "wxmsw$(WX_VERSION)$(WX_SUFFIX)".
+Also, deleted unneeded search paths.
 
 https://wiki.wxwidgets.org/Converting_everything_to_and_from_wxString
 http://wiki.codeblocks.org/index.php/Coding_style
