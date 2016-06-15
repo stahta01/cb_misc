@@ -8,8 +8,8 @@ Missing
     src\i18n
     src\scripts
     src\base\exchndl
-    src\sdk\wxscintilla to  src\wxscintilla
-    src\sdk\wxpropgrid  to  src\wxpropgrid
+    src/sdk/wxscintilla to  src/wxscintilla
+    src/sdk/wxpropgrid  to  src/wxpropgrid
 
 Moved
     src\base\tinyxml    to  src\sdk\tinyxml

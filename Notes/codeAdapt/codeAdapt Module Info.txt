@@ -1,0 +1,37 @@
+Module Name         Path                                    Lic.
+CA SDK              src/sdk and src/include                 LGPL2
+CA App              src/src                                 GPL2
+CA Installer        src/setup                               ?GPL2?
+CA Tools            src/tools                               GPL2
+CA astyle           src/plugins/astyle                      GPL2
+CA autosave         src/plugins/autosave                    GPL2
+CA classwizard      src/plugins/classwizard                 ??
+CA compiler         src/plugins/compilergcc                 GPL2
+CA mimehandler      src/plugins/defaultmimehandler          GPL2
+CA loghacker        src/plugins/loghacker                   GPL2
+CA modpoller        src/plugins/modpoller                   GPL2
+CA openfileslist    src/plugins/openfileslist               GPL2
+CA projectsimporter src/plugins/projectsimporter            GPL2
+CA scriptedwizard   src/plugins/scriptedwizard              GPL3
+CA todo             src/plugins/todo                        GPL2
+CA xpmanifest       src/plugins/xpmanifest                  ??
+CA ToolsPlus        src/plugins/contrib/ToolsPlus           GPL3
+CA AutoVersioning   src/plugins/contrib/AutoVersioning      ??
+CA source_exporter  src/plugins/contrib/source_exporter     GPL3
+CA games            src/plugins/contrib/byogames            GPL2
+CA koders           src/plugins/contrib/cb_koders           ??
+CA codestat         src/plugins/contrib/codestat            ??
+CA copystrings      src/plugins/contrib/copystrings         ??
+CA devpak_plugin    src/plugins/contrib/devpak_plugin       GPL2
+CA envvars          src/plugins/contrib/envvars             GPL2
+CA help_plugin      src/plugins/contrib/help_plugin         ??
+CA lib_finder       src/plugins/contrib/lib_finder          GPL2
+CA profiler         src/plugins/contrib/profiler            ??
+CA regex_testbed    src/plugins/contrib/regex_testbed       ??
+CA symtab           src/plugins/contrib/symtab              ??
+CA ThreadSearch     src/plugins/contrib/ThreadSearch        ??
+CA HeaderFixup      src/plugins/contrib/headerfixup         GPL3
+
+http://wiki.codeblocks.org/index.php/Lib_finder_Timeline
+http://wiki.codeblocks.org/index.php/Code::Blocks_Plugins#Contrib_Plugins
+Tool for automatically searching for installed libraries, and adding them to the project.

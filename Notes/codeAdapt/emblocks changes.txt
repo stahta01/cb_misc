@@ -1,0 +1,137 @@
+emblocks changes.txt
+
+* build: Changed to "WX_VERSION=28" in CB Projects.
+
+https://wiki.wxwidgets.org/Converting_everything_to_and_from_wxString
+http://wiki.codeblocks.org/index.php/Coding_style
+https://www.wxwidgets.org/develop/coding-guidelines/
+http://codelite.org/Developers/CodingGuidelines
+
+Removed file compilercommandgenerator.cpp
+
+Moved autorevision.h and autorevision.h.in to src/sdk/include/revision
+
+Em::Blocks appears to be using wxWidgets 3.0; check with app and see if true
+(Or it is using an wxAUI 2.8 library)
+
+wxWidgets changes
+    Added events
+        // These two events are special EmBlocks events in wxWidigts
+        EVT_AUINOTEBOOK_TABCTRL_ADD( -1 , cbAuiNotebook::OnNewTabControl)
+        EVT_AUINOTEBOOK_TABCTRL_DELETE(-1, cbAuiNotebook::OnDeleteTabControl)
+    Added methods
+        wxMenu::Append(const int&, const wxBitmap&, const wxChar*)
+        wxBitmap::BlendColor
+        wxFontDialog::ShowModal
+        wxBitmap::wxSetDefaultCheckedMenuBitmap
+
+SDK changes
+    Added methods
+
+Highly edited files
+    sdk/compiler.cpp
+    sdk/cbeditor.cpp
+    sdk/projectmanager.cpp
+    sdk/cbproject.cpp
+    sdk/editormanager.cpp
+
+Files reformatting
+xrc changed to tabs
+Removed trailing spaces in source files.
+
+
+*.xpm
+
+*fbp
+*.bkl
+*.bkgen
+*.dsp
+*.1
+*.3
+*.4
+*.afm
+*.ufm
+*.map
+*.inc
+*.sample    linefeeds changed
+*.wxs       linefeeds changed
+CHANGES     linefeeds changed
+LICENSE     linefeeds changed
+README      linefeeds changed
+VERSION
+INSTALL
+TODO
+Doxyfile
+license.*
+COPYING.*
+configure.ac
+
+minor code changes
+    nullptr => _nullptr
+    class branding renames
+
+major code changes
+    wxToolBar => wxAuiToolBar
+    GetBitmapBaseName() => GetBitmap()
+
+added AS_BAR_IFDEF
+added ftAssembler
+added Manager::Get()->RemoveAllEventSinksFor(this);
+
+I need to remove or do something else about these
+    $Revision$
+    $Id$
+    $HeadURL$
+
+
+git rebase -i 8270a67bc1409a8fa25ab8212c1ce33f9570ef5a
+
+Core Plugins
+    abbreviations
+    astyle
+    autosave
+    classwizard
+    codecompletion
+    defaultmimehandler
+    openfileslist
+    tidycmt
+    todo
+
+Contrib. Plugins
+    AutoVersioning
+    BrowseTracker
+    CppCheck
+    Cscope
+    DoxyBlocks
+    EditorTweaks
+    FileDiff
+    FileManager
+    HexEditor
+    IncrementalSearch
+    MouseSap
+    NassiShneiderman
+    Navigation
+    ReopenEditor
+    SpellChecker
+    ThreadSearch
+    ToolsPlus
+    Valgrind
+    byogames
+    cb_koders
+    codesnippets
+    codestat
+    copystrings
+    devpak_plugin
+    dragscroll
+    envvars
+    headerfixup
+    keybinder
+    lib_finder
+    profiler
+    regex_testbed
+    rndgen
+    source_exporter
+    symtab
+    wxSmith
+    wxSmithAui
+    wxSmithContribItems

@@ -1,0 +1,20 @@
+AutoVersioning                      1.1             GPL2?       Think about replacing
+Autosave                            0.1
+BYO Games                           1.0             GPL2
+Class wizard                        0.3
+Code statistics                     0.5             GPL2        Think about replacing
+Code Snippets                                       GPL2?
+Compiler                            0.99            GPL2?       Think about replacing
+Dev-C++ DevPak updater/installer    0.1
+Environment variables               0.97            GPL3?       Think about replacing
+Files extension handler             1.0
+Foreign projects importer           1.0             GPL2        Think about replacing
+Header Fixup                        0.80            GPL3
+Library finder                      2.0
+Open files list                     1.0
+Scripted wizard                     0.9             GPL3        Think about replacing
+Source Exporter                     1.0
+Source code formatter (AStyle)      1.2             GPL2?       Think about replacing
+To-Do List                          0.2
+ToolsPlus                           0.6.0           GPL3?
+Windows XP Look'n'Feel              1.0
