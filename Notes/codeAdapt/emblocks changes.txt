@@ -11,7 +11,7 @@ EB_OBJ="../../../.objs28"
 
 -iquote$(EB_OBJ)/sdk/include
 
-$(EB_OBJ)\plugins\contrib
+$(EB_OBJ)\plugins\contrib\???
 
 -include "sdk.h"
 
