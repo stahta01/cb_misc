@@ -1,10 +1,31 @@
 emblocks changes.txt
 
+My EB Changes
+    Add EB_OBJ to each project
+
 wxmsw$(WX_VERSION)$(WX_SUFFIX)
 
 * build: Changed to "WX_VERSION=28" in CB Projects.
 
+EB_OBJ="../../../.objs28"
+
+-iquote$(EB_OBJ)/sdk/include
+
+$(EB_OBJ)\plugins\contrib
+
+-include "sdk.h"
+
+* build: Added $(EB_OBJ) to projects.
+
+And, sometimes added [-include "sdk.h"] to project.
+Also, added or removed defines to make PCH work.
+
+
+WXMAKINGDLL_PROPGRID
+
 And, changed to "wxmsw$(WX_VERSION)$(WX_SUFFIX)".
+If needed, added "../../../wxpropgrid/include" search path.
+If needed, added "-fpermissive".
 Also, deleted unneeded search paths.
 
 https://wiki.wxwidgets.org/Converting_everything_to_and_from_wxString
