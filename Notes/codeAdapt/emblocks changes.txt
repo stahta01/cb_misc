@@ -7,11 +7,14 @@ wxmsw$(WX_VERSION)$(WX_SUFFIX)
 
 * build: Changed to "WX_VERSION=28" in CB Projects.
 
-EB_OBJ="../../../.objs28"
-
--iquote$(EB_OBJ)/sdk/include
 
 $(EB_OBJ)\plugins\contrib\???
+
+EB_OBJ="../../../.objs28"
+
+-Winvalid-pch
+
+-iquote$(EB_OBJ)/sdk/include
 
 -include "sdk.h"
 
