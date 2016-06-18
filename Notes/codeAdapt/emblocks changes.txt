@@ -1,5 +1,7 @@
 emblocks changes.txt
 
+Changed to using STANDARD_DATA_PATH
+
 My EB Changes
     Add EB_OBJ to each project
 
