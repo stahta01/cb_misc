@@ -1,0 +1,27 @@
+CodeBlocks_Arduino_noSim_setup.txt
+
+$  ls ~
+
+
+$  cd ~/.codeblocks
+
+$  ln -s ~/sketchbook sketches
+
+$  pwd  # /home/stahta01/.codeblocks
+
+$  su
+$  ln -s /usr/share/arduino /home/stahta01/.codeblocks/arduino
+$  exit  # su mode
+
+
+ls ~/.local/share/codeblocks/templates/wizard/arduino
+
+cp -p --recursive ~/devel/open_source_code/version_control/cb_arduino_template-git/ ~/.local/share/codeblocks/templates/wizard/arduino/
+
+
+ls  /usr/share/codeblocks/templates/wizard/arduino/
+
+
+$  ls 
+default.conf  en_US_personaldictionary.dic  share  sketches
+
