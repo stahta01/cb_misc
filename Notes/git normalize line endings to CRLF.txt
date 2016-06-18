@@ -1,0 +1,36 @@
+# Setting needed to git normalize line endings.txt
+# Use the core.eol you want to end up with.
+# And, the value of core.autocrlf to either true or false.
+# The value of core.safecrlf must be false at this time.
+#
+# Need to record the old values in case you want to change them back
+git config --global core.eol            # lf
+git config --global core.autocrlf       # false
+git config --global core.safecrlf       # true
+
+git config --global core.eol      crlf  ## Set to the auto line ending you want.
+git config --global core.autocrlf true  ## if core.eol=crlf, use true else false
+git config --global core.safecrlf false ## Needs to be false
+
+git config --local core.eol      crlf   ## Set to the auto line ending you want.
+git config --local core.autocrlf true   ## if core.eol=crlf, use true else false
+git config --local core.safecrlf false  ## Needs to be false
+
+### How to normalize ###
+After creating ".gitattributes" with the settings you want.
+$ rm .git/index     # Remove the index to force git to
+$ git reset         # re-scan the working directory
+$ git status -uno   # Show files that will be normalized
+$ git add -u
+$ git commit -m "* repo: Introduce end-of-line normalization"
+
+$ git add .gitattributes
+$ git commit -m "+ git: Added Git Attributes file."
+
+# I set core.safecrlf to warn at this time.
+git config --local core.safecrlf warn
+
+# I also set global back to what I want them to be.
+git config --global core.eol      lf
+git config --global core.autocrlf false
+git config --global core.safecrlf true
