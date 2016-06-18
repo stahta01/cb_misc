@@ -1,0 +1,18 @@
+# Common Code::Blocks files
+*.depend
+*.layout
+
+# This CB Project folders
+/.objs28/
+
+# This project source code folders I wish to not add to repo
+/plugins/contrib/source_exporter/wxPdfDocument/samples/
+
+# This CB Project files
+/build_tools/autorevision/autorevision.exe
+/build28/*.exe
+/build28/*.dll
+/build28/share/emblocks/*.zip
+/build28/share/emblocks/plugins/*.dll
+/lib/*.a
+/lib28/*.a
