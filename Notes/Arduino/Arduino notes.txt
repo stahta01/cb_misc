@@ -37,8 +37,8 @@ Based on steps from https://bquery.com/blog/post/running_arduino_ide_152_on_debi
 1) apt-get install ant
 2) clone or download https://github.com/arduino/Arduino/tree/ide-1.5.x
    a. git clone https://github.com/arduino/Arduino.git arduino_ide-git
-   b. git checkout ide-1.5.x
-   c. cd arduino_ide-git
+   b. cd arduino_ide-git
+   c. git checkout ide-1.5.x
 3) extract archive, cd ide-1.5.x/build && ant run
    a. cd build
    b. ant run
