@@ -32,9 +32,29 @@ cd ~/.codeblocks
 
 ln -s ~/sketchbook sketches
 
+## If self built arduino IDE
+cd ~/.codeblocks
+ln -s ~/devel/open_source_code/version_control/arduino_ide-git/build/linux/work ~/.codeblocks/arduino
+
 pwd  # /home/stahta01/.codeblocks
 
+## If used Debian Installer for arduino IDE
 su
 ln -s /usr/share/arduino /home/stahta01/.codeblocks/arduino
 exit  # su mode
+
+/home/stahta01/devel/open_source_code/version_control/arduino_ide-git/build/linux/work
+
+
+
+hardware/arduino/avr/cores/arduino
+
+$(ARDUINO_DIR)/hardware/arduino/avr/cores/arduino
+$(ARDUINO_DIR)/libraries
+$(ARDUINO_DIR)/hardware/arduino/avr/variants/standard
+$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/
+
+hardware/arduino/avr/variants/standard/pins_arduino.h 
+hardware/arduino/avr/libraries/HID/HID.cpp
+
 
