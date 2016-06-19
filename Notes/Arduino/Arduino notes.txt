@@ -5,11 +5,27 @@ $(ARDUINO_DIR)/hardware/arduino/cores/arduino
 
 ARDUINO_DIR=/usr/share/arduino
 
+https://arduinocode.codeplex.com/
+
 http://forum.arduino.cc/index.php?topic=150161.0
 
 https://packages.debian.org/search?searchon=names&keywords=arduino
 
 https://github.com/stahta01/cb_arduino_template
+
+https://launchpad.net/debian/+source/arduino/2:1.5.6.2+sdfsg2-3
+
+https://launchpad.net/debian/+source/arduino
+
+
+http://github.com/arduino/Arduino/tree/1.5.6-r2
+
+http://github.com/arduino/Arduino/tree/1.6.7
+
+arduino-1.6.7-linux64.tar.xz
+
+
+https://launchpad.net/arduino
 
 
 git clone https://github.com/stahta01/cb_arduino_template.git cb_arduino_template-git
@@ -28,3 +44,13 @@ Based on steps from https://bquery.com/blog/post/running_arduino_ide_152_on_debi
    b. ant run
 
 5) adduser <yourusername> dialout #add your user to dialout group in order to access serial ports without running the IDE as root
+
+
+Debian_Arduino_IDE
+
+cd ~/devel/open_source_code/debian_packages/arduino
+git clone https://github.com/stahta01/Debian_Arduino_IDE.git Debian_Arduino_IDE-git
+
+cd Debian_Arduino_IDE-git
+
+git remote add upstream	git://anonscm.debian.org/collab-maint/arduino.git
