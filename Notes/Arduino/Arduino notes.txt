@@ -1,0 +1,10 @@
+ARDUINO_DIR=$(HOME)/.codeblocks/arduino
+
+$(ARDUINO_DIR)/hardware/arduino/cores/arduino
+
+
+ARDUINO_DIR=/usr/share/arduino
+
+http://forum.arduino.cc/index.php?topic=150161.0
+
+https://bquery.com/blog/post/running_arduino_ide_152_on_debian_squeeze/

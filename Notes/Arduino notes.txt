@@ -1,7 +1,0 @@
-ARDUINO_DIR=$(HOME)/.codeblocks/arduino
-
-$(ARDUINO_DIR)/hardware/arduino/cores/arduino
-
-
-ARDUINO_DIR=/usr/share/arduino
-
