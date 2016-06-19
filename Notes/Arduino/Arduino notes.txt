@@ -7,4 +7,24 @@ ARDUINO_DIR=/usr/share/arduino
 
 http://forum.arduino.cc/index.php?topic=150161.0
 
-https://bquery.com/blog/post/running_arduino_ide_152_on_debian_squeeze/
+https://packages.debian.org/search?searchon=names&keywords=arduino
+
+https://github.com/stahta01/cb_arduino_template
+
+
+git clone https://github.com/stahta01/cb_arduino_template.git cb_arduino_template-git
+
+
+Running Arduino IDE 1.5.X on Debian stretch
+Based on steps from https://bquery.com/blog/post/running_arduino_ide_152_on_debian_squeeze/
+
+1) apt-get install ant
+2) clone or download https://github.com/arduino/Arduino/tree/ide-1.5.x
+   a. git clone https://github.com/arduino/Arduino.git arduino_ide-git
+   b. git checkout ide-1.5.x
+   c. cd arduino_ide-git
+3) extract archive, cd ide-1.5.x/build && ant run
+   a. cd build
+   b. ant run
+
+5) adduser <yourusername> dialout #add your user to dialout group in order to access serial ports without running the IDE as root
