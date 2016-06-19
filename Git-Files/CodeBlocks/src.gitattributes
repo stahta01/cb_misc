@@ -1,0 +1,70 @@
+# Windows-specific files that require CRLF:
+#
+*.bat       eol=crlf
+*.bcc       eol=crlf
+*.dsw       eol=crlf
+*.gcc       eol=crlf
+*.props     eol=crlf
+*.rc        eol=crlf
+*.sln       eol=crlf
+*.vc        eol=crlf
+*.vcproj    eol=crlf
+*.vcxproj   eol=crlf
+
+# Unix-specific files that require LF:
+#
+*.h.in       eol=lf
+*.m4         eol=lf
+*.sh         eol=lf
+configure.in eol=lf
+Makefile.am  text whitespace=-tab-in-indent,trailing-space eol=lf
+Makefile.in  eol=lf
+makefile.unx eol=lf
+#
+config.guess eol=lf
+config.sub   eol=lf
+configure    eol=lf
+configure.in eol=lf
+#
+.gitattributes  text eol=lf
+*.cbp           text eol=lf
+*.workspace     text eol=lf
+
+
+# Declare files you want to always be converted
+# to native line endings on checkout.
+*.c         text=auto whitespace=tab-in-indent,trailing-space,tabwidth=4
+*.cpp       text=auto whitespace=tab-in-indent,trailing-space,tabwidth=4
+*.cxx       text=auto
+*.fbp       text=auto
+*.h         text=auto whitespace=tab-in-indent,trailing-space,tabwidth=4
+*.hxx       text=auto
+*.xpm       text=auto
+*.css       text=auto
+*.html      text=auto
+*.xml       text=auto
+*.xrc       text=auto
+*.txt       text=auto
+*.md        text=auto
+
+# Denote all files that are truly binary and should not be modified.
+*.BMP binary
+*.bmp binary
+*.ctg binary
+*.dll binary
+*.doc binary
+*.gif binary
+*.icns binary
+*.ico binary
+*.jpg binary
+*.mo binary
+*.mp4 binary
+*.otf binary
+*.pdf binary
+*.pfb binary
+*.png binary
+*.ttf binary
+*.wdr binary
+*.wmf binary
+*.xcf binary
+*.z binary
