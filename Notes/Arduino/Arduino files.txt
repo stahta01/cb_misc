@@ -1,23 +1,24 @@
 Arduino files.txt
 
-malloc.c				Might be needed in Windows under Arduino 1.0
-realloc.c				Might be needed in Windows under Arduino 1.0
-WInterrupts.c			OK
-wiring.c				Needed in Windows under Arduino 1.0
-wiring_analog.c			OK
-wiring_digital.c		Needed in Windows under Arduino 1.0
-wiring_pulse.c			OK
-wiring_shift.c			OK
-CDC.cpp					OK
-HardwareSerial.cpp		OK
-HID.cpp					OK
-IPAddress.cpp			OK
-main.cpp				Needed in Windows under Arduino 1.0
-new.cpp					OK
-Print.cpp				OK
-Stream.cpp				OK
-Tone.cpp				OK
-USBCore.cpp				OK
-WMath.cpp				OK
-WString.cpp				Causes link error in Windows under Arduino 1.0 (multiple definition of `__lesf2') Looks like an Compiler bug.
+malloc.c                Might be needed in Windows under Arduino 1.0
+realloc.c               Might be needed in Windows under Arduino 1.0
+WInterrupts.c           OK
+wiring.c                Needed in Windows under Arduino 1.0
+wiring_analog.c         OK
+wiring_digital.c        Needed in Windows under Arduino 1.0
+wiring_pulse.c          OK
+wiring_shift.c          OK
+CDC.cpp                 OK
+HardwareSerial.cpp      OK
+HID.cpp                 OK
+IPAddress.cpp           OK
+main.cpp                Needed in Windows under Arduino 1.0
+new.cpp                 OK
+Print.cpp               OK
+Stream.cpp              OK
+Tone.cpp                OK
+USBCore.cpp             OK
+WMath.cpp               OK
+WString.cpp             Causes link error in Windows under Arduino 1.0 (multiple definition of `__lesf2') Looks like an Compiler bug.
+                        Fix is to change project option "-lm" into "-lc -lm -lc"
 hooks.c                 Needed for Arduino 1.6
