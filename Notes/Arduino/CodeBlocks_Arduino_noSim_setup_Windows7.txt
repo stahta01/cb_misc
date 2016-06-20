@@ -6,8 +6,13 @@ CodeBlocks_Arduino_noSim_setup.txt
 
 ## Open "Git for Windows" where you wish to create an Git Repo.
 
+#  Find Code::Blocks
+ls "C:/Program Files/CodeBlocks"
+ls "C:/Program Files (x86)/CodeBlocks"
+
 #  See if arduino wizard exists already.
 ls "C:/Program Files/CodeBlocks/share/CodeBlocks/templates/wizard/arduino"
+ls "C:/Program Files (x86)/CodeBlocks/share/CodeBlocks/templates/wizard/arduino"
 
 git clone https://github.com/stahta01/cb_arduino_template.git cb_arduino_template-git
 cd cb_arduino_template-git && git checkout version-1.6
@@ -16,18 +21,23 @@ pwd -W    # C:/Devel/open_source_code/version_control/cb_arduino_template-git
 ## Open an CMD.exe propmt with Admin Rights
 
 mkdir       C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino
+mkdir       C:\Program Files (x86)\CodeBlocks\share\CodeBlocks\templates\wizard\arduino
+
+SET CODEBLOCKS_WIZARDS=C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard
+SET CODEBLOCKS_WIZARDS=C:\Program Files (x86)\CodeBlocks\share\CodeBlocks\templates\wizard
+ECHO %CODEBLOCKS_WIZARDS%
 
 cd /d C:/Devel/open_source_code/version_control/cb_arduino_template-git
-xcopy wizard.*  "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino\"
-xcopy /Y *.png  "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino\"
-xcopy /Y *.md   "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino\"
-xcopy /S files  "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino\files\"
+xcopy wizard.*  "%CODEBLOCKS_WIZARDS%\arduino\"
+xcopy /Y *.png  "%CODEBLOCKS_WIZARDS%\arduino\"
+xcopy /Y *.md   "%CODEBLOCKS_WIZARDS%\arduino\"
+xcopy /S files  "%CODEBLOCKS_WIZARDS%\arduino\files\"
 
 
 # Start Code::Blocks IDE
 # Check if the "Arduino Project" Wizard exists.
 
-# If "Arduino Project" wizard missing, add the next line to the startup script.
+# If "Arduino Project" wizard missing, add the next line to the startup script; on the next restart of CB the wizard should be listed.
 RegisterWizard(wizProject,     _T("arduino"),      _T("Arduino Project"),       _T("Embedded Systems"));
 
 
@@ -65,7 +75,7 @@ $(ARDUINO_DIR)/libraries
 $(ARDUINO_DIR)/hardware/arduino/avr/variants/standard
 $(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/
 
-hardware/arduino/avr/variants/standard/pins_arduino.h 
+hardware/arduino/avr/variants/standard/pins_arduino.h
 hardware/arduino/avr/libraries/HID/HID.cpp
 
 
