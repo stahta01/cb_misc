@@ -1,0 +1,49 @@
+
+
+
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -MMD -DUSB_VID=null -DUSB_PID=null -DARDUINO=106 -IC:\Apps32\arduino-1.0.6\hardware\arduino\cores\arduino -IC:\Apps32\arduino-1.0.6\hardware\arduino\variants\standard C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\sketch_jun20a.cpp -o C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\sketch_jun20a.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\malloc.c.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\realloc.c.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\WInterrupts.c.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring.c.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring_analog.c.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring_digital.c.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring_pulse.c.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring_shift.c.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\CDC.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\HardwareSerial.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\HID.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\IPAddress.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\main.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\new.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\Print.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\Stream.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\Tone.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\USBCore.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\WMath.cpp.o
+  Using previously compiled: C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\WString.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\malloc.c.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\realloc.c.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\WInterrupts.c.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring.c.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring_analog.c.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring_digital.c.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring_pulse.c.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\wiring_shift.c.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\CDC.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\HardwareSerial.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\HID.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\IPAddress.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\main.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\new.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\Print.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\Stream.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\Tone.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\USBCore.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\WMath.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-ar rcs C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\WString.cpp.o
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-gcc -Os -Wl,--gc-sections -mmcu=atmega328p -o C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\sketch_jun20a.cpp.elf C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\sketch_jun20a.cpp.o C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\core.a -LC:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp -lm
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\sketch_jun20a.cpp.elf C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\sketch_jun20a.cpp.eep
+C:\Apps32\arduino-1.0.6\hardware\tools\avr\bin\avr-objcopy -O ihex -R .eeprom C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\sketch_jun20a.cpp.elf C:\Users\stahta01\AppData\Local\Temp\build4783220575581795557.tmp\sketch_jun20a.cpp.hex
+Binary sketch size: 2,636 bytes (of a 32,256 byte maximum)
+
