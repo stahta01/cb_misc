@@ -19,8 +19,5 @@ Stream.cpp				OK
 Tone.cpp				OK
 USBCore.cpp				OK
 WMath.cpp				OK
-WString.cpp				Causes link error in Windows under Arduino 1.0 (multiple definition of `__lesf2')
-hooks.c                 Needed for Linux Arduino 1.6
-
-
-$(ARDUINO_DIR)\hardware\arduino\cores\arduino\avr-libc
+WString.cpp				Causes link error in Windows under Arduino 1.0 (multiple definition of `__lesf2') Looks like an Compiler bug.
+hooks.c                 Needed for Arduino 1.6
