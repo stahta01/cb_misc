@@ -1,0 +1,71 @@
+CodeBlocks_Arduino_noSim_setup.txt
+
+
+## Code::Blocks IDE should already be installed.
+## But, the Code::Blocks IDE should NOT be running!
+
+## Open "Git for Windows" where you wish to create an Git Repo.
+
+#  See if arduino wizard exists already.
+ls "C:/Program Files/CodeBlocks/share/CodeBlocks/templates/wizard/arduino"
+
+git clone https://github.com/stahta01/cb_arduino_template.git cb_arduino_template-git
+cd cb_arduino_template-git && git checkout version-1.6
+pwd -W    # C:/Devel/open_source_code/version_control/cb_arduino_template-git
+
+## Open an CMD.exe propmt with Admin Rights
+
+mkdir       C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino
+
+cd /d C:/Devel/open_source_code/version_control/cb_arduino_template-git
+xcopy wizard.*  "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino\"
+xcopy /Y *.png  "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino\"
+xcopy /Y *.md   "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino\"
+xcopy /S files  "C:\Program Files\CodeBlocks\share\CodeBlocks\templates\wizard\arduino\files\"
+
+
+# Start Code::Blocks IDE
+# Check if the "Arduino Project" Wizard exists.
+
+# If "Arduino Project" wizard missing, add the next line to the startup script.
+RegisterWizard(wizProject,     _T("arduino"),      _T("Arduino Project"),       _T("Embedded Systems"));
+
+
+## Run "Arduino Project" Wizard; I used "Arduino Uno" option to test.
+
+# First error I get when building "Arduino Uno" Project.
+fatal error: CDC.cpp: No such file or directory
+
+
+mkdir -p ~/.codeblocks
+
+cd ~/.codeblocks
+
+ln -s ~/sketchbook sketches
+
+## If self built arduino IDE
+cd ~/.codeblocks
+ln -s ~/devel/open_source_code/version_control/arduino_ide-git/build/linux/work ~/.codeblocks/arduino
+
+pwd  # /home/stahta01/.codeblocks
+
+## If used Debian Installer for arduino IDE
+su
+ln -s /usr/share/arduino /home/stahta01/.codeblocks/arduino
+exit  # su mode
+
+/home/stahta01/devel/open_source_code/version_control/arduino_ide-git/build/linux/work
+
+
+
+hardware/arduino/avr/cores/arduino
+
+$(ARDUINO_DIR)/hardware/arduino/avr/cores/arduino
+$(ARDUINO_DIR)/libraries
+$(ARDUINO_DIR)/hardware/arduino/avr/variants/standard
+$(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/
+
+hardware/arduino/avr/variants/standard/pins_arduino.h 
+hardware/arduino/avr/libraries/HID/HID.cpp
+
+
