@@ -1,6 +1,8 @@
 avr-gcc --version
 avr-gcc (WinAVR 20081205) 4.3.2
 
+touch empty.c
+
 avr-gcc -x c -E -dM -mmcu=atmega328p empty.c
 #define __DBL_MIN_EXP__ (-125)
 #define __FLT_MIN__ 1.17549435e-38F
