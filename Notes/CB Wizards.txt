@@ -1,29 +1,29 @@
 Embedded System Wizards
     arduino         "Arduino Project"
-    arm             "ARM Project"
-    avr             "AVR Project"
+    arm             "ARM Project"               mingw-w64-arm-none-eabi-gcc
+    avr             "AVR Project"               mingw-w64-avrdude
     msp430          "MSP430 Project"
     tricore         "TriCore Project"
     ppc             "PowerPC Project"
     mcs51           "MCS51 Project"
 
 GUI Wizards
-    fltk            "FLTK project"
-    gtk             "GTK+ project"
-    qt4             "QT4 project"
+    fltk            "FLTK project"              mingw-w64-fltk
+    gtk             "GTK+ project"              mingw-w64-gtk2/3
+    qt4             "QT4 project"               mingw-w64-qt4/5
     qt4dll          "QT4 (shared) project"
     qt5             "QT5 project"
-    wxwidgets       "wxWidgets project"
+    wxwidgets       "wxWidgets project"         mingw-w64-wxwidgets
     win32gui        "Win32 GUI project"
     smartwin        "SmartWin project"
 
 2D/3D Graphics Wizards
-    glfw            "GLFW project"
-    glut            "GLUT project"
-    irrlicht        "Irrlicht project"
+    glfw            "GLFW project"              mingw-w64-glfw
+    glut            "GLUT project"              mingw-w64-freeglut
+    irrlicht        "Irrlicht project"          mingw-w64-irrlicht
     lf              "Lightfeather project"
     opengl          "OpenGL project"
-    ogre            "Ogre project"
-    sdl             "SDL project"
-    sdl2            "SDL2 project"
-    sfml            "SFML project"
+    ogre            "Ogre project"              mingw-w64-ogre
+    sdl             "SDL project"               mingw-w64-SDL
+    sdl2            "SDL2 project"              mingw-w64-SDL2
+    sfml            "SFML project"              mingw-w64-sfml
