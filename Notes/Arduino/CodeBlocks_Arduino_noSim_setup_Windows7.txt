@@ -28,18 +28,22 @@ SET CODEBLOCKS_WIZARDS=C:\Program Files (x86)\CodeBlocks\share\CodeBlocks\templa
 ECHO %CODEBLOCKS_WIZARDS%
 
 cd /d C:/Devel/open_source_code/version_control/cb_arduino_template-git
-xcopy wizard.*  "%CODEBLOCKS_WIZARDS%\arduino\"
-xcopy /Y *.png  "%CODEBLOCKS_WIZARDS%\arduino\"
-xcopy /Y *.md   "%CODEBLOCKS_WIZARDS%\arduino\"
-xcopy /S files  "%CODEBLOCKS_WIZARDS%\arduino\files\"
 
+xcopy /Y wizard.script  "%CODEBLOCKS_WIZARDS%\arduino\"
+xcopy /Y wizard.xrc     "%CODEBLOCKS_WIZARDS%\arduino\"
+xcopy /Y *.png          "%CODEBLOCKS_WIZARDS%\arduino\"
+xcopy /Y *.md           "%CODEBLOCKS_WIZARDS%\arduino\"
+xcopy /Y /S files       "%CODEBLOCKS_WIZARDS%\arduino\files\"
 
 # Start Code::Blocks IDE
 # Check if the "Arduino Project" Wizard exists.
 
-# If "Arduino Project" wizard missing, add the next line to the startup script; on the next restart of CB the wizard should be listed.
+# config.script is in %CODEBLOCKS_WIZARDS% folder.
+# If "Arduino Project" wizard missing, add the next line to the config.script ; on the next restart of CB the wizard should be listed.
 RegisterWizard(wizProject,     _T("arduino"),      _T("Arduino Project"),       _T("Embedded Systems"));
 
+ECHO %CODEBLOCKS_WIZARDS%
+xcopy config.script  "%CODEBLOCKS_WIZARDS%\"
 
 ## Run "Arduino Project" Wizard; I used "Arduino Uno" option to test.
 
@@ -78,4 +82,6 @@ $(ARDUINO_DIR)/hardware/arduino/avr/libraries/HID/
 hardware/arduino/avr/variants/standard/pins_arduino.h
 hardware/arduino/avr/libraries/HID/HID.cpp
 
+C:\Users\stahta01\AppData\Roaming\CodeBlocks\share\codeblocks\templates\wizard\
 
+arduino
