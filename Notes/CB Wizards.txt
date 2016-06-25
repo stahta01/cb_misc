@@ -1,0 +1,29 @@
+Embedded System Wizards
+    arduino         "Arduino Project"
+    arm             "ARM Project"
+    avr             "AVR Project"
+    msp430          "MSP430 Project"
+    tricore         "TriCore Project"
+    ppc             "PowerPC Project"
+    mcs51           "MCS51 Project"
+
+GUI Wizards
+    fltk            "FLTK project"
+    gtk             "GTK+ project"
+    qt4             "QT4 project"
+    qt4dll          "QT4 (shared) project"
+    qt5             "QT5 project"
+    wxwidgets       "wxWidgets project"
+    win32gui        "Win32 GUI project"
+    smartwin        "SmartWin project"
+
+2D/3D Graphics Wizards
+    glfw            "GLFW project"
+    glut            "GLUT project"
+    irrlicht        "Irrlicht project"
+    lf              "Lightfeather project"
+    opengl          "OpenGL project"
+    ogre            "Ogre project"
+    sdl             "SDL project"
+    sdl2            "SDL2 project"
+    sfml            "SFML project"
