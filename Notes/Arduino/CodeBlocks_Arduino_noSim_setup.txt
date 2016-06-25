@@ -10,7 +10,9 @@ ls  /usr/share/codeblocks/templates/wizard/arduino/
 #  If not copy form the location it was downloaded.
 cd ~ && pwd     # /home/stahta01
 su              # Enter su mode
-cp -p --recursive /home/stahta01/cb_arduino_template-master/ /usr/share/codeblocks/templates/wizard/arduino/
+#   cp -p --recursive /home/stahta01/cb_arduino_template-master/ /usr/share/codeblocks/templates/wizard/arduino/
+rm -fr /usr/share/codeblocks/templates/wizard/arduino
+cp -p --recursive /home/stahta01/devel/open_source_code/version_control/cb_arduino_template-git/  /usr/share/codeblocks/templates/wizard/arduino/
 exit            # Exit su mode
 
 # Start Code::Blocks IDE
