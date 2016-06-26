@@ -1,0 +1,27 @@
+"Arduino Mega 8" Build Fails
+    Possible fix remove "cores\Tone.cpp" from target "Arduino Mega 8"
+
+Build: Microduino Core+ (644P)
+    fatal error: pins_arduino.h:
+
+Build: Freematics OBD-II Adapter
+    fatal error: pins_arduino.h:
+
+
+1.0.6 Errors
+cc1plus.exe: error: unrecognized command line option "-std=c++11"
+Removed "-std=c++11"
+
+Removed "/avr" from header search paths
+
+Edited file cores\main.cpp
+cores\main.cpp:6:19: error: hooks.c: No such file or directory
+cores\main.cpp:11:19: error: abi.cpp: No such file or directory
+
+cores\wiring_pulse_asm.S:1:26: error: wiring_pulse.S: No such file or directory
+
+Added
++        if (ArduinoVersion == 0 && PLATFORM_MSW == PLATFORM)
++            target.AddLinkerOption(_T("-lc -lm -lc"));
++        else
++            target.AddLinkerOption(_T("-lm"));
