@@ -1,0 +1,10 @@
+* build: Converted some CB projects to wxWidgets multilibs.
+
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_aui
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_xrc
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_html
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_adv
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core
+wxbase$(WX_VERSION)$(WX_SUFFIX)_xml
+wxbase$(WX_VERSION)$(WX_SUFFIX)_net
+wxbase$(WX_VERSION)$(WX_SUFFIX)
