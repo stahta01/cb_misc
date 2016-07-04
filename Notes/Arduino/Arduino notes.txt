@@ -59,3 +59,9 @@ git clone https://github.com/stahta01/Debian_Arduino_IDE.git Debian_Arduino_IDE-
 cd Debian_Arduino_IDE-git
 
 git remote add upstream	git://anonscm.debian.org/collab-maint/arduino.git
+
+# 1.0.6
+-DF_CPU=16000000L -DARDUINO=106
+
+# 1.6.9
+-DF_CPU=16000000L -DARDUINO=10609 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR

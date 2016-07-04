@@ -38,6 +38,8 @@ xcopy /Y /S files       "%CODEBLOCKS_WIZARDS%\arduino\files\"
 # Start Code::Blocks IDE
 # Check if the "Arduino Project" Wizard exists.
 
+notepad.exe %CODEBLOCKS_WIZARDS%\config.script
+
 # config.script is in %CODEBLOCKS_WIZARDS% folder.
 # If "Arduino Project" wizard missing, add the next line to the config.script ; on the next restart of CB the wizard should be listed.
 RegisterWizard(wizProject,     _T("arduino"),      _T("Arduino Project"),       _T("Embedded Systems"));
