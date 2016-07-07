@@ -1,5 +1,6 @@
 * build: Converted some CB projects to wxWidgets multilibs.
 
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_propgrid
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_aui
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_xrc
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_html
