@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="CodeBlocks Test Apps wx2.8.x">
+		<Project filename="plugins/codecompletion/cctest.cbp" />
+		<Project filename="plugins/contrib/wxSmithDemo/wxSmithDemo.cbp" />
+		<Project filename="plugins/contrib/wxSmithContribItems/wxSmithPlot/test/TestPlot.cbp" />
+		<Project filename="plugins/contrib/wxSmithIExplore/test/IETest.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
