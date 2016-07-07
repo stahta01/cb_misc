@@ -7,6 +7,7 @@ cb_msys2/codeblocks_wx30                        codeblocks_msys2-git        code
 custom/build/msys2_clang                                                    build/msys2_clang
 custom/build/msys2_codeblocks                                               build/msys2_codeblocks
 custom/build/nonGUI                                                         build/nonGUI
+custom/build/wxMonoLibs
 custom/build_cbp/cygwin                                                     build_cbp/cygwin
 custom/remove/do_not_edit                                                   remove/do_not_edit
 custom/wxUSE_guard                                                          wxUSE_guard
@@ -31,3 +32,6 @@ origin/remove/AutoDetectCompilers                                           remo
 origin/remove/backslash                                                     remove/backslash
 origin/staging                                                              staging
 origin/win_cbp_save_as                                                      win_cbp_save_as
+origin/build/bugfix
+
+-std=gnu++11
