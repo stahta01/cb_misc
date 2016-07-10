@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="wx30_target_vars">
+		<Project filename="plugins/contrib/DoxyBlocks/DoxyBlocks_wx30.cbp" />
+		<Project filename="plugins/contrib/IncrementalSearch/IncrementalSearch_wx30.cbp" />
+		<Project filename="plugins/contrib/MouseSap/MouseSap_wx30.cbp" />
+		<Project filename="plugins/contrib/NassiShneiderman/NassiShneiderman_wx30.cbp" />
+		<Project filename="plugins/contrib/ReopenEditor/ReopenEditor_wx30.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
