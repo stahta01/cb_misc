@@ -1,8 +1,3 @@
-- build: In some CB projects, Changed "gcc_dll" to "$(WX_COMPILER)_dll".
-
-Also, Added WX_COMPILER="gcc" and WX_TOOLKIT="msw".
-
-
 * build: In some CB projects, added define of "__WXDEBUG__";
 
 And, set WX_SUFFIX="ud".

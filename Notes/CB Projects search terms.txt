@@ -2,6 +2,8 @@ CB Projects search terms.txt
 
 name="WX_CFG"
 name="WX_CFG" value=""
+gcc_dll/
+gcc_dll$(WX_CFG)/
 
 WX_SUFFIX
 WX_VERSION
@@ -9,5 +11,6 @@ WX_VERSION
 WX_CONFIG
 
 wxmsw
+msw28
 
-Spellchecker has WX_ vars at target level needs moved to project level
+- build: Added WX_COMPILER="gcc" and WX_TOOLKIT="msw".
