@@ -1,6 +1,7 @@
 CB Projects search terms.txt
 
 directory="..\
+-std=
 
 name="WX_CFG"
 name="WX_CFG" value=""
