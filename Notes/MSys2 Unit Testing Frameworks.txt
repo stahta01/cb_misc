@@ -1,0 +1,13 @@
+MSys2 Unit Testing Frameworks.txt
+
+check
+cppunit
+python2-nose
+
+http://wiki.codeblocks.org/index.php/UnitTesting
+CB Uses unittest-cpp AKA UnitTest++
+
+Name        License     xUnit   Fixtures    Group fixtures  Generators  Mocks   Exceptions  Macros  Templates   Grouping
+Check       LGPL        Yes     Yes         Yes                                                                 
+CppUnit     LGPL        Yes     Yes         Yes             No          No      Yes         Yes     No          Suites
+UnitTest++  MIT-like    No      Yes         Yes                         No      Yes         Yes     Yes         Suites
