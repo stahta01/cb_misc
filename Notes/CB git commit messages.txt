@@ -1,3 +1,5 @@
 * build: In some CB projects, added define of "__WXDEBUG__";
 
 And, set WX_SUFFIX="ud".
+
+* build: Set WX_CFG="mono". 
