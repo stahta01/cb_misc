@@ -3,3 +3,11 @@
 And, set WX_SUFFIX="ud".
 
 * build: Set WX_CFG="mono". 
+
+- git: Saved Git Changes.
+
+- caApp: PCH fix by moving include to after CB_PRECOMP block.
+
+Or, in some cases added missing headers after CB_PRECOMP block.
+
+-std=gnu++11

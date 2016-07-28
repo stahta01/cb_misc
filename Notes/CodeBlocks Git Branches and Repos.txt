@@ -1,18 +1,35 @@
 ???                                                                         build_cbp/lib_folder_type2
+ca_ide/build/nonGUI
 cb_msys2/                                                                   build_cfg/msys2_and_cygwin
 cb_msys2/PCH_related_changes                    codeblocks_msys2-git        PCH_related_changes
 cb_msys2/codeblocks_msys2                       codeblocks_msys2-git        codeblocks_msys2
 cb_msys2/codeblocks_release                     codeblocks_msys2-git        codeblocks_release
 cb_msys2/codeblocks_wx30                        codeblocks_msys2-git        codeblocks_wx30
+custom/bugfix/project_n_workspace
+custom/bugfix/sdk
+custom/build/master
+custom/build/msys2_clang
 custom/build/msys2_clang                                                    build/msys2_clang
+custom/build/msys2_codeblocks
 custom/build/msys2_codeblocks                                               build/msys2_codeblocks
+custom/build/msys2_gcc
 custom/build/nonGUI                                                         build/nonGUI
+custom/build/staging
 custom/build/wxMonoLibs
+custom/build/wxMultiLibs
+custom/build_cbp/cygwin
 custom/build_cbp/cygwin                                                     build_cbp/cygwin
+custom/cb/master
+custom/remove/AutoDetectCompilers
+custom/remove/backslash
+custom/remove/do_not_edit
 custom/remove/do_not_edit                                                   remove/do_not_edit
+custom/wrap/windows
+custom/wxUSE_guard
 custom/wxUSE_guard                                                          wxUSE_guard
 origin/bugfix/plugins                                                       bugfix/plugins
 origin/bugfix/wxNewId                                                       bugfix/wxNewId
+origin/build/bugfix
 origin/build/clang                                                          build/clang
 origin/build/move_output                                                    build/move_output
 origin/build/msys2_gcc                                                      build/msys2_gcc
@@ -32,6 +49,3 @@ origin/remove/AutoDetectCompilers                                           remo
 origin/remove/backslash                                                     remove/backslash
 origin/staging                                                              staging
 origin/win_cbp_save_as                                                      win_cbp_save_as
-origin/build/bugfix
-
--std=gnu++11
