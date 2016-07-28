@@ -1,0 +1,10 @@
+Optional Windows updates to install on Gils PC.txt
+
+Microsoft releases KB 3161647, KB 3161608 to fix slow Windows 7 update scans
+
+https://support.microsoft.com/en-us/kb/3140245
+
+
+DO NOT Install the following on Gil's PC
+
+https://support.microsoft.com/en-us/kb/3118401
