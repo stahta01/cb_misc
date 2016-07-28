@@ -6,7 +6,7 @@
 # Need to record the old values in case you want to change them back
 git config --global core.eol            # crlf
 git config --global core.autocrlf       # true
-git config --global core.safecrlf       # false
+git config --global core.safecrlf       # warn
 
 git config --global core.eol      crlf  ## Set to the auto line ending you want.
 git config --global core.autocrlf true  ## if core.eol=crlf, use true else false
