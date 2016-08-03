@@ -1,3 +1,8 @@
+Planned order to add to wxWidgets build and CodeAdapt
+wxUSE_URL
+wxUSE_PRINTING_ARCHITECTURE
+
+
 # wxUSE that was in C::B before my changes that I have not tried to disable.
 wxUSE_CLIPBOARD                                                                         Used in sdk/wxscintilla
 wxUSE_CMDLINE_PARSER                                                                    Used in CB_Core_App
