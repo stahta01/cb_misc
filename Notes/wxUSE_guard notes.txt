@@ -2,6 +2,53 @@ Planned order to add to wxWidgets build and CodeAdapt
 wxUSE_URL
 wxUSE_PRINTING_ARCHITECTURE
 
+wxUSE_PROTOCOL_FTP          Stops wx build error; no idea why it started
+wxUSE_WXHTML_HELP
+wxUSE_TIPWINDOW
+
+wxUSE_POPUPWIN
+wxUSE_RICHTOOLTIP
+wxUSE_RICHMSGDLG
+
+wxUSE_WXHTML_HELP
+wxUSE_TOOLBOOK              "wxToolbook requires wxToolBar"
+wxUSE_TOOLBAR_NATIVE
+wxUSE_TOOLBAR               "wxUSE_TOOLBAR is set to 0 but wxUSE_TOOLBAR_NATIVE is set to 1"
+
+wxUSE_DRAGIMAGE             "wxUSE_DRAGIMAGE requires wxUSE_IMAGE"
+wxUSE_LIBPNG                "wxUSE_LIBPNG requires wxUSE_IMAGE"
+wxUSE_LIBJPEG               "wxUSE_LIBJPEG requires wxUSE_IMAGE"
+wxUSE_LIBTIFF               "wxUSE_LIBTIFF requires wxUSE_IMAGE"
+wxUSE_GIF                   "wxUSE_GIF requires wxUSE_IMAGE"
+wxUSE_PNM                   "wxUSE_PNM requires wxUSE_IMAGE"
+wxUSE_PCX                   "wxUSE_PCX requires wxUSE_IMAGE"
+wxUSE_IFF                   "wxUSE_IFF requires wxUSE_IMAGE"
+wxUSE_XPM                   "wxUSE_XPM requires wxUSE_IMAGE"
+wxUSE_IMAGE
+
+
+wxUSE_XRC wxUSE_XML
+
+wxUSE_DOC_VIEW_ARCHITECTURE
+
+wxUSE_FONTDLG               used in the library itself
+wxUSE_MSGDLG                used in the library itself "wxUSE_RICHMSGDLG requires wxUSE_MSGDLG"  
+
+
+wxUSE_UXTHEME
+wxUSE_DIRDLG
+wxUSE_TEXTDLG
+wxUSE_SPINCTRL
+wxUSE_COMBOBOX
+wxUSE_CHOICEDLG             used in the library itself
+wxUSE_LISTBOX               "Choice dialogs requires wxListBox"
+wxUSE_LISTBOOK              "wxListbook requires wxListCtrl"
+wxUSE_LISTCTRL
+wxUSE_STATUSBAR
+wxUSE_FILEDLG               used in the library itself "wxUSE_FILEDLG is required by wxUSE_DOC_VIEW_ARCHITECTURE and wxUSE_WXHTML_HELP!"
+wxUSE_HTML
+
+
 
 # wxUSE that was in C::B before my changes that I have not tried to disable.
 wxUSE_CLIPBOARD                                                                         Used in sdk/wxscintilla
