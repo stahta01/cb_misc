@@ -24,36 +24,45 @@ wxUSE_TIPWINDOW
 wxUSE_POPUPWIN                                                                                      Used in sdk and others.
 wxUSE_RICHTOOLTIP
 wxUSE_RICHMSGDLG            "wxUSE_RICHMSGDLG requires wxUSE_MSGDLG"
-
+wxUSE_DIALUP_MANAGER        wxDialUpManager
 wxUSE_HELP                  #error "wxUSE_HELP requires wxUSE_CHOICEDLG"--disable-help
 wxUSE_CHOICEDLG             wx*ChoiceDialog                             --disable-choicedlg         Used in SDK (incorrectly used MACRO)    #error "DocView requires wxUSE_CHOICEDLG"
+wxUSE_FONTPICKERCTRL        wxFontPickerCtrl
 wxUSE_FONTDLG               used in the library itself
-*wxUSE_TOOLBOOK             wxToolbook                                  --disable-toolbook          Not Used
 wxUSE_TREEBOOK              wxTreebook                                  --disable-treebook          Not Used    
 wxUSE_CHOICEBOOK            wxChoicebook                                --disable-choicebook        Not Used
-
-
+wxUSE_MEDIACTRL
+wxUSE_PROTOCOL_FTP          seems to need wxUSE_URL
 wxUSE_URL                   wxURL                                       --disable-url               Used in sdk
 wxUSE_FILE_HISTORY          wxFileHistory                                                           Used in caApp
+
+wxUSE_GLCANVAS
+wxUSE_RICHTEXT
+
+
 wxUSE_CLIPBOARD             wxClipboard                                 --disable-clipboard         Used in sdk/wxscintilla
 wxUSE_DRAG_AND_DROP         wxDrag wxDrop                               --disable-dnd               Used in sdk/wxscintilla
+
+wxUSE_FINDREPLDLG
+
+wxUSE_DIRPICKERCTRL
+wxUSE_DIRDLG                wxDirDialog                                 --disable-dirdlg            Used in SDK
 
 wxUSE_LISTBOOK              wxListbook                                  --disable-listbook          Used in SDK
 wxUSE_NOTEBOOK              wxNotebook                                  --disable-notebook          Used in SDK, wxFlatNotebook, Compiler and some contrib plugins
 wxUSE_BOOKCTRL              wxPropertySheetDialog      (wxUSE_NOTEBOOK || wxUSE_LISTBOOK || wxUSE_CHOICEBOOK || wxUSE_TOOLBOOK || wxUSE_TREEBOOK)
 
-wxUSE_DIRDLG                wxDirDialog                                 --disable-dirdlg            Used in SDK
 wxUSE_TEXTDLG               wxTextEntryDialog                           --disable-textdlg           Used in SDK
 wxUSE_MSGDLG                wxMessageDialog used in the library itself                              Used in sdk
+wxUSE_FILEPICKERCTRL
 wxUSE_FILEDLG               wxFileDialog    used in the library itself                              Used in sdk and others.
 
-
-wxUSE_PROTOCOL_FTP          Stops wx build error; no idea why it started; might be wxUSE_URL related
-
-start MSW options (only partial list)
+wxUSE_DATAOBJ               wxTextDataObject                            --disable-dataobj           Used in sdk/wxscintilla
+wxUSE_OLE                   #error "wxUSE_DATAOBJ requires wxUSE_OLE"
 wxUSE_OLE_AUTOMATION
 wxUSE_ACTIVEX
-wxUSE_OLE                                                               --disable-ole
+
+start MSW options (only partial list)
 wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW
 wxUSE_REGKEY
 wxUSE_RICHEDIT
