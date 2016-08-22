@@ -32,35 +32,54 @@ wxUSE_FONTDLG               used in the library itself
 wxUSE_TREEBOOK              wxTreebook                                  --disable-treebook          Not Used    
 wxUSE_CHOICEBOOK            wxChoicebook                                --disable-choicebook        Not Used
 wxUSE_MEDIACTRL
+wxUSE_GLCANVAS
+wxUSE_RICHTEXT
+wxUSE_CLIPBOARD             wxClipboard                                 --disable-clipboard         Used in sdk/wxscintilla
+wxUSE_DRAG_AND_DROP         wxDrag wxDrop                               --disable-dnd               Used in sdk/wxscintilla
+wxUSE_ACTIVEX
+wxUSE_COLOURPICKERCTRL
+wxUSE_COLOURDLG             wxColourDialog                              --disable-coldlg            Used in SDK and core App
+wxUSE_FINDREPLDLG           wxFindReplace                               --disable-finddlg           Used in ???
+wxUSE_PROGRESSDLG           wxProgressDialog                            --disable-progressdlg       Used in SDK and others.
+wxUSE_ABOUTDLG              wxAboutDialog
+wxUSE_NUMBERDLG             wxNumberEntryDialog                         --disable-numberdlg
+wxUSE_DIRPICKERCTRL         wxDirPickerCtrl
+wxUSE_FILEPICKERCTRL        wxFilePickerCtrl
+********
+*** Verify wxWidgets (msys2/reducedGUI_3_0_X) builds                    DONE
+*** Verify codeAdapt (build/noGUI) builds and runs !!!                  DONE
+*** Once verified condense the wxWidgets commits to two setup commits.  DONE
+********
+
+
+wxUSE_VALIDATORS
 wxUSE_PROTOCOL_FTP          seems to need wxUSE_URL
 wxUSE_URL                   wxURL                                       --disable-url               Used in sdk
 wxUSE_FILE_HISTORY          wxFileHistory                                                           Used in caApp
 
-wxUSE_GLCANVAS
-wxUSE_RICHTEXT
+wxUSE_TEXTDLG               wxTextEntryDialog                           --disable-textdlg           Used in SDK
+wxUSE_LOG_DIALOG            wxLogDialog
+wxUSE_STARTUP_TIPS
+wxUSE_NOTIFICATION_MESSAGE
 
+wxUSE_BUSYINFO
+wxUSE_INFOBAR
+wxUSE_MINIFRAME
 
-wxUSE_CLIPBOARD             wxClipboard                                 --disable-clipboard         Used in sdk/wxscintilla
-wxUSE_DRAG_AND_DROP         wxDrag wxDrop                               --disable-dnd               Used in sdk/wxscintilla
-
-wxUSE_FINDREPLDLG
-
-wxUSE_DIRPICKERCTRL
 wxUSE_DIRDLG                wxDirDialog                                 --disable-dirdlg            Used in SDK
+wxUSE_FILEDLG               wxFileDialog    used in the library itself                              Used in sdk and others.
+wxUSE_MSGDLG                wxMessageDialog used in the library itself                              Used in sdk
+
 
 wxUSE_LISTBOOK              wxListbook                                  --disable-listbook          Used in SDK
 wxUSE_NOTEBOOK              wxNotebook                                  --disable-notebook          Used in SDK, wxFlatNotebook, Compiler and some contrib plugins
 wxUSE_BOOKCTRL              wxPropertySheetDialog      (wxUSE_NOTEBOOK || wxUSE_LISTBOOK || wxUSE_CHOICEBOOK || wxUSE_TOOLBOOK || wxUSE_TREEBOOK)
 
-wxUSE_TEXTDLG               wxTextEntryDialog                           --disable-textdlg           Used in SDK
-wxUSE_MSGDLG                wxMessageDialog used in the library itself                              Used in sdk
-wxUSE_FILEPICKERCTRL
-wxUSE_FILEDLG               wxFileDialog    used in the library itself                              Used in sdk and others.
-
 wxUSE_DATAOBJ               wxTextDataObject                            --disable-dataobj           Used in sdk/wxscintilla
 wxUSE_OLE                   #error "wxUSE_DATAOBJ requires wxUSE_OLE"
 wxUSE_OLE_AUTOMATION
-wxUSE_ACTIVEX
+
+
 
 start MSW options (only partial list)
 wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW

@@ -35,8 +35,8 @@ cd %_WXDIR%\build\msw
 if not exist gcc_mswudll%_WXCFG% mkdir gcc_mswudll%_WXCFG%
 
     ECHO "Start"  > gcc_mswudll%_WXCFG%\builderr.txt
-    ECHO "Clean"  > gcc_mswudll%_WXCFG%\builderr.txt
-    mingw32-make -f makefile.gcc BUILD=release UNICODE=1 MONOLITHIC=0 SHARED=1 LDFLAGS=%_WXLDFLAGS% CXXFLAGS=%_WXCXXFLAGS% CFLAGS=%_WXCFLAGS% CPPFLAGS=%_WXCPPFLAGS% CFG=%_WXCFG% VENDOR=%WXVENDOR% clean
+REM ECHO "Clean"  > gcc_mswudll%_WXCFG%\builderr.txt
+REM mingw32-make -f makefile.gcc BUILD=release UNICODE=1 MONOLITHIC=0 SHARED=1 LDFLAGS=%_WXLDFLAGS% CXXFLAGS=%_WXCXXFLAGS% CFLAGS=%_WXCFLAGS% CPPFLAGS=%_WXCPPFLAGS% CFG=%_WXCFG% VENDOR=%WXVENDOR% clean
 
     ECHO "Build" >> gcc_mswudll%_WXCFG%\builderr.txt
     mingw32-make -f makefile.gcc BUILD=release UNICODE=1 MONOLITHIC=0 SHARED=1 LDFLAGS=%_WXLDFLAGS% CXXFLAGS=%_WXCXXFLAGS% CFLAGS=%_WXCFLAGS% CPPFLAGS=%_WXCPPFLAGS% CFG=%_WXCFG% VENDOR=%WXVENDOR% 2>> gcc_mswudll%_WXCFG%\builderr.txt
