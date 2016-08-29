@@ -30,7 +30,6 @@ wxUSE_CHOICEDLG             wx*ChoiceDialog                             --disabl
 wxUSE_FONTPICKERCTRL        wxFontPickerCtrl
 wxUSE_FONTDLG               used in the library itself
 wxUSE_TREEBOOK              wxTreebook                                  --disable-treebook          Not Used    
-wxUSE_CHOICEBOOK            wxChoicebook                                --disable-choicebook        Not Used
 wxUSE_MEDIACTRL
 wxUSE_GLCANVAS
 wxUSE_RICHTEXT
@@ -45,22 +44,81 @@ wxUSE_ABOUTDLG              wxAboutDialog
 wxUSE_NUMBERDLG             wxNumberEntryDialog                         --disable-numberdlg
 wxUSE_DIRPICKERCTRL         wxDirPickerCtrl
 wxUSE_FILEPICKERCTRL        wxFilePickerCtrl
-********
-*** Verify wxWidgets (msys2/reducedGUI_3_0_X) builds                    DONE
-*** Verify codeAdapt (build/noGUI) builds and runs !!!                  DONE
-*** Once verified condense the wxWidgets commits to two setup commits.  DONE
-********
-
-
 wxUSE_VALIDATORS
 wxUSE_PROTOCOL_FTP          seems to need wxUSE_URL
 wxUSE_URL                   wxURL                                       --disable-url               Used in sdk
 wxUSE_FILE_HISTORY          wxFileHistory                                                           Used in caApp
-
-wxUSE_TEXTDLG               wxTextEntryDialog                           --disable-textdlg           Used in SDK
-wxUSE_LOG_DIALOG            wxLogDialog
+wxUSE_SOCKETS
+wxUSE_FS_INET
+wxUSE_PROTOCOL
+wxUSE_PROTOCOL_FILE
+wxUSE_PROTOCOL_HTTP
 wxUSE_STARTUP_TIPS
 wxUSE_NOTIFICATION_MESSAGE
+wxUSE_TEXTDLG               wxTextEntryDialog                           --disable-textdlg           Used in SDK
+wxUSE_LOG_DIALOG            wxLogDialog
+wxUSE_PREFERENCES_EDITOR
+wxUSE_LISTBOOK              wxListbook                                  --disable-listbook          Used in SDK and core App
+wxUSE_DATAVIEWCTRL
+wxUSE_TREELISTCTRL
+wxUSE_NOTEBOOK              wxNotebook                                  --disable-notebook          Used in SDK, wxFlatNotebook, Compiler and some contrib plugins
+
+wxUSE_AUI
+
+#if wxUSE_NOTEBOOK
+#endif // wxUSE_NOTEBOOK
+
+#endif // #if wxUSE_CLIPBOARD
+
+********
+*** Update GCC in MSys2 [ pacman -S mingw-w64-i686-gcc ]                DONE on 22Aug16; needs done at least once a month
+*** Verify wxWidgets (msys2/reducedGUI_3_0_X) builds                    Doing
+*** Verify codeAdapt (build/noGUI) re-builds and runs !!!               Doing
+*** Once verified condense the wxWidgets commits to two setup commits.  ToDo
+git log -3
+git rebase -i 
+********
+
+* : Added or changed guard to "CA_DISABLE_PLUGIN_API_EDITOR" or "CA_DISABLE_EDITOR".
+
+* : Replaced "CB_USE_AUI_NOTEBOOK" with "wxUSE_NOTEBOOK || wxUSE_AUI".
+
+* setup: Test feature disable "wxUSE_NOTEBOOK".
+
+#endif // #ifndef CA_DISABLE_GUI_IN_SCRIPT_MGR
+
+* caApp: Removed "CA_DISABLE_FLAT_NOTEBOOK" guard.
+
+* : Replaced CA_DISABLE_FLAT_NOTEBOOK with wxUSE_NOTEBOOK guard.
+
+#endif // wxUSE_NOTEBOOK && !defined(CA_DISABLE_PLUGIN_API_EDITOR)
+
+#endif // #if wxUSE_NOTEBOOK && !defined(CA_DISABLE_EDITOR)
+
+#endif // #ifndef CA_DISABLE_PLUGIN_API_EDITOR
+
+
+#endif // #if !defined(CA_DISABLE_EDITOR)
+
+#endif // #if wxUSE_TEXTDLG
+
+CA_DISABLE_PLUGIN_API_EDITOR
+
+CA_DISABLE_COMPILER_MESSAGES
+
+CA_DISABLE_GUI_LOGGING
+
+#endif // #if wxUSE_TOOLBAR
+
+#endif // wxUSE_NOTEBOOK || wxUSE_AUI
+
+#endif // wxUSE_AUI
+
+#endif // wxUSE_BOOKCTRL
+
+wxUSE_CHOICEBOOK            wxChoicebook (Last book cntl disabled)      --disable-choicebook        Not Used
+
+
 
 wxUSE_BUSYINFO
 wxUSE_INFOBAR
@@ -69,11 +127,6 @@ wxUSE_MINIFRAME
 wxUSE_DIRDLG                wxDirDialog                                 --disable-dirdlg            Used in SDK
 wxUSE_FILEDLG               wxFileDialog    used in the library itself                              Used in sdk and others.
 wxUSE_MSGDLG                wxMessageDialog used in the library itself                              Used in sdk
-
-
-wxUSE_LISTBOOK              wxListbook                                  --disable-listbook          Used in SDK
-wxUSE_NOTEBOOK              wxNotebook                                  --disable-notebook          Used in SDK, wxFlatNotebook, Compiler and some contrib plugins
-wxUSE_BOOKCTRL              wxPropertySheetDialog      (wxUSE_NOTEBOOK || wxUSE_LISTBOOK || wxUSE_CHOICEBOOK || wxUSE_TOOLBOOK || wxUSE_TREEBOOK)
 
 wxUSE_DATAOBJ               wxTextDataObject                            --disable-dataobj           Used in sdk/wxscintilla
 wxUSE_OLE                   #error "wxUSE_DATAOBJ requires wxUSE_OLE"
