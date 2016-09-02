@@ -1,0 +1,27 @@
+Building wxWidgets using MSys2 packaging.txt
+
+# Open MSys2 command prompt
+
+
+# One time build tools installation
+pacman -S base-devel
+# for building mingw32 packages
+pacman -S mingw-w64-i686-toolchain
+# for building mingw64 packages
+pacman -S mingw-w64-x86_64-toolchain
+
+
+# Change to MinGW Package git repo.
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git
+
+# Change to wxWidgets folder
+cd mingw-w64-wxwidgets
+
+# Build the package
+makepkg-mingw -sLf
+
+# Look for the packages
+ls mingw-w64-*-*-*-*.pkg.tar.xz
+
+# Install a 'local' 32 bit package
+pacman -U mingw-w64-i686-wxWidgets-3.0.2-14-any.pkg.tar.xz
