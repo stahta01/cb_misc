@@ -1,0 +1,49 @@
+Work to create mingw-w64-wxwidgets2 package.
+
+Build using configure/make on the MinGW32 propmt
+
+cd /c/Devel/open_source_code/version_control/wxWidgets_MSys2-git
+
+git checkout msys2/wxWidgets_2_8_X
+
+mkdir build_wx28x_msw_shared_multilib_unicode
+cd build_wx28x_msw_shared_multilib_unicode
+../configure --prefix=/opt/wx/2.8 \
+    --host=i686-w64-mingw32 --target=i686-w64-mingw32 --build=i686-w64-mingw32 \
+    --enable-shared \
+    --enable-iniconf \
+    --enable-iff \
+    --enable-permissive \
+    --enable-unicode \
+    --enable-graphics_ctx \
+    --enable-accessibility \
+    --disable-compat26 \
+    --disable-mediactrl \
+    --disable-monolithic \
+    --disable-mslu \
+    --disable-precomp-headers \
+    --with-msw \
+    --with-opengl \
+    --with-regex=builtin \
+    --without-subdirs
+
+Configured wxWidgets 2.8.12 for `i686-w64-mingw32'
+
+  Which GUI toolkit should wxWidgets use?                 msw
+  Should wxWidgets be compiled into single library?       no
+  Should wxWidgets be compiled in debug mode?             no
+  Should wxWidgets be linked as a shared library?         yes
+  Should wxWidgets be compiled in Unicode mode?           yes
+  What level of wxWidgets compatibility should be enabled?
+                                       wxWidgets 2.4      no
+                                       wxWidgets 2.6      no
+  Which libraries should wxWidgets use?
+                                       jpeg               sys
+                                       png                sys
+                                       regex              builtin
+                                       tiff               sys
+                                       zlib               sys
+                                       odbc               no
+                                       expat              sys
+                                       libmspack          no
+                                       sdl                no
