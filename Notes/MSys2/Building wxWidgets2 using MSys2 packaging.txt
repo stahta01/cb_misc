@@ -15,7 +15,7 @@ pacman -S mingw-w64-x86_64-toolchain
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git
 
 # Change to wxWidgets folder
-cd mingw-w64-wxwidgets2
+cd mingw-w64-wxwidgets28
 
 # Build the package
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf

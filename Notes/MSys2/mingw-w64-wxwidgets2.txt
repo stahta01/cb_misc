@@ -1,5 +1,7 @@
 Work to create mingw-w64-wxwidgets2 package.
 
+http://osdir.com/ml/wx-users/2015-11/msg00100.html
+
 Build using configure/make on the MinGW32 propmt
 
 cd /c/Devel/open_source_code/version_control/wxWidgets_MSys2-git
@@ -8,6 +10,20 @@ git checkout msys2/wxWidgets_2_8_X
 
 mkdir build_wx28x_msw_shared_multilib_unicode
 cd build_wx28x_msw_shared_multilib_unicode
+
+Win32 (Windows 9x/NT/XP/2003/Vista/2008/7/8/2012)
+
+  CFLAGS       C compiler flags
+  LDFLAGS      linker flags, e.g. -L<lib dir> if you have libraries in a 
+               nonstandard directory <lib dir>
+  LIBS         libraries to pass to the linker, e.g. -l<library>
+  CPPFLAGS     (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if 
+               you have headers in a nonstandard directory <include dir>
+               
+-Wunused-local-typedefs
+
+export CPPFLAGS=""
+export LDFLAGS=""
 ../configure --prefix=/opt/wx/2.8 \
     --host=i686-w64-mingw32 --target=i686-w64-mingw32 --build=i686-w64-mingw32 \
     --enable-shared \
@@ -15,8 +31,8 @@ cd build_wx28x_msw_shared_multilib_unicode
     --enable-iff \
     --enable-permissive \
     --enable-unicode \
-    --enable-graphics_ctx \
     --enable-accessibility \
+    --disable-graphics_ctx \
     --disable-compat26 \
     --disable-mediactrl \
     --disable-monolithic \
