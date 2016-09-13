@@ -1,5 +1,15 @@
 Work to create mingw-w64-wxwidgets2 package.
 
+git checkout wxwidgets2.8
+git am 0001-wxwidgets2.8-Edited-PKGBUILD.patch
+git am 0002-wxwidgets2.8-Edited-PKGBUILD.patch
+git log -3
+git rebsae -i abd06ca92d876b9db05dd65f27d71c4ebe2673a9
+git push --force-with-lease
+
+git checkout scratch && rebase wxwidgets2.8
+
+
 http://osdir.com/ml/wx-users/2015-11/msg00100.html
 
 https://github.com/matlo/GIMX-tools/blob/master/MINGW-packages/mingw-w64-wxwidgets-2.8/PKGBUILD
