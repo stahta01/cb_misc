@@ -15,18 +15,28 @@ pacman -S mingw-w64-x86_64-toolchain
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git
 
 # Change to wxWidgets folder
-cd mingw-w64-wxwidgets28
+cd mingw-w64-wxwidgets2.8
 
-# Build the package
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
+####
+# Building 64 bit on 32 bit Windows failed for me; but, it was NOT a compiler error; it was an unpacking error
+/c/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8/PKGBUILD: line 38: cd: /c/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8/src/wxWidgets-2.8.12: No such file or directory
+==> ERROR: A failure occurred in prepare().
+    Aborting...
+####
 
-# gdi32
+# Build the 32 bit and 64 packages
+makepkg-mingw -sLf
+# Build only the 32 bit package
+#  MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
+# Build only the 64 bit package
+#  MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
+
 
 # Look for the packages
 ls mingw-w64-*-*-*-*.pkg.tar.xz
 
 # Install a 'local' 32 bit package
-pacman -U mingw-w64-i686-wxWidgets-3.0.2-14-any.pkg.tar.xz
+pacman -U mingw-w64-i686-wxWidgets-2.8.12-0-any.pkg.tar.xz
 
 
 sha256sum wxWidgets-2.8.12.tar.bz2

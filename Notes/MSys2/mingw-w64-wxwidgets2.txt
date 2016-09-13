@@ -2,6 +2,10 @@ Work to create mingw-w64-wxwidgets2 package.
 
 http://osdir.com/ml/wx-users/2015-11/msg00100.html
 
+https://github.com/matlo/GIMX-tools/blob/master/MINGW-packages/mingw-w64-wxwidgets-2.8/PKGBUILD
+
+https://github.com/Alexpux/MINGW-packages/blob/master/mingw-w64-nsis-svn/PKGBUILD
+
 Build using configure/make on the MinGW32 propmt
 
 cd /c/Devel/open_source_code/version_control/wxWidgets_MSys2-git
