@@ -24,6 +24,13 @@ cd mingw-w64-wxwidgets2.8
     Aborting...
 ####
 
+C:/MSys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lwctl3d32
+collect2.exe: error: ld returned 1 exit status
+make: *** [Makefile:11957: /c/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8/src/build-x86_64/lib/wxbase28u_gcc_custom.dll] Error 1
+==> ERROR: A failure occurred in build().
+    Aborting...
+
+
 # Build the 32 bit and 64 packages
 makepkg-mingw -sLf
 # Build only the 32 bit package
