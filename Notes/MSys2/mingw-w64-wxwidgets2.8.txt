@@ -1,8 +1,10 @@
 Work to create mingw-w64-wxwidgets2 package.
 
+-Wunused-local-typedefs
+
 git checkout wxwidgets2.8
-git am 0001-wxwidgets2.8-Added-two-edited-patch-files.patch
-git am 0002-wxwidgets2.8-Edited-PKGBUILD.patch
+git am 0001-wxwidgets2.8-Edited-PKGBUILD-set-realname-wxWidgets2.patch
+git am 0003-wxwidgets2.8-Edited-PKGBUILD-Renamed-basename-to-bas.patch
 
 git log -4
 git rebase -i 

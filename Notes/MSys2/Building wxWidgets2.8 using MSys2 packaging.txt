@@ -43,7 +43,17 @@ makepkg-mingw -sLf
 ls mingw-w64-*-*-*-*.pkg.tar.xz
 
 # Install a 'local' 32 bit package
-pacman -U mingw-w64-i686-wxWidgets-2.8.12-0-any.pkg.tar.xz
+pacman -U mingw-w64-i686-wxWidgets2.8-2.8.12-0-i686.pkg.tar.xz
+
+error: failed to commit transaction (conflicting files)
+mingw-w64-i686-wxWidgets2.8: /mingw32/bin/wx-config exists in filesystem
+mingw-w64-i686-wxWidgets2.8: /mingw32/bin/wxrc.exe exists in filesystem
+mingw-w64-i686-wxWidgets2.8: /mingw32/share/aclocal/wxwin.m4 exists in filesystem
+
+mingw-w64-i686-wxWidgets2.8: /mingw32/share/bakefile/presets/wx.bkl exists in filesystem
+mingw-w64-i686-wxWidgets2.8: /mingw32/share/bakefile/presets/wx_unix.bkl exists in filesystem
+mingw-w64-i686-wxWidgets2.8: /mingw32/share/bakefile/presets/wx_win32.bkl exists in filesystem
+Errors occurred, no packages were upgraded.
 
 
 sha256sum wxWidgets-2.8.12.tar.bz2
