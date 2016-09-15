@@ -61,3 +61,81 @@ mingw-w64-x86_64-wxWidgets2.8: /mingw64/share/bakefile/presets/wx.bkl exists in 
 mingw-w64-x86_64-wxWidgets2.8: /mingw64/share/bakefile/presets/wx_unix.bkl exists in filesystem
 mingw-w64-x86_64-wxWidgets2.8: /mingw64/share/bakefile/presets/wx_win32.bkl exists in filesystem
 Errors occurred, no packages were upgraded.
+
+
+
+File list of package wx-common in stretch of architecture i386
+
+/usr/bin/wxrc
+/usr/share/aclocal/wxwin.m4
+/usr/share/bakefile/presets/wx.bkl
+/usr/share/bakefile/presets/wx_presets.py
+/usr/share/bakefile/presets/wx_unix.bkl
+/usr/share/bakefile/presets/wx_win32.bkl
+/usr/share/bakefile/presets/wx_xrc.bkl
+/usr/share/doc/wx-common/changelog.Debian.gz
+/usr/share/doc/wx-common/changelog.gz
+/usr/share/doc/wx-common/copyright
+/usr/share/man/man1/wx-config.1.gz
+/usr/share/man/man1/wxrc-tools.1.gz
+/usr/share/man/man1/wxrc.1.gz
+
+
+
+File list of package libwxbase3.0-0v5 in stretch of architecture i386
+
+/usr/lib/i386-linux-gnu/libwx_baseu-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_baseu-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_baseu_net-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_baseu_net-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_baseu_xml-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_baseu_xml-3.0.so.0.2.0
+/usr/share/doc/libwxbase3.0-0v5/README.Debian
+/usr/share/doc/libwxbase3.0-0v5/changelog.Debian.gz
+/usr/share/doc/libwxbase3.0-0v5/changelog.gz
+/usr/share/doc/libwxbase3.0-0v5/copyright
+/usr/share/lintian/overrides/libwxbase3.0-0v5
+
+
+File list of package libwxbase3.0-dev in stretch of architecture i386
+
+/usr/lib/i386-linux-gnu/libwx_baseu-3.0.so
+/usr/lib/i386-linux-gnu/libwx_baseu_net-3.0.so
+/usr/lib/i386-linux-gnu/libwx_baseu_xml-3.0.so
+/usr/lib/i386-linux-gnu/wx/config/base-unicode-3.0
+/usr/lib/i386-linux-gnu/wx/include/base-unicode-3.0/wx/setup.h
+/usr/share/doc/libwxbase3.0-dev/changelog.Debian.gz
+/usr/share/doc/libwxbase3.0-dev/changelog.gz
+/usr/share/doc/libwxbase3.0-dev/copyright
+
+
+File list of package libwxgtk3.0-0v5 in stretch of architecture i386
+
+/usr/lib/i386-linux-gnu/libwx_gtk2u_adv-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_adv-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_aui-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_aui-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_core-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_core-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_gl-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_gl-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_html-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_html-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_propgrid-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_propgrid-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_qa-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_qa-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_ribbon-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_ribbon-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_richtext-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_richtext-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_stc-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_stc-3.0.so.0.2.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_xrc-3.0.so.0
+/usr/lib/i386-linux-gnu/libwx_gtk2u_xrc-3.0.so.0.2.0
+/usr/share/doc/libwxgtk3.0-0v5/changelog.Debian.gz
+/usr/share/doc/libwxgtk3.0-0v5/changelog.gz
+/usr/share/doc/libwxgtk3.0-0v5/copyright
+/usr/share/lintian/overrides/libwxgtk3.0-0v5
+
+
