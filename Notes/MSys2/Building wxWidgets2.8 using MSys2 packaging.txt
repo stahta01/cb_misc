@@ -17,19 +17,6 @@ cd C:/Devel/open_source_code/version_control/MINGW_packages-git
 # Change to wxWidgets folder
 cd mingw-w64-wxwidgets2.8
 
-####
-# Building 64 bit on 32 bit Windows failed for me; but, it was NOT a compiler error; it was an unpacking error
-/c/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8/PKGBUILD: line 38: cd: /c/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8/src/wxWidgets-2.8.12: No such file or directory
-==> ERROR: A failure occurred in prepare().
-    Aborting...
-####
-
-C:/MSys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lwctl3d32
-collect2.exe: error: ld returned 1 exit status
-make: *** [Makefile:11957: /c/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8/src/build-x86_64/lib/wxbase28u_gcc_custom.dll] Error 1
-==> ERROR: A failure occurred in build().
-    Aborting...
-
 
 # Build the 32 bit and 64 packages
 makepkg-mingw -sLf
@@ -46,8 +33,6 @@ ls mingw-w64-*-*-*-*.pkg.tar.xz
 pacman -U mingw-w64-i686-wxWidgets2.8-2.8.12-0-any.pkg.tar.xz
 
 error: failed to commit transaction (conflicting files)
-mingw-w64-i686-wxWidgets2.8: /mingw32/bin/wx-config exists in filesystem
-mingw-w64-i686-wxWidgets2.8: /mingw32/bin/wxrc.exe exists in filesystem
 mingw-w64-i686-wxWidgets2.8: /mingw32/share/aclocal/wxwin.m4 exists in filesystem
 Errors occurred, no packages were upgraded.
 

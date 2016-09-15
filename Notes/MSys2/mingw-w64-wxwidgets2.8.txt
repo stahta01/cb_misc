@@ -1,5 +1,9 @@
 Work to create mingw-w64-wxwidgets2 package.
 
+-Wwrite-strings
+-Wnarrowing
+
+-Wswitch
 -Wunused-local-typedefs
 
 git checkout wxwidgets2.8
