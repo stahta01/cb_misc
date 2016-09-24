@@ -1,0 +1,14 @@
+Things I want in a Linux Distro
+
+Mate Desktop
+pacman package manager
+
+https://en.wikipedia.org/wiki/Antergos
+https://en.wikipedia.org/wiki/Manjaro_Linux
+
+
+https://en.wikipedia.org/wiki/PacBSD
+
+
+http://delicate-linux.net/wiki/index.php/Main_Page
+
