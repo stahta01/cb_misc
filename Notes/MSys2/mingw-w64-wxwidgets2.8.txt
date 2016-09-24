@@ -1,5 +1,16 @@
 Work to create mingw-w64-wxwidgets2 package.
 
+pacman -R mingw-w64-i686-wxWidgets3.0-git
+
+# Contributor: Tim S. <stahta01@gmail.com>
+
+https://git.archlinux.org/svntogit/packages.git/tree/wxgtk2.8/trunk/PKGBUILD
+
+
+samples/listctrl/Makefile
+
+listctrl$(EXEEXT)
+
 -Wwrite-strings
 -Wnarrowing
 
