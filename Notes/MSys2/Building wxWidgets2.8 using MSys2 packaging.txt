@@ -31,6 +31,8 @@ MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 # Look for the packages
 ls mingw-w64-*-*-*-*.pkg.tar.xz
 
+pacman -Qs wxwidgets
+
 # Install a 'local' 32 bit package
 pacman -U mingw-w64-i686-wxWidgets2.8-2.8.12-1-any.pkg.tar.xz
 

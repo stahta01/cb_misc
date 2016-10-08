@@ -1,5 +1,13 @@
 Work to create mingw-w64-wxwidgets2 package.
 
+https://wiki.archlinux.org/index.php/PKGBUILD
+
+  mkdir -p "${srcdir}"/${_realname}-${pkgver}
+  cp "${srcdir}"/wxWidgets-${pkgver}.7z "${srcdir}"/${_realname}-${pkgver}/wxWidgets-${pkgver}.7z
+  cd "${srcdir}"/${_realname}-${pkgver}
+  7za x -bd -o"${srcdir}"/${_realname}-${pkgver} wxWidgets-${pkgver}.7z
+
+
 pacman -R mingw-w64-i686-wxWidgets3.0-git
 
 # Contributor: Tim S. <stahta01@gmail.com>
@@ -23,6 +31,8 @@ git am 0001-wxwidgets2.8-Edited-PKGBUILD-and-edited-or-added-pat.patch
 git log -4
 git rebase -i 
 git push --force-with-lease
+
+* code: Updated samples to wxWidgets version 3.0.2.
 
 git checkout scratch && git rebase wxwidgets2.8
 
