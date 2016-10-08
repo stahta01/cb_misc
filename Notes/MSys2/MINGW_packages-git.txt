@@ -1,0 +1,43 @@
+MINGW_packages-git.txt
+
+$ git branch --list
+  editors_and_IDEs
+  master
+* scratch
+  staging
+  testing
+  wxwidgets
+
+git checkout master
+git rebase upstream/master
+git push origin
+
+git checkout staging
+git rebase master
+git rebase -i master   ## Keep ONLY mingw-w64-wxwidgets3.0-git changes
+git push origin
+
+git checkout editors_and_IDEs
+git rebase master
+git push origin
+
+git checkout wxwidgets
+git rebase master
+git push origin
+
+git checkout testing
+git rebase scratch     ## This time ONLY
+git rebase -i scratch  ## This time ONLY
+git rebase staging
+git rebase master
+git rebase -i master
+git push origin
+
+##
+git checkout scratch
+git rebase wxwidgets
+git rebase editors_and_IDEs
+##  rebase testing
+git rebase staging
+git rebase master
+git push origin
