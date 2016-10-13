@@ -1,0 +1,11 @@
+Simple and Fast Multimedia Library (SFML)
+  Stable version: 2.4.0
+  http://www.sfml-dev.org/tutorials/2.4/start-cb.php
+  http://www.sfml-dev.org/tutorials/2.4/compile-with-cmake.php
+  http://wiki.codeblocks.org/index.php/Recommended_global_variables
+  Try using blank project with global variable of #sfml.
+  http://forums.codeblocks.org/index.php/topic,21477.msg146323/topicseen.html#msg146323
+  
+
+sfml
+base: C:\Devel\open_source_code\no_version_control\SFML-2.4.0-windows-gcc-4.9.2-tdm-32-bit\SFML-2.4.0
