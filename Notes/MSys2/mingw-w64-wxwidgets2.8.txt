@@ -1,6 +1,12 @@
 Work to create mingw-w64-wxwidgets2 package.
 
+error: failed to prepare transaction (could not satisfy dependencies)
+:: mingw-w64-i686-wxWidgets2.8-git: removing mingw-w64-i686-cppunit breaks dependency 'mingw-w64-i686-cppunit'
+:: mingw-w64-i686-wxWidgets3.1-git: removing mingw-w64-i686-cppunit breaks dependency 'mingw-w64-i686-cppunit'
+
 https://wiki.archlinux.org/index.php/PKGBUILD
+https://www.archlinux.org/packages/
+https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/wxsqlite3
 
   mkdir -p "${srcdir}"/${_realname}-${pkgver}
   cp "${srcdir}"/wxWidgets-${pkgver}.7z "${srcdir}"/${_realname}-${pkgver}/wxWidgets-${pkgver}.7z
