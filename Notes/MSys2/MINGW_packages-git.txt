@@ -38,6 +38,24 @@ mingw-w64-kicad-library
     mingw-w64-i686-kicad-library-git: /mingw32/share/kicad/modules/packages3d/unused_3d.3dshapes/device.douille_4mm(black).wrl exists in filesystem
     Errors occurred, no packages were upgraded.
 
+looking for conflicting packages...
+:: mingw-w64-i686-kicad-library and mingw-w64-i686-kicad-library-git are in conflict. Remove mingw-w64-i686-kicad-library-git? [y/N] y
+
+Packages (2) mingw-w64-i686-kicad-library-git-r1029.0a6c849-1 [removal]  mingw-w64-i686-kicad-library-4.0.4-1
+
+Total Installed Size:  516.90 MiB
+Net Upgrade Size:        5.74 MiB
+
+:: Proceed with installation? [Y/n]
+(1/1) checking keys in keyring                                                       [###############################################] 100%
+(1/1) checking package integrity                                                     [###############################################] 100%
+(1/1) loading package files                                                          [###############################################] 100%
+(1/1) checking for file conflicts                                                    [###############################################] 100%
+error: failed to commit transaction (conflicting files)
+mingw-w64-i686-kicad-library: /mingw32/share/kicad/modules/packages3d/unused_3d.3dshapes/Device.douille_4mm(black).wings exists in filesystem
+mingw-w64-i686-kicad-library: /mingw32/share/kicad/modules/packages3d/unused_3d.3dshapes/Device.douille_4mm(black).wrl exists in filesystem
+Errors occurred, no packages were upgraded.
+
 
 
 pacman -Qs boost
@@ -106,6 +124,10 @@ $ git branch --list
 git diff --check # before commiting a change
 
 git checkout master && git pull && git push origin
+
+git checkout master && git checkout -b cleanup && git push -u origin
+# Edit ignore file
+git push --force-with-lease
 
 git checkout staging && git rebase master
 git rebase -i master   ##
