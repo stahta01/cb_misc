@@ -1,47 +1,7 @@
 MINGW_packages-git.txt
 
-https://www.archlinux.org/packages/community/any/fop/
-
-
-Scanning dependencies of target cvpcb_translate_it
-Scanning dependencies of target cvpcb_translate_fr
-Can't open perl script "C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-kicad-docs-git/src/kicad-docs/CMakeSupport/po4a/po4a-translate": No such file or directory
-make[2]: *** [src/CvPcb/CMakeFiles/cvpcb_translate_it.dir/build.make:57: src/CvPcb/CMakeFiles/cvpcb_translate_it] Error 2
-make[1]: *** [CMakeFiles/Makefile2:126: src/CvPcb/CMakeFiles/cvpcb_translate_it.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
-Can't open perl script "C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-kicad-docs-git/src/kicad-docs/CMakeSupport/po4a/po4a-translate": No such file or directory
-make[2]: *** [src/CvPcb/CMakeFiles/cvpcb_translate_fr.dir/build.make:57: src/CvPcb/CMakeFiles/cvpcb_translate_fr] Error 2
-make[1]: *** [CMakeFiles/Makefile2:163: src/CvPcb/CMakeFiles/cvpcb_translate_fr.dir/all] Error 2
-make: *** [Makefile:150: all] Error 2
-==> ERROR: A failure occurred in package().
-    Aborting...
-
-==> Starting pkgver()...
-==> Updated version: mingw-w64-kicad-docs-git r1191.ce2dca7-1
-==> Starting build()...
--- find_file( DBLATEX_COMMAND dblatex ): DBLATEX_COMMAND-NOTFOUND
--- Found PythonInterp: C:/Apps32/MSys2/mingw32/bin/python.exe (found version "2.7.12")
-CMake Error at C:/Apps32/MSys2/mingw32/share/cmake-3.6/Modules/FindPackageHandleStandardArgs.cmake:148 (message):
-  Could NOT find DBLATEX (missing: DBLATEX_COMMAND)
-Call Stack (most recent call first):
-  C:/Apps32/MSys2/mingw32/share/cmake-3.6/Modules/FindPackageHandleStandardArgs.cmake:388 (_FPHSA_FAILURE_MESSAGE)
-  CMakeModules/FindDBLATEX.cmake:84 (find_package_handle_standard_args)
-  CMakeLists.txt:51 (find_package)
-
-
--- Configuring incomplete, errors occurred!
-See also "C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-kicad-docs-git/src/build-docs/CMakeFiles/CMakeOutput.log".
-==> ERROR: A failure occurred in build().
-    Aborting...
-
-
 git show ba32ccb
 git show 22fb7da
-
-pkgver=r6328.22fb7da
-local/mingw-w64-i686-kicad-git r5971.ba32ccb-1
-
-pick 29bb0de * mingw-w64-kicad-git: Edited "PKGBUILD"; added "${MINGW_PACKAGE_PREFIX}-glm" in makedepends.
 
 
 https://www.archlinux.org/packages/extra/any/convmv/
@@ -79,30 +39,6 @@ mingw-w64-kicad-library
     Errors occurred, no packages were upgraded.
 
 
-mingw-w64-kicad
-    CMake Error at CMakeLists.txt:27 (mingw_resource_compiler):
-      Unknown CMake command "mingw_resource_compiler".
-
-
-    CMake Warning (dev) in CMakeLists.txt:
-      No cmake_minimum_required command is present.  A line of code such as
-
-        cmake_minimum_required(VERSION 3.6)
-
-      should be added at the top of the file.  The version specified may be lower
-      if you wish to support older CMake versions for this project.  For more
-      information run "cmake --help-policy CMP0000".
-    This warning is for project developers.  Use -Wno-dev to suppress it.
-
-    -- Configuring incomplete, errors occurred!
-    See also "C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-kicad/src/kicad-4.0.4/build-i686-w64-mingw32/CMakeFiles/CMakeOutput.log".
-    ==> ERROR: A failure occurred in build().
-        Aborting...
-
-
-
-kicad-common
-kicad-doc-en
 
 pacman -Qs boost
 
@@ -171,17 +107,17 @@ git diff --check # before commiting a change
 
 git checkout master && git pull && git push origin
 
+git checkout staging && git rebase master
+git rebase -i master   ##
+git format-patch master
+git push --force-with-lease
+
 git checkout mingw-w64-kicad && git rebase master
 git rebase -i master   ##
 git push --force-with-lease
 
 git checkout mingw-w64-wxwidgets3.0 && git rebase master
 git rebase -i master   ##
-git push --force-with-lease
-
-git checkout staging && git rebase master
-git rebase -i master   ##
-git format-patch master
 git push --force-with-lease
 
 git checkout editors_and_IDEs && git rebase master
