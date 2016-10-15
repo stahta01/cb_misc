@@ -1,5 +1,7 @@
 MINGW_packages-git.txt
 
+create file "wxwidgets-build.sh" that rebuilds wxWidgets and the packages that depend on it.
+
 git show ba32ccb
 git show 22fb7da
 
@@ -80,6 +82,8 @@ cd ../mingw-w64-openscenegraph-git && makepkg-mingw -sLf    # 5 GB
 cd ../mingw-w64-winsparkle-git && makepkg-mingw -sLf        #
 
 
+cd ../mingw-w64-kicad-doc && makepkg-mingw -sLf             #
+
 pacman -S mingw-w64-i686-glm
 cd ../mingw-w64-kicad-git && makepkg-mingw -sLf             # Build error docs is missing dblatex
 https://github.com/KiCad/kicad-source-mirror/archive/4.0.4.tar.gz
@@ -110,14 +114,15 @@ http://downloads.kicad-pcb.org/docs/kicad-doc-4.0.4.tar.gz
 
 
 $ git branch --list
+  cleanup
   editors_and_IDEs
   master
-* mingw-w64-kicad
+  mingw-w64-kicad
   mingw-w64-wxwidgets2.8
   mingw-w64-wxwidgets3.0
   mingw-w64-wxwidgets3.1
   scratch
-  staging
+* staging
   testing
   wxwidgets
   
@@ -125,8 +130,8 @@ git diff --check # before commiting a change
 
 git checkout master && git pull && git push origin
 
-git checkout master && git checkout -b cleanup && git push -u origin
-# Edit ignore file
+git checkout cleanup && git rebase master
+git rebase -i master   ## KEEP ONLY git ignore file changes
 git push --force-with-lease
 
 git checkout staging && git rebase master
@@ -135,12 +140,22 @@ git format-patch master
 git push --force-with-lease
 
 git checkout mingw-w64-kicad && git rebase master
+git rebase staging
 git rebase -i master   ##
 git push --force-with-lease
 
 git checkout mingw-w64-wxwidgets3.0 && git rebase master
 git rebase -i master   ##
 git push --force-with-lease
+
+git checkout mingw-w64-wxwidgets3.1 && git rebase master
+git rebase -i master   ##
+git push --force-with-lease
+
+git checkout mingw-w64-wxwidgets2.8 && git rebase master
+git rebase -i master   ##
+git push --force-with-lease
+
 
 git checkout editors_and_IDEs && git rebase master
 git push --force-with-lease
@@ -153,6 +168,7 @@ git rebase master
 git push --force-with-lease
 
 git checkout testing && git rebase master
+git rebase mingw-w64-wxwidgets3.0
 git rebase staging
 git rebase master
 git rebase -i master
