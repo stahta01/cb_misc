@@ -134,7 +134,7 @@ git checkout cleanup && git rebase master
 git rebase -i master   ## KEEP ONLY git ignore file changes
 git push --force-with-lease
 
-git checkout staging && git rebase master
+git checkout staging && git rebase master && git status -uno
 git rebase -i master   ##
 git format-patch master
 git push --force-with-lease
@@ -175,12 +175,12 @@ git rebase -i master
 git push --force-with-lease
 
 ##
-git checkout scratch
-git rebase mingw-w64-kicad
-git rebase editors_and_IDEs
-git rebase wxwidgets
-git rebase testing
-git rebase staging
+git checkout scratch && \
+git rebase editors_and_IDEs && \
+git rebase mingw-w64-kicad && \
+git rebase wxwidgets && \
+git rebase testing && \
+git rebase staging && \
 git rebase master
 git rebase -i master
 git push --force-with-lease
