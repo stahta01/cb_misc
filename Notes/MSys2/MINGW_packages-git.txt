@@ -1,14 +1,139 @@
 MINGW_packages-git.txt
 
+$ pacman -Qs base-devel
+local/asciidoc 8.6.9-4 (base-devel)
+    Text document format for short documents, articles, books and UNIX man pages.
+local/autoconf 2.69-3 (base-devel)
+    A GNU tool for automatically configuring source code
+local/autoconf2.13 2.13-2 (base-devel)
+    A GNU tool for automatically configuring source code
+local/autogen 5.18.4-2 (base-devel)
+    A tool designed to simplify the creation and maintenance of programs that contain large amounts of repetitious text
+local/automake-wrapper 10-1 (base-devel)
+    Wrapper scripts for automake and aclocal
+local/automake1.10 1.10.3-3 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.11 1.11.6-3 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.12 1.12.6-3 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.13 1.13.4-4 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.14 1.14.1-3 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.15 1.15-2 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.6 1.6.3-2 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.7 1.7.9-2 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.8 1.8.5-3 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/automake1.9 1.9.6-2 (base-devel)
+    A GNU tool for automatically creating Makefiles
+local/bison 3.0.4-1 (base-devel)
+    The GNU general-purpose parser generator
+local/diffstat 1.58-1 (base-devel)
+    Display a histogram of diff changes
+local/diffutils 3.3-3 (base-devel)
+    Utility programs used for creating patch files
+local/dos2unix 7.3.4-1 (base-devel)
+    Text file format converter
+local/file 5.25-1 (base base-devel)
+    File type identification utility
+local/flex 2.6.1-1 (base base-devel)
+    A tool for generating text-scanning programs
+local/gawk 4.1.4-1 (base base-devel)
+    GNU version of awk
+local/gdb 7.9-2 (base-devel)
+    GNU Debugger (MSYS2 version)
+local/gettext 0.19.7-3 (base-devel)
+    GNU internationalization library
+local/gettext-devel 0.19.7-3 (development base-devel)
+    GNU Internationalization development utilities
+local/gperf 3.0.4-3 (base-devel)
+    Perfect hash function generator
+local/grep 2.22-3 (base base-devel)
+    A string search utility
+local/groff 1.22.3-1 (base-devel)
+    GNU troff text-formatting system
+local/help2man 1.47.3-1 (base-devel)
+    Conversion tool to create man files
+local/intltool 0.51.0-2 (base-devel)
+    The internationalization tool collection
+local/lemon 3.8.7.0-1 (base-devel)
+    The LEMON LALR Parser Generator used in SQLite 3.8.7.0 (MSYS2)
+local/libtool 2.4.6-2 (base-devel)
+    A generic library support script
+local/libunrar 5.3.7-1 (base-devel)
+    Library and header file for applications that use libunrar
+local/m4 1.4.17-4 (base-devel)
+    The GNU macro processor
+local/make 4.2.1-1 (base-devel)
+    GNU make utility to maintain groups of programs
+local/man-db 2.7.4-1 (base-devel)
+    A utility for reading man pages
+local/pacman 5.0.1-1 (base base-devel)
+    A library-based package manager with dependency support (MSYS2 port)
+local/pactoys-git r2.07ca37f-1 (base base-devel)
+    A set of pacman packaging utilities
+local/patch 2.7.5-1 (base-devel)
+    A utility to apply patch files to original sources
+local/patchutils 0.3.4-1 (base-devel)
+    Utilities to work with patches
+local/perl 5.22.1-1 (base-devel)
+    A highly capable, feature-rich programming language
+local/pkg-config 0.29.1-1 (base-devel)
+    A system for managing library compile/link flags
+local/pkgfile 15-1 (base base-devel)
+    A pacman .files metadata explorer
+local/quilt 0.64-1 (base-devel)
+    Manage large numbers of patches
+local/rcs 5.9.4-1 (base-devel)
+    Revision Control System: manages multiple revisions of files
+local/scons 2.5.0-1 (base-devel)
+    Extensible Python-based build utility
+local/sed 4.2.2-2 (base base-devel)
+    GNU stream editor
+local/swig 3.0.10-1 (base-devel)
+    Generate scripting interfaces to C/C++ code
+local/texinfo 6.1-1 (base-devel)
+    Utilities to work with and produce manuals, ASCII text, and on-line documentation from a single source file
+local/texinfo-tex 6.1-1 (base-devel)
+    Utilities to work with and produce manuals, ASCII text, and on-line documentation from a single source file
+local/ttyrec 1.0.8-1 (base base-devel)
+    A tty recorder
+local/unrar 5.3.7-1 (base-devel)
+    The RAR uncompression program
+local/wget 1.17.1-3 (base-devel)
+    A network utility to retrieve files from the Web
+local/xmlto 0.0.28-1 (base-devel)
+    Convert xml to many other formats
+
 create file "wxwidgets-build.sh" that rebuilds wxWidgets and the packages that depend on it.
 
 git show ba32ccb
 git show 22fb7da
 
+https://github.com/Alexpux/MINGW-packages/issues/1761 Links problem with wxWidgets 3.1
+https://github.com/Alexpux/MINGW-packages/issues/1076 mingw-w64-codelite-git packages need runtime dependency on ${MINGW_PACKAGE_PREFIX}-sqlite3 
+
+https://www.digitalocean.com/community/tutorials/how-to-use-yaourt-to-easily-download-arch-linux-community-packages yaourt package manager info
+
+https://archlinuxarm.org/packages
+https://www.archlinux.org/packages/?name=codeblocks
+https://www.archlinux.org/packages/community/x86_64/codeblocks/
+https://github.com/elieux/MINGW-packages/blob/geany-plugins/mingw-w64-geany-plugins/PKGBUILD
+
+https://github.com/Edenhofer/abs/blob/master/pcc/PKGBUILD
+
+https://wiki.archlinux.org/index.php/Arch_packaging_standards
 
 https://www.archlinux.org/packages/extra/any/convmv/
 
 sed -i 's/ln -s -f/cp -p -i/' Makefile
+
+http://bazaar.launchpad.net/~kicad-product-committers/kicad/product/files/head:/patches/
 
 http://ci.kicad-pcb.org/job/kicad-doxygen/ws/Documentation/doxygen/html/md_Documentation_development_compiling.html
 
@@ -26,91 +151,42 @@ https://github.com/Alexpux/MINGW-packages/issues/909
 
 pacman -Qs kicad
 pacman -S mingw-w64-i686-kicad-git
-
-https://packages.debian.org/sid/kicad-doc-en
-mingw-w64-kicad-doc
-
-mingw-w64-kicad-library
-
-    : Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36103205_20x20mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36103255_25x25mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36103305_30x30mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36103505_50x50mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36103605_60x60mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36503205_20x20mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36503255_25x25mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36503305_30x30mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36503505_50x50mm.kicad_mod' to UTF-8: Can't translate pathname 'usr/share/kicad/footprints/Shielding_Cabinets.pretty/Würth_36503605_60x60mm.kicad_mod' to UTF-8==> Finished making: mingw-w64-kicad-library 4.0.4-1 (Thu, Oct 13, 2016 12:08:09 AM)
-
-    mingw-w64-i686-kicad-library-git
-    error: failed to commit transaction (conflicting files)
-    mingw-w64-i686-kicad-library-git: /mingw32/share/kicad/modules/packages3d/unused_3d.3dshapes/device.douille_4mm(black).wings exists in filesystem
-    mingw-w64-i686-kicad-library-git: /mingw32/share/kicad/modules/packages3d/unused_3d.3dshapes/device.douille_4mm(black).wrl exists in filesystem
-    Errors occurred, no packages were upgraded.
-
-looking for conflicting packages...
-:: mingw-w64-i686-kicad-library and mingw-w64-i686-kicad-library-git are in conflict. Remove mingw-w64-i686-kicad-library-git? [y/N] y
-
-Packages (2) mingw-w64-i686-kicad-library-git-r1029.0a6c849-1 [removal]  mingw-w64-i686-kicad-library-4.0.4-1
-
-Total Installed Size:  516.90 MiB
-Net Upgrade Size:        5.74 MiB
-
-:: Proceed with installation? [Y/n]
-(1/1) checking keys in keyring                                                       [###############################################] 100%
-(1/1) checking package integrity                                                     [###############################################] 100%
-(1/1) loading package files                                                          [###############################################] 100%
-(1/1) checking for file conflicts                                                    [###############################################] 100%
-error: failed to commit transaction (conflicting files)
-mingw-w64-i686-kicad-library: /mingw32/share/kicad/modules/packages3d/unused_3d.3dshapes/Device.douille_4mm(black).wings exists in filesystem
-mingw-w64-i686-kicad-library: /mingw32/share/kicad/modules/packages3d/unused_3d.3dshapes/Device.douille_4mm(black).wrl exists in filesystem
-Errors occurred, no packages were upgraded.
-
-
-
 pacman -Qs boost
 
-https://www.archlinux.org/packages/community/x86_64/kicad/
-http://kicad-pcb.org/download/source/
+### Packages NOT needing wxWidgets package
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git
+cd mingw-w64-kicad-doc && makepkg-mingw -sLf                #
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-kicad-library-git
+### Remove wxWidgets package(s)
+pacman -Qs wxWidgets
+pacman -R  mingw-w64-i686-kicad-git
+pacman -R  mingw-w64-i686-wxPython
+pacman -R  mingw-w64-i686-wxWidgets
+pacman -R  mingw-w64-i686-wxWidgets2.8-git
+pacman -R  mingw-w64-i686-wxWidgets3.1-git
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-kicad && makepkg-mingw -sLf
-
-Packages needing wxWidgets package
+### Packages needing wxWidgets package
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
-cd ../mingw-w64-openscenegraph && makepkg-mingw -sLf        # 5 GB
-cd ../mingw-w64-plplot && makepkg-mingw -sLf                # Has many things NOT being found during build; build error out
-cd ../mingw-w64-rapidsvn && makepkg-mingw -sLf              # Is a package I added
-cd ../mingw-w64-winsparkle && makepkg-mingw -sLf            #
-cd ../mingw-w64-wxPython && makepkg-mingw -sLf              #
+cd ../mingw-w64-winsparkle && makepkg-mingw -sLf            # Built OK; Installed OK
+cd ../mingw-w64-winsparkle-git && makepkg-mingw -sLf        # Built OK; Installed OK
+cd ../mingw-w64-kicad-git && makepkg-mingw -sLf             # Built OK; Installed OK; Ran OK
+cd ../mingw-w64-codelite-git && makepkg-mingw -sLf          # Built OK; Installed OK; Ran OK
+# cd ../mingw-w64-openscenegraph && makepkg-mingw -sLf        # 5 GB too large to test
+# cd ../mingw-w64-openscenegraph-git && makepkg-mingw -sLf    # 5 GB too large to test
 
-cd ../mingw-w64-codelite-git && makepkg-mingw -sLf          #
-cd ../mingw-w64-openscenegraph-git && makepkg-mingw -sLf    # 5 GB
-cd ../mingw-w64-winsparkle-git && makepkg-mingw -sLf        #
+### wxWidgets package
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
+ls *.pkg.tar.xz
+pacman -U mingw-w64-i686-wxWidgets-3.0.2-16-any.pkg.tar.xz
 
-
-cd ../mingw-w64-kicad-doc && makepkg-mingw -sLf             #
-
-pacman -S mingw-w64-i686-glm
-cd ../mingw-w64-kicad-git && makepkg-mingw -sLf             # Build error docs is missing dblatex
-https://github.com/KiCad/kicad-source-mirror/archive/4.0.4.tar.gz
-http://downloads.kicad-pcb.org/libraries/kicad-library-4.0.4.tar.gz
-http://downloads.kicad-pcb.org/docs/kicad-doc-4.0.4.tar.gz
+cd ../mingw-w64-wxPython && makepkg-mingw -sLf              # Built OK; Installed OK
 
 
-  http://kicad-pcb.org/download/source/
-  http://ci.kicad-pcb.org/job/kicad-doxygen/ws/Documentation/doxygen/html/md_Documentation_development_compiling.html
-  see https://github.com/Alexpux/MINGW-packages/issues/909
-    https://github.com/Alexpux/MSYS2-packages
-    https://github.com/Alexpux/MINGW-packages
-  https://www.archlinux.org/packages/community/any/dblatex/
-  dblatex ?requires? texlive-bin 
-    https://www.archlinux.org/packages/extra/i686/texlive-bin/
-    https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/texlive-bin
-      'graphite' 
-      't1lib'
-        https://www.archlinux.org/packages/extra/i686/t1lib/
-      'libsigsegv'
-        https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/libsigsegv
-      'harfbuzz-icu'
-      'clisp'
-        https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/clisp
-      'ffcall'
-        https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/ffcall
-    https://wiki.archlinux.org/index.php/TeX_Live
+
+cd ../mingw-w64-plplot && makepkg-mingw -sLf                # Has many things NOT being found during build; build errored out
+-- WARNING: swig not found. Disabling java bindings
+-- WARNING: swig not found. Disabling Python bindings
+-- WARNING: swig not found. Disabling Octave bindings
 
 
 $ git branch --list
@@ -130,7 +206,7 @@ git diff --check # before commiting a change
 
 git checkout master && git pull && git push origin
 
-git checkout cleanup && git rebase master
+git checkout cleanup && git rebase master && git status -uno
 git rebase -i master   ## KEEP ONLY git ignore file changes
 git push --force-with-lease
 
@@ -139,48 +215,50 @@ git rebase -i master   ##
 git format-patch master
 git push --force-with-lease
 
-git checkout mingw-w64-kicad && git rebase master
+git checkout mingw-w64-kicad && git rebase master && git status -uno
 git rebase staging
 git rebase -i master   ##
 git push --force-with-lease
 
-git checkout mingw-w64-wxwidgets3.0 && git rebase master
+git checkout mingw-w64-wxwidgets3.0 && git rebase master && git status -uno
 git rebase -i master   ##
 git push --force-with-lease
 
-git checkout mingw-w64-wxwidgets3.1 && git rebase master
+git checkout mingw-w64-wxwidgets3.1 && git rebase master && git status -uno
 git rebase -i master   ##
 git push --force-with-lease
 
-git checkout mingw-w64-wxwidgets2.8 && git rebase master
+git checkout mingw-w64-wxwidgets2.8 && git rebase master && git status -uno
 git rebase -i master   ##
 git push --force-with-lease
 
 
-git checkout editors_and_IDEs && git rebase master
+git checkout editors_and_IDEs && git rebase master && git status -uno
 git push --force-with-lease
 
-git checkout wxwidgets && git rebase master
+git checkout wxwidgets && git rebase master && git status -uno
 git rebase mingw-w64-wxwidgets3.1
 git rebase mingw-w64-wxwidgets2.8
 git rebase mingw-w64-wxwidgets3.0
+git rebase staging
 git rebase master
 git push --force-with-lease
 
-git checkout testing && git rebase master
-git rebase mingw-w64-wxwidgets3.0
-git rebase staging
-git rebase master
+git checkout testing && git rebase master && git status -uno
+git rebase mingw-w64-wxwidgets3.0 && \
+git rebase staging && \
+git rebase master && git status -uno
 git rebase -i master
 git push --force-with-lease
 
 ##
-git checkout scratch && \
+git checkout scratch && git rebase master && git status -uno && \
 git rebase editors_and_IDEs && \
 git rebase mingw-w64-kicad && \
 git rebase wxwidgets && \
 git rebase testing && \
+git rebase cleanup && \
 git rebase staging && \
-git rebase master
+git rebase master && git status -uno
 git rebase -i master
 git push --force-with-lease
