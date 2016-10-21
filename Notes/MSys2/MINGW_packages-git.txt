@@ -153,6 +153,31 @@ pacman -Qs kicad
 pacman -S mingw-w64-i686-kicad-git
 pacman -Qs boost
 
+
+####
+# BEGIN:   Testing wxWidgets package installation upgrade
+pacman -Qs wxWidgets
+pacman -Qs cppunit
+pacman -R  mingw-w64-i686-wxPython
+pacman -R  mingw-w64-i686-wxWidgets
+pacman -R  mingw-w64-i686-cppunit
+pacman -R  mingw-w64-i686-wxWidgets3.0-git
+
+# Installs normal wxWidgets and likely mingw-w64-i686-cppunit, also.
+pacman -S  mingw-w64-i686-wxWidgets
+
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
+ls         *.pkg.tar.xz
+pacman -U  mingw-w64-i686-wxWidgets-3.0.2-17-any.pkg.tar.xz
+pacman -R  mingw-w64-i686-cppunit
+
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
+ls         *.pkg.tar.xz
+pacman -U  mingw-w64-i686-wxWidgets3.0-git-3.0.3.0.r58826.34527f7-1-any.pkg.tar.xz
+
+# END:     Testing wxWidgets package installation upgrade
+####
+
 ### Packages NOT needing wxWidgets package
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git
 cd mingw-w64-kicad-doc && makepkg-mingw -sLf                #
@@ -165,13 +190,16 @@ pacman -R  mingw-w64-i686-wxWidgets
 pacman -R  mingw-w64-i686-wxWidgets2.8-git
 pacman -R  mingw-w64-i686-wxWidgets3.1-git
 
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
+cd ../mingw-w64-wxwidgets && makepkg-mingw -sLf             #
+
 ### Packages needing wxWidgets package
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
 cd ../mingw-w64-winsparkle && makepkg-mingw -sLf            # Built OK; Installed OK
 cd ../mingw-w64-winsparkle-git && makepkg-mingw -sLf        # Built OK; Installed OK
 cd ../mingw-w64-kicad-git && makepkg-mingw -sLf             # Built OK; Installed OK; Ran OK
 cd ../mingw-w64-codelite-git && makepkg-mingw -sLf          # Built OK; Installed OK; Ran OK
-# cd ../mingw-w64-openscenegraph && makepkg-mingw -sLf        # 5 GB too large to test
+# cd ../mingw-w64-openscenegraph && makepkg-mingw -sLf        # Built OK; Installed OK; Ran at least partly OK
 # cd ../mingw-w64-openscenegraph-git && makepkg-mingw -sLf    # 5 GB too large to test
 
 ### wxWidgets package
@@ -206,17 +234,16 @@ git diff --check # before commiting a change
 
 git checkout master && git pull && git push origin
 
-git checkout cleanup && git rebase master && git status -uno
+git checkout cleanup && git rebase master && git status
 git rebase -i master   ## KEEP ONLY git ignore file changes
 git push --force-with-lease
 
-git checkout staging && git rebase master && git status -uno
+git checkout staging && git pull && git rebase master && git status -uno
 git rebase -i master   ##
 git format-patch master
 git push --force-with-lease
 
 git checkout mingw-w64-kicad && git rebase master && git status -uno
-git rebase staging
 git rebase -i master   ##
 git push --force-with-lease
 
@@ -237,14 +264,16 @@ git checkout editors_and_IDEs && git rebase master && git status -uno
 git push --force-with-lease
 
 git checkout wxwidgets && git rebase master && git status -uno
-git rebase mingw-w64-wxwidgets3.1
-git rebase mingw-w64-wxwidgets2.8
-git rebase mingw-w64-wxwidgets3.0
-git rebase staging
-git rebase master
+git rebase mingw-w64-wxwidgets3.1 && \
+git rebase mingw-w64-wxwidgets2.8 && \
+git rebase mingw-w64-wxwidgets3.0 && \
+git rebase staging  && \
+git rebase master && git status -uno
+git rebase -i master
 git push --force-with-lease
 
 git checkout testing && git rebase master && git status -uno
+git rebase mingw-w64-wxwidgets2.8 && \
 git rebase mingw-w64-wxwidgets3.0 && \
 git rebase staging && \
 git rebase master && git status -uno
