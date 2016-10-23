@@ -269,10 +269,11 @@ git rebase mingw-w64-wxwidgets2.8 && \
 git rebase mingw-w64-wxwidgets3.0 && \
 git rebase staging  && \
 git rebase master && git status -uno
-git rebase -i master
+git rebase -i master                    ## Remove codeblocks, kicad, and qt5 commits
 git push --force-with-lease
 
 git checkout testing && git rebase master && git status -uno
+git rebase editors_and_IDEs && \
 git rebase mingw-w64-wxwidgets2.8 && \
 git rebase mingw-w64-wxwidgets3.0 && \
 git rebase staging && \
