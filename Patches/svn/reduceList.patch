@@ -1,0 +1,165 @@
+Index: src/include/compilerfactory.h
+===================================================================
+--- src/include/compilerfactory.h	(revision 10918)
++++ src/include/compilerfactory.h	(working copy)
+@@ -45,7 +45,7 @@
+         static bool CompilerInheritsFrom(Compiler* compiler, const wxString& from_id);
+ 
+         /// Register a supported (builtin) compiler.
+-        static void RegisterCompiler(Compiler* compiler);
++        static void RegisterCompiler(Compiler* compiler, bool verify = false);
+         /// Register all user-defined compiler copies.
+         static void RegisterUserCompilers();
+         /// Create a copy of a compiler.
+Index: src/plugins/compilergcc/compilergcc.cpp
+===================================================================
+--- src/plugins/compilergcc/compilergcc.cpp	(revision 10918)
++++ src/plugins/compilergcc/compilergcc.cpp	(working copy)
+@@ -851,28 +851,29 @@
+ void CompilerGCC::DoRegisterCompilers()
+ {
+     bool nonPlatComp = Manager::Get()->GetConfigManager(_T("compiler"))->ReadBool(_T("/non_plat_comp"), false);
++    bool verify = Manager::Get()->GetConfigManager(_T("compiler"))->ReadBool(_T("/non_plat_comp"), false);
+ 
+     // register built-in compilers
+     CompilerFactory::RegisterCompiler(new CompilerMINGW);
+     if (platform::windows || nonPlatComp)
+     {
+-        CompilerFactory::RegisterCompiler(new CompilerMSVC);
+-        CompilerFactory::RegisterCompiler(new CompilerMSVC8);
+-        CompilerFactory::RegisterCompiler(new CompilerMSVC10);
+-        CompilerFactory::RegisterCompiler(new CompilerOW);
+-        CompilerFactory::RegisterCompiler(new CompilerCYGWIN);
+-        CompilerFactory::RegisterCompiler(new CompilerLCC);
+-        CompilerFactory::RegisterCompiler(new CompilerKeilC51);
+-        CompilerFactory::RegisterCompiler(new CompilerKeilCX51);
+-        CompilerFactory::RegisterCompiler(new CompilerIAR(wxT("8051")));
+-        CompilerFactory::RegisterCompiler(new CompilerIAR(wxT("ARM")));
++        CompilerFactory::RegisterCompiler(new CompilerMSVC, verify);
++        CompilerFactory::RegisterCompiler(new CompilerMSVC8, verify);
++        CompilerFactory::RegisterCompiler(new CompilerMSVC10, verify);
++        CompilerFactory::RegisterCompiler(new CompilerOW, verify);
++        CompilerFactory::RegisterCompiler(new CompilerCYGWIN, verify);
++        CompilerFactory::RegisterCompiler(new CompilerLCC, verify);
++        CompilerFactory::RegisterCompiler(new CompilerKeilC51, verify);
++        CompilerFactory::RegisterCompiler(new CompilerKeilCX51, verify);
++        CompilerFactory::RegisterCompiler(new CompilerIAR(wxT("8051")), verify);
++        CompilerFactory::RegisterCompiler(new CompilerIAR(wxT("ARM")), verify);
+     }
+-    CompilerFactory::RegisterCompiler(new CompilerICC);
+-    CompilerFactory::RegisterCompiler(new CompilerGDC);
+-    CompilerFactory::RegisterCompiler(new CompilerGNUFortran);
+-    CompilerFactory::RegisterCompiler(new CompilerG95);
++    CompilerFactory::RegisterCompiler(new CompilerICC, verify);
++    CompilerFactory::RegisterCompiler(new CompilerGDC, verify);
++    CompilerFactory::RegisterCompiler(new CompilerGNUFortran, verify);
++    CompilerFactory::RegisterCompiler(new CompilerG95, verify);
+     if (platform::windows || platform::Linux || nonPlatComp)
+-        CompilerFactory::RegisterCompiler(new CompilerGNUARM);
++        CompilerFactory::RegisterCompiler(new CompilerGNUARM, verify);
+ 
+     // register pure XML compilers
+     // user paths first
+@@ -943,7 +944,7 @@
+                 CompilerFactory::RegisterCompiler(
+                                    new CompilerXML(compiler.GetRoot()->GetAttribute(wxT("name"), wxEmptyString),
+                                                    compiler.GetRoot()->GetAttribute(wxT("id"), wxEmptyString),
+-                                                   compilers[i]));
++                                                   compilers[i]), verify);
+         }
+     }
+ 
+Index: src/plugins/compilergcc/resources/compilers/compiler_msys2-gcc.xml
+===================================================================
+--- src/plugins/compilergcc/resources/compilers/compiler_msys2-gcc.xml	(nonexistent)
++++ src/plugins/compilergcc/resources/compilers/compiler_msys2-gcc.xml	(working copy)
+@@ -0,0 +1,17 @@
++﻿<?xml version="1.0"?>
++<!DOCTYPE CodeBlocks_compiler>
++<CodeBlocks_compiler name="MSys2 GNU GCC Compiler"
++                     id="msys2-gcc"
++                     weight="33">
++    <Path type="master">
++        <Search envVar="PATH"
++                for="C"/>
++        <if platform="windows">
++            <Search path="C:\msys32\mingw*"/>
++            <Fallback path="C:\msys32\mingw32"/>
++        </if>
++        <else>
++            <Fallback path="/usr"/>
++        </else>
++    </Path>
++</CodeBlocks_compiler>
+Index: src/plugins/compilergcc/resources/compilers/options_msys2-gcc.xml
+===================================================================
+--- src/plugins/compilergcc/resources/compilers/options_msys2-gcc.xml	(nonexistent)
++++ src/plugins/compilergcc/resources/compilers/options_msys2-gcc.xml	(working copy)
+@@ -0,0 +1,13 @@
++﻿<?xml version="1.0"?>
++<!DOCTYPE CodeBlocks_compiler_options>
++<CodeBlocks_compiler_options extends="gcc">
++    <Program name="C"         value="gcc.exe"/>
++    <Program name="CPP"       value="g++.exe"/>
++    <Program name="LD"        value="g++.exe"/>
++    <Program name="DBGconfig" value="gdb_debugger:Default"/>
++    <Program name="LIB"       value="ar.exe"/>
++    <Program name="WINDRES"   value="windres.exe"/>
++    <Program name="MAKE"      value="mingw32-make.exe"/>
++
++    <Switch name="forceFwdSlashes" value="true"/>
++</CodeBlocks_compiler_options>
+Index: src/sdk/compilerfactory.cpp
+===================================================================
+--- src/sdk/compilerfactory.cpp	(revision 10918)
++++ src/sdk/compilerfactory.cpp	(working copy)
+@@ -129,18 +129,40 @@
+     return false;
+ }
+ 
+-void CompilerFactory::RegisterCompiler(Compiler* compiler)
++void CompilerFactory::RegisterCompiler(Compiler* compiler, bool verify)
+ {
+-    size_t idx = CompilerFactory::Compilers.GetCount();
+-    for (; idx > 0; --idx)
++    bool valid = false;
++
++    if (verify)
+     {
+-        if (compiler->m_Weight >= Compilers[idx - 1]->m_Weight)
+-            break;
++        compiler->AutoDetectInstallationDir();
++        // Get configured masterpath, expand macros
++        wxString masterPath = compiler->GetMasterPath();
++        
++        wxString sep = wxFileName::GetPathSeparator();
++
++        Manager::Get()->GetMacrosManager()->ReplaceMacros(masterPath);
++
++        if (wxFileExists(masterPath + sep + wxT_2("bin") + sep + compiler->GetPrograms().C))
++            valid = true;
++        if (wxFileExists(masterPath + sep + wxT_2("bin") + sep + compiler->GetPrograms().CPP))
++            valid = true;
+     }
+-    CompilerFactory::Compilers.Insert(compiler, idx);
+-    // if it's the first one, set it as default
+-    if (!s_DefaultCompiler)
+-        s_DefaultCompiler = compiler;
++    else valid = true;
++
++    if (valid)
++    {
++        size_t idx = CompilerFactory::Compilers.GetCount();
++        for (; idx > 0; --idx)
++        {
++            if (compiler->m_Weight >= Compilers[idx - 1]->m_Weight)
++                break;
++        }
++        CompilerFactory::Compilers.Insert(compiler, idx);
++        // if it's the first one, set it as default
++        if (!s_DefaultCompiler)
++            s_DefaultCompiler = compiler;
++    }
+ }
+ 
+ void CompilerFactory::RegisterUserCompilers()
