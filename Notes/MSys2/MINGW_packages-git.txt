@@ -1,5 +1,12 @@
 MINGW_packages-git.txt
 
+--prefix=C:/Apps32/MSys2/mingw32
+
+TARGET_COMPILER_PREFIX := "C:/Apps32/MSys2/mingw32"
+
+WX_CONFIG := $(TARGET_COMPILER_DIR)..\usr\bin\sh.exe "$(TARGET_COMPILER_DIR)/bin/wx-config" --prefix=$(TARGET_COMPILER_PREFIX) --version=3.0
+
+
 $ pacman -Qs base-devel
 local/asciidoc 8.6.9-4 (base-devel)
     Text document format for short documents, articles, books and UNIX man pages.
