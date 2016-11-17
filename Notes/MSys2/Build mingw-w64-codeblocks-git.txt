@@ -1,0 +1,67 @@
+pacman -Syuu
+
+pacman -Qs wxwidgets
+
+pacman -Qs codeblocks
+
+##  git checkout master && git fetch upstream && git rebase upstream/master && git push origin
+
+git checkout editors_and_IDEs && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git
+
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
+
+ls *.pkg.tar.xz
+
+pacman -U mingw-w64-i686-codeblocks-git-r10921.fa7b41b-1-any.pkg.tar.xz
+
+
+Plugin names are: AutoVersioning, BrowseTracker, byogames, Cccc, CppCheck, cbkoders, codesnippets,
+  codestat, copystrings, Cscope, DoxyBlocks, dragscroll, EditorConfig, EditorTweaks, envvars,
+  FileManager, headerfixup, help, hexeditor, incsearch, keybinder, libfinder, MouseSap,
+  NassiShneiderman, ProjectOptionsManipulator, profiler, regex, ReopenEditor, exporter, smartindent, spellchecker,
+  symtab, ThreadSearch, ToolsPlus, Valgrind, wxcontrib, wxsmith, wxsmithcontrib, wxsmithaui
+
+### Building contrib errors
+
+In file included from C:/msys32/mingw32/include/wx-2.8/wx/wx.h:16:0,
+                 from src/chartwindow.cpp:29:
+src/chartwindow.cpp: In member function 'virtual wxClassInfo* wxChartWindow::GetClassInfo() const':
+src/chartwindow.cpp:35:25: error: definition of static data member 'wxChartWindow::ms_classInfo' of dllimport'd class
+ IMPLEMENT_DYNAMIC_CLASS(wxChartWindow, wxWindow)
+                         ^
+C:/msys32/mingw32/include/wx-2.8/wx/object.h:169:17: note: in definition of macro 'wxIMPLEMENT_CLASS_COMMON'
+     wxClassInfo name::ms_classInfo(wxT(#name),                                \
+                 ^~~~
+C:/msys32/mingw32/include/wx-2.8/wx/object.h:190:5: note: in expansion of macro 'wxIMPLEMENT_CLASS_COMMON1'
+     wxIMPLEMENT_CLASS_COMMON1(name, basename, name::wxCreateObject)           \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+src/chartwindow.cpp:35:1: note: in expansion of macro 'IMPLEMENT_DYNAMIC_CLASS'
+ IMPLEMENT_DYNAMIC_CLASS(wxChartWindow, wxWindow)
+ ^
+In file included from C:/msys32/mingw32/include/wx-2.8/wx/wx.h:25:0,
+                 from src/chartwindow.cpp:29:
+src/chartwindow.cpp: In member function 'virtual const wxEventTable* wxChartWindow::GetEventTable() const':
+src/chartwindow.cpp:37:19: error: definition of static data member 'wxChartWindow::sm_eventTable' of dllimport'd class
+ BEGIN_EVENT_TABLE(wxChartWindow, wxWindow)
+                   ^
+C:/msys32/mingw32/include/wx-2.8/wx/event.h:2721:24: note: in definition of macro 'BEGIN_EVENT_TABLE'
+     const wxEventTable theClass::sm_eventTable = \
+                        ^~~~~~~~
+src/chartwindow.cpp: In member function 'virtual wxEventHashTable& wxChartWindow::GetEventHashTable() const':
+src/chartwindow.cpp:37:19: error: definition of static data member 'wxChartWindow::sm_eventHashTable' of dllimport'd class
+ BEGIN_EVENT_TABLE(wxChartWindow, wxWindow)
+
+---------------------------
+
+---------------------------
+Cannot find resources...
+Code::Blocks was configured to be installed in 'C:\msys32\mingw32\bin\share\codeblocks'.
+Please use the command-line switch '--prefix' or set the CODEBLOCKS_DATA_DIR environment variable to point where Code::Blocks is installed,
+or try re-installing the application...
+---------------------------
+OK   
+---------------------------
