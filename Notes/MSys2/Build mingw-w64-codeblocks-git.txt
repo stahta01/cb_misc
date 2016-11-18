@@ -1,3 +1,5 @@
+__USE_MINGW_ANSI_STDIO
+
 pacman -Syuu
 
 pacman -Qs wxwidgets
@@ -10,7 +12,7 @@ git checkout editors_and_IDEs && git pull && git rebase master && git push
 git rebase -i master
 git push --force-with-lease
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git && git status -uno
 
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 
@@ -18,12 +20,128 @@ ls *.pkg.tar.xz
 
 pacman -U mingw-w64-i686-codeblocks-git-r10921.fa7b41b-1-any.pkg.tar.xz
 
+Plugin names are: 
+  AutoVersioning, 
+  BrowseTracker, 
+  byogames, 
+  Cccc, 
+  CppCheck, 
+  cbkoders, 
+  codesnippets,
+  codestat, 
+  copystrings, 
+  Cscope, 
+  DoxyBlocks, 
+  dragscroll, 
+  EditorConfig, 
+  EditorTweaks, 
+  envvars,
+  FileManager, 
+  headerfixup, 
+  help, 
+  hexeditor, 
+  incsearch, 
+  keybinder, 
+  libfinder, 
+  MouseSap,
+  NassiShneiderman, 
+  ProjectOptionsManipulator, 
+  profiler, 
+  regex, 
+  ReopenEditor, 
+  exporter, 
+  smartindent, 
+  spellchecker,
+  symtab, 
+  ThreadSearch, 
+  ToolsPlus, 
+  Valgrind, 
+  wxcontrib, 
+  wxsmith, 
+  wxsmithcontrib, 
+  wxsmithaui
 
-Plugin names are: AutoVersioning, BrowseTracker, byogames, Cccc, CppCheck, cbkoders, codesnippets,
-  codestat, copystrings, Cscope, DoxyBlocks, dragscroll, EditorConfig, EditorTweaks, envvars,
-  FileManager, headerfixup, help, hexeditor, incsearch, keybinder, libfinder, MouseSap,
-  NassiShneiderman, ProjectOptionsManipulator, profiler, regex, ReopenEditor, exporter, smartindent, spellchecker,
-  symtab, ThreadSearch, ToolsPlus, Valgrind, wxcontrib, wxsmith, wxsmithcontrib, wxsmithaui
+codeblocks --prefix=C:/msys32/mingw32 --debug-log
+
+Scanning for lexers in C:\msys32\mingw32\share\codeblocks/lexers/...
+Found 56 lexers
+Scanning for plugins in C:\Users\stahta01\AppData\Roaming\CodeBlocks\share\codeblocks\plugins
+Loaded 0 plugins
+Scanning for plugins in C:/msys32/mingw32/lib/codeblocks/plugins
+Plugin resource not found: libabbreviations.zip
+Plugin resource not found: libastyle.zip
+Plugin resource not found: libautosave.zip
+Plugin resource not found: libclasswizard.zip
+Plugin resource not found: libcodecompletion.zip
+Plugin resource not found: libcompiler.zip
+Plugin resource not found: libdebugger.zip
+Plugin resource not found: libdefaultmimehandler.zip
+Plugin resource not found: libenvvars.zip
+Plugin resource not found: liboccurrenceshighlighting.zip
+Plugin resource not found: libopenfileslist.zip
+Plugin resource not found: libprojectsimporter.zip
+Plugin resource not found: libscriptedwizard.zip
+Plugin resource not found: libtodo.zip
+Plugin resource not found: libxpmanifest.zip
+Loaded 0 plugins
+
+C:\Program Files\CodeBlocks\share\CodeBlocks
+
+    // remove 'lib' prefix from plugin name (if any)
+    if (!platform::windows && actual.StartsWith(_T("lib")))
+        actual.Remove(0, 3);
+
+Run-Time error when --prefix is not used.
+  ---------------------------
+
+  ---------------------------
+  Cannot find resources...
+  Code::Blocks was configured to be installed in 'C:\msys32\mingw32\bin\share\codeblocks'.
+  Please use the command-line switch '--prefix' or set the CODEBLOCKS_DATA_DIR environment variable to point where Code::Blocks is installed,
+  or try re-installing the application...
+  ---------------------------
+  OK   
+  ---------------------------
+
+C:/Devel/open_source_code/no_version_control/Test/GetPaths
+
+CMD /C echo GET_DATA_DIR := "$(GET_DATA_DIR)"
+CMD /C echo GET_CONFIG_DIR := "$(GET_CONFIG_DIR)"
+CMD /C echo DATAPATH := "$(DATAPATH)"
+CMD /C echo PLUGINS := "$(PLUGINS)"
+CMD /C echo GET_USER_CONFIG_DIR := "$(GET_USER_CONFIG_DIR)"
+CMD /C echo CODEBLOCKS := "$(CODEBLOCKS)"
+
+Running target pre-build steps
+CMD /C echo GET_DATA_DIR := "C:\Program Files\CodeBlocks"
+GET_DATA_DIR := "C:\Program Files\CodeBlocks"
+CMD /C echo GET_CONFIG_DIR := "C:\ProgramData\codeblocks"
+GET_CONFIG_DIR := "C:\ProgramData\codeblocks"
+CMD /C echo DATAPATH := "C:\Program Files\CodeBlocks\share\codeblocks"
+DATAPATH := "C:\Program Files\CodeBlocks\share\codeblocks"
+CMD /C echo PLUGINS := "C:\Program Files\CodeBlocks\share\codeblocks\plugins"
+PLUGINS := "C:\Program Files\CodeBlocks\share\codeblocks\plugins"
+CMD /C echo GET_USER_CONFIG_DIR := "C:\Users\stahta01\AppData\Roaming"
+GET_USER_CONFIG_DIR := "C:\Users\stahta01\AppData\Roaming"
+CMD /C echo CODEBLOCKS := "C:\Program Files\CodeBlocks"
+CODEBLOCKS := "C:\Program Files\CodeBlocks"
+
+    // Unix: prefix/share/appname   Windows: EXE path
+    m_Macros[_T("GET_DATA_DIR")]            = ((const wxStandardPaths&)wxStandardPaths::Get()).GetDataDir();
+    // Unix: /etc/appname   Windows: EXE path
+    m_Macros[_T("GET_LOCAL_DATA_DIR")]      = ((const wxStandardPaths&)wxStandardPaths::Get()).GetLocalDataDir();
+    // Unix: ~   Windows: C:\Documents and Settings\username\Documents
+    m_Macros[_T("GET_DOCUMENTS_DIR")]       = ((const wxStandardPaths&)wxStandardPaths::Get()).GetDocumentsDir();
+    // Unix: /etc   Windows: C:\Documents and Settings\All Users\Application Data
+    m_Macros[_T("GET_CONFIG_DIR")]          = ((const wxStandardPaths&)wxStandardPaths::Get()).GetConfigDir();
+    // Unix: ~   Windows: C:\Documents and Settings\username\Application Data\appname
+    m_Macros[_T("GET_USER_CONFIG_DIR")]     = ((const wxStandardPaths&)wxStandardPaths::Get()).GetUserConfigDir();
+    // Unix: ~/.appname   Windows: C:\Documents and Settings\username\Application Data
+    m_Macros[_T("GET_USER_DATA_DIR")]       = ((const wxStandardPaths&)wxStandardPaths::Get()).GetUserDataDir();
+    // Unix: ~/.appname   Windows: C:\Documents and Settings\username\Local Settings\Application Data\appname
+    m_Macros[_T("GET_USER_LOCAL_DATA_DIR")] = ((const wxStandardPaths&)wxStandardPaths::Get()).GetUserLocalDataDir();
+    // ALl platforms: A writable, temporary directory
+    m_Macros[_T("GET_TEMP_DIR")]            = ((const wxStandardPaths&)wxStandardPaths::Get()).GetTempDir();
 
 ### Building contrib errors
 
@@ -54,14 +172,3 @@ C:/msys32/mingw32/include/wx-2.8/wx/event.h:2721:24: note: in definition of macr
 src/chartwindow.cpp: In member function 'virtual wxEventHashTable& wxChartWindow::GetEventHashTable() const':
 src/chartwindow.cpp:37:19: error: definition of static data member 'wxChartWindow::sm_eventHashTable' of dllimport'd class
  BEGIN_EVENT_TABLE(wxChartWindow, wxWindow)
-
----------------------------
-
----------------------------
-Cannot find resources...
-Code::Blocks was configured to be installed in 'C:\msys32\mingw32\bin\share\codeblocks'.
-Please use the command-line switch '--prefix' or set the CODEBLOCKS_DATA_DIR environment variable to point where Code::Blocks is installed,
-or try re-installing the application...
----------------------------
-OK   
----------------------------
