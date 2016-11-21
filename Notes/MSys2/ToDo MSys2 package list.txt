@@ -1,0 +1,44 @@
+Doing: Remove WXMAKINGDLL_SCI from the code and the NT patch.
+
+Merge git commits
+
+Fix PCH warnings
+
+HOLD: Try building all contrib plugins
+  CppCheck,DoxyBlocks,envvars,help,ProjectOptionsManipulator,ToolsPlus
+  ,AutoVersioning,BrowseTracker,byogames,Cccc,cbkoders,codestat,spellchecker
+  ,NassiShneiderman,profiler,regex,ReopenEditor,exporter,smartindent
+  ,codesnippets,copystrings,Cscope,dragscroll,EditorConfig,EditorTweaks
+  ,FileManager,headerfixup,hexeditor,incsearch,keybinder,libfinder,MouseSap
+  ,symtab,ThreadSearch,wxcontrib,wxsmith,wxsmithcontrib,wxsmithaui
+
+#define WXEXPORT __declspec (dllexport)
+#define WXIMPORT __declspec (dllimport)
+
+#ifdef EXPORT_LIB
+    #define WXDLLIMPEXP_SCI __declspec (dllexport)
+#elif defined(BUILDING_PLUGIN) || defined(WXUSINGDLL)
+    #define WXDLLIMPEXP_SCI __declspec (dllimport)
+#else // not making nor using DLL
+    #define WXDLLIMPEXP_SCI
+#endif
+
+Create CB using wxMSW3.0 package
+Test CB using wxMSW3.0 package under 64 bit
+
+Build CB under CygWin 64 bit
+Test CB under CygWin 64 bit
+
+Create wxGTK3.0 package
+Test wxGTK3.0 package under 64 bit
+
+Create CB using wxGTK3.0 package
+Test CB using wxGTK3.0 package under 64 bit
+
+
+Submit some of the following patches to CB
+  cb16.01_win32-ConsoleRunner-Replaced__WXMSW__.patch
+  cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT.patch
+  cb16.01_wxMSW2.8-scrollingdialog-Added-include.patch
+  cb16.01_wxMSW-Change-WXDLLIMPEXP_SCI-value.patch
+  cb_msys2-replace_file_conflicts.patch 
