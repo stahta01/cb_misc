@@ -1,17 +1,26 @@
-Doing: Remove WXMAKINGDLL_SCI from the code and the NT patch.
-
-Merge git commits
-
-Fix PCH warnings
+Merge git commits to push to server
 
 HOLD: Try building all contrib plugins
   CppCheck,DoxyBlocks,envvars,help,ProjectOptionsManipulator,ToolsPlus
-  ,AutoVersioning,BrowseTracker,byogames,Cccc,cbkoders,codestat,spellchecker
+  ,AutoVersioning,BrowseTracker,byogames,Cccc,cbkoders,codestat
   ,NassiShneiderman,profiler,regex,ReopenEditor,exporter,smartindent
-  ,codesnippets,copystrings,Cscope,dragscroll,EditorConfig,EditorTweaks
-  ,FileManager,headerfixup,hexeditor,incsearch,keybinder,libfinder,MouseSap
-  ,symtab,ThreadSearch,wxcontrib,wxsmith,wxsmithcontrib,wxsmithaui
+  ,copystrings,Cscope,dragscroll,EditorConfig,EditorTweaks,FileManager
+  ,headerfixup,hexeditor,incsearch,keybinder,MouseSap,symtab,codesnippets
+  ,wxcontrib,libfinder,ThreadSearch
+  ,wxsmith,wxsmithaui,wxsmithcontrib
+  ,spellchecker
 
+Fix PCH warnings
+
+if CODEBLOCKS_NT
+AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL
+endif
+
+Create "Makefile use NOPCH" patch that changes CB_PRECOMP to NOPCH.
+Apply before make in build step.
+
+
+Create CB using wxMSW3.0 package
 #define WXEXPORT __declspec (dllexport)
 #define WXIMPORT __declspec (dllimport)
 
@@ -22,9 +31,8 @@ HOLD: Try building all contrib plugins
 #else // not making nor using DLL
     #define WXDLLIMPEXP_SCI
 #endif
-
-Create CB using wxMSW3.0 package
 Test CB using wxMSW3.0 package under 64 bit
+
 
 Build CB under CygWin 64 bit
 Test CB under CygWin 64 bit
