@@ -1,5 +1,17 @@
 Merge git commits to push to server
 
+Fix PCH warnings
+  src/plugins/scriptedwizard'
+  src/plugins/projectsimporter'
+  src/plugins/openfileslist'
+  src/plugins/todo'
+  src/plugins/xpmanifest'
+
+
+if CODEBLOCKS_NT
+AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL
+endif
+
 HOLD: Try building all contrib plugins
   CppCheck,DoxyBlocks,envvars,help,ProjectOptionsManipulator,ToolsPlus
   ,AutoVersioning,BrowseTracker,byogames,Cccc,cbkoders,codestat
@@ -10,15 +22,12 @@ HOLD: Try building all contrib plugins
   ,wxsmith,wxsmithaui,wxsmithcontrib
   ,spellchecker
 
-Fix PCH warnings
+  local HUNSPELL_CFLAGS=`${MINGW_PREFIX}/bin/pkg-config hunspell --cflags`
+  local HUNSPELL_LIBS=`${MINGW_PREFIX}/bin/pkg-config hunspell --libs`
 
-if CODEBLOCKS_NT
-AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL
-endif
 
 Create "Makefile use NOPCH" patch that changes CB_PRECOMP to NOPCH.
 Apply before make in build step.
-
 
 Create CB using wxMSW3.0 package
 #define WXEXPORT __declspec (dllexport)
