@@ -1,15 +1,25 @@
-__USE_MINGW_ANSI_STDIO
-
+# Update the MSys2 Installation
 pacman -Syuu
 
+# One time build tools installation
+pacman -S base-devel
+# for building mingw32 packages
+pacman -S mingw-w64-i686-toolchain
+# for building mingw64 packages
+pacman -S mingw-w64-x86_64-toolchain
+
+# See which wxwidgets packages are installed
 pacman -Qs wxwidgets
 
+# See which codeblock's package is installed
 pacman -Qs codeblocks
 
 ##  git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
 git checkout editors_and_IDEs && git pull && git rebase master && git push
 git rebase -i master
+git rebase --ignore-date master
+git log -3
 git push --force-with-lease
 
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git && git status -uno
