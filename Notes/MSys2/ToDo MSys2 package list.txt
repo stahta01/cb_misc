@@ -18,12 +18,9 @@ HOLD: Try building all contrib plugins
   ,NassiShneiderman,profiler,regex,ReopenEditor,exporter,smartindent
   ,copystrings,Cscope,dragscroll,EditorConfig,EditorTweaks,FileManager
   ,headerfixup,hexeditor,incsearch,keybinder,MouseSap,symtab,codesnippets
+  ,spellchecker
   ,wxcontrib,libfinder,ThreadSearch
   ,wxsmith,wxsmithaui,wxsmithcontrib
-  ,spellchecker
-
-  local HUNSPELL_CFLAGS=`${MINGW_PREFIX}/bin/pkg-config hunspell --cflags`
-  local HUNSPELL_LIBS=`${MINGW_PREFIX}/bin/pkg-config hunspell --libs`
 
 
 Create "Makefile use NOPCH" patch that changes CB_PRECOMP to NOPCH.
