@@ -1,17 +1,5 @@
 Merge git commits to push to server
 
-Fix PCH warnings
-  src/plugins/scriptedwizard'
-  src/plugins/projectsimporter'
-  src/plugins/openfileslist'
-  src/plugins/todo'
-  src/plugins/xpmanifest'
-
-
-if CODEBLOCKS_NT
-AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL
-endif
-
 HOLD: Try building all contrib plugins
   CppCheck,DoxyBlocks,envvars,help,ProjectOptionsManipulator,ToolsPlus
   ,AutoVersioning,BrowseTracker,byogames,Cccc,cbkoders,codestat
@@ -22,6 +10,25 @@ HOLD: Try building all contrib plugins
   ,wxcontrib,libfinder,ThreadSearch
   ,wxsmith,wxsmithaui,wxsmithcontrib
 
+
+Fix PCH warnings
+  src/plugins/occurrenceshighlighting'
+  src/plugins/contrib/BrowseTracker'
+  src/plugins/contrib/byogames'
+  src/plugins/contrib/cb_koders'
+  src/plugins/contrib/Cccc'
+  src/plugins/contrib/codestat'
+  src/plugins/contrib/copystrings'
+  src/plugins/contrib/CppCheck'
+  src/plugins/contrib/Cscope'
+
+if CODEBLOCKS_NT
+AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL
+endif
+
+
+Fix NOPCH Warnings warning: '_putenv' redeclared
+  src/src'
 
 Create "Makefile use NOPCH" patch that changes CB_PRECOMP to NOPCH.
 Apply before make in build step.
