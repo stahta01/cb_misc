@@ -1,0 +1,91 @@
+$ git branch --list
+  cleanup
+* editors_and_IDEs
+  goffice
+  master
+  mingw-w64-kicad
+  mingw-w64-qt5
+  mingw-w64-wxwidgets2.8
+  mingw-w64-wxwidgets3.0
+  mingw-w64-wxwidgets3.1
+  scratch
+  staging
+  testing
+  wxwidgets
+
+git checkout master && git fetch upstream && git rebase upstream/master && git push origin
+
+
+git checkout staging && git pull && git rebase master && git push
+git rebase master
+git rebase -i master   ## Keep ONLY changes I wish to push upstream
+git push origin
+
+git checkout cleanup && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+git checkout goffice && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+git checkout mingw-w64-qt5 && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+git checkout mingw-w64-kicad && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+git checkout editors_and_IDEs && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+git checkout mingw-w64-wxwidgets3.0 && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+git checkout mingw-w64-wxwidgets2.8 && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+git checkout mingw-w64-wxwidgets3.1 && git pull && git rebase master && git push
+git rebase -i master
+git push --force-with-lease
+
+git checkout wxwidgets && git pull && git status -uno
+git rebase mingw-w64-wxwidgets3.1
+git rebase mingw-w64-wxwidgets2.8
+git rebase mingw-w64-wxwidgets3.0
+git rebase master && git status -uno
+git push
+# git push --force-with-lease
+
+
+git checkout testing && git pull && git status -uno
+git rebase mingw-w64-wxwidgets2.8
+git rebase mingw-w64-wxwidgets3.0
+git rebase editors_and_IDEs
+### git rebase staging
+git rebase master && git status -uno
+git rebase -i master
+git push
+# git push --force-with-lease
+
+
+##
+git checkout scratch && git pull && git status -uno
+git rebase cleanup
+git rebase mingw-w64-kicad
+git rebase mingw-w64-qt5
+git rebase goffice
+git rebase wxwidgets
+git rebase editors_and_IDEs
+### git rebase testing
+git rebase staging
+git rebase master && git status -uno
+git push
+# git push --force-with-lease
+
+git log -3
+git format-patch 81eddbce92d53ccc3cb517e8ecc7c8e26262e731
