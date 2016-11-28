@@ -43,6 +43,7 @@ git push --force-with-lease
 
 git checkout mingw-w64-wxwidgets3.0 && git pull && git rebase master && git push
 git rebase -i master
+git format-patch master
 git push --force-with-lease
 
 git checkout mingw-w64-wxwidgets2.8 && git pull && git rebase master && git push
@@ -63,10 +64,10 @@ git push
 
 
 git checkout testing && git pull && git status -uno
-git rebase mingw-w64-wxwidgets2.8
-git rebase mingw-w64-wxwidgets3.0
+### git rebase mingw-w64-wxwidgets2.8
+### git rebase mingw-w64-wxwidgets3.0
 git rebase editors_and_IDEs
-### git rebase staging
+git rebase staging
 git rebase master && git status -uno
 git rebase -i master
 git push

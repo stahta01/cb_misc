@@ -5,22 +5,14 @@ HOLD: Try building all contrib plugins
   ,AutoVersioning,BrowseTracker,byogames,Cccc,cbkoders,codestat
   ,NassiShneiderman,profiler,regex,ReopenEditor,exporter,smartindent
   ,copystrings,Cscope,dragscroll,EditorConfig,EditorTweaks,FileManager
-  ,headerfixup,hexeditor,incsearch,keybinder,MouseSap,symtab,codesnippets
+  ,headerfixup,hexeditor,incsearch,MouseSap,symtab,codesnippets
   ,spellchecker
   ,wxcontrib,libfinder,ThreadSearch
   ,wxsmith,wxsmithaui,wxsmithcontrib
+  ,keybinder
 
 
 Fix PCH warnings
-  src/plugins/occurrenceshighlighting'
-  src/plugins/contrib/BrowseTracker'
-  src/plugins/contrib/byogames'
-  src/plugins/contrib/cb_koders'
-  src/plugins/contrib/Cccc'
-  src/plugins/contrib/codestat'
-  src/plugins/contrib/copystrings'
-  src/plugins/contrib/CppCheck'
-  src/plugins/contrib/Cscope'
 
 if CODEBLOCKS_NT
 AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL

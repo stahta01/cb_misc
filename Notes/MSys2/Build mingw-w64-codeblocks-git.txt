@@ -28,7 +28,7 @@ MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 
 ls *.pkg.tar.xz
 
-pacman -U mingw-w64-i686-codeblocks-git-r10921.fa7b41b-1-any.pkg.tar.xz
+pacman -U mingw-w64-i686-codeblocks-git-r10924.b7d9564-1-any.pkg.tar.xz
 
 
 ### In mingw32.exe window
