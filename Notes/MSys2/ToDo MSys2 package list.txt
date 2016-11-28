@@ -12,7 +12,7 @@ HOLD: Try building all contrib plugins
   ,keybinder
 
 
-Fix PCH warnings
+Fix PCH warnings and some linking errors
 
 if CODEBLOCKS_NT
 AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL
