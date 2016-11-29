@@ -18,6 +18,14 @@ if CODEBLOCKS_NT
 AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL
 endif
 
+if CODEBLOCKS_NT
+AM_CPPFLAGS += -DWXUSINGDLL
+endif
+
+if CODEBLOCKS_NT
+AM_CPPFLAGS += -DWXMAKINGDLL
+endif
+
 
 Fix NOPCH Warnings warning: '_putenv' redeclared
   src/src'
