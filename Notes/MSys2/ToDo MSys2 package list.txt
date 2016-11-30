@@ -13,6 +13,8 @@ HOLD: Try building all contrib plugins
 
 
 Fix PCH warnings and some linking errors
+  Entering directory '/c/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git/src/codeblocks/src/plugins/contrib/ThreadSearch'
+
 
 if CODEBLOCKS_NT
 AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL

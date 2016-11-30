@@ -35,13 +35,8 @@ pacman -U mingw-w64-i686-codeblocks-git-r10924.b7d9564-1-any.pkg.tar.xz
 
 codeblocks --prefix=/mingw32 --debug-log
 
-C:/Devel/open_source_code/version_control/codeblocks_msys2-git/src/CodeBlocks_wxMSW28-msys2.cbp
-
-Scanning for lexers in C:\msys32\mingw32\share\codeblocks/lexers/...
-Found 56 lexers
-
-Scanning for plugins in C:\Users\stahta01\AppData\Roaming\CodeBlocks\share\codeblocks\plugins
-Loaded 0 plugins
 Scanning for plugins in C:/msys32/mingw32/lib/codeblocks/plugins
-Tools Plus Plugin: Registering shell type Piped Process Control
-Loaded 17 plugins
+C:/msys32/mingw32/lib/codeblocks/plugins\liblib_finder.dll: not loaded (missing symbols?)
+C:/msys32/mingw32/lib/codeblocks/plugins\libThreadSearch.dll: not loaded (missing symbols?)
+Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\wxSmithAui.zip'.
+C:/msys32/mingw32/lib/codeblocks/plugins\libwxsmithcontribitems.dll: not loaded (missing symbols?)
