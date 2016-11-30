@@ -10,22 +10,29 @@ HOLD: Try building all contrib plugins
   ,wxcontrib,libfinder,ThreadSearch
   ,wxsmith,wxsmithaui,wxsmithcontrib
   ,keybinder
+  ,Valgrind
+
+contrib plugins to build
 
 
 Fix PCH warnings and some linking errors
-  Entering directory '/c/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git/src/codeblocks/src/plugins/contrib/ThreadSearch'
+  src/plugins/contrib/ThreadSearch'
+  src/plugins/contrib/DoxyBlocks'
+  src/plugins/contrib/EditorConfig'
+  src/plugins/contrib/envvars'
+  src/plugins/contrib/FileManager'
+  src/plugins/contrib/help_plugin'
+  src/plugins/contrib/HexEditor'
+  src/plugins/contrib/IncrementalSearch'
+  src/plugins/contrib/profiler'
+  src/plugins/contrib/symtab'
+  src/plugins/contrib/SpellChecker'
+  src/plugins/contrib/regex_testbed'
+  src/plugins/contrib/ReopenEditor'
 
 
 if CODEBLOCKS_NT
 AM_CPPFLAGS += -DBUILDING_PLUGIN -DWXUSINGDLL
-endif
-
-if CODEBLOCKS_NT
-AM_CPPFLAGS += -DWXUSINGDLL
-endif
-
-if CODEBLOCKS_NT
-AM_CPPFLAGS += -DWXMAKINGDLL
 endif
 
 
