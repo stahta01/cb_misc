@@ -1,0 +1,5 @@
+Unicode Info.txt
+
+http://ss64.com/nt/chcp.html
+
+http://conemu.github.io/en/UnicodeSupport.html
