@@ -36,7 +36,16 @@ pacman -U mingw-w64-i686-codeblocks-git-r10924.b7d9564-1-any.pkg.tar.xz
 codeblocks --prefix=/mingw32 --debug-log
 
 Scanning for plugins in C:/msys32/mingw32/lib/codeblocks/plugins
+Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\Cccc.zip'.
+Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\CppCheck.zip'.
+Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\Cscope.zip'.
+Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\DoxyBlocks.zip'.
+Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\EditorConfig.zip'.
+Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\headerfixup.zip'.
 C:/msys32/mingw32/lib/codeblocks/plugins\liblib_finder.dll: not loaded (missing symbols?)
 C:/msys32/mingw32/lib/codeblocks/plugins\libThreadSearch.dll: not loaded (missing symbols?)
+Tools Plus Plugin: Registering shell type Piped Process Control
+Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\ToolsPlus.zip'.
 Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\wxSmithAui.zip'.
 C:/msys32/mingw32/lib/codeblocks/plugins\libwxsmithcontribitems.dll: not loaded (missing symbols?)
+Loaded 53 plugins

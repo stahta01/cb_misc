@@ -1,0 +1,146 @@
+Old Value                                       New Value
+Variable name="WX_VERSION" value="28"           Variable name="WX_VERSION" value="2.8"
+$(#WX.include)                                  $(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)
+$(#WX.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)     $(TARGET_COMPILER_DIR)lib/wx/include/msw-unicode-release-$(WX_VERSION)
+$(#WX.lib)\gcc_dll$(WX_CFG)                     $(TARGET_COMPILER_DIR)lib
+
+
+Variable name="WX_VERSION" value="30"           Variable name="WX_VERSION" value="3.0"
+$(#WX30.include)                                $(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)
+$(#WX30.lib)\gcc_dll$(WX_CFG)\msw$(WX_SUFFIX)   $(TARGET_COMPILER_DIR)lib/wx/include/msw-unicode-$(WX_VERSION)
+$(#WX30.lib)\gcc_dll$(WX_CFG)                   $(TARGET_COMPILER_DIR)lib
+wxmsw$(WX_VERSION)$(WX_SUFFIX)                  wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
+                                                wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll
+                                                wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll
+                                                wx_msw$(WX_SUFFIX)_core-$(WX_VERSION).dll
+                                                wx_msw$(WX_SUFFIX)_adv-$(WX_VERSION).dll
+                                                wx_msw$(WX_SUFFIX)_xrc-$(WX_VERSION).dll
+                                                wx_msw$(WX_SUFFIX)_aui-$(WX_VERSION).dll
+                                                wx_msw$(WX_SUFFIX)_html-$(WX_VERSION).dll
+                                                wx_msw$(WX_SUFFIX)_propgrid-$(WX_VERSION).dll
+                                                
+
+https://github.com/Alexpux/MINGW-packages/tree/master/mingw-w64-codelite-git
+
+CB_AUTOCONF
+
+#if defined(__MINGW32__) && defined(USE_HOST_MSYS2)
+#define cbFILE_SEP_PATH wxFILE_SEP_PATH_UNIX
+#else
+#define cbFILE_SEP_PATH wxFILE_SEP_PATH
+#endif
+
+C:\Devel\open_source_code\version_control\codelite-git
+
+C:\Apps32\MSys2\mingw32\bin
+C:\Apps32\MSys2\mingw32\share\codelite
+C:\Apps32\MSys2\mingw32\lib\codelite
+C:\Apps32\MSys2\mingw32\share\locale\cs\LC_MESSAGES\codelite.mo
+C:\Apps32\MSys2\mingw32\share\locale\zh_CN\LC_MESSAGES\codelite.mo
+
+--debug-log 
+
+mkdir -p ~/.codeblocks
+
+--user-data-dir=<path>
+--no-check-associations
+--no-splash-screen
+--verbose
+
+
+Disable autodetect
+
+--prefix=C:/Apps32/MSys2/mingw32
+
+codeblocks --multiple-instance --no-dde
+
+USE_HOST_MSYS2
+
+m_UserDataDir --user-data-dir SetUserDataFolder
+
+// from configmanager.cpp
+wxString ConfigManager::GetUserDataFolder() // Needs Edited??
+
+
+#if defined(USE_HOST_MSYS2)
+            wxString data_path(ConfigManager::app_path);
+            data_path.Replace(_T("\\"),_T("/"));
+            data_path.Replace(_T("/bin"),_T(""));
+            ConfigManager::data_path_global = data_path + _T("/etc/codeblocks");
+#else
+
+
+data_path_global was fixed by editing app.cpp
+
+void ConfigManager::InitPaths()
+    ConfigManager::config_folder = ConfigManager::GetUserDataFolder();
+    ConfigManager::home_folder = wxStandardPathsBase::Get().GetUserConfigDir();
+    ConfigManager::app_path = ::DetermineExecutablePath();
+    wxString res_path = ::DetermineResourcesPath();
+    // app_path see also ReadAppPath()
+
+void MacrosManager::Reset()
+    m_AppPath  = UnixFilename(ConfigManager::GetExecutableFolder());
+    m_Plugins  = UnixFilename(ConfigManager::GetPluginsFolder());
+    m_DataPath = UnixFilename(ConfigManager::GetDataFolder());
+
+// From include/configmanager.h
+static wxString GetPluginsFolder(bool global = true){ return GetFolder(global ? sdPluginsGlobal : sdPluginsUser); }
+static wxString GetExecutableFolder(){ return GetFolder(sdBase); }
+static wxString GetDataFolder(bool global = true){ return GetFolder(global ? sdDataGlobal : sdDataUser); }
+
+
+Running target pre-build steps
+RIGHT PLUGINS := C:\Apps32\MSys2\mingw32\lib\codeblocks\plugins
+WRONG GET_DATA_DIR := C:\Apps32\MSys2\mingw32\bin
+RIGHT                 C:\Apps32\MSys2\mingw32/share/codeblocks
+WRONG GET_LOCAL_DATA_DIR := C:\Apps32\MSys2\mingw32\bin
+RIGHT                       C:\Apps32\MSys2\mingw32/etc/codeblocks
+RIGHT GET_DOCUMENTS_DIR := C:\Users\stahta01\Documents
+WRONG GET_CONFIG_DIR := C:\ProgramData\codeblocks
+RIGHT                   C:\Apps32\MSys2\mingw32/etc
+WRONG GET_USER_CONFIG_DIR := C:\Users\stahta01\AppData\Roaming
+RIGHT                        C:\Users\stahta01
+WRONG GET_USER_DATA_DIR := C:\Users\stahta01\AppData\Roaming\codeblocks
+RIGHT                      C:\Users\stahta01/.codeblocks
+WRONG GET_USER_LOCAL_DATA_DIR := C:\Users\stahta01\AppData\Local\codeblocks
+RIGHT                            C:\Users\stahta01/.codeblocks
+
+declare -x HOME="/c/Users/stahta01"
+
+wxString ConfigManager::GetFolder(SearchDirs dir)
+
+echo $(PLUGINS)                 m_Plugins               #       prefix\share\codeblocks\plugins
+wxString wxStandardPaths::GetPluginsDir ( ) const       # Unix: prefix/lib/codeblocks
+
+echo $(GET_DATA_DIR)                                    #       prefix\bin
+wxString wxStandardPaths::GetAppDocumentsDir () const   # Unix: ~/codeblocks
+wxString wxStandardPaths::GetDataDir () const           # Unix: prefix/share/codeblocks
+
+echo $(GET_LOCAL_DATA_DIR)                              #       prefix\bin
+wxString wxStandardPaths::GetLocalDataDir ( ) const     # Unix: /etc/codeblocks.
+
+echo $(GET_DOCUMENTS_DIR)                               # C:\Users\stahta01\Documents
+wxString wxStandardPaths::GetDocumentsDir () const      # Unix: ~
+
+echo $(GET_CONFIG_DIR)                                  # C:\ProgramData\codeblocks
+wxString wxStandardPaths::GetConfigDir () const         # Unix: /etc
+
+echo $(GET_USER_CONFIG_DIR)                             # C:\Users\stahta01\AppData\Roaming
+wxString wxStandardPaths::GetUserConfigDir () const     # Unix: ~ (the home directory)
+
+echo $(GET_USER_DATA_DIR)                               # C:\Users\stahta01\AppData\Roaming\codeblocks
+wxString wxStandardPaths::GetUserDataDir () const       # Unix: ~/.codeblocks
+
+echo $(GET_USER_LOCAL_DATA_DIR)                         # C:\Users\stahta01\AppData\Local\codeblocks
+wxString wxStandardPaths::GetUserLocalDataDir () const  # Unix: ~/.codeblocks
+
+echo $(GET_TEMP_DIR)                                    # C:\Apps32\MSys2\tmp
+
+
+
+wxString wxStandardPaths::GetResourcesDir ( ) const     # Unix: prefix/share/codeblocks
+wxString wxStandardPaths::GetLocalizedResourcesDir (
+    const wxString & lang,
+    ResourceCat category = ResourceCat_None 
+) const                                                 # prefix/share/locale/lang/LC_MESSAGES

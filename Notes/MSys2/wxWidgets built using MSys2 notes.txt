@@ -1,0 +1,78 @@
+wxMSWmonoLib-2.8.12_gcc520MSYS2_Dev.7z
+wxMSWmonoLib-2.8.12_gcc520MSYS2_x64_Dev.7z
+wxWidgets-2.8.12_headers.7z
+wxWidgets-2.8.12_MSYS2_headers.7z
+wxWidgets_2_8_X_MSYS2_headers
+wxWidgets_3_0_X_MSYS2_headers
+wxWidgets_3_0_X_gcc520MSYS2_Dev
+
+msys2/wxWidgets_3_0_2
+msys2/wxWidgets_2_8_12
+
+git checkout WX_2_8_BRANCH
+git pull
+
+git checkout msys2/wxWidgets_2_8_X
+git rebase WX_2_8_BRANCH
+
+git checkout WX_3_0_BRANCH
+git pull
+
+git checkout msys2/wxWidgets_3_0_X
+git rebase WX_3_0_BRANCH
+
+Change wxFILE_SEP_PATH_DOS in wx/filefn.h 
+#define wxFILE_SEP_PATH_DOS   wxT('/')
+
+in makefile.gcc Change
+    ifeq ($(OFFICIAL_BUILD),0)
+    WXCOMPILER = _gcc
+    endif
+    ifeq ($(OFFICIAL_BUILD),1)
+    WXCOMPILER = _gcc$(COMPILER_VERSION)
+    endif
+to
+    WXCOMPILER = _gcc$(COMPILER_VERSION)
+
+If changing the build script to using "COMPILER_VERSION=520MSYS2" fails
+  Try changing COMPILER_VERSION in makefile.gcc to 520MSYS2
+
+
+git clone https://stahta01@github.com/stahta01/wxWidgets.git wxWidgets_MSys2-git
+
+cd wxWidgets_MSys2-git
+git remote add upstream https://github.com/wxWidgets/wxWidgets.git
+git remote set-url --push upstream https://stahta01@github.com/stahta01/wxWidgets.git
+
+git config --global push.default current
+
+git checkout WX_3_0_BRANCH
+git branch --set-upstream-to upstream/WX_3_0_BRANCH
+
+git checkout -b master upstream/master
+git branch --set-upstream-to upstream/master
+
+git checkout -b WX_2_8_BRANCH upstream/WX_2_8_BRANCH
+git branch --set-upstream-to upstream/WX_2_8_BRANCH
+
+git checkout -b build/wx28x_mingw64_32bit origin/build/wx28x_mingw64_32bit
+git branch --set-upstream-to upstream/WX_2_8_BRANCH
+git rebase upstream/WX_2_8_BRANCH
+
+git checkout -b deprecated/WX_3_0_BRANCH origin/WX_3_0_BRANCH_DEPRECATED
+
+
+  WX_2_8_BRANCH
+  WX_3_0_BRANCH
+* build/wx28x_mingw64_32bit
+  deprecated/WX_3_0_BRANCH
+  master
+
+
+
+git fetch origin --prune
+
+git pull upstream
+
+git reset --hard upstream/WX_3_0_BRANCH
+

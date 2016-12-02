@@ -1,21 +1,13 @@
 Merge git commits to push to server
 
-HOLD: Try building all contrib plugins
-  CppCheck,DoxyBlocks,envvars,help,ProjectOptionsManipulator,ToolsPlus
-  ,AutoVersioning,BrowseTracker,byogames,Cccc,cbkoders,codestat
-  ,NassiShneiderman,profiler,regex,ReopenEditor,exporter,smartindent
-  ,copystrings,Cscope,dragscroll,EditorConfig,EditorTweaks,FileManager
-  ,headerfixup,hexeditor,incsearch,MouseSap,symtab,codesnippets
-  ,spellchecker
-  ,wxcontrib,libfinder,ThreadSearch
-  ,wxsmith,wxsmithaui,wxsmithcontrib
-  ,keybinder
-  ,Valgrind
+Fix DLL export warnings and some linking errors
+  src/plugins/contrib/wxContribItems/wxTreeList'
 
-contrib plugins to build
+if CODEBLOCKS_NT
+AM_CPPFLAGS += -DWXMAKINGDLL
+endif
 
-
-Fix PCH warnings and some linking errors
+Fix PCH warnings
   src/plugins/contrib/ThreadSearch'
   src/plugins/contrib/DoxyBlocks'
   src/plugins/contrib/EditorConfig'

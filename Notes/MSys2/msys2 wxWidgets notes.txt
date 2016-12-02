@@ -1,0 +1,9 @@
+git remote -v
+
+git fetch origin --prune
+git fetch upstream --prune
+
+git checkout WX_3_0_BRANCH
+git status
+
+git checkout msys2/wxWidgets_3_0_X
