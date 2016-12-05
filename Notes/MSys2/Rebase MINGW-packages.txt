@@ -1,6 +1,6 @@
 $ git branch --list
   cleanup
-* editors_and_IDEs
+  editors_and_IDEs
   goffice
   master
   mingw-w64-kicad
@@ -11,7 +11,7 @@ $ git branch --list
   scratch
   staging
   testing
-  wxwidgets
+* wxwidgets
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
@@ -23,6 +23,7 @@ git push origin
 
 git checkout cleanup && git pull && git rebase master && git push
 git rebase -i master
+git rebase --ignore-date master
 git push --force-with-lease
 
 git checkout goffice && git pull && git rebase master && git push
@@ -64,8 +65,7 @@ git push
 
 
 git checkout testing && git pull && git status -uno
-### git rebase mingw-w64-wxwidgets2.8
-### git rebase mingw-w64-wxwidgets3.0
+git rebase cleanup
 git rebase editors_and_IDEs
 git rebase staging
 git rebase master && git status -uno

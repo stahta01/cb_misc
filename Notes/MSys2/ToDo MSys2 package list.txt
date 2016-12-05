@@ -1,7 +1,34 @@
+--disable-mediactrl
+--enable-webviewwebkit
+
+         "${MINGW_PACKAGE_PREFIX}-gst-plugins-base"
+         "${MINGW_PACKAGE_PREFIX}-gstreamer"
+         
+         "${MINGW_PACKAGE_PREFIX}-gdk-pixbuf2"
+
+webkitgtk Might be too new of a version maybe use folder mingw-w64-webkitgtk2 instead.
+
+$ pacman -Qs webkitgtk
+local/mingw-w64-i686-webkitgtk2 2.4.11-2
+    GTK+ Web content engine library (mingw-w64) for GTK2
+
+pkgname="${MINGW_PACKAGE_PREFIX}-globjects"
+
+checking for --enable-rearrangectrl... yes
+
+wxgtk3.1.git
+
+http://stackoverflow.com/questions/4638604/where-does-one-get-the-sys-socket-h-header-source-file
+
+#ifdef __WIN32__
+# include <winsock2.h>
+#else
+# include <sys/socket.h>
+#endif
+
 Merge git commits to push to server
 
 Fix DLL export warnings and some linking errors
-  src/plugins/contrib/wxContribItems/wxTreeList'
 
 if CODEBLOCKS_NT
 AM_CPPFLAGS += -DWXMAKINGDLL
@@ -9,13 +36,6 @@ endif
 
 Fix PCH warnings
   src/plugins/contrib/ThreadSearch'
-  src/plugins/contrib/DoxyBlocks'
-  src/plugins/contrib/EditorConfig'
-  src/plugins/contrib/envvars'
-  src/plugins/contrib/FileManager'
-  src/plugins/contrib/help_plugin'
-  src/plugins/contrib/HexEditor'
-  src/plugins/contrib/IncrementalSearch'
   src/plugins/contrib/profiler'
   src/plugins/contrib/symtab'
   src/plugins/contrib/SpellChecker'
