@@ -3,7 +3,6 @@ $ git branch --list
   editors_and_IDEs
   goffice
   master
-  mingw-w64-kicad
   mingw-w64-qt5
   mingw-w64-wxwidgets2.8
   mingw-w64-wxwidgets3.0
@@ -11,6 +10,7 @@ $ git branch --list
   scratch
   staging
   testing
+  wxApps
 * wxwidgets
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
@@ -34,17 +34,13 @@ git checkout mingw-w64-qt5 && git pull && git rebase master && git push
 git rebase -i master
 git push --force-with-lease
 
-git checkout mingw-w64-kicad && git pull && git rebase master && git push
-git rebase -i master
-git push --force-with-lease
-
 git checkout editors_and_IDEs && git pull && git rebase master && git push
 git rebase -i master
 git push --force-with-lease
 
 git checkout mingw-w64-wxwidgets3.0 && git pull && git rebase master && git push
 git rebase -i master
-git format-patch master
+git rebase --ignore-date master
 git push --force-with-lease
 
 git checkout mingw-w64-wxwidgets2.8 && git pull && git rebase master && git push
@@ -53,9 +49,12 @@ git push --force-with-lease
 
 git checkout mingw-w64-wxwidgets3.1 && git pull && git rebase master && git push
 git rebase -i master
+git rebase --ignore-date master
 git push --force-with-lease
 
 git checkout wxwidgets && git pull && git status -uno
+git rebase cleanup
+git rebase wxApps
 git rebase mingw-w64-wxwidgets3.1
 git rebase mingw-w64-wxwidgets2.8
 git rebase mingw-w64-wxwidgets3.0
@@ -77,7 +76,6 @@ git push
 ##
 git checkout scratch && git pull && git status -uno
 git rebase cleanup
-git rebase mingw-w64-kicad
 git rebase mingw-w64-qt5
 git rebase goffice
 git rebase wxwidgets
