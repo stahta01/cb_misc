@@ -31,12 +31,14 @@ MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 
 ls *.pkg.tar.xz
 
-pacman -U mingw-w64-i686-codeblocks-git-r10924.b7d9564-1-any.pkg.tar.xz
+pacman -U mingw-w64-i686-codeblocks-git-r10931.10ab9a7-1-any.pkg.tar.xz
 
 
 ### In mingw32.exe window
 
 codeblocks --prefix=/mingw32 --debug-log
+
+codeblocks --debug-log
 
 Scanning for plugins in C:/msys32/mingw32/lib/codeblocks/plugins
 Manager failed to load XRC resource 'C:\msys32\mingw32\share\codeblocks\Cccc.zip'.

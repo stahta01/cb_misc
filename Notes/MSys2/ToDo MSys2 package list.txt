@@ -2,6 +2,8 @@ https://aur.archlinux.org/packages/wxgtk-gtk3/
 https://aur.archlinux.org/packages/mingw-w64-wxmsw3.1/
 https://aur.archlinux.org/packages/mingw-w64-qt5-base/
 
+autoconf after editing configure.in
+
 --enable-cxx11
 --disable-mediactrl
 --enable-webviewwebkit
