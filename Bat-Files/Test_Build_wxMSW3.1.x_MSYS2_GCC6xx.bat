@@ -19,7 +19,7 @@ REM SET _WXCXXFLAGS="-Wno-deprecated-declarations -Wno-unused-local-typedefs -fn
 
 SET WXVENDOR=%_WXCOMPILIER%
 
-SET PATH=%_MINGWBASEFOLDER%\bin;C:\Program Files\Git\cmd;%_SEDBASEFOLDER%\bin;%SystemRoot%\system32
+SET PATH=%_MINGWBASEFOLDER%\bin;C:\Program Files\Git\cmd;%SystemRoot%\system32
 
 
 cd /d C:\Devel\open_source_code\version_control\wxWidgets-git
@@ -31,8 +31,7 @@ set _WXDIR=%CD%
 
 copy include\wx\msw\setup0.h include\wx\msw\setup.h
 
-REM sed --in-place "s/#   define wxUSE_GRAPHICS_CONTEXT 0/#   define wxUSE_GRAPHICS_CONTEXT 1/" include\wx\msw\setup.h
-sed --in-place "s/#define wxUSE_REGKEY 1/#define wxUSE_REGKEY 0/" include\wx\msw\setup.h
+%_SEDBASEFOLDER%\bin\sed --in-place "s/#define wxUSE_REGKEY 1/#define wxUSE_REGKEY 0/" include\wx\msw\setup.h
 
 if not exist gcc_mswu%_WXCFG% mkdir gcc_mswu%_WXCFG%
 if not exist gcc_mswudll%_WXCFG% mkdir gcc_mswudll%_WXCFG%
