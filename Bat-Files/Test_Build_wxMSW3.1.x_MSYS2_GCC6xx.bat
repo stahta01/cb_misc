@@ -24,15 +24,18 @@ SET PATH=%_MINGWBASEFOLDER%\bin;C:\Program Files\Git\cmd;%SystemRoot%\system32
 
 cd /d C:\Devel\open_source_code\version_control\wxWidgets-git
 REM PAUSE
-REM git checkout staging || exit 1
-git checkout master || exit 1
+git checkout staging || exit 1
+REM git checkout master || exit 1
 REM PAUSE
 
 set _WXDIR=%CD%
 
 copy include\wx\msw\setup0.h include\wx\msw\setup.h
 
-REM %_SEDBASEFOLDER%\bin\sed --in-place "s/#define wxUSE_REGKEY 1/#define wxUSE_REGKEY 0/" include\wx\msw\setup.h
+    %_SEDBASEFOLDER%\bin\sed --in-place "s/#define wxUSE_WEBVIEW 1/#define wxUSE_WEBVIEW 0/" include\wx\msw\setup.h
+REM %_SEDBASEFOLDER%\bin\sed --in-place "s/#define wxUSE_TEXTFILE      1/#define wxUSE_TEXTFILE      0/" include\wx\msw\setup.h
+    %_SEDBASEFOLDER%\bin\sed --in-place "s/#define wxUSE_MIMETYPE 1/#define wxUSE_MIMETYPE 0/" include\wx\msw\setup.h
+    %_SEDBASEFOLDER%\bin\sed --in-place "s/#define wxUSE_REGKEY 1/#define wxUSE_REGKEY 0/" include\wx\msw\setup.h
 
 if not exist lib\gcc_dll%_WXCFG%         mkdir lib\gcc_dll%_WXCFG%
 if not exist lib\gcc_dll%_WXCFG%\mswu    mkdir lib\gcc_dll%_WXCFG%\mswu
@@ -50,8 +53,8 @@ cd %_WXDIR%\build\msw
 REM Static Builds
 if not exist gcc_mswu%_WXCFG% mkdir gcc_mswu%_WXCFG%
     ECHO "Start"  > gcc_mswu%_WXCFG%\builderr.txt
-    ECHO "Clean"  > gcc_mswu%_WXCFG%\builderr.txt
-    mingw32-make -f makefile.gcc BUILD=release LDFLAGS=%_WXLDFLAGS% CXXFLAGS=%_WXCXXFLAGS% CFLAGS=%_WXCFLAGS% CPPFLAGS=%_WXCPPFLAGS% CFG=%_WXCFG% VENDOR=%WXVENDOR% clean
+REM ECHO "Clean"  > gcc_mswu%_WXCFG%\builderr.txt
+REM mingw32-make -f makefile.gcc BUILD=release LDFLAGS=%_WXLDFLAGS% CXXFLAGS=%_WXCXXFLAGS% CFLAGS=%_WXCFLAGS% CPPFLAGS=%_WXCPPFLAGS% CFG=%_WXCFG% VENDOR=%WXVENDOR% clean
 
     ECHO "Build" >> gcc_mswu%_WXCFG%\builderr.txt
     mingw32-make -f makefile.gcc BUILD=release LDFLAGS=%_WXLDFLAGS% CXXFLAGS=%_WXCXXFLAGS% CFLAGS=%_WXCFLAGS% CPPFLAGS=%_WXCPPFLAGS% CFG=%_WXCFG% VENDOR=%WXVENDOR% 2>> gcc_mswu%_WXCFG%\builderr.txt
