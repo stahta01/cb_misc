@@ -1,0 +1,65 @@
+Building wxWidgets using MSys2 packaging.txt
+
+See https://wiki.archlinux.org/index.php/PKGBUILD
+    https://www.archlinux.org/pacman/PKGBUILD.5.html
+
+# Open MSys2 command prompt
+
+
+# One time build tools installation
+pacman -S base-devel
+# for building mingw32 packages
+pacman -S mingw-w64-i686-toolchain
+# for building mingw64 packages
+pacman -S mingw-w64-x86_64-toolchain
+
+
+# Change to MinGW Package git repo.
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
+
+# Change to wxWidgets folder
+cd ../mingw-w64-wxwidgets3.0-git    # Building
+cd ../mingw-w64-wxwidgets-git       # Renamed from mingw-w64-wxwidgets3.0-git
+cd ../mingw-w64-wxwidgets           # Needs Tested
+cd ../mingw-w64-wxgtk3.0-git        # Building
+cd ../mingw-w64-wxgtk-gtk3-git      # Renamed from mingw-w64-wxgtk3.0-git
+cd ../mingw-w64-wxgtk3.0            # Needs Tested
+cd ../mingw-w64-wxgtk-gtk3          # Renamed from mingw-w64-wxgtk3.0
+
+cd ../mingw-w64-wxwidgets3.1-git    # Package was built; and it installs
+cd ../mingw-w64-wxwidgets3.1        # Needs Tested
+cd ../mingw-w64-wxgtk3.1-gtk3       # Needs to be created
+cd ../mingw-w64-wxgtk3.1-git        # Package was built; failed to install
+
+error: failed to commit transaction (conflicting files)
+mingw-w64-i686-wxgtk3.1-git: /mingw32/bin/wx-config exists in filesystem
+mingw-w64-i686-wxgtk3.1-git: /mingw32/share/aclocal/wxwin.m4 exists in filesystem
+mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx.bkl exists in filesystem
+mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx_presets.py exists in filesystem
+mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx_unix.bkl exists in filesystem
+mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx_win32.bkl exists in filesystem
+mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx_xrc.bkl exists in filesystem
+Errors occurred, no packages were upgraded.
+
+
+# Build the 32 bit and 64 packages
+# makepkg-mingw -sLf
+
+# Build only the 32 bit package
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
+
+# Build only the 64 bit package
+#  MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
+
+
+# Look for the packages
+ls mingw-w64-*-*-*-*.pkg.tar.xz
+
+pacman -Qs wxwidgets
+
+# Install a 'local' 32 bit package
+pacman -U mingw-w64-i686-wxWidgets2.8-2.8.12-1-any.pkg.tar.xz
+
+# Install a 'local' 64 bit package
+pacman -U mingw-w64-x86_64-wxWidgets2.8-2.8.12-1-any.pkg.tar.xz
+
