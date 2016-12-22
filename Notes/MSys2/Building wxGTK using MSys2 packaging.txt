@@ -14,33 +14,33 @@ pacman -S mingw-w64-i686-toolchain
 pacman -S mingw-w64-x86_64-toolchain
 
 
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-gtk2
+pacman -U mingw-w64-i686-gtk2-2.24.31-2-any.pkg.tar.xz
+
 # Change to MinGW Package git repo.
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
 
 # Change to wxWidgets folder
-cd ../mingw-w64-wxwidgets3.0-git    # Building
-cd ../mingw-w64-wxwidgets-git       # Renamed from mingw-w64-wxwidgets3.0-git
-cd ../mingw-w64-wxwidgets           # Needs Tested
-cd ../mingw-w64-wxgtk3.0-git        # Building
-cd ../mingw-w64-wxgtk-gtk3-git      # Renamed from mingw-w64-wxgtk3.0-git
-cd ../mingw-w64-wxgtk3.0            # Needs Tested
-cd ../mingw-w64-wxgtk-gtk3          # Renamed from mingw-w64-wxgtk3.0
+# wxwidgets3.1-git
+cd ../mingw-w64-wxmsw3.1-git        # Package was built; and it installs
+cd ../mingw-w64-wxgtk3.1-gtk2-git   # Package was built; and it installs  
+cd ../mingw-w64-wxgtk3.1-gtk3-git   # Package was built; and it installs 
 
-cd ../mingw-w64-wxwidgets3.1-git    # Package was built; and it installs
-cd ../mingw-w64-wxwidgets3.1        # Needs Tested
-cd ../mingw-w64-wxgtk3.1-gtk3       # Needs to be created
-cd ../mingw-w64-wxgtk3.1-git        # Package was built; failed to install
+# wxwidgets3.1
+cd ../mingw-w64-wxmsw3.1            # Package was built; and it installs
+cd ../mingw-w64-wxgtk3.1-gtk3       # Package was built; and it installs
 
-error: failed to commit transaction (conflicting files)
-mingw-w64-i686-wxgtk3.1-git: /mingw32/bin/wx-config exists in filesystem
-mingw-w64-i686-wxgtk3.1-git: /mingw32/share/aclocal/wxwin.m4 exists in filesystem
-mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx.bkl exists in filesystem
-mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx_presets.py exists in filesystem
-mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx_unix.bkl exists in filesystem
-mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx_win32.bkl exists in filesystem
-mingw-w64-i686-wxgtk3.1-git: /mingw32/share/bakefile/presets/wx_xrc.bkl exists in filesystem
-Errors occurred, no packages were upgraded.
+# wxwidgets3.0-git
+cd ../mingw-w64-wxmsw-git           # Package was built; and it installs
+cd ../mingw-w64-wxgtk-gtk3-git      # Package was built; and it installs
 
+# wxwidgets3.0
+cd ../mingw-w64-wxwidgets           # Package was built; and it installs
+cd ../mingw-w64-wxgtk-gtk3          # Package was built; and it installs
+
+# 2.8
+cd ../mingw-w64-wxwidgets2.8-git    # Package was built; and it installs
+cd ../mingw-w64-wxwidgets2.8        # Package was built; and it installs
 
 # Build the 32 bit and 64 packages
 # makepkg-mingw -sLf

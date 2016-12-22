@@ -2,16 +2,19 @@ $ git branch --list
   cleanup
   editors_and_IDEs
   master
-  mingw-w64-wxwidgets2.8
-  mingw-w64-wxwidgets3.0
-  mingw-w64-wxwidgets3.1
+  misc
   scratch
   staging
   testing
   wxApps
 * wxwidgets
+  wxwidgets2.8
+  wxwidgets3.0
+  wxwidgets3.1
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
+
+git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
 
 
 git checkout staging && git pull && git rebase master && git push
@@ -19,39 +22,35 @@ git rebase master
 git rebase -i master   ## Keep ONLY changes I wish to push upstream
 git push origin
 
-git checkout cleanup && git pull && git rebase master && git push
-git rebase -i master
-git rebase --ignore-date master
-git push --force-with-lease
-
 git checkout editors_and_IDEs && git pull && git rebase master && git push
 git rebase -i master
+git rebase --ignore-date master
 git push --force-with-lease
 
 git checkout wxApps && git pull && git rebase master && git push
 git rebase -i master
 git push --force-with-lease
 
-git checkout mingw-w64-wxwidgets3.0 && git pull && git rebase master && git status -uno
+git checkout wxwidgets3.0 && git pull && git rebase master && git status -uno
 git rebase -i master
 git rebase --ignore-date master
 git push --force-with-lease
 
-git checkout mingw-w64-wxwidgets2.8 && git pull && git rebase master && git status -uno
+git checkout wxwidgets2.8 && git pull && git rebase master && git status -uno
 git rebase -i master
 git push --force-with-lease
 
-git checkout mingw-w64-wxwidgets3.1 && git pull && git rebase master && git status -uno
+git checkout wxwidgets3.1 && git pull && git rebase master && git status -uno
 git rebase -i master
 git rebase --ignore-date master
 git push --force-with-lease
 
 git checkout wxwidgets && git pull && git status -uno
 git rebase cleanup && \
-git rebase wxApps && \
-git rebase mingw-w64-wxwidgets3.1 && \
-git rebase mingw-w64-wxwidgets2.8 && \
-git rebase mingw-w64-wxwidgets3.0 && \
+git rebase staging && \
+git rebase wxwidgets3.1 && \
+git rebase wxwidgets2.8 && \
+git rebase wxwidgets3.0 && \
 git rebase master && git status -uno
 #
 git rebase -i master
@@ -61,13 +60,13 @@ git push
 
 
 git checkout testing && git pull && git status -uno
+#
 git rebase cleanup && \
-git rebase mingw-w64-wxwidgets3.0 && \
-git rebase editors_and_IDEs
-##  git rebase -i editors_and_IDEs
-##  git format-patch editors_and_IDEs
-##  git rebase staging
+git rebase staging && \
+git rebase wxwidgets3.1 && \
+git rebase editors_and_IDEs && \
 git rebase master && git status -uno
+#
 git rebase -i master
 git push
 # git push --force-with-lease
@@ -75,14 +74,22 @@ git push
 
 ##
 git checkout scratch && git pull && git status -uno
+#
 git rebase cleanup && \
+git rebase staging && \
 git rebase wxwidgets && \
-git rebase editors_and_IDEs
-##  git rebase staging
+git rebase wxApps && \
+git rebase editors_and_IDEs && \
 git rebase master && git status -uno
+#
 git rebase -i master
 git push
 # git push --force-with-lease
 
-git log -3
-git format-patch 81eddbce92d53ccc3cb517e8ecc7c8e26262e731
+
+git checkout misc && git pull && git rebase master && git status -uno
+#
+git rebase master && git status -uno
+git rebase -i master
+git push
+# git push --force-with-lease
