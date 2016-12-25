@@ -28,9 +28,8 @@ wx-config-3.0 --libs std,aui,propgrid
 git --version                 # Last tested with version 2.8.3
 
 # There seems to be a bug in "git clone" of CB repo 
-#   that requires system core.eol to be lf and maybe global core.eol 
-#   to be lf when cloning. Otherwise, bootstrap has \r errors in it.
-git config --global core.eol lf
+#   that requires system core.eol to be lf when cloning. 
+#   Otherwise, bootstrap has \r errors in it.
 git config --system core.eol lf
 
 mkdir -p ~/devel/source_code/version_control && \
@@ -46,28 +45,40 @@ cd codeblocks-git
 ####
 # Requires Cygwin32 packages:
 #   libtool
-#   automake
+#   automake            1.10?
 #   zip
 #   wx_gtk2u3.0-devel
 #   make
+#   gcc-g++
+#   patch
+#   git-svn
 #
 ####
 
 
 cd ~/devel/source_code/version_control/codeblocks-git
 
+# patch -p1 -i ../cb16.01_cygwin-associations.h-cpp.patch
+
+patch -p1 -i ../cb16.01_cygwin-Makefile.am-Added-CODEBLOCKS_NT_core-app.patch
+patch -p1 -i ../cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT.patch
+
+# patch -p1 -i ../cb16.12_win32-Makefile.am-Added-CODEBLOCKS_NT_FileManager.patch
+# patch -p1 -i ../cb16.xx_win32-Makefile.am-Added-CODEBLOCKS_NT_wxContribItems.patch
+
 ./bootstrap
-# export CPPFLAGS="-U__STRICT_ANSI__"
+
+
 # export CXXFLAGS="-Wno-attributes"
-echo $CXXFLAGS
 
-# export CXXFLAGS="-DWXMAKINGDLL_SCI -Wno-attributes"
 
+export CPPFLAGS="-U__STRICT_ANSI__"
 ./configure --enable-debug --enable-scripted-wizard --enable-compiler --host=i686-pc-cygwin --disable-xpmanifest --disable-pch --with-wx-config=wx-config-3.0
 
+After setting CPPFLAGS
    CFLAGS:     -g  -fPIC -std=c90
    CXXFLAGS:   -g  -fPIC -fexceptions
-   CPPFLAGS:   -DCB_AUTOCONF -DDEBUG  -DPIC -I$(top_srcdir)/src/include/tinyxml -DTIXML_USE_STL=YES
+   CPPFLAGS:   -DCB_AUTOCONF -DDEBUG -U__STRICT_ANSI__ -DPIC -I$(top_srcdir)/src/include/tinyxml -DTIXML_USE_STL=YES
    LDFLAGS:    -Wl,--no-undefined
    CXX:        i686-pc-cygwin-g++ -std=c++11
    CC:         i686-pc-cygwin-gcc
@@ -82,28 +93,9 @@ echo $CXXFLAGS
 
 # make uninstall
 
-# make clean
+make clean && make
 
 make
-
-autorevision.cpp:1:0: warning: -fPIC ignored for target (all code is position independent)
- /*
- ^
-autorevision.cpp: In function ‘void set_env(const char*, const char*)’:
-autorevision.cpp:43:71: error: ‘setenv’ was not declared in this scope
-     inline void set_env(const char* k, const char* v) { setenv(k, v, 1); }
-                                                                       ^
-autorevision.cpp: In function ‘bool getProcessOutput(std::string&, const string&)’:
-autorevision.cpp:131:39: error: ‘popen’ was not declared in this scope
-     FILE *svn = popen(cmd.c_str(), "r");
-                                       ^
-autorevision.cpp:136:25: error: ‘pclose’ was not declared in this scope
-     int ret = pclose(svn);
-                         ^
-autorevision.cpp: In function ‘bool QuerySvn(const string&, std::string&, std::string&)’:
-autorevision.cpp:195:32: error: ‘setenv’ was not declared in this scope
-         setenv("LC_ALL", "C", 1);
-                                ^
 
 make install
 
@@ -118,6 +110,24 @@ In order to run Code::Blocks
 #		??gnuplot
 ####
 
+startx /usr/bin/fvwm2
+
 $		startxwin /usr/local/cb/bin/codeblocks.exe --prefix="/usr/local/cb"
 
 C:\Apps32\Cygwin1_7\bin\mintty.exe /bin/sh -lc 'startxwin /usr/local/cb/bin/codeblocks.exe --prefix="/usr/local/cb"'
+
+
+In order to run gnome-mahjongg.exe 
+####
+# Requires Cygwin packages:
+#   xinit
+#   xlaunch
+#   http://x.cygwin.com/docs/faq/cygwin-x-faq.html#q-startxwinrc-exit
+####
+
+
+xterm -geometry +0+60 -ls &
+xterm -geometry +0-100 &
+exec gnome-mahjongg.exe
+
+startxwin gnome-mahjongg.exe
