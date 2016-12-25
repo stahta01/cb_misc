@@ -1,3 +1,15 @@
+Before trying to build and run Code::Blocks it is best to verify xterm works on your computer.
+
+In order to run xterm
+####
+# Requires Cygwin packages:
+#   xinit
+#   xlaunch
+#   xterm
+####
+
+startx /usr/bin/xterm
+
 
 $   	i686-pc-cygwin-g++ --version
 #
@@ -78,8 +90,8 @@ patch -p1 -i ../cb16.xx_win32-Makefile.am-Added-CODEBLOCKS_NT_wxContribItems.pat
 
 ####
 ## configure last lines outputted
-   CFLAGS:     -g  -fPIC -std=c90
-   CXXFLAGS:   -g  -fPIC -fexceptions
+   CFLAGS:     -g   -std=c90
+   CXXFLAGS:   -g   -fexceptions
    CPPFLAGS:   -DCB_AUTOCONF -DDEBUG  -DPIC -I$(top_srcdir)/src/include/tinyxml -DTIXML_USE_STL=YES
    LDFLAGS:    -Wl,--no-undefined
    CXX:        i686-pc-cygwin-g++ -std=gnu++11
@@ -92,27 +104,13 @@ make clean && make
 make && make install
 
 
-
 In order to run Code::Blocks 
 ####
 # Requires Cygwin packages:
-#   These packages where suggested as good ones to add to get GNU Octave to run; I am hoping it workes for getting CB to run.
 #   xinit
 #   xlaunch
 ####
-
-
 
 $		startxwin /usr/local/cb/bin/codeblocks.exe --prefix="/usr/local/cb"
 
 C:\Apps32\Cygwin1_7\bin\mintty.exe /bin/sh -lc 'startxwin /usr/local/cb/bin/codeblocks.exe --prefix="/usr/local/cb"'
-
-
-In order to run gnome-mahjongg.exe 
-####
-# Requires Cygwin packages:
-#   xinit
-#   xlaunch
-####
-
-startx /usr/bin/gnome-mahjongg.exe
