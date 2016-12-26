@@ -11,32 +11,16 @@ In order to run xterm
 startx /usr/bin/xterm
 
 
-$   	i686-pc-cygwin-g++ --version
-#
-$   	i686-pc-cygwin-g++ -pthread
-### Good Result
-i686-pc-cygwin-g++: fatal error: no input files
-compilation terminated.
-###
-### Bad Result
-i686-pc-cygwin-g++: error: unrecognized command line option ‘-pthread’
-i686-pc-cygwin-g++: fatal error: no input files
-compilation terminated.
-##  CB Build Error
-libtool: link: i686-pc-cygwin-g++ -g -DDEBUG -DCB_AUTOCONF -DWXMAKINGDLL_SCI -Wno-attributes -fPIC -DPIC -fexceptions -Wl,--no-undefined -o .libs/codeblocks.exe app.o appglobals.o backtracedlg.o breakpointsdlg.o compilersettingsdlg.o cpuregistersdlg.o crashhandler.o debugger_interface_creator.o debuggermenu.o debuggersettingscommonpanel.o debuggersettingsdlg.o debuggersettingspanel.o disassemblydlg.o dlgabout.o dlgaboutplugin.o editkeywordsdlg.o editorconfigurationdlg.o environmentsettingsdlg.o examinememorydlg.o find_replace.o infopane.o main.o notebookstyles.o prefix.o printdlg.o projectmanagerui.o projectdepsdlg.o projectoptionsdlg.o recentitemslist.o scriptconsole.o scriptingsettingsdlg.o splashscreen.o startherepage.o switcherdlg.o threadsdlg.o virtualbuildtargetsdlg.o watchesdlg.o  ../sdk/.libs/libcodeblocks.a -L/usr/local/cb/gtk2/lib /usr/local/cb/gtk2/lib/libwx_gtk2u_aui-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_propgrid-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_richtext-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_xrc-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_qa-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu_net-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_html-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_adv-3.1.a /usr/local/cb/gtk2/lib/libwx_gtk2u_core-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu_xml-3.1.a /usr/local/cb/gtk2/lib/libwx_baseu-3.1.a -lgthread-2.0 -lwxregexu-3.1 -lwxtiff-3.1 -lwxjpeg-3.1 -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 /usr/lib/libXinerama.dll.a /usr/lib/libXi.dll.a /usr/lib/libXrandr.dll.a /usr/lib/libXcursor.dll.a /usr/lib/libXcomposite.dll.a -latk-1.0 -lcairo /usr/lib/libpixman-1.dll.a -lEGL -lGL /usr/lib/libXdamage.dll.a /usr/lib/libXfixes.dll.a /usr/lib/libX11-xcb.dll.a /usr/lib/libxcb-glx.dll.a /usr/lib/libxcb-shm.dll.a /usr/lib/libxcb-render.dll.a /usr/lib/libXrender.dll.a /usr/lib/libXext.dll.a /usr/lib/libX11.dll.a /usr/lib/libxcb.dll.a /usr/lib/libXau.dll.a /usr/lib/libXdmcp.dll.a -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lharfbuzz -lpango-1.0 -lgmodule-2.0 -lgobject-2.0 -lffi -lglib-2.0 /usr/lib/libintl.dll.a /usr/lib/libiconv.dll.a /usr/lib/libpcre.dll.a /usr/lib/libfontconfig.dll.a /usr/lib/libexpat.dll.a /usr/lib/libfreetype.dll.a -lbz2 /usr/lib/libpng15.dll.a -lz -lpthread -ldl -pthread
-i686-pc-cygwin-g++: error: unrecognized command line option '-pthread'
-Makefile:610: recipe for target 'codeblocks.exe' failed
-
-###
-
 #########
 
-wx-config-3.0 --list
-
-wx-config-3.0 --libs std,aui,propgrid
 
 ## Git clone code begin
 
+####
+# Requires Cygwin32 packages:
+#   git
+#
+####
 git --version                 # Last tested with version 2.8.3
 
 # There seems to be a bug in "git clone" of CB repo 
@@ -62,8 +46,9 @@ cd codeblocks-git
 #   wx_gtk2u3.0-devel
 #   make
 #   gcc-g++
+#   libhunspell-devel
+#
 #   patch
-#   git-svn
 #
 ####
 
@@ -78,6 +63,7 @@ patch -p1 -i ../cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT.patch && \
 patch -p1 -i ../cb16.12_win32-Makefile.am-Added-CODEBLOCKS_NT_FileManager.patch && \
 patch -p1 -i ../cb16.xx_win32-Makefile.am-Added-CODEBLOCKS_NT_wxContribItems.patch
 
+
 # --disable-xpmanifest \
 
 ./bootstrap && \
@@ -86,7 +72,10 @@ patch -p1 -i ../cb16.xx_win32-Makefile.am-Added-CODEBLOCKS_NT_wxContribItems.pat
   --enable-debug \
   --disable-pch \
   --with-wx-config=wx-config-3.0 \
-  --with-contrib-plugins=yes,-keybinder,-Valgrind
+  --with-contrib-plugins=yes,-Valgrind,-FileManager
+
+# FileManager requires libgamin-devel which in CygWin is missing
+# Valgrind does NOT work under Windows/CygWin
 
 ####
 ## configure last lines outputted
