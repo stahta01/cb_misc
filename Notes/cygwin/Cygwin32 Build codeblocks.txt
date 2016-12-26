@@ -98,10 +98,10 @@ patch -p1 -i ../cb16.xx_win32-Makefile.am-Added-CODEBLOCKS_NT_wxContribItems.pat
    CC:         i686-pc-cygwin-gcc
 ####
 
-make uninstall
+# make uninstall
 make clean && make
 
-make && make install
+# make && make install
 
 
 In order to run Code::Blocks 
