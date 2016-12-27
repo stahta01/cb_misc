@@ -59,21 +59,21 @@ git reset --hard origin/master
 
 patch -p1 -i ../cb16.01_cygwin-edited-configure.ac.patch && \
 patch -p1 -i ../cb16.01_cygwin-Makefile.am-Added-CODEBLOCKS_NT_core-app.patch && \
-patch -p1 -i ../cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT.patch && \
-patch -p1 -i ../cb16.12_win32-Makefile.am-Added-CODEBLOCKS_NT_FileManager.patch && \
-patch -p1 -i ../cb16.xx_win32-Makefile.am-Added-CODEBLOCKS_NT_wxContribItems.patch
+patch -p1 -i ../cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT_sdk.patch && \
+patch -p1 -i ../cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT_core-plugins.patch
 
-
-# --disable-xpmanifest \
+# 
 
 ./bootstrap && \
 ./configure \
   --host=i686-pc-cygwin \
   --enable-debug \
   --disable-pch \
+  --disable-xpmanifest \
   --with-wx-config=wx-config-3.0 \
   --with-contrib-plugins=yes,-Valgrind,-FileManager
 
+# xpmanifest does NOT work under CygWin/Unix
 # FileManager requires libgamin-devel which in CygWin is missing
 # Valgrind does NOT work under Windows/CygWin
 
