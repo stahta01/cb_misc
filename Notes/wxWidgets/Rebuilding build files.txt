@@ -1,0 +1,25 @@
+Rebuilding build files.txt
+
+cd /c/Devel/open_source_code/version_control/wxWidgets-git && git status -uno
+
+git checkout msys2/wxgtk && git fetch upstream && git rebase upstream/master && git status -uno
+
+# Edit "files" file.
+
+build/upmake
+
+cd build/bakefiles
+
+export PATH=$PATH:/C/Apps32/Bakefile
+
+echo $PATH
+
+bakefile_gen
+
+git status -uno
+
+cd ../..
+
+autoconf
+
+git status -uno
