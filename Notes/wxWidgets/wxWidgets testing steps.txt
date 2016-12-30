@@ -1,0 +1,15 @@
+1. build git master using configure/make with my configure.in patches
+
+   A. OS: Win10 32 bit, Toolkit: MSW, Compiler: MSys2 MinGW64 GCC 6.2 32 bit
+
+
+   B. OS: Win10 32 bit, Toolkit: GTK=3, Compiler: MSys2 MinGW64 GCC 6.2 32 bit
+
+
+   C. OS: Win7 64 bit, Toolkit: MSW, Compiler: MSys2 MinGW64 GCC 6.2 64 bit
+
+
+   D. OS: Win7 64 bit, Toolkit: GTK=3, Compiler: MSys2 MinGW64 GCC 6.2 64 bit
+
+
+   E. OS: Debian “stretch” 64 bit, Toolkit: GTK=?3?, Compiler GCC ?.? 64 bit
