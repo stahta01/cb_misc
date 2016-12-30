@@ -6,22 +6,28 @@
    B. OS: Win10 32 bit, Toolkit: GTK=3, Compiler: MSys2 MinGW64 GCC 6.2 32 bit
 
 
-   C. OS: Debian “stretch” 64 bit, Toolkit: GTK=?3?, Compiler GCC ?.? 64 bit
+   C. OS: Win10 32 bit, Toolkit: GTK=2, Compiler: MSys2 MinGW64 GCC 6.2 32 bit
 
 
-   D. OS: Win7 64 bit, Toolkit: MSW, Compiler: MSys2 MinGW64 GCC 6.2 64 bit
+   D. OS: Debian “stretch” 64 bit, Toolkit: GTK=?3?, Compiler GCC ?.? 64 bit
 
 
-   E. OS: Win7 64 bit, Toolkit: GTK=3, Compiler: MSys2 MinGW64 GCC 6.2 64 bit
+   E. OS: Win7 64 bit, Toolkit: MSW, Compiler: MSys2 MinGW64 GCC 6.2 64 bit
 
 
-   F. OS: Win7 64 bit, Toolkit: MSW, Compiler: Cygwin MinGW64 GCC ?.? 64 bit
+   F. OS: Win7 64 bit, Toolkit: GTK=3, Compiler: MSys2 MinGW64 GCC 6.2 64 bit
 
 
-   G. OS: Win7 64 bit, Toolkit: MSW, Compiler: Cygwin MinGW64 GCC ?.? 32 bit
+   G. OS: Win7 64 bit, Toolkit: GTK=2, Compiler: MSys2 MinGW64 GCC 6.2 64 bit
 
 
-   H. OS: Win7 64 bit, Toolkit: GTK=3, Compiler: Cygwin GCC ?.? 64 bit
+   H. OS: Win7 64 bit, Toolkit: MSW, Compiler: Cygwin MinGW64 GCC 5.4 64 bit
 
 
-   I. OS: Win7 64 bit, Toolkit: GTK=3, Compiler: Cygwin GCC ?.? 32 bit
+   I. OS: Win7 64 bit, Toolkit: MSW, Compiler: Cygwin MinGW64 GCC 5.4 32 bit
+
+
+   J. OS: Win7 64 bit, Toolkit: GTK=2, Compiler: Cygwin GCC 5.4 64 bit
+
+
+   K. OS: Win7 64 bit, Toolkit: GTK=2, Compiler: Cygwin GCC 5.4 32 bit

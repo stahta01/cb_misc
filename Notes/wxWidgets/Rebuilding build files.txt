@@ -2,7 +2,9 @@ Rebuilding build files.txt
 
 cd /c/Devel/open_source_code/version_control/wxWidgets-git && git status -uno
 
-git checkout msys2/wxgtk && git fetch upstream && git rebase upstream/master && git status -uno
+# git checkout msys2/wxgtk && git fetch upstream && git rebase upstream/master && git status -uno
+
+git checkout msys2/wxgtk && git status -uno
 
 # Edit "files" file.
 
