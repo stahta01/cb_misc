@@ -1,0 +1,31 @@
+C:\Devel\open_source_code\version_control\cb_misc-git\Notes\MSys2\wxGTK Build WARNING.txt
+
+In order of priortity to fix or find root cause
+
+configure: WARNING: wxSingleInstanceChecker not available               PROBLEM; Needs fixed
+
+configure: WARNING: Assuming wxLibrary class works on this platform     Needs fixed
+
+configure: WARNING: wxFileSystemWatcher 
+    won't be available on this platform                                 Needs fixed
+
+configure: WARNING: wxGetDiskSpace() function won't work                ???
+    without statfs()
+
+configure: WARNING: Joystick not supported by this system... disabled
+    dnl under MSW and OS X we always have joystick support              Needs fixed
+
+configure: WARNING: libnotify not found, 
+    wxNotificationMessage will use generic implementation.              IGNORE for now
+
+configure: WARNING: XTest not found, disabling wxUIActionSimulator      IGNORE for now
+
+configure: WARNING: libsecret not found, 
+    wxSecretStore won't be available                                    IGNORE for now
+
+configure: WARNING: GTK printing support not found (GTK+ >= 2.10), 
+    library will use GNOME printing support or 
+        standard PostScript printing                                    IGNORE for now
+
+configure: WARNING: Catching fatal exceptions not currently supported on this system, 
+    wxApp::OnFatalException will not be called                          VALID/IGNORE
