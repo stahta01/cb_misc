@@ -1,3 +1,6 @@
 # From https://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 
 $  pacman -Syuu
+
+
+pacman -Syu      # Does NOT downgrade packages

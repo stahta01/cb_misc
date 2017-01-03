@@ -20,14 +20,14 @@ git checkout cleanup && git pull && git rebase --ignore-date master && git push 
 git checkout staging && git pull && git rebase master && git push
 git rebase master
 git rebase -i master   ## Keep ONLY changes I wish to push upstream
-git push origin
+git push --force-with-lease
 
-git checkout editors_and_IDEs && git pull && git rebase master && git push
+git checkout editors_and_IDEs && git pull && git rebase master && git status -uno
 git rebase -i master
 git rebase --ignore-date master
 git push --force-with-lease
 
-git checkout wxApps && git pull && git rebase master && git push
+git checkout wxApps && git pull && git rebase master && git status -uno
 git rebase -i master
 git push --force-with-lease
 

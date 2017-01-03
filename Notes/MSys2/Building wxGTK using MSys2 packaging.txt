@@ -23,8 +23,9 @@ cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidg
 # Change to wxWidgets folder
 # wxwidgets3.1-git
 cd ../mingw-w64-wxmsw3.1-git        # Package was built; and it installs
-cd ../mingw-w64-wxgtk3.1-gtk2-git   # Package was built; and it installs  
-cd ../mingw-w64-wxgtk3.1-gtk3-git   # Package was built; and it installs 
+#   cd ../mingw-w64-gtk2 && pacman -U mingw-w64-i686-gtk2-2.24.31-2-any.pkg.tar.xz
+cd ../mingw-w64-wxgtk3.1-gtk2-git   # Package was built; and it installs
+cd ../mingw-w64-wxgtk3.1-gtk3-git   # Package was built; and it installs
 
 # wxwidgets3.1
 cd ../mingw-w64-wxmsw3.1            # Package was built; and it installs

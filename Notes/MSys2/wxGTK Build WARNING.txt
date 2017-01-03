@@ -2,7 +2,7 @@ C:\Devel\open_source_code\version_control\cb_misc-git\Notes\MSys2\wxGTK Build WA
 
 In order of priortity to fix or find root cause
 
-configure: WARNING: wxSingleInstanceChecker not available               PROBLEM; Needs fixed
+configure: WARNING: wxSingleInstanceChecker not available               FIXED
 
 configure: WARNING: Assuming wxLibrary class works on this platform     Needs fixed
 

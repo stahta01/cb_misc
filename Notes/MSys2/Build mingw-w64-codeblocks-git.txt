@@ -1,5 +1,5 @@
 # Update the MSys2 Installation
-pacman -Syuu
+pacman -Syu
 # Exit and restart MSys2/MinGW Windows
 
 # One time build tools installation
