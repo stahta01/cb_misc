@@ -1,0 +1,32 @@
+
+
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-svn && git status -uno
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
+
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-svn_wxGTK3.1-gtk3 && git status -uno
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
+
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-svn_wxMSW3.1 && git status -uno
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
+
+
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf --noextract --noprepare --holdver
+
+--repackage
+
+
+MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
+
+
+ls *.pkg.tar.xz
+
+pacman -U mingw-w64-i686-codeblocks-svn-r10958-1-any.pkg.tar.xz
+
+### In mingw32.exe window
+
+codeblocks --prefix=/mingw32    # Works
+
+codeblocks # Works
+
+Scanning for plugins in C:/msys32/mingw32/lib/codeblocks/plugins
+Loaded 14 plugins
