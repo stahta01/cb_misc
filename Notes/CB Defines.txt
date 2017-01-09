@@ -1,0 +1,27 @@
+export-all-symbols  DLLwin
+no-undefined        DLLwin
+shared              DLLwin
+_LDFLAGS            DLLwin
+_LIBADD             DLLwin for lib target
+_LDADD              DLLwin for exe target
+WXUSINGDLL          DLLwin
+WXMAKINGDLL         DLLwin
+EXPORT_LIB          DLLwin
+EXPORT_EVENTS       DLLwin
+BUILDING_PLUGIN     DLLwin
+
+DEPSLIB_WINDOWS     Win32
+DEPSLIB_UNIX        Win32
+WXDLLIMPEXP_SCI     Win32
+
+DLL_EXPORT          PCH?DLLwin?
+NOPCH               PCH?DLLwin?
+CB_PRECOMP          PCH
+
+CB_AUTOCONF         MSys2
+APP_PREFIX          MSys2
+
+
+Patch files needing work
+  0101_win32-Makefile.am-Added-CODEBLOCKS_NT_compiler.patch
+    Review is it needed under cygwin or not
