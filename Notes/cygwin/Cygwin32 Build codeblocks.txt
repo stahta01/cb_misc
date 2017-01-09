@@ -47,6 +47,7 @@ cd codeblocks-git
 #   make
 #   gcc-g++
 #   libhunspell-devel
+#   boost-devel
 #
 #   patch
 #
