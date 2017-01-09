@@ -27,6 +27,8 @@ git push --force-with-lease
 
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git && git status -uno
 
+#   MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
+
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 
 ls *.pkg.tar.xz

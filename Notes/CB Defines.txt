@@ -20,8 +20,8 @@ CB_PRECOMP          PCH
 
 CB_AUTOCONF         MSys2
 APP_PREFIX          MSys2
-
+-lexchndl           ?MSys2
 
 Patch files needing work
-  0101_win32-Makefile.am-Added-CODEBLOCKS_NT_compiler.patch
-    Review is it needed under cygwin or not
+  0102_win32-Makefile.am-Added-CODEBLOCKS_NT_compiler.patch
+    Review is it needed under cygwin or not; it is NOT needed

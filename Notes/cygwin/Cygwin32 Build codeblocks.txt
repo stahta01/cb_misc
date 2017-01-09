@@ -53,14 +53,16 @@ cd codeblocks-git
 ####
 
 
-cd ~/devel/source_code/version_control/codeblocks-git
+cd ~/devel/source_code/version_control/codeblocks-git && git status -uno
+
+#   git pull
 
 git reset --hard origin/master
 
-patch -p1 -i ../cb16.01_cygwin-edited-configure.ac.patch && \
-patch -p1 -i ../cb16.01_cygwin-Makefile.am-Added-CODEBLOCKS_NT_core-app.patch && \
-patch -p1 -i ../cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT_sdk.patch && \
-patch -p1 -i ../cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT_core-plugins.patch
+patch -p1 -i ../0101_DLLwin-Makefile.am-Added-CODEBLOCKS_NT.patch  && \
+patch -p1 -i ../0104_win32-edited-configure.ac.patch  && \
+patch -p1 -i ../0105_cygwin-edited-configure.ac.patch
+
 
 # 
 
@@ -93,7 +95,7 @@ make clean && make
 # make && make install
 
 
-In order to run Code::Blocks 
+In order to run Code::Blocks (Does NOT work on my Old PC; guessing the Video card is too old)
 ####
 # Requires Cygwin packages:
 #   xinit

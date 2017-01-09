@@ -1,0 +1,23 @@
+# 000x Patches needed to format project with correct linefeeds
+# 010x Patches needed to bootstrap/autoconf/automake project
+# 020x Patches needed to configure project
+# 030x Patches needed to build/make project
+# 040x Patches needed to run project
+# 050x Patches that convert project to saving all configs in MSys2 folders
+
+  "0101_DLLwin-Makefile.am-Added-CODEBLOCKS_NT.patch"             PUSH
+  "0102_win32-Makefile.am-Added-CODEBLOCKS_NT_compiler.patch"     DO NOT PUSH
+  "0103_wxMSW-Makefile.am-Added-CODEBLOCKS_NT_core-app.patch"     DO NOT PUSH
+  "0104_win32-edited-configure.ac.patch"                          DO NOT PUSH
+  "0105_cygwin-edited-configure.ac.patch"                         PUSH
+  "0106_msys2-PCH.patch"                                          DO NOT PUSH
+  "0109_msys2-Makefile.am-Added-CODEBLOCKS_NT.patch"              DO NOT PUSH
+
+  "0301_win32-Change-WXDLLIMPEXP_SCI-value.patch"                 HOLD
+  "0302_win32-ConsoleRunner-Replaced__WXMSW__.patch"              HOLD
+  "0303_wxGTKwin-modify-defined-tests.patch"                      HOLD
+  "0304_wxGTKwin-add-include-wrapwin.h.patch"                     DO NOT PUSH
+  "0305_msys2-all-local-auto_revision.exe.patch"                  DO NOT PUSH
+
+  "0401_msys2-InitPaths.patch"                                    DO NOT PUSH
+  "0402_msys2-remove-lib-prefix.patch"                            DO NOT PUSH
