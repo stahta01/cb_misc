@@ -1,12 +1,17 @@
-Rebuilding build files.txt
+# Rebuilding build files.txt
+
+# Open MSys2's MinGW terminal window
 
 cd /c/Devel/open_source_code/version_control/wxWidgets-git && git status -uno
 
-# git checkout msys2/wxgtk && git fetch upstream && git rebase upstream/master && git status -uno
+#   git checkout msys2/wxgtk && git fetch upstream && git rebase upstream/master && git status -uno
+#
+#   git push --force-with-lease
 
 git checkout msys2/wxgtk && git status -uno
 
-# Edit "files" file.
+# Edit "build/files" file.
+scite build/files
 
 build/upmake
 

@@ -20,7 +20,7 @@ CB_PRECOMP          PCH
 
 CB_AUTOCONF         MSys2
 APP_PREFIX          MSys2
--lexchndl           ?MSys2
+-lexchndl           MSys2
 
 Patch files needing work
   0102_win32-Makefile.am-Added-CODEBLOCKS_NT_compiler.patch

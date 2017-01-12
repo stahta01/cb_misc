@@ -98,11 +98,3 @@ Test wxGTK3.0 package under 64 bit
 
 Create CB using wxGTK3.0 package
 Test CB using wxGTK3.0 package under 64 bit
-
-
-Submit some of the following patches to CB
-  cb16.01_win32-ConsoleRunner-Replaced__WXMSW__.patch
-  cb16.01_win32-Makefile.am-Added-CODEBLOCKS_NT.patch
-  cb16.01_wxMSW2.8-scrollingdialog-Added-include.patch
-  cb16.01_wxMSW-Change-WXDLLIMPEXP_SCI-value.patch
-  cb_msys2-replace_file_conflicts.patch 
