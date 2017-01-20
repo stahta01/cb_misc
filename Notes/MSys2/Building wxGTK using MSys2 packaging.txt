@@ -14,34 +14,42 @@ pacman -S mingw-w64-i686-toolchain
 pacman -S mingw-w64-x86_64-toolchain
 
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-gtk2
-pacman -U mingw-w64-i686-gtk2-2.24.31-2-any.pkg.tar.xz
+# Change to package(s) folder
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p build_wxgtk3.1-gtk3-git.sh # 
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p build_wxgtk3.1-gtk2-git.sh # Package was built and installs
 
-# Change to MinGW Package git repo.
+# Change to package(s) folder
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p build_wxgtk3.1-gtk3.sh     # Building
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p build_wxgtk3.1-gtk2.sh     # Package was built and installs
+
+
+# Change to package(s) folder
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets-git
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p build_wxgtk3.0-gtk3-git.sh # Building
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild #
+
+# Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk3.pkgbuild     # Package was built and installs
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2.pkgbuild     # Package was built and installs
 
-# Change to wxWidgets folder
-# wxwidgets3.1-git
-cd ../mingw-w64-wxmsw3.1-git        # Package was built; and it installs
-#   cd ../mingw-w64-gtk2 && pacman -U mingw-w64-i686-gtk2-2.24.31-2-any.pkg.tar.xz
-cd ../mingw-w64-wxgtk3.1-gtk2-git   # Package was built; and it installs
-cd ../mingw-w64-wxgtk3.1-gtk3-git   # Package was built; and it installs
 
-# wxwidgets3.1
-cd ../mingw-w64-wxmsw3.1            # Package was built; and it installs
-cd ../mingw-w64-wxgtk3.1-gtk3       # Package was built; and it installs
+# Change to package(s) folder
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Building
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk2.8-gtk2.pkgbuild     # 
 
-# wxwidgets3.0-git
-cd ../mingw-w64-wxmsw-git           # Package was built; and it installs
-cd ../mingw-w64-wxgtk-gtk3-git      # Package was built; and it installs
+# Change to package(s) folder
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8-git
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # 
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk2.8-gtk2.pkgbuild     # 
 
-# wxwidgets3.0
-cd ../mingw-w64-wxwidgets           # Package was built; and it installs
-cd ../mingw-w64-wxgtk-gtk3          # Package was built; and it installs
-
-# 2.8
-cd ../mingw-w64-wxwidgets2.8-git    # Package was built; and it installs
-cd ../mingw-w64-wxwidgets2.8        # Package was built; and it installs
 
 # Build the 32 bit and 64 packages
 # makepkg-mingw -sLf
