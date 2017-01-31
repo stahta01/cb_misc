@@ -16,15 +16,23 @@ git checkout cleanup && git pull && git rebase --ignore-date master && git push 
 git status
 
 
-git checkout staging && git pull && git rebase master && git push
+git checkout staging && git pull && git rebase master 
+&& git push
 #   git rebase -i master   ## Keep ONLY changes I wish to push upstream
 #   git push --force-with-lease
 
-
-git checkout wxwidgets && git pull && git rebase master && git status -uno
-git rebase -i master
-git rebase --ignore-date master
+##  Now based on branch staging
+git checkout wxwidgets && git pull && git rebase staging && git status -uno
+git rebase -i staging
+git rebase --ignore-date staging
 git push --force-with-lease
+
+git checkout unit_tests && git pull && git rebase master && git status -uno
+#
+git rebase master && git status -uno
+git rebase -i master
+git push
+#   git push --force-with-lease
 
 git checkout editors_and_IDEs && git pull && git rebase master && git status -uno
 git rebase -i master
@@ -45,7 +53,7 @@ git rebase master && git status -uno
 #
 git rebase -i master
 git push
-# git push --force-with-lease
+#   git push --force-with-lease
 
 
 ##
@@ -53,6 +61,7 @@ git checkout scratch && git pull && git status -uno
 #
 git rebase cleanup && \
 git rebase staging && \
+git rebase unit_tests && \
 git rebase wxwidgets && \
 git rebase wxApps && \
 git rebase editors_and_IDEs && \
@@ -63,17 +72,9 @@ git push
 #   git push --force-with-lease
 
 
-git checkout unit_tests && git pull && git rebase master && git status -uno
-#
-git rebase master && git status -uno
-git rebase -i master
-git push
-# git push --force-with-lease
-
-
 git checkout misc && git pull && git rebase master && git status -uno
 #
 git rebase master && git status -uno
 git rebase -i master
 git push
-# git push --force-with-lease
+#   git push --force-with-lease
