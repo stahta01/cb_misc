@@ -16,28 +16,28 @@ pacman -S mingw-w64-x86_64-toolchain
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Needs Re-Tested
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk3-git.pkgbuild # Needs Re-Tested *
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk2-git.pkgbuild # Needs Re-Tested *
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk3-git.pkgbuild # Package was built
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk2-git.pkgbuild # Package was built
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk3.pkgbuild     # Needs Re-Tested *
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk2.pkgbuild     # Building
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk3.pkgbuild     # Package was built
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk2.pkgbuild     # Package was built
 
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk3-git.pkgbuild # Package was built
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild # Building
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild # Package was built
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk3.pkgbuild     # Needs Re-Tested *
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2.pkgbuild     # Needs Re-Tested *
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Needs Re-built and maybe change(s) move to staging
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk3.pkgbuild     # Package was built
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2.pkgbuild     # Package was built
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8-git

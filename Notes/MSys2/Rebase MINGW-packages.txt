@@ -6,20 +6,17 @@ $ git branch --list
   scratch
   staging
   testing
-* unit_tests
+  unit_tests
   wxApps
-  wxwidgets
+* wxwidgets
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
-git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
-git status
-
-
-git checkout staging && git pull && git rebase master 
-&& git push
+git checkout staging && git pull && git rebase master && git push --force-with-lease
 #   git rebase -i master   ## Keep ONLY changes I wish to push upstream
+#   git rebase --ignore-date master
 #   git push --force-with-lease
+
 
 ##  Now based on branch staging
 git checkout wxwidgets && git pull && git rebase staging && git status -uno
@@ -39,9 +36,14 @@ git rebase -i master
 git rebase --ignore-date master
 git push --force-with-lease
 
+
 git checkout wxApps && git pull && git rebase master && git status -uno
 git rebase -i master
 git push --force-with-lease
+
+
+git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
+git status
 
 
 git checkout testing && git pull && git status -uno

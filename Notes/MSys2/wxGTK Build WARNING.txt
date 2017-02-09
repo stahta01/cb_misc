@@ -8,12 +8,15 @@ configure: WARNING: wxFileSystemWatcher
     won't be available on this platform                                 Needs fixed causing test build error
 
 configure: WARNING: Assuming wxLibrary class works on this platform     Needs fixed
+    dnl under MSW we always have LoadLibrary/GetProcAddress
+    if test "$TOOLKIT" != "MSW"; then
+
+configure: WARNING: Joystick not supported by this system... disabled   Needs fixed
+    dnl under MSW and OS X we always have joystick support
+    if test "$TOOLKIT" = "MSW" -o "$TOOLKIT" = "OSX_COCOA" -o "$TOOLKIT" = "COCOA"; then
 
 configure: WARNING: wxGetDiskSpace() function won't work                ???
     without statfs()
-
-configure: WARNING: Joystick not supported by this system... disabled
-    dnl under MSW and OS X we always have joystick support              Needs fixed
 
 configure: WARNING: libnotify not found, 
     wxNotificationMessage will use generic implementation.              IGNORE for now
