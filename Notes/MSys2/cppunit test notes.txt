@@ -1,0 +1,18 @@
+# Open MSYS2 Shell
+
+./test.exe            # Segfaults
+./test_drawing.exe    # Run:   4   Failure total:  2   Failures:  2   Errors: 0
+./test_gui.exe        # Run: 699   Failure total: 11   Failures: 11   Errors: 0
+
+####
+#
+# Change to MINGW_packages sub-folder
+cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
+#
+# Prepare to run or make wxWidgets tests
+export PATH="/mingw32/bin:"$PATH
+cd src/build-i686 && cp ./lib/*.dll ./tests
+#
+# make and run non-gui tests
+cd tests && make && cd .. && ./tests/test.exe -t --detail > test.txt
+
