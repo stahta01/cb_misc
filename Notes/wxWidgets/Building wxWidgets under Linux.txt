@@ -1,0 +1,17 @@
+Building wxWidgets using MSys2 packaging.txt
+
+# Open Terminal
+
+# Change to wxWidgets git repo.
+cd C~/devel/open_source_code/version_control/wxWidgets-git
+
+
+mkdir build_gtk2_shared_mulitlib_unicode
+cd build_gtk2_shared_mulitlib_unicode
+../configure --disable-monolithic --with-gtk=2
+
+make && cp ./lib/*.so ./tests
+
+# make and run non-gui tests
+cd tests && make && cd .. && ./tests/test -t --detail > test.txt
+
