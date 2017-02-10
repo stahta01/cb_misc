@@ -13,5 +13,4 @@ cd build_gtk2_shared_mulitlib_unicode
 make && cp ./lib/*.so ./tests
 
 # make and run non-gui tests
-cd tests && make && cd .. && ./tests/test -t --detail > test.txt
-
+cd tests && make && ./test -t --detail > test.txt && cd ..
