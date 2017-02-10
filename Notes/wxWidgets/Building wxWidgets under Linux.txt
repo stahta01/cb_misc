@@ -14,3 +14,36 @@ make && cp ./lib/*.so ./tests
 
 # make and run non-gui tests
 cd tests && make && ./test -t --detail > test.txt && cd ..
+
+# make and run test_gui tests
+cd tests && make && ./test_gui -t --detail > test_gui.txt && cd ..
+
+####
+Test program for wxWidgets GUI features
+build: 3.1.1 (wchar_t,compiler with C++ ABI 1002,wx containers,compatible with 3.0)
+running under Linux 4.9.0-1-amd64 x86_64 as stahta01
+Segmentation fault
+####
+
+# make and run test_drawing tests
+cd tests && make && ./test_drawing -t --detail > test_drawing.txt && cd ..
+
+####
+Test program for wxWidgets non-GUI features
+build: 3.1.1 (wchar_t,compiler with C++ ABI 1002,wx containers,compatible with 3.0)
+running under Linux 4.9.0-1-amd64 x86_64 as stahta01
+  GraphicsContextDrawingTestCase::DrawToImage_Basics            FAIL     211 ms
+  GraphicsContextDrawingTestCase::DrawToPlugins_Basics            OK       0 ms
+
+../../tests/drawing/drawing.cpp:155:Assertion
+Test name: GraphicsContextDrawingTestCase::DrawToImage_Basics
+assertion failed
+- Expression: (AreImagesFilesContentsEqual(fileName.GetFullPath(), refFileName.
+GetFullPath()))
+- Image files "/tmp/image_test_image_1.png" and "/home/stahta01/devel/open_sour
+ce_code/version_control/wxWidgets-git/build_gtk2_shared_mulitlib_unicode/drawin
+g/references/image_test_image_1_ref.png" differ.
+
+Failures !!!
+Run: 2   Failure total: 1   Failures: 1   Errors: 0
+###
