@@ -11,8 +11,62 @@ cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidg
 #
 # Prepare to run or make wxWidgets tests
 export PATH="/mingw32/bin:"$PATH
-cd src/build-i686 && cp ./lib/*.dll ./tests
+cd src/build-gtk2-i686-static && cp ./lib/*.dll ./tests
 #
 # make and run non-gui tests
-cd tests && make && cd .. && ./tests/test.exe -t --detail > test.txt
+cd tests && make && ./test -t --detail > test.txt && cd ..
 
+
+Using MSys2 GCC and wxGTK-gtk2
+  FormatConverterTestCase::format_s                             FAIL      18 ms
+  FormatConverterTestCase::format_hs                            FAIL       0 ms
+  FormatConverterTestCase::format_ls                            FAIL       0 ms
+  FormatConverterTestCase::format_c                             FAIL       0 ms
+  FormatConverterTestCase::format_hc                            FAIL       0 ms
+  FormatConverterTestCase::format_lc                            FAIL       0 ms
+  FormatConverterTestCase::format_S                             FAIL       0 ms
+  FormatConverterTestCase::format_hS                            FAIL       0 ms
+  FormatConverterTestCase::format_lS                            FAIL       0 ms
+  FormatConverterTestCase::format_C                             FAIL       0 ms
+  FormatConverterTestCase::format_hC                            FAIL       0 ms
+  FormatConverterTestCase::format_lC                            FAIL       0 ms
+  FormatConverterTestCase::testLonger                           FAIL       0 ms
+
+  IntlTestCase::RestoreLocale                                   FAIL      41 ms
+  IntlTestCase::Domain                                          FAIL      10 ms
+  IntlTestCase::Headers                                         FAIL       9 ms
+  IntlTestCase::DateTimeFmtFrench                               FAIL       9 ms
+  IntlTestCase::DateTimeFmtC                                    FAIL       9 ms
+  IntlTestCase::IsAvailable                                     FAIL       9 ms
+
+  StringTestCase::Format                                        FAIL       0 ms
+
+  StringTestCase::ToDouble                                      FAIL       9 ms
+  StringTestCase::FromDouble                                    FAIL       9 ms
+
+
+Using MSVC 2015 Community results below
+
+log\logtest.cpp(371) : error : Assertion
+Test name: LogTestCase::SysError
+assertion failed
+- Expression: (s.StartsWith("error 2"))
+- Error message is "(error 0: The operation completed successfully.)"
+
+##Failure Location unknown## : Error
+Test name: TextStreamTestCase::Endline
+Uncaught exception
+- wxWidgets assert: "(pBuf != 0) && IsOpened()" failed at ..\..\src\common\file
+.cpp:317 in wxFile::Write with message ''
+
+##Failure Location unknown## : Error
+Test name: TextStreamTestCase::TestLongLong
+Uncaught exception
+- wxWidgets assert: "(pBuf != 0) && IsOpened()" failed at ..\..\src\common\file
+.cpp:317 in wxFile::Write with message ''
+
+##Failure Location unknown## : Error
+Test name: TextStreamTestCase::TestULongLong
+Uncaught exception
+- wxWidgets assert: "(pBuf != 0) && IsOpened()" failed at ..\..\src\common\file
+.cpp:317 in wxFile::Write with message ''
