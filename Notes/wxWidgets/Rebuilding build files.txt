@@ -25,3 +25,27 @@ cd ../..
 autoconf
 
 git status -uno
+
+
+
+LINUX Directions
+
+cd ~/devel/open_source_code/version_control/wxWidgets-git
+
+git fetch --all --prune
+
+git checkout ???
+
+# Edit "files" file.
+build/upmake
+
+cd build/bakefiles
+bakefile_gen
+
+git status -uno
+
+cd ../..
+
+autoconf
+
+git status -uno
