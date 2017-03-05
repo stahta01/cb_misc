@@ -32,20 +32,30 @@ LINUX Directions
 
 cd ~/devel/open_source_code/version_control/wxWidgets-git
 
+git-sh
+
 git fetch --all --prune
 
 git checkout ???
 
+git status -uno
+#   git reset --hard
+
+git clean -i -x
+
+git status
+
 # Edit "files" file.
 build/upmake
 
-cd build/bakefiles
-bakefile_gen
+cd build/bakefiles && bakefile_gen && cd ../..
 
 git status -uno
 
-cd ../..
+git gui
 
 autoconf
 
 git status -uno
+
+# strings\hexconv.cpp
