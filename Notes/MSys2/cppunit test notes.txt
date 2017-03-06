@@ -11,13 +11,45 @@ cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidg
 #
 # Prepare to run or make wxWidgets tests
 export PATH="/mingw32/bin:"$PATH
-cd src/build-gtk2-i686-static && cp ./lib/*.dll ./tests
+cd src/build-i686-static # && cp ./lib/*.dll ./tests
 #
 # make and run non-gui tests
-cd tests && make && ./test -t --detail > test.txt && cd ..
+cd tests && make && cd ..
+# cd tests && ./test -t --detail > test.txt && cd ..
+
+# Use gdb to trace where it crashes
+#prompt command
+$       cd tests
+$       gdb ./test
+(gdb)   run
+(gdb)   bt
 
 
-Using MSys2 GCC and wxGTK-gtk2
+Segmentation fault in UnicodeTestCase methods ConversionWithNULs and Iteration inside MSys2 package "mingw-w64-crt-git".
+  __mingw_swformat function called by swscanf seems to be the problem area.
+
+No tests have been edited
+#0  0x007bc43c in __mingw_swformat (s=s@entry=0x68ee4a0,
+    format=format@entry=0x94c162 <UnicodeTestCase::ConversionWithNULs()::lenNulString+46> L"%d %s", argp=argp@entry=0x68ef4e8 "▒▒\006\030▒▒\006*")
+    at C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_wvfscanf.c:827
+#1  0x007be570 in __mingw_vswscanf (s=s@entry=0x68ef640 L"42 test",
+    format=format@entry=0x94c162 <UnicodeTestCase::ConversionWithNULs()::lenNulString+46> L"%d %s", argp=argp@entry=0x68ef4e8 "▒▒\006\030▒▒\006*")
+    at C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_wvfscanf.c:1621
+
+This application has requested the Runtime to terminate it in an unusual way.
+Please contact the application's support team for more information.
+#2  0x0058419f in swscanf (
+
+http://www.cplusplus.com/reference/cwchar/swscanf/
+
+UnicodeTestCase::ConversionWithNULs __mingw_swformat function that might be the problem area.
+
+
+Using MSys2 GCC and wxMSW
+
+  StopWatchTestCase::RestartBug                                 FAIL     589 ms
+
+Using MSys2 GCC and wxMSW and wxGTK-gtk2
   FormatConverterTestCase::format_s                             FAIL      18 ms
   FormatConverterTestCase::format_hs                            FAIL       0 ms
   FormatConverterTestCase::format_ls                            FAIL       0 ms
