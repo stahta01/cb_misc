@@ -36,7 +36,7 @@ git-sh
 
 git fetch --all --prune
 
-git checkout ???
+git checkout ??? wxGTKwin/display
 
 git status -uno
 #   git reset --hard
