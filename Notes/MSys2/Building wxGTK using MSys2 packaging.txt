@@ -30,33 +30,33 @@ Some of the options
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk2-git.pkgbuild # Building
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package built and installed
                                                                           NOTE: NON-GUI Tests Segfaults
-                                                                          Add no xtest configure option
-                                                                          Remove building of samples and tests
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk2-git.pkgbuild # Package built and installed
+
 Repackage
 MINGW_INSTALLS=mingw32 makepkg-mingw -RLf -p wxgtk3.1-gtk2-git.pkgbuild #
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # 
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk2.pkgbuild     # 
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc                             # Package built and installed
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc -p wxgtk3.1-gtk2.pkgbuild   # Package built and installed
 
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # 
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild # 
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package built and installed
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild # Package built and installed
+
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # 
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2.pkgbuild     # 
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc                             # Package built and installed
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc -p wxgtk3.0-gtk2.pkgbuild   # Package built and installed
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8-git
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package was built and installs
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Package built and installed
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk2.8-gtk2-git.pkgbuild # Failed
 
 In file included from ./src/regex/regcustom.h:39:0,
