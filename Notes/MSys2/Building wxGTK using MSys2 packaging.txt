@@ -51,7 +51,7 @@ MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild # Packag
 
 # Change to package(s) folder
 cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc                             # Package built and installed
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc                             # Building
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc -p wxgtk3.0-gtk2.pkgbuild   # Package built and installed
 
 # Change to package(s) folder

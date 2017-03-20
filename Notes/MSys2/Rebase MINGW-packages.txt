@@ -43,7 +43,7 @@ git push --force-with-lease
 
 
 git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
-git status
+git checkout cleanup && git status
 
 
 git checkout testing && git pull && git status -uno
