@@ -24,6 +24,8 @@ $ git status -uno   # Show files that will be normalized
 $ git add -u
 $ git commit -m "* repo: Introduce end-of-line normalization"
 
+# Note: Adding the ".gitattributes" file after the normalization
+#       is the best way to avoid rebase issues/errors.
 $ git add .gitattributes
 $ git commit -m "+ git: Added Git Attributes file."
 
