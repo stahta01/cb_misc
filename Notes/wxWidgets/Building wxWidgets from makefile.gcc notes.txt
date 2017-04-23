@@ -1,0 +1,20 @@
+Extra options required to build wxWidgets using makefile.gcc
+
+Build_wxWidgets_using_makefile.gcc
+
+wxWidgets             version 2.8.12                    3.0.2
+gcc version
+4.7.1                 ???                               CXXFLAGS=-fno-keep-inline-dllexport
+4.8.1                 ???                               CXXFLAGS=-fno-keep-inline-dllexport
+4.9.2                 ???                               CXXFLAGS=-std=gnu++11
+5.1.0                 ???                               CXXFLAGS=-std=gnu++11 Likely NOT needed
+6.3.0                 ???                               CXXFLAGS=-std=gnu++11 Needed defaults to gnu++14
+
+
+Warning reduction options normally added when supported by GCC
+3.4.4       -Wno-deprecated-declarations
+4.?.?       -Wno-unused-local-typedefs
+
+
+Warning options added to look for weird wxWidgets build issues
+?.?.?       -Wmissing-include-dirs
