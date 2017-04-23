@@ -19,7 +19,8 @@ export _COMPILER_VERSION=630MSYS2
 
 # echo $_COMPILER_VERSION
 
-cd build/msw && \
+cd build/msw || exit 3
+
 mingw32-make -f makefile.gcc \
   CFG=mono \
   VENDOR=$_COMPILER_VERSION \
@@ -27,5 +28,13 @@ mingw32-make -f makefile.gcc \
   CPPFLAGS="-Wmissing-include-dirs" \
   CXXFLAGS="-std=gnu++11 -Wno-unused-local-typedefs" \
   MONOLITHIC=1 SHARED=1 UNICODE=1 BUILD=debug
+
+mingw32-make -f makefile.gcc \
+  CFG=mono \
+  VENDOR=$_COMPILER_VERSION \
+  COMPILER_VERSION=$_COMPILER_VERSION \
+  CPPFLAGS="-Wmissing-include-dirs" \
+  CXXFLAGS="-std=gnu++11 -Wno-unused-local-typedefs" \
+  MONOLITHIC=1 SHARED=1 UNICODE=1 BUILD=release
 
 # echo "Finished"
