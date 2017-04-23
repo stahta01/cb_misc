@@ -18,10 +18,14 @@ git checkout staging && git pull && git rebase master && git push --force-with-l
 #   git push --force-with-lease
 
 
-##  Now based on branch staging
-git checkout wxwidgets && git pull && git rebase staging && git status -uno
-git rebase -i staging
-git rebase --ignore-date staging
+##  Now based on branch master
+git checkout wxwidgets && git pull && git rebase master && git status -uno
+git rebase -i master
+git rebase --ignore-date master
+git push --force-with-lease
+
+git checkout wxApps && git pull && git rebase master && git status -uno
+git rebase -i master
 git push --force-with-lease
 
 git checkout unit_tests && git pull && git rebase master && git status -uno
@@ -34,11 +38,6 @@ git push
 git checkout editors_and_IDEs && git pull && git rebase master && git status -uno
 git rebase -i master
 git rebase --ignore-date master
-git push --force-with-lease
-
-
-git checkout wxApps && git pull && git rebase master && git status -uno
-git rebase -i master
 git push --force-with-lease
 
 
@@ -75,6 +74,13 @@ git push
 
 
 git checkout misc && git pull && git rebase master && git status -uno
+#
+git rebase master && git status -uno
+git rebase -i master
+git push
+#   git push --force-with-lease
+
+git checkout mingw64/libs && git pull && git rebase master && git status -uno
 #
 git rebase master && git status -uno
 git rebase -i master
