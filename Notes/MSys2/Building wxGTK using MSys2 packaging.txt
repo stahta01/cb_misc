@@ -29,7 +29,7 @@ Some of the options
 
 
 # Change to package(s) folder
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Built and installed
                                                                           NOTE: NON-GUI Tests Segfaults
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.1-gtk2-git.pkgbuild # Built and installed
@@ -41,24 +41,24 @@ Repackage
 MINGW_INSTALLS=mingw32 makepkg-mingw -RLf -p wxgtk3.1-gtk2-git.pkgbuild #
 
 # Change to package(s) folder
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc                             # Built and installed 
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc -p wxgtk3.1-gtk2.pkgbuild   # Built and installed 
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc                             # 
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc -p wxgtk3.1-gtk2.pkgbuild   # 
 
 
 # Change to package(s) folder
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Built and installed
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild # Built and installed
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # BUILDING
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild # 
 
 
 # Change to package(s) folder
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc                             # Built and 
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc -p wxgtk3.0-gtk2.pkgbuild   # Built and installed
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc                             # Failed to build 
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLfCc -p wxgtk3.0-gtk2.pkgbuild   # 
 
 # Change to package(s) folder
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8-git
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8-git
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # 
 
 
