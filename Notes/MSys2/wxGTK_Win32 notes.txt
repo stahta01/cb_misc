@@ -1,0 +1,72 @@
+wxGTK_Win32 notes.txt
+
+Building wxGTK/Win32 using MSys2 with configure fixes.
+
+From https://github.com/wxWidgets/wxWidgets/pull/428
+
+git push --force-with-lease
+
+--enable-wxdib
+
+wxBITMAP
+wxBITMAP_PNG
+
+wxWidgets 3.0 cpp files with wxUSE_WXDIB to look at
+common/artprov.cpp
+common/artstd.cpp
+common/dcgraph.cpp
+common/image.cpp
+generic/dirctrlg.cpp
+generic/dragimgg.cpp
+html/m_image.cpp
+msw/bitmap.cpp
+msw/clipbrd.cpp
+msw/dcprint.cpp
+msw/dib.cpp
+msw/dragimag.cpp
+msw/gdiimage.cpp
+msw/imaglist.cpp
+msw/toolbar.cpp
+msw/ole/dataobj.cpp
+
+
+wxWidgets master cpp files with wxUSE_WXDIB and
+common/artstd.cpp         wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WXMSW__) || wxUSE_WXDIB)
+common/image.cpp      wxDIB   wxUSE_WXDIB && wxUSE_IMAGE
+generic/dirctrlg.cpp      wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WINDOWS__) || wxUSE_WXDIB)
+generic/dragimgg.cpp      wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WXMSW__) || wxUSE_WXDIB)
+generic/graphicc.cpp              ConvertToDIB
+html/m_image.cpp              wxBitmap(wxImage img)       !defined(__WXMSW__) || wxUSE_WXDIB
+msw/bitmap.cpp        wxDIB   wxUSE_WXDIB && wxUSE_IMAGE
+msw/clipbrd.cpp       wxDIB
+msw/dcprint.cpp       wxDIB
+msw/dib.cpp           wxDIB
+msw/dragimag.cpp      wxDIB
+msw/gdiimage.cpp      wxDIB   CopyFromDIB
+msw/graphics.cpp                  ConvertToDIB
+msw/imaglist.cpp      wxDIB   wxUSE_WXDIB && wxUSE_IMAGE
+msw/statbmp.cpp       wxDIB
+msw/toolbar.cpp       wxDIB
+msw/ole/dataobj.cpp   wxDIB
+
+Windows 10 wxGTK wxWidgets 3.0.x toolBar sample staging3.0 branch
+07:52:55: can't open file 'new' (error 2: the system cannot find the file specified.)
+07:52:55: Failed to load image from file "new".
+07:52:55: can't open file 'open' (error 2: the system cannot find the file specified.)
+07:52:55: Failed to load image from file "open".
+07:52:55: can't open file 'save' (error 2: the system cannot find the file specified.)
+07:52:55: Failed to load image from file "save".
+07:52:55: can't open file 'copy' (error 2: the system cannot find the file specified.)
+07:52:55: Failed to load image from file "copy".
+07:52:55: can't open file 'cut' (error 2: the system cannot find the file specified.)
+07:52:55: Failed to load image from file "cut".
+07:52:55: can't open file 'paste' (error 2: the system cannot find the file specified.)
+07:52:55: Failed to load image from file "paste".
+07:52:55: can't open file 'print' (error 2: the system cannot find the file specified.)
+07:52:55: Failed to load image from file "print".
+07:52:55: can't open file 'help' (error 2: the system cannot find the file specified.)
+07:52:55: Failed to load image from file "help".
+
+Windows 10 wxGTK wxWidgets 3.0.x image sample staging3.0 branch
+08:14:05: can't open file 'cursor' (error 2: the system cannot find the file specified.)
+08:14:05: Failed to load image from file "cursor".
