@@ -29,44 +29,48 @@ msw/imaglist.cpp
 msw/toolbar.cpp
 msw/ole/dataobj.cpp
 
+// From wx/msw/bitmap.h
+#if wxUSE_WXDIB
+    // copies from a device independent bitmap
+    bool CopyFromDIB(const wxDIB& dib);
+    bool IsDIB() const;
+    bool ConvertToDIB();
+#endif
+#if wxUSE_IMAGE
+    wxImage ConvertToImage() const;
+    wxBitmap ConvertToDisabled(unsigned char brightness = 255) const;
+#endif // wxUSE_IMAGE
+#if wxUSE_IMAGE
+    // Convert from wxImage
+    wxBitmap(const wxImage& image, int depth = -1, double WXUNUSED(scale) = 1.0)
+        { (void)CreateFromImage(image, depth); }
+
+    // Create a DDB compatible with the given DC from wxImage
+    wxBitmap(const wxImage& image, const wxDC& dc)
+        { (void)CreateFromImage(image, dc); }
+#endif // wxUSE_IMAGE
+
+
+#if wxUSE_IMAGE && (!defined(__WXMSW__) || wxUSE_WXDIB)
+#if !defined(__WXMSW__) || wxUSE_WXDIB
+#if wxUSE_IMAGE_IN_DRAGIMAGE && (!defined(__WXMSW__) || wxUSE_WXDIB)
 
 wxWidgets master cpp files with wxUSE_WXDIB and
-common/artstd.cpp         wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WXMSW__) || wxUSE_WXDIB)
-common/image.cpp      wxDIB   wxUSE_WXDIB && wxUSE_IMAGE
-generic/dirctrlg.cpp      wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WINDOWS__) || wxUSE_WXDIB)
-generic/dragimgg.cpp      wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WXMSW__) || wxUSE_WXDIB)
-generic/graphicc.cpp              ConvertToDIB
-html/m_image.cpp              wxBitmap(wxImage img)       !defined(__WXMSW__) || wxUSE_WXDIB
-msw/bitmap.cpp        wxDIB   wxUSE_WXDIB && wxUSE_IMAGE
+common/artstd.cpp                     wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WXMSW__) || wxUSE_WXDIB)
+generic/dirctrlg.cpp                  wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WINDOWS__) || wxUSE_WXDIB)
+generic/dragimgg.cpp                  wxBitmap(wxImage img) bmp.ConvertToImage() (!defined(__WXMSW__) || wxUSE_WXDIB)
+html/m_image.cpp                      wxBitmap(wxImage img)                       !defined(__WXMSW__) || wxUSE_WXDIB
+
+common/image.cpp      wxDIB           wxUSE_WXDIB && wxUSE_IMAGE
+generic/graphicc.cpp          ConvertToDIB
+msw/bitmap.cpp        wxDIB   IsDIB   wxUSE_WXDIB && wxUSE_IMAGE
 msw/clipbrd.cpp       wxDIB
 msw/dcprint.cpp       wxDIB
 msw/dib.cpp           wxDIB
 msw/dragimag.cpp      wxDIB
 msw/gdiimage.cpp      wxDIB   CopyFromDIB
-msw/graphics.cpp                  ConvertToDIB
-msw/imaglist.cpp      wxDIB   wxUSE_WXDIB && wxUSE_IMAGE
+msw/graphics.cpp              IsDIB, ConvertToDIB
+msw/imaglist.cpp      wxDIB           wxUSE_WXDIB && wxUSE_IMAGE
 msw/statbmp.cpp       wxDIB
 msw/toolbar.cpp       wxDIB
 msw/ole/dataobj.cpp   wxDIB
-
-Windows 10 wxGTK wxWidgets 3.0.x toolBar sample staging3.0 branch
-07:52:55: can't open file 'new' (error 2: the system cannot find the file specified.)
-07:52:55: Failed to load image from file "new".
-07:52:55: can't open file 'open' (error 2: the system cannot find the file specified.)
-07:52:55: Failed to load image from file "open".
-07:52:55: can't open file 'save' (error 2: the system cannot find the file specified.)
-07:52:55: Failed to load image from file "save".
-07:52:55: can't open file 'copy' (error 2: the system cannot find the file specified.)
-07:52:55: Failed to load image from file "copy".
-07:52:55: can't open file 'cut' (error 2: the system cannot find the file specified.)
-07:52:55: Failed to load image from file "cut".
-07:52:55: can't open file 'paste' (error 2: the system cannot find the file specified.)
-07:52:55: Failed to load image from file "paste".
-07:52:55: can't open file 'print' (error 2: the system cannot find the file specified.)
-07:52:55: Failed to load image from file "print".
-07:52:55: can't open file 'help' (error 2: the system cannot find the file specified.)
-07:52:55: Failed to load image from file "help".
-
-Windows 10 wxGTK wxWidgets 3.0.x image sample staging3.0 branch
-08:14:05: can't open file 'cursor' (error 2: the system cannot find the file specified.)
-08:14:05: Failed to load image from file "cursor".
