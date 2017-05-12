@@ -19,11 +19,12 @@ git checkout staging && git pull && git rebase master && git push --force-with-l
 #   git push --force-with-lease
 
 
-##  Now based on branch staging
+##  Now based on branch master
 git checkout wxwidgets && git pull && git rebase staging && git status -uno
-git rebase -i staging
-git rebase --ignore-date staging
-git format-patch staging
+git rebase master && git status -uno
+git rebase -i master
+git rebase --ignore-date master
+git format-patch master
 git push --force-with-lease
 
 git checkout wxApps && git pull && git rebase master && git status -uno
