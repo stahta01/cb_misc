@@ -7,7 +7,7 @@ cd ~/devel/open_source_code/version_control/wxWidgets_3_0_branch-git || exit 1
 
 # Change to correct wxWidgets Git branch
 # git lfs install
-git checkout wxwidgets3.0.3+ || exit 2
+git checkout wxwidgets3.0.3+git-lfs || exit 2
 # git status -uno
 
 
