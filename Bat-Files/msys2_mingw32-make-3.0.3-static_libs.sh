@@ -5,10 +5,9 @@
 cd ~/devel/open_source_code/version_control/wxWidgets_3_0_branch-git || exit 1
 # pwd
 
-
 # Change to correct wxWidgets Git branch
 # git lfs install
-git checkout wxwidgets3.0.2+git-lfs || exit 2
+git checkout wxwidgets3.0.3+git-lfs || exit 2
 # git status -uno
 
 
@@ -23,15 +22,13 @@ export _COMPILER_VERSION=630MSYS2
 cd build/msw || exit 3
 
 mingw32-make -f makefile.gcc \
-  VENDOR=$_COMPILER_VERSION \
   COMPILER_VERSION=$_COMPILER_VERSION \
   CXXFLAGS=-std=gnu++11 \
-  MONOLITHIC=0 SHARED=1 UNICODE=1 BUILD=debug
+  MONOLITHIC=0 SHARED=0 UNICODE=1 BUILD=debug
 
 mingw32-make -f makefile.gcc \
-  VENDOR=$_COMPILER_VERSION \
   COMPILER_VERSION=$_COMPILER_VERSION \
   CXXFLAGS=-std=gnu++11 \
-  MONOLITHIC=0 SHARED=1 UNICODE=1 BUILD=release
+  MONOLITHIC=0 SHARED=0 UNICODE=1 BUILD=release
 
 # echo "Finished"
