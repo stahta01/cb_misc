@@ -1,0 +1,10 @@
+MINGW-packages_issues.txt
+
+missing dependency for mingw-w64-x86_64-poppler 
+https://github.com/Alexpux/MINGW-packages/issues/2403
+Solution add depends on openjpeg2 and update version to 0.55.
+
+Links problem with wxWidgets 3.1
+https://github.com/Alexpux/MINGW-packages/issues/1761
+
+My own change update doxygen to use qt5 instead qt4.
