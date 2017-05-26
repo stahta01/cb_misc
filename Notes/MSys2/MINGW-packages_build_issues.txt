@@ -1,0 +1,5 @@
+Packages that do NOT like building my normal way.
+
+
+mingw-w64-qt5
+  Fails to build under Windows10(32-bit) using path "C:\Users\stahta01\devel\open_source_code\version_control\MINGW_packages-git\mingw-w64-qt5"
