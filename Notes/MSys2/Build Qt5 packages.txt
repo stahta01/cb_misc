@@ -1,0 +1,71 @@
+Build Qt5 packages.txt
+
+https://github.com/Alexpux/MINGW-packages
+https://github.com/msys2/msys2/wiki/Creating-packages
+
+pacman -Syu
+pacman -S base-devel
+# pacman -S --needed base-devel # Seems to NOT work
+pacman -S --needed mingw-w64-i686-toolchain
+pacman -S --needed git
+
+
+cd /c/MSys2Rep/MINGW-packages/mingw-w64-qt5-git
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # BUILDING
+
+
+MINGW_INSTALLS=mingw32 makepkg-mingw --syncdeps --noprepare --nobuild
+
+MINGW_INSTALLS=mingw32 makepkg-mingw --log --nobuild
+
+MINGW_INSTALLS=mingw32 makepkg-mingw --log --nodeps --nobuild
+
+echo "length is ${#varname}"
+
+if [ ${#varname} -lt 5 ]; then
+  echo "done"
+fi
+
+Built and installed
+
+git push --force-with-lease
+
+--no-backup-if-mismatch
+
+https://wiki.qt.io/MSYS2
+https://www.archlinux.org/packages/extra/i686/qt5-base/
+https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/qt5-base
+https://wiki.archlinux.org/index.php/qt
+
+pkgbase=qt5-base
+pkgname=(qt5-base qt5-xcb-private-headers)
+_qtver=5.8.0
+pkgver=${_qtver/-/}
+_pkgfqn="${pkgbase/5-/}-opensource-src-${_qtver}"
+source=("http://download.qt.io/official_releases/qt/${pkgver%.*}/${_qtver}/submodules/${_pkgfqn}.tar.xz"
+
+http://download.qt.io/official_releases/qt/5.7/5.7.1/submodules/
+http://download.qt.io/official_releases/qt/5.8/5.8.0/submodules/qtbase-opensource-src-5.8.0.tar.xz
+
+QT_VERSION_MAJOR, QT_VERSION_MINOR, QT_VERSION_PATCH
+
+MODULE_VERSION = 5.7.1 from src\qt5\qtbase\.qmake.conf
+
+local _module_version=$(head -n 34 qtbase/.qmake.conf | grep 'MODULE_VERSION' | sed -e 's/.* //' | tr '\n' '.' | sed 's/.$/\n/')
+
+Some of the options
+  -R, --repackage  Repackage contents of the package without rebuilding
+  -s, --syncdeps   Install missing dependencies with pacman
+  -L, --log        Log package build process
+  -f, --force      Overwrite existing package
+  -o, --nobuild    Download and extract files only
+  -p <file>        Use an alternate build script (instead of 'PKGBUILD')
+  --nocheck        Do not run the check() function in the PKGBUILD
+  --verifysource   Download source files (if needed) and perform integrity checks
+  -c, --clean      Clean up work files after build
+  -C, --cleanbuild Remove $srcdir/ dir before building the package
+  -d, --nodeps     Skip all dependency checks
+  -e, --noextract  Do not extract source files (use existing $srcdir/ dir)
+  --noprepare      Do not run the prepare() function in the PKGBUILD
+  -m, --nocolor    Disable colorized output messages
+  --packagelist    Only list packages that would be produced, without PKGEXT
