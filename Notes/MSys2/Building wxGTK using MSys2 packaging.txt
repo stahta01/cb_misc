@@ -26,6 +26,9 @@ Some of the options
   -C, --cleanbuild Remove $srcdir/ dir before building the package
   -d, --nodeps     Skip all dependency checks
   -e, --noextract  Do not extract source files (use existing $srcdir/ dir)
+  --noprepare      Do not run the prepare() function in the PKGBUILD
+  -m, --nocolor    Disable colorized output messages
+  --packagelist    Only list packages that would be produced, without PKGEXT
 
 Rules on wxWidgets commit message formatting
 https://chris.beams.io/posts/git-commit/
