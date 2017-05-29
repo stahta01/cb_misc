@@ -1,5 +1,8 @@
 Build Qt5 packages.txt
 
+
+https://github.com/Alexpux/MSYS2-packages/issues/735
+
 https://github.com/Alexpux/MINGW-packages
 https://github.com/msys2/msys2/wiki/Creating-packages
 
@@ -13,6 +16,7 @@ pacman -S --needed git
 cd /c/MSys2Rep/MINGW-packages/mingw-w64-qt5-git
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # BUILDING
 
+MINGW_INSTALLS=mingw32 makepkg-mingw --log --force
 
 MINGW_INSTALLS=mingw32 makepkg-mingw --syncdeps --noprepare --nobuild
 
