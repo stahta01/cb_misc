@@ -1,0 +1,80 @@
+https://github.com/Alexpux/MSYS2-packages/issues/735
+
+https://github.com/Alexpux/MINGW-packages
+https://github.com/msys2/msys2/wiki/Creating-packages
+
+####
+#from MSys2 MinGW32 Prompt
+pacman -Syu
+pacman -S base-devel
+# pacman -S --needed base-devel # Seems to NOT work when some packages are NOT installed
+pacman -S --needed mingw-w64-i686-toolchain
+
+####
+#from Git for Windows Prompt
+cd C:\MSys2Rep
+git clone --branch 5.9.0 https://github.com/qt/qt5.git qt5-git
+cd qt5-git
+
+git submodule init qtbase
+git submodule init qttools
+git submodule update
+git submodule status
+
+####
+#from MSys2 MinGW32 Prompt
+cd C:/MSys2Rep/qt5-git
+patch -p1 -i C:/MSys2Rep/MINGW-packages/mingw-w64-qt5-git/
+
+
+####
+#from MSys2 MinGW32 Prompt
+cd C:/MSys2Rep/qt5-git
+cd qtbase
+./configure.bat -top-level -prefix C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32 -datadir C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32/share/qt5 -archdatadir C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32/share/qt5 -examplesdir C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32/share/qt5/examples -testsdir C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32/share/qt5/tests -opengl desktop -opensource -confirm-license -platform win32-g++ -release -I C:/Apps32/MSys2/mingw32/include/dbus-1.0 -I C:/Apps32/MSys2/mingw32/lib/dbus-1.0/include -I C:/Apps32/MSys2/mingw32/include/libxml2 -I C:/Apps32/MSys2/mingw32/include/freetype2 -I C:/Apps32/MSys2/mingw32/include -I C:/Apps32/MSys2/mingw32/include/libpng16 -I C:/Apps32/MSys2/mingw32/include/harfbuzz -I C:/Apps32/MSys2/mingw32/include/glib-2.0 -I C:/Apps32/MSys2/mingw32/lib/glib-2.0/include -I C:/Apps32/MSys2/mingw32/include -I C:/Apps32/MSys2/mingw32/include/mariadb -no-iconv -system-freetype -system-harfbuzz -icu -nomake examples
+
+( test -e Makefile || ./bin/qmake.exe -o Makefile qtbase.pro ) && make -f Makefile 
+
+
+#from Git for Windows Prompt
+$ git submodule
+ f39d0a0c32cc489849a0cd5c2880f6e824223485 qt3d (v5.9.0-rc1)
+ 0dd18e45cc9fafac2091ad699e2f833124467615 qtactiveqt (v5.9.0-rc1)
+ 2c146304f56ffe309ca5e9aa025036b7c3ec3fe3 qtandroidextras (v5.9.0-rc1)
+ f6b36eaafec24b4c67efff621d380a4ca4257d0b qtbase (v5.9.0-rc2)
+ 116737dc8fa244282dda95a8f13624b66fdb5521 qtcanvas3d (v5.9.0-rc1)
+ de7f741c428febfe3c81a28f955996d2314953fc qtcharts (v5.9.0-rc1)
+ 8dcbf68e4579e03ea6d2808ac0c670169b59d0df qtconnectivity (v5.9.0-rc1)
+ 84490ff75be5acdaeb3fd93900e4ebf7ba8f539b qtdatavis3d (v5.9.0-rc1)
+ 96f6ba5f562073f508cd8569ac354592fdd48f4a qtdeclarative (v5.9.0-rc1)
+ c5028bdacabf02c2d2e06872e6fdbfa8f86f8401 qtdoc (v5.9.0-rc1)
+ e36e6f0abd45c2794c70c31eb10c5263e7e7a29a qtdocgallery (heads/master)
+ ef8850fee38e2552d535379a8477c9abebdf8bb4 qtgamepad (v5.9.0-rc1)
+ db93af5b2bb49af74fbad6c9cd80bd7010434e78 qtgraphicaleffects (v5.9.0-rc1)
+ 71ccf0dff82835ce7b5aed74c37829afdef44cde qtimageformats (v5.9.0-rc1)
+ 888d351cb0c7fe6d05ab1efe8d4dbb4b6f06cd5f qtlocation (v5.9.0-rc1)
+ d357b7c1444088959f8d3a21d3be1843cf293478 qtmacextras (v5.9.0-rc1)
+ 559c305ded730e23505e8b29536a98dc59e2acfa qtmultimedia (v5.9.0-rc1)
+ 86c5036848ad004208803d9d497cfcd08c9623d6 qtnetworkauth (v5.9.0-rc1)
+ f8d5b7a9355c160fb165e040c17836f43d3b38e6 qtpurchasing (v5.9.0-rc1)
+ dacb91916b202208681471ba764504c7c7d086f0 qtquickcontrols (v5.9.0-rc1)
+ ef6b8d3081f0bf93d6d59e67c8e3f82c63c511c3 qtquickcontrols2 (v5.9.0-rc1)
+ ae0b101884b05355e3a7bc06dbca722ad3d08d0f qtremoteobjects (v5.9.0-rc1)
+ e00ca9b6bec2adf78fd14e02376ecf1b55a93b0c qtscript (v5.9.0-rc1)
+ eff82ac957e051f16f64c287f2dfaec9049bdfc1 qtscxml (v5.9.0-rc1)
+ 0c3c4d01ea34ed98a0d2928662f07b673f00535d qtsensors (v5.9.0-rc1)
+ 20811e3b004af817e3f02982c755e8b1560b8c3d qtserialbus (v5.9.0-rc1)
+ 687f5a9bd44a45a29d24925f29470c43d6729dee qtserialport (v5.9.0-rc1)
+ 4103c273e4d4ca4697e9b95c1631b31bef2891ff qtspeech (v5.9.0-rc1)
+ 4fd787e90c70afbaa168abb3efdb8757ba77f3a4 qtsvg (v5.9.0-rc1)
+ 88e02bb0a9b97d68a4b270e4ddfb6d0847c702a9 qttools (v5.9.0-rc1)
+ 3e727a890f7856978469ee38ef0619b1b59a8ca7 qttranslations (v5.9.0-rc1)
+ bdf61afe76e94ef03da1332c4540646f18f5852f qtvirtualkeyboard (v5.9.0-rc1)
+ f1cf62fa8e9ffa2548c9968906848596f50dbc0b qtwayland (v5.9.0-rc1)
+ 6383f0fc5eec4935697a6d2d2f87b511bbeb678e qtwebchannel (v5.9.0-rc1)
+ 73f7be5b2a95eab3dce11caede538eeb7beb71f2 qtwebengine (v5.9.0-rc1)
+ 1421c3e4ae4213ca18f2f51d5ddb38e223450222 qtwebsockets (v5.9.0-rc1)
+ 6e55abf3b6a5f373cd4b649c2318a45c49b40589 qtwebview (v5.9.0-rc1)
+ c9fe5755bd18fd2cc6a310b69e1b81bc8ea8981e qtwinextras (v5.9.0-rc1)
+ 9e83ff8713c1a3f69ce514bf3e31335194668da7 qtx11extras (v5.9.0-rc1)
+ c1c3af0ae456247c9bcd30161d51a94c9b38dc52 qtxmlpatterns (v5.9.0-rc1)
