@@ -96,10 +96,3 @@ git rebase master && git status -uno
 git rebase -i master
 git push
 #   git push --force-with-lease
-
-git checkout Qt5 && git pull && git rebase master && git status -uno
-#
-git rebase master && git status -uno
-git rebase -i master
-git push
-#   git push --force-with-lease

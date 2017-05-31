@@ -18,6 +18,10 @@ cd qt5-git
 
 git submodule init qtbase
 git submodule init qttools
+git submodule init qtdeclarative
+git submodule init qtsvg
+git submodule init qtx11extras
+git submodule init qtscript
 git submodule update
 git submodule status
 
@@ -26,6 +30,11 @@ git submodule status
 cd C:/MSys2Rep/qt5-git
 patch -p1 -i C:/MSys2Rep/MINGW-packages/mingw-w64-qt5-git/
 
+###
+Manually created QSharedPointer file in folder C:\MSys2Rep\qt5-git\qtbase\include\QtCore
+###
+
+QSharedData
 
 ####
 #from MSys2 MinGW32 Prompt
@@ -34,6 +43,8 @@ cd qtbase
 ./configure.bat -top-level -prefix C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32 -datadir C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32/share/qt5 -archdatadir C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32/share/qt5 -examplesdir C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32/share/qt5/examples -testsdir C:/MSys2Rep/qt5-git/pkg/qt5-git/mingw32/share/qt5/tests -opengl desktop -opensource -confirm-license -platform win32-g++ -release -I C:/Apps32/MSys2/mingw32/include/dbus-1.0 -I C:/Apps32/MSys2/mingw32/lib/dbus-1.0/include -I C:/Apps32/MSys2/mingw32/include/libxml2 -I C:/Apps32/MSys2/mingw32/include/freetype2 -I C:/Apps32/MSys2/mingw32/include -I C:/Apps32/MSys2/mingw32/include/libpng16 -I C:/Apps32/MSys2/mingw32/include/harfbuzz -I C:/Apps32/MSys2/mingw32/include/glib-2.0 -I C:/Apps32/MSys2/mingw32/lib/glib-2.0/include -I C:/Apps32/MSys2/mingw32/include -I C:/Apps32/MSys2/mingw32/include/mariadb -no-iconv -system-freetype -system-harfbuzz -icu -nomake examples
 
 ( test -e Makefile || ./bin/qmake.exe -o Makefile qtbase.pro ) && make -f Makefile 
+
+io/qtemporarydir.h:44:33: fatal error: QtCore/QScopedPointer: No such file or directory
 
 
 #from Git for Windows Prompt
