@@ -20,6 +20,18 @@ $ git submodule update --init --recursive                     # updating each su
 
 git ls-remote --tags https://code.qt.io/qt/qt5.git
 
+tar czf ${submodule}.tar.gz ${submodule}  # Create tar file from folder ${submodule}
+tar xzf ${submodule}.tar.gz               # Extract tar file
+
+-f, --file=ARCHIVE                use archive file or device ARCHIVE
+-z, --gzip, --gunzip, --ungzip    filter the archive through gzip
+-x, --extract, --get              extract files from an archive
+-c, --create                      create a new archive
+
+-C, --directory=DIR        change to directory DIR
+-u, --update               only append files newer than copy in archive
+
+
 https://github.com/Alexpux/MSYS2-packages/issues/735
 
 https://github.com/Alexpux/MINGW-packages
