@@ -1,5 +1,24 @@
 Build Qt5 packages.txt
 
+https://wiki.qt.io/Qt_Coding_Style
+https://wiki.qt.io/Coding_Conventions
+
+http://code.qt.io/cgit/qt/qt5.git/
+
+https://wiki.qt.io/Building_Qt_5_from_Git
+
+$ cd qt5
+$ git checkout v5.8.0
+$ perl init-repository
+
+or
+
+$ git clone https://code.qt.io/qt/qt5.git                     # cloning the repo
+$ cd qt5
+$ git checkout v5.8.0                                         # checking out the specific release or branch
+$ git submodule update --init --recursive                     # updating each submodule to match the supermodule
+
+git ls-remote --tags https://code.qt.io/qt/qt5.git
 
 https://github.com/Alexpux/MSYS2-packages/issues/735
 
