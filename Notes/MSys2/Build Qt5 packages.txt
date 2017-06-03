@@ -67,6 +67,7 @@ Branches/Tags to test that they build and work with cmake-gui include
 5.9.0
 v5.9.0
 5.9
+5.6
 
 MINGW_INSTALLS=mingw32 makepkg-mingw --log --force
 
