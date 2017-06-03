@@ -44,10 +44,29 @@ pacman -S --needed mingw-w64-i686-toolchain
 pacman -S --needed git
 
 cd C:/Users/stahta01/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-qt5-git
-MINGW_INSTALLS=mingw32 makepkg-mingw --nodeps --log --nobuild           # Patching
+MINGW_INSTALLS=mingw32 makepkg-mingw --nodeps --log --nobuild           # Test Patching
 
 cd /c/MSys2Rep/MINGW-packages/mingw-w64-qt5-git
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               # Built and Installed 5.6 branch.
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf                               
+# Built and Installed 5.6 branch.
+# Building 5.8 branch.
+# ToDo Building 5.9 branch.
+
+Branches to test applying the patch files include:
+5.6
+5.6.0
+5.6.1
+5.6.2
+5.8
+5.8.0
+5.9
+5.9.0
+dev
+
+Branches/Tags to test that they build and work with cmake-gui include
+5.9.0
+v5.9.0
+
 
 MINGW_INSTALLS=mingw32 makepkg-mingw --log --force
 
