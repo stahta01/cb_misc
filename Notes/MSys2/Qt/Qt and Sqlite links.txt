@@ -1,0 +1,5 @@
+Qt and Sqlite links.txt
+
+https://katecpp.wordpress.com/2015/08/28/sqlite-with-qt/
+http://blog.davidecoppola.com/2016/11/howto-embed-database-in-application-with-sqlite-and-qt/
+http://qt.shoutwiki.com/wiki/Creating_an_SQLite_database_in_Qt
