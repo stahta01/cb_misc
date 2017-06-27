@@ -1,5 +1,25 @@
 Build Qt5 packages.txt
 
+https://www.archlinux.org/packages/community/x86_64/calibre/
+
+https://www.archlinux.org/packages/extra/i686/qscintilla-qt5/
+qscintilla-qt5 requires ?? qt5-base and qt5-tools
+
+PRE_TARGETDEPS should be used instead of TARGETDEPS for static libs
+
+PRE_TARGETDEPS += ../../qtimageformats/plugins/imageformats/libqicns.a
+
+TARGETDEPS += libfoo.a
+
+FROM https://blog.rburchell.com/2013/10/every-time-you-configordered-kitten-dies.html
+TEMPLATE = subdirs
+SUBDIRS = src plugins tests docs
+plugins.depends = src
+tests.depends = src plugins
+
+https://aur.archlinux.org/packages/mingw-w64-qt5-base-static/
+https://www.archlinux.org/groups/i686/kf5/
+
 https://wiki.qt.io/Qt_Coding_Style
 https://wiki.qt.io/Coding_Conventions
 
@@ -43,12 +63,67 @@ pacman -S base-devel
 pacman -S --needed mingw-w64-i686-toolchain
 pacman -S --needed git
 
-cd /c/MSys2Rep/MINGW-packages/mingw-w64-qt5-git
-MINGW_INSTALLS=mingw32 makepkg-mingw --nodeps --log --nobuild           # Test Patching
+cd /c/PKGBUILD/mingw-w64-qt5-git
+# --nobuild removed because patching was moved to build step.
+MINGW_INSTALLS=mingw32 makepkg-mingw --nodeps --log                     # Test Patching
+MINGW_INSTALLS=mingw64 makepkg-mingw --nodeps --log
 
-cd /c/MSys2Rep/MINGW-packages/mingw-w64-qt5-git
+cd /c/PKGBUILD/mingw-w64-qt5-git
+# Change build mode to debug and release
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 MINGW_INSTALLS=mingw64 makepkg-mingw -sLf                               # Test Building
+MINGW_INSTALLS=mingw64 makepkg-mingw -Lf --noextract --noprepare --nodeps
+MINGW_INSTALLS=mingw64 makepkg-mingw -R -f --nodeps                     # Redo packaging
+
+
+        # Add optional SSL libs
+        # Static linking of OpenSSL with msvc:
+        #   - Binaries http://slproweb.com/products/Win32OpenSSL.html
+        #   - also needs -lUser32 -lAdvapi32 -lGdi32 -lCrypt32
+        #   - libs in <OPENSSL_DIR>\lib\VC\static
+        #   - configure: -openssl -openssl-linked -I <OPENSSL_DIR>\include -L <OPENSSL_DIR>\lib\VC\static OPENSSL_LIBS="-lUser32 -lAdvapi32 -lGdi32" OPENSSL_LIBS_DEBUG="-lssleay32MDd -llibeay32MDd" OPENSSL_LIBS_RELEASE="-lssleay32MD -llibeay32MD"
+
+https://wiki.qt.io/How_to_build_a_static_Qt_version_for_Windows_with_gcc
+
+
+$ pkg-config --static --libs-only-l dbus-1
+-ldbus-1 -lws2_32 -liphlpapi
+
+$ pkg-config --static --libs-only-L dbus-1
+-LC:/Apps64/MSys2/mingw64/lib
+
+C:\Apps64\MSys2\mingw64\lib\pkgconfig\dbus-1.pc
+
+QMAKE_LIBS_DBUS C:\PKGBUILD\mingw-w64-qt5-git\src\x86_64\qtbase\mkspecs\qmodule.pri
+
+QT_LIBS_DBUS    C:\PKGBUILD\mingw-w64-qt5-git\src\x86_64\qtbase\configure
+                C:\PKGBUILD\mingw-w64-qt5-git\src\x86_64\qtbase\src\dbus\dbus.pro
+                C:\PKGBUILD\mingw-w64-qt5-git\src\x86_64\qtbase\src\plugins\platforms\xcb\xcb_qpa_lib.pro
+                C:\PKGBUILD\mingw-w64-qt5-git\src\x86_64\qtbase\tests\auto\dbus\qdbusmarshall\qdbusmarshall\qdbusmarshall.pro
+                C:\PKGBUILD\mingw-w64-qt5-git\src\x86_64\qtbase\tests\auto\dbus\qdbustype\qdbustype.pro
+
+
+
+$ pkg-config --static dbus-1 --cflags
+-IC:/Apps64/MSys2/mingw64/include/dbus-1.0 -IC:/Apps64/MSys2/mingw64/lib/dbus-1.0/include
+
+
+${CARCH}
+
+C:\Apps64\MSys2\mingw64\lib
+
+Checking for libwebp... yes
+
+configure_opts+=("-skip" "qtimageformats")
+
+--single-branch     # Did NOT Help Instead changed depth to higher value
+--no-checkout
+--quiet, -q         # Operate quietly. Progress is not reported to the standard error stream.
+
+git submodule foreach 'git fetch && git status -uno'
+
+0126-qt5-static-qhelpgenerator-sqlite.patch
+
 
 Branches or Tags to test applying the patch files include:
 5.6         Patched OK          5.6.3
