@@ -1,0 +1,26 @@
+${MINGW_PACKAGE_PREFIX}-gcc-libs
+${MINGW_PACKAGE_PREFIX}-qtbinpatcher
+${MINGW_PACKAGE_PREFIX}-angleproject-git
+${MINGW_PACKAGE_PREFIX}-pcre                ????
+${MINGW_PACKAGE_PREFIX}-assimp              ?shared/static              ASSIMP_DLL
+${MINGW_PACKAGE_PREFIX}-dbus                ?shared/static              DBUS_STATIC_BUILD
+${MINGW_PACKAGE_PREFIX}-fontconfig          ?shared/static              See FcPublic
+${MINGW_PACKAGE_PREFIX}-freetype            ?shared/static              See FT_EXPORT code needed to define it for DLL/Static.
+${MINGW_PACKAGE_PREFIX}-harfbuzz            ?shared/static              See HB_EXTERN
+${MINGW_PACKAGE_PREFIX}-jasper              shared/static               JAS_DLL=0
+${MINGW_PACKAGE_PREFIX}-libjpeg             ?shared/static              See EXTERN
+${MINGW_PACKAGE_PREFIX}-libmng              ?shared/static              MNG_USE_DLL
+${MINGW_PACKAGE_PREFIX}-libpng              ?shared/static              PNG_USE_DLL
+${MINGW_PACKAGE_PREFIX}-libtiff             ?shared/static              Did NOT find anything
+${MINGW_PACKAGE_PREFIX}-libxml2             ?shared/static              LIBXML_STATIC
+${MINGW_PACKAGE_PREFIX}-libxslt             ?shared/static              LIBXSLT_STATIC
+${MINGW_PACKAGE_PREFIX}-libwebp             ?shared/static              See WEBP_EXTERN
+${MINGW_PACKAGE_PREFIX}-openssl             ?shared/static              OPENSSL_OPT_WINDLL
+${MINGW_PACKAGE_PREFIX}-sqlite3             ?shared/static              See SQLITE_API
+${MINGW_PACKAGE_PREFIX}-xpm-nox             ?shared/static              See FUNC defaults to static build
+${MINGW_PACKAGE_PREFIX}-zlib                ?shared/static              ZLIB_DLL
+${MINGW_PACKAGE_PREFIX}-icu                 ?shared/static              See U_IMPORT
+${MINGW_PACKAGE_PREFIX}-icu-debug-libs      ?shared/static              See U_IMPORT
+${MINGW_PACKAGE_PREFIX}-libmariadbclient    Qt5 shared build only
+${MINGW_PACKAGE_PREFIX}-firebird            Qt5 shared build only
+${MINGW_PACKAGE_PREFIX}-postgresql          Qt5 shared build only
