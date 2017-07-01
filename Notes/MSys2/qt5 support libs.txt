@@ -24,3 +24,7 @@ ${MINGW_PACKAGE_PREFIX}-icu-debug-libs      ?shared/static              See U_IM
 ${MINGW_PACKAGE_PREFIX}-libmariadbclient    Qt5 shared build only
 ${MINGW_PACKAGE_PREFIX}-firebird            Qt5 shared build only
 ${MINGW_PACKAGE_PREFIX}-postgresql          Qt5 shared build only
+
+
+nm libharfbuzz.a | grep gr_slot_origin_Y
+
