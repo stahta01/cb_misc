@@ -10,6 +10,5 @@ cd ../codeblocks_r7456-git && git fsck && \
 # cd ../msys2_wx_config_exe-git && git fsck &&
 # cd ../wx-config-win-git && git fsck &&
 cd ../wxTortoiseGit-git && git fsck && \
-cd ../wxWidgets-2.8.12-git && git fsck && \
 cd ../wxWidgets-git && git fsck && \
 cd ../passwordsafe_git_code-git && git fsck

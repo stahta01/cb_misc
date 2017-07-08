@@ -10,6 +10,5 @@ cd ../codeblocks_r7456-git && git prune && \
 # cd ../msys2_wx_config_exe-git && git prune &&
 # cd ../wx-config-win-git && git prune &&
 cd ../wxTortoiseGit-git && git prune && \
-cd ../wxWidgets-2.8.12-git && git prune && \
 cd ../wxWidgets-git && git prune && \
 cd ../passwordsafe_git_code-git && git prune

@@ -10,6 +10,5 @@ cd ../codeblocks_r7456-git && git remote get-url origin && \
 # cd ../msys2_wx_config_exe-git && git remote get-url origin &&
 # cd ../wx-config-win-git && git remote get-url origin &&
 cd ../wxTortoiseGit-git && git remote get-url origin && \
-cd ../wxWidgets-2.8.12-git && git remote get-url origin && \
 cd ../wxWidgets-git && git remote get-url origin && \
 cd ../passwordsafe_git_code-git && git remote get-url origin

@@ -10,6 +10,5 @@ cd ../codeblocks_r7456-git && git remote -v && \
 # cd ../msys2_wx_config_exe-git && git remote -v &&
 # cd ../wx-config-win-git && git remote -v &&
 cd ../wxTortoiseGit-git && git remote -v && \
-cd ../wxWidgets-2.8.12-git && git remote -v && \
 cd ../wxWidgets-git && git remote -v && \
 cd ../passwordsafe_git_code-git && git remote -v

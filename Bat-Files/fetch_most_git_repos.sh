@@ -10,6 +10,5 @@ cd ../codeblocks_r7456-git && git fetch --all --prune && \
 # cd ../msys2_wx_config_exe-git && git fetch --all --prune &&
 # cd ../wx-config-win-git && git fetch --all --prune &&
 cd ../wxTortoiseGit-git && git fetch --all --prune && \
-cd ../wxWidgets-2.8.12-git && git fetch --all --prune && \
 cd ../wxWidgets-git && git fetch --all --prune && \
 cd ../passwordsafe_git_code-git && git fetch --prune ## --all errors out

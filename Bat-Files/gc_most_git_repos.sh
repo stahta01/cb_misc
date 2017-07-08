@@ -10,6 +10,5 @@ cd ../codeblocks_r7456-git && git gc && \
 # cd ../msys2_wx_config_exe-git && git gc &&
 # cd ../wx-config-win-git && git gc &&
 cd ../wxTortoiseGit-git && git gc && \
-cd ../wxWidgets-2.8.12-git && git gc && \
 cd ../wxWidgets-git && git gc && \
 cd ../passwordsafe_git_code-git && git gc --auto
