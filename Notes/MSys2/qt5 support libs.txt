@@ -30,3 +30,5 @@ MNG_USE_DLL
 PNG_USE_DLL
 ZLIB_DLL
 OPENSSL_OPT_WINDLL
+
+nm libharfbuzz.a | grep gr_slot_origin_Y

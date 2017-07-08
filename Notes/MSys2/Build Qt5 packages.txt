@@ -32,6 +32,19 @@ http://code.qt.io/cgit/qt/qt5.git/
 
 https://wiki.qt.io/Building_Qt_5_from_Git
 
+https://wiki.qt.io/Building_a_static_Qt_for_Windows_using_MinGW
+
+$ pkg-config --libs libssl
+-LC:/Apps32/MSys2/mingw32/lib -lssl # I believe this is missing stuff for shared linking.
+
+OPENSSL_OPT_WINDLL
+
+$ pkg-config --libs libssl --static
+-LC:/Apps32/MSys2/mingw32/lib -lssl -lws2_32 -lgdi32 -lcrypt32 -lcrypto -lws2_32 -lgdi32 -lcrypt32
+
+$ pkg-config --libs --static dbus-1
+-LC:/Apps32/MSys2/mingw32/lib -ldbus-1 -lws2_32 -liphlpapi
+
 $ cd qt5
 $ git checkout v5.8.0
 $ perl init-repository
@@ -48,6 +61,8 @@ git ls-remote --tags https://code.qt.io/qt/qt5.git
 tar czf ${submodule}.tar.gz ${submodule}  # Create tar file from folder ${submodule}
 tar xzf ${submodule}.tar.gz               # Extract tar file
 
+  --skippgpcheck   Do not verify source files with PGP signatures
+ 
 -f, --file=ARCHIVE                use archive file or device ARCHIVE
 -z, --gzip, --gunzip, --ungzip    filter the archive through gzip
 -x, --extract, --get              extract files from an archive
