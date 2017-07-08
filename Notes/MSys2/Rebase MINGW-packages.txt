@@ -1,27 +1,22 @@
 $ git branch --list
-* cleanup
+  cleanup
+  cmake
   editors_and_IDEs
-  master
+* master
   mingw64/libs
   misc
   scratch
-  staging
   testing
   unit_tests
   wxApps
   wxwidgets
 
-git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
-git checkout staging && git pull && git rebase master && git push --force-with-lease
-#   git rebase -i master   ## Keep ONLY changes I wish to push upstream
-#   git rebase --ignore-date master
-#   git push --force-with-lease
+git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
 
 ##  Now based on branch master
-git checkout wxwidgets && git pull && git rebase staging && git status -uno
-git rebase master && git status -uno
+git checkout wxwidgets && git pull && git rebase master && git status -uno
 git rebase -i master
 git rebase --ignore-date master
 git format-patch master
@@ -51,7 +46,6 @@ git checkout cleanup && git status
 git checkout testing && git pull && git status -uno
 #
 git rebase cleanup && \
-git rebase staging && \
 git rebase editors_and_IDEs && \
 git rebase master && git status -uno
 #
@@ -64,7 +58,6 @@ git push
 git checkout scratch && git pull && git status -uno
 #
 git rebase cleanup && \
-git rebase staging && \
 git rebase unit_tests && \
 git rebase wxwidgets && \
 git rebase wxApps && \

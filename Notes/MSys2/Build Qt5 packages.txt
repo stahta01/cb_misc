@@ -1,5 +1,10 @@
 Build Qt5 packages.txt
 
+dos2unix 7.3.4-1 (base-devel)
+
+
+dos2unix add to makedepends for qt5?
+
 https://www.archlinux.org/packages/community/x86_64/calibre/
 
 https://www.archlinux.org/packages/extra/i686/qscintilla-qt5/
@@ -64,9 +69,9 @@ pacman -S --needed mingw-w64-i686-toolchain
 pacman -S --needed git
 
 cd /c/PKGBUILD/mingw-w64-qt5-git
-# --nobuild removed because patching was moved to build step.
-MINGW_INSTALLS=mingw32 makepkg-mingw --nodeps --log                     # Test Patching
-MINGW_INSTALLS=mingw64 makepkg-mingw --nodeps --log
+MINGW_INSTALLS=mingw32 makepkg-mingw --nodeps --log --nobuild --noprepare
+MINGW_INSTALLS=mingw32 makepkg-mingw --nodeps --log --nobuild           # Test 1st checkout
+MINGW_INSTALLS=mingw64 makepkg-mingw --nodeps --log --nobuild
 
 cd /c/PKGBUILD/mingw-w64-qt5-git
 # Change build mode to debug and release
@@ -120,7 +125,35 @@ configure_opts+=("-skip" "qtimageformats")
 --no-checkout
 --quiet, -q         # Operate quietly. Progress is not reported to the standard error stream.
 
+git checkout 5.9.0 && git submodule foreach 'git checkout 5.9.0 || true'
+
+git submodule foreach 'git fetch && git pull'
+
 git submodule foreach 'git fetch && git status -uno'
+
+git submodule foreach 'git rev-parse --abbrev-ref HEAD'
+
+###
+# Removed submodules that I do NOT want to use or build
+git submodule deinit qtdocgallery
+git submodule deinit qtenginio
+git submodule deinit qtfeedback
+git submodule deinit qtpim
+git submodule deinit qtquick1
+git submodule deinit qtsystems
+#
+cd qtqa && rm -fr .git && cd .. && git submodule deinit -f qtqa
+cd qtrepotools && rm -fr .git && cd .. && git submodule deinit -f qtrepotools
+#
+cd qtlocation/src/3rdparty/mapbox-gl-native && rm -fr .git
+cd ../../../..
+cd qtlocation && git submodule deinit -f src/3rdparty/mapbox-gl-native
+####
+
+git checkout 5.9.0 && git submodule update && git status -uno
+
+git checkout 5.9.0 && git reset --hard && git status -uno
+
 
 0126-qt5-static-qhelpgenerator-sqlite.patch
 
