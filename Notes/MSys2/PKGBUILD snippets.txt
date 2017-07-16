@@ -1,0 +1,26 @@
+git_clone_branch_with_depth () {
+  if [ ! -f $1/.cloned ]; then
+    if [ -f ${srcdir}/$1-${_qt_git_branch_or_tag}.tar.gz ]; then
+      echo "Using $1-${_qt_git_branch_or_tag}.tar.gz archive instead of cloning..."
+      tar xzf ${srcdir}/$1-${_qt_git_branch_or_tag}.tar.gz               # Extract tar file
+    else
+      if [[ $2 == 0 ]]; then
+        echo "git clone --no-checkout --branch "$_qt_git_branch_or_tag" "$_qt_git_repo"/$1.git"
+        git clone --no-checkout --branch "$_qt_git_branch_or_tag" "$_qt_git_repo"/$1.git
+      else
+        echo "git clone --no-checkout --depth $2 --branch "$_qt_git_branch_or_tag" "$_qt_git_repo"/$1.git"
+        git clone --no-checkout --depth $2 --branch "$_qt_git_branch_or_tag" "$_qt_git_repo"/$1.git
+      fi
+      touch $1/.cloned
+      tar czf ${srcdir}/$1-${_qt_git_branch_or_tag}.tar.gz $1  # Create tar file from folder
+    fi
+  done
+  
+  else
+    echo "$1 already cloned. Skipping..."
+  fi
+}
+
+git_clone_branch () {
+  git_clone_branch_with_depth $1 0
+}
