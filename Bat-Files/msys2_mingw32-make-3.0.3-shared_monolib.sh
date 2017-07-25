@@ -15,7 +15,7 @@ export PATH=/C/Apps32/MSys2/mingw32/bin:$PATH
 
 # echo $PATH
 
-export _COMPILER_VERSION=630MSYS2
+export _COMPILER_VERSION=710MSYS2
 
 # echo $_COMPILER_VERSION
 
@@ -26,6 +26,7 @@ mingw32-make -f makefile.gcc \
   VENDOR=$_COMPILER_VERSION \
   COMPILER_VERSION=$_COMPILER_VERSION \
   CXXFLAGS=-std=gnu++11 \
+  LDFLAGS=-Wl,--allow-multiple-definition \
   MONOLITHIC=1 SHARED=1 UNICODE=1 BUILD=debug
 
 mingw32-make -f makefile.gcc \
@@ -33,6 +34,7 @@ mingw32-make -f makefile.gcc \
   VENDOR=$_COMPILER_VERSION \
   COMPILER_VERSION=$_COMPILER_VERSION \
   CXXFLAGS=-std=gnu++11 \
+  LDFLAGS=-Wl,--allow-multiple-definition \
   MONOLITHIC=1 SHARED=1 UNICODE=1 BUILD=release
 
 # echo "Finished"
