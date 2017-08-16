@@ -1,12 +1,11 @@
 $ git branch --list
   cleanup
-  cmake
   editors_and_IDEs
+  issues
+  kde_apps
 * master
   mingw64/libs
   misc
-  scratch
-  testing
   unit_tests
   wxApps
   wxwidgets
@@ -14,6 +13,8 @@ $ git branch --list
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
+git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
+git checkout cleanup && git status
 
 ##  Now based on branch master
 git checkout wxwidgets && git pull && git rebase master && git status -uno
@@ -39,36 +40,6 @@ git rebase --ignore-date master
 git push --force-with-lease
 
 
-git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
-git checkout cleanup && git status
-
-
-git checkout testing && git pull && git status -uno
-#
-git rebase cleanup && \
-git rebase editors_and_IDEs && \
-git rebase master && git status -uno
-#
-git rebase -i master
-git push
-#   git push --force-with-lease
-
-
-##
-git checkout scratch && git pull && git status -uno
-#
-git rebase cleanup && \
-git rebase unit_tests && \
-git rebase wxwidgets && \
-git rebase wxApps && \
-git rebase editors_and_IDEs && \
-git rebase master && git status -uno
-#
-git rebase -i master
-git push
-#   git push --force-with-lease
-
-
 git checkout misc && git pull && git rebase master && git status -uno
 #
 git rebase master && git status -uno
@@ -89,3 +60,6 @@ git rebase master && git status -uno
 git rebase -i master
 git push
 #   git push --force-with-lease
+
+
+git checkout kde_apps && git pull && git rebase master && git status -uno
