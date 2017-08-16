@@ -96,12 +96,9 @@ MINGW_INSTALLS=mingw64 makepkg-mingw -Lf --noextract --noprepare --nodeps
 MINGW_INSTALLS=mingw64 makepkg-mingw -R -f --nodeps                     # Redo packaging
 
 
-        # Add optional SSL libs
-        # Static linking of OpenSSL with msvc:
-        #   - Binaries http://slproweb.com/products/Win32OpenSSL.html
-        #   - also needs -lUser32 -lAdvapi32 -lGdi32 -lCrypt32
-        #   - libs in <OPENSSL_DIR>\lib\VC\static
-        #   - configure: -openssl -openssl-linked -I <OPENSSL_DIR>\include -L <OPENSSL_DIR>\lib\VC\static OPENSSL_LIBS="-lUser32 -lAdvapi32 -lGdi32" OPENSSL_LIBS_DEBUG="-lssleay32MDd -llibeay32MDd" OPENSSL_LIBS_RELEASE="-lssleay32MD -llibeay32MD"
+cd /c/PKGBUILD/mingw-w64-qscintilla
+MINGW_INSTALLS=mingw64 makepkg-mingw -sLf 
+
 
 https://wiki.qt.io/How_to_build_a_static_Qt_version_for_Windows_with_gcc
 
