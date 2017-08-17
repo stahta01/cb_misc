@@ -10,12 +10,15 @@ cd ~/devel/open_source_code/version_control/wxWidgets_3_0_branch-git || exit 1
 git checkout wxwidgets3.0.3+git-lfs || exit 2
 # git status -uno
 
-
-export PATH=/C/Apps32/MSys2/mingw32/bin:$PATH
+if [ "$PROCESSOR_ARCHITECTURE" = "x86" ]; then
+  export PATH=/C/Apps32/MSys2/mingw32/bin:$PATH
+else
+  export PATH=/C/Apps64/MSys2/mingw32/bin:$PATH
+fi
 
 # echo $PATH
 
-export _COMPILER_VERSION=710MSYS2
+export _COMPILER_VERSION=720MSYS2
 
 # echo $_COMPILER_VERSION
 
@@ -37,4 +40,4 @@ mingw32-make -f makefile.gcc \
   LDFLAGS=-Wl,--allow-multiple-definition \
   MONOLITHIC=1 SHARED=1 UNICODE=1 BUILD=release
 
-# echo "Finished"
+echo "Finished"
