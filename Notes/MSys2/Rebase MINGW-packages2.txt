@@ -16,6 +16,7 @@ $ git branch --list
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
+git checkout cleanup && git pull && git rebase upstream/master && git status 
 git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
 git checkout cleanup && git status
 
