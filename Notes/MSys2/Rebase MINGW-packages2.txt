@@ -13,10 +13,22 @@ $ git branch --list
   qt5.9-staging
   qt5.9-static
 
+git checkout master && git fetch upstream && git rebase upstream/master && git status -uno
+
+git checkout cleanup && git pull && git rebase master && git status -uno
+git checkout cmake && git pull && git rebase master && git status -uno
+git checkout cmake-git && git pull && git rebase master && git status -uno
+git checkout qt5-git && git pull && git rebase master && git status -uno
+git checkout qt5-modules-git && git pull && git rebase master && git status -uno
+git checkout qt5-modules && git pull && git rebase master && git status -uno
+git checkout qt5.9-modules && git pull && git rebase master && git status -uno
+git checkout qt5.9-shared && git pull && git rebase master && git status -uno
+git checkout qt5.9-staging && git pull && git rebase master && git status -uno
+git checkout qt5.9-static && git pull && git rebase master && git status -uno
+
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
-git checkout cleanup && git pull && git rebase upstream/master && git status 
 git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
 git checkout cleanup && git status
 
