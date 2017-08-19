@@ -1,7 +1,7 @@
 ${MINGW_PACKAGE_PREFIX}-gcc-libs
 ${MINGW_PACKAGE_PREFIX}-qtbinpatcher
 ${MINGW_PACKAGE_PREFIX}-angleproject-git
-${MINGW_PACKAGE_PREFIX}-pcre                ????
+${MINGW_PACKAGE_PREFIX}-pcre2               ?
 ${MINGW_PACKAGE_PREFIX}-assimp              ?shared/static              ASSIMP_DLL
 ${MINGW_PACKAGE_PREFIX}-dbus                ?shared/static              DBUS_STATIC_BUILD
 ${MINGW_PACKAGE_PREFIX}-fontconfig          ?shared/static              See FcPublic
