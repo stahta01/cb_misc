@@ -1,23 +1,16 @@
-Building qt5.txt
+Common build packages.txt
 
-pacman -Syuu
 
-cd C:/PKGBUILD/mingw-w64-qt5
-
-pacman -S --needed tar                    # tar: command not found
 
 pacman -S --needed mingw-w64-i686-gcc
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 
 pacman -S --needed mingw-w64-x86_64-gcc
-MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
-
 
 pacman -S --needed libtool                # Fixes "libtoolize: command not found"
 pacman -S --needed automake-wrapper       # Fixes "aclocal: command not found"
 pacman -S --needed autoconf               # Fixes "sh: autom4te: command not found"
 pacman -S --needed make                   #
-pacman -S --needed tar                    # tar: command not found
+pacman -S --needed tar                    # Fixes "tar: command not found"
 
 # https://github.com/msys2/msys2/wiki/Creating-Packages
 
