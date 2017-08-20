@@ -1,0 +1,35 @@
+qt5 Module                  Depends on qt5 modules
+qtbase
+qtactiveqt                  ???qt5-base
+qtserialport                qt5-base
+qtimageformats              qt5-base
+qtxmlpatterns               qt5-base
+qtsvg                       qt5-base
+qtserialbus                 qt5-serialport
+qtdeclarative               qt5-xmlpatterns
+qtremoteobjects             qt5-declarative, qt5-base
+qtscxml                     qt5-declarative
+qtcanvas3d                  qt5-declarative
+qtgamepad                   qt5-declarative, qt5-base
+qtconnectivity              qt5-declarative, qt5-base
+qtwebsockets                qt5-declarative, qt5-base
+qtsensors                   qt5-declarative, qt5-base
+qtmultimedia                qt5-declarative, qt5-base
+qtgraphicaleffects          qt5-declarative
+qttools                     qt5-declarative, qt5-base, ???
+qtwebview                   ?qt5-webengine?
+qtdoc                       qt5-tools, qt5-base
+qt3d                        qt5-declarative
+qtwebchannel                qt5-declarative
+qtspeech                    qt5-multimedia
+qtdatavis3d                 qt5-declarative, qt5-base
+qtcharts                    qt5-declarative, qt5-base
+qtwinextras                 ???qt5-base
+qtquickcontrols2            qt5-declarative,qt5-graphicaleffects
+qtquickcontrols             qt5-declarative
+qtscript                    qt5-base
+qtnetworkauth               qt5-base
+qttranslations              qt5-tools, qt5-base
+qtvirtualkeyboard           qt5-declarative, qt5-svg
+qtlocation                  qt5-declarative
+qt5-examples                qt5-doc
