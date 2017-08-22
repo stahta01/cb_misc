@@ -1,0 +1,31 @@
+Depends on ${MINGW_PACKAGE_PREFIX}-qt5-static
+  mingw-w64-cmake-git
+  mingw-w64-octopi-git
+  mingw-w64-qt-installer-framework
+
+Contains _qmake=${MINGW_PREFIX}/qt5-static/bin/qmake
+  mingw-w64-octopi-git
+
+Contains QT5_PREFIX=${MINGW_PREFIX}/qt5-static
+  mingw-w64-attica-qt5
+  mingw-w64-karchive-qt5
+  mingw-w64-kcodecs-qt5
+  mingw-w64-kconfig-qt5
+  mingw-w64-kcoreaddons-qt5
+  mingw-w64-kcrash-qt5
+  mingw-w64-kcwsh-qt5-git
+  mingw-w64-kdbusaddons-qt5
+  mingw-w64-kglobalaccel-qt5
+  mingw-w64-kguiaddons-qt5
+  mingw-w64-ki18n-qt5
+  mingw-w64-kidletime-qt5
+  mingw-w64-kimageformats-qt5
+  mingw-w64-kitemmodels-qt5
+  mingw-w64-kitemviews-qt5
+  mingw-w64-kjs-qt5
+  mingw-w64-kplotting-qt5
+  mingw-w64-krita-git
+  mingw-w64-kwidgetsaddons-qt5
+  mingw-w64-kwindowsystem-qt5
+  mingw-w64-libkcw-qt5-git
+  mingw-w64-solid-qt5
