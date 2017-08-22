@@ -6,8 +6,8 @@ mingw-w64-cgal
 mingw-w64-cmake                       **
 mingw-w64-cmake-doc-qt
 mingw-w64-cmake-git
-mingw-w64-cppcheck                    **
-mingw-w64-cppreference-qt
+mingw-w64-cppcheck                    ** qt5-tools, qt5-base
+mingw-w64-cppreference-qt             * Does NOT depend on qt5
 mingw-w64-extra-cmake-modules
 mingw-w64-karchive-qt5
 mingw-w64-kcodecs-qt5
