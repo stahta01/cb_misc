@@ -15,11 +15,15 @@ git checkout master && git fetch upstream && git rebase upstream/master && git s
 git checkout cleanup && git pull && git rebase master && git status -uno
 git checkout wxwidgets && git pull && git rebase master && git status -uno
 git checkout wxApps && git pull && git rebase master && git status -uno
-git checkout unit_tests && git pull && git rebase master && git status -uno
 git checkout editors_and_IDEs && git pull && git rebase master && git status -uno
+#
 git checkout misc && git pull && git rebase master && git status -uno
 git checkout mingw64/libs && git pull && git rebase master && git status -uno
+git checkout unit_tests && git pull && git rebase master && git status -uno
 git checkout issues && git pull && git rebase master && git status -uno
+#
+git checkout cmake && git pull && git rebase master && git status -uno
+git checkout cmake-git && git pull && git rebase master && git status -uno
 git checkout kde_apps && git pull && git rebase master && git status -uno
 
 
@@ -73,5 +77,14 @@ git rebase -i master
 git push
 #   git push --force-with-lease
 
+git checkout cmake && git pull && git rebase master && git status -uno
+git rebase -i master
+git rebase --ignore-date master
+git push --force-with-lease
+
+git checkout cmake-git && git pull && git rebase master && git status -uno
+git rebase -i master
+git rebase --ignore-date master
+git push --force-with-lease
 
 git checkout kde_apps && git pull && git rebase master && git status -uno
