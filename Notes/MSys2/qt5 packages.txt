@@ -3,10 +3,10 @@ This packages contained the string "qt5".
 mingw-w64-attica-qt5
 mingw-w64-bsdfprocessor
 mingw-w64-cgal
-mingw-w64-cmake                       **
+mingw-w64-cmake                       *** qt5-base(opt)
 mingw-w64-cmake-doc-qt
-mingw-w64-cmake-git
-mingw-w64-cppcheck                    ** qt5-tools(make), qt5-base
+mingw-w64-cmake-git                   *** qt5-base-static(opt)
+mingw-w64-cppcheck                    *** qt5-tools(make), qt5-base(opt)
 mingw-w64-cppreference-qt             * Does NOT depend on qt5
 mingw-w64-extra-cmake-modules
 mingw-w64-karchive-qt5
@@ -30,9 +30,9 @@ mingw-w64-kwidgetsaddons-qt5
 mingw-w64-kwindowsystem-qt5
 mingw-w64-libkcw-qt5-git
 mingw-w64-liblastfm
-mingw-w64-mathgl
-mingw-w64-octave-hg                   **
-mingw-w64-octopi-git                  **
+mingw-w64-mathgl                      **
+mingw-w64-octave-hg                   * qscintilla octave-e3a36f84d01d/scripts/special-matrix/gallery.m: bzip decompression failed
+mingw-w64-octopi-git                  * qt5-static Project ERROR: libalpm development package not found
 mingw-w64-ogitor
 mingw-w64-opencv
 mingw-w64-openimageio
@@ -45,22 +45,18 @@ mingw-w64-poppler
 mingw-w64-pyqt5
 mingw-w64-python-matplotlib
 mingw-w64-python-qtconsole
-mingw-w64-qbs
+mingw-w64-qbs                         * qt5 ?qt5-script?  ?qt5-base?     Built and Installed
 mingw-w64-qbs-git
 mingw-w64-qca-qt5-git
-mingw-w64-qscintilla
-mingw-w64-qt-installer-framework      **
+mingw-w64-qscintilla                  *            A failure occurred in package_mingw-w64-x86_64-qscintilla().
+mingw-w64-qt-installer-framework      *            Patch failed at 0001 Use QTPLUGIN += qminimal on Windows too
 mingw-w64-qt-solutions-git
-mingw-w64-qt4
-mingw-w64-qt5
-mingw-w64-qt5-git
-mingw-w64-qt5-static
-mingw-w64-qtcreator                   **
+mingw-w64-qtcreator                   *            BUILDING
 mingw-w64-qtwebkit
 mingw-w64-quarter-hg
 mingw-w64-quassel
 mingw-w64-quazip
-mingw-w64-qwt-qt5
+mingw-w64-qwt-qt5                     *
 mingw-w64-qxmpp
 mingw-w64-snorenotify
 mingw-w64-solid-qt5
@@ -69,4 +65,4 @@ mingw-w64-thrift
 mingw-w64-tulip
 mingw-w64-vlc-git
 mingw-w64-vtk
-mingw-w64-wkhtmltopdf-git
+mingw-w64-wkhtmltopdf-git             qtwebkit
