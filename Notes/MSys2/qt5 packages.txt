@@ -3,10 +3,10 @@ This packages contained the string "qt5".
 mingw-w64-attica-qt5
 mingw-w64-bsdfprocessor
 mingw-w64-cgal
-mingw-w64-cmake
+mingw-w64-cmake                       **
 mingw-w64-cmake-doc-qt
 mingw-w64-cmake-git
-mingw-w64-cppcheck
+mingw-w64-cppcheck                    **
 mingw-w64-cppreference-qt
 mingw-w64-extra-cmake-modules
 mingw-w64-karchive-qt5
@@ -32,7 +32,7 @@ mingw-w64-libkcw-qt5-git
 mingw-w64-liblastfm
 mingw-w64-mathgl
 mingw-w64-octave-hg
-mingw-w64-octopi-git
+mingw-w64-octopi-git                  **
 mingw-w64-ogitor
 mingw-w64-opencv
 mingw-w64-openimageio
@@ -49,7 +49,7 @@ mingw-w64-qbs
 mingw-w64-qbs-git
 mingw-w64-qca-qt5-git
 mingw-w64-qscintilla
-mingw-w64-qt-installer-framework
+mingw-w64-qt-installer-framework      **
 mingw-w64-qt-solutions-git
 mingw-w64-qt4
 mingw-w64-qt5
