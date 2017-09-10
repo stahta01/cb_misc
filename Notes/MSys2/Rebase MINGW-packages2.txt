@@ -1,19 +1,12 @@
 $ git branch --list
+? DO_NOT_MERGE
+  broken
   cleanup
-  master
-D qt5-git
-* qt5-modules
-D qt5.9-modules
-D qt5.9-shared
-D qt5.9-static
-
-$ git branch --list
-* cleanup
-D cmake
-D cmake-git
-  glog
+D gprbuild
   issues
-  master
+* master
+  qt-installer-framework
+  qt5-base-static
   qt5-git
   qt5-modules
   qt5-modules-git
@@ -22,7 +15,7 @@ D cmake-git
   qt5.9-staging
   qt5.9-static
 
-git checkout master && git fetch upstream && git rebase upstream/master && git status -uno
+git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
 #
 git checkout cleanup && git pull && git rebase master && git status -uno
 git checkout qt5-modules && git pull && git rebase master && git status -uno
@@ -67,3 +60,7 @@ git checkout qt5.9-shared && git pull && git rebase master && git status -uno
 git checkout qt5.9-staging && git pull && git rebase master && git status -uno
 
 git checkout qt5.9-static && git pull && git rebase master && git status -uno
+
+git checkout qt5-base-static && git pull && git rebase master && git status -uno
+
+git checkout qt-installer-framework && git pull && git rebase master && git status -uno

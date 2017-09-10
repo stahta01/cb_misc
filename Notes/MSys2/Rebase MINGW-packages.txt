@@ -1,16 +1,20 @@
 $ git branch --list
+  broken
   cleanup
+  cmake
+  cmake-git
   editors_and_IDEs
   issues
   kde_apps
 * master
-  mingw64/libs
+? mingw64/libs
   misc
-  unit_tests
+  nim-staging
+D unit_tests
   wxApps
   wxwidgets
 
-git checkout master && git fetch upstream && git rebase upstream/master && git status -uno
+git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
 
 git checkout cleanup && git pull && git rebase master && git status -uno
 git checkout wxwidgets && git pull && git rebase master && git status -uno
@@ -43,12 +47,6 @@ git checkout wxApps && git pull && git rebase master && git status -uno
 git rebase -i master
 git push --force-with-lease
 
-git checkout unit_tests && git pull && git rebase master && git status -uno
-#
-git rebase master && git status -uno
-git rebase -i master
-git push
-#   git push --force-with-lease
 
 git checkout editors_and_IDEs && git pull && git rebase master && git status -uno
 git rebase -i master
@@ -63,12 +61,6 @@ git rebase -i master
 git push
 #   git push --force-with-lease
 
-git checkout mingw64/libs && git pull && git rebase master && git status -uno
-#
-git rebase master && git status -uno
-git rebase -i master
-git push
-#   git push --force-with-lease
 
 git checkout issues && git pull && git rebase master && git status -uno
 #
