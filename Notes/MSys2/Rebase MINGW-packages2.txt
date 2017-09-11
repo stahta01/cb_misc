@@ -13,7 +13,7 @@ D gprbuild
   qt5.9-modules
   qt5.9-shared
   qt5.9-staging
-  qt5.9-static
+D qt5.9-static
 
 git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
 #
@@ -22,8 +22,8 @@ git checkout qt5-modules && git pull && git rebase master && git status -uno
 #
 git checkout qt5.9-staging && git pull && git rebase master && git status -uno
 git checkout qt5.9-modules && git pull && git rebase master && git status -uno
+#
 git checkout qt5.9-shared && git pull && git rebase master && git status -uno
-git checkout qt5.9-static && git pull && git rebase master && git status -uno
 #
 git checkout qt5-modules-git && git pull && git rebase master && git status -uno
 git checkout qt5-git && git pull && git rebase master && git status -uno
@@ -52,14 +52,13 @@ git push --force-with-lease
 git checkout qt5.9-modules && git pull && git rebase master && git status -uno
 git rebase -i master
 git rebase --ignore-date master
+git format-patch master
 git push --force-with-lease
 
 
 git checkout qt5.9-shared && git pull && git rebase master && git status -uno
 
 git checkout qt5.9-staging && git pull && git rebase master && git status -uno
-
-git checkout qt5.9-static && git pull && git rebase master && git status -uno
 
 git checkout qt5-base-static && git pull && git rebase master && git status -uno
 
