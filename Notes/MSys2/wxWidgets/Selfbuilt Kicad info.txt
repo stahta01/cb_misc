@@ -1,0 +1,24 @@
+Selfbuilt Kicad info.txt
+
+Application: kicad
+Version: (2017-09-12 revision 8182369c6)-master, release build
+Libraries:
+    wxWidgets 3.0.4
+    libcurl/7.55.1 OpenSSL/1.0.2l zlib/1.2.11 libidn2/2.0.4 libssh2/1.8.0 nghttp2/1.23.1 librtmp/2.3
+Platform: Windows 8 (build 9200), 32 bit, Little endian, wxMSW
+Build Info:
+    wxWidgets: 3.0.3 (wchar_t,wx containers,compatible with 2.8)
+    Boost: 1.64.0
+    Curl: 7.55.1
+    Compiler: GCC 7.2.0 with C++ ABI 1011
+
+Build settings:
+    USE_WX_GRAPHICS_CONTEXT=OFF
+    USE_WX_OVERLAY=OFF
+    KICAD_SCRIPTING=ON
+    KICAD_SCRIPTING_MODULES=ON
+    KICAD_SCRIPTING_WXPYTHON=ON
+    KICAD_SCRIPTING_ACTION_MENU=OFF
+    BUILD_GITHUB_PLUGIN=ON
+    KICAD_USE_OCE=OFF
+    KICAD_SPICE=OFF
