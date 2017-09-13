@@ -2,22 +2,29 @@ $ git branch --list
   broken
   cleanup
   cmake
-  cmake-git
-  editors_and_IDEs
+  cmake-git           Try to merge changes into "cmake" branch
+R editors_and_IDEs    Merge wx apps into wx/apps branch
   issues
-  kde_apps
+R kde_apps            kde/apps
 * master
 ? mingw64/libs
   misc
-  nim-staging
+  staging
 D unit_tests
-  wxApps
+R wx-apps             wx/apps
+R wxlibs              wx/libs
+? wxpython-phoenix
+? wxpython3.0
   wxwidgets
+
+git fetch --all --prune
 
 git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
 
 git checkout cleanup && git pull && git rebase master && git status -uno
-git checkout wxApps && git pull && git rebase master && git status -uno
+#
+git checkout wx/apps && git pull && git rebase master && git status -uno
+git checkout wx/libs && git pull && git rebase master && git status -uno
 git checkout wxwidgets && git pull && git rebase master && git status -uno
 #
 git checkout editors_and_IDEs && git pull && git rebase master && git status -uno
@@ -26,7 +33,7 @@ git checkout issues && git pull && git rebase master && git status -uno
 #
 git checkout cmake && git pull && git rebase master && git status -uno
 git checkout cmake-git && git pull && git rebase master && git status -uno
-git checkout kde_apps && git pull && git rebase master && git status -uno
+git checkout kde/apps && git pull && git rebase master && git status -uno
 
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
