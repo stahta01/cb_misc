@@ -1,0 +1,40 @@
+List of packages that currently fail to build
+=============================================
+
+- blender-git             
+
+- cegui                   Confirmed build issue
+
+- cling-git               Confirmed build issue         Convert to CMake build?
+
+- cocos2dx-git            Confirmed build issue         Added patch to branch broken; too hard for me to fix.
+
+- coq                     Confirmed build issue         (OCAML issue)
+
+- freerdp-git             Confirmed build issue
+
+- gprbuild-gpl            Test on 64 Bit Windows
+
+- gtkada                  Test on 64 Bit Windows
+
+- librocket-git           Confirmed build issue
+
+- nim                     Confirmed build issue         Fixed in branches broken and issues
+
+- nimble                  Confirmed build issue         Not sure how to fix; will wait till nim is updated to newest version before trying again.
+
+- ocaml-lablgtk           Confirmed build issue
+
+- octave-hg               Confirmed build issue         Try changing source URL
+
+- ogre3d                  Confirmed build issue
+
+- openshadinglanguage-git 
+
+- perl                    Confirmed build issue;        has Packaging error
+
+- plplot                  64 bit build has issues
+
+- pitivi-git              Confirmed build issue         Failed to build prereq's prereq of mingw-w64-gstreamer-git
+
+- xmlada-gpl              Test on 64 Bit Windows
