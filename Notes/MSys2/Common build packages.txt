@@ -6,11 +6,16 @@ pacman -S --needed mingw-w64-i686-gcc
 
 pacman -S --needed mingw-w64-x86_64-gcc
 
+pacman -S --needed mingw-w64-i686-make
+
+pacman -S --needed mingw-w64-i686-pkg-config
+
 pacman -S --needed libtool                # Fixes "libtoolize: command not found"
 pacman -S --needed automake-wrapper       # Fixes "aclocal: command not found"
 pacman -S --needed autoconf               # Fixes "sh: autom4te: command not found"
 pacman -S --needed make                   #
 pacman -S --needed tar                    # Fixes "tar: command not found"
+pacman -S --needed patch                  # Fixes patch: command not found
 
 # https://github.com/msys2/msys2/wiki/Creating-Packages
 
@@ -18,10 +23,18 @@ pacman -S --needed tar                    # Fixes "tar: command not found"
   tar
 
 # group mingw-w64-i686-toolchain
+# pacman -S --needed mingw-w64-i686-toolchain
   mingw-w64-i686-gcc
-  make
+  mingw-w64-i686-make
+  mingw-w64-i686-pkg-config
 
 # group base-devel
+# pacman -S --needed base-devel
   libtool
   automake-wrapper
   autoconf
+  make
+  patch
+
+# group msys2-devel
+# pacman -S --needed msys2-devel
