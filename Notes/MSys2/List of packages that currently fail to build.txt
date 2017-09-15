@@ -37,4 +37,6 @@ List of packages that currently fail to build
 
 - pitivi-git              Confirmed build issue         Failed to build prereq's prereq of mingw-w64-gstreamer-git
 
+- tidyhtml                Added to list needs confirmed
+
 - xmlada-gpl              Test on 64 Bit Windows

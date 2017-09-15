@@ -1,20 +1,18 @@
 $ git branch --list
-  broken
+? broken
   cleanup
-  cmake
-  cmake-git           Try to merge changes into "cmake" branch
-R editors_and_IDEs    Merge wx apps into wx/apps branch
+? cmake
+? cmake-git           Try to merge changes into "cmake" branch
+  gtk/apps
   issues
-R kde_apps            kde/apps
 * master
 ? mingw64/libs
   misc
-  staging
-D unit_tests
-R wx-apps             wx/apps
-R wxlibs              wx/libs
+  qt/apps
+? staging
+  wx/apps
+  wx/libs
 ? wxpython-phoenix
-? wxpython3.0
   wxwidgets
 
 git fetch --all --prune
@@ -27,13 +25,9 @@ git checkout wx/apps && git pull && git rebase master && git status -uno
 git checkout wx/libs && git pull && git rebase master && git status -uno
 git checkout wxwidgets && git pull && git rebase master && git status -uno
 #
-git checkout editors_and_IDEs && git pull && git rebase master && git status -uno
+git checkout gtk/apps && git pull && git rebase master && git status -uno
+git checkout qt/apps && git pull && git rebase master && git status -uno
 git checkout misc && git pull && git rebase master && git status -uno
-git checkout issues && git pull && git rebase master && git status -uno
-#
-git checkout cmake && git pull && git rebase master && git status -uno
-git checkout cmake-git && git pull && git rebase master && git status -uno
-git checkout kde/apps && git pull && git rebase master && git status -uno
 
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
@@ -41,19 +35,30 @@ git checkout master && git fetch upstream && git rebase upstream/master && git p
 git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
 git checkout cleanup && git status
 
-##  Now based on branch master
+
 git checkout wxwidgets && git pull && git rebase master && git status -uno
 git rebase -i master
 git rebase --ignore-date master
 git format-patch master
 git push --force-with-lease
 
-git checkout wxApps && git pull && git rebase master && git status -uno
+git checkout wx/apps && git pull && git rebase master && git status -uno
+git rebase -i master
+git push --force-with-lease
+
+git checkout wx/libs && git pull && git rebase master && git status -uno
 git rebase -i master
 git push --force-with-lease
 
 
-git checkout editors_and_IDEs && git pull && git rebase master && git status -uno
+git checkout gtk/apps && git pull && git rebase master && git status -uno
+git rebase -i master
+git rebase --ignore-date master
+git push --force-with-lease
+
+git checkout qt/apps && git pull && git rebase master && git status -uno
+#
+git rebase -i origin/qt/apps
 git rebase -i master
 git rebase --ignore-date master
 git push --force-with-lease
@@ -65,25 +70,3 @@ git rebase master && git status -uno
 git rebase -i master
 git push
 #   git push --force-with-lease
-
-
-git checkout issues && git pull && git rebase master && git status -uno
-#
-git rebase master && git status -uno
-git rebase -i master
-git push
-#   git push --force-with-lease
-
-git checkout cmake && git pull && git rebase master && git status -uno
-git rebase -i master
-git rebase --ignore-date master
-git push --force-with-lease
-
-git checkout cmake-git && git pull && git rebase master && git status -uno
-git rebase -i master
-git rebase --ignore-date master
-git push --force-with-lease
-
-git checkout kde_apps && git pull && git rebase master && git status -uno
-
-git checkout broken && git pull && git rebase master && git status -uno
