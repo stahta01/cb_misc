@@ -56,14 +56,17 @@ makepkg-mingw -sLfCc -p wxgtk3.1-gtk2.pkgbuild   # STOP Testing till 3.1.1 is re
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
-makepkg-mingw -sLf                               # 
-makepkg-mingw -sLf -p wxgtk3.0-gtk2-git.pkgbuild # Built and installed
+makepkg-mingw -sLf                               # Has conflict packaging issues
 
+# Test patches
+makepkg-mingw --nodeps --nobuild 
+
+# Repackage
+makepkg-mingw -RLf
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
-makepkg-mingw -sLfCc                             # Built and installed
-makepkg-mingw -sLfCc -p wxgtk3.0-gtk2.pkgbuild   # Built and installed
+makepkg-mingw -sLfCc                             # BUILDING
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8-git
