@@ -51,7 +51,6 @@ pacman -Ss mingw-w64-i686-catch && \
 pacman -Ss mingw-w64-i686-ccache && \
 pacman -Ss mingw-w64-i686-cccl && \
 pacman -Ss mingw-w64-i686-cego && \
-pacman -Ss mingw-w64-i686-cegui && \
 pacman -Ss mingw-w64-i686-celt && \
 pacman -Ss mingw-w64-i686-cereal && \
 pacman -Ss mingw-w64-i686-ceres-solver && \
@@ -60,43 +59,27 @@ pacman -Ss mingw-w64-i686-cgal && \
 pacman -Ss mingw-w64-i686-check && \
 pacman -Ss mingw-w64-i686-chipmunk && \
 pacman -Ss mingw-w64-i686-chromaprint && \
-pacman -Ss mingw-w64-i686-chromium-dev && \
 pacman -Ss mingw-w64-i686-clang && \
 pacman -Ss mingw-w64-i686-clang35 && \
-pacman -Ss mingw-w64-i686-clang-svn && \
-pacman -Ss mingw-w64-i686-cling-git && \
-pacman -Ss mingw-w64-i686-clink-git && \
-pacman -Ss mingw-w64-i686-cloog && \
 pacman -Ss mingw-w64-i686-clucene && \
 pacman -Ss mingw-w64-i686-clutter && \
 pacman -Ss mingw-w64-i686-clutter-gst && \
 pacman -Ss mingw-w64-i686-clutter-gtk && \
 pacman -Ss mingw-w64-i686-cmake && \
 pacman -Ss mingw-w64-i686-cmake-doc-qt && \
-pacman -Ss mingw-w64-i686-cmake-git && \
 pacman -Ss mingw-w64-i686-cmocka && \
-pacman -Ss mingw-w64-i686-cocos2dx && \
-pacman -Ss mingw-w64-i686-cocos2d-x && \
-pacman -Ss mingw-w64-i686-cocos2d-x-console-git && \
-pacman -Ss mingw-w64-i686-cocos2d-x-git && \
 pacman -Ss mingw-w64-i686-codelite-git && \
 pacman -Ss mingw-w64-i686-cogl && \
-pacman -Ss mingw-w64-i686-coin3d-hg && \
 pacman -Ss mingw-w64-i686-collada-dom-svn && \
-pacman -Ss mingw-w64-i686-conemu-git && \
 pacman -Ss mingw-w64-i686-confuse && \
 pacman -Ss mingw-w64-i686-connect && \
-pacman -Ss mingw-w64-i686-coq && \
 pacman -Ss mingw-w64-i686-cotire && \
 pacman -Ss mingw-w64-i686-cppcheck && \
 pacman -Ss mingw-w64-i686-cppreference-qt && \
 pacman -Ss mingw-w64-i686-cpptest && \
 pacman -Ss mingw-w64-i686-cppunit && \
 pacman -Ss mingw-w64-i686-creduce && \
-pacman -Ss mingw-w64-i686-creduce-git && \
 pacman -Ss mingw-w64-i686-crt-git && \
-pacman -Ss mingw-w64-i686-crypto++ && \
-pacman -Ss mingw-w64-i686-crypto++-git && \
 pacman -Ss mingw-w64-i686-csfml && \
 pacman -Ss mingw-w64-i686-ctags && \
 pacman -Ss mingw-w64-i686-ctpl-git && \
@@ -105,6 +88,8 @@ pacman -Ss mingw-w64-i686-curl && \
 pacman -Ss mingw-w64-i686-cyrus-sasl && \
 pacman -Ss mingw-w64-i686-cython && \
 pacman -Ss mingw-w64-i686-cython-git && \
+pacman -Si mingw-w64-i686-crypto++ > /nul && \
+
 pacman -Ss mingw-w64-i686-daala-git && \
 pacman -Ss mingw-w64-i686-db && \
 pacman -Ss mingw-w64-i686-dbus && \
@@ -116,15 +101,12 @@ pacman -Ss mingw-w64-i686-devhelp && \
 pacman -Ss mingw-w64-i686-devil && \
 pacman -Ss mingw-w64-i686-d-feet && \
 pacman -Ss mingw-w64-i686-diffutils && \
-pacman -Ss mingw-w64-i686-dime-hg && \
 pacman -Ss mingw-w64-i686-discount && \
 pacman -Ss mingw-w64-i686-distorm && \
 pacman -Ss mingw-w64-i686-djvulibre && \
 pacman -Ss mingw-w64-i686-dlfcn && \
-pacman -Ss mingw-w64-i686-dlfcn-git && \
 pacman -Ss mingw-w64-i686-dmake && \
 pacman -Ss mingw-w64-i686-dnscrypt-proxy && \
-pacman -Ss mingw-w64-i686-dnssec-anchors && \
 pacman -Ss mingw-w64-i686-docbook-dsssl && \
 pacman -Ss mingw-w64-i686-docbook-mathml && \
 pacman -Ss mingw-w64-i686-docbook-sgml && \
@@ -132,18 +114,15 @@ pacman -Ss mingw-w64-i686-docbook-sgml31 && \
 pacman -Ss mingw-w64-i686-docbook-xml && \
 pacman -Ss mingw-w64-i686-docbook-xsl && \
 pacman -Ss mingw-w64-i686-doxygen && \
-pacman -Ss mingw-w64-i686-dragon && \
 pacman -Ss mingw-w64-i686-drmingw && \
-pacman -Ss mingw-w64-i686-drmingw-git && \
 pacman -Ss mingw-w64-i686-dsdp && \
-pacman -Ss mingw-w64-i686-ducible-git && \
 pacman -Ss mingw-w64-i686-dumb && \
+
 pacman -Ss mingw-w64-i686-edd-dbg && \
 pacman -Ss mingw-w64-i686-edd-fungo && \
 pacman -Ss mingw-w64-i686-editrights && \
 pacman -Ss mingw-w64-i686-eigen3 && \
 pacman -Ss mingw-w64-i686-emacs && \
-pacman -Ss mingw-w64-i686-emacs-git && \
 pacman -Ss mingw-w64-i686-enca && \
 pacman -Ss mingw-w64-i686-enchant && \
 pacman -Ss mingw-w64-i686-enet && \
@@ -153,6 +132,9 @@ pacman -Ss mingw-w64-i686-evince && \
 pacman -Ss mingw-w64-i686-exiv2 && \
 pacman -Ss mingw-w64-i686-expat && \
 pacman -Ss mingw-w64-i686-extra-cmake-modules && \
+
+
+
 pacman -Ss mingw-w64-i686-faac && \
 pacman -Ss mingw-w64-i686-faad2 && \
 pacman -Ss mingw-w64-i686-fann && \
