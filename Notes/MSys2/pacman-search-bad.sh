@@ -29,11 +29,19 @@ pacman -Si mingw-w64-i686-coq
 pacman -Si mingw-w64-i686-creduce-git
 pacman -Si mingw-w64-i686-crypto++-git
 
-pacman -Si mingw-w64-i686-dime-hg && \
-pacman -Si mingw-w64-i686-dlfcn-git && \
-pacman -Si mingw-w64-i686-dnssec-anchors && \
-pacman -Si mingw-w64-i686-dragon && \
-pacman -Si mingw-w64-i686-drmingw-git && \
-pacman -Si mingw-w64-i686-ducible-git && \
+pacman -Si mingw-w64-i686-dime-hg
+pacman -Si mingw-w64-i686-dlfcn-git
+pacman -Si mingw-w64-i686-dnssec-anchors
+pacman -Si mingw-w64-i686-dragon
+pacman -Si mingw-w64-i686-drmingw-git
+pacman -Si mingw-w64-i686-ducible-git
 
-pacman -Si mingw-w64-i686-emacs-git && \
+pacman -Si mingw-w64-i686-emacs-git
+
+pacman -Si mingw-w64-i686-fann
+pacman -Si mingw-w64-i686-ffms2
+pacman -Si mingw-w64-i686-file
+pacman -Si mingw-w64-i686-fossil-fossil
+pacman -Si mingw-w64-i686-freerdp-git
+pacman -Si mingw-w64-i686-firebird-git
+pacman -Si mingw-w64-i686-firefox

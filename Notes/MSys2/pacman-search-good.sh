@@ -28,7 +28,6 @@ pacman -Ss mingw-w64-i686-atk && \
 pacman -Ss mingw-w64-i686-atkmm && \
 pacman -Ss mingw-w64-i686-avrdude && \
 pacman -Ss mingw-w64-i686-aztecgen && \
-
 pacman -Ss mingw-w64-i686-babl && \
 pacman -Ss mingw-w64-i686-badvpn && \
 pacman -Ss mingw-w64-i686-binaryen && \
@@ -41,7 +40,6 @@ pacman -Ss mingw-w64-i686-bsdfprocessor && \
 pacman -Ss mingw-w64-i686-bullet && \
 pacman -Ss mingw-w64-i686-bwidget && \
 pacman -Ss mingw-w64-i686-bzip2 && \
-
 pacman -Ss mingw-w64-i686-c99-to-c89-git && \
 pacman -Ss mingw-w64-i686-ca-certificates && \
 pacman -Ss mingw-w64-i686-cairo && \
@@ -89,7 +87,6 @@ pacman -Ss mingw-w64-i686-cyrus-sasl && \
 pacman -Ss mingw-w64-i686-cython && \
 pacman -Ss mingw-w64-i686-cython-git && \
 pacman -Si mingw-w64-i686-crypto++ > /nul && \
-
 pacman -Ss mingw-w64-i686-daala-git && \
 pacman -Ss mingw-w64-i686-db && \
 pacman -Ss mingw-w64-i686-dbus && \
@@ -117,7 +114,6 @@ pacman -Ss mingw-w64-i686-doxygen && \
 pacman -Ss mingw-w64-i686-drmingw && \
 pacman -Ss mingw-w64-i686-dsdp && \
 pacman -Ss mingw-w64-i686-dumb && \
-
 pacman -Ss mingw-w64-i686-edd-dbg && \
 pacman -Ss mingw-w64-i686-edd-fungo && \
 pacman -Ss mingw-w64-i686-editrights && \
@@ -132,22 +128,14 @@ pacman -Ss mingw-w64-i686-evince && \
 pacman -Ss mingw-w64-i686-exiv2 && \
 pacman -Ss mingw-w64-i686-expat && \
 pacman -Ss mingw-w64-i686-extra-cmake-modules && \
-
-
-
 pacman -Ss mingw-w64-i686-faac && \
 pacman -Ss mingw-w64-i686-faad2 && \
-pacman -Ss mingw-w64-i686-fann && \
 pacman -Ss mingw-w64-i686-farstream && \
 pacman -Ss mingw-w64-i686-fdk-aac && \
 pacman -Ss mingw-w64-i686-ffmpeg && \
-pacman -Ss mingw-w64-i686-ffms2 && \
 pacman -Ss mingw-w64-i686-fftw && \
 pacman -Ss mingw-w64-i686-field3d && \
-pacman -Ss mingw-w64-i686-file && \
 pacman -Ss mingw-w64-i686-firebird2-git && \
-pacman -Ss mingw-w64-i686-firebird-git && \
-pacman -Ss mingw-w64-i686-firefox && \
 pacman -Ss mingw-w64-i686-flac && \
 pacman -Ss mingw-w64-i686-flatbuffers && \
 pacman -Ss mingw-w64-i686-flex && \
@@ -158,15 +146,17 @@ pacman -Ss mingw-w64-i686-fluidsynth && \
 pacman -Ss mingw-w64-i686-fmt && \
 pacman -Ss mingw-w64-i686-fontconfig && \
 pacman -Ss mingw-w64-i686-fossil && \
-pacman -Ss mingw-w64-i686-fossil-fossil && \
 pacman -Ss mingw-w64-i686-fox && \
 pacman -Ss mingw-w64-i686-freeglut && \
 pacman -Ss mingw-w64-i686-freeimage && \
-pacman -Ss mingw-w64-i686-freerdp-git && \
 pacman -Ss mingw-w64-i686-freetds && \
 pacman -Ss mingw-w64-i686-freetype && \
 pacman -Ss mingw-w64-i686-fribidi && \
 pacman -Ss mingw-w64-i686-ftgl && \
+
+
+
+
 pacman -Ss mingw-w64-i686-gc && \
 pacman -Ss mingw-w64-i686-gcc && \
 pacman -Ss mingw-w64-i686-gcc-git && \
@@ -180,6 +170,7 @@ pacman -Ss mingw-w64-i686-gdk-pixbuf2 && \
 pacman -Ss mingw-w64-i686-gdl && \
 pacman -Ss mingw-w64-i686-gdl2 && \
 pacman -Ss mingw-w64-i686-gdlmm2 && \
+
 pacman -Ss mingw-w64-i686-geany && \
 pacman -Ss mingw-w64-i686-geany-plugins && \
 pacman -Ss mingw-w64-i686-gedit && \
@@ -192,6 +183,7 @@ pacman -Ss mingw-w64-i686-geoip2-database && \
 pacman -Ss mingw-w64-i686-geos && \
 pacman -Ss mingw-w64-i686-gettext && \
 pacman -Ss mingw-w64-i686-gexiv2 && \
+
 pacman -Ss mingw-w64-i686-gflags && \
 pacman -Ss mingw-w64-i686-ghc && \
 pacman -Ss mingw-w64-i686-ghex && \
@@ -204,6 +196,7 @@ pacman -Ss mingw-w64-i686-gitg && \
 pacman -Ss mingw-w64-i686-git-git && \
 pacman -Ss mingw-w64-i686-git-lfs && \
 pacman -Ss mingw-w64-i686-git-repo && \
+
 pacman -Ss mingw-w64-i686-gl2ps && \
 pacman -Ss mingw-w64-i686-glade && \
 pacman -Ss mingw-w64-i686-glade3 && \
@@ -221,6 +214,7 @@ pacman -Ss mingw-w64-i686-glog && \
 pacman -Ss mingw-w64-i686-glpk && \
 pacman -Ss mingw-w64-i686-glslang && \
 pacman -Ss mingw-w64-i686-glsl-optimizer-git && \
+
 pacman -Ss mingw-w64-i686-gmime && \
 pacman -Ss mingw-w64-i686-gmp && \
 pacman -Ss mingw-w64-i686-gnome-calculator && \
@@ -232,6 +226,7 @@ pacman -Ss mingw-w64-i686-gnome-js-common && \
 pacman -Ss mingw-w64-i686-gnu-cobol-svn && \
 pacman -Ss mingw-w64-i686-gnupg && \
 pacman -Ss mingw-w64-i686-gnutls && \
+
 pacman -Ss mingw-w64-i686-go && \
 pacman -Ss mingw-w64-i686-gobject-introspection && \
 pacman -Ss mingw-w64-i686-goocanvas && \
@@ -242,6 +237,7 @@ pacman -Ss mingw-w64-i686-gphoto2 && \
 pacman -Ss mingw-w64-i686-gplugin && \
 pacman -Ss mingw-w64-i686-gprbuild-bootstrap-git && \
 pacman -Ss mingw-w64-i686-gprbuild-gpl && \
+
 pacman -Ss mingw-w64-i686-graphene && \
 pacman -Ss mingw-w64-i686-graphicsmagick && \
 pacman -Ss mingw-w64-i686-graphite2 && \
@@ -254,6 +250,7 @@ pacman -Ss mingw-w64-i686-gsl && \
 pacman -Ss mingw-w64-i686-gsm && \
 pacman -Ss mingw-w64-i686-gspell && \
 pacman -Ss mingw-w64-i686-gss && \
+
 pacman -Ss mingw-w64-i686-gst-editing-services && \
 pacman -Ss mingw-w64-i686-gst-editing-services-git && \
 pacman -Ss mingw-w64-i686-gst-libav && \
@@ -272,6 +269,7 @@ pacman -Ss mingw-w64-i686-gstreamer && \
 pacman -Ss mingw-w64-i686-gstreamer-git && \
 pacman -Ss mingw-w64-i686-gst-rtsp-server && \
 pacman -Ss mingw-w64-i686-gst-rtsp-server-git && \
+
 pacman -Ss mingw-w64-i686-gtef && \
 pacman -Ss mingw-w64-i686-gtest && \
 pacman -Ss mingw-w64-i686-gtk2 && \
@@ -287,6 +285,7 @@ pacman -Ss mingw-w64-i686-gtkhtml3 && \
 pacman -Ss mingw-w64-i686-gtkimageview && \
 pacman -Ss mingw-w64-i686-gtkmm && \
 pacman -Ss mingw-w64-i686-gtkmm3 && \
+
 pacman -Ss mingw-w64-i686-gtksourceview2 && \
 pacman -Ss mingw-w64-i686-gtksourceview3 && \
 pacman -Ss mingw-w64-i686-gtksourceviewmm2 && \
@@ -297,6 +296,7 @@ pacman -Ss mingw-w64-i686-gtk-vnc && \
 pacman -Ss mingw-w64-i686-gtkwave && \
 pacman -Ss mingw-w64-i686-guile && \
 pacman -Ss mingw-w64-i686-gxml && \
+
 pacman -Ss mingw-w64-i686-h2o && \
 pacman -Ss mingw-w64-i686-harfbuzz && \
 pacman -Ss mingw-w64-i686-hclient && \
