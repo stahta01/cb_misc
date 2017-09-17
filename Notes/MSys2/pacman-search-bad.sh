@@ -45,3 +45,38 @@ pacman -Si mingw-w64-i686-fossil-fossil
 pacman -Si mingw-w64-i686-freerdp-git
 pacman -Si mingw-w64-i686-firebird-git
 pacman -Si mingw-w64-i686-firefox
+
+pacman -Ss mingw-w64-i686-gcc-git && \
+pacman -Ss mingw-w64-i686-gdcm && \
+pacman -Ss mingw-w64-i686-ghc && \
+pacman -Ss mingw-w64-i686-git-git && \
+pacman -Ss mingw-w64-i686-glib2-git && \
+pacman -Ss mingw-w64-i686-gnome-doc-utils && \
+pacman -Ss mingw-w64-i686-gperf && \
+pacman -Ss mingw-w64-i686-gprbuild-gpl && \
+pacman -Ss mingw-w64-i686-graphviz && \
+pacman -Ss mingw-w64-i686-grep && \
+pacman -Ss mingw-w64-i686-gst-editing-services-git && \
+pacman -Ss mingw-w64-i686-gst-libav-git && \
+pacman -Ss mingw-w64-i686-gst-plugins-bad-git && \
+pacman -Ss mingw-w64-i686-gst-plugins-base-git && \
+pacman -Ss mingw-w64-i686-gst-plugins-good-git && \
+pacman -Ss mingw-w64-i686-gst-plugins-ugly-git && \
+pacman -Ss mingw-w64-i686-gst-python-git && \
+pacman -Ss mingw-w64-i686-gstreamer-git && \
+pacman -Ss mingw-w64-i686-gst-rtsp-server-git && \
+pacman -Ss mingw-w64-i686-gtk3-git && \
+pacman -Ss mingw-w64-i686-gtkada && \
+pacman -Ss mingw-w64-i686-gtk-doc && \
+pacman -Ss mingw-w64-i686-gtkhtml3 && \
+pacman -Ss mingw-w64-i686-gtksourceviewmm2 && \
+pacman -Ss mingw-w64-i686-guile && \
+pacman -Ss mingw-w64-i686-gdb-git && \
+pacman -Ss mingw-w64-i686-gnome-icon-theme && \
+pacman -Ss mingw-w64-i686-gnome-icon-theme-symbolic && \
+pacman -Ss mingw-w64-i686-gnome-js-common && \
+
+
+
+
+

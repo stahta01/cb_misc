@@ -153,24 +153,16 @@ pacman -Ss mingw-w64-i686-freetds && \
 pacman -Ss mingw-w64-i686-freetype && \
 pacman -Ss mingw-w64-i686-fribidi && \
 pacman -Ss mingw-w64-i686-ftgl && \
-
-
-
-
 pacman -Ss mingw-w64-i686-gc && \
 pacman -Ss mingw-w64-i686-gcc && \
-pacman -Ss mingw-w64-i686-gcc-git && \
 pacman -Ss mingw-w64-i686-gd && \
 pacman -Ss mingw-w64-i686-gdal && \
 pacman -Ss mingw-w64-i686-gdb && \
-pacman -Ss mingw-w64-i686-gdb-git && \
 pacman -Ss mingw-w64-i686-gdbm && \
-pacman -Ss mingw-w64-i686-gdcm && \
 pacman -Ss mingw-w64-i686-gdk-pixbuf2 && \
 pacman -Ss mingw-w64-i686-gdl && \
 pacman -Ss mingw-w64-i686-gdl2 && \
 pacman -Ss mingw-w64-i686-gdlmm2 && \
-
 pacman -Ss mingw-w64-i686-geany && \
 pacman -Ss mingw-w64-i686-geany-plugins && \
 pacman -Ss mingw-w64-i686-gedit && \
@@ -183,9 +175,7 @@ pacman -Ss mingw-w64-i686-geoip2-database && \
 pacman -Ss mingw-w64-i686-geos && \
 pacman -Ss mingw-w64-i686-gettext && \
 pacman -Ss mingw-w64-i686-gexiv2 && \
-
 pacman -Ss mingw-w64-i686-gflags && \
-pacman -Ss mingw-w64-i686-ghc && \
 pacman -Ss mingw-w64-i686-ghex && \
 pacman -Ss mingw-w64-i686-ghostscript && \
 pacman -Ss mingw-w64-i686-giflib && \
@@ -193,10 +183,8 @@ pacman -Ss mingw-w64-i686-gimp && \
 pacman -Ss mingw-w64-i686-gimp-ufraw && \
 pacman -Ss mingw-w64-i686-git && \
 pacman -Ss mingw-w64-i686-gitg && \
-pacman -Ss mingw-w64-i686-git-git && \
 pacman -Ss mingw-w64-i686-git-lfs && \
 pacman -Ss mingw-w64-i686-git-repo && \
-
 pacman -Ss mingw-w64-i686-gl2ps && \
 pacman -Ss mingw-w64-i686-glade && \
 pacman -Ss mingw-w64-i686-glade3 && \
@@ -204,7 +192,6 @@ pacman -Ss mingw-w64-i686-glbinding && \
 pacman -Ss mingw-w64-i686-glew && \
 pacman -Ss mingw-w64-i686-glfw && \
 pacman -Ss mingw-w64-i686-glib2 && \
-pacman -Ss mingw-w64-i686-glib2-git && \
 pacman -Ss mingw-w64-i686-glibmm && \
 pacman -Ss mingw-w64-i686-glib-networking && \
 pacman -Ss mingw-w64-i686-glm && \
@@ -214,35 +201,24 @@ pacman -Ss mingw-w64-i686-glog && \
 pacman -Ss mingw-w64-i686-glpk && \
 pacman -Ss mingw-w64-i686-glslang && \
 pacman -Ss mingw-w64-i686-glsl-optimizer-git && \
-
 pacman -Ss mingw-w64-i686-gmime && \
 pacman -Ss mingw-w64-i686-gmp && \
 pacman -Ss mingw-w64-i686-gnome-calculator && \
 pacman -Ss mingw-w64-i686-gnome-common && \
-pacman -Ss mingw-w64-i686-gnome-doc-utils && \
-pacman -Ss mingw-w64-i686-gnome-icon-theme && \
-pacman -Ss mingw-w64-i686-gnome-icon-theme-symbolic && \
-pacman -Ss mingw-w64-i686-gnome-js-common && \
 pacman -Ss mingw-w64-i686-gnu-cobol-svn && \
 pacman -Ss mingw-w64-i686-gnupg && \
 pacman -Ss mingw-w64-i686-gnutls && \
-
 pacman -Ss mingw-w64-i686-go && \
 pacman -Ss mingw-w64-i686-gobject-introspection && \
 pacman -Ss mingw-w64-i686-goocanvas && \
 pacman -Ss mingw-w64-i686-googletest-git && \
-pacman -Ss mingw-w64-i686-gperf && \
 pacman -Ss mingw-w64-i686-gpgme && \
 pacman -Ss mingw-w64-i686-gphoto2 && \
 pacman -Ss mingw-w64-i686-gplugin && \
 pacman -Ss mingw-w64-i686-gprbuild-bootstrap-git && \
-pacman -Ss mingw-w64-i686-gprbuild-gpl && \
-
 pacman -Ss mingw-w64-i686-graphene && \
 pacman -Ss mingw-w64-i686-graphicsmagick && \
 pacman -Ss mingw-w64-i686-graphite2 && \
-pacman -Ss mingw-w64-i686-graphviz && \
-pacman -Ss mingw-w64-i686-grep && \
 pacman -Ss mingw-w64-i686-grpc && \
 pacman -Ss mingw-w64-i686-gsasl && \
 pacman -Ss mingw-w64-i686-gsettings-desktop-schemas && \
@@ -250,52 +226,37 @@ pacman -Ss mingw-w64-i686-gsl && \
 pacman -Ss mingw-w64-i686-gsm && \
 pacman -Ss mingw-w64-i686-gspell && \
 pacman -Ss mingw-w64-i686-gss && \
-
 pacman -Ss mingw-w64-i686-gst-editing-services && \
-pacman -Ss mingw-w64-i686-gst-editing-services-git && \
 pacman -Ss mingw-w64-i686-gst-libav && \
-pacman -Ss mingw-w64-i686-gst-libav-git && \
 pacman -Ss mingw-w64-i686-gst-plugins-bad && \
-pacman -Ss mingw-w64-i686-gst-plugins-bad-git && \
 pacman -Ss mingw-w64-i686-gst-plugins-base && \
-pacman -Ss mingw-w64-i686-gst-plugins-base-git && \
 pacman -Ss mingw-w64-i686-gst-plugins-good && \
-pacman -Ss mingw-w64-i686-gst-plugins-good-git && \
 pacman -Ss mingw-w64-i686-gst-plugins-ugly && \
-pacman -Ss mingw-w64-i686-gst-plugins-ugly-git && \
 pacman -Ss mingw-w64-i686-gst-python && \
-pacman -Ss mingw-w64-i686-gst-python-git && \
 pacman -Ss mingw-w64-i686-gstreamer && \
-pacman -Ss mingw-w64-i686-gstreamer-git && \
 pacman -Ss mingw-w64-i686-gst-rtsp-server && \
-pacman -Ss mingw-w64-i686-gst-rtsp-server-git && \
-
 pacman -Ss mingw-w64-i686-gtef && \
 pacman -Ss mingw-w64-i686-gtest && \
 pacman -Ss mingw-w64-i686-gtk2 && \
 pacman -Ss mingw-w64-i686-gtk3 && \
-pacman -Ss mingw-w64-i686-gtk3-git && \
-pacman -Ss mingw-w64-i686-gtkada && \
-pacman -Ss mingw-w64-i686-gtk-doc && \
 pacman -Ss mingw-w64-i686-gtk-engine-murrine && \
 pacman -Ss mingw-w64-i686-gtk-engines && \
 pacman -Ss mingw-w64-i686-gtk-engine-unico && \
 pacman -Ss mingw-w64-i686-gtkglext && \
-pacman -Ss mingw-w64-i686-gtkhtml3 && \
 pacman -Ss mingw-w64-i686-gtkimageview && \
 pacman -Ss mingw-w64-i686-gtkmm && \
 pacman -Ss mingw-w64-i686-gtkmm3 && \
-
 pacman -Ss mingw-w64-i686-gtksourceview2 && \
 pacman -Ss mingw-w64-i686-gtksourceview3 && \
-pacman -Ss mingw-w64-i686-gtksourceviewmm2 && \
 pacman -Ss mingw-w64-i686-gtksourceviewmm3 && \
 pacman -Ss mingw-w64-i686-gtkspell && \
 pacman -Ss mingw-w64-i686-gtkspell3 && \
 pacman -Ss mingw-w64-i686-gtk-vnc && \
 pacman -Ss mingw-w64-i686-gtkwave && \
-pacman -Ss mingw-w64-i686-guile && \
 pacman -Ss mingw-w64-i686-gxml && \
+
+
+
 
 pacman -Ss mingw-w64-i686-h2o && \
 pacman -Ss mingw-w64-i686-harfbuzz && \

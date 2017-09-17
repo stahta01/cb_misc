@@ -42,31 +42,36 @@ https://chris.beams.io/posts/git-commit/
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
-makepkg-mingw -sLf                               # Built and installed
-
-                                                                          NOTE: NON-GUI Tests Segfaults
-makepkg-mingw -sLf -p wxgtk3.1-gtk2-git.pkgbuild # Built and installed
+makepkg-mingw -sLf                               # Needs Redone and then tested
+                                                                        NOTE: NON-GUI Tests Segfaults
+# Test patches
+makepkg-mingw --nodeps --nobuild
 
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
-makepkg-mingw -sLfCc                             # Built and installed
-makepkg-mingw -sLfCc -p wxgtk3.1-gtk2.pkgbuild   # STOP Testing till 3.1.1 is released
+makepkg-mingw -sLfCc                             # Needs Redone and then tested
 
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
-makepkg-mingw -sLf                               # Has conflict packaging issues
+makepkg-mingw -sLf                               # Needs Redone and then tested
+
+# Test pkgver()
+makepkg-mingw --nodeps --nobuild --noextract --holdver
+
+# Test patches without updating repo
+makepkg-mingw --nodeps --nobuild --holdver
 
 # Test patches
-makepkg-mingw --nodeps --nobuild 
+makepkg-mingw --nodeps --nobuild
 
 # Repackage
 makepkg-mingw -RLf
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
-makepkg-mingw -sLfCc                             # BUILDING
+makepkg-mingw -sLfCc                             # Needs Redone and then tested
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8-git
