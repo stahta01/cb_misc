@@ -1,3 +1,4 @@
+pacman -Ss mingw-w64-i686-attica-qt5 && \
 pacman -Ss mingw-w64-i686-3proxy && \
 pacman -Ss mingw-w64-i686-a52dec && \
 pacman -Ss mingw-w64-i686-adns && \

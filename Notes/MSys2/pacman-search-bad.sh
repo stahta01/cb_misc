@@ -5,7 +5,6 @@ pacman -Si mingw-w64-i686-arm-none-eabi-newlib
 pacman -Si mingw-w64-i686-assimp-git
 pacman -Si mingw-w64-i686-atom-editor-git
 pacman -Si mingw-w64-i686-atom-shell-git
-pacman -Si mingw-w64-i686-attica-qt5
 
 pacman -Si mingw-w64-i686-bc
 pacman -Si mingw-w64-i686-binutils-git
