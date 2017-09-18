@@ -1,0 +1,26 @@
+From 13413a6b58563a9ccc91c58112fad94be76a5f88 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Sun, 14 May 2017 12:05:52 -0400
+Subject: [PATCH 3/3] * mingw-w64-crt-git: Added git commit hash.
+
+#commit=4545aa0020ee7a2f0db33a05d5a5501a061d9d8b
+---
+ mingw-w64-crt-git/PKGBUILD | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mingw-w64-crt-git/PKGBUILD b/mingw-w64-crt-git/PKGBUILD
+index adce3881..22bbe28e 100644
+--- a/mingw-w64-crt-git/PKGBUILD
++++ b/mingw-w64-crt-git/PKGBUILD
+@@ -18,7 +18,7 @@ makedepends=("git"
+ provides=("${MINGW_PACKAGE_PREFIX}-${_realname}")
+ conflicts=("${MINGW_PACKAGE_PREFIX}-${_realname}")
+ options=('!strip' 'staticlibs' '!buildflags' '!emptydirs')
+-source=("mingw-w64"::"git+https://git.code.sf.net/p/mingw-w64/mingw-w64"
++source=("mingw-w64"::"git+https://git.code.sf.net/p/mingw-w64/mingw-w64#commit=4545aa0020ee7a2f0db33a05d5a5501a061d9d8b"
+         "0003-dxgi-Add-missing-dxgi-1.2-structs-and-interfaces.patch"
+         "0004-d3d11-Add-missing-d3d11-1.1-structs-and-interfaces.patch"
+         "0005-handle-ctor_list-internally.patch"
+-- 
+2.14.1.windows.1
+
