@@ -1,0 +1,11 @@
+links.txt
+
+https://wiki.archlinux.org/index.php/PKGBUILD#Package_relations
+
+https://wiki.archlinux.org/index.php/Arch_packaging_standards
+
+https://wiki.archlinux.org/index.php/MinGW_package_guidelines
+
+https://wiki.archlinux.org/index.php/makepkg
+
+https://github.com/msys2/msys2/wiki/Creating-packages
