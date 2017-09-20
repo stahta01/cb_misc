@@ -58,3 +58,11 @@ git checkout qt5.9-shared && git pull && git rebase master && git status -uno
 git checkout qt5.9-staging && git pull && git rebase master && git status -uno
 
 git checkout qt5-base-static && git pull && git rebase master && git status -uno
+
+
+git checkout cmake     && git pull && git rebase master && git status -uno
+
+git checkout cmake-git && git pull && git rebase master && git status -uno
+
+git checkout issues    && git pull && git rebase master && git status -uno
+
