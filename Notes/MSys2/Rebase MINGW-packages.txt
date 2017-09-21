@@ -1,8 +1,6 @@
 $ git branch --list
 ? broken
   cleanup
-? cmake
-? cmake-git           Try to merge changes into "cmake" branch
   gtk/apps
   issues
 * master

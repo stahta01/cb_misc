@@ -1,16 +1,19 @@
 $ git branch --list
 ? DO_NOT_MERGE
   cleanup
-  cmake
-  cmake-git
+? cmake
+? cmake-git           Try to merge changes into "cmake" branch
   issues
 * master
   qt5-git
-  qt5-modules
-  qt5-modules-git
-  qt5.9-modules
-  qt5.9-shared
+D qt5-modules
+D qt5-modules-git
+D qt5.9-modules
+D qt5.9-shared
   qt5.9-staging
+D qt5-base-static
+
+
 
 git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
 git checkout cleanup && git pull && git rebase master && git status -uno
