@@ -9,12 +9,17 @@ $ git branch --list
   qt5.9-staging
 
 
-
+# Rebase master and cleanup branches
 git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
 git checkout cleanup && git pull && git rebase master && git status -uno
-#
-git checkout qt5.9-staging && git pull && git rebase master && git status -uno
-git checkout qt5-git && git pull && git rebase master && git status -uno
+
+# pull other branches
+git checkout qt5.9-staging && git pull && git status -uno
+git checkout qt5-git       && git pull && git status -uno
+git checkout cmake         && git pull && git status -uno
+git checkout cmake-git     && git pull && git status -uno
+git checkout issues        && git pull && git status -uno
+
 
 
 git checkout master && git fetch upstream && git rebase upstream/master && git status -uno && git push origin
