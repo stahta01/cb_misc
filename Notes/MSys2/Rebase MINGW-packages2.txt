@@ -21,7 +21,6 @@ git checkout cmake-git     && git pull && git status -uno
 git checkout issues        && git pull && git status -uno
 
 
-
 git checkout master && git fetch upstream && git rebase upstream/master && git status -uno && git push origin
 
 git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
@@ -32,8 +31,6 @@ git rebase -i master
 git rebase --ignore-date master
 git push --force-with-lease
 
-
-git checkout qt5.9-staging && git pull && git rebase master && git status -uno
 
 
 git checkout cmake     && git pull && git rebase master && git status -uno
