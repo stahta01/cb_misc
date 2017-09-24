@@ -1,0 +1,41 @@
+Apps that use Qt5 Static libs   appexe          Status
+  mingw-w64-octopi-git                          Fails to build
+  mingw-w64-cmake-git           cmake-gui       Newest git is not building
+
+Apps that use Qt5 Shared libs   appexe
+  mingw-w64-cmake               cmake-gui       Works
+  mingw-w64-cppcheck            cppcheck-gui    Works
+  mingw-w64-bsdfprocessor       bsdfprocessor   Run-time error loading dll
+  mingw-w64-ogitor                              No uploaded binary to test
+  mingw-w64-openscad            openscad        Ran; but, nothing was displayed
+  mingw-w64-openscad-git
+  mingw-w64-qbs                 qbs             Ran; and, then gave "ERROR: No project file given and none found in current directory."
+  mingw-w64-qbs-git
+  mingw-w64-qt-creator          qtcreator       Works
+  mingw-w64-quassel             quassel         Ran; but, nothing was displayed
+  mingw-w64-vlc-git             vlc             Works
+  mingw-w64-wkhtmltopdf-git     wkhtmltopdf     Works
+
+Libs that use Qt5 Shared libs
+  mingw-w64-cgal
+  mingw-w64-liblastfm
+  mingw-w64-mathgl
+  mingw-w64-opencv
+  mingw-w64-openimageio
+  mingw-w64-OpenSceneGraph-git
+  mingw-w64-osgQt
+  mingw-w64-osgQtQuick
+  mingw-w64-poppler
+  mingw-w64-pyqt5
+  mingw-w64-qca-qt5-git
+  mingw-w64-qscintilla
+  mingw-w64-qt-solutions-git
+  mingw-w64-qtwebkit
+  mingw-w64-quarter-hg
+  mingw-w64-quazip
+  mingw-w64-qwt-qt5
+  mingw-w64-qxmpp
+  mingw-w64-snorenotify
+  mingw-w64-soqt-hg
+  mingw-w64-tulip
+  mingw-w64-vtk
