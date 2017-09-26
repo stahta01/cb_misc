@@ -7,10 +7,10 @@ $ git branch --list
 ? mingw64/libs
   misc
   qt/apps
-? staging
+D staging
   wx/apps
   wx/libs
-? wxpython-phoenix
+  wxpython-phoenix
   wxwidgets
 
 git fetch --all --prune
@@ -29,7 +29,7 @@ git checkout misc       && git pull && git status -uno
 #
 git checkout broken     && git pull && git status -uno
 git checkout issues     && git pull && git status -uno
-
+git checkout wxpython-phoenix   && git pull && git status -uno
 
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
