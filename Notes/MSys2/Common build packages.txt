@@ -1,5 +1,7 @@
 Common build packages.txt
 
+pacman -S --needed base-devel mingw-w64-i686-gcc mingw-w64-x86_64-gcc msys2-devel
+
 
 
 pacman -S --needed mingw-w64-i686-gcc
