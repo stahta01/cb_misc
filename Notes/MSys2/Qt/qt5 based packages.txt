@@ -2,10 +2,10 @@ Apps that use Qt5 Static libs   appexe          Status
   mingw-w64-octopi-git                          Fails to build
   mingw-w64-cmake-git           cmake-gui       Newest git is not building
 
-Apps that use Qt5 Shared libs   appexe
+Apps that use Qt5 Shared libs   appex
   mingw-w64-cmake               cmake-gui       Works
-  mingw-w64-cppcheck            cppcheck-gui    Works
-  mingw-w64-bsdfprocessor       bsdfprocessor   Run-time error loading dll
+  mingw-w64-cppcheck            cppcheck-gui    Works: with only base, line 44: lrelease: command not found
+  mingw-w64-bsdfprocessor       bsdfprocessor   Run-time error loading dll: with only base, had build error
   mingw-w64-ogitor                              No uploaded binary to test
   mingw-w64-openscad            openscad        Ran; but, nothing was displayed
   mingw-w64-openscad-git
@@ -13,7 +13,7 @@ Apps that use Qt5 Shared libs   appexe
   mingw-w64-qbs-git
   mingw-w64-qt-creator          qtcreator       Works
   mingw-w64-quassel             quassel         Ran; but, nothing was displayed
-  mingw-w64-vlc-git             vlc             Works
+  mingw-w64-vlc-git             vlc             Works: Has prepare patch error when building
   mingw-w64-wkhtmltopdf-git     wkhtmltopdf     Works
 
 Libs that use Qt5 Shared libs
