@@ -19,19 +19,19 @@ git checkout master && git fetch origin && git fetch upstream && git rebase upst
 
 git checkout cleanup && git pull && git rebase master && git status -uno
 #
-git checkout wx/apps    && git pull && git status -uno
-git checkout wx/libs    && git pull && git status -uno
-git checkout wxwidgets  && git pull && git status -uno
+git checkout wx/apps    && git pull --rebase && git status -uno
+git checkout wx/libs    && git pull --rebase && git status -uno
+git checkout wxwidgets  && git pull --rebase && git status -uno
 #
-git checkout gtk/apps   && git pull && git status -uno
-git checkout qt/apps    && git pull && git status -uno
-git checkout misc       && git pull && git status -uno
+git checkout gtk/apps   && git pull --rebase && git status -uno
+git checkout qt/apps    && git pull --rebase && git status -uno
+git checkout misc       && git pull --rebase && git status -uno
 #
-git checkout broken     && git pull && git status -uno
-git checkout issues     && git pull && git status -uno
-git checkout maintainer && git pull && git status -uno
+git checkout broken     && git pull --rebase && git status -uno
+git checkout issues     && git pull --rebase && git status -uno
+git checkout maintainer && git pull --rebase && git status -uno
 
-git checkout wxpython-phoenix   && git pull && git status -uno
+git checkout wxpython-phoenix   && git pull --rebase && git status -uno
 
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
