@@ -15,6 +15,7 @@ pacman -S mingw-w64-i686-toolchain
 pacman -S mingw-w64-x86_64-toolchain
 
 Some of the options
+  -g, --geninteg   Generate integrity checks for source files
   -R, --repackage  Repackage contents of the package without rebuilding
   -s, --syncdeps   Install missing dependencies with pacman
   -L, --log        Log package build process
@@ -42,7 +43,7 @@ https://chris.beams.io/posts/git-commit/
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
-makepkg-mingw -sLf                               # Needs Redone and then tested
+makepkg-mingw -sLf                               # Needs edited to test wxGTK/Win32 Builds and then Tested
                                                                         NOTE: NON-GUI Tests Segfaults
 # Test patches
 makepkg-mingw --nodeps --nobuild
@@ -50,12 +51,15 @@ makepkg-mingw --nodeps --nobuild
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
-makepkg-mingw -sLfCc                             # Needs Redone and then tested
+makepkg-mingw -sLfCc                             # Needs edited to test wxGTK/Win32 Builds and then Tested
+
+# Test patches
+makepkg-mingw --nodeps --nobuild
 
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
-makepkg-mingw -sLf                               # Needs Redone and then tested
+makepkg-mingw -sLf                               # Needs Tested
 
 # Test pkgver()
 makepkg-mingw --nodeps --nobuild --noextract --holdver
