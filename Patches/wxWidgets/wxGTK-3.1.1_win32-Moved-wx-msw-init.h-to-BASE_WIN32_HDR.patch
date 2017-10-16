@@ -1,0 +1,65 @@
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -747,6 +747,7 @@ ALL_PORTS_BASE_HEADERS =  \
+ 	wx/msw/wrapcdlg.h \
+ 	wx/msw/wrapwin.h \
+ 	wx/msw/fswatcher.h \
++	wx/msw/init.h \
+ 	$(BASE_OSX_HDR) \
+ 	wx/fs_inet.h \
+ 	wx/protocol/file.h \
+@@ -2584,7 +2585,8 @@ COND_PLATFORM_WIN32_1_BASE_PLATFORM_HDR =  \
+ 	wx/msw/wrapcctl.h \
+ 	wx/msw/wrapcdlg.h \
+ 	wx/msw/wrapwin.h \
+-	wx/msw/fswatcher.h
++	wx/msw/fswatcher.h \
++	wx/msw/init.h
+ @COND_PLATFORM_WIN32_1@BASE_PLATFORM_HDR = $(COND_PLATFORM_WIN32_1_BASE_PLATFORM_HDR)
+ COND_TOOLKIT_DFB_LOWLEVEL_HDR =  \
+ 	wx/generic/caret.h \
+@@ -3110,7 +3112,6 @@ COND_TOOLKIT_MSW_GUI_HDR =  \
+ 	wx/msw/icon.h \
+ 	wx/msw/imaglist.h \
+ 	wx/msw/iniconf.h \
+-	wx/msw/init.h \
+ 	wx/msw/listbox.h \
+ 	wx/msw/listctrl.h \
+ 	wx/msw/mdi.h \
+--- a/build/bakefiles/files.bkl
++++ b/build/bakefiles/files.bkl
+@@ -173,6 +173,7 @@ IMPORTANT: please read docs/tech/tn0016.txt before modifying this file!
+     wx/msw/wrapcdlg.h
+     wx/msw/wrapwin.h
+     wx/msw/fswatcher.h
++    wx/msw/init.h
+ </set>
+ 
+ <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+@@ -2036,7 +2037,6 @@ IMPORTANT: please read docs/tech/tn0016.txt before modifying this file!
+     wx/msw/icon.h
+     wx/msw/imaglist.h
+     wx/msw/iniconf.h
+-    wx/msw/init.h
+     wx/msw/listbox.h
+     wx/msw/listctrl.h
+     wx/msw/mdi.h
+--- a/build/files
++++ b/build/files
+@@ -128,6 +128,7 @@ BASE_WIN32_HDR =
+     wx/msw/wrapcdlg.h
+     wx/msw/wrapwin.h
+     wx/msw/fswatcher.h
++    wx/msw/init.h
+ 
+ 
+ ## OS X
+@@ -1892,7 +1893,6 @@ MSW_HDR =
+     wx/msw/icon.h
+     wx/msw/imaglist.h
+     wx/msw/iniconf.h
+-    wx/msw/init.h
+     wx/msw/listbox.h
+     wx/msw/listctrl.h
+     wx/msw/mdi.h
+--
