@@ -1,0 +1,50 @@
+Files with embbeded MSys2 build path.txt
+
+Filemask1: *.o,*.a,*.pc,*.py,*.pyc,*.pyo,*.pyd,*.cmake,*.settings,*.sh,*.html
+Filemask2: *.pc,*.py,*.cmake,*.settings,*.sh,*.html
+
+#                                           Mask 1 Mask 2
+Total number of files found under /mingw32 :  8696  0210
+  using [A-Z]:/ regular exp. case sens.
+
+Total number of files found under /mingw32 :  5002  0385
+  using C:/building
+
+Total number of files found under /mingw32 :  2587  0004
+  using D:/develop
+
+Total number of files found under /mingw32 :  0138  0081
+  using C:/repo
+
+Found C:/building/msys64
+  Under /mingw32/i686-w64-mingw32/lib
+    Many *.o and *.a files
+  Under /mingw32/lib
+    Many *.a and a few .o files
+  Under /mingw32/lib/pkgconfig
+    Several *.pc files
+  Under /mingw32/lib/python2.7/site-packages
+    Many *.py, *.pyc, *.pyo, and *.pyd files
+  Under /mingw32/lib/python3.6
+    Many files
+  Under /mingw32/share/gtk-doc
+    Many files
+
+  Under /mingw32/bin
+    idle3
+    pydoc3
+    python3-config
+    pyvenv
+    2to3-3.6
+    idle3.6
+    pydoc3.6
+    pyvenv-3.6
+    python3.6-config
+    python3.6m-config
+
+  Path to single files
+    /mingw32/lib/cmake/llvm/LLVMExports.cmake
+    /mingw32/lib/libhdf5.settings
+    /mingw32/lib/itcl4.1.0/itclConfig.sh
+    /mingw32/lib/tdbc1.0.5/tdbcConfig.sh
+    /mingw32/share/cmake/hdf5-targets.cmake

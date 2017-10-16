@@ -1,0 +1,3 @@
+Packages with build.py
+
+mingw-w64-atom-shell-git
