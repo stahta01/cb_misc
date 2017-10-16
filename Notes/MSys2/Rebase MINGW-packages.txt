@@ -4,7 +4,7 @@ $ git branch --list
   gtk/apps
   issues
 * master
-? mingw64/libs
+D mingw64/libs
   misc
   qt/apps
 D staging
