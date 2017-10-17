@@ -4,10 +4,8 @@ $ git branch --list
   gtk/apps
   issues
 * master
-D mingw64/libs
   misc
   qt/apps
-D staging
   wx/apps
   wx/libs
   wxpython-phoenix
