@@ -1,5 +1,9 @@
 wxGTK_Win32 notes.txt
 
+mingw32/lib/wx/config/gtk2-unicode-3.1
+mingw32/lib/wx/config/gtk2-unicode-static-3.1
+
+
 Building wxGTK/Win32 using MSys2 with configure fixes.
 
 From https://github.com/wxWidgets/wxWidgets/pull/428

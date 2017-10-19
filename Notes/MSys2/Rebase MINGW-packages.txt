@@ -13,6 +13,8 @@ $ git branch --list
 
 git fetch --all --prune
 
+git pull --rebase
+
 git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
 
 git checkout cleanup && git pull && git rebase master && git status -uno
