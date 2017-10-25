@@ -11,7 +11,7 @@ git checkout wxwidgets3.0.3+git-lfs || exit 2
 # git status -uno
 
 
-export PATH=/C/GreenApps32/mingw32-TDM-gcc-6.4.0-2:$PATH
+export PATH=/C/GreenApps32/mingw32-TDM-gcc-6.4.0-2/bin:$PATH
 
 # echo $PATH
 
