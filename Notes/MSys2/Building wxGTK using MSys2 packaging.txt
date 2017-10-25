@@ -31,6 +31,7 @@ Some of the options
   --noprepare      Do not run the prepare() function in the PKGBUILD
   -m, --nocolor    Disable colorized output messages
   --packagelist    Only list packages that would be produced, without PKGEXT
+  --noarchive      Do not create package archive
 
 Repackage
 makepkg-mingw -RLf
@@ -51,7 +52,7 @@ makepkg-mingw --nodeps --nobuild
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
-makepkg-mingw -sLfCc                             # Needs edited and then Tested
+makepkg-mingw -sLfCc                             # Needs Tested
 
 # Test patches
 makepkg-mingw --nodeps --nobuild
@@ -59,7 +60,8 @@ makepkg-mingw --nodeps --nobuild
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
-makepkg-mingw -sLf                               # Needs Tested
+makepkg-mingw -sLf                               # Needs Tested; esp. wxGTK add wx/msw/init.h
+mingw32/include/wx-3.0/wx/msw/init.h
 
 # Test pkgver()
 makepkg-mingw --nodeps --nobuild --noextract --holdver
@@ -72,6 +74,9 @@ makepkg-mingw --nodeps --nobuild
 
 # Repackage
 makepkg-mingw -RLf
+
+# Repackage without builtin log
+makepkg-mingw -Rf > package.log
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
