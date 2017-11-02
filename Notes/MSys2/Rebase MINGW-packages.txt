@@ -47,55 +47,53 @@ git format-patch master
 git push --force-with-lease
 
 git checkout wx/apps && git pull && git rebase master && git status -uno
-git rebase -i master
+#   git rebase -i master
 git push --force-with-lease
 
 git checkout wx/libs && git pull && git rebase master && git status -uno
-git rebase -i master
+#   git rebase -i master
 git push --force-with-lease
 
 git checkout wxpython-phoenix && git pull && git rebase master && git status -uno
 #
-git rebase master && git status -uno
-git rebase -i master
-git push
-#   git push --force-with-lease
+#   git rebase master && git status -uno
+#   git rebase -i master
+#   git push
+git push --force-with-lease
 
 
 git checkout gtk/apps && git pull && git rebase master && git status -uno
-git rebase -i master
-git rebase --ignore-date master
+#   git rebase -i master
+#   git rebase --ignore-date master
 git push --force-with-lease
 
 git checkout qt/apps && git pull && git rebase master && git status -uno
 #
-git rebase -i origin/qt/apps
-git rebase -i master
-git rebase --ignore-date master
+#   git rebase -i origin/qt/apps
+#   git rebase -i master
+#   git rebase --ignore-date master
 git push --force-with-lease
-
 
 git checkout misc && git pull && git rebase master && git status -uno
 #
-git rebase master && git status -uno
-git rebase -i master
-git push
-#   git push --force-with-lease
+#   git rebase master && git status -uno
+#   git rebase -i master
+#   git push
+git push --force-with-lease
 
 git checkout broken && git pull && git rebase master && git status -uno
 #
-git rebase master && git status -uno
-git rebase -i master
-git push
-#   git push --force-with-lease
+#   git rebase master && git status -uno
+#   git rebase -i master
+#   git push
+git push --force-with-lease
 
 git checkout issues && git pull && git rebase master && git status -uno
 #
-git rebase master && git status -uno
-git rebase -i master
-git push
-#   git push --force-with-lease
-
+#   git rebase master && git status -uno
+#   git rebase -i master
+#   git push
+git push --force-with-lease
 
 git checkout maintainer && git pull && git rebase master && git status -uno
-
+git push --force-with-lease
