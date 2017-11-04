@@ -1,0 +1,6 @@
+wxWidgets samples with build issues.txt
+
+
+html    about
+html    widget
+opengl  isosurf
