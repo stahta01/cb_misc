@@ -9,7 +9,7 @@ git push --force-with-lease
 
 git checkout build/wxGTK && git checkout -b build/files && git push -u origin
 
-
+git checkout msys2/reducedGUI && git checkout -b build/reducedGUI && git push -u origin
 
 $ git branch --list
   build/cygwin                  HOLD; Socket needs tested.
@@ -30,3 +30,7 @@ B build/files                   ** Branch from build/wxGTK
   wxGTKwin/rebake               ? Merge into wxGTKwin/makefile.gcc branch
   wxGTKwin/uiaction             KEEP; not worth testing has known errors
   wxUSE_guard                   ? Merge into build/wxUSE_fixes
+
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets-git
+makepkg-mingw -sLfc  

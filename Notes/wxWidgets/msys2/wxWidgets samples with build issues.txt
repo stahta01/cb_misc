@@ -2,5 +2,6 @@ wxWidgets samples with build issues.txt
 
 
 html    about
+html    helpview
 html    widget
 opengl  isosurf
