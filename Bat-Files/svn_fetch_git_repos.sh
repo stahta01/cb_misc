@@ -1,4 +1,4 @@
-cd ~/devel/open_source_code/version_control
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos
 
 cd codeblocks_PCH_fixes-git && git svn fetch  && \
 cd ../codeblocks_custom_build-git && git svn fetch

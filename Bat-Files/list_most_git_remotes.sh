@@ -1,4 +1,4 @@
-cd ~/devel/open_source_code/version_control
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos
 
 cd EmBlocks-git && git remote -v && \
 cd ../cb_misc-git && git remote -v && \
