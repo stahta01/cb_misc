@@ -1,0 +1,35 @@
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/wxWidgets-git
+
+git checkout master && git fetch upstream && git rebase upstream/master && git status -uno
+#  git rebase -i upstream/master
+git push
+
+
+git checkout staging && git rebase master && git status -uno
+git push --force-with-lease
+
+
+git checkout build/cygwin && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout build/files && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout build/reducedGUI && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout build/wxGTK && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout build/wxQT && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout build/wxUSE_CONFIG_NATIVE && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout build/wxUSE_fixes && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout wxGTKwin/makefile.gcc && git rebase master && git status -uno
+git push --force-with-lease
+
