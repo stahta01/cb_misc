@@ -1,0 +1,31 @@
+--disable-compat30                    WXWIN_COMPATIBILITY_3_0
+--disable-all-features                disable all optional features to build minimal library], wxUSE_ALL_FEATURES)
+--disable-sys-libs                    disable all use of system libraries, use only built-in ones], wxUSE_SYS_LIBS)
+--disable-gui                         don't build GUI parts of the library], wxUSE_GUI)
+--disable-controls                    disable compilation of all standard controls], wxUSE_CONTROLS)
+--enable-stl                          use standard C++ classes for everything], wxUSE_STL)
+--enable-std_containers               use standard C++ container classes], wxUSE_STD_CONTAINERS)
+--enable-std_containers_compat        use standard C++ container classes when it can be done compatible], wxUSE_STD_CONTAINERS_COMPATIBLY)
+--enable-std_iostreams                use standard C++ stream classes], wxUSE_STD_IOSTREAM)
+--enable-std_string                   use standard C++ string classes], wxUSE_STD_STRING)
+--enable-std_string_conv_in_wxstring  provide implicit conversion to std::string in wxString], wxUSE_STD_STRING_CONV_IN_WXSTRING)
+--enable-universal
+--enable-graphics_ctx
+--enable-clipboard
+--enable-dnd
+--with-gtk=3
+--with-qt
+--with-msw
+--with-wine
+
+
+dnl ---------------------------------------------------------------------------
+dnl wxMSW-only options
+dnl ---------------------------------------------------------------------------
+
+--enable-dccache        cache temporary wxDC objects (Win32 only)], wxUSE_DC_CACHEING)
+--enable-ps-in-msw      use PS printing in wxMSW (Win32 only)], wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW)
+--enable-ownerdrawn     use owner drawn controls (Win32 and OS/2 only)], wxUSE_OWNER_DRAWN)
+--enable-uxtheme        enable support for Windows XP themed look (Win32 only)], wxUSE_UXTHEME)
+--enable-wxdib          use wxDIB class (Win32 only)], wxUSE_DIB)
+--enable-webviewie      use wxWebView IE backend (Win32 only)], wxUSE_WEBVIEW_IE)
