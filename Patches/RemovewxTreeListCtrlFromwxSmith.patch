@@ -1,0 +1,286 @@
+From e14118ccdd0c4176790092c25bddcf8f872d3a7c Mon Sep 17 00:00:00 2001
+From: None <github@jenslody.de>
+Date: Wed, 1 Jul 2015 07:13:35 +0200
+Subject: Temporary remove wxTreeList from wxContribItems and
+ wxSmithContribItems to try to track down a possibly related bug in wx30 build
+
+
+Index: src/plugins/contrib/wxContribItems/Makefile.am
+===================================================================
+--- src/plugins/contrib/wxContribItems/Makefile.am
++++ src/plugins/contrib/wxContribItems/Makefile.am
+@@ -1,7 +1,6 @@
+-SUBDIRS = wxchart wxFlatNotebook wxthings wxImagePanel wxSpeedButton KWIC wxTreeList wxled .
++SUBDIRS = wxchart wxFlatNotebook wxthings wxImagePanel wxSpeedButton KWIC wxled .
+ 
+ EXTRA_DIST = $(srcdir)/*.cbp
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+-pkgconfig_DATA = wxsmith-contrib.pc cb_wxcontrib.pc cb_wxchartctrl.pc cb_wxcustombutton.pc cb_wxflatnotebook.pc cb_wximagepanel.pc cb_wxspeedbutton.pc cb_wxKWIC.pc cb_wxtreelist.pc cb_wxled.pc
+-
++pkgconfig_DATA = wxsmith-contrib.pc cb_wxcontrib.pc cb_wxchartctrl.pc cb_wxcustombutton.pc cb_wxflatnotebook.pc cb_wximagepanel.pc cb_wxspeedbutton.pc cb_wxKWIC.pc cb_wxled.pc
+Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp
++++ src/plugins/contrib/wxContribItems/wxContribItems_wx30-unix.cbp
+@@ -9,7 +9,7 @@
+ 		<Build>
+ 			<Target title="wxFlatNoteBook">
+ 				<Option platforms="Unix;Mac;" />
+-				<Option output="../../../devel30/libwxflatnotebook" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel30/wxflatnotebook" prefix_auto="1" extension_auto="1" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -20,7 +20,7 @@
+ 			</Target>
+ 			<Target title="wxChartCtrl">
+ 				<Option platforms="Unix;Mac;" />
+-				<Option output="../../../devel30/libwxchartctrl" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel30/wxchartctrl" prefix_auto="1" extension_auto="1" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -30,7 +30,7 @@
+ 				</Compiler>
+ 			</Target>
+ 			<Target title="wxCustomButton">
+-				<Option output="../../../devel30/libwxcustombutton" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel30/wxcustombutton" prefix_auto="1" extension_auto="1" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -41,7 +41,7 @@
+ 			</Target>
+ 			<Target title="wxImagePanel">
+ 				<Option platforms="Unix;Mac;" />
+-				<Option output="../../../devel30/libwximagepanel" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel30/wximagepanel" prefix_auto="1" extension_auto="1" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -52,7 +52,7 @@
+ 			</Target>
+ 			<Target title="wxSpeedButton">
+ 				<Option platforms="Unix;Mac;" />
+-				<Option output="../../../devel30/libwxspeedbutton" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel30/wxspeedbutton" prefix_auto="1" extension_auto="1" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -60,7 +60,7 @@
+ 			</Target>
+ 			<Target title="wxKWIC">
+ 				<Option platforms="Unix;Mac;" />
+-				<Option output="../../../devel30/libwxkwic" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel30/wxkwic" prefix_auto="1" extension_auto="1" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -69,20 +69,9 @@
+ 					<Add directory="KWIC/include" />
+ 				</Compiler>
+ 			</Target>
+-			<Target title="wxTreeList">
+-				<Option platforms="Unix;Mac;" />
+-				<Option output="../../../devel30/libwxtreelist" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems" />
+-				<Option type="3" />
+-				<Option compiler="gcc" />
+-				<Option createStaticLib="1" />
+-				<Compiler>
+-					<Add directory="wxTreeList/include" />
+-				</Compiler>
+-			</Target>
+ 			<Target title="wxLED">
+ 				<Option platforms="Unix;Mac;" />
+-				<Option output="../../../devel30/libwxled" prefix_auto="1" extension_auto="1" />
++				<Option output="../../../devel30/wxled" prefix_auto="1" extension_auto="1" />
+ 				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems" />
+ 				<Option type="3" />
+ 				<Option compiler="gcc" />
+@@ -101,7 +90,7 @@
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="wxFlatNoteBook;wxChartCtrl;wxCustomButton;wxImagePanel;wxSpeedButton;wxKWIC;wxTreeList;wxLED;" />
++			<Add alias="All" targets="wxFlatNoteBook;wxChartCtrl;wxCustomButton;wxImagePanel;wxSpeedButton;wxKWIC;wxLED;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -267,12 +256,6 @@
+ 		<Unit filename="wxSpeedButton/wxSpeedButton.h">
+ 			<Option target="wxSpeedButton" />
+ 		</Unit>
+-		<Unit filename="wxTreeList/include/wx/treelistctrl.h">
+-			<Option target="wxTreeList" />
+-		</Unit>
+-		<Unit filename="wxTreeList/src/treelistctrl.cpp">
+-			<Option target="wxTreeList" />
+-		</Unit>
+ 		<Unit filename="wxchart/include/wx/axis.h">
+ 			<Option target="wxChartCtrl" />
+ 		</Unit>
+Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
++++ src/plugins/contrib/wxContribItems/wxContribItems_wx30.cbp
+@@ -82,17 +82,6 @@
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+ 			</Target>
+-			<Target title="wxTreeList">
+-				<Option platforms="Windows;" />
+-				<Option output="../../../devel30/wxtreelist" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="../../../.objs30/plugins/contrib/wxContribItems/wxtreelist" />
+-				<Option type="3" />
+-				<Option compiler="gcc" />
+-				<Option createStaticLib="1" />
+-				<Compiler>
+-					<Add directory="wxTreeList/include" />
+-				</Compiler>
+-			</Target>
+ 			<Target title="wxLED">
+ 				<Option platforms="Windows;" />
+ 				<Option output="../../../devel30/wxled" prefix_auto="1" extension_auto="1" />
+@@ -117,7 +106,7 @@
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="wxFlatNoteBook;wxChartCtrl;wxCustomButton;wxImagePanel;wxSpeedButton;wxKWIC;wxTreeList;wxLED;" />
++			<Add alias="All" targets="wxFlatNoteBook;wxChartCtrl;wxCustomButton;wxImagePanel;wxSpeedButton;wxKWIC;wxLED;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -290,12 +279,6 @@
+ 		<Unit filename="wxSpeedButton/wxSpeedButton.h">
+ 			<Option target="wxSpeedButton" />
+ 		</Unit>
+-		<Unit filename="wxTreeList/include/wx/treelistctrl.h">
+-			<Option target="wxTreeList" />
+-		</Unit>
+-		<Unit filename="wxTreeList/src/treelistctrl.cpp">
+-			<Option target="wxTreeList" />
+-		</Unit>
+ 		<Unit filename="wxchart/include/wx/axis.h">
+ 			<Option target="wxChartCtrl" />
+ 		</Unit>
+Index: src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp
+===================================================================
+--- src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp
++++ src/plugins/contrib/wxContribItems/wxContribItems_wx30_64.cbp
+@@ -82,17 +82,6 @@
+ 					<Add option="-Wl,--export-all-symbols" />
+ 				</Linker>
+ 			</Target>
+-			<Target title="wxTreeList">
+-				<Option platforms="Windows;" />
+-				<Option output="../../../devel30_64/wxtreelist" prefix_auto="1" extension_auto="1" />
+-				<Option object_output="../../../.objs30_64/plugins/contrib/wxContribItems/wxtreelist" />
+-				<Option type="3" />
+-				<Option compiler="gcc" />
+-				<Option createStaticLib="1" />
+-				<Compiler>
+-					<Add directory="wxTreeList/include" />
+-				</Compiler>
+-			</Target>
+ 			<Target title="wxLED">
+ 				<Option platforms="Windows;" />
+ 				<Option output="../../../devel30_64/wxled" prefix_auto="1" extension_auto="1" />
+@@ -117,7 +106,7 @@
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+-			<Add alias="All" targets="wxFlatNoteBook;wxChartCtrl;wxCustomButton;wxImagePanel;wxSpeedButton;wxKWIC;wxTreeList;wxLED;" />
++			<Add alias="All" targets="wxFlatNoteBook;wxChartCtrl;wxCustomButton;wxImagePanel;wxSpeedButton;wxKWIC;wxLED;" />
+ 		</VirtualTargets>
+ 		<Compiler>
+ 			<Add option="$(#CB_RELEASE_TYPE)" />
+@@ -291,12 +280,6 @@
+ 		<Unit filename="wxSpeedButton/wxSpeedButton.h">
+ 			<Option target="wxSpeedButton" />
+ 		</Unit>
+-		<Unit filename="wxTreeList/include/wx/treelistctrl.h">
+-			<Option target="wxTreeList" />
+-		</Unit>
+-		<Unit filename="wxTreeList/src/treelistctrl.cpp">
+-			<Option target="wxTreeList" />
+-		</Unit>
+ 		<Unit filename="wxchart/include/wx/axis.h">
+ 			<Option target="wxChartCtrl" />
+ 		</Unit>
+Index: src/plugins/contrib/wxSmithContribItems/Makefile.am
+===================================================================
+--- src/plugins/contrib/wxSmithContribItems/Makefile.am
++++ src/plugins/contrib/wxSmithContribItems/Makefile.am
+@@ -11,7 +11,6 @@
+ 		-I$(srcdir)/../wxContribItems/wxImagePanel/include \
+ 		-I$(srcdir)/../wxContribItems/wxthings/include \
+ 		-I$(srcdir)/../wxContribItems/KWIC/include \
+-		-I$(srcdir)/../wxContribItems/wxTreeList/include \
+ 		-I$(srcdir)/../wxContribItems/wxSpeedButton \
+ 		-I$(srcdir)/../wxContribItems/wxled/gizmosled/include \
+ 		-I$(srcdir)/../wxContribItems/wxled/lcdWindow/include \
+@@ -32,7 +31,6 @@
+ 			../wxContribItems/wxImagePanel/libwximagepanel.la \
+ 			../wxContribItems/wxSpeedButton/libwxspeedbutton.la \
+ 			../wxContribItems/KWIC/libwxkwic.la \
+-			../wxContribItems/wxTreeList/libwxtreelist.la \
+ 			../wxContribItems/wxthings/libwxcustombutton.la \
+ 			../wxContribItems/wxled/libwxled.la \
+ 			$(WX_LIBS)
+@@ -47,7 +45,6 @@
+ 		$(srcdir)/wxflatnotebook/images/*.xpm \
+ 		$(srcdir)/wxflatnotebook/images/*.png \
+ 		$(srcdir)/wxSmithKWIC/images/*.xpm \
+-		$(srcdir)/wxtreelist/images/*.xpm \
+ 		$(srcdir)/wxgbsizer/images/*.xpm \
+ 		$(srcdir)/wxled/images/*.xpm \
+ 		$(srcdir)/*.cbp \
+@@ -74,7 +71,6 @@
+ ./wxSmithKWIC/wxslcddisplay.cpp \
+ ./wxSmithKWIC/wxslinearmeter.cpp \
+ ./wxSmithKWIC/wxslinearregulator.cpp \
+-./wxtreelist/wxsTreeListCtrl.cpp \
+ ./wxgbsizer/wxsGridBagSizer.cpp \
+ ./wxled/wxsLcdWindow.cpp \
+ ./wxled/wxsLed.cpp \
+@@ -98,7 +94,6 @@
+ ./wxSmithKWIC/wxslcddisplay.h \
+ ./wxSmithKWIC/wxslinearmeter.h \
+ ./wxSmithKWIC/wxslinearregulator.h \
+-./wxtreelist/wxsTreeListCtrl.h \
+ ./wxgbsizer/wxsGridBagSizer.h \
+ ./wxled/wxsLcdWindow.h \
+ ./wxled/wxsLed.h \
+Index: src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp
+===================================================================
+--- src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp
++++ src/plugins/contrib/wxSmithContribItems/wxSmithContribItems_wx30-unix.cbp
+@@ -33,7 +33,6 @@
+ 					<Add directory="../wxContribItems/wxthings/include" />
+ 					<Add directory="../wxContribItems/KWIC/include" />
+ 					<Add directory="../wxContribItems/wxSpeedButton" />
+-					<Add directory="../wxContribItems/wxTreeList/include" />
+ 					<Add directory="../wxContribItems/wxled/gizmosled/include" />
+ 					<Add directory="../wxContribItems/wxled/lcdWindow/include" />
+ 					<Add directory="../wxContribItems/wxled/led/include" />
+@@ -48,7 +47,6 @@
+ 					<Add library="wxcustombutton" />
+ 					<Add library="wximagepanel" />
+ 					<Add library="wxspeedbutton" />
+-					<Add library="wxtreelist" />
+ 					<Add library="wxled" />
+ 					<Add directory="../../../devel30" />
+ 				</Linker>
+@@ -168,10 +166,6 @@
+ 		<Unit filename="wxthings/wxcustombutton32.xpm" />
+ 		<Unit filename="wxthings/wxscustombutton.cpp" />
+ 		<Unit filename="wxthings/wxscustombutton.h" />
+-		<Unit filename="wxtreelist/images/TreeList16.xpm" />
+-		<Unit filename="wxtreelist/images/TreeList32.xpm" />
+-		<Unit filename="wxtreelist/wxsTreeListCtrl.cpp" />
+-		<Unit filename="wxtreelist/wxsTreeListCtrl.h" />
+ 		<Extensions>
+ 			<code_completion />
+ 			<envvars />

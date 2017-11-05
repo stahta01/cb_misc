@@ -1,0 +1,40 @@
+diff --git a/src/plugins/contrib/wxSmith/wxwidgets/wxsevents.cpp b/src/plugins/contrib/wxSmith/wxwidgets/wxsevents.cpp
+index d886818..c4a0d72 100644
+--- a/src/plugins/contrib/wxSmith/wxwidgets/wxsevents.cpp
++++ b/src/plugins/contrib/wxSmith/wxwidgets/wxsevents.cpp
+@@ -130,8 +130,9 @@ void wxsEvents::GenerateBindingCode(wxsCoderContext* Context,const wxString& IdS
+                         case wxsEventDesc::Id:
+                             Context->m_EventsConnectingCode
+                                  << _T("Connect(") << IdString << _T(",")
+-                                 << m_EventArray[i].Type << _T(",(wxObjectEventFunction)&")
+-                                 << ClassName << _T("::") << m_Functions[i] << _T(");\n");
++                                 << m_EventArray[i].Type << _T(",")
++                                 << m_EventArray[i].ArgType << _T("Handler(")
++                                 << ClassName << _T("::") << m_Functions[i] << _T("));\n");
+                             break;
+ 
+                         case wxsEventDesc::NoId:
+@@ -141,16 +142,18 @@ void wxsEvents::GenerateBindingCode(wxsCoderContext* Context,const wxString& IdS
+                                 // If this is root item, it's threaded as Id one
+                                 Context->m_EventsConnectingCode
+                                      << _T("Connect(")
+-                                     << m_EventArray[i].Type << _T(",(wxObjectEventFunction)&")
+-                                     << ClassName << _T("::") << m_Functions[i] << _T(");\n");
++                                     << m_EventArray[i].Type << _T(",")
++                                     << m_EventArray[i].ArgType << _T("Handler(")
++                                     << ClassName << _T("::") << m_Functions[i] << _T("));\n");
+                             }
+                             else
+                             {
+                                 Context->m_EventsConnectingCode
+                                      << VarNameString << _T("->Connect(")
+-                                     << m_EventArray[i].Type
+-                                     << _T(",(wxObjectEventFunction)&") << ClassName << _T("::") << m_Functions[i]
+-                                     << _T(",0,this);\n");
++                                     << m_EventArray[i].Type << _T(",")
++                                     << m_EventArray[i].ArgType << _T("Handler(")
++                                     << ClassName << _T("::") << m_Functions[i]
++                                     << _T("),0,this);\n");
+                             }
+                             break;
+ 
