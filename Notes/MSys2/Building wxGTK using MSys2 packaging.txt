@@ -44,7 +44,7 @@ https://chris.beams.io/posts/git-commit/
 
 # Change to package(s) folder
 # NOTE: NON-GUI Tests Segfaults because of Mingw64 C Run-time library issue.
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets-git
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages-git/mingw-w64-wxwidgets-git
 makepkg-mingw -sLfc                              # Needs edited and then Tested
                                                                         
 # Test patches
@@ -52,7 +52,7 @@ makepkg-mingw --nodeps --nobuild
 
 
 # Change to package(s) folder
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages-git/mingw-w64-wxwidgets3.1
 makepkg-mingw -sLfCc                             # Needs Tested
 
 # Test patches
@@ -60,7 +60,7 @@ makepkg-mingw --nodeps --nobuild
 
 
 # Change to package(s) folder
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages-git/mingw-w64-wxwidgets3.0-git
 makepkg-mingw -sLf                               # Needs Tested; esp. wxGTK add wx/msw/init.h
 mingw32/include/wx-3.0/wx/msw/init.h
 
@@ -80,15 +80,15 @@ makepkg-mingw -RLf
 makepkg-mingw -Rf > package.log
 
 # Change to package(s) folder
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages-git/mingw-w64-wxwidgets
 makepkg-mingw -sLfCc                             # Needs Redone and then tested
 
 # Change to package(s) folder
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.8-git
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages-git/mingw-w64-wxwidgets2.8-git
 makepkg-mingw -sLf                               # Built and installed
 
 # Change to package(s) folder
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets2.6-git
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages-git/mingw-w64-wxwidgets2.6-git
 makepkg-mingw -sLf                               # Built and installed
 
 
