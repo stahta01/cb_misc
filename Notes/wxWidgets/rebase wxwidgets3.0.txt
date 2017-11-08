@@ -1,0 +1,66 @@
+$ git branch --list
+  WX_3_0_3_BRANCH
+* WX_3_0_BRANCH
+  build/makefile.gcc              # Need to test changes
+  build/mingwPCH
+  build/nonGUI_3_0_X              # Edit commits and then test building
+  build/reducedGUI_3_0_X          # Edit commits
+  build/testReducedGUI_3_0_X      # Rebase with reducedGUI_3_0_X and then test building
+  deprecated/WX_3_0_BRANCH        # Rebase with WX_3_0_BRANCH and then test building
+  inwork
+  staging3.0                      # test directions building
+  wxwidgets3.0.3_git
+  wxwidgets3.0.3_git-lfs          # Need to push LFS binary
+
+git fetch --all --prune
+
+git checkout WX_3_0_3_BRANCH && git rebase upstream/WX_3_0_3_BRANCH && git status -uno
+
+git checkout WX_3_0_BRANCH && git rebase upstream/WX_3_0_BRANCH && git status -uno
+
+
+git checkout staging3.0 && git pull && git rebase WX_3_0_BRANCH && git status -uno
+#   git rebase -i WX_3_0_BRANCH
+git push --force-with-lease
+
+git checkout inwork && git pull && git rebase staging3.0 && git status -uno
+#   git rebase -i staging3.0
+git push --force-with-lease
+
+
+
+git checkout wxwidgets3.0.3_git && git pull && git rebase WX_3_0_3_BRANCH
+git push --force-with-lease
+
+git checkout wxwidgets3.0.3_git-lfs && git pull && git rebase wxwidgets3.0.3_git
+git push --force-with-lease
+
+
+git checkout build/makefile.gcc && git pull && git rebase WX_3_0_BRANCH && git status -uno
+#   git rebase -i WX_3_0_BRANCH
+git push --force-with-lease
+
+git checkout deprecated/WX_3_0_BRANCH && git pull && git rebase WX_3_0_BRANCH && git status -uno
+git push --force-with-lease
+
+git checkout build/mingwPCH && git pull && git rebase WX_3_0_BRANCH && git status -uno
+git push --force-with-lease
+
+
+git checkout build/reducedGUI_3_0_X && git pull && git rebase WX_3_0_BRANCH && git status -uno
+#   git rebase -i WX_3_0_BRANCH
+#   git format-patch WX_3_0_BRANCH
+git push --force-with-lease
+
+
+
+git checkout build/testReducedGUI_3_0_X && git pull && git rebase WX_3_0_BRANCH && git status -uno
+#   git rebase -i build/reducedGUI_3_0_X
+git push --force-with-lease
+
+
+git checkout build/nonGUI_3_0_X && git pull && git rebase WX_3_0_BRANCH && git status -uno
+#   git rebase build/testReducedGUI_3_0_X
+#   git rebase -i WX_3_0_BRANCH
+#   git format-patch WX_3_0_BRANCH
+git push --force-with-lease
