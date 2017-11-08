@@ -5,31 +5,32 @@ git checkout master && git fetch upstream && git rebase upstream/master && git s
 git push
 
 
-git checkout staging && git rebase master && git status -uno
-git push --force-with-lease
+git checkout staging && git rebase master && git format-patch master && git status -uno
+#   git rebase -i master
+#   git rebase --ignore-date master
+#   git push --force-with-lease
 
 
-git checkout build/cygwin && git rebase master && git status -uno
-git push --force-with-lease
+git checkout build/cygwin && git rebase master && git format-patch master && git status -uno
+#   git push --force-with-lease
 
-git checkout build/files && git rebase master && git status -uno
-git push --force-with-lease
+git checkout build/files && git rebase master && git format-patch master && git status -uno
+#   git push --force-with-lease
 
-git checkout build/reducedGUI && git rebase master && git status -uno
-git push --force-with-lease
+git checkout build/reducedGUI && git rebase master && git format-patch master && git status -uno
+#   git push --force-with-lease
 
-git checkout build/wxGTK && git rebase master && git status -uno
-git push --force-with-lease
+git checkout build/wxGTK && git rebase master && git format-patch master && git status -uno
+#   git push --force-with-lease
 
-git checkout build/wxQT && git rebase master && git status -uno
-git push --force-with-lease
+git checkout build/wxQT && git rebase master && git format-patch master && git status -uno
+#   git push --force-with-lease
 
-git checkout build/wxUSE_CONFIG_NATIVE && git rebase master && git status -uno
-git push --force-with-lease
+git checkout build/wxUSE_CONFIG_NATIVE && git rebase master && git format-patch master && git status -uno
+#   git push --force-with-lease
 
-git checkout build/wxUSE_fixes && git rebase master && git status -uno
-git push --force-with-lease
+git checkout build/wxUSE_fixes && git rebase master && git format-patch master && git status -uno
+#   git push --force-with-lease
 
-git checkout wxGTKwin/makefile.gcc && git rebase master && git status -uno
-git push --force-with-lease
-
+git checkout wxGTKwin/makefile.gcc && git rebase master && git format-patch master && git status -uno
+#   git push --force-with-lease
