@@ -1,7 +1,7 @@
 cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos
 
-cd codeblocks_PCH_fixes-git && git svn fetch  && \
-cd ../codeblocks_custom_build-git && git svn fetch
-# cd ../codeblocks_console-git && git svn fetch  && \
-# cd ../codeblocks_msys2-git && git svn fetch  && \
-# cd ../codeblocks_wx_multilib_gcc471TDM-git && git svn fetch
+cd codeblocks_PCH_fixes && git svn fetch  && \
+cd ../codeblocks_custom_build && git svn fetch
+# cd ../codeblocks_console && git svn fetch  && \
+# cd ../codeblocks_msys2 && git svn fetch  && \
+# cd ../codeblocks_wx_multilib_gcc471TDM && git svn fetch
