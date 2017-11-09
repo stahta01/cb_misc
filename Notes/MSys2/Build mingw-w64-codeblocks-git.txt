@@ -15,7 +15,7 @@ pacman -Qs wxwidgets
 # See which codeblock's package is installed
 pacman -Qs codeblocks
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git && git status -uno
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-git && git status -uno
 
 ##  git checkout master && git fetch upstream && git rebase upstream/master && git push origin
 
@@ -25,7 +25,7 @@ git rebase --ignore-date master
 git log -3
 git push --force-with-lease
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-git && git status -uno
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-git && git status -uno
 
 #   MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
 

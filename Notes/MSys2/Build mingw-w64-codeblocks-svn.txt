@@ -1,15 +1,15 @@
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-svn && git status -uno
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn && git status -uno
 MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-svn_wxMSW3.1 && git status -uno
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn_wxMSW3.1 && git status -uno
 MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-svn_wxGTK3.1-gtk3 && git status -uno
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn_wxGTK3.1-gtk3 && git status -uno
 MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
 
 ###
 
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-codeblocks-svn && git status -uno
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn && git status -uno
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 #
 MINGW_INSTALLS=mingw32 makepkg-mingw -RLf # Repackage

@@ -97,3 +97,6 @@ git push --force-with-lease
 
 git checkout maintainer && git pull && git rebase master && git status -uno
 git push --force-with-lease
+
+
+git gc && git prune && git fsck && exit

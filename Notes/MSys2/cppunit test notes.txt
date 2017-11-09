@@ -7,7 +7,7 @@
 ####
 #
 # Change to MINGW_packages sub-folder
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-wxwidgets3.1-git
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxwidgets3.1-git
 #
 # Prepare to run or make wxWidgets tests
 export PATH="/mingw32/bin:"$PATH
@@ -31,10 +31,10 @@ Segmentation fault in UnicodeTestCase methods ConversionWithNULs and Iteration i
 No tests have been edited
 #0  0x007bc43c in __mingw_swformat (s=s@entry=0x68ee4a0,
     format=format@entry=0x94c162 <UnicodeTestCase::ConversionWithNULs()::lenNulString+46> L"%d %s", argp=argp@entry=0x68ef4e8 "▒▒\006\030▒▒\006*")
-    at C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_wvfscanf.c:827
+    at $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_wvfscanf.c:827
 #1  0x007be570 in __mingw_vswscanf (s=s@entry=0x68ef640 L"42 test",
     format=format@entry=0x94c162 <UnicodeTestCase::ConversionWithNULs()::lenNulString+46> L"%d %s", argp=argp@entry=0x68ef4e8 "▒▒\006\030▒▒\006*")
-    at C:/Devel/open_source_code/version_control/MINGW_packages-git/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_wvfscanf.c:1621
+    at $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_wvfscanf.c:1621
 
 This application has requested the Runtime to terminate it in an unusual way.
 Please contact the application's support team for more information.

@@ -23,7 +23,7 @@ C:\Apps32\MSys2
 pacman -Syu
 pacman -S base-devel
 
-cd "C:\Users\stahta01\devel\open_source_code\version_control\MINGW_packages-git\mingw-w64-poppler"
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-poppler
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf 
 
 check() {
