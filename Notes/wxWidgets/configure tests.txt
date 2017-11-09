@@ -28,7 +28,7 @@ git checkout master && git fetch && git status -uno
 
 
 ## Verify that option "--disable-precomp-headers" works
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --disable-precomp-headers && make && cd samples && make
 # It worked!
@@ -36,7 +36,7 @@ mkdir -p build_test && cd build_test && make clean && \
 
 
 ## Verify that option "--enable-monolithic" and "--disable-shared" works
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --enable-monolithic --disable-shared && make && cd samples && make
 # It built wxGTK and samples
@@ -44,7 +44,7 @@ mkdir -p build_test && cd build_test && make clean && \
 
 
 ## Verify that wxQT builds samples
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_qt_test && cd build_qt_test && make clean && \
 ../configure --with-qt && make && cd samples && make
 # It built wxQT and samples.
@@ -52,7 +52,7 @@ mkdir -p build_qt_test && cd build_qt_test && make clean && \
 
 
 ## Verify that option "--enable-compat28" and "--disable-precomp-headers" builds
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_compat28_test && cd build_compat28_test && make clean && \
 ../configure --enable-compat28 --disable-precomp-headers && make && cd samples && make
 # It built (compat28) wxGTK and samples
@@ -64,7 +64,7 @@ mkdir -p build_compat28_test && cd build_compat28_test && make clean && \
 
 
 ## Verify that option "--disable-precomp-headers" works with wxQT builds
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_qt_test && cd build_qt_test && make clean && \
 ../configure --with-qt --disable-precomp-headers --without-subdirs && make
 # It worked!
@@ -72,7 +72,7 @@ mkdir -p build_qt_test && cd build_qt_test && make clean && \
 
 
 ## Verify that option "--enable-universal" works
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --enable-universal --without-subdirs && make
 #
@@ -80,7 +80,7 @@ mkdir -p build_test && cd build_test && make clean && \
 # src/gtk/webview_webkit.cpp includes header "wx/gtk/control.h" this is likely the cause of the error!
 # Changing include to "wx/control.h" changes the error; but, it still errors out.
 #
-wxWidgets-git/build_test/bk-deps g++ -c -o webviewdll_gtk_webview_webkit.o -I./.pch/wxprec_webviewdll -D__WXGTK__ -D__WXUNIVERSAL__     -DWXBUILDING      -I../src/regex  -DWXUSINGDLL -DWXMAKINGDLL_WEBVIEW -fPIC -DPIC -Wall -Wundef -Wunused-parameter -Wno-ctor-dtor-privacy -Woverloaded-virtual -D_FILE_OFFSET_BITS=64 -I/home/stahta01/devel/version_control/wxWidgets-git/build_test/lib/wx/include/gtk2univ-unicode-3.1 -I../include -pthread -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -pthread -I/usr/include/webkitgtk-1.0 -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/libsoup-2.4 -I/usr/include/libxml2 -I/usr/include/webkitgtk-1.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DWX_PRECOMP -pthread -O2 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -pthread -I/usr/include/gtk-unix-print-2.0 -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -fvisibility=hidden -fvisibility-inlines-hidden ../src/gtk/webview_webkit.cpp
+wxWidgets/build_test/bk-deps g++ -c -o webviewdll_gtk_webview_webkit.o -I./.pch/wxprec_webviewdll -D__WXGTK__ -D__WXUNIVERSAL__     -DWXBUILDING      -I../src/regex  -DWXUSINGDLL -DWXMAKINGDLL_WEBVIEW -fPIC -DPIC -Wall -Wundef -Wunused-parameter -Wno-ctor-dtor-privacy -Woverloaded-virtual -D_FILE_OFFSET_BITS=64 -I/home/stahta01/devel/version_control/wxWidgets/build_test/lib/wx/include/gtk2univ-unicode-3.1 -I../include -pthread -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -pthread -I/usr/include/webkitgtk-1.0 -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/libsoup-2.4 -I/usr/include/libxml2 -I/usr/include/webkitgtk-1.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -DWX_PRECOMP -pthread -O2 -pthread -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -pthread -I/usr/include/gtk-unix-print-2.0 -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -fvisibility=hidden -fvisibility-inlines-hidden ../src/gtk/webview_webkit.cpp
 In file included from ../src/gtk/webview_webkit.cpp:16:0:
 ../include/wx/gtk/control.h:20:24: error: redefinition of ‘class wxControl’
  class WXDLLIMPEXP_CORE wxControl : public wxControlBase
@@ -110,7 +110,7 @@ In file included from ../include/wx/window.h:1943:0,
 #
 
 ## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --disable-all-features --enable-universal --without-subdirs && make
 #
@@ -121,7 +121,7 @@ mkdir -p build_test && cd build_test && make clean && \
 
 
 ## Check the configure.in files for proper "WX_ARG_FEATURE" usage.
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --disable-all-features --enable-controls --without-subdirs && make
 #
@@ -133,7 +133,7 @@ mkdir -p build_test && cd build_test && make clean && \
 
 
 ## Verify an non GUI build works.
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --disable-gui --without-subdirs && make
 # This worked on Linux!
@@ -145,7 +145,7 @@ mkdir -p build_test && cd build_test && make clean && \
 ######
 ##
 ## Verify that option "--disable-precomp-headers" works with wxMSW
-cd ~/devel/version_control/wxWidgets-git && \
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --with-msw --disable-precomp-headers && make && cd samples && make
 
@@ -154,8 +154,8 @@ mkdir -p build_test && cd build_test && make clean && \
 ##
 ##  !!!Testing with multiple patches applied!!!
 ##
-#   cd ~/devel/wxWidgets-git && git checkout build/cfg_fixes && git status
-cd ~/devel/wxWidgets-git && git status -uno && \
+#   cd ~/devel/wxWidgets && git checkout build/cfg_fixes && git status
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && git status -uno && \
 mkdir -p build_test && cd build_test && make clean && \
 ../configure --with-msw --without-subdirs --disable-all-features \
     --enable-controls --enable-menus && make

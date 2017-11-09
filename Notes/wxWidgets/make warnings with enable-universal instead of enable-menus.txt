@@ -4,7 +4,7 @@ Makefile:19948: warning: overriding recipe for target 'monodll_generic_activityi
 Makefile:19945: warning: ignoring old recipe for target 'monodll_generic_activityindicator.o'
 Makefile:24781: warning: overriding recipe for target 'monolib_generic_activityindicator.o'
 Makefile:24778: warning: ignoring old recipe for target 'monolib_generic_activityindicator.o'
-/c/Users/stahta01/devel/wxWidgets-git/build_test/bk-deps g++ -c -o coredll_univ_anybutton.o -I./.pch/wxprec_coredll -D__WXMSW__ -D__WXUNIVERSAL__     -DWXBUILDING        -DWXUSINGDLL -DWXMAKINGDLL_CORE -DwxUSE_BASE=0  -Wall -Wundef -Wunused-parameter -Wno-ctor-dtor-privacy -Woverloaded-virtual -D_FILE_OFFSET_BITS=64 -I/c/Users/stahta01/devel/wxWidgets-git/build_test/lib/wx/include/mswuniv-unicode-3.1 -I../include -DWX_PRECOMP -O2  ../src/univ/anybutton.cpp
+/c/Users/stahta01/devel/wxWidgets/build_test/bk-deps g++ -c -o coredll_univ_anybutton.o -I./.pch/wxprec_coredll -D__WXMSW__ -D__WXUNIVERSAL__     -DWXBUILDING        -DWXUSINGDLL -DWXMAKINGDLL_CORE -DwxUSE_BASE=0  -Wall -Wundef -Wunused-parameter -Wno-ctor-dtor-privacy -Woverloaded-virtual -D_FILE_OFFSET_BITS=64 -I/c/Users/stahta01/devel/wxWidgets/build_test/lib/wx/include/mswuniv-unicode-3.1 -I../include -DWX_PRECOMP -O2  ../src/univ/anybutton.cpp
 ../src/univ/anybutton.cpp:31:6: error: 'wxAnyButton' has not been declared
  void wxAnyButton::Press()
       ^
@@ -287,5 +287,5 @@ In file included from ../include/wx/event.h:16:0,
 Makefile:26890: recipe for target 'coredll_univ_anybutton.o' failed
 make: *** [coredll_univ_anybutton.o] Error 1
 
-stahta01@TimWin7-32 MINGW32 ~/devel/wxWidgets-git/build_test
+stahta01@TimWin7-32 MINGW32 ~/devel/wxWidgets/build_test
 $

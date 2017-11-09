@@ -1,6 +1,6 @@
 Rebuilding build files.txt
 
-cd /c/Devel/open_source_code/version_control/wxWidgets-git && git status -uno
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && git status -uno
 
 # git checkout msys2/wxgtk && git fetch upstream && git rebase upstream/master && git status -uno
 # Edit "files" file.
@@ -8,7 +8,7 @@ cd /c/Devel/open_source_code/version_control/wxWidgets-git && git status -uno
 
 # git checkout makefile.gcc/wxGTK && git fetch upstream && git rebase upstream/master && git status -uno
 
-cd /c/Devel/open_source_code/version_control/wxWidgets-git && git status -uno
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets && git status -uno
 
 cd build/bakefiles
 
@@ -30,7 +30,7 @@ git status -uno
 
 LINUX Directions
 
-cd ~/devel/open_source_code/version_control/wxWidgets-git
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets
 
 git-sh
 

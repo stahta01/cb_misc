@@ -3,7 +3,7 @@ Building wxWidgets using MSys2 packaging.txt
 # Open Terminal
 
 # Change to wxWidgets git repo.
-cd C~/devel/open_source_code/version_control/wxWidgets-git
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets
 
 
 mkdir build_gtk2_shared_mulitlib_unicode
@@ -41,7 +41,7 @@ assertion failed
 - Expression: (AreImagesFilesContentsEqual(fileName.GetFullPath(), refFileName.
 GetFullPath()))
 - Image files "/tmp/image_test_image_1.png" and "/home/stahta01/devel/open_sour
-ce_code/version_control/wxWidgets-git/build_gtk2_shared_mulitlib_unicode/drawin
+ce_code/version_control/wxWidgets/build_gtk2_shared_mulitlib_unicode/drawin
 g/references/image_test_image_1_ref.png" differ.
 
 Failures !!!

@@ -12,7 +12,7 @@ pacman -S mingw-w64-x86_64-toolchain
 
 
 # Change to MinGW Package git repo.
-cd C:/Devel/open_source_code/version_control/MINGW_packages-git
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages
 
 # Change to wxWidgets folder
 cd mingw-w64-wxwidgets

@@ -1,5 +1,5 @@
 
-cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/wxWidgets-git
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets
 
 cd build-msw-shared/samples/help && make && cd ../../..
 ./build-msw-shared/samples/help/help.exe

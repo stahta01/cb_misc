@@ -1,4 +1,4 @@
-cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/wxWidgets-git
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets
 
 git checkout master && git fetch upstream && git rebase upstream/master && git status -uno
 #  git rebase -i upstream/master
