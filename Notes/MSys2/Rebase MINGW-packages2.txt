@@ -26,8 +26,8 @@ git checkout cleanup && git pull && git rebase --ignore-date master && git push 
 git checkout cleanup && git status
 
 git checkout qt5-git && git pull && git rebase master && git status -uno
-git rebase -i master
-git rebase --ignore-date master
+#   git rebase -i master
+#   git rebase --ignore-date master
 git push --force-with-lease
 
 
