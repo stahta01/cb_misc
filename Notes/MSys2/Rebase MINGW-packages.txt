@@ -51,6 +51,7 @@ git checkout wxwidgets && git pull && git rebase wxwidgets-staging && git status
 #   git format-patch wxwidgets-staging
 git push --force-with-lease
 
+
 git checkout wx/apps && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
@@ -70,11 +71,11 @@ git checkout wxpython-phoenix && git pull && git rebase master && git status -un
 #   git push
 git push --force-with-lease
 
-
 git checkout gtk/apps && git pull && git rebase master && git status -uno
 #   git rebase -i master
 #   git rebase --ignore-date master
 git push --force-with-lease
+
 
 git checkout qt/apps && git pull && git rebase master && git status -uno
 #   git rebase -i origin/qt/apps
