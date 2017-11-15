@@ -55,6 +55,10 @@ git checkout wx/apps && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
+git checkout gettext && git pull && git rebase master && git status -uno
+#   git rebase -i master
+git push --force-with-lease
+
 git checkout wx/libs && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
