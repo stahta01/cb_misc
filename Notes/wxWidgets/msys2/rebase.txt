@@ -34,3 +34,5 @@ git checkout build/wxUSE_fixes && git rebase master && git format-patch master &
 
 git checkout wxGTKwin/makefile.gcc && git rebase master && git format-patch master && git status -uno
 #   git push --force-with-lease
+
+git gc && git prune && git fsck && exit
