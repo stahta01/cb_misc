@@ -1,0 +1,59 @@
+pacman -S --needed --noconfirm mingw-w64-i686-gcc
+pacman -S --needed --noconfirm patch make
+pacman -S --needed --noconfirm base-devel mingw-w64-i686-toolchain
+
+
+# Change to package(s) folder
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxpython-phoenix-git
+makepkg-mingw -sLfC   --holdver
+
+
+
+Running command: build_py
+"C:/Apps32/MSys2/mingw32/bin/python.exe" C:/Apps32/MSys2/mingw32/bin/waf --python="C:/Apps32/MSys2/mingw32/bin/python.exe" --out=build/waf/2.7/x86/release configure build
+Command '"C:/Apps32/MSys2/mingw32/bin/python.exe" C:/Apps32/MSys2/mingw32/bin/waf --python="C:/Apps32/MSys2/mingw32/bin/python.exe" --out=build/waf/2.7/x86/release configure build ' failed with exit code 2.
+Finished command: build_py (41.594s)
+Finished command: build (134m6.265s)
+==> ERROR: A failure occurred in build().
+    Aborting...
+
+$ uname -o
+Msys
+
+
+pacman -S --needed --noconfirm make
+pacman -S --needed --noconfirm mingw-w64-i686-libjpeg-turbo
+pacman -S --needed --noconfirm mingw-w64-i686-libpng
+pacman -S --needed --noconfirm mingw-w64-i686-libtiff
+
+
+# One time build tools installation
+pacman -S --needed base-devel
+# for building mingw32 packages
+pacman -S --needed mingw-w64-i686-toolchain
+
+
+# Open MSys2 MinGW command prompt
+
+# Change to wxpython-phoenix git repo.
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxpython-phoenix
+
+  git submodule init
+  git submodule update
+
+  cd ext/wxWidgets
+  git checkout -- wx-config.in
+  patch -p1 -i ../../001-wxWidgets-3.0.2-relocate-prefix-in-bin-wx-config.patch
+  cd ../..
+
+  export MSYS_BASE="$(cygpath -am /)"
+  export WAF="$(cygpath -am ${MINGW_PREFIX})/bin/waf"
+
+  python build.py clean
+  git clean -fx buildtools/*.pyc
+  git clean -fx etg/*.pyc
+  git clean -fx etgtools/*.pyc
+  git clean -fx sphinxtools/*.pyc
+  git clean -fx sip/gen/*.sip
+
+  python build.py dox etg --nodoc sip build 
