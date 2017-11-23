@@ -3,7 +3,10 @@ pacman -S --needed --noconfirm base-devel mingw-w64-i686-toolchain
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxpython-phoenix-git
-makepkg-mingw -sLfC   --holdver
+#  makepkg-mingw -sLg               # create check sums
+#  makepkg-mingw -sLo               # verify check sums
+makepkg-mingw -sLfC   --holdver     # Build without git updates
+
 
 Running command: build_py
 "C:/Apps32/MSys2/mingw32/bin/python.exe" C:/Apps32/MSys2/mingw32/bin/waf --python="C:/Apps32/MSys2/mingw32/bin/python.exe" --out=build/waf/2.7/x86/release configure build
@@ -23,7 +26,7 @@ ERROR: WX_CONFIG not specified and wx-config not found on the $PATH
   pacman -S --needed --noconfirm base-devel mingw-w64-i686-toolchain git mingw-w64-i686-python2
   pacman -S --needed --noconfirm mingw-w64-i686-libjpeg-turbo mingw-w64-i686-libpng mingw-w64-i686-libtiff
   pacman -S --needed --noconfirm mingw-w64-i686-expat mingw-w64-i686-xz mingw-w64-i686-zlib
-  pacman -S --needed --noconfirm mingw-w64-i686-SDL mingw-w64-i686- mingw-w64-i686-waf
+  pacman -S --needed --noconfirm mingw-w64-i686-SDL mingw-w64-i686-waf
 
 
 # Open MSys2 MinGW command prompt
@@ -41,7 +44,7 @@ ERROR: WX_CONFIG not specified and wx-config not found on the $PATH
 
 # exports needed by build.py
   export MSYS_BASE="$(cygpath -am /)"
-  export WAF="$(cygpath -am ${MINGW_PREFIX})/bin/waf"
+# export WAF="$(cygpath -am ${MINGW_PREFIX})/bin/waf"
 
 
   python build.py clean
@@ -55,7 +58,7 @@ ERROR: WX_CONFIG not specified and wx-config not found on the $PATH
 
 
   python build.py clean_py
-  git clean -fx buildtools/*.pyc
+#  git clean -fx buildtools/*.pyc
   python build.py build_py 
 
 
@@ -66,8 +69,10 @@ Checking for program 'gcc, cc'           : C:\Apps32\MSys2\mingw32\bin/gcc.exe
 Checking for program 'ar'                : C:\Apps32\MSys2\mingw32\bin/ar.exe
 Checking for program 'python'            : C:/Apps32/MSys2/mingw32/bin/python.exe
 Checking for python version >= 2.7.0     : 2.7.14
-'configure' finished successfully (2m2.126s)
+C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/wx-config
+'configure' finished successfully (6.180s)
 Waf: Entering directory `C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/build/waf/2.7/x86/release'
+C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/wx-config
 Waf: Leaving directory `C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/build/waf/2.7/x86/release'
 File C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/sip/siplib/bool.cpp has no mapping in ['.c', '.py', '.obj', '.o', '.pc.in'] (load a waf tool?)
 Will build using: "C:/Apps32/MSys2/mingw32/bin/python.exe"
@@ -78,16 +83,4 @@ cfg.VERSION: 4.0.0rc1
 Running command: build_py
 "C:/Apps32/MSys2/mingw32/bin/python.exe" C:/Apps32/MSys2/mingw32/bin/waf --wx_config=C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/build/wxbld/wx-config --python="C:/Apps32/MSys2/mingw32/bin/python.exe" --out=build/waf/2.7/x86/release configure build
 Command '"C:/Apps32/MSys2/mingw32/bin/python.exe" C:/Apps32/MSys2/mingw32/bin/waf --wx_config=C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/build/wxbld/wx-config --python="C:/Apps32/MSys2/mingw32/bin/python.exe" --out=build/waf/2.7/x86/release configure build ' failed with exit code 1.
-Finished command: build_py (2m23.61s)
-
-$ "C:/Apps32/MSys2/mingw32/bin/python.exe" C:/Apps32/MSys2/mingw32/bin/waf --wx_config=C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/build/wxbld/wx-config --python="C:/Apps32/MSys2/mingw32/bin/python.exe" --out=build/waf/2.7/x86/release configure build
-Setting top to                           : C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix
-Setting out to                           : C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/build/waf/2.7/x86/release
-Checking for program 'gcc, cc'           : C:\Apps32\MSys2\mingw32\bin/gcc.exe
-Checking for program 'ar'                : C:\Apps32\MSys2\mingw32\bin/ar.exe
-Checking for program 'python'            : C:/Apps32/MSys2/mingw32/bin/python.exe
-Checking for python version >= 2.7.0     : 2.7.14
-'configure' finished successfully (1m19.106s)
-Waf: Entering directory `C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/build/waf/2.7/x86/release'
-Waf: Leaving directory `C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/build/waf/2.7/x86/release'
-File C:/Users/stahta01/devel/open_source_code/version_control/git_repos/wxpython-phoenix/sip/siplib/bool.cpp has no mapping in ['.c', '.py', '.obj', '.o', '.pc.in'] (load a waf tool?)
+Finished command: build_py (12.312s)
