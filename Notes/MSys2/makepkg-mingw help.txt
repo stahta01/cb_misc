@@ -1,0 +1,51 @@
+$ makepkg-mingw --help
+makepkg (pacman) 5.0.1
+
+Make packages compatible for use with pacman
+
+Usage: /usr/bin/makepkg [options]
+
+Options:
+  -A, --ignorearch Ignore incomplete arch field in PKGBUILD
+  -c, --clean      Clean up work files after build
+  -C, --cleanbuild Remove $srcdir/ dir before building the package
+  -d, --nodeps     Skip all dependency checks
+  -e, --noextract  Do not extract source files (use existing $srcdir/ dir)
+  -f, --force      Overwrite existing package
+  -g, --geninteg   Generate integrity checks for source files
+  -h, --help       Show this help message and exit
+  -i, --install    Install package after successful build
+  -L, --log        Log package build process
+  -m, --nocolor    Disable colorized output messages
+  -o, --nobuild    Download and extract files only
+  -p <file>        Use an alternate build script (instead of 'PKGBUILD')
+  -r, --rmdeps     Remove installed dependencies after a successful build
+  -R, --repackage  Repackage contents of the package without rebuilding
+  -s, --syncdeps   Install missing dependencies with pacman
+  -S, --source     Generate a source-only tarball without downloaded sources
+  -V, --version    Show version information and exit
+  --allsource      Generate a source-only tarball including downloaded sources
+  --check          Run the check() function in the PKGBUILD
+  --config <file>  Use an alternate config file (instead of '/etc/makepkg.conf')
+  --holdver        Do not update VCS sources
+  --key <key>      Specify a key to use for gpg signing instead of the default
+  --noarchive      Do not create package archive
+  --nocheck        Do not run the check() function in the PKGBUILD
+  --noprepare      Do not run the prepare() function in the PKGBUILD
+  --nosign         Do not create a signature for the package
+  --packagelist    Only list packages that would be produced, without PKGEXT
+  --printsrcinfo   Print the generated SRCINFO and exit
+  --sign           Sign the resulting package with gpg
+  --skipchecksums  Do not verify checksums of the source files
+  --skipinteg      Do not perform any verification checks on source files
+  --skippgpcheck   Do not verify source files with PGP signatures
+  --verifysource   Download source files (if needed) and perform integrity checks
+
+These options can be passed to pacman:
+
+  --asdeps         Install packages as non-explicitly installed
+  --needed         Do not reinstall the targets that are already up to date
+  --noconfirm      Do not ask for confirmation when resolving dependencies
+  --noprogressbar  Do not show a progress bar when downloading files
+
+If -p is not specified, makepkg will look for 'PKGBUILD'

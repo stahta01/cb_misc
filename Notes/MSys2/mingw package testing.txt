@@ -1,0 +1,33 @@
+
+# makepkg-mingw --log --nobuild
+# makepkg-mingw -sLf --holdver --noextract # no git update no src extract
+# makepkg-mingw -RLf
+# makepkg-mingw -sLfC
+
+
+
+# 1. Install missing dependencies with pacman
+makepkg-mingw --syncdeps --asdeps --needed --noconfirm --noextract --nobuild
+
+# 2. Test source extract and prepare function
+# FAILS on Win10 32 bit using spring update
+# Has git or Windows 10 issues on cleaning up patch file changes
+makepkg-mingw --log --nobuild
+
+# 3. Test a clean build 
+makepkg-mingw --log --force --cleanbuild
+
+# 4. Test build without cleaning
+makepkg-mingw --log --force --holdver --noextract
+
+# 5. Test repackage to verify it works
+makepkg-mingw --log --force --holdver --repackage
+
+# 6. Test build without cleaning while doing extraction and prepare
+makepkg-mingw --log --force --holdver
+
+# 7. Final testing
+# Reinstall MSys2 and do the two upgrade steps
+makepkg-mingw --log --force --holdver --syncdeps --asdeps --needed --noconfirm --rmdeps
+# Install the package
+# Check to see if it works
