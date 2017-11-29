@@ -10,7 +10,7 @@ makepkg-mingw --log --nobuild
 # 3. Test a clean build 
 makepkg-mingw --log --force --cleanbuild
 
-# 4. Test build without cleaning
+# 4. Test build without cleaning or extracting
 makepkg-mingw --log --force --holdver --noextract
 
 # 5. Test repackage to verify it works
