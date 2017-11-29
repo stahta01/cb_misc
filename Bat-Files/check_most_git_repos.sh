@@ -5,8 +5,7 @@ else
   cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos
 fi
 
-cd EmBlocks && git fsck && \
-cd ../cb_misc && git fsck && \
+cd cb_misc && git fsck && \
 cd ../cb_projects_for_wxWidgets && git fsck && \
 cd ../codeblocks_PCH_fixes && git fsck && \
 cd ../codeblocks_custom_build && git fsck && \
