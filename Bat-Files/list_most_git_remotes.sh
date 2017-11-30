@@ -1,7 +1,11 @@
-cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos
+if [ -z "$HOMEDRIVE" ]
+then
+  cd ~/devel/open_source_code/version_control/git_repos
+else
+  cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos
+fi
 
-cd EmBlocks && git remote -v && \
-cd ../cb_misc && git remote -v && \
+cd cb_misc && git remote -v && \
 cd ../cb_projects_for_wxWidgets && git remote -v && \
 cd ../codeblocks_PCH_fixes && git remote -v && \
 cd ../codeblocks_custom_build && git remote -v && \
