@@ -1,0 +1,10 @@
+mingw-w64-codelite-git            App
+mingw-w64-gnuplot
+mingw-w64-kicad-git               App
+mingw-w64-mathgl
+mingw-w64-OpenSceneGraph
+mingw-w64-OpenSceneGraph-git
+mingw-w64-plplot                  Lib
+mingw-w64-winsparkle
+mingw-w64-winsparkle-git
+mingw-w64-gettext                 other

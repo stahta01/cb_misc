@@ -1,0 +1,8 @@
+Microchip projects.txt
+
+https://aur.archlinux.org/packages/picpgm/
+https://aur.archlinux.org/packages/pk2-la-svn/
+https://aur.archlinux.org/packages/usbpicprog/
+https://aur.archlinux.org/packages/pic32prog/
+https://aur.archlinux.org/packages/mphidflash/
+https://www.archlinux.org/packages/community/x86_64/gputils/
