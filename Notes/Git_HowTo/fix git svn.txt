@@ -1,0 +1,4 @@
+
+# From Git for windows propmt
+
+rebase -s -4 -b "0x70000000" /usr/bin/msys-svn_wc-1-0.dll
