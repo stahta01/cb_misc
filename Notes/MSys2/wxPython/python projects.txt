@@ -1,0 +1,5 @@
+python projects.txt
+
+https://aur.archlinux.org/packages/taskcoach/
+https://aur.archlinux.org/packages/pzl_sokoban/
+https://aur.archlinux.org/packages/skyperious/

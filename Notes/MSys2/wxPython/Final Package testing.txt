@@ -1,0 +1,55 @@
+#
+
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos
+
+# Install wxpython3-3.0.2.0 and its DLLs
+pacman -U \
+MINGW_packages/mingw-w64-wxpython3/mingw-w64-i686-wxpython3-3.0.2.0-1-any.pkg.tar.xz \
+MINGW_packages/mingw-w64-wxpython3/mingw-w64-i686-wxmsw3.0-wxpython3-dlls-3.0.2.0-1-any.pkg.tar.xz
+
+# List wx packages installed
+pacman -Qs wx
+
+$ pacman -Qs wx
+local/mingw-w64-i686-wxWidgets 3.0.3-2
+ 
+# Test wxPython using tetris.py
+which python2 && python2 cb_misc/Notes/MSys2/wxPython/tetris.py
+
+C:/Apps32/MSys2/mingw32/lib/python2.7/site-packages/wx-3.0-msw/wx/_core.py:16633: UserWarning: wxPython/wxWidgets release number mismatch
+  warnings.warn("wxPython/wxWidgets release number mismatch")
+
+Test building wxpython3 with wxWidgets installed
+
+
+# install standard wxWidgets package
+pacman -S mingw-w64-i686-wxWidgets
+
+# List wx packages installed
+pacman -Qs wx
+
+# wxpython3-git-3.0.3.0 needs edited
+# Install wxpython3-git-3.0.3.0
+pacman -U MINGW_packages/mingw-w64-wxpython3-git/mingw-w64-i686-wxpython3-git-3.0.3.0.r5369.g8960e7ee0b-1-any.pkg.tar.xz
+
+# Test wxPython using tetris.py
+which python2 && python2 cb_misc/Notes/MSys2/wxPython/tetris.py
+
+# ####
+# Start with new msys2 installation and two updates ran
+# ####
+
+# Install three wxWidgets packages
+pacman -U MINGW_packages/mingw-w64-wxWidgets/mingw-w64-i686-wxmsw3.0-3.0.3-4-any.pkg.tar.xz
+pacman -U MINGW_packages/mingw-w64-wxWidgets/mingw-w64-i686-wxconfig-3.0.3-4-any.pkg.tar.xz
+pacman -U MINGW_packages/mingw-w64-wxWidgets/mingw-w64-i686-wxWidgets-3.0.3-4-any.pkg.tar.xz
+
+# wxpython3-git-3.0.3.0 needs edited
+# Install wxpython3-git-3.0.3.0
+pacman -U MINGW_packages/mingw-w64-wxpython3-git/mingw-w64-i686-wxpython3-git-3.0.3.0.r5369.g8960e7ee0b-1-any.pkg.tar.xz
+
+# Test wxPython using tetris.py
+which python2 && python2 cb_misc/Notes/MSys2/wxPython/tetris.py
+
+# Install wxmsw3.0-git-3.0.4.0 package
+pacman -U MINGW_packages/mingw-w64-wxWidgets3.0-git/mingw-w64-i686-wxmsw3.0-git-3.0.4.0.r59092.9b669e078f-1-any.pkg.tar.xz

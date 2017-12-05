@@ -1,0 +1,72 @@
+build wxPython3.txt
+
+pacman -S --needed --asdeps make patch mingw-w64-i686-gcc mingw-w64-i686-make
+
+
+cd "C:\Users\stahta01\devel\open_source_code\version_control\git_repos\MINGW_packages\mingw-w64-wxPython"
+makepkg-mingw -sLf
+
+pacman -S --needed git
+
+cd "C:\Users\stahta01\devel\open_source_code\version_control\git_repos\MINGW_packages\mingw-w64-wxpython3-git"
+# makepkg-mingw --log --nobuild
+# makepkg-mingw -sLf --holdver --noextract # no git update no src extract
+# makepkg-mingw -RLf
+# makepkg-mingw -sLfC
+makepkg-mingw -sLf
+
+
+
+Change configure of wxWidgets; also, make wxWidgets.
+Rename or add patch files. And, move or add [make]depends.
+
+Embed wxWidgets 3.0.2 DLLs inside wxPython package
+And, replaced code that changes scripts to use python2
+Also, move include folder under mingw folder
+
+
+pip install pyserial
+
+makepkg-mingw -RLf
+
+git status || echo $?
+
+
+
+cd "C:\Users\stahta01\devel\open_source_code\version_control\git_repos\MINGW_packages\mingw-w64-wxPython"
+# makepkg-mingw -sLfC
+# makepkg-mingw -sLf
+makepkg-mingw -RLf
+
+
+Add package wxPython-dev that holds wxWidgets header and import libs
+prefix="${MINGW_PREFIX}/${_realname}"
+
+# build and Package KiCad
+cd "C:\Users\stahta01\devel\open_source_code\version_control\git_repos\MINGW_packages\mingw-w64-kicad-git"
+# makepkg-mingw -sLfC
+makepkg-mingw -sLf --help # no vc update no src update
+
+
+In file included from C:/Users/stahta01/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-kicad-git/src/kicad/pcbnew/pcbnew.cpp:32:0:
+C:/Users/stahta01/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-kicad-git/src/kicad/pcbnew/swig/python_scripting.h:39:14: fatal error: wx/wxPython/wxPython.h: No such file or directory
+     #include <wx/wxPython/wxPython.h>
+              ^~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [pcbnew/CMakeFiles/pcbnew_kiface.dir/build.make:118: pcbnew/CMakeFiles/pcbnew_kiface.dir/pcbnew.cpp.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:1607: pcbnew/CMakeFiles/pcbnew_kiface.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 82%] Built target qa_eagle_plugin
+make: *** [Makefile:130: all] Error 2
+
+
+Remove or update Kicad in wx/apps branch
+
+
+
+wxPython    bc7ee7ff36002b9a4b30b11e3c2becf3e29f1a2f        This one was a good match
+wxWidgets   163f2169ed04dd31c4e8f5a306735486b8105b83        OK match; could be better
+
+
+https://www.archlinux.org/packages/community/any/ipython2/
+mingw-w64-python2-ipython see what gui is supported

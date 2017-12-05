@@ -1,0 +1,18 @@
+wxpython packages.txt
+
+https://aur.archlinux.org/packages/taskcoach/
+  http://www.taskcoach.org/devinfo.html
+https://aur.archlinux.org/packages/tinybldlin/
+https://aur.archlinux.org/packages/piratescope-git/
+https://aur.archlinux.org/packages/congruity/
+
+https://sk1project.net/
+https://www.archlinux.org/packages/community/x86_64/sk1/
+  mingw-w64-i686-python2-reportlab
+  mingw-w64-i686-python2-pillow
+  mingw-w64-i686-python2-cairo
+  mingw-w64-i686-imagemagick
+ ?zenity?
+  https://www.archlinux.org/packages/community/x86_64/python2-lcms/
+    mingw-w64-i686-lcms
+    

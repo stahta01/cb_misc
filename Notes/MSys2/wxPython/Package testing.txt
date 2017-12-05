@@ -1,0 +1,12 @@
+Package testing.txt
+
+Install both wxWidgets and wxPython to confirm no file conflicts
+Install wxPython and Kicad on fresh system and confirm KiCad works
+
+CMake Error at C:/Apps32/MSys2/mingw32/share/cmake-3.9/Modules/FindPackageHandleStandardArgs.cmake:137 (message):
+  Could NOT find wxWidgets (missing: wxWidgets_LIBRARIES
+  wxWidgets_INCLUDE_DIRS) (Required is at least version "3.0.0")
+Call Stack (most recent call first):
+  C:/Apps32/MSys2/mingw32/share/cmake-3.9/Modules/FindPackageHandleStandardArgs.cmake:377 (_FPHSA_FAILURE_MESSAGE)
+  CMakeModules/FindwxWidgets.cmake:944 (find_package_handle_standard_args)
+  CMakeLists.txt:506 (find_package)

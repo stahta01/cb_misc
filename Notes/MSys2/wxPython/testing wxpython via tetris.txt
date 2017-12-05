@@ -1,0 +1,28 @@
+testing wxpython via tetris.txt
+
+$ pacman -Qs wx
+local/mingw-w64-i686-wxPython 3.0.2.0-6
+    A wxWidgets GUI toolkit for Python (mingw-w64)
+local/mingw-w64-i686-wxWidgets 3.0.3-2
+    A C++ library that lets developers create applications for Windows, Linux and UNIX (mingw-w64)
+
+$ ./tetris.py
+Traceback (most recent call last):
+  File "./tetris.py", line 5, in <module>
+    import wx
+  File "C:/Apps32/MSys2/mingw32/lib/python2.7/site-packages/wx-3.0-msw/wx/__init__.py", line 45, in <module>
+    from wx._core import *
+  File "C:/Apps32/MSys2/mingw32/lib/python2.7/site-packages/wx-3.0-msw/wx/_core.py", line 4, in <module>
+    import _core_
+ImportError: DLL load failed: The specified procedure could not be found.
+
+
+
+$ pacman -Qs wx
+local/mingw-w64-i686-wxWidgets 3.0.3-2
+    A C++ library that lets developers create applications for Windows, Linux and UNIX (mingw-w64)
+local/mingw-w64-i686-wxpython3-git 3.0.3.r5369.g8960e7ee0b-1
+    A wxWidgets GUI toolkit for Python (mingw-w64)
+
+$ ./tetris.py
+# Runs OK
