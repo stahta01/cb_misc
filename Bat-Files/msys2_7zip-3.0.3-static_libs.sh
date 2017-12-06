@@ -11,9 +11,9 @@ git checkout wxwidgets3.0.3_git-lfs || exit 2
 # git status -uno
 
 
-mkdir -p wxMSW-3.0.3_gcc630MSYS2_lib_Dev/lib
-cp --recursive --update --preserve lib/gcc630MSYS2_lib wxMSW-3.0.3_gcc630MSYS2_lib_Dev/lib/
+mkdir -p wxMSW-3.0.3_gcc720MSYS2_lib_Dev/lib
+cp --recursive --update --preserve lib/gcc720MSYS2_lib wxMSW-3.0.3_gcc720MSYS2_lib_Dev/lib/
 
-7za u wxMSW-3.0.3_gcc630MSYS2_lib_Dev.7z wxMSW-3.0.3_gcc630MSYS2_lib_Dev/
+7za u wxMSW-3.0.3_gcc720MSYS2_lib_Dev.7z wxMSW-3.0.3_gcc720MSYS2_lib_Dev/
 
 # echo "Finished"
