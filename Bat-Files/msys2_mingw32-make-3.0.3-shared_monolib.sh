@@ -2,12 +2,12 @@
 
 
 # Change to git folder
-cd ~/devel/open_source_code/version_control/wxWidgets_3_0_branch || exit 1
+cd ~/devel/open_source_code/version_control/git_repos/wxWidgets_3_0_branch || exit 1
 # pwd
 
 # Change to correct wxWidgets Git branch
 # git lfs install
-git checkout wxwidgets3.0.3+git-lfs || exit 2
+git checkout wxwidgets3.0.3_git-lfs || exit 2
 # git status -uno
 
 if [ "$PROCESSOR_ARCHITECTURE" = "x86" ]; then

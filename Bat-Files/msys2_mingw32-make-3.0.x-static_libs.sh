@@ -2,7 +2,7 @@
 
 
 # Change to git folder
-cd ~/devel/open_source_code/version_control/wxWidgets_3_0_branch || exit 1
+cd ~/devel/open_source_code/version_control/git_repos/wxWidgets_3_0_branch || exit 1
 # pwd
 
 # Change to correct wxWidgets Git branch
@@ -15,7 +15,7 @@ export PATH=/C/Apps32/MSys2/mingw32/bin:$PATH
 
 # echo $PATH
 
-export _COMPILER_VERSION=630MSYS2
+export _COMPILER_VERSION=720MSYS2
 
 # echo $_COMPILER_VERSION
 

@@ -8,7 +8,7 @@ export PATH=/C/Apps64/MSys2/mingw64/bin:$PATH
 
 # echo $PATH
 
-export _COMPILER_VERSION=630MSYS2_x64
+export _COMPILER_VERSION=720MSYS2_x64
 
 # echo $_COMPILER_VERSION
 

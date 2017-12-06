@@ -2,7 +2,7 @@
 
 
 # Change to git folder
-cd ~/devel/open_source_code/version_control/wxWidgets_3_0_branch || exit 1
+cd ~/devel/open_source_code/version_control/git_repos/wxWidgets_3_0_branch || exit 1
 # pwd
 
 # Change to correct wxWidgets Git branch
