@@ -1,10 +1,23 @@
-mingw-w64-codelite-git            App
-mingw-w64-gnuplot
-mingw-w64-kicad-git               App
-mingw-w64-mathgl
-mingw-w64-OpenSceneGraph
-mingw-w64-OpenSceneGraph-git
-mingw-w64-plplot                  Lib
-mingw-w64-winsparkle
-mingw-w64-winsparkle-git
-mingw-w64-gettext                 other
+mingw-w64-codelite-git            App       cmake
+mingw-w64-gettext                 other     configure/make
+mingw-w64-gnuplot                           configure/make
+mingw-w64-kicad-git               App       cmake
+mingw-w64-mathgl                            cmake
+mingw-w64-OpenSceneGraph                    cmake
+mingw-w64-OpenSceneGraph-git                cmake
+mingw-w64-plplot                  Lib       cmake
+mingw-w64-winsparkle                        make
+mingw-w64-winsparkle-git                    make
+
+
+Believed to need wx-config to build and to run
+  mingw-w64-codelite-git
+
+Believed to need wx-config to build; but, not to run
+  mingw-w64-kicad-git
+  mingw-w64-mathgl
+  mingw-w64-OpenSceneGraph
+  mingw-w64-OpenSceneGraph-git
+  mingw-w64-plplot
+  mingw-w64-gettext
+  mingw-w64-gnuplot

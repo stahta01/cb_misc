@@ -11,6 +11,8 @@ $ git branch --list
   wxpython-phoenix
   wxwidgets
 
+rm .git/index && git reset --hard && git status -uno
+
 git fetch --all --prune
 
 git pull --rebase
@@ -50,7 +52,9 @@ git checkout wxwidgets-staging && git pull && git rebase master && git status -u
 #   git rebase -i master
 git push --force-with-lease
 
-git checkout wxwidgets && git pull && git rebase wxwidgets-staging && git status -uno
+git rebase wxwidgets-staging && git status -uno
+
+git checkout wxwidgets && git pull && git rebase master && git status -uno
 #   git rebase -i wxwidgets-staging
 #   git rebase --ignore-date wxwidgets-staging
 #   git format-patch wxwidgets-staging

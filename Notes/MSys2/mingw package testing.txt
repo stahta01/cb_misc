@@ -4,8 +4,8 @@ makepkg-mingw --syncdeps --asdeps --needed --noconfirm --noextract --nobuild --n
 # 2A.Test source extract and prepare function with clean
 makepkg-mingw --log --nobuild --cleanbuild
 
-# 2B.Test source extract and prepare function without clean
-makepkg-mingw --log --nobuild
+# 2B.Test source extract and prepare function without clean or git update
+makepkg-mingw --log --nobuild --holdver
 
 # 3. Test a clean build 
 makepkg-mingw --log --force --cleanbuild
