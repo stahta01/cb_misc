@@ -1,15 +1,23 @@
 $ git branch --list
   broken
   cleanup
+  fontconfig-staging
+  gettext
   gtk/apps
   issues
+  maintainer
 * master
+  mingw64/libs
   misc
+  plplot-staging
   qt/apps
   wx/apps
   wx/libs
-  wxpython-phoenix
+  wxpython
+  wxpython-staging
+  wxpythons/apps
   wxwidgets
+  wxwidgets-staging
 
 rm .git/index && git reset --hard && git status -uno
 
@@ -32,8 +40,6 @@ git checkout misc       && git pull --rebase && git status -uno
 git checkout broken     && git pull --rebase && git status -uno
 git checkout issues     && git pull --rebase && git status -uno
 git checkout maintainer && git pull --rebase && git status -uno
-
-git checkout wxpython-phoenix   && git pull --rebase && git status -uno
 
 
 git checkout master && git fetch upstream && git rebase upstream/master && git push origin
@@ -73,11 +79,8 @@ git checkout wx/libs && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
-git checkout wxpython-phoenix && git pull && git rebase master && git status -uno
-#
-#   git rebase master && git status -uno
+git checkout wxpythons/apps && git pull && git rebase master && git status -uno
 #   git rebase -i master
-#   git push
 git push --force-with-lease
 
 git checkout gtk/apps && git pull && git rebase master && git status -uno
@@ -113,5 +116,9 @@ git push --force-with-lease
 git checkout maintainer && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
+
+git fetch --all --prune
+
+git checkout cleanup && git status
 
 git gc && git prune && git fsck && exit

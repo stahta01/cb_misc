@@ -1,7 +1,6 @@
 $ git branch --list
 ? DO_NOT_MERGE
   cleanup
-  cmake
   issues
 * master
   qt5-git
@@ -14,9 +13,7 @@ git checkout cleanup && git pull && git rebase master && git status -uno
 
 # pull other branches
 git checkout qt5.9-staging  && git pull --rebase && git status -uno
-git checkout qt5-modules    && git pull --rebase && git status -uno
 git checkout qt5-git        && git pull --rebase && git status -uno
-git checkout cmake          && git pull --rebase && git status -uno
 git checkout issues         && git pull --rebase && git status -uno
 
 
@@ -31,12 +28,6 @@ git checkout qt5-git && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 
-git checkout cmake          && git pull && git rebase master && git status -uno
-git push --force-with-lease
-
-git checkout qt5-modules    && git pull && git rebase master && git status -uno
-git push --force-with-lease
-
 git checkout qt5.9-staging  && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
@@ -46,5 +37,9 @@ git push --force-with-lease
 git checkout DO_NOT_MERGE   && git pull && git rebase master && git status -uno
 git push
 
+
+git fetch --all --prune
+
+git checkout cleanup && git status
 
 git gc && git prune && git fsck && exit

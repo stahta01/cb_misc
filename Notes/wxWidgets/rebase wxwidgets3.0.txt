@@ -3,27 +3,30 @@ $ git branch --list
 * WX_3_0_BRANCH
   build/makefile.gcc              # Need to test changes
   build/mingwPCH
-  build/nonGUI_3_0_X              # Edit commits and then test building
-  build/reducedGUI_3_0_X          # Edit commits
-  build/testReducedGUI_3_0_X      # Rebase with reducedGUI_3_0_X and then test building
-  deprecated/WX_3_0_BRANCH        # Rebase with WX_3_0_BRANCH and then test building
+  build/nonGUI_3_0_X              # test building
+  build/reducedGUI_3_0_X
+  build/testReducedGUI_3_0_X      # test building
+  deprecated/WX_3_0_BRANCH        # test building
   inwork
   staging3.0                      # test directions building
   wxwidgets3.0.3_git
-  wxwidgets3.0.3_git-lfs          # Need to push LFS binary
+  wxwidgets3.0.3_git-lfs
+
 
 git fetch --all --prune
 
-
 git checkout WX_3_0_BRANCH && git rebase upstream/WX_3_0_BRANCH && git status -uno
+git push
 
 
 git checkout WX_3_0_3_BRANCH && git rebase upstream/WX_3_0_3_BRANCH && git status -uno
+git push
+
 
 git checkout wxwidgets3.0.3_git && git pull && git rebase WX_3_0_3_BRANCH && git status -uno
 git push --force-with-lease
 
-git checkout wxwidgets3.0.3_git-lfs && git pull && git rebase wxwidgets3.0.3_git
+git checkout wxwidgets3.0.3_git-lfs && git pull && git rebase wxwidgets3.0.3_git && git status -uno
 git push --force-with-lease
 
 
