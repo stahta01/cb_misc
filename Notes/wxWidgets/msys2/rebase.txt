@@ -10,6 +10,11 @@ git checkout staging && git pull && git rebase master && git format-patch master
 #   git rebase --ignore-date master
 git push --force-with-lease
 
+git checkout deprecated && git pull && git rebase master && git format-patch master && git status -uno
+#   git rebase -i master
+#   git rebase --ignore-date master
+git push --force-with-lease
+
 
 git checkout build/cygwin && git pull && git rebase master && git format-patch master && git status -uno
 git push --force-with-lease

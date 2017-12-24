@@ -48,17 +48,31 @@ git checkout cleanup && git pull && git rebase --ignore-date master && git push 
 git checkout cleanup && git status
 
 
-git checkout wxpython && git pull && git rebase master && git status -uno
+git checkout wxpython-staging && git pull && git rebase master && git status -uno
 #   git rebase -i master
-#   git log master..HEAD
 git push --force-with-lease
 
+git checkout fontconfig-staging && git pull && git rebase master && git status -uno
+#   git rebase -i master
+git push --force-with-lease
+
+git checkout plplot-staging && git pull && git rebase master && git status -uno
+#   git rebase -i master
+git push --force-with-lease
 
 git checkout wxwidgets-staging && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
+
+git checkout wxpython && git pull && git rebase master && git status -uno
+#   git rebase -i master
+#   git log master..HEAD
+git push --force-with-lease
+
+git rebase wxpython-staging && git status -uno
 git rebase wxwidgets-staging && git status -uno
+git rebase master && git status -uno
 
 git checkout wxwidgets && git pull && git rebase master && git status -uno
 #   git rebase -i wxwidgets-staging

@@ -15,8 +15,13 @@ $ git branch --list
 
 git fetch --all --prune
 
+
 git checkout WX_3_0_BRANCH && git rebase upstream/WX_3_0_BRANCH && git status -uno
 git push
+
+git checkout staging3.0 && git pull && git rebase WX_3_0_BRANCH && git status -uno
+#   git rebase -i WX_3_0_BRANCH
+git push --force-with-lease
 
 
 git checkout WX_3_0_3_BRANCH && git rebase upstream/WX_3_0_3_BRANCH && git status -uno
@@ -30,10 +35,6 @@ git checkout wxwidgets3.0.3_git-lfs && git pull && git rebase wxwidgets3.0.3_git
 git push --force-with-lease
 
 
-
-git checkout staging3.0 && git pull && git rebase WX_3_0_BRANCH && git status -uno
-#   git rebase -i WX_3_0_BRANCH
-git push --force-with-lease
 
 git checkout inwork && git pull && git rebase staging3.0 && git status -uno
 #   git rebase -i staging3.0
