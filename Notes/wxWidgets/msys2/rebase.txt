@@ -41,4 +41,5 @@ git checkout wxGTKwin/makefile.gcc && git pull && git rebase master && git forma
 git push --force-with-lease
 
 
+git fetch --all --prune
 git gc && git prune && git fsck && exit
