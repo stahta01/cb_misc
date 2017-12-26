@@ -6,9 +6,10 @@ $ git branch --list
   build/nonGUI_3_0_X              # test building
   build/reducedGUI_3_0_X
   build/testReducedGUI_3_0_X      # test building
-  deprecated/WX_3_0_BRANCH        # test building
+  deprecated/WX_3_0_BRANCH        #
   inwork
-  staging3.0                      # test directions building
+  staging3.0                      # Wait till PR is accepted or rejected
+  testing3.0                      # test building
   wxwidgets3.0.3_git
   wxwidgets3.0.3_git-lfs
 
@@ -19,9 +20,9 @@ git fetch --all --prune
 git checkout WX_3_0_BRANCH && git rebase upstream/WX_3_0_BRANCH && git status -uno
 git push
 
-git checkout staging3.0 && git pull && git rebase WX_3_0_BRANCH && git status -uno
+git checkout staging3.0 && git pull && git status -uno
 #   git rebase -i WX_3_0_BRANCH
-git push --force-with-lease
+git push
 
 git checkout testing3.0 && git pull && git rebase WX_3_0_BRANCH && git status -uno
 #   git rebase -i WX_3_0_BRANCH
@@ -82,4 +83,11 @@ git push --force-with-lease
 
 
 git fetch --all --prune
-git gc && git prune && git fsck --no-full && exit
+#   git reflog expire --expire-unreachable=all --all
+#   git reflog expire --stale-fix --all
+#   git fsck --no-full --no-reflogs
+#   git fsck --no-full
+#   git reflog show 938f69eea5433b99d463739a964ed797d25ee1fb
+#   git reflog show 4f7fb24ef44dfff5f062fa3dee3bfc4c4cbf1771
+git checkout WX_3_0_BRANCH
+git fsck --connectivity-only && git prune && git gc && git fsck && exit

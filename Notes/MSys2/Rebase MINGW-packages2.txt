@@ -42,4 +42,4 @@ git fetch --all --prune
 
 git checkout cleanup && git status
 
-git gc && git prune && git fsck && exit
+git fsck --connectivity-only && git prune && git fsck && exit
