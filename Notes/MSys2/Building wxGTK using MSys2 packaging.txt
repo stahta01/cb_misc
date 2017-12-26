@@ -48,6 +48,7 @@ cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW
 makepkg-mingw -sLf                               # Needs Tested and then pushed
                                                                         
 # Test patches
+makepkg-mingw -soL
 makepkg-mingw --nodeps --nobuild
 
 
