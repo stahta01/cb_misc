@@ -16,6 +16,12 @@ $ git branch --list
 
 git fetch --all --prune
 
+git checkout WX_3_0_BRANCH && git rebase wxpr/WX_3_0_BRANCH && git status -uno
+git push -u origin
+
+git checkout WX_3_0_3_BRANCH && git rebase wxpr/WX_3_0_3_BRANCH && git status -uno
+git push -u origin
+
 
 git checkout WX_3_0_BRANCH && git rebase upstream/WX_3_0_BRANCH && git status -uno
 git push
