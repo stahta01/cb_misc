@@ -1,5 +1,9 @@
 cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets
 
+git remote -v
+#   git remote add        origin  https://github.com/stahta01/wxwidgets_master_fork.git
+#   git remote add        wxpr    https://github.com/stahta01/wxWidgets.git
+#
 
 $ git branch --list
   build/cygwin
@@ -55,22 +59,16 @@ git checkout build/wxUSE_fixes && git pull && git rebase master && git format-pa
 git push -u origin --force-with-lease
 
 
-git remote -v
-#   git remote add        origin  https://github.com/stahta01/wxwidgets_master_fork.git
-#   git remote add        wxpr    https://github.com/stahta01/wxWidgets.git
-#
 git fetch origin --prune
-git checkout master
-git fsck --connectivity-only && git prune && git fsck && exit
+git checkout master && git fsck --connectivity-only && git prune && git fsck && exit
 
 #### Things to try if "git fsck --connectivity-only" fails with "Out of memory"
-git fsck    # I am guessing sometimes "fsck" fixes issues for "connectivity-only"
-git prune
-git gc
-#### if no better; do a repo backup before proceeding 
-##   and then; try git reflog expire commands below, one at a time:
-#   git reflog expire --stale-fix --all                 # BACKUP repo before doing
+#    Do a repo backup before proceeding!
+#    I am guessing sometimes "fsck" fixes issues for "connectivity-only"
+git fsck
+git gc --prune=all                                      # BACKUP repo before doing
+#### if no better; more risky things to try next  
+##   try git reflog expire commands below, one at a time, test to see if fixed after each one:
 #   git reflog expire --expire-unreachable=all --all    # BACKUP repo before doing
-#
-#### if still no better; run command below to get hints on possible bad branches
-git fsck --no-full
+#   git reflog expire --stale-fix --all                 # BACKUP repo before doing
+##
