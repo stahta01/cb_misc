@@ -1,0 +1,78 @@
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/wxWidgets
+
+
+$ git branch --list
+  build/cygwin
+  build/reducedGUI
+  build/wxGTK
+  build/wxQT
+  build/wxUSE_CONFIG_NATIVE
+  build/wxUSE_fixes
+  deprecated
+* master
+  staging
+  wxGTKwin/makefile.gcc
+
+
+
+git checkout master && git pull wxpr master && git status -uno
+git push -u origin --force-with-lease
+
+
+git checkout staging && git pull && git rebase master && git format-patch master && git status -uno
+#   git rebase -i master
+#   git rebase --ignore-date master
+git push -u wxpr --force-with-lease
+
+
+git checkout deprecated && git pull && git rebase master && git format-patch master && git status -uno
+#   git rebase -i master
+#   git rebase --ignore-date master
+git push -u origin --force-with-lease
+
+# * Moved wx/msw/init.h from MSW_HDR to BASE_WIN32_HDR. 
+# And, then rebaked the files
+git checkout build/files && git pull && git rebase master && git format-patch master && git status -uno
+git push -u origin --force-with-lease
+
+git checkout wxGTKwin/makefile.gcc && git pull && git rebase master && git format-patch master && git status -uno
+git push -u origin --force-with-lease
+
+git checkout build/cygwin && git pull && git rebase master && git format-patch master && git status -uno
+git push -u origin --force-with-lease
+
+git checkout build/wxQT && git pull && git rebase master && git format-patch master && git status -uno
+git push -u origin --force-with-lease
+
+git checkout build/reducedGUI && git pull && git rebase master && git format-patch master && git status -uno
+git push -u origin --force-with-lease
+
+git checkout build/wxGTK && git pull && git rebase master && git format-patch master && git status -uno
+git push -u origin --force-with-lease
+
+git checkout build/wxUSE_CONFIG_NATIVE && git pull && git rebase master && git format-patch master && git status -uno
+git push -u origin --force-with-lease
+
+git checkout build/wxUSE_fixes && git pull && git rebase master && git format-patch master && git status -uno
+git push -u origin --force-with-lease
+
+
+git remote -v
+#   git remote add        origin  https://github.com/stahta01/wxwidgets_master_fork.git
+#   git remote add        wxpr    https://github.com/stahta01/wxWidgets.git
+#
+git fetch origin --prune
+git checkout master
+git fsck --connectivity-only && git prune && git fsck && exit
+
+#### Things to try if "git fsck --connectivity-only" fails with "Out of memory"
+git fsck    # I am guessing sometimes "fsck" fixes issues for "connectivity-only"
+git prune
+git gc
+#### if no better; do a repo backup before proceeding 
+##   and then; try git reflog expire commands below, one at a time:
+#   git reflog expire --stale-fix --all                 # BACKUP repo before doing
+#   git reflog expire --expire-unreachable=all --all    # BACKUP repo before doing
+#
+#### if still no better; run command below to get hints on possible bad branches
+git fsck --no-full
