@@ -4,7 +4,6 @@ $ git branch --list
   WX_3_0_3_BRANCH
   WX_3_0_BRANCH
 * master
-  staging
 
 ## Pull down from wxWidgets upstream
 
@@ -20,20 +19,9 @@ git checkout WX_3_0_3_BRANCH && git pull upstream WX_3_0_3_BRANCH && git status 
 git push -u wxpr
 
 
-## Send up to wxWidgets upstream
-
-git checkout staging && git pull && git rebase master && git format-patch master && git status -uno
-git push -u wxpr
-
-# git checkout staging3.0 && git pull && git status -uno
-# git push -u wxpr
-
-
-
 git remote -v
 #   git remote add        wxpr            https://github.com/stahta01/wxWidgets.git
 #   git remote add        upstream        https://github.com/wxWidgets/wxWidgets.git
-#   git remote add        wxsvn           https://github.com/stahta01/wxwidgets_svn.git
 #
 git fetch wxpr --prune
 git checkout master

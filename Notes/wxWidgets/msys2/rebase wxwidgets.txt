@@ -30,8 +30,6 @@ git checkout deprecated && git pull && git rebase master && git format-patch mas
 #   git rebase --ignore-date master
 git push -u origin --force-with-lease
 
-# * Moved wx/msw/init.h from MSW_HDR to BASE_WIN32_HDR. 
-# And, then rebaked the files
 git checkout build/files && git pull && git rebase master && git format-patch master && git status -uno
 git push -u origin --force-with-lease
 
