@@ -1,3 +1,8 @@
+git remote -v
+#   git remote add        wxpr        https://github.com/stahta01/wxWidgets.git
+#   git remote add        origin      https://github.com/stahta01/wxWidgets_3_0_branch.git
+
+
 $ git branch --list
   WX_3_0_3_BRANCH
 * WX_3_0_BRANCH
@@ -14,30 +19,24 @@ $ git branch --list
   wxwidgets3.0.3_git-lfs
 
 
-git fetch --all --prune
+git fetch origin --prune
 
-git checkout WX_3_0_BRANCH && git rebase wxpr/WX_3_0_BRANCH && git status -uno
+
+git checkout WX_3_0_BRANCH && git pull wxpr WX_3_0_BRANCH && git status -uno
 git push -u origin
 
-git checkout WX_3_0_3_BRANCH && git rebase wxpr/WX_3_0_3_BRANCH && git status -uno
+git checkout WX_3_0_3_BRANCH && git pull wxpr WX_3_0_3_BRANCH && git status -uno
 git push -u origin
 
-
-git checkout WX_3_0_BRANCH && git rebase upstream/WX_3_0_BRANCH && git status -uno
-git push
 
 git checkout staging3.0 && git pull && git status -uno
 #   git rebase -i WX_3_0_BRANCH
 git push
 
+
 git checkout testing3.0 && git pull && git rebase WX_3_0_BRANCH && git status -uno
 #   git rebase -i WX_3_0_BRANCH
 git push --force-with-lease
-
-
-git checkout WX_3_0_3_BRANCH && git rebase upstream/WX_3_0_3_BRANCH && git status -uno
-git push
-
 
 git checkout wxwidgets3.0.3_git && git pull && git rebase WX_3_0_3_BRANCH && git status -uno
 #   git format-patch WX_3_0_3_BRANCH
@@ -88,12 +87,19 @@ git checkout build/nonGUI_3_0_X && git pull && git rebase WX_3_0_BRANCH && git s
 git push --force-with-lease
 
 
-git fetch --all --prune
-#   git reflog expire --expire-unreachable=all --all
-#   git reflog expire --stale-fix --all
+git fetch origin --prune
+git checkout WX_3_0_BRANCH && git fsck --connectivity-only && git prune && git fsck && exit
+
+#### Things to try if "git fsck --connectivity-only" fails with "Out of memory"
+#    Do a repo backup before proceeding!
+#    I am guessing sometimes "fsck" fixes issues for "connectivity-only"
+git fsck
+git gc --prune=all                                      # BACKUP repo before doing
+#### if no better; more risky things to try next  
+##   try git reflog expire commands below, one at a time, test to see if fixed after each one:
+#   git reflog expire --expire-unreachable=all --all    # BACKUP repo before doing
+#   git reflog expire --stale-fix --all                 # BACKUP repo before doing
+##
 #   git fsck --no-full --no-reflogs
 #   git fsck --no-full
-#   git reflog show 938f69eea5433b99d463739a964ed797d25ee1fb
-#   git reflog show 4f7fb24ef44dfff5f062fa3dee3bfc4c4cbf1771
-git checkout WX_3_0_BRANCH
-git fsck --connectivity-only && git prune && git gc && git fsck && exit
+#   git reflog show 
