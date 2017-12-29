@@ -21,11 +21,11 @@ $ git branch --list
 
 rm .git/index && git reset --hard && git status -uno
 
-git fetch --all --prune
+git fetch origin --prune
 
 git pull --rebase
 
-git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
+git checkout master && git fetch origin && git pull upstream master && git status -uno
 
 git checkout cleanup && git pull && git rebase master && git status -uno
 #
@@ -42,7 +42,7 @@ git checkout issues     && git pull --rebase && git status -uno
 git checkout maintainer && git pull --rebase && git status -uno
 
 
-git checkout master && git fetch upstream && git rebase upstream/master && git push origin
+git checkout master && git pull upstream master && git push origin
 
 git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
 git checkout cleanup && git status
@@ -131,8 +131,8 @@ git checkout maintainer && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 
-git fetch --all --prune
+git fetch origin --prune
 
 git checkout cleanup && git status
 
-git gc && git prune && git fsck && exit
+git checkout master && git fsck --connectivity-only && git prune && git fsck && git gc && exit

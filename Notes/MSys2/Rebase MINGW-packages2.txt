@@ -1,3 +1,9 @@
+$ git remote -v
+#                 origin          https://github.com/stahta01/MINGW-packages.git (fetch)
+#                 origin          https://stahta01@github.com/stahta01/MINGW-packages.git (push)
+git remote add    upstream        https://github.com/Alexpux/MINGW-packages.git
+
+
 $ git branch --list
 ? DO_NOT_MERGE
   cleanup
@@ -8,7 +14,7 @@ $ git branch --list
 
 
 # Rebase master and cleanup branches
-git checkout master && git fetch origin && git fetch upstream && git rebase upstream/master && git status -uno
+git checkout master && git fetch origin && git pull upstream master && git status -uno
 git checkout cleanup && git pull && git rebase master && git status -uno
 
 # pull other branches
@@ -17,7 +23,7 @@ git checkout qt5-git        && git pull --rebase && git status -uno
 git checkout issues         && git pull --rebase && git status -uno
 
 
-git checkout master && git fetch upstream && git rebase upstream/master && git status -uno && git push origin
+git checkout master && git pull upstream master && git status -uno && git push origin
 
 git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
 git checkout cleanup && git status
@@ -38,8 +44,8 @@ git checkout DO_NOT_MERGE   && git pull && git rebase master && git status -uno
 git push
 
 
-git fetch --all --prune
+git fetch origin --prune
 
 git checkout cleanup && git status
 
-git fsck --connectivity-only && git prune && git fsck && exit
+git checkout master && git fsck --connectivity-only && git prune && git fsck && git gc && exit
