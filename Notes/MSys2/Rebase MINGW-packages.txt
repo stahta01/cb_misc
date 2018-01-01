@@ -4,7 +4,7 @@ $ git branch --list
   fontconfig-staging
   gettext
   gtk/apps
-  issues
+D issues
   maintainer
 * master
   mingw64/libs
@@ -38,7 +38,6 @@ git checkout qt/apps    && git pull --rebase && git status -uno
 git checkout misc       && git pull --rebase && git status -uno
 #
 git checkout broken     && git pull --rebase && git status -uno
-git checkout issues     && git pull --rebase && git status -uno
 git checkout maintainer && git pull --rebase && git status -uno
 
 
@@ -82,6 +81,7 @@ git push --force-with-lease
 
 
 git checkout wx/apps && git pull && git rebase master && git status -uno
+#   git rebase --ignore-date master
 #   git rebase -i master
 git push --force-with-lease
 
@@ -102,7 +102,6 @@ git checkout gtk/apps && git pull && git rebase master && git status -uno
 #   git rebase --ignore-date master
 git push --force-with-lease
 
-
 git checkout qt/apps && git pull && git rebase master && git status -uno
 #   git rebase -i origin/qt/apps
 #   git rebase -i master
@@ -116,12 +115,6 @@ git checkout misc && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 git checkout broken && git pull && git rebase master && git status -uno
-#   git rebase master && git status -uno
-#   git rebase -i master
-#   git push
-git push --force-with-lease
-
-git checkout issues && git pull && git rebase master && git status -uno
 #   git rebase master && git status -uno
 #   git rebase -i master
 #   git push
