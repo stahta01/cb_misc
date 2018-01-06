@@ -1,0 +1,15 @@
+Libraries.txt
+
+C Libraries
+  GLUT        C         Already in MSys2 MinGW (freeglut)
+  GRX         C/Dos
+  koolplot    C
+  SDL         C         Already in MSys2 MinGW
+  sqlite      C         Already in MSys2 MinGW
+C++ Libraries
+  WinBGIm     C++
+  wxWidgets   C++       Already in MSys2 MinGW
+  boost       C++       Already in MSys2 MinGW
+  FLTK        C++       Already in MSys2 MinGW
+Unknown Language Libraries
+  DirectX     Likely C
