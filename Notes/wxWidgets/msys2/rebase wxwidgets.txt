@@ -20,7 +20,7 @@ $ git branch --list
 
 
 git checkout master && git pull wxpr master && git status -uno
-git push -u origin --force-with-lease
+git push -u origin
 
 
 git checkout staging && git pull && git rebase master && git format-patch master && git status -uno
