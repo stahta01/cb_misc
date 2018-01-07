@@ -6,4 +6,7 @@ else
 fi
 
 cd cb_misc && git checkout master && git pull origin master && git push && \
+cd ../wxWidgets_PR && git checkout WX_3_0_BRANCH && git pull upstream WX_3_0_BRANCH && git push && \ 
+cd ../wxWidgets_PR && git checkout WX_3_0_3_BRANCH && git pull upstream WX_3_0_3_BRANCH && git push && \ 
+cd ../wxWidgets_PR && git checkout master && git pull upstream master && git push && \ 
 cd ../wxTortoiseGit && git checkout master && git pull upstream master && git push 
