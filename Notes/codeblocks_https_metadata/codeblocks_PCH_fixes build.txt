@@ -1,8 +1,8 @@
 ######################################################################
 ##
-##  git clone https://github.com/stahta01/codeblocks_PCH_fixes.git -o pch_fixes codeblocks_PCH_fixes-git
+##  git clone https://github.com/stahta01/codeblocks_PCH_fixes.git -o pch_fixes codeblocks_PCH_fixes
 ##
-##  cd codeblocks_PCH_fixes-git
+##  cd codeblocks_PCH_fixes
 ##
 ##  git remote -v
 ##  git remote add origin  https://github.com/stahta01/codeblocks_https_metadata.git
@@ -13,30 +13,30 @@
 ######
 #
 ##
-#  cd ../codeblocks_https_metadata-git && git fetch origin && git status -uno
-#  git checkout deceased/removals && git rebase origin/master && git push origin --force-with-lease
-#  git checkout portability/fixes && git rebase origin/master && git push origin --force-with-lease
-#  git checkout cbstyledtextctrl && git rebase origin/master && git push origin --force-with-lease
+#  cd ../codeblocks_https_metadata && git fetch origin && git status -uno
+#  git checkout deceased/removals && git pull --rebase origin master && git push origin --force-with-lease
+#  git checkout portability/fixes && git pull --rebase origin master && git push origin --force-with-lease
+#  git checkout cbstyledtextctrl && git pull --rebase origin master && git push origin --force-with-lease
 ##
 #
-cd ../codeblocks_PCH_fixes-git && git status -uno
-git fetch pch_fixes --prune && git fetch origin --prune
+cd ../codeblocks_PCH_fixes && git status -uno
+git fetch pch_fixes --prune
 git checkout sdk_common_h && git status -uno
 #
-git rebase origin/cbstyledtextctrl && git status -uno
+git pull --rebase origin cbstyledtextctrl && git status -uno
 #
-#  git rebase origin/master && git status -uno
+#  git pull --rebase origin master && git status -uno
 #
 ## git rebase -i origin/master
 #
 git push pch_fixes
-## git rebase origin/master && git push pch_fixes --force-with-lease
+## git pull --rebase origin master && git push pch_fixes --force-with-lease
 git svn fetch && git svn info
 #
 #
 ### pch_fixes/PCH/master
-cd ../codeblocks_PCH_fixes-git && git status -uno && \
-git fetch pch_fixes --prune && git fetch origin --prune && \
+cd ../codeblocks_PCH_fixes && git status -uno && \
+git fetch pch_fixes --prune && \
 git checkout PCH/master && git status -uno && \
 git rebase pch_fixes/sdk_common_h && git status -uno
 #
@@ -45,11 +45,11 @@ git svn fetch && git svn info && git svn log -1
 #
 ##  git pull --rebase
 #
-##  git rebase origin/deceased/removals
-##  git rebase origin/portability/fixes
+##  git pull --rebase origin deceased/removals
+##  git pull --rebase origin portability/fixes
 ##  git rebase pch_fixes/sdk_common_h
 #
-##  git rebase origin/master && git status -uno
+##  git pull --rebase origin master && git status -uno
 ##  git push pch_fixes --force-with-lease
 #
 ##  git rebase -i origin/master
@@ -58,15 +58,30 @@ git push pch_fixes
 ##  git pull && git rebase pch_fixes/sdk_common_h && git push pch_fixes --force-with-lease
 #
 # git format-patch origin/master..pch_fixes/PCH/master
-# 0001-git-Added-.gitattributes-.-Thanks-stahta01.patch
-# 0002-win_cbp_wx30_64-Save-As-Windows-wx3.0-64-bit-project.patch
-# 0003-win_cbp_wx28-Save-As-Windows-wx2.8-32-bit-projects.-.patch
-# 0004-win_cbp-Moved-wxmsw-WX_VERSION-WX_SUFFIX-from-projec.patch
-# 0005-SpellChecker-Removed-from-after-from-second-xcopy-pa.patch
-# 0006-Removed-win32-wxWidgets-template-files.-Thanks-staht.patch
-# 0007-deleted-files-src-ipc.cpp-and-src-ipc.h.-Thanks-stah.patch
-# git am 0008-git-Added-src-plugins-contrib-SmartIndent-manifest.x.patch
-# 0009-Removed-wxWidgets-template-files.-Thanks-stahta01.patch
+#
+0001-git-Added-src-plugins-contrib-SmartIndent-manifest.x.patch
+0002-git-Added-.gitattributes-.-Thanks-stahta01.patch
+0003-git-Treat-propgrid.sln-as-if-it-was-Binary.patch
+0004-git-Treat-several-cbp2make-files-as-if-they-were-bin.patch
+0005-git-Removed-the-ignoring-of-some-files.patch
+0006-git-Added-src-lib-and-removed-lib.patch
+0007-cbstyledtextctrl-Added-header-cbstyledtextctrl_enums.patch
+0008-cbstyledtextctrl-Added-included-of-cbstyledtextctrl..patch
+0009-CodeBlocks.cbp-Added-include-cbstyledtextctrl_enums..patch
+0010-sdk_common.h-Edited-include-sdk_common.h.-Thanks-sta.patch
+0011-sdk_common.h-Removed-wx-wxscintilla.h.patch
+0012-wxscintilla.h-Removed-include-of-wx-wxscintilla.h.patch
+0013-wxscintilla.h-Removed-include-of-wx-wxscintilla.h.patch
+0014-PCH_Fixes-Moved-include-outside-of-PCH-guard-block.-.patch
+0015-CodeBlocks.cbp-Moved-sdk-wxscintilla-include-to-targ.patch
+0016-CodeBlocks_wx30.cbp-Moved-sdk-wxscintilla-include-to.patch
+0017-Remove-directory-.-.-.-sdk-wxscintilla-include.patch
+0018-wxscintilla.h-Replaced-include-of-wx-wxscintilla.h-w.patch
+0019-Removed-win32-wxWidgets-template-files.-Thanks-staht.patch
+0020-deleted-files-src-ipc.cpp-and-src-ipc.h.-Thanks-stah.patch
+0021-win_cbp-Moved-wxmsw-WX_VERSION-WX_SUFFIX-from-projec.patch
+0022-SpellChecker-Removed-from-after-from-second-xcopy-pa.patch
+0023-build-In-SpellChecker-windows-projects-moved-wx-vari.patch
 #
 ######
 #
@@ -76,32 +91,32 @@ git push pch_fixes
 # BrowseTracker: 
 # codesnippets: 
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/wxFormBuilder && git status -uno
 
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 ######
 #
 ### pch_fixes/PCH/wxContribItems
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/wxContribItems && git status -uno
 #
 git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 #
 git push pch_fixes -u
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 
@@ -110,38 +125,21 @@ git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 ######
 #
-### pch_fixes/PCH/wxCode
-##
-cd ../codeblocks_PCH_fixes-git && git fetch origin && git fetch pch_fixes
-git checkout PCH/wxCode && git status -uno
-#
-git rebase pch_fixes/PCH/master && git status -uno
-#
-##  git rebase -i pch_fixes/PCH/master
-#
-git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
-#
-######
-#
 ### pch_fixes/PCH/wx_pch_h
 #
 ##
 #   git checkout -b PCH/wx_pch_h pch_fixes/PCH/wx_pch_h
 ##
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/wx_pch_h && git status -uno
 #
 #   git rebase pch_fixes/PCH/wxContribItems && git status -uno
-git rebase pch_fixes/PCH/wxCode && git status -uno
 #
 #   git rebase pch_fixes/PCH/master && git status -uno
 #
-##  git rebase -i pch_fixes/PCH/wxCode && git status -uno
-#
 git push pch_fixes 
 #   git rebase pch_fixes/PCH/master
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 
 # git log
@@ -153,7 +151,7 @@ git push pch_fixes
 ##
 # git checkout -b PCH/core pch_fixes/PCH/core
 ##
-cd ../codeblocks_PCH_fixes-git && git fetch origin && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/core && git status -uno
 #
 git rebase pch_fixes/PCH/master && git status -uno
@@ -161,7 +159,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/core
 * abbreviations: Added needed wx headers. (Thanks stahta01)
@@ -198,47 +196,47 @@ git format-patch --unified=2 863b582b4512c1994d5ac8339597857a49990c70
 #
 ### pch_fixes/PCH/SmartIndent
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/SmartIndent && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 #
 git push pch_fixes
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 ######
 #
 ### pch_fixes/PCH/keybinder
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/keybinder && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 #
 git push pch_fixes
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 ######
 #
 ### pch_fixes/PCH/DoxyBlocks
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/DoxyBlocks && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 #
 git push pch_fixes
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 ######
 #
@@ -246,17 +244,17 @@ git push pch_fixes
 #
 # FileManager:
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/FileManager && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 #
 git push pch_fixes
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 # git log 
 # git format-patch --unified=1
@@ -269,18 +267,18 @@ git push pch_fixes
 # pch_cbp_unix:
 # NassiShneiderman: 
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/NassiShneiderman && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/NassiShneiderman
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
@@ -293,31 +291,24 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/NassiS
 ##
 # git checkout -b PCH/contrib pch_fixes/PCH/contrib
 ##
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/contrib && git fetch pch_fixes && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/contrib
-- AutoVersioning_wx30-unix.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
-- pch_cbp_unix: Added defines "cbDEBUG" and "CB_PRECOMP". (Thanks stahta01)
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
-- AutoVersioning-unix.cbp: Enabled "sdk.h" PCH. (Thanks stahta01)
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
 - pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
-* pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
-- ProjectOptionsManipulator: Added include of "sdk.h" and rearranged includes. (Thanks stahta01)
 - dragscroll: Removed #pragma interface and implementation. (Thanks stahta01)
 - MouseSap: Removed #pragma interface and implementation. (Thanks stahta01)
 - AutoVersioning: Moved the location of the "sdk.h" include. (Thanks stahta01)
@@ -326,6 +317,17 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/contri
 * cb_koders: Removed include of "wx/wxprec.h" from files. (Thanks stahta01)
 * EditorConfig: Removed include of "wx/wxprec.h" and "WX_PRECOMP" from files. (Thanks stahta01)
 * Cscope: Removed include of "wx/wxprec.h" and "wx/wx.h" from files. (Thanks stahta01)
+- sdk: Removed include of "wx/wx.h" from source files.
+- sdk: Added wx headers to CB_PRECOMP section. (Thanks stahta01)
+* pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
+* defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
+* debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
+* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
+* occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
+* src: Added needed wx headers. (Thanks stahta01)
+- compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
+* astyle: Added needed wx headers. (Thanks stahta01)
+* abbreviations: Added needed wx headers. (Thanks stahta01)
 
 ######
 #
@@ -334,18 +336,18 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/contri
 ##  help-plugin
 # help_plugin:
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/help_plugin && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git format-patch pch_fixes/PCH/master
 
@@ -360,18 +362,18 @@ git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/
 #
 ### pch_fixes/PCH/HexEditor
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/HexEditor && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/HexEditor
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
@@ -381,18 +383,18 @@ s
 #
 ### pch_fixes/PCH/headerfixup
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/headerfixup && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..PCH/headerfixup
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
@@ -403,19 +405,19 @@ git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..PCH/header
 #
 ### pch_fixes/PCH/misc
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/misc && git status -uno
 ##  git log
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push -u pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 ######
 #
@@ -424,18 +426,18 @@ git push -u pch_fixes
 ##
 # git checkout -b PCH/devpak_plugin pch_fixes/PCH/devpak_plugin
 ##
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/devpak_plugin && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin
@@ -448,18 +450,18 @@ git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PC
 #
 ### pch_fixes/PCH/Valgrind
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/Valgrind && git status -uno
 #
 ##  git pull && git status -uno
 #
-git fetch origin && git rebase pch_fixes/PCH/master && git status -uno
+git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
 git push -u pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 ######
 #
@@ -471,7 +473,7 @@ git push -u pch_fixes
 #   git checkout -b PCH/cbp_unix_and_win_wx28 pch_fixes/PCH/cbp_unix_and_win_wx28
 ###
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/cbp_unix_and_win_wx28 && git status -uno
 #
 ####
@@ -508,7 +510,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master
 #
 git push pch_fixes 
-##  git fetch origin && git rebase origin/master && git push pch_fixes --force-with-lease
+##  git fetch origin && git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/cbp_unix_and_win_wx28
@@ -523,7 +525,7 @@ git apply --reject 0001-pch_cbp_win_wx28-Removed-define-of-WX_PRECOMP-.-Than.pat
 
 ###
 #
-cd ../codeblocks_PCH_fixes-git && git fetch pch_fixes
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/cbp_win_wx30 && git status -uno
 #
 git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
@@ -531,7 +533,7 @@ git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
 ##  git --no-pager log --pretty=format:%s pch_fixes/PCH/cbp_unix_and_win_wx28..HEAD
 #
 git push pch_fixes 
-##  git rebase origin/master && git push pch_fixes --force-with-lease
+##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 # git format-patch --unified=2 f8c67f9f0da18545751313b4c1961130149a4552
 #

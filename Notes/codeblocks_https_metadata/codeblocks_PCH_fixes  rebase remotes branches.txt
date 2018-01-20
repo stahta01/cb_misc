@@ -1,6 +1,6 @@
 ########################################
 #
-cd ../codeblocks_PCH_fixes-git      && \
+cd ../codeblocks_PCH_fixes          && \
 git fetch pch_fixes                 && \
 git checkout PCH/wxFormBuilder      && \
 git pull                            && \
