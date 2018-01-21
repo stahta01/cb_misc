@@ -6,3 +6,8 @@ https://github.com/stahta01/stahta01.github.io/wiki/BoostWindowsQuickRef
 
 http://www.codeblocks.org/downloads/26
 
+root@debian:/usr/lib/x86_64-linux-gnu# ln -s libboost_system.so.1.62.0 libboost_system.so
+
+stahta01@debian:/usr/lib/x86_64-linux-gnu$ ls -al *boost_system*
+lrwxrwxrwx 1 root root    25 Jan 21 09:24 libboost_system.so -> libboost_system.so.1.62.0
+-rw-r--r-- 1 root root 14512 Nov 12  2016 libboost_system.so.1.62.0
