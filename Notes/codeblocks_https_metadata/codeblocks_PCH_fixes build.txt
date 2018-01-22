@@ -16,14 +16,14 @@
 #  cd ../codeblocks_https_metadata && git fetch origin && git status -uno
 #  git checkout deceased/removals && git pull --rebase origin master && git push origin --force-with-lease
 #  git checkout portability/fixes && git pull --rebase origin master && git push origin --force-with-lease
-#  git checkout cbstyledtextctrl && git pull --rebase origin master && git push origin --force-with-lease
 ##
 #
-cd ../codeblocks_PCH_fixes && git status -uno
-git fetch pch_fixes --prune
+cd ../codeblocks_PCH_fixes && git fetch pch_fixes --prune && git status -uno
 git checkout sdk_common_h && git status -uno
 #
-git pull --rebase origin cbstyledtextctrl && git status -uno
+##  git am 0001-CodeBlocks.cbp-Moved-sdk-wxscintilla-include-to-targ.patch
+#
+##  git rebase pch_fixes/git_changes
 #
 #  git pull --rebase origin master && git status -uno
 #
@@ -45,8 +45,11 @@ git svn fetch && git svn info && git svn log -1
 #
 ##  git pull --rebase
 #
+##  git am 0002-cc-fix-pch-issues-in-plugin-Thanks-stahta01.patch
+#
 ##  git pull --rebase origin deceased/removals
 ##  git pull --rebase origin portability/fixes
+##  git rebase pch_fixes/git_changes
 ##  git rebase pch_fixes/sdk_common_h
 #
 ##  git pull --rebase origin master && git status -uno
@@ -167,29 +170,11 @@ git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/
 - compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
 * src: Added needed wx headers. (Thanks stahta01)
 * occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
-* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
 * debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
 * defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
 * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
 - sdk: Added wx headers to CB_PRECOMP section. (Thanks stahta01)
 - sdk: Removed include of "wx/wx.h" from source files.
-
-git format-patch pch_fixes/PCH/master
-
-git log
-
-git format-patch --unified=2 863b582b4512c1994d5ac8339597857a49990c70
-0001-abbreviations-Added-needed-wx-headers.-Thanks-stahta.patch
-0002-astyle-Added-needed-wx-headers.-Thanks-stahta01.patch
-0003-compilergcc-Removed-wx-wx.h-headers.-Thanks-stahta01.patch
-0004-src-Added-needed-wx-headers.-Thanks-stahta01.patch
-0005-occurrenceshighlighting-Added-needed-wx-headers.-Tha.patch
-0006-codecompletion-Removed-include-of-wx-wxprec.h-and-wx.patch
-0007-debuggergdb-Removed-wx-wxprec.h-from-header.-Thanks-.patch
-0008-defaultmimehandler-Removed-wx-wxprec.h-and-wx-wx.h-f.patch
-0009-pch_cbp_unix-Added-define-NOPCH-to-targets-scintilla.patch
-0010-sdk-Added-wx-headers-to-CB_PRECOMP-section.-Thanks-s.patch
-0011-sdk-Removed-include-of-wx-wx.h-from-source-files.patch
 
 
 ######
@@ -281,9 +266,10 @@ git push pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/NassiShneiderman
-- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
 - pch_cbp_unix: Removed define "BUILDING_PLUGIN". (Thanks stahta01)
-- NassiShneiderman: Fixed PCH issues in code using "sdk.h". (Thanks stahta01)
+- NassiShneiderman: Fix PCH build wx2.8.12
+* build: Edit project NassiShneiderman_wx30.cbp
+* NassiShneiderman: PCH code fix (Thanks stahta01)
 ######
 #
 ### pch_fixes/PCH/contrib
