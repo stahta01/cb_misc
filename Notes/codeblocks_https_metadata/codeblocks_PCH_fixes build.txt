@@ -308,7 +308,6 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/contri
 * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
 * defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
 * debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
-* codecompletion: Removed include of "wx/wxprec.h" and "wx/wx.h". (Thanks stahta01)
 * occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
 * src: Added needed wx headers. (Thanks stahta01)
 - compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
