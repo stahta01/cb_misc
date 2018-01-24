@@ -5,9 +5,6 @@ git fetch pch_fixes                 && \
 git checkout PCH/wxFormBuilder      && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
-git checkout PCH/wxCode             && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
 git checkout PCH/wx_pch_h           && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
