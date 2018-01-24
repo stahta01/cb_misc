@@ -1,0 +1,57 @@
+Plugins PCH settings.txt
+
+NOPCH, USE_PCH, WX_PRECOMP, CB_PRECOMP
+*_wx30-unix.cbp
+
+WXMAKINGDLL
+
+../../../.objs30/include
+
+CB Tools
+  cb_share_config               NOPCH
+  Addr2LineUI                   NOPCH
+  CBLauncher                    NOPCH
+  cbp2make                      NOPCH
+
+Contrib Plugins
+  AutoVersioning                ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
+  BrowseTracker                 CB_PRECOMP
+  byogames                      CB_PRECOMP
+  cb_koders                     CB_PRECOMP
+  Cccc                          CB_PRECOMP
+  codesnippets                  NOPCH       Needs major source code work to change to CB_PRECOMP
+  codestat                      CB_PRECOMP
+  copystrings                   CB_PRECOMP
+  CppCheck                      CB_PRECOMP
+  Cscope                        CB_PRECOMP
+  devpak_plugin                 NOPCH
+  DoxyBlocks                    CB_PRECOMP
+  dragscroll                    ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
+  EditorConfig                  CB_PRECOMP
+  EditorTweaks                  CB_PRECOMP
+  envvars                       CB_PRECOMP and/or NOPCH
+  FileManager                   CB_PRECOMP
+  headerfixup                   CB_PRECOMP
+  help_plugin                   CB_PRECOMP
+  HexEditor                     CB_PRECOMP
+  IncrementalSearch             CB_PRECOMP
+  keybinder                     ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
+  lib_finder                    NOPCH       Needs major source code work to change to CB_PRECOMP
+  MouseSap                      ?CB_PRECOMP
+  NassiShneiderman              CB_PRECOMP  Needs major source code work to change to CB_PRECOMP
+  profiler                      CB_PRECOMP
+  ProjectOptionsManipulator     NOPCH
+  regex_testbed                 CB_PRECOMP
+  ReopenEditor                  CB_PRECOMP
+  rndgen                        CB_PRECOMP
+  SmartIndent                   ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
+  source_exporter               ?USE_PCH -include "wx_pch.h"
+  SpellChecker                  CB_PRECOMP and NOPCH to be changed to CB_PRECOMP and USE_PCH -include "wx_pch.h"
+  symtab                        CB_PRECOMP
+  ThreadSearch                  CB_PRECOMP
+  ToolsPlus                     NOPCH       Needs major source code work to change to CB_PRECOMP
+  Valgrind                      CB_PRECOMP
+  wxContribItems                ?USE_PCH -include "wx_pch.h"
+  wxSmith                       NOPCH
+  wxSmithAui                    NOPCH
+  wxSmithContribItems           NOPCH
