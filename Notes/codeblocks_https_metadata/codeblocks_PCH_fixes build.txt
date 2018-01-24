@@ -49,6 +49,7 @@ git svn fetch && git svn info && git svn log -1
 #
 ##  git pull --rebase origin deceased/removals
 ##  git pull --rebase origin portability/fixes
+##  git rebase pch_fixes/PCH/cb_projects
 ##  git rebase pch_fixes/git_changes
 ##  git rebase pch_fixes/sdk_common_h
 #
@@ -448,81 +449,9 @@ git rebase pch_fixes/PCH/master && git status -uno
 git push -u pch_fixes 
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
-######
-#
-#
-#
-#######
-#
-###
-#   git checkout -b PCH/cbp_unix_and_win_wx28 pch_fixes/PCH/cbp_unix_and_win_wx28
-###
-#
-cd ../codeblocks_PCH_fixes && git fetch pch_fixes
-git checkout PCH/cbp_unix_and_win_wx28 && git status -uno
-#
-####
-# Rebase this complete section after one is added or 
-#   a branch is changed.
-# Only add new branches after the first "git gc" of the rebase list.
-# git rebase --abort
-git fetch pch_fixes  --prune   && git gc && git prune
-##
-git rebase pch_fixes/PCH/Valgrind && \
-git rebase pch_fixes/PCH/devpak_plugin && \
-# PCH/wxFormBuilder needs Extra Approval from CB Team
-git rebase pch_fixes/PCH/wxFormBuilder  && \
-git rebase pch_fixes/PCH/contrib && \
-git rebase pch_fixes/PCH/help_plugin  && \
-git rebase pch_fixes/PCH/misc && \
-git rebase pch_fixes/PCH/HexEditor && \
-git rebase pch_fixes/PCH/headerfixup && \
-git rebase pch_fixes/PCH/NassiShneiderman && \
-git rebase pch_fixes/PCH/keybinder && \
-git rebase pch_fixes/PCH/DoxyBlocks && \
-git rebase pch_fixes/PCH/FileManager && \
-git rebase pch_fixes/PCH/SmartIndent && \
-git rebase pch_fixes/PCH/wx_pch_h    && \
-git rebase pch_fixes/PCH/core        && \
-#  git rebase --abort
-#  git rebase --skip
-####
-#
-git rebase pch_fixes/PCH/master && git status -uno
-#
-##  git log -5
-##  git rebase -i HEAD~5
-##  git rebase -i pch_fixes/PCH/master
-#
-git push pch_fixes 
-##  git fetch origin && git pull --rebase origin master && git push pch_fixes --force-with-lease
-#
 
-git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/cbp_unix_and_win_wx28
+############################
 
-
-git format-patch pch_fixes/PCH/master..pch_fixes/PCH/cbp_unix_and_win_wx28
-
-# git format-patch --unified=1 263018df0c43dd464930a9b1f0df00edfd2624fd
-git apply --reject 0001-pch_cbp_win_wx28-Removed-define-of-WX_PRECOMP-.-Than.patch
-
-#######
-
-###
-#
-cd ../codeblocks_PCH_fixes && git fetch pch_fixes
-git checkout PCH/cbp_win_wx30 && git status -uno
-#
-git rebase pch_fixes/PCH/cbp_unix_and_win_wx28 && git status -uno
-##  git rebase -i pch_fixes/PCH/cbp_unix_and_win_wx28
-##  git --no-pager log --pretty=format:%s pch_fixes/PCH/cbp_unix_and_win_wx28..HEAD
-#
-git push pch_fixes 
-##  git pull --rebase origin master && git push pch_fixes --force-with-lease
-#
-# git format-patch --unified=2 f8c67f9f0da18545751313b4c1961130149a4552
-#
-###########################
 
 #include "sdk.h" // Code::Blocks SDK and Precompiled Header
 
