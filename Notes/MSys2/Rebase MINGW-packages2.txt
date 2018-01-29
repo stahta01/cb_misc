@@ -1,7 +1,6 @@
 $ git remote -v
-#                 origin          https://github.com/stahta01/MINGW-packages.git (fetch)
-#                 origin          https://stahta01@github.com/stahta01/MINGW-packages.git (push)
-git remote add    upstream        https://github.com/Alexpux/MINGW-packages.git
+# git remote add    origin          https://github.com/stahta01/MINGW-packages.git
+# git remote add    upstream        https://github.com/Alexpux/MINGW-packages.git
 
 
 $ git branch --list
@@ -44,7 +43,6 @@ git checkout DO_NOT_MERGE   && git pull && git rebase master && git status -uno
 git push
 
 
-git fetch origin --prune
 
 git checkout cleanup && git status
 

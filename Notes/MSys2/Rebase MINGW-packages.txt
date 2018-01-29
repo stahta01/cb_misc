@@ -124,7 +124,6 @@ git checkout maintainer && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 
-git fetch origin --prune
 
 git checkout cleanup && git status
 
