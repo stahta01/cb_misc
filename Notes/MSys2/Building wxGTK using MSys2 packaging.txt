@@ -53,7 +53,7 @@ makepkg-mingw --nodeps --nobuild
 
 
 # Change to package(s) folder
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxwidgets3.1
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxwidgets3.1 && \
 makepkg-mingw -sLfCc                             # Needs Tested
 
 # Test patches
@@ -85,10 +85,6 @@ makepkg-mingw -sLfCc                             # Needs Redone and then tested
 
 # Change to package(s) folder
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxwidgets2.8-git
-makepkg-mingw -sLf                               # Built and installed
-
-# Change to package(s) folder
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxwidgets2.6-git
 makepkg-mingw -sLf                               # Built and installed
 
 
