@@ -1,0 +1,19 @@
+git remote -v
+#   git remote add        wxpr        https://github.com/stahta01/wxWidgets.git
+#   git remote add        upstream    https://github.com/wxWidgets/wxWidgets.git
+
+
+$ git branch --list
+  WX_2_8_BRANCH
+  WX_3_0_3_BRANCH
+  WX_3_0_BRANCH
+* master
+  master-samples
+  staging
+  staging3.0
+
+git fetch wxpr --prune
+
+
+git checkout master && git pull upstream master && git status -uno
+git push
