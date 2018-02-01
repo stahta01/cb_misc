@@ -69,8 +69,8 @@ git checkout wxpython && git pull && git rebase master && git status -uno
 #   git log master..HEAD
 git push --force-with-lease
 
-git rebase wxpython-staging && git status -uno
-git rebase wxwidgets-staging && git status -uno
+git rebase wxpython-staging && git status -uno          && \
+git rebase wxwidgets-staging && git status -uno         && \
 git rebase master && git status -uno
 
 git checkout wxwidgets && git pull && git rebase master && git status -uno
