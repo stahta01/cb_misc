@@ -1,46 +1,46 @@
 "scrollingdialog.h"
 <mathplot.h>
 <wx/animate.h>
-<wx/bmpbuttn.h>
+<wx/bmpbuttn.h>                     wx master
 <wx/bmpcbox.h>
-<wx/button.h>
-<wx/checkbox.h>
-<wx/checklst.h>
-<wx/choicdlg.h>
-<wx/choice.h>
+<wx/button.h>                       wx master
+<wx/checkbox.h>                     wx master
+<wx/checklst.h>                     wx master
+<wx/choicdlg.h>                     wx master
+<wx/choice.h>                       wx master
 <wx/colordlg.h>
-<wx/combobox.h>
+<wx/combobox.h>                     wx master
 <wx/cshelp.h>
-<wx/dialog.h>
+<wx/dialog.h>                       wx master
 <wx/dialup.h>
-<wx/dirdlg.h>
-<wx/filedlg.h>
+<wx/dirdlg.h>                       wx master
+<wx/filedlg.h>                      wx master
 <wx/fontdlg.h>
-<wx/frame.h>
-<wx/gauge.h>
+<wx/frame.h>                        wx master
+<wx/gauge.h>                        wx master
 <wx/gbsizer.h>
 <wx/html/htmprint.h>
 <wx/htmllbox.h>
 <wx/hyperlink.h>
-<wx/listbox.h>
+<wx/listbox.h>                      wx master
 <wx/listctrl.h>
 <wx/mediactrl.h>
-<wx/menu.h>
-<wx/panel.h>
+<wx/menu.h>                         wx master
+<wx/panel.h>                        wx master
 <wx/printdlg.h>
-<wx/radiobox.h>
-<wx/radiobut.h>
+<wx/radiobox.h>                     wx master
+<wx/radiobut.h>                     wx master
 <wx/richtext/richtextctrl.h>
 <wx/richtext/richtextstyles.h>
-<wx/scrolbar.h>
-<wx/scrolwin.h>
-<wx/sizer.h>
-<wx/slider.h>
+<wx/scrolbar.h>                     wx master
+<wx/scrolwin.h>                     wx master
+<wx/sizer.h>                        wx master
+<wx/slider.h>                       wx master
 <wx/srchctrl.h>
-<wx/statbmp.h>
-<wx/statbox.h>
-<wx/stattext.h>
-<wx/statusbr.h>
-<wx/textctrl.h>
-<wx/timer.h>
-<wx/toolbar.h>
+<wx/statbmp.h>                      wx master
+<wx/statbox.h>                      wx master
+<wx/stattext.h>                     wx master
+<wx/statusbr.h>                     wx master
+<wx/textctrl.h>                     wx master
+<wx/timer.h>                        wx master
+<wx/toolbar.h>                      wx master
