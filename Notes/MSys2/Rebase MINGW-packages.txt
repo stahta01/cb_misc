@@ -74,6 +74,7 @@ git rebase wxwidgets-staging && git status -uno         && \
 git rebase master && git status -uno
 
 git checkout wxwidgets && git pull && git rebase master && git status -uno
+#   git rebase wxwidgets-staging
 #   git rebase -i wxwidgets-staging
 #   git rebase --ignore-date wxwidgets-staging
 #   git format-patch wxwidgets-staging
