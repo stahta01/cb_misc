@@ -11,8 +11,8 @@ D issues
   misc
   plplot-staging
   qt/apps
+  gui/libs
   wx/apps
-  wx/libs
   wxpython
   wxpython-staging
   wxpythons/apps
@@ -30,7 +30,7 @@ git checkout master && git fetch origin && git pull upstream master && git statu
 git checkout cleanup && git pull && git rebase master && git status -uno
 #
 git checkout wx/apps    && git pull --rebase && git status -uno
-git checkout wx/libs    && git pull --rebase && git status -uno
+git checkout gui/libs    && git pull --rebase && git status -uno
 git checkout wxwidgets  && git pull --rebase && git status -uno
 #
 git checkout gtk/apps   && git pull --rebase && git status -uno
@@ -90,7 +90,7 @@ git checkout gettext && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
-git checkout wx/libs && git pull && git rebase master && git status -uno
+git checkout gui/libs && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
