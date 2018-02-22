@@ -1,5 +1,5 @@
-# 1. Install missing dependencies with pacman
-makepkg-mingw --syncdeps --asdeps --needed --noconfirm --noextract --nobuild --noprepare
+# 1. Install missing dependencies with pacman; it is normal for pkgver to error out sometimes
+makepkg-mingw --syncdeps --asdeps --needed --noconfirm --noextract --nobuild --noprepare --holdver
 
 # 2A.Test source extract and prepare function with clean
 makepkg-mingw --log --nobuild --cleanbuild
@@ -7,11 +7,17 @@ makepkg-mingw --log --nobuild --cleanbuild
 # 2B.Test source extract and prepare function without clean or git update
 makepkg-mingw --log --nobuild --holdver
 
-# 3. Test a clean build 
-makepkg-mingw --log --force --cleanbuild
+# 3A. Test build without cleaning while doing extraction and prepare
+makepkg-mingw --log --force --holdver
 
-# 4. Test build without cleaning or extracting
+# 3B. Test a clean build 
+makepkg-mingw --log --force --holdver --cleanbuild
+
+# 4A. Test build without cleaning or extracting
 makepkg-mingw --log --force --holdver --noextract
+
+# 4B. re-check pkgver 
+makepkg-mingw --noextract --nobuild --noprepare --holdver
 
 # 5. Test repackage to verify it works
 makepkg-mingw --log --force --holdver --repackage
