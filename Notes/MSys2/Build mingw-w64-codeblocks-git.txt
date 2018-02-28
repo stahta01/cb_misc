@@ -1,6 +1,6 @@
 # Update the MSys2 Installation
-pacman -Syu
-# Exit and restart MSys2/MinGW Windows
+# See the directions on-line on how to update MSys2 correctly
+
 
 # One time build tools installation
 pacman -S base-devel
@@ -9,30 +9,27 @@ pacman -S mingw-w64-i686-toolchain
 # for building mingw64 packages
 pacman -S mingw-w64-x86_64-toolchain
 
+
+# See which gcc packages are installed
+pacman -Qs gcc
+
 # See which wxwidgets packages are installed
 pacman -Qs wxwidgets
 
 # See which codeblock's package is installed
 pacman -Qs codeblocks
 
+# Change to mingw-w64-codeblocks-git folder
 cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-git && git status -uno
+git checkout wx/apps && git pull
 
-##  git checkout master && git fetch upstream && git rebase upstream/master && git push origin
-
-git checkout editors_and_IDEs && git pull && git rebase master && git push
-git rebase -i master
-git rebase --ignore-date master
-git log -3
-git push --force-with-lease
-
-cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-git && git status -uno
-
-#   MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
-
+# Build 32 bit package inside MSys2 command window (This is not a mingw window)
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 
+# Find names of packages that was built
 ls *.pkg.tar.xz
 
+# Install local built package
 pacman -U mingw-w64-i686-codeblocks-git-r10958.a4cc06b-1-any.pkg.tar.xz
 
 
@@ -43,4 +40,3 @@ codeblocks --prefix=/mingw32 --debug-log
 codeblocks --debug-log
 
 codeblocks # Works
-
