@@ -30,7 +30,7 @@ git checkout master && git fetch origin && git pull upstream master && git statu
 git checkout cleanup && git pull && git rebase master && git status -uno
 #
 git checkout wx/apps    && git pull --rebase && git status -uno
-git checkout gui/libs    && git pull --rebase && git status -uno
+git checkout gui/libs   && git pull --rebase && git status -uno
 git checkout wxwidgets  && git pull --rebase && git status -uno
 #
 git checkout gtk/apps   && git pull --rebase && git status -uno
