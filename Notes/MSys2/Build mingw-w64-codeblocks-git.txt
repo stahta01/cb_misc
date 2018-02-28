@@ -1,13 +1,17 @@
 # Update the MSys2 Installation
 # See the directions on-line on how to update MSys2 correctly
+# Note: I currently need to delete pacman.exe using task manager
+#   because under windows 10 32 bit the X in the upper right corner
+#   can not be used to close the msys2 command window.
 
 
-# One time build tools installation
-pacman -S --needed --asdeps base-devel
 # for building mingw32 packages
 pacman -S --needed --asdeps mingw-w64-i686-toolchain
 # for building mingw64 packages
 pacman -S --needed --asdeps mingw-w64-x86_64-toolchain
+
+# Needed to checkout git repo
+pacman -S --needed --asdeps git
 
 
 # See which gcc packages are installed
@@ -19,6 +23,7 @@ pacman -Qs wxwidgets
 # See which codeblock's package is installed
 pacman -Qs codeblocks
 
+
 # Change to mingw-w64-codeblocks-git folder
 cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-git && git status -uno
 git checkout wx/apps && git pull
@@ -26,14 +31,25 @@ git checkout wx/apps && git pull
 # Build 32 bit package inside MSys2 command window (This is not a mingw window)
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
 
+# Build 64 bit package inside MSys2 command window (This is not a mingw window)
+MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
+
 # Find names of packages that was built
 ls *.pkg.tar.xz
 
 # Install local built package
 pacman -U mingw-w64-i686-codeblocks-git-r10958.a4cc06b-1-any.pkg.tar.xz
 
+##
+# If you get an build error please report gcc version used to build
+# from mingw32.exe or mingw64.exe command window
+gcc --version
 
-### In mingw32.exe window
+## If you get an package installation error please report the full package name
+# Example: mingw-w64-i686-codeblocks-git-r10958.a4cc06b-1-any.pkg.tar.xz
+
+
+### In mingw32.exe command window
 
 codeblocks --prefix=/mingw32 --debug-log
 
