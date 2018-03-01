@@ -21,7 +21,7 @@ pacman --version # Pacman v4.2.1-313-gf91f-dirty - libalpm v9.0.1
 # Install programs that are known to be needed
 pacman -S zip                       # Needed to zip files during CB build
 # Needed packages for building using Configure/make method
-pacman -S libtool                   # Fixes "libtoolize: command not found"
+pacman -S mingw-w64-libtool         # Fixes "libtoolize: command not found"
 pacman -S automake-wrapper          # Fixes "aclocal: command not found"
 pacman -S autoconf                  # Fixes "sh: autom4te: command not found"
 pacman -S make                      #
@@ -33,6 +33,7 @@ pacman -S patch                     # Needed to patch the svn checkout
 
 
 # MinGW 32 bit Packages
+pacman -S mingw-w64-i686-libtool
 pacman -S mingw-w64-i686-wxWidgets  #
 pacman -S mingw-w64-i686-drmingw    #
 pacman -S mingw-w64-i686-gcc        #
