@@ -40,6 +40,7 @@ ls *.pkg.tar.xz
 # Install local built package
 pacman -U mingw-w64-i686-codeblocks-git-r10958.a4cc06b-1-any.pkg.tar.xz
 
+
 ##
 # If you get an build error please report gcc version used to build
 # from mingw32.exe or mingw64.exe command window
@@ -51,8 +52,7 @@ gcc --version
 
 ### In mingw32.exe command window
 
+# At first, I had to pass "--prefix=/mingw32" to get CB to load and display.
 codeblocks --prefix=/mingw32 --debug-log
-
-codeblocks --debug-log
 
 codeblocks # Works

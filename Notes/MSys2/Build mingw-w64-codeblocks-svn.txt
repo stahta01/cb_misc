@@ -1,40 +1,54 @@
-cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn && git status -uno
-MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
+# Update the MSys2 Installation
+# See the directions on-line on how to update MSys2 correctly
+# Note: I currently need to delete pacman.exe using task manager
+#   because under windows 10 32 bit the X in the upper right corner
+#   can not be used to close the msys2 command window till after that.
 
-cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn_wxMSW3.1 && git status -uno
-MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
 
-cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn_wxGTK3.1-gtk3 && git status -uno
-MINGW_INSTALLS=mingw32 makepkg-mingw --nobuild --nodeps
+# for building mingw32 packages
+pacman -S --needed --asdeps mingw-w64-i686-toolchain
+# for building mingw64 packages
+pacman -S --needed --asdeps mingw-w64-x86_64-toolchain
 
-###
 
-cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn && git status -uno
+# See which gcc packages are installed
+pacman -Qs gcc
+
+# See which wxwidgets packages are installed
+pacman -Qs wxwidgets
+
+# See which codeblock's package is installed
+pacman -Qs codeblocks
+
+
+# Change to mingw-w64-codeblocks-svn folder
+cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-svn
+
+# Build 32 bit package inside MSys2 command window (This is not a mingw window)
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
-#
-MINGW_INSTALLS=mingw32 makepkg-mingw -RLf # Repackage
 
+# Build 64 bit package inside MSys2 command window (This is not a mingw window)
+MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
 
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p codeblocks_wxMSW2.8.pkgbuild
-
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p codeblocks_wxMSW3.1.pkgbuild
-
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf -p codeblocks_wxGTK3.1.pkgbuild
-
-
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLf --noextract --noprepare --holdver
-
---repackage
-
+# Find names of packages that was built
 ls *.pkg.tar.xz
 
+# Install local built package
 pacman -U mingw-w64-i686-codeblocks-svn-r10958-1-any.pkg.tar.xz
 
-### In mingw32.exe window
 
-codeblocks --prefix=/mingw32    # Works
+##
+# If you get an build error please report gcc version used to build
+# from mingw32.exe or mingw64.exe command window
+gcc --version
+
+## If you get an package installation error please report the full package name
+# Example: mingw-w64-i686-codeblocks-svn-r10958-1-any.pkg.tar.xz
+
+
+### In mingw32.exe command window
+
+# At first, I had to pass "--prefix=/mingw32" to get CB to load and display.
+codeblocks --prefix=/mingw32 --debug-log
 
 codeblocks # Works
-
-Scanning for plugins in C:/msys32/mingw32/lib/codeblocks/plugins
-Loaded 14 plugins
