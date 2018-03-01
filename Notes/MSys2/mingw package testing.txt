@@ -25,7 +25,14 @@ makepkg-mingw --log --force --holdver --repackage
 # 6. Test build without cleaning while doing extraction and prepare
 makepkg-mingw --log --force --holdver
 
-# 7. Pre-Final testing with holdver
+# 7A. Pre-Final testing with holdver and without all of the base-devel packages
+# Reinstall MSys2 and do the two upgrade steps
+pacman -S --needed --asdeps mingw-w64-i686-toolchain mingw-w64-x86_64-toolchain
+makepkg-mingw --log --force --holdver --syncdeps --asdeps --needed --noconfirm --rmdeps
+# Install the package
+# Check to see if it works
+
+# 7B. Pre-Final testing with holdver and base-devel packages
 # Reinstall MSys2 and do the two upgrade steps
 pacman -S --needed --asdeps base-devel mingw-w64-i686-toolchain mingw-w64-x86_64-toolchain
 makepkg-mingw --log --force --holdver --syncdeps --asdeps --needed --noconfirm --rmdeps
