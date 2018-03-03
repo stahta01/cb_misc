@@ -52,3 +52,5 @@ gcc --version
 codeblocks --prefix=/mingw32 --debug-log
 
 codeblocks # Works
+
+# CB Plugins that use wxContribItems are failing to load at this time.
