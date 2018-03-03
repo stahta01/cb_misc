@@ -34,7 +34,7 @@ MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
 ls *.pkg.tar.xz
 
 # Install local built package
-pacman -U mingw-w64-i686-codeblocks-svn-r10958-1-any.pkg.tar.xz
+pacman -U mingw-w64-i686-codeblocks-wxmsw3.0-svn-17.12.r11302-1-any.pkg.tar.xz
 
 
 ##
@@ -43,14 +43,13 @@ pacman -U mingw-w64-i686-codeblocks-svn-r10958-1-any.pkg.tar.xz
 gcc --version
 
 ## If you get an package installation error please report the full package name
-# Example: mingw-w64-i686-codeblocks-svn-r10958-1-any.pkg.tar.xz
+# Example: mingw-w64-i686-codeblocks-wxmsw3.0-svn-17.12.r11302-1-any.pkg.tar.xz
 
 
 ### In mingw32.exe command window
 
-# At first, I had to pass "--prefix=/mingw32" to get CB to load and display.
-codeblocks --prefix=/mingw32 --debug-log
-
-codeblocks # Works
+codeblocks
 
 # CB Plugins that use wxContribItems are failing to load at this time.
+C:/Apps32/MSys2/mingw32/lib/codeblocks/plugins\liblib_finder.dll: not loaded (missing symbols?)
+C:/Apps32/MSys2/mingw32/lib/codeblocks/plugins\libThreadSearch.dll: not loaded (missing symbols?)
