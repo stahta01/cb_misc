@@ -2,6 +2,7 @@ $ git branch --list
   broken
   cleanup
   fontconfig-staging
+  games
   gettext
   gtk/apps
 D issues
@@ -124,6 +125,8 @@ git push --force-with-lease
 git checkout maintainer && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
+git checkout games && git pull && git rebase master && git status -uno
+git push --force-with-lease
 
 
 git checkout cleanup && git status
