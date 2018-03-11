@@ -1,0 +1,6 @@
+git remote -v
+#   git remote add        origin      https://github.com/stahta01/wxWidgets_sample_code.git
+
+$ git branch --list
+
+git fetch origin --prune

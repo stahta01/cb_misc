@@ -1,0 +1,29 @@
+git remote -v
+#   git remote add        wxpr        https://github.com/stahta01/wxWidgets.git
+#   git remote add        origin      https://github.com/stahta01/wxwidgets_master_fork.git
+
+
+
+$ git branch --list
+  build/cygwin
+  build/files
+  build/reducedGUI
+  build/wxGTK
+  build/wxQT
+  build/wxUSE_CONFIG_NATIVE
+  build/wxUSE_fixes
+  deprecated
+* master
+  wxGTKwin/makefile.gcc
+
+git fetch origin --prune
+
+
+git checkout master && git pull wxpr master && git status -uno
+git push
+
+
+
+git checkout build/cygwin && git pull && git rebase master && git status -uno
+git push --force-with-lease
+
