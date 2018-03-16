@@ -34,7 +34,7 @@ MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
 ls *.pkg.tar.xz
 
 # Install local built package
-pacman -U mingw-w64-i686-codeblocks-wxmsw3.0-17.12.r11302-1-any.pkg.tar.xz
+pacman -U mingw-w64-i686-codeblocks-wxmsw3.0-17.12-1-any.pkg.tar.xz
 
 
 ##
@@ -43,7 +43,7 @@ pacman -U mingw-w64-i686-codeblocks-wxmsw3.0-17.12.r11302-1-any.pkg.tar.xz
 gcc --version
 
 ## If you get an package installation error please report the full package name
-# Example: mingw-w64-i686-codeblocks-wxmsw3.0-17.12.r11302-1-any.pkg.tar.xz
+# Example: mingw-w64-i686-codeblocks-wxmsw3.0-17.12-1-any.pkg.tar.xz
 
 
 ### In mingw32.exe command window
