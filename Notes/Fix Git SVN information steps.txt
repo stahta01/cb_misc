@@ -14,14 +14,15 @@
 # Step 1: Record the result of the "git log" command.
 git log --grep="^git-svn-id: " --first-parent -1
 # Git Log message begins
-commit 1a16e42d51c23d071b871e0aaba5c30faf661cf6
-Author: jenslody <jenslody@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
-Date:   Wed Jan 17 04:46:57 2018 +0000
+commit 893a81170c91619eea13b7574b6677a23edfe4f6 (HEAD -> master, pch_fixes/master, origin/master)
+Author: pecanh <pecanh@2a5c6006-c6dd-42ca-98ab-0921f2732cef>
+Date:   Fri Mar 23 00:40:30 2018 +0000
 
-    - Update fedora spec-file
-    - Build svn versions (again)
-    
-    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@11269 2a5c6006-c6dd-42ca-98ab-0921f2732cef
+    * CodeSnippets - Apply modified patches by Miguel Gimenez and bluehazzard
+        Adds DnD to projectmanagerui, removes it from the plugin, and fixes asserts
+
+
+    git-svn-id: https://svn.code.sf.net/p/codeblocks/code/trunk@11345 2a5c6006-c6dd-42ca-98ab-0921f2732cef
 # Git Log message ends
 
 # Step 2: Verify svn configuration
@@ -33,8 +34,8 @@ git config svn-remote.svn.url
 # git config svn-remote.svn.fetch trunk:refs/remotes/svn/trunk
 
 
-# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@11269"
-git svn fetch -r 11269
+# Step 3A: Run "git svn fetch" using rev from step 1 "trunk@11345"
+git svn fetch -r 11345
 
 # Step 3B: See what folder name is being used before trunk.
 git config svn-remote.svn.fetch
@@ -52,7 +53,7 @@ ls .git/refs/remotes/svn/trunk
 ########
 
 # Step 4: Use the commit hash from the git log message returned in the step 1 above.
-echo 1a16e42d51c23d071b871e0aaba5c30faf661cf6 > .git/refs/remotes/svn/trunk
+echo 893a81170c91619eea13b7574b6677a23edfe4f6 > .git/refs/remotes/svn/trunk
 
 ########
 ### When doing inside git sub module the location of the trunk file differs.
@@ -60,8 +61,8 @@ echo 1a16e42d51c23d071b871e0aaba5c30faf661cf6 > .git/refs/remotes/svn/trunk
 ###
 ########
 
-# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 11269" part is needed.
-git svn fetch -r 11269
+# Step 5: Re-Run svn fetch to update svn information; not sure if the "-r 11345" part is needed.
+git svn fetch -r 11345
 
 # Step 6: Run svn info to verify it is working
 git svn info
