@@ -1,13 +1,13 @@
 $ git branch --list
   DO_NOT_MERGE
-  broken
+D broken
   cleanup
-A cmake/apps
-A configure/apps
+  cmake/apps
+  configure/apps
   fontconfig-staging
   games
   gettext
-A gmake/apps
+  gmake/apps
 D gtk/apps
   gui/libs
   maintainer
@@ -17,11 +17,11 @@ D misc
   plplot-staging
 D qt/apps
   gui/libs
-? wx/apps
+? wx/apps               Merge into configure/apps
 D wx/libs
   wxpython
   wxpython-staging
-D wxpythons/apps        ?Merge into gmake/apps
+D wxpythons/apps        Merge into gmake/apps
   wxwidgets
   wxwidgets-staging
 
@@ -46,7 +46,6 @@ git checkout wxwidgets  && git pull --rebase && git status -uno
 git checkout gmake/apps && git pull --rebase && git status -uno
 git checkout cmake/apps && git pull --rebase && git status -uno
 #
-git checkout broken     && git pull --rebase && git status -uno
 git checkout maintainer && git pull --rebase && git status -uno
 
 
@@ -62,6 +61,7 @@ git push --force-with-lease
 
 git checkout fontconfig-staging && git pull && git rebase master && git status -uno
 #   git rebase -i master
+#   git format-patch master
 git push --force-with-lease
 
 git checkout plplot-staging && git pull && git rebase master && git status -uno
@@ -113,12 +113,6 @@ git checkout cmake/apps && git pull && git rebase master && git status -uno
 #   git rebase -i origin/cmake/apps
 #   git rebase -i master
 #   git rebase --ignore-date master
-git push --force-with-lease
-
-git checkout broken && git pull && git rebase master && git status -uno
-#   git rebase master && git status -uno
-#   git rebase -i master
-#   git push
 git push --force-with-lease
 
 git checkout maintainer && git pull && git rebase master && git status -uno
