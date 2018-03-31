@@ -4,7 +4,7 @@ D broken
   cleanup
   cmake/apps
   configure/apps
-  fontconfig-staging
+? fontconfig-staging
   games
   gettext
   gmake/apps
@@ -57,11 +57,6 @@ git checkout cleanup && git status
 
 git checkout wxpython-staging && git pull && git rebase master && git status -uno
 #   git rebase -i master
-git push --force-with-lease
-
-git checkout fontconfig-staging && git pull && git rebase master && git status -uno
-#   git rebase -i master
-#   git format-patch master
 git push --force-with-lease
 
 git checkout plplot-staging && git pull && git rebase master && git status -uno
