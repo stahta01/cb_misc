@@ -1,8 +1,9 @@
 # Update the MSys2 Installation
 # See the directions on-line on how to update MSys2 correctly
 # Note: I currently need to delete pacman.exe using task manager
-#   because under windows 10 32 bit the X in the upper right corner
-#   can not be used to close the msys2 command window.
+#   because, under windows 10 32 bit, the X in the upper right corner
+#   can not be used to close the msys2 command window till after killing
+#   the pacman.exe process.
 
 
 # for building mingw32 packages
@@ -26,7 +27,7 @@ pacman -Qs codeblocks
 
 # Change to mingw-w64-codeblocks-git folder
 cd $HOMEDRIVE/Users/$USERNAME/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-codeblocks-git && git status -uno
-git checkout wx/apps && git pull
+git checkout configure/apps && git pull
 
 # Build 32 bit package inside MSys2 command window (This is not a mingw window)
 MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
