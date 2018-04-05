@@ -1,0 +1,49 @@
+
+CB Tools
+  cb_share_config               Converted
+  Addr2LineUI                   Converted
+  CBLauncher                    Converted
+  cbp2make                      Converted
+
+Contrib Plugins
+  AutoVersioning                Converted nonPCH
+  BrowseTracker                 ToDo
+  byogames                      Converted PCH
+  cb_koders                     ToDo
+  Cccc                          ToDo
+  codesnippets                  ToDo
+  codestat                      ToDo
+  copystrings                   ToDo
+  CppCheck                      Converted PCH
+  Cscope                        ToDo
+  devpak_plugin                 ToDo
+  DoxyBlocks                    ToDo
+  dragscroll                    ToDo
+  EditorConfig                  ToDo
+  EditorTweaks                  ToDo
+  envvars                       ToDo*
+  FileManager                   ToDo
+  headerfixup                   ToDo
+  help_plugin                   ToDo*
+  HexEditor                     ToDo
+  IncrementalSearch             ToDo
+  keybinder                     ToDo
+  lib_finder                    ToDo
+  MouseSap                      ToDo
+  NassiShneiderman              ToDo*
+  profiler                      ToDo
+  ProjectOptionsManipulator     ToDo
+  regex_testbed                 ToDo
+  ReopenEditor                  ToDo
+  rndgen                        ToDo
+  SmartIndent                   ToDo
+  source_exporter               ToDo*
+  SpellChecker                  ToDo
+  symtab                        ToDo
+  ThreadSearch                  ToDo
+  ToolsPlus                     Converted nonPCH
+  Valgrind                      N/A
+  wxContribItems                ToDo*
+  wxSmith                       Converted nonPCH
+  wxSmithAui                    ToDo*
+  wxSmithContribItems           ToDo*
