@@ -4,6 +4,7 @@ CB Tools
   Addr2LineUI                   Converted
   CBLauncher                    Converted
   cbp2make                      Converted
+  cctest                        ToDo
 
 Contrib Plugins
   AutoVersioning                Converted nonPCH
@@ -21,14 +22,14 @@ Contrib Plugins
   dragscroll                    ToDo
   EditorConfig                  ToDo
   EditorTweaks                  ToDo
-  envvars                       ToDo*
+  envvars                       ToDo* PCH
   FileManager                   ToDo
   headerfixup                   ToDo
-  help_plugin                   ToDo*
+  help_plugin                   Converted PCH
   HexEditor                     ToDo
   IncrementalSearch             ToDo
   keybinder                     ToDo
-  lib_finder                    ToDo
+  lib_finder                    ToDo*
   MouseSap                      ToDo
   NassiShneiderman              ToDo*
   profiler                      ToDo
@@ -38,12 +39,12 @@ Contrib Plugins
   rndgen                        ToDo
   SmartIndent                   ToDo
   source_exporter               ToDo*
-  SpellChecker                  ToDo
+  SpellChecker                  ToDo*
   symtab                        ToDo
-  ThreadSearch                  ToDo
+  ThreadSearch                  ToDo* PCH
   ToolsPlus                     Converted nonPCH
   Valgrind                      N/A
-  wxContribItems                ToDo*
+  wxContribItems                Converted nonPCH
   wxSmith                       Converted nonPCH
   wxSmithAui                    ToDo*
-  wxSmithContribItems           ToDo*
+  wxSmithContribItems           Converted nonPCH
