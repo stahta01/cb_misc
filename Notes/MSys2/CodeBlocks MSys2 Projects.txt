@@ -1,10 +1,11 @@
 
 CB Tools
-  cb_share_config               Converted
-  Addr2LineUI                   Converted
-  CBLauncher                    Converted
-  cbp2make                      Converted
-  cctest                        ToDo
+  cb_share_config               Converted nonPCH
+  Addr2LineUI                   Converted nonPCH
+  CBLauncher                    Converted nonPCH
+  cbp2make                      Converted nonPCH
+
+  cctest                        Converted PCH
 
 Contrib Plugins
   AutoVersioning                Converted nonPCH
@@ -22,14 +23,14 @@ Contrib Plugins
   dragscroll                    ToDo
   EditorConfig                  ToDo
   EditorTweaks                  ToDo
-  envvars                       ToDo* PCH
+  envvars                       Converted PCH
   FileManager                   ToDo
   headerfixup                   ToDo
-  help_plugin                   Converted PCH
+  help_plugin                   Converted PCH ?"Third-party libs"
   HexEditor                     ToDo
   IncrementalSearch             ToDo
   keybinder                     ToDo
-  lib_finder                    ToDo*
+  lib_finder                    Converted nonPCH  Runs bat file
   MouseSap                      ToDo
   NassiShneiderman              ToDo*
   profiler                      ToDo
@@ -38,13 +39,13 @@ Contrib Plugins
   ReopenEditor                  ToDo
   rndgen                        ToDo
   SmartIndent                   ToDo
-  source_exporter               ToDo*
-  SpellChecker                  ToDo*
+  source_exporter               ToDo* "Third-party libs"
+  SpellChecker                  ToDo* "Third-party libs"
   symtab                        ToDo
-  ThreadSearch                  ToDo* PCH
-  ToolsPlus                     Converted nonPCH
+  ThreadSearch                  Converted PCH     Runs bat file
+  ToolsPlus                     Converted nonPCH  Runs bat file
   Valgrind                      N/A
-  wxContribItems                Converted nonPCH
-  wxSmith                       Converted nonPCH
+  wxContribItems                Converted nonPCH ?"Third-party libs"
+  wxSmith                       Converted nonPCH  Runs bat file
   wxSmithAui                    ToDo*
   wxSmithContribItems           Converted nonPCH
