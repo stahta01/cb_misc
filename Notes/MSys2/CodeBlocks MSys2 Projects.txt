@@ -20,7 +20,7 @@ Contrib Plugins
   Cscope                        ToDo PCH
   devpak_plugin                 Converted nonPCH  ?"Third-party libs"
   DoxyBlocks                    Converted PCH     Runs bat file
-  dragscroll                    ToDo* ?nonPCH
+  dragscroll                    Converted ?nonPCH
   EditorConfig                  ToDo PCH
   EditorTweaks                  ToDo PCH
   envvars                       Converted PCH
@@ -31,17 +31,17 @@ Contrib Plugins
   IncrementalSearch             Converted PCH     Runs bat file
   keybinder                     Build fails under wxMSW3.0 using MSys2 wxWidgets
   lib_finder                    Converted nonPCH  Runs bat file
-  MouseSap                      ToDo* ?nonPCH
+  MouseSap                      Converted ?nonPCH
   NassiShneiderman              Converted nonPCH
   profiler                      ToDo PCH
   ProjectOptionsManipulator     Converted nonPCH
   regex_testbed                 ToDo PCH
   ReopenEditor                  ToDo PCH
   rndgen                        ToDo PCH
-  SmartIndent                   ToDo* ?nonPCH
+  SmartIndent                   Converted ?nonPCH
   source_exporter               Converted ?nonPCH "Third-party libs"
   SpellChecker                  Converted ?nonPCH "Third-party libs"
-  symtab                        ToDo PCH
+  symtab                        Converted PCH
   ThreadSearch                  Converted PCH     Runs bat file
   ToolsPlus                     Converted nonPCH  Runs bat file
   Valgrind                      N/A
