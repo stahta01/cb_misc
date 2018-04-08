@@ -5,6 +5,7 @@ NOPCH, USE_PCH, WX_PRECOMP, CB_PRECOMP
 
 WXMAKINGDLL
 
+-Winvalid-pch
 ../../../.objs30/include
 
 CB Tools
@@ -38,7 +39,7 @@ Contrib Plugins
   keybinder                     ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
   lib_finder                    NOPCH       Needs major source code work to change to CB_PRECOMP
   MouseSap                      ?CB_PRECOMP
-  NassiShneiderman              CB_PRECOMP  Needs major source code work to change to CB_PRECOMP
+  NassiShneiderman              NOPCH       Needs major source code work to change to CB_PRECOMP
   profiler                      CB_PRECOMP
   ProjectOptionsManipulator     NOPCH
   regex_testbed                 CB_PRECOMP
