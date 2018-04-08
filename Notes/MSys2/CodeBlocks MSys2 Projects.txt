@@ -9,43 +9,43 @@ CB Tools
 
 Contrib Plugins
   AutoVersioning                Converted nonPCH
-  BrowseTracker                 ToDo
+  BrowseTracker                 ToDo PCH
   byogames                      Converted PCH
-  cb_koders                     ToDo
-  Cccc                          ToDo
-  codesnippets                  ToDo
-  codestat                      ToDo
-  copystrings                   ToDo
+  cb_koders                     ToDo PCH
+  Cccc                          ToDo PCH
+  codesnippets                  Converted nonPCH  Runs bat file
+  codestat                      ToDo PCH
+  copystrings                   ToDo PCH
   CppCheck                      Converted PCH
-  Cscope                        ToDo
-  devpak_plugin                 ToDo
-  DoxyBlocks                    ToDo
-  dragscroll                    ToDo
-  EditorConfig                  ToDo
-  EditorTweaks                  ToDo
+  Cscope                        ToDo PCH
+  devpak_plugin                 Converted nonPCH  ?"Third-party libs"
+  DoxyBlocks                    Converted PCH     Runs bat file
+  dragscroll                    ToDo* ?nonPCH
+  EditorConfig                  ToDo PCH
+  EditorTweaks                  ToDo PCH
   envvars                       Converted PCH
-  FileManager                   ToDo
-  headerfixup                   ToDo
-  help_plugin                   Converted PCH ?"Third-party libs"
-  HexEditor                     ToDo
-  IncrementalSearch             ToDo
-  keybinder                     ToDo
+  FileManager                   ToDo PCH
+  headerfixup                   ToDo PCH
+  help_plugin                   Converted PCH     ?"Third-party libs"
+  HexEditor                     ToDo PCH
+  IncrementalSearch             Converted PCH     Runs bat file
+  keybinder                     Build fails under wxMSW3.0 using MSys2 wxWidgets
   lib_finder                    Converted nonPCH  Runs bat file
-  MouseSap                      ToDo
-  NassiShneiderman              ToDo*
-  profiler                      ToDo
-  ProjectOptionsManipulator     ToDo
-  regex_testbed                 ToDo
-  ReopenEditor                  ToDo
-  rndgen                        ToDo
-  SmartIndent                   ToDo
-  source_exporter               ToDo* "Third-party libs"
-  SpellChecker                  ToDo* "Third-party libs"
-  symtab                        ToDo
+  MouseSap                      ToDo* ?nonPCH
+  NassiShneiderman              Converted nonPCH
+  profiler                      ToDo PCH
+  ProjectOptionsManipulator     Converted nonPCH
+  regex_testbed                 ToDo PCH
+  ReopenEditor                  ToDo PCH
+  rndgen                        ToDo PCH
+  SmartIndent                   ToDo* ?nonPCH
+  source_exporter               Converted ?nonPCH "Third-party libs"
+  SpellChecker                  Converted ?nonPCH "Third-party libs"
+  symtab                        ToDo PCH
   ThreadSearch                  Converted PCH     Runs bat file
   ToolsPlus                     Converted nonPCH  Runs bat file
   Valgrind                      N/A
-  wxContribItems                Converted nonPCH ?"Third-party libs"
+  wxContribItems                Converted ?nonPCH ?"Third-party libs"
   wxSmith                       Converted nonPCH  Runs bat file
-  wxSmithAui                    ToDo*
+  wxSmithAui                    Converted nonPCH
   wxSmithContribItems           Converted nonPCH
