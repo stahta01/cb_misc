@@ -1,0 +1,17 @@
+PCH code changes.txt
+
+
+1. Create cbassert.h by splitting it off from cbexception.h
+2. Remove "cbplugin.h" from sdk_common.h
+3. Remove define of HAVE_W32API_H from wx30_64 win projects
+4. Remove wx/wxscintilla.h from PCH file
+   editorcolourset.h
+   cbstyledtextctrl.h
+5. ?? Remove from PCH file
+   cbeditor.h
+   findreplacedlg.h
+   pluginmanager.h
+   editormanager.h
+
+
+
