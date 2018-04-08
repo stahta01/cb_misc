@@ -3,7 +3,6 @@ git remote -v
 #   git remote add        origin      https://github.com/stahta01/wxwidgets_master_fork.git
 
 
-
 $ git branch --list
   build/cygwin
   build/files
@@ -12,18 +11,38 @@ $ git branch --list
   build/wxQT
   build/wxUSE_CONFIG_NATIVE
   build/wxUSE_fixes
+  clang/makefile.gcc
   deprecated
 * master
   wxGTKwin/makefile.gcc
 
 git fetch origin --prune
 
-
 git checkout master && git pull wxpr master && git status -uno
 git push
-
 
 
 git checkout build/cygwin && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
+git checkout build/files && git pull && git rebase master && git status -uno
+#   git format-patch master
+
+git checkout build/reducedGUI && git pull && git rebase master && git status -uno
+
+git checkout build/wxGTK && git pull && git rebase master && git status -uno
+
+git checkout build/wxQT && git pull && git rebase master && git status -uno
+
+git checkout build/wxUSE_CONFIG_NATIVE && git pull && git rebase master && git status -uno
+
+git checkout build/wxUSE_fixes && git pull && git rebase master && git status -uno
+
+git checkout deprecated && git pull && git rebase master && git status -uno
+
+git checkout wxGTKwin/makefile.gcc && git pull && git rebase master && git status -uno
+
+git checkout clang/makefile.gcc && git pull && git rebase master && git status -uno
+
+
+git checkout master && git fsck --connectivity-only && git prune && git fsck && git gc && exit
