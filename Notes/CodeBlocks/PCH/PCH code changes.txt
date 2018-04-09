@@ -15,3 +15,25 @@ PCH code changes.txt
 
 
 
+#include "cbplugin.h"
+
+Remove from PCH file
+  licenses.h
+  safedelete.h
+  xtra_res.h
+  filemanager.h
+  uservarmanager.h
+  templatemanager.h
+  toolsmanager.h
+  pipedprocess.h
+  workspaceloader.h
+  cbtool.h
+  cbauibook.h
+  scriptingmanager.h
+  pluginmanager.h
+  editorcolourset.h
+  personalitymanager.h
+
+
+#include "editorcolourset.h"
+#include "wx/wxscintilla.h"
