@@ -1,39 +1,50 @@
 PCH code changes.txt
 
-
+Things that might be a good idea to do; but, not likely to be accepted by C::B devs
 1. Create cbassert.h by splitting it off from cbexception.h
-2. Remove "cbplugin.h" from sdk_common.h
-3. Remove define of HAVE_W32API_H from wx30_64 win projects
-4. Remove wx/wxscintilla.h from PCH file
-   editorcolourset.h
-   cbstyledtextctrl.h
-5. ?? Remove from PCH file
-   cbeditor.h
-   findreplacedlg.h
-   pluginmanager.h
-   editormanager.h
+   Requires an PCH target to be added to get much benifits from not defining cbDebug
 
 
-
-#include "cbplugin.h"
-
-Remove from PCH file
-  licenses.h
-  safedelete.h
-  xtra_res.h
-  filemanager.h
-  uservarmanager.h
-  templatemanager.h
-  toolsmanager.h
-  pipedprocess.h
-  workspaceloader.h
-  cbtool.h
-  cbauibook.h
-  scriptingmanager.h
-  pluginmanager.h
-  editorcolourset.h
-  personalitymanager.h
+git checkout pch/shrink && git rebase plugins_only
 
 
-#include "editorcolourset.h"
-#include "wx/wxscintilla.h"
+settings.h            found in  65 cpp files and in 56 sdk header files
+globals.h             found in 180 cpp files and in 19 sdk header files
+sdk_events.h          found in  38 cpp files and in  1 sdk header files
+cbexception.h         found in  35 cpp files and in  6 sdk header files
+logger.h              found in  16 cpp files and in  3 sdk header files
+editorbase.h          found in  10 plugins cpp files
+cbeditor.h            found in  65 plugins cpp files
+compileoptionsbase.h  found in   3 cpp files and in  2 sdk header files
+compiletargetbase.h   found in   2 cpp files and in  4 sdk header files
+projectbuildtarget.h  found in  22 cpp files and in  1 sdk header files
+projectfile.h         found in  13 cpp files and in  1 sdk header files
+cbplugin.h            found in  26 cpp files and in  4 sdk header files
+cbproject.h           found in  65 plugins cpp files
+cbtool.h              found in   3 cpp files and in  1 sdk header files
+cbworkspace.h         found in  15 cpp files and in  0 sdk header files
+compilerfactory.h     found in  36 cpp files and in  1 sdk header files
+compiler.h            found in  30 cpp files and in  1 sdk header files
+workspaceloader.h     found in   9 cpp files and in  0 sdk header files
+editorcolourset.h     found in  32 cpp files and in  0 sdk header files
+pipedprocess.h        found in   4 cpp files and in  0 sdk header files
+scrollingdialog.h     found in  13 cpp files and in 24 sdk header files
+cbauibook.h           found in  24 cpp files and in  1 sdk header files
+manager.h             found in 215 cpp files and in 19 sdk header files
+configmanager.h       found in 137 plugins cpp files
+editormanager.h       found in  79 plugins cpp files
+logmanager.h          found in 122 plugins cpp files
+projectmanager.h      found in  87 cpp files and in  2 sdk header files
+menuitemsmanager.h    found in   3 cpp files and in  2 sdk header files
+scriptingmanager.h    found in  16 cpp files and in  1 sdk header files
+toolsmanager.h        found in   5 cpp files and in  0 sdk header files
+templatemanager.h     found in   5 cpp files and in  0 sdk header files
+macrosmanager.h       found in  26 plugins cpp files
+pluginmanager.h       found in  30 cpp files and in  3 sdk header files
+personalitymanager.h  found in  15 cpp files and in  0 sdk header files
+uservarmanager.h      found in   7 cpp files and in  1 sdk header files
+filemanager.h         found in  14 cpp files and in  1 sdk header files
+xtra_res.h            found in   6 cpp files and in  0 sdk header files
+safedelete.h          found in   2 cpp files and in  1 sdk header files
+infowindow.h          found in  21 cpp files and in  0 sdk header files
+licenses.h            found in   1 cpp files and in  0 sdk header files
