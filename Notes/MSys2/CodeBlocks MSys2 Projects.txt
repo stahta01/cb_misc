@@ -9,35 +9,35 @@ CB Tools
 
 Contrib Plugins
   AutoVersioning                Converted nonPCH
-  BrowseTracker                 ToDo PCH
+  BrowseTracker                 ToDo PCH*
   byogames                      Converted PCH
-  cb_koders                     ToDo PCH
-  Cccc                          ToDo PCH
+  cb_koders                     ToDo PCH*
+  Cccc                          ToDo PCH*
   codesnippets                  Converted nonPCH  Runs bat file
-  codestat                      ToDo PCH
-  copystrings                   ToDo PCH
+  codestat                      ToDo PCH*
+  copystrings                   ToDo PCH*
   CppCheck                      Converted PCH
-  Cscope                        ToDo PCH
+  Cscope                        ToDo PCH*
   devpak_plugin                 Converted nonPCH  ?"Third-party libs"
   DoxyBlocks                    Converted PCH     Runs bat file
   dragscroll                    Converted ?nonPCH
-  EditorConfig                  ToDo PCH
-  EditorTweaks                  ToDo PCH
+  EditorConfig                  ToDo PCH*
+  EditorTweaks                  ToDo PCH*
   envvars                       Converted PCH
-  FileManager                   ToDo PCH
-  headerfixup                   ToDo PCH
+  FileManager                   ToDo PCH*
+  headerfixup                   ToDo PCH*
   help_plugin                   Converted PCH     ?"Third-party libs"
-  HexEditor                     ToDo PCH
+  HexEditor                     ToDo PCH*
   IncrementalSearch             Converted PCH     Runs bat file
   keybinder                     Build fails under wxMSW3.0 using MSys2 wxWidgets
   lib_finder                    Converted nonPCH  Runs bat file
   MouseSap                      Converted ?nonPCH
   NassiShneiderman              Converted nonPCH
-  profiler                      ToDo PCH
+  profiler                      ToDo PCH*
   ProjectOptionsManipulator     Converted nonPCH
-  regex_testbed                 ToDo PCH
-  ReopenEditor                  ToDo PCH
-  rndgen                        ToDo PCH
+  regex_testbed                 ToDo PCH*
+  ReopenEditor                  ToDo PCH*
+  rndgen                        ToDo PCH*
   SmartIndent                   Converted ?nonPCH
   source_exporter               Converted ?nonPCH "Third-party libs"
   SpellChecker                  Converted ?nonPCH "Third-party libs"
