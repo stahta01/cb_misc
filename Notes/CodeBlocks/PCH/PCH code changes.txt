@@ -7,44 +7,53 @@ Things that might be a good idea to do; but, not likely to be accepted by C::B d
 
 git checkout pch/shrink && git rebase plugins_only
 
+git format-patch plugins_only
 
-settings.h            found in  65 cpp files and in 56 sdk header files
-globals.h             found in 180 cpp files and in 19 sdk header files
-sdk_events.h          found in  38 cpp files and in  1 sdk header files
-cbexception.h         found in  35 cpp files and in  6 sdk header files
-logger.h              found in  16 cpp files and in  3 sdk header files
-editorbase.h          found in  10 plugins cpp files
-cbeditor.h            found in  65 plugins cpp files
-compileoptionsbase.h  found in   3 cpp files and in  2 sdk header files
-compiletargetbase.h   found in   2 cpp files and in  4 sdk header files
-projectbuildtarget.h  found in  22 cpp files and in  1 sdk header files
-projectfile.h         found in  13 cpp files and in  1 sdk header files
-cbplugin.h            found in  26 cpp files and in  4 sdk header files
-cbproject.h           found in  65 plugins cpp files
-cbtool.h              found in   3 cpp files and in  1 sdk header files
-cbworkspace.h         found in  15 cpp files and in  0 sdk header files
-compilerfactory.h     found in  36 cpp files and in  1 sdk header files
-compiler.h            found in  30 cpp files and in  1 sdk header files
-workspaceloader.h     found in   9 cpp files and in  0 sdk header files
-editorcolourset.h     found in  32 cpp files and in  0 sdk header files
-pipedprocess.h        found in   4 cpp files and in  0 sdk header files
-scrollingdialog.h     found in  13 cpp files and in 24 sdk header files
-cbauibook.h           found in  24 cpp files and in  1 sdk header files
-manager.h             found in 215 cpp files and in 19 sdk header files
-configmanager.h       found in 137 plugins cpp files
-editormanager.h       found in  79 plugins cpp files
-logmanager.h          found in 122 plugins cpp files
-projectmanager.h      found in  87 cpp files and in  2 sdk header files
-menuitemsmanager.h    found in   3 cpp files and in  2 sdk header files
-scriptingmanager.h    found in  16 cpp files and in  1 sdk header files
-toolsmanager.h        found in   5 cpp files and in  0 sdk header files
-templatemanager.h     found in   5 cpp files and in  0 sdk header files
-macrosmanager.h       found in  26 plugins cpp files
-pluginmanager.h       found in  30 cpp files and in  3 sdk header files
-personalitymanager.h  found in  15 cpp files and in  0 sdk header files
-uservarmanager.h      found in   7 cpp files and in  1 sdk header files
-filemanager.h         found in  14 cpp files and in  1 sdk header files
-xtra_res.h            found in   6 cpp files and in  0 sdk header files
-safedelete.h          found in   2 cpp files and in  1 sdk header files
-infowindow.h          found in  21 cpp files and in  0 sdk header files
-licenses.h            found in   1 cpp files and in  0 sdk header files
+
+annoyingdialog.h        found in   7 plugins cpp files
+cbauibook.h             found in  11 plugins cpp files
+cbcolourmanager.h       found in   8 plugins cpp files
+cbeditor.h              found in  65 plugins cpp files
+cbexception.h           found in  12 plugins cpp files
+cbplugin.h              found in   4 plugins cpp files
+cbproject.h             found in  65 plugins cpp files
+cbstyledtextctrl.h      found in  62 plugins cpp files
+cbtool.h                found in   1 plugins cpp files
+cbworkspace.h           found in   8 plugins cpp files
+compileoptionsbase.h    found in   2 plugins cpp files
+compiler.h              found in  20 plugins cpp files
+compilerfactory.h       found in  21 plugins cpp files
+compiletargetbase.h     found in   1 plugins cpp files
+configmanager.h         found in 137 plugins cpp files
+editorbase.h            found in  10 plugins cpp files
+editorcolourset.h       found in  22 plugins cpp files
+editormanager.h         found in  79 plugins cpp files
+editpathdlg.h           found in   4 plugins cpp files
+edittooldlg.h           found in   1 plugins cpp files
+filemanager.h           found in   3 plugins cpp files
+globals.h               found in 115 plugins cpp files
+highlighter.h           found in   2 plugins cpp files
+infowindow.h            found in  10 plugins cpp files
+licenses.h              found in   0 plugins cpp files
+logger.h                found in  14 plugins cpp files
+logmanager.h            found in 122 plugins cpp files
+macrosmanager.h         found in  27 plugins cpp files
+manager.h               found in 147 plugins cpp files
+menuitemsmanager.h      found in   1 plugins cpp files
+personalitymanager.h    found in   9 plugins cpp files
+pipedprocess.h          found in   2 plugins cpp files
+pluginmanager.h         found in  12 plugins cpp files
+projectbuildtarget.h    found in  13 plugins cpp files
+projectfile.h           found in   8 plugins cpp files
+projectfileoptionsdlg.h found in   1 plugins cpp files
+projectmanager.h        found in  58 plugins cpp files
+safedelete.h            found in   1 plugins cpp files
+scriptingmanager.h      found in   5 plugins cpp files
+scrollingdialog.h       found in   8 plugins cpp files
+sdk_events.h            found in  22 plugins cpp files
+settings.h              found in  33 plugins cpp files
+templatemanager.h       found in   1 plugins cpp files
+toolsmanager.h          found in   1 plugins cpp files
+uservarmanager.h        found in   1 plugins cpp files
+workspaceloader.h       found in   6 plugins cpp files
+xtra_res.h              found in   3 plugins cpp files
