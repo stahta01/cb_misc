@@ -1,0 +1,23 @@
+Core Plugins Only (Win10 32 bit)
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW2.8.12 GCC 4.9.2
+  05:43   06:28   05:39   PCH; With PCH/Shrink Changes wxMSW2.8.12 GCC 4.9.2
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+
+Core Project (Win10 32 bit)
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW2.8.12 GCC 4.9.2
+  18:50   18:27   18:31   PCH; With PCH/Shrink Changes wxMSW2.8.12 GCC 4.9.2
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+
+Core Plugins Only (Debian 64 bits)
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+
+Core Project (Debian 64 bits)
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
