@@ -14,10 +14,43 @@ Core Project (Win10 32 bit)
   30:20   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW32 GCC
   29:23   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW32 GCC
 
-Core Plugins Only (Debian 64 bits)
-  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+Core Plugins Only (Win7 64 bit)
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
 
-Core Project (Debian 64 bits)
-  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+Core Project (Win7 64 bit)
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
+
+
+CB SDK (Debian 4.9.0-6-amd64 GCC 6.3.0)
+  05:08   05:07   05:07   PCH; Without PCH/Shrink Changes wxMSW3.0
+  04:58   04:56   04:53   PCH; With PCH/Shrink Changes wxMSW3.0
+  04:53   0?:??   0?:??   PCH; Add macrosmanager.h
+  05:13   0?:??   0?:??   PCH; Add compiler.h 
+  05:02   0?:??   0?:??   PCH; Add compiler.h and compilerfactory.h
+
+CB srcApp (Debian 4.9.0-6-amd64 GCC 6.3.0)
+  02:01   02:01   02:01   PCH; Without PCH/Shrink Changes wxMSW3.0
+  02:01   02:01   02:03   PCH; With PCH/Shrink Changes wxMSW3.0
+  02:01   0?:??   0?:??   PCH; Add macrosmanager.h
+  02:05   02:04   0?:??   PCH; Add compiler.h 
+  02:04   0?:??   0?:??   PCH; Add compiler.h and compilerfactory.h 
+
+Core Plugins Only (Debian 4.9.0-6-amd64 GCC 6.3.0)
+  06:23   06:15   06:17   PCH; Without PCH/Shrink Changes wxMSW3.0
+  06:05   06:05   06:01   PCH; With PCH/Shrink Changes wxMSW3.0
+  06:26   06:01   0?:??   PCH; Add macrosmanager.h
+  06:04   0?:??   0?:??   PCH; Add compiler.h
+  06:04   0?:??   0?:??   PCH; Add compiler.h and compilerfactory.h 
+
+Core Project (Debian 4.9.0-6-amd64 GCC 6.3.0)
+  17:59   16:25   16:24   PCH; Without PCH/Shrink Changes wxMSW3.0
+  15:57   15:57   16:01   PCH; With PCH/Shrink Changes wxMSW3.0
+  16:08   0?:??   0?:??   PCH; Add macrosmanager.h
+  15:54   0?:??   0?:??   PCH; Add compiler.h
+  16:12   0?:??   0?:??   PCH; Add compiler.h and compilerfactory.h 
