@@ -27,6 +27,7 @@ cbworkspace.h           found in   8 plugins cpp files
 compileoptionsbase.h    found in   2 plugins cpp files
 compiler.h              found in  20 plugins cpp files
 compilerfactory.h       found in  21 plugins cpp files
+compileroptions.h       found in   2 plugins cpp files
 compiletargetbase.h     found in   1 plugins cpp files
 configmanager.h         found in 137 plugins cpp files
 editorbase.h            found in  10 plugins cpp files
