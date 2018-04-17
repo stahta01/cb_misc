@@ -19,6 +19,7 @@ git push --force-with-lease
 #include <vector>     // cbproject.h
 
 annoyingdialog.h        found in   7 plugins cpp files
+backgroundthread.h      found in   1 plugins cpp files
 cbauibook.h             found in  11 plugins cpp files
 cbcolourmanager.h       found in   8 plugins cpp files
 cbeditor.h              found in  65 plugins cpp files
