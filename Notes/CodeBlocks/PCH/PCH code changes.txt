@@ -4,12 +4,16 @@ Things that might be a good idea to do; but, not likely to be accepted by C::B d
 1. Create cbassert.h by splitting it off from cbexception.h
    Requires an PCH target to be added to get much benifits from not defining cbDebug
 
+git checkout master && git pull && git status -uno 
 
 git checkout pch/shrink && git rebase plugins_only && git status -uno
+git rebase -i plugins_only
+git rebase --ignore-date plugins_only
+git push --force-with-lease
 
 git format-patch plugins_only
 
-git checkout plugins_only && git rebase pch/shrink && git rebase -i master
+git checkout plugins_only && git pull && git rebase pch/shrink && git rebase -i master
 git rebase --ignore-date master
 git push --force-with-lease
 
