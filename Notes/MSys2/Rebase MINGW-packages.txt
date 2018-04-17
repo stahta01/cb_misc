@@ -1,6 +1,5 @@
 $ git branch --list
   DO_NOT_MERGE
-D broken
   cleanup
   cmake/apps
   configure/apps
@@ -8,20 +7,15 @@ D broken
   games
   gettext
   gmake/apps
-D gtk/apps
   gui/libs
   maintainer
 * master
   mingw64/libs
-D misc
   plplot-staging
-D qt/apps
   gui/libs
 ? wx/apps               Merge into configure/apps
-D wx/libs
   wxpython
   wxpython-staging
-D wxpythons/apps        Merge into gmake/apps
   wxwidgets
   wxwidgets-staging
 
