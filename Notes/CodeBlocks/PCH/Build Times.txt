@@ -42,20 +42,28 @@ Core Project (Win7 64 bit)
 
 CB SDK (Debian 4.9.0-6-amd64 GCC 6.3.0)
   05:08   05:07   05:07   PCH; Without PCH/Shrink Changes wxMSW3.0
-  04:58   04:56   04:53   PCH; With PCH/Shrink Changes wxMSW3.0 (Old)
-  04:54   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+  04:54   04:59   04:54   PCH; With PCH/Shrink Changes wxMSW3.0
 
 CB srcApp (Debian 4.9.0-6-amd64 GCC 6.3.0)
   02:01   02:01   02:01   PCH; Without PCH/Shrink Changes wxMSW3.0
-  02:01   02:01   02:03   PCH; With PCH/Shrink Changes wxMSW3.0 (Old)
-  02:00   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+  02:00   02:01   02:00   PCH; With PCH/Shrink Changes wxMSW3.0
 
 Core Plugins Only (Debian 4.9.0-6-amd64 GCC 6.3.0)
   06:23   06:15   06:17   PCH; Without PCH/Shrink Changes wxMSW3.0
-  06:05   06:05   06:01   PCH; With PCH/Shrink Changes wxMSW3.0 (Old)
-  05:59   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+  05:59   06:05   06:00   PCH; With PCH/Shrink Changes wxMSW3.0
 
 Core Project (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  17:59   16:25   16:24   PCH; Without PCH/Shrink Changes wxMSW3.0
-  15:57   15:57   16:01   PCH; With PCH/Shrink Changes wxMSW3.0 (Old)
-  15:52   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+  16:23   16:25   16:24   PCH; Without PCH/Shrink Changes wxMSW3.0
+  15:52   16:12   16:18   PCH; With PCH/Shrink Changes wxMSW3.0
+
+Core configure/make (Debian 4.9.0-6-amd64 GCC 6.3.0)
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+
+Core and Contrib configure/make (Debian 4.9.0-6-amd64 GCC 6.3.0)
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
