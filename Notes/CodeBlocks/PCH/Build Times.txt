@@ -56,14 +56,14 @@ Core Project (Debian 4.9.0-6-amd64 GCC 6.3.0)
   16:23   16:25   16:24   PCH; Without PCH/Shrink Changes wxMSW3.0
   15:52   16:12   16:18   PCH; With PCH/Shrink Changes wxMSW3.0
 
-Core configure/make (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+Core configure/make user time in seconds (Debian 4.9.0-6-amd64 GCC 6.3.0)
+  2263.82  2279.20  2264.09  NONPCH; Without PCH/Shrink Changes wxMSW3.0
+  1571.02  1583.79  1592.80  PCH; Without PCH/Shrink Changes wxMSW3.0
+  2373.74  2379.21  2359.16  NONPCH; With PCH/Shrink Changes wxMSW3.0
+  1584.16  1577.66  1610.62  PCH; With PCH/Shrink Changes wxMSW3.0
 
-Core and Contrib configure/make (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0
+Core and Contrib configure/make user time in seconds (Debian 4.9.0-6-amd64 GCC 6.3.0)
+  6264.48  ?:??:??  ?:??:??  NONPCH; Without PCH/Shrink Changes wxMSW3.0
+  ?:??:??  ?:??:??  ?:??:??  PCH; Without PCH/Shrink Changes wxMSW3.0
+  5906.20  ?:??:??  ?:??:??  NONPCH; With PCH/Shrink Changes wxMSW3.0
+  ?:??:??  ?:??:??  ?:??:??  PCH; With PCH/Shrink Changes wxMSW3.0
