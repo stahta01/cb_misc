@@ -1,0 +1,36 @@
+
+
+
+pacman -Syuu
+
+msys2-runtime and catgets are in conflict. Remove catgets? [y/N] y
+msys2-runtime and libcatgets are in conflict. Remove libcatgets? [y/N] y
+
+Packages (8) bash-4.4.019-2  catgets-1.1-2 [removal]  filesystem-2018.04-1  libcatgets-1.1-2 [removal]  mintty-1~2.8.5-1
+             msys2-runtime-2.10.0-2  pacman-5.0.1-5  pacman-mirrors-20180419-1
+
+Total Download Size:   11.32 MiB
+Total Installed Size:  56.36 MiB
+Net Upgrade Size:       2.59 MiB
+
+:: Proceed with installation? [Y/n] y
+
+Please read the Win10 directions below when you get
+
+(6/6) upgrading pacman                                                               [###############################################] 100%
+warning: terminate MSYS2 without returning to shell and check for updates again
+warning: for example close your terminal window instead of calling exit
+
+1. Bring up task manager
+Hold both [CTRL] and [SHIFT] keys and while holding press and release [ESC] key
+Release both [CTRL] and [SHIFT] keys
+
+2. Bring up details
+Click on "More Detail"
+Click on tab "Details"
+
+3. Kill process with name "pacman.exe"
+
+You should now be able to use "X" in upper right corner to kill MSys2 terminal window
+
+You need to Open back up the MSys2 terminal window and run "pacman -Syuu" once more.
