@@ -21,9 +21,11 @@
 cd ../codeblocks_PCH_fixes && git fetch pch_fixes --prune && git status -uno
 git checkout sdk_common_h && git status -uno
 #
-##  git am 0001-CodeBlocks.cbp-Moved-sdk-wxscintilla-include-to-targ.patch
+##  git am 0001-sdk-Major-change-to-PCH-Thanks-stahta01.patch
 #
-##  git rebase pch_fixes/git_changes
+###  git checkout git_changes && git pull --rebase origin master
+##  git rebase pch_fixes/git_changes && git status -uno
+##  git format-patch pch_fixes/git_changes
 #
 #  git pull --rebase origin master && git status -uno
 #
@@ -304,16 +306,6 @@ git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/contri
 * cb_koders: Removed include of "wx/wxprec.h" from files. (Thanks stahta01)
 * EditorConfig: Removed include of "wx/wxprec.h" and "WX_PRECOMP" from files. (Thanks stahta01)
 * Cscope: Removed include of "wx/wxprec.h" and "wx/wx.h" from files. (Thanks stahta01)
-- sdk: Removed include of "wx/wx.h" from source files.
-- sdk: Added wx headers to CB_PRECOMP section. (Thanks stahta01)
-* pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
-* defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
-* debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
-* occurrenceshighlighting: Added needed wx headers. (Thanks stahta01)
-* src: Added needed wx headers. (Thanks stahta01)
-- compilergcc: Removed "wx/wx.h" headers. (Thanks stahta01)
-* astyle: Added needed wx headers. (Thanks stahta01)
-* abbreviations: Added needed wx headers. (Thanks stahta01)
 
 ######
 #
@@ -340,9 +332,6 @@ git format-patch pch_fixes/PCH/master
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/help_plugin
 - help_plugin: Save-As using CB 13.12.
 * help_plugin: Fixed to use just bzip2 and z in the library link list.(Thanks stahta01)
-- cbp_win_wx28: Moved search folders to target level. (Thanks stahta01)
-- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-- pch_cbp_unix: Added object search folder. (Thanks stahta01)
 
 ######
 #
@@ -363,8 +352,7 @@ git push pch_fixes
 
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/HexEditor
 - pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
-- pch_cbp_unix: Added object include search folder. (Thanks stahta01)
-s
+
 ######
 #
 ### pch_fixes/PCH/headerfixup
@@ -428,7 +416,6 @@ git push pch_fixes
 
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/core..pch_fixes/PCH/devpak_plugin
 - DevPakPlugin.cbp: Added compiler option [-include "sdk.h"]. (Thanks stahta01)
-- DevPakPlugin.cbp: Added search path "sdk/wxscintilla/include". (Thanks stahta01)
 - pch_cbp_win_wx28: Added object search folders. (Thanks stahta01)
 * devpak_plugin: Removed unneeded wx/wx.h and wx/wxprec.h. (Thanks stahta01)
 
