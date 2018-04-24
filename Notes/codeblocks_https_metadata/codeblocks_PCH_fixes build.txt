@@ -19,20 +19,20 @@
 ##
 #
 cd ../codeblocks_PCH_fixes && git fetch pch_fixes --prune && git status -uno
-git checkout sdk_common_h && git status -uno
+git checkout sdk_common_h && git pull --rebase origin sdk_common_h && git status -uno
 #
 ##  git am 0001-sdk-Major-change-to-PCH-Thanks-stahta01.patch
 #
 ###  git checkout git_changes && git pull --rebase origin master
-##  git rebase pch_fixes/git_changes && git status -uno
-##  git format-patch pch_fixes/git_changes
+##  git rebase origin/git_changes && git status -uno
+##  git format-patch origin/git_changes
 #
 #  git pull --rebase origin master && git status -uno
 #
 ## git rebase -i origin/master
 #
 git push pch_fixes
-## git pull --rebase origin master && git push pch_fixes --force-with-lease
+## git pull --rebase origin master && git push origin --force-with-lease
 git svn fetch && git svn info
 #
 #
@@ -52,8 +52,8 @@ git svn fetch && git svn info && git svn log -1
 ##  git pull --rebase origin deceased/removals
 ##  git pull --rebase origin portability/fixes
 ##  git rebase pch_fixes/PCH/cb_projects
-##  git rebase pch_fixes/git_changes
-##  git rebase pch_fixes/sdk_common_h
+##  git rebase origin/git_changes
+##  git rebase origin/sdk_common_h
 #
 ##  git pull --rebase origin master && git status -uno
 ##  git push pch_fixes --force-with-lease
@@ -295,6 +295,7 @@ git push pch_fixes
 
 
 git --no-pager log --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/contrib
+- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
 - pch_cbp_win_wx30: Added object search folder. (Thanks stahta01)
 - pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
 - pch_cbp_unix: Added option "-Winvalid-pch". (Thanks stahta01)
@@ -332,26 +333,6 @@ git format-patch pch_fixes/PCH/master
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/help_plugin
 - help_plugin: Save-As using CB 13.12.
 * help_plugin: Fixed to use just bzip2 and z in the library link list.(Thanks stahta01)
-
-######
-#
-### pch_fixes/PCH/HexEditor
-#
-cd ../codeblocks_PCH_fixes && git fetch pch_fixes
-git checkout PCH/HexEditor && git status -uno
-#
-##  git pull && git status -uno
-#
-git rebase pch_fixes/PCH/master && git status -uno
-#
-##  git rebase -i pch_fixes/PCH/master && git status -uno
-##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
-#
-git push pch_fixes 
-##  git pull --rebase origin master && git push pch_fixes --force-with-lease
-
-git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/HexEditor
-- pch_cbp_win_wx28: Added object include search folder. (Thanks stahta01)
 
 ######
 #
