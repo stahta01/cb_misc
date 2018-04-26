@@ -1,3 +1,20 @@
+build: Add "wx30-msys2" projects/workspace
+
+with " - MSys2" suffix in projects' title.
+Remove #WX30 and wxmsw library.
+
+
+build: Add libs and headers search paths
+
+And, add WX_TOOLKIT="msw" and set WX_VERSION="3.0".
+Also, delete custom value "WX_CFG".
+
+
+build: Add PCH build options
+
+Also, sometimes move defines from project level to target level.
+And, remove define of HAVE_W32API_H.
+
 
 CB Tools
   cb_share_config               Converted nonPCH
@@ -9,7 +26,7 @@ CB Tools
 
 Contrib Plugins
   AutoVersioning                Converted nonPCH
-  BrowseTracker                 ToDo PCH*
+  BrowseTracker                 Converted PCH
   byogames                      Converted PCH
   cb_koders                     ToDo PCH*
   Cccc                          ToDo PCH*
