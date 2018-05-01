@@ -1,19 +1,4 @@
-build: Add "wx30-msys2" projects/workspace
-
-with " - MSys2" suffix in projects' title.
-Remove #WX30 and wxmsw library.
-
-
-build: Add libs and headers search paths
-
-And, add WX_TOOLKIT="msw" and set WX_VERSION="3.0".
-Also, delete custom value "WX_CFG".
-
-
-build: Add PCH build options
-
-Also, sometimes move defines from project level to target level.
-And, remove define of HAVE_W32API_H.
+build: Add "wxGTK30-msys2" projects/workspace(s)
 
 
 CB Tools
@@ -28,33 +13,33 @@ Contrib Plugins
   AutoVersioning                Converted nonPCH
   BrowseTracker                 Converted PCH
   byogames                      Converted PCH
-  cb_koders                     ToDo PCH*
-  Cccc                          ToDo PCH*
+  cb_koders                     Converted PCH
+  Cccc                          Converted PCH
   codesnippets                  Converted nonPCH  Runs bat file
-  codestat                      ToDo PCH*
-  copystrings                   ToDo PCH*
+  codestat                      Converted PCH
+  copystrings                   Converted PCH
   CppCheck                      Converted PCH
-  Cscope                        ToDo PCH*
+  Cscope                        Converted PCH
   devpak_plugin                 Converted nonPCH  ?"Third-party libs"
   DoxyBlocks                    Converted PCH     Runs bat file
   dragscroll                    Converted ?nonPCH
-  EditorConfig                  ToDo PCH*
-  EditorTweaks                  ToDo PCH*
+  EditorConfig                  Converted PCH
+  EditorTweaks                  Converted PCH
   envvars                       Converted PCH
-  FileManager                   ToDo PCH*
-  headerfixup                   ToDo PCH*
+  FileManager                   Converted PCH
+  headerfixup                   Converted PCH
   help_plugin                   Converted PCH     ?"Third-party libs"
-  HexEditor                     ToDo PCH*
+  HexEditor                     Converted PCH
   IncrementalSearch             Converted PCH     Runs bat file
   keybinder                     Build fails under wxMSW3.0 using MSys2 wxWidgets
   lib_finder                    Converted nonPCH  Runs bat file
   MouseSap                      Converted ?nonPCH
   NassiShneiderman              Converted nonPCH
-  profiler                      ToDo PCH*
+  profiler                      Converted PCH
   ProjectOptionsManipulator     Converted nonPCH
-  regex_testbed                 ToDo PCH*
-  ReopenEditor                  ToDo PCH*
-  rndgen                        ToDo PCH*
+  regex_testbed                 Converted PCH
+  ReopenEditor                  Converted PCH
+  rndgen                        Converted nonPCH
   SmartIndent                   Converted ?nonPCH
   source_exporter               Converted ?nonPCH "Third-party libs"
   SpellChecker                  Converted ?nonPCH "Third-party libs"
