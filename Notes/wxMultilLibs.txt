@@ -27,7 +27,7 @@ $(TARGET_COMPILER_DIR)lib/wx/include/$(WX_TOOLKIT)-unicode-$(WX_VERSION)
 $(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)
 
 WX_VERSION=3.0
-WX_TOOLKIT=msw
+WX_TOOLKIT=gtk2
 
 # 32 bit Code::Blocks build depends
 pacman -S --needed --asdeps mingw-w64-i686-gcc mingw-w64-i686-wxWidgets mingw-w64-i686-drmingw mingw-w64-i686-boost
