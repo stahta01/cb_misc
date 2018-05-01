@@ -1,0 +1,45 @@
+From 8d45608da8aeabc3309ddf134cbaf6c3d7243da6 Mon Sep 17 00:00:00 2001
+From: Tim S <stahta01@users.sourceforge.net>
+Date: Tue, 1 May 2018 12:56:40 -0400
+Subject: [PATCH 9/9] - wxMSW3.1.1: Add check for !wxCHECK_VERSION(3, 1, 1)
+
+---
+ src/src/switcherdlg.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/src/switcherdlg.cpp b/src/src/switcherdlg.cpp
+index 511428273..4bf24873f 100644
+--- a/src/src/switcherdlg.cpp
++++ b/src/src/switcherdlg.cpp
+@@ -14,7 +14,7 @@
+ #include <wx/settings.h>
+ #include <wx/dcbuffer.h>
+ 
+-#if defined(__WXMSW__) && wxUSE_UXTHEME
++#if defined(__WXMSW__) && wxUSE_UXTHEME && !wxCHECK_VERSION(3, 1, 1)
+ #include <wx/msw/uxtheme.h>
+ #endif
+ 
+@@ -115,7 +115,8 @@ void wxSwitcherItems::Init()
+     m_rowCount = 10;
+     m_columnCount = 0;
+ 
+-#if defined(__WXMSW__) && wxUSE_UXTHEME
++// wxUxThemeEngine class is removed before wx release 3.1.1
++#if defined(__WXMSW__) && wxUSE_UXTHEME && !wxCHECK_VERSION(3, 1, 1)
+     // If on Windows XP/Vista, use more appropriate colours.
+     // Alatar: What for??? Why should we use fixed colours?
+     if (wxUxThemeEngine::GetIfActive())
+@@ -926,7 +926,8 @@ void wxSwitcherDialog::Init()
+     m_modifierKey = -1;
+     m_extraNavigationKey = -1;
+ 
+-#if defined(__WXMSW__) && wxUSE_UXTHEME
++// wxUxThemeEngine class is removed before wx release 3.1.1
++#if defined(__WXMSW__) && wxUSE_UXTHEME && !wxCHECK_VERSION(3, 1, 1)
+     if (wxUxThemeEngine::GetIfActive())
+         m_borderColour = wxColour(49, 106, 197);
+     else
+-- 
+2.16.2.windows.1
+
