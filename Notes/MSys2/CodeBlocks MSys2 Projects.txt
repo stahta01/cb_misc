@@ -1,4 +1,4 @@
-build: Add "wxGTK30-msys2" projects/workspace(s)
+build: Add "wx31gtk2-msys2" projects/workspace(s)
 
 
 CB Tools
