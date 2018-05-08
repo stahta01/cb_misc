@@ -10,6 +10,7 @@ wxbase$(WX_VERSION)$(WX_SUFFIX)_net
 wxbase$(WX_VERSION)$(WX_SUFFIX)
 
 # Unix naming pattern
+wx_$(WX_TOOLKIT)$(WX_SUFFIX)_stc-$(WX_VERSION).dll
 wx_$(WX_TOOLKIT)$(WX_SUFFIX)_richtext-$(WX_VERSION).dll
 wx_$(WX_TOOLKIT)$(WX_SUFFIX)_propgrid-$(WX_VERSION).dll
 wx_$(WX_TOOLKIT)$(WX_SUFFIX)_aui-$(WX_VERSION).dll
