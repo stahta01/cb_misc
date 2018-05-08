@@ -1,0 +1,71 @@
+CB Wizard Check Results.txt
+
+Wizards that use "-config" in script or sample files
+fltk        fltk-config
+gtk         pkg-config
+lf          wx-config
+ogre        pkg-config
+opencv      opencv-config
+plugins     wx-config and pkg-config
+sdl         sdl-config
+sdl2        sdl2-config
+sfml        pkg-config
+wxwidgets   wx-config
+
+
+MSys2 "-config" files with using with CB Issues
+  wx-config
+
+MSys2 Packages
+mingw-w64-i686-fltk       1.3.4.2-1
+mingw-w64-i686-glfw       3.2.1-2
+mingw-w64-i686-freeglut   3.0.0-4
+mingw-w64-i686-irrlicht   1.8.4-1
+mingw-w64-i686-ogre3d-hg  2.1.0.r10230.62834e3ac215-1
+mingw-w64-i686-opencv     3.4.1-1
+mingw-w64-i686-mesa       18.0.2-1
+mingw-w64-i686-sfml       2.4.2-2
+mingw-w64-i686-qt4        4.8.7-4
+
+SDL1    Wizard works
+GTK2    Wizard works (minor edit in my git repo; that may not be needed or correct)
+WX      Wizard likely needs a lot of work; have not tried recently
+FLTK    Wizard does not work
+GLFW    Wizard does not work (msys2 is using GLFW/glfw3.h)
+        Version 2.7.9 Released on June 6, 2013
+GLUT    Wizard does not work (msys2 is using freeglut.dll instead of glut32)
+Irrl    Wizard does not work (msys2 is using irrlicht/irrlicht.h)
+Ogre    Wizard does not work (msys2 is using OGRE/Ogre.h)
+opencv2 Wizard does not work (msys2 is version 3 which uses different lib names)
+        Version 2.4.13.6 released 2018-02-26
+opengl  Wizard does not work; has link error; might be bad sample code or missing library
+Qt4     Wizard (Too big to test till later in week)
+sfml    Wizard works (Nice looking Wizard)
+
+
+Debian Linux stretch Wizard Testing
+
+Global Variables Used
+ glfw, glut, qt4
+  base:    /usr
+  lib:     /usr/lib/x86_64-linux-gnu
+ irrlicht
+  base:    /usr
+  include: /usr/include/irrlicht
+  lib:     /usr/lib/x86_64-linux-gnu
+
+GTK2    Wizard works and project builds and runs.
+WX      Wizard works and project builds and runs.
+FLTK    Wizard works and project builds and runs.
+GLUT    Wizard works and project builds and runs.
+opengl  Wizard works and project builds and runs.
+SDL1    Wizard works and project builds and runs.
+sfml    Wizard works and project builds and runs.
+
+Irrl    Wizard works; compiler error; need to change "dimension2d<s32>" to "dimension2d<u32>"
+opencv2 Wizard works; linker error; opencv-config command missing change wizard to use "pkg-config opencv --libs --static"
+
+Ogre    Wizard works; compiler error; header ExampleApplication.h not found; looks like old pre 1.7 sample code
+
+Qt4     Wizard fails to find library QtCore;
+GLFW    Wizard fails to find header; looks like wizard needs upgraded to version 3
