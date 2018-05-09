@@ -1,0 +1,16 @@
+Modules to delete
+  scintilla
+  Code-completion
+  wxSmith
+  wxSmithContribItems
+  wxSmithAui
+  rndgen
+
+Folders to delete
+  src/templates
+  src/plugins/codecompletion
+  src/plugins/contrib/rndgen
+  src/plugins/contrib/wxSmith
+  src/plugins/contrib/wxSmithAui
+  src/plugins/contrib/wxSmithContribItems
+  src/sdk/wxscintilla
