@@ -1,20 +1,55 @@
 CB Wizard Check Results.txt
 
+
+Retest using MSys2; some of the wizards work this time that did not yesterday
+Note: I had issues on my Computer and reinstalled MSys2 and ran checkdisk
+
+GUI
+ FLTK     Wizard works and project builds and runs.
+ GTK2     Wizard works and project builds and runs using GTK version 2
+ Qt4      library is too big for me to work on fixing the wizard
+ wxW      Wizard likely needs a lot of work; plan to work on this last
+
+Graphics
+ GLFW     Wizard is too old it uses version 2 or older
+ GLUT     Wizard fails to find library;
+ Irrlicht Wizard fails to find header;
+ Ogre     Wizard fails to find header;
+ OpenGL   Wizard works and project builds and runs.
+ SDL      Wizard works and project builds and runs using SDL version 1
+ sfml     Wizard works and project builds and runs.
+
+GLFW copy files into GLFW3; and, try upgrading code to version 3
+GLUT edit to look for freeglut library
+Irrlicht edit to find header
+Ogre edit script and sample code to fix building
+
+
 Wizards that use "-config" in script or sample files
 fltk        fltk-config
 gtk         pkg-config
 lf          wx-config
 ogre        pkg-config
-opencv      opencv-config
+opencv      opencv-config     replace with pkg-config
 plugins     wx-config and pkg-config
 sdl         sdl-config
-sdl2        sdl2-config
+sdl2        sdl2-config       try replacing with pkg-config
 sfml        pkg-config
 wxwidgets   wx-config
+
+pkg-config --list-all
+opencv                OpenCV - Open Source Computer Vision Library
+freeglut              glut - A freely licensed and improved alternative to the GLUT library
+gtk+-3.0              GTK+ - GTK+ Graphical UI Library
+sdl2                  sdl2 - Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, 
 
 
 MSys2 "-config" files with using with CB Issues
   wx-config
+  
+pacman -S --needed mingw-w64-i686-fltk mingw-w64-i686-glfw mingw-w64-i686-sfml
+pacman -S --needed mingw-w64-i686-irrlicht mingw-w64-i686-ogre3d-hg
+
 
 MSys2 Packages
 mingw-w64-i686-fltk       1.3.4.2-1
@@ -39,8 +74,9 @@ Ogre    Wizard does not work (msys2 is using OGRE/Ogre.h)
 opencv2 Wizard does not work (msys2 is version 3 which uses different lib names)
         Version 2.4.13.6 released 2018-02-26
 opengl  Wizard does not work; has link error; might be bad sample code or missing library
-Qt4     Wizard (Too big to test till later in week)
 sfml    Wizard works (Nice looking Wizard)
+
+Qt4     Wizard (Installation too big for me to fix.)
 
 
 Debian Linux stretch Wizard Testing
