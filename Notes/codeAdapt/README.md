@@ -17,13 +17,16 @@ Planned or taken steps below.
 ####      ix.  wxSmithSTC
 ####      x.   rndgen
 ####      xi.  squirrel and sqplus
-###    b. Git Operations
+###    b. Remove files that are not needed
+####      i.   Remove Makefile.am
+###    c. Git Operations
 ####      i.   Create src/.gitattributes file
 ####      ii.  Normalize line-feeds on Windows
 ####      iii. Add src/.gitattributes file
 ####      iv.  Add src/.gitignore file
-###    c. Add Modules
-###    d. Move Modules
+###    d. Add Modules
+####      i.   Default User Project Templates
+###    e. Move Modules
 ####      i.   Move src/include to src/include/ca
 
 ##  2. Add Documentation
