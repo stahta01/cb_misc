@@ -1,16 +1,28 @@
 Modules to delete
-  scintilla
+  templates
+  exchndl
   Code-completion
+  scintilla
+  wxpropgrid
   wxSmith
   wxSmithContribItems
   wxSmithAui
+  wxSmithSTC
   rndgen
+  squirrel
 
 Folders to delete
   src/templates
+  src/exchndl
+  src/sdk/wxscintilla
+  src/sdk/wxpropgrid
   src/plugins/codecompletion
   src/plugins/contrib/rndgen
   src/plugins/contrib/wxSmith
   src/plugins/contrib/wxSmithAui
   src/plugins/contrib/wxSmithContribItems
-  src/sdk/wxscintilla
+  src/plugins/contrib/wxSmithSTC
+  src/sdk/scripting/squirrel
+  src/sdk/scripting/sqstdlib
+  src/sdk/scripting/sqplus
+
