@@ -4,22 +4,23 @@ The plan is to fork Code::Blocks at some point after SVN 11397.
 
 Planned or taken steps below.
 
-##  1. Change modules
-### a. Remove Modules
-#### i.   templates
-#### ii.  exchndl
-#### iii. scintilla
-#### iv.  Code-completion
-#### v.   rndgen
-#### vi.  wxSmith
-#### vii. wxSmithAui
-#### viii.wxSmithContribItems
-### b. Git Operations
-#### i.   Create src/.gitattributes file
-#### ii.  Normalize line-feeds on Windows
-#### iii. Add src/.gitattributes file
-#### iv.  Add src/.gitignore file
-### c. Add Modules
+##  1. Module Level Changes
+###    a. Remove Modules
+####      i.   templates
+####      ii.  exchndl
+####      iii. scintilla
+####      iv.  Code-completion
+####      v.   wxpropgrid
+####      vi.  wxSmith
+####      vii. wxSmithAui
+####      viii.wxSmithContribItems
+####      ix.  rndgen
+###    b. Git Operations
+####      i.   Create src/.gitattributes file
+####      ii.  Normalize line-feeds on Windows
+####      iii. Add src/.gitattributes file
+####      iv.  Add src/.gitignore file
+###    c. Add Modules
 
 ##  2. Add Documentation
 ### a. Add README.md
