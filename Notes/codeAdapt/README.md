@@ -1,6 +1,6 @@
 # codeAdapt IDE
 
-The plan is to fork Code::Blocks at some point after SVN 11397.
+The plan is to fork Code::Blocks at some point after SVN 11400.
 
 Planned or taken steps below.
 
@@ -42,7 +42,13 @@ Planned or taken steps below.
 
 ##  5. Change MSys2 Projects to NOT use update batch or script files
 
-##  6. Change scripting language to Lua
+##  6. Add new features
+###    a. Add Lua scripting language
+###    b. Add either wxCrafter or wxFormBuilder support
+###    c. Add Code-completion using Clang plugin
+###    d. Improve C language support
+###    e. Improve assembly language support
+###    f. Improve makefile support
 
 ##  7. Create command line only build tool
 
@@ -50,3 +56,5 @@ Planned or taken steps below.
 ###    a. Add SDK header "branding.h"
 ###    b. Add use of STANDARD_DATA_PATH like used in Em::Blocks
 ###    c. Add use of APP_NAME partly like used in Em::Blocks
+
+##  9. Create installer
