@@ -4,6 +4,7 @@ Modules to delete
   Code-completion
   scintilla
   wxpropgrid
+  devpak
   wxSmith
   wxSmithContribItems
   wxSmithAui

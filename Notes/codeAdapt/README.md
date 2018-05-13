@@ -17,6 +17,7 @@ Planned or taken steps below.
 ####      ix.  wxSmithSTC
 ####      x.   rndgen
 ####      xi.  squirrel and sqplus
+####      xii. devpak
 ###    b. Remove files that are not needed
 ####      i.   Remove Makefile.am
 ###    c. Git Operations
