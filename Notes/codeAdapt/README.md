@@ -32,7 +32,7 @@ Planned or taken steps below.
 
 ##  2. Add Documentation
 ###    a. Add README.md
-###    b. Add Branches.md
+###    b. Add Branches.txt
 
 ##  3. Fix Portablity Issues
 ###    a. Replace wx/wxscintilla.h with cbstyledtextctrl.h
