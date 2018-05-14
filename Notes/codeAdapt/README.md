@@ -40,7 +40,13 @@ Planned or taken steps below.
 
 ##  4. Fix PCH Issues
 
-##  5. Change MSys2 Projects to NOT use update batch or script files
+##  5. Change MSys2 Projects to NOT use update batch files
+###    a. codesnippets
+###    b. DoxyBlocks
+###    c. IncrementalSearch
+###    d. lib_finder
+###    e. ThreadSearch
+###    f. ToolPlus
 
 ##  6. Feature Changes
 ###    a. Remove features
