@@ -42,13 +42,18 @@ Planned or taken steps below.
 
 ##  5. Change MSys2 Projects to NOT use update batch or script files
 
-##  6. Add new features
-###    a. Add Lua scripting language
-###    b. Add either wxCrafter or wxFormBuilder support
-###    c. Add Code-completion using Clang plugin
-###    d. Improve C language support
-###    e. Improve assembly language support
-###    f. Improve makefile support
+##  6. Feature Changes
+###    a. Remove features
+####      i.   Remove scripting language
+####      ii.  Remove Auto-Compiler Setup
+####      iii. Remove Auto adding of path to PCH file
+###    b. Add new features
+####      i.   Add Lua scripting language
+####      ii.  Add either wxCrafter or wxFormBuilder support
+####      iii. Add Code-completion using Clang plugin
+####      iv.  Improve C language support
+####      v.   Improve assembly language support
+####      vi.  Improve makefile support
 
 ##  7. Create command line only build tool
 
