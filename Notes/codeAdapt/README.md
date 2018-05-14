@@ -49,11 +49,12 @@ Planned or taken steps below.
 ###    f. ToolPlus
 
 ##  6. Feature Changes
-###    a. Remove features
+###    a. Modify features
+####      i.   Add disable option on Auto-Detect Compiler on startup
+###    b. Remove features
 ####      i.   Remove scripting language
-####      ii.  Remove Auto-Compiler Setup
-####      iii. Remove Auto adding of path to PCH file
-###    b. Add new features
+####      ii.  Remove Auto adding of path to PCH file
+###    c. Add new features
 ####      i.   Add Lua scripting language
 ####      ii.  Add either wxCrafter or wxFormBuilder support
 ####      iii. Add Code-completion using Clang plugin
