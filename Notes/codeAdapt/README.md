@@ -51,9 +51,11 @@ Planned or taken steps below.
 ##  6. Feature Changes
 ###    a. Modify features
 ####      i.   Add disable option on Auto-Detect Compiler on startup
+#####          compilerfactory.cpp needAutoDetection
 ###    b. Remove features
 ####      i.   Remove scripting language
 ####      ii.  Remove Auto adding of path to PCH file
+#####          compilerMINGWgenerator.cpp pch_prepend
 ###    c. Add new features
 ####      i.   Add Lua scripting language
 ####      ii.  Add either wxCrafter or wxFormBuilder support
