@@ -29,6 +29,8 @@ Planned or taken steps below.
 ####      i.   Default User Project Templates
 ###    e. Move Modules
 ####      i.   Move src/include to src/include/ca
+####      ii.  Move src/plugins/compilergcc to src/plugins/compiler
+####      iii. Move src/plugins/debuggergdb to src/plugins/debugger
 
 ##  2. Add Documentation
 ###    a. Add README.md
@@ -63,6 +65,7 @@ Planned or taken steps below.
 ####      iv.  Improve C language support
 ####      v.   Improve assembly language support
 ####      vi.  Improve makefile support
+####      vii. Add GUI to manually set file compile dependency 
 
 ##  7. Create command line only build tool
 
