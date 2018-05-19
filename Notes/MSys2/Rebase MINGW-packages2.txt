@@ -51,4 +51,4 @@ git push
 
 git checkout cleanup && git status
 
-git checkout master && git fsck --connectivity-only && git prune && git fsck && git gc && exit
+git checkout master && git fsck && git gc && git prune && git fsck && exit
