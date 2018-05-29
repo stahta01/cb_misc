@@ -20,8 +20,6 @@ $ git branch --list
   wxwidgets-staging
 
 
-
-
 rm .git/index && git reset --hard && git status -uno
 
 git fetch origin --prune
@@ -33,16 +31,16 @@ git checkout master && git fetch origin && git pull upstream master && git statu
 git checkout cleanup && git pull && git rebase master && git status -uno
 #
 git checkout configure/apps \
-                        && git pull --rebase && git status -uno
-git checkout gui/libs   && git pull --rebase && git status -uno
+                        && git pull --rebase && git status -uno && \
+git checkout gui/libs   && git pull --rebase && git status -uno && \
 #
-git checkout gmake/apps && git pull --rebase && git status -uno
-git checkout cmake/apps && git pull --rebase && git status -uno
+git checkout gmake/apps && git pull --rebase && git status -uno && \
+git checkout cmake/apps && git pull --rebase && git status -uno && \
 #
-git checkout maintainer && git pull --rebase && git status -uno
+git checkout maintainer && git pull --rebase && git status -uno && \
 #
-git checkout wxpython-staging   && git pull --rebase && git status -uno
-git checkout wxwidgets-staging  && git pull --rebase && git status -uno
+git checkout wxpython-staging   && git pull --rebase && git status -uno && \
+git checkout wxwidgets-staging  && git pull --rebase && git status -uno && \
 git checkout wxwidgets          && git pull --rebase && git status -uno
 
 
@@ -52,11 +50,11 @@ git checkout cleanup && git pull && git rebase --ignore-date master && git push 
 git checkout cleanup && git status
 
 
-git checkout wxpython-staging && git pull && git rebase master && git status -uno
+git checkout plplot-staging && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
-git checkout plplot-staging && git pull && git rebase master && git status -uno
+git checkout wxpython-staging && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
@@ -75,6 +73,7 @@ git rebase wxwidgets-staging && git status -uno         && \
 git rebase master && git status -uno
 
 git checkout wxwidgets && git pull && git rebase master && git status -uno
+#   git rebase -i wxpython-staging
 #   git rebase wxwidgets-staging
 #   git rebase -i wxwidgets-staging
 #   git rebase --ignore-date wxwidgets-staging
