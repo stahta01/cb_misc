@@ -29,22 +29,22 @@ git checkout master && git pull upstream master && git status -uno && git push o
 git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
 git checkout cleanup && git status
 
-git checkout qt5-git && git pull && git rebase master && git status -uno
 #   git rebase -i master
 #   git rebase --ignore-date master
+
+git checkout qt5-git        && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-
-git checkout qt5.9-staging  && git pull && git rebase master && git status -uno
+git checkout qt5.9-staging  && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout build_tools    && git pull && git rebase master && git status -uno
+git checkout build_tools    && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout issues         && git pull && git rebase master && git status -uno
+git checkout issues         && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout DO_NOT_MERGE   && git pull && git rebase master && git status -uno
+git checkout DO_NOT_MERGE   && git pull && git rebase master && git status -uno && \
 git push
 
 
