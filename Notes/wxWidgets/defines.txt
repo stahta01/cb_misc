@@ -1,0 +1,13 @@
+__WATCOMC__       (not used any more)
+__VISAGECPP__     (not used any more)
+__WXPM__          (not used any longer)
+__WXXT__          not implemented in wxWidgets 2.x
+                  was used in wxWidgets 1.x (not used any more)
+
+__WXWINE__        Can *not* confirm use
+
+__WXDFB__         Confirmed in use
+__WXMOTIF__       Confirmed in use
+__WXUNIVERSAL__   Confirmed in use
+__X__             Confirmed in use
+__XLC__           Confirmed in use
