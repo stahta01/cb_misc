@@ -1,3 +1,5 @@
+See https://cboard.cprogramming.com/tech-board/176242-what-software-use-write-off-line-directions.html
+
 AbiWord https://wiki.archlinux.org/index.php/Abiword
 Docbook does not do RTF; but, design to document using XML
 LinuxDoc likely not do RTF; but, design to document using XML
