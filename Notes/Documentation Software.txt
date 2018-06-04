@@ -1,0 +1,39 @@
+AbiWord https://wiki.archlinux.org/index.php/Abiword
+Docbook does not do RTF; but, design to document using XML
+LinuxDoc likely not do RTF; but, design to document using XML
+AntiWord
+LibreOffice
+OpenOffice
+doxygen
+
+software
+  AbiWord
+  AntiWord
+  Docbook
+  doxygen
+  LibreOffice
+  LinuxDoc
+  OpenOffice
+
+output formats
+  HTML
+  RTF
+  markdown
+  PDF
+
+AntiWord  https://en.wikipedia.org/wiki/Antiword
+  PDF
+  XML/DocBook (experimental)
+
+Docbook   https://www.codeproject.com/articles/4481/documention-with-docbook-on-win
+
+doxygen   http://www.doxygen.nl/output.html
+  HTML
+  RTF
+  XML
+  PDF support via LATEX
+
+OpenOffice https://wiki.openoffice.org/wiki/Documentation/OOo3_User_Guides/Getting_Started/File_formats
+  HTML Document (OpenOffice.org Writer) (.html and .htm)
+  DocBook (.xml)
+  Rich Text Format (.rtf) 
