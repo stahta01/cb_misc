@@ -46,7 +46,7 @@ https://chris.beams.io/posts/git-commit/
 # NOTE: NON-GUI Tests Segfaults because of Mingw64 C Run-time library issue.
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxwidgets-git
 # Needs more testing and then pushed
-makepkg-mingw -soe --noprepare --holdver        # Update packages
+makepkg-mingw -so  --holdver                    # Test patch files and update packages
 makepkg-mingw -sLf                              # Build after updating repo ver
 makepkg-mingw -RLf --holdver                    # Repackage
 makepkg-mingw -sLf --holdver                    # Build without updating repo ver
