@@ -50,16 +50,13 @@ git checkout cleanup && git pull && git rebase --ignore-date master && git push 
 git checkout cleanup && git status
 
 
-git checkout plplot-staging && git pull && git rebase master && git status -uno
-#   git rebase -i master
+git checkout plplot-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout wxpython-staging && git pull && git rebase master && git status -uno
-#   git rebase -i master
+git checkout wxpython-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout wxwidgets-staging && git pull && git rebase master && git status -uno
-#   git rebase -i master
+git checkout wxwidgets-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
 
