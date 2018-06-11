@@ -8,11 +8,11 @@ $ git branch --list
   gettext
   gmake/apps
   gui/libs
+  kicad
   maintainer
 * master
   mingw64/libs
   plplot-staging
-  gui/libs
 ? wx/apps               Merge into configure/apps
   wxpython
   wxpython-staging
