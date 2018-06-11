@@ -44,11 +44,12 @@ https://chris.beams.io/posts/git-commit/
 
 # mingw-w64-wxpython3-git
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxpython3-git
-makepkg-mingw -so && makepkg-mingw -sLf         # Build after updating repo ver
+MINGW_INSTALLS=mingw64 makepkg-mingw -so && makepkg-mingw -sLf          # Build after updating repo ver
 
 # mingw-w64-wxpython3
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxpython3
-makepkg-mingw -so && makepkg-mingw -sLf         # Build after updating repo ver
+MINGW_INSTALLS=mingw64 makepkg-mingw -so && makepkg-mingw -sLf          # Build after updating repo ver
+MINGW_INSTALLS=mingw64 makepkg-mingw -RLf
 
 # Change to package(s) folder
 # NOTE: NON-GUI Tests Segfaults because of Mingw64 C Run-time library issue.
