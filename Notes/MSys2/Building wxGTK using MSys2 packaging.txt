@@ -52,6 +52,12 @@ makepkg-mingw -soe --noprepare                  # check package depends
 MINGW_INSTALLS=mingw64 makepkg-mingw -sLf       # Build after updating source code
 MINGW_INSTALLS=mingw64 makepkg-mingw -RLf       # Repackage without building
 
+# mingw-w64-kicad-git
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-kicad-git
+makepkg-mingw -soe --noprepare                  # check package depends
+MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
+MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
+
 # Change to package(s) folder
 # NOTE: NON-GUI Tests Segfaults because of Mingw64 C Run-time library issue.
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxwidgets-git
