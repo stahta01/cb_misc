@@ -3,7 +3,7 @@ $ git branch --list
   cleanup
   cmake/apps
   configure/apps
-? fontconfig-staging
+D fontconfig-staging
   games
   gettext
   gmake/apps
@@ -14,8 +14,9 @@ $ git branch --list
 * master
   mingw64/libs
   plplot-staging
+  staging
   testing
-D wx/apps               Merge into configure/apps
+D wx/apps
   wxpython
   wxpython-staging
   wxwidgets
@@ -52,6 +53,9 @@ git checkout cleanup && git pull && git rebase --ignore-date master && git push 
 git checkout cleanup && git status
 
 
+git checkout staging && git pull && git rebase master && git push --force-with-lease
+
+
 git checkout plplot-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
@@ -80,6 +84,9 @@ git checkout wxwidgets && git pull && git rebase master && git status -uno
 #   git format-patch master
 git push --force-with-lease
 
+git checkout kicad && git pull && git rebase master && git status -uno
+#   git format-patch master
+git push --force-with-lease
 
 git checkout configure/apps && git pull && git rebase master && git status -uno
 #   git rebase --ignore-date master
