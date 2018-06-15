@@ -59,6 +59,9 @@ git checkout staging && git pull && git rebase master && git push --force-with-l
 git checkout plplot-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
+git checkout kicad-staging && git pull && git rebase master && git status -uno
+git push --force-with-lease
+
 git checkout wxpython-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
@@ -85,6 +88,7 @@ git checkout wxwidgets && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 git checkout kicad && git pull && git rebase master && git status -uno
+#   git rebase kicad-staging
 #   git format-patch master
 git push --force-with-lease
 
