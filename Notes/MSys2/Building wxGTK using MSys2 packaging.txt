@@ -42,6 +42,13 @@ makepkg-mingw -RLf -p wxgtk3.1-gtk2-git.pkgbuild #
 Rules on wxWidgets commit message formatting
 https://chris.beams.io/posts/git-commit/
 
+# mingw-w64-wxPython-git
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxPython-git
+MINGW_INSTALLS=mingw64 makepkg-mingw -soe --noprepare                   # check package depends
+MINGW_INSTALLS=mingw64 makepkg-mingw --nodeps --nobuild                 # Update version info
+MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
+MINGW_INSTALLS=mingw64 makepkg-mingw -RLf                               # Repackage without building
+
 # mingw-w64-wxpython3-git
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/MINGW_packages/mingw-w64-wxpython3-git
 MINGW_INSTALLS=mingw64 makepkg-mingw -so && makepkg-mingw -sLf          # Build after updating repo ver
