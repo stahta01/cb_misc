@@ -44,7 +44,8 @@ git checkout maintainer && git pull --rebase && git status -uno && \
 #
 git checkout wxpython-staging   && git pull --rebase && git status -uno && \
 git checkout wxwidgets-staging  && git pull --rebase && git status -uno && \
-git checkout wxwidgets          && git pull --rebase && git status -uno
+git checkout wxwidgets          && git pull --rebase && git status -uno && \
+git checkout wxpython           && git pull --rebase && git status -uno
 
 
 git checkout master && git pull upstream master && git push origin
