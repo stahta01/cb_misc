@@ -12,7 +12,7 @@ D fontconfig-staging
   kicad
   maintainer
 * master
-  mingw64/libs
+? mingw64/libs
   plplot-staging
   staging
   testing
