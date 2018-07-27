@@ -19,6 +19,20 @@
 *.cbp           text eol=lf
 *.workspace     text eol=lf
 Makefile.am     text whitespace=-tab-in-indent,trailing-space eol=lf
+#
+# Unix-specific files that require LF:
+#
+*.h.in       eol=lf
+*.m4         eol=lf
+*.sh         eol=lf
+configure.in eol=lf
+Makefile.in  eol=lf
+makefile.unx eol=lf
+#
+config.guess eol=lf
+config.sub   eol=lf
+configure    eol=lf
+configure.in eol=lf
 
 # Denote all files that are truly binary and should not be modified.
 *.BMP binary
