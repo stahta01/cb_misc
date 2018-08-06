@@ -3,7 +3,6 @@ $ git branch --list
   cleanup
   cmake/apps
   configure/apps
-D fontconfig-staging
   games
   gettext
   gmake/apps
@@ -16,7 +15,6 @@ D fontconfig-staging
   plplot-staging
   staging
   testing
-D wx/apps
   wxpython
   wxpython-staging
   wxwidgets
