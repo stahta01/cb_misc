@@ -12,9 +12,7 @@ $ git branch --list
   maintainer
 * master
 ? mingw64/libs
-  plplot-staging
   staging
-  testing
   wxpython
   wxpython-staging
   wxwidgets
@@ -40,9 +38,6 @@ git checkout cleanup && git status
 
 git checkout staging && git pull && git rebase master && git push --force-with-lease
 
-
-git checkout plplot-staging && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
 
 git checkout kicad-staging && git pull && git rebase master && git status -uno
 git push --force-with-lease

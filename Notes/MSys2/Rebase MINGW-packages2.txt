@@ -17,12 +17,6 @@ $ git branch --list
 git checkout master && git fetch origin && git pull upstream master && git status -uno
 git checkout cleanup && git pull && git rebase master && git status -uno
 
-# pull other branches
-git checkout build_tools    && git pull --rebase && git status -uno
-git checkout qt5.9-staging  && git pull --rebase && git status -uno
-git checkout qt5-git        && git pull --rebase && git status -uno
-git checkout issues         && git pull --rebase && git status -uno
-
 
 git checkout master && git pull upstream master && git status -uno && git push origin
 
