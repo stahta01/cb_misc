@@ -32,9 +32,6 @@ git rebase pch_fixes/PCH/master     && \
 git checkout PCH/help_plugin        && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
-git checkout PCH/HexEditor          && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
 git checkout PCH/headerfixup        && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \

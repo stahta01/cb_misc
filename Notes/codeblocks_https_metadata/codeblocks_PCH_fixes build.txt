@@ -14,14 +14,14 @@
 #
 ##
 #  cd ../codeblocks_https_metadata && git fetch origin && git status -uno
-#  git checkout deceased/removals && git pull --rebase origin master && git push origin --force-with-lease
-#  git checkout portability/fixes && git pull --rebase origin master && git push origin --force-with-lease
+#  git checkout deceased/removals && git pull --rebase && git pull --rebase origin master && git push origin --force-with-lease
+#  git checkout portability/fixes && git pull --rebase && git pull --rebase origin master && git push origin --force-with-lease
 ##
 #
 cd ../codeblocks_PCH_fixes && git fetch pch_fixes --prune && git status -uno
 git checkout sdk_common_h && git pull --rebase origin sdk_common_h && git status -uno
 #
-##  git am 0001-sdk-Major-change-to-PCH-Thanks-stahta01.patch
+##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
 #
 ###  git checkout git_changes && git pull --rebase origin master
 ##  git rebase origin/git_changes && git status -uno
@@ -94,8 +94,8 @@ git push pch_fixes
 ### pch_fixes/PCH/wxFormBuilder
 #
 # toolsplus:
-# BrowseTracker: 
-# codesnippets: 
+# BrowseTracker:
+# codesnippets:
 #
 cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/wxFormBuilder && git status -uno
@@ -108,7 +108,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
-git push pch_fixes 
+git push pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 ######
@@ -143,7 +143,7 @@ git checkout PCH/wx_pch_h && git status -uno
 #
 #   git rebase pch_fixes/PCH/master && git status -uno
 #
-git push pch_fixes 
+git push pch_fixes
 #   git rebase pch_fixes/PCH/master
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
@@ -164,7 +164,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 #
 ##  git rebase -i pch_fixes/PCH/master
 #
-git push pch_fixes 
+git push pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/PCH/core
@@ -176,8 +176,6 @@ git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..pch_fixes/
 * debuggergdb: Removed "wx/wxprec.h" from header. (Thanks stahta01)
 * defaultmimehandler: Removed "wx/wxprec.h" and "wx/wx.h" from header. (Thanks stahta01)
 * pch_cbp_unix: Added define "NOPCH" to targets scintilla and wxpropgrid. (Thanks stahta01)
-- sdk: Added wx headers to CB_PRECOMP section. (Thanks stahta01)
-- sdk: Removed include of "wx/wx.h" from source files.
 
 
 ######
@@ -244,16 +242,16 @@ git rebase pch_fixes/PCH/master && git status -uno
 git push pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
-# git log 
+# git log
 # git format-patch --unified=1
-# 
+#
 ######
 #
 ### pch_fixes/PCH/NassiShneiderman
 # pch_cbp_win_wx28:
 # pch_cbp_win_wx30:
 # pch_cbp_unix:
-# NassiShneiderman: 
+# NassiShneiderman:
 #
 cd ../codeblocks_PCH_fixes && git fetch pch_fixes
 git checkout PCH/NassiShneiderman && git status -uno
@@ -290,7 +288,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
-git push pch_fixes 
+git push pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 
@@ -325,7 +323,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
-git push pch_fixes 
+git push pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git format-patch pch_fixes/PCH/master
@@ -348,7 +346,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
-git push pch_fixes 
+git push pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..PCH/headerfixup
@@ -371,7 +369,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
-git push -u pch_fixes 
+git push -u pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 ######
@@ -391,7 +389,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
-git push pch_fixes 
+git push pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 
 
@@ -414,7 +412,7 @@ git rebase pch_fixes/PCH/master && git status -uno
 ##  git rebase -i pch_fixes/PCH/master && git status -uno
 ##  git --no-pager log --reverse --pretty=format:%s pch_fixes/PCH/master..HEAD
 #
-git push -u pch_fixes 
+git push -u pch_fixes
 ##  git pull --rebase origin master && git push pch_fixes --force-with-lease
 #
 
