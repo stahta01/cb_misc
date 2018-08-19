@@ -12,13 +12,13 @@
 ##
 ######
 #
-##
-#  cd ../codeblocks_https_metadata && git fetch origin && git status -uno
-#  git checkout deceased/removals && git pull --rebase && git pull --rebase origin master && git push origin --force-with-lease
-#  git checkout portability/fixes && git pull --rebase && git pull --rebase origin master && git push origin --force-with-lease
-##
+cd ../codeblocks_PCH_fixes && git fetch origin --prune && git status -uno
+git checkout deceased/removals && git pull --rebase origin deceased/removals && git status -uno
 #
-cd ../codeblocks_PCH_fixes && git fetch pch_fixes --prune && git status -uno
+cd ../codeblocks_PCH_fixes && git fetch origin --prune && git status -uno
+git checkout portability/fixes && git pull --rebase origin portability/fixes && git status -uno
+#
+cd ../codeblocks_PCH_fixes && git fetch origin --prune && git status -uno
 git checkout sdk_common_h && git pull --rebase origin sdk_common_h && git status -uno
 #
 ##  git --no-pager log --reverse --pretty=format:%s origin/master..HEAD
@@ -40,7 +40,8 @@ git svn fetch && git svn info
 cd ../codeblocks_PCH_fixes && git status -uno && \
 git fetch pch_fixes --prune && \
 git checkout PCH/master && git status -uno && \
-git rebase pch_fixes/sdk_common_h && git status -uno
+git rebase deceased/removals && git rebase portability/fixes && \
+git rebase sdk_common_h && git status -uno
 #
 git svn fetch && git svn info && git svn log -1
 #   git gc && git prune
@@ -61,7 +62,7 @@ git svn fetch && git svn info && git svn log -1
 ##  git rebase -i origin/master
 #
 git push pch_fixes
-##  git pull && git rebase pch_fixes/sdk_common_h && git push pch_fixes --force-with-lease
+##  git pull && git rebase sdk_common_h && git push pch_fixes --force-with-lease
 #
 # git format-patch origin/master..pch_fixes/PCH/master
 #

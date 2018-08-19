@@ -5,34 +5,16 @@ git fetch pch_fixes                 && \
 git checkout PCH/wxFormBuilder      && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
-git checkout PCH/wx_pch_h           && \
+git checkout PCH/wxsmith            && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
 git checkout PCH/core               && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
-git checkout PCH/SmartIndent        && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
-git checkout PCH/keybinder          && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
-git checkout PCH/DoxyBlocks         && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
 git checkout PCH/FileManager        && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
-git checkout PCH/NassiShneiderman   && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
 git checkout PCH/contrib            && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
-git checkout PCH/help_plugin        && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
-git checkout PCH/headerfixup        && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
 git checkout PCH/misc               && \

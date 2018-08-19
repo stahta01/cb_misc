@@ -6,7 +6,7 @@ NOPCH, USE_PCH, WX_PRECOMP, CB_PRECOMP
 WXMAKINGDLL
 
 -Winvalid-pch
-../../../.objs30/include
+../../../.objs31_64/include
 
 CB Tools
   cb_share_config               NOPCH

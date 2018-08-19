@@ -1,69 +1,74 @@
 Core Plugins Only (Win10 32 bit)
-  05:51   05:49   05:53   PCH; Without PCH/Shrink Changes wxMSW2.8.12 GCC 4.9.2
-  05:43   06:28   05:39   PCH; With PCH/Shrink Changes wxMSW2.8.12 GCC 4.9.2
-  18:42   18:39   18:47   NONPCH; Without PCH/Shrink Changes wxMSW3.0 GCC 6.4.0
-  21:27   20:14   20:10   NONPCH; With PCH/Shrink Changes wxMSW3.0 GCC 6.4.0
-  08:41   08:20   08:18   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW32 GCC
-  09:26   09:20   09:23   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW32 GCC
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW2.8.12 GCC 4.9.2
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW2.8.12 GCC 4.9.2
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1 GCC 6.4.0
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1 GCC 6.4.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW32 GCC
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW32 GCC
 
 Core Project (Win10 32 bit)
-  19:37   18:49   18:59   PCH; Without PCH/Shrink Changes wxMSW2.8.12 GCC 4.9.2
-  18:50   18:27   18:31   PCH; With PCH/Shrink Changes wxMSW2.8.12 GCC 4.9.2
-  48:17   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0 GCC 6.4.0
-  48:01   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0 GCC 6.4.0
-  30:20   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW32 GCC
-  29:23   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW32 GCC
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW2.8.12 GCC 4.9.2
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW2.8.12 GCC 4.9.2
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1 GCC 6.4.0
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1 GCC 6.4.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW32 GCC
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW32 GCC
 
+CB scintilla (Win7 64 bit)
+  01:36   01:35   01:36   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  01:38   01:37   01:36   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
 CB SDK (Win7 64 bit)
-  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
-  06:34   05:58   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
+  07:33   07:34   07:38   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  07:34   07:32   07:35   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  04:35   04:21   04:22   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  04:16   04:08   04:05   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
 CB srcApp (Win7 64 bit)
-  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
-  02:26   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
+  03:03   03:01   03:00   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  02:58   02:59   03:34   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  01:44   01:45   01:45   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  01:42   01:41   01:40   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
 Core Plugins Only (Win7 64 bit)
-  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
-  05:42   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
+  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
 Core Project (Win7 64 bit)
-  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Changes wxMSW3.0
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Changes wxMSW3.0
-  17:06   0?:??   0?:??   PCH; Without PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Changes wxMSW3.0 MSys2 MinGW64 GCC
+  21:18   20:20   20:23   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  20:14   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  12:14   12:15   11:53   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  11:28   11:42   12:39   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
 
 CB SDK (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  05:08   05:07   05:07   PCH; Without PCH/Shrink Changes wxMSW3.0
-  04:54   04:59   04:54   PCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1
 
 CB srcApp (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  02:01   02:01   02:01   PCH; Without PCH/Shrink Changes wxMSW3.0
-  02:00   02:01   02:00   PCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1
 
 Core Plugins Only (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  06:23   06:15   06:17   PCH; Without PCH/Shrink Changes wxMSW3.0
-  05:59   06:05   06:00   PCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1
 
 Core Project (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  16:23   16:25   16:24   PCH; Without PCH/Shrink Changes wxMSW3.0
-  15:52   16:12   16:18   PCH; With PCH/Shrink Changes wxMSW3.0
+  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1
 
 Core configure/make user time in seconds (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  2263.82  2279.20  2264.09  NONPCH; Without PCH/Shrink Changes wxMSW3.0
-  1571.02  1583.79  1592.80  PCH; Without PCH/Shrink Changes wxMSW3.0
-  2373.74  2379.21  2359.16  NONPCH; With PCH/Shrink Changes wxMSW3.0
-  1584.16  1577.66  1610.62  PCH; With PCH/Shrink Changes wxMSW3.0
+  0000.00  0000.00  0000.00  NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0000.00  0000.00  0000.00  PCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0000.00  0000.00  0000.00  NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  0000.00  0000.00  0000.00  PCH; With PCH/Shrink Code Changes wxMSW3.1
 
 Core and Contrib configure/make user time in seconds (Debian 4.9.0-6-amd64 GCC 6.3.0)
-  6264.48  ?:??:??  ?:??:??  NONPCH; Without PCH/Shrink Changes wxMSW3.0
-  5124.76  ?:??:??  ?:??:??  PCH; Without PCH/Shrink Changes wxMSW3.0
-  5906.20  5901.70  6257.44  NONPCH; With PCH/Shrink Changes wxMSW3.0
-  5247.02  4897.84  5291.58  PCH; With PCH/Shrink Changes wxMSW3.0
+  0000.00  0000.00  0000.00  NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0000.00  0000.00  0000.00  PCH; Without PCH/Shrink Code Changes wxMSW3.1
+  0000.00  0000.00  0000.00  NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  0000.00  0000.00  0000.00  PCH; With PCH/Shrink Code Changes wxMSW3.1
