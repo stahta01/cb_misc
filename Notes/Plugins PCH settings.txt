@@ -46,8 +46,8 @@ Contrib Plugins
   ReopenEditor                  CB_PRECOMP
   rndgen                        CB_PRECOMP
   SmartIndent                   ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
-  source_exporter               ?USE_PCH -include "wx_pch.h"
-  SpellChecker                  CB_PRECOMP and NOPCH to be changed to CB_PRECOMP and USE_PCH -include "wx_pch.h"
+  source_exporter               ?
+  SpellChecker                  ?CB_PRECOMP and NOPCH
   symtab                        CB_PRECOMP
   ThreadSearch                  CB_PRECOMP
   ToolsPlus                     NOPCH       Needs major source code work to change to CB_PRECOMP
