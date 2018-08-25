@@ -44,6 +44,50 @@ Core Project (Win7 64 bit)
   12:14   12:15   11:53   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
   11:28   11:42   12:39   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
+BYO Games Plugin (Win7 64 bit)
+  00:28   00:28   00:28   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  00:28   00:28   00:28   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  00:15   00:15   00:15   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  00:14   00:14   00:14   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+
+Cccc Plugin (Win7 64 bit)
+  00:07   00:07   00:07   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  00:07   00:07   00:07   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  00:02   00:02   00:02   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  00:02   00:02   00:02   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+
+copystrings Plugin (Win7 64 bit)
+  00:07   00:07   00:07   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  00:07   00:07   00:07   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  00:02   00:02   00:02   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  00:02   00:02   00:02   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+
+CppCheck Plugin (Win7 64 bit)
+  00:16   00:14   00:14   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  00:15   00:14   00:15   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  00:08   00:08   00:08   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  00:05   00:05   00:04   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+
+
+
+
+Cscope Plugin (Win7 64 bit)
+  00:21   00:22   00:20   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  00:17   00:17   00:17   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  00:14   00:15   00:15   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  00:13   00:13   00:14   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+
+Code Stat Plugin (Win7 64 bit)
+  00:25   00:15   00:15   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  00:15   00:15   00:15   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  00:12   00:13   00:12   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  00:05   00:05   00:05   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+
+FileManager Plugin (Win7 64 bit)
+  00:39   00:37   00:38   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
+  00:34   00:33   00:33   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
+  00:31   00:32   00:31   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  00:14   00:14   00:14   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
 CB SDK (Debian 4.9.0-6-amd64 GCC 6.3.0)
   0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1
