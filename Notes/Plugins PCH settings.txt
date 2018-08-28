@@ -5,8 +5,11 @@ NOPCH, USE_PCH, WX_PRECOMP, CB_PRECOMP
 
 WXMAKINGDLL
 
+-include "sdk.h"
 -Winvalid-pch
 ../../../.objs31_64/include
+
+: Add [-include "sdk.h"]
 
 CB Tools
   cb_share_config               NOPCH
@@ -25,7 +28,7 @@ Contrib Plugins
   copystrings                   CB_PRECOMP
   CppCheck                      CB_PRECOMP
   Cscope                        CB_PRECOMP
-  devpak_plugin                 NOPCH
+  devpak_plugin                *CB_PRECOMP -include "sdk.h"
   DoxyBlocks                    CB_PRECOMP
   dragscroll                    ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
   EditorConfig                  CB_PRECOMP
@@ -37,22 +40,24 @@ Contrib Plugins
   HexEditor                     CB_PRECOMP
   IncrementalSearch             CB_PRECOMP
   keybinder                     ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
-  lib_finder                    NOPCH       Needs major source code work to change to CB_PRECOMP
+  lib_finder                  **CB_PRECOMP -include "sdk.h"
   MouseSap                      ?CB_PRECOMP
-  NassiShneiderman              NOPCH       Needs major source code work to change to CB_PRECOMP
+  NassiShneiderman            **CB_PRECOMP -include "sdk.h"
   profiler                      CB_PRECOMP
-  ProjectOptionsManipulator     NOPCH
+  ProjectOptionsManipulator    *CB_PRECOMP -include "sdk.h"
   regex_testbed                 CB_PRECOMP
   ReopenEditor                  CB_PRECOMP
   rndgen                        CB_PRECOMP
   SmartIndent                   ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
-  source_exporter               ?
+  source_exporter              *CB_PRECOMP -include "sdk.h"
   SpellChecker                  ?CB_PRECOMP and NOPCH
   symtab                        CB_PRECOMP
   ThreadSearch                  CB_PRECOMP
   ToolsPlus                     NOPCH       Needs major source code work to change to CB_PRECOMP
   Valgrind                      CB_PRECOMP
-  wxContribItems                ?USE_PCH -include "wx_pch.h"
-  wxSmith                       NOPCH
-  wxSmithAui                    NOPCH
-  wxSmithContribItems           NOPCH
+  wxContribItems                USE_PCH -include "wx_pch.h"
+  wxSmith                      *CB_PRECOMP -include "sdk.h"
+  wxSmithAui                  **CB_PRECOMP -include "sdk.h"
+  wxSmithContribItems         **CB_PRECOMP -include "sdk.h"
+
+** Means the project source code needs edited
