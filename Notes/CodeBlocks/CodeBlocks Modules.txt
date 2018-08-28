@@ -1,0 +1,30 @@
+Module Name
+  wxLED                 contains code from multiple modules
+    wxLEDNumberCtrl     ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/gizmos/
+    wxLEDPanel          ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/ledpanel/
+    LCDWindow           ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/lcdwindow/
+    wxLed               ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/led/src/led.cpp
+  wxFlatNoteBook        https://sourceforge.net/projects/wxflatnotebook/
+  wxDateTimePicker      ? Unknown creator
+  wxChartCtrl           ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/wxchart
+  wxCustomButton        ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/wxthings/
+  KWIC                  ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/kwic/
+  wxTreeList            ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/treelistctrl/
+  wxMathPlot            https://github.com/R1kk3r/wxMathPlot
+  wxSpellChecker        ? http://wxcode.sourceforge.net/showcomp.php?name=wxSpellChecker
+  wxPdfDocument         ? http://wxcode.sourceforge.net/components/wxpdfdocument/
+  wxImagePanel          Looks like a CB Created and Maintained code
+  wxSpeedButton         Looks like a CB Created and Maintained code
+
+  tinyXML               http://www.grinninglizard.com/tinyxml/
+  Squirrel              http://www.squirrel-lang.org/
+  SqPlus                http://wiki.squirrel-lang.org/default.aspx/SquirrelWiki/SqPlus.html
+  scintilla             customized version https://www.scintilla.org/
+  Compiler depslib      Forked from somewhere and is now a CB maintained Module
+
+  AutoRevision
+  ConsoleRunner
+  Addr2LineUI
+  cb_share_config
+  CBLauncher
+  cbp2make
