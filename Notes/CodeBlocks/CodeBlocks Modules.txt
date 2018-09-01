@@ -1,18 +1,23 @@
 Module Name
-  wxLED                 contains code from multiple modules
-    wxLEDNumberCtrl     ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/gizmos/
-    wxLEDPanel          ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/ledpanel/
-    LCDWindow           ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/lcdwindow/
-    wxLed               ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/led/src/led.cpp
+  http://ftp.wxwidgets.org/wx/docs/html/gizmos/gizmos_contents.html
+  wxLED                 contains code from multiple sources
+    wxLEDNumberCtrl     ? http://wxcode.sourceforge.net/showcomp.php?name=gizmos
+                          wxCode_components\gizmos\include\wx\gizmos\ledctrl.h
+    wxLEDPanel          ? http://wxcode.sourceforge.net/components/ledpanel/
+                          wxCode_components\ledpanel\include\wx\wxledpanel.h
+    LCDWindow           ? http://wxcode.sourceforge.net/components/lcdwindow/
+                          wxCode_components\kwic\include\kwic\lcdwindow.h
+    wxLed               ? http://wxcode.sourceforge.net/showcomp.php?name=wxLed
+                          wxCode_components\led\include\wx\led.h
   wxFlatNoteBook        https://sourceforge.net/projects/wxflatnotebook/
   wxDateTimePicker      ? Unknown creator
-  wxChartCtrl           ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/wxchart
+  wxChartCtrl           ? http://wxcode.sourceforge.net/components/wxchart/
   wxCustomButton        ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/wxthings/
   KWIC                  ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/kwic/
   wxTreeList            ? http://svn.code.sf.net/p/wxcode/code/trunk/wxCode/components/treelistctrl/
   wxMathPlot            https://github.com/R1kk3r/wxMathPlot
   wxSpellChecker        ? http://wxcode.sourceforge.net/showcomp.php?name=wxSpellChecker
-  wxPdfDocument         ? http://wxcode.sourceforge.net/components/wxpdfdocument/
+  wxPdfDocument         https://github.com/utelle/wxpdfdoc
   wxImagePanel          Looks like a CB Created and Maintained code
   wxSpeedButton         Looks like a CB Created and Maintained code
 
