@@ -11,9 +11,6 @@ git rebase pch_fixes/PCH/master     && \
 git checkout PCH/core               && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
-git checkout PCH/FileManager        && \
-git pull                            && \
-git rebase pch_fixes/PCH/master     && \
 git checkout PCH/contrib            && \
 git pull                            && \
 git rebase pch_fixes/PCH/master     && \
