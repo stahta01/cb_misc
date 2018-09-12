@@ -45,72 +45,12 @@ Core Project (Win7 64 bit)
   11:28   11:42   12:39   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
 C::B Workspace (Win7 64 bit)
-  63:06   63:00   0?:??   NONPCH; Without PCH/Shrink and other PCH Code Changes wxMSW3.1
-  0?:??   0?:??   0?:??   NONPCH; code/PCH_shrink with sdk code size shrink; but, little other PCH code changes
-  0?:??   0?:??   0?:??   NONPCH; With PCH_shrink and other PCH Code Changes wxMSW3.1
-  46:24   0?:??   0?:??   PCH/staging; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   build/convert_cbp_to_PCH; Without PCH_shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  30:53   0?:??   0?:??   PCH/testing; With PCH_shrink and other PCH Code Changes wxMSW3.1
-
-BYO Games Plugin (Win7 64 bit)
-  00:28   00:28   00:28   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  00:28   00:28   00:28   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  00:15   00:15   00:15   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  00:14   00:14   00:14   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-Cccc Plugin (Win7 64 bit)
-  00:07   00:07   00:07   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  00:07   00:07   00:07   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  00:02   00:02   00:02   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  00:02   00:02   00:02   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-copystrings Plugin (Win7 64 bit)
-  00:07   00:07   00:07   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  00:07   00:07   00:07   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  00:02   00:02   00:02   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  00:02   00:02   00:02   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-CppCheck Plugin (Win7 64 bit)
-  00:16   00:14   00:14   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  00:15   00:14   00:15   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  00:08   00:08   00:08   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  00:05   00:05   00:04   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-devpak_plugin Plugin (Win7 64 bit)
-  00:36   00:34   00:34   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  00:24   00:19   00:17   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-lib_finder Plugin (Win7 64 bit)
-  01:05   01:04   01:03   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  00:26   00:26   00:26   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-NassiShneiderman Plugin (Win7 64 bit)
-  01:55   01:54   01:53   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  01:03   00:48   00:49   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-ProjectOptionsManipulator Plugin (Win7 64 bit)
-  00:14   00:15   00:15   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  00:06   00:06   00:05   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-source_exporter default target (Win7 64 bit)
-  00:31   00:31   00:31   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  00:19   00:12   00:12   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-
-wxSmith Plugin (Win7 64 bit)
-  12:38   13:02   12:46   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
-  13:46   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
-  05:04   04:59   04:58   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  63:06   63:00  105:53   NONPCH; master; Without PCH/Shrink and other PCH Code Changes wxMSW3.1
+  34:23   0?:??   0?:??   NONPCH; code/PCH_shrink; with sdk code size shrink; but, little other PCH code changes
+  34:11   34:07  105:00   NONPCH; PCH/code_only; With PCH_shrink and other PCH Code Changes wxMSW3.1
+  46:24   0?:??   0?:??   PCH; PCH/staging; with plugin PCH fixes; without SDK Shrink
+  18:41   0?:??   0?:??   PCH; build/convert_cbp_to_PCH; Without PCH_shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  30:53   48:35   0?:??   PCH; PCH/testing; With PCH_shrink and other PCH Code Changes wxMSW3.1
 
 wxSmithAui Plugin (Win7 64 bit)
   00:56   00:56   00:55   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
@@ -136,6 +76,7 @@ Template
   0?:??   0?:??   0?:??   NONPCH; master; Without PCH/Shrink and other PCH Code Changes wxMSW3.1
   0?:??   0?:??   0?:??   NONPCH; code/PCH_shrink; with sdk code size shrink; but, little other PCH code changes
   0?:??   0?:??   0?:??   NONPCH; PCH/code_only; With PCH_shrink and other PCH Code Changes wxMSW3.1
+  n/a     n/a     n/a     PCH; PCH/staging; with plugin PCH fixes; without SDK Shrink
   0?:??   0?:??   0?:??   PCH; build/convert_cbp_to_PCH; Without PCH_shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
   0?:??   0?:??   0?:??   PCH; PCH/testing; With PCH_shrink and other PCH Code Changes wxMSW3.1
 
