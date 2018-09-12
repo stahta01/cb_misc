@@ -1,0 +1,197 @@
+PCH Repo rebase commands.txt
+
+L Local only branch not in remotes
+U Pushes to upstream remote instead of default remote
+
+$ git branch --list
+  PCH/Valgrind
+  PCH/code_fixes
+L PCH/code_only
+  PCH/contrib
+  PCH/core
+  PCH/devpak_plugin
+  PCH/master
+  PCH/misc
+  PCH/shrink
+  PCH/staging
+* PCH/testing
+  PCH/wxContribItems
+  PCH/wxFormBuilder
+  PCH/wxsmith
+  build/PCH_speedup
+  build/convert_cbp_to_PCH
+  code/PCH_shrink
+  code/remove_sdk_h
+U master
+U sdk_common_h
+  staging
+
+
+cd ../codeblocks_PCH_fixes && git fetch origin --prune && git status -uno
+
+git checkout master && git pull --rebase origin master && git status -uno
+
+git checkout sdk_common_h && git pull --rebase origin sdk_common_h  && \
+git rebase master && git status -uno
+##  git rebase master && git push origin --force-with-lease
+
+git checkout PCH/master && git pull && git rebase master && \
+git rebase sdk_common_h && git rebase master && git status -uno
+#   git rebase code/PCH_shrink
+#   git rebase code/remove_sdk_h && git rebase sdk_common_h
+##  git rebase -i master
+##  git rebase master && git push --force-with-lease
+
+## PCH/core
+#   abbreviations
+#   astyle
+#   CC
+#   compilergcc
+#   debuggergdb
+#   defaultmimehandler
+#   occurrenceshighlighting
+#   scriptedwizard
+#   srcApp
+#   autosave
+#   classwizard
+#   projectsimporter
+git checkout PCH/core && git pull && git rebase PCH/master && git status -uno
+##  git rebase -i PCH/master
+##  git rebase PCH/master && git push --force-with-lease
+
+## PCH/wxsmith
+#   wxSmith
+#   wxSmithContribItems
+#   wxSmithAui
+git checkout PCH/wxsmith && git pull && git rebase PCH/master && git status -uno
+##  git rebase -i PCH/master
+##  git rebase PCH/master && git push --force-with-lease
+
+##  PCH/wxContribItems
+#   wxContribItems
+#   lib_finder
+#   ThreadSearch
+#   source_exporter
+#   SpellChecker
+git checkout PCH/wxContribItems && git pull && git rebase PCH/master && git status -uno
+##  git rebase -i PCH/master
+##  git rebase PCH/master && git push --force-with-lease
+
+git checkout PCH/misc && git pull && git rebase PCH/master && git status -uno
+##  git rebase -i PCH/master
+##  git rebase PCH/master && git push --force-with-lease
+
+## PCH/contrib
+#   AutoVersioning
+#   cb_koders
+#   CppCheck
+#   Cscope
+#   DoxyBlocks
+#   dragscroll
+#   EditorConfig
+#   headerfixup
+#   help_plugin
+#   keybinder
+#   MouseSap
+#   NassiShneiderman
+#   regex_testbed
+#   SmartIndent
+#   codestat
+#   envvars
+#   profiler
+#   HexEditor
+#   FileManager
+git checkout PCH/contrib && git pull && git rebase PCH/master && git status -uno
+##  git rebase -i PCH/master
+##  git rebase PCH/master && git push --force-with-lease
+
+##  PCH/wxFormBuilder
+#   BrowseTracker
+#   codesnippets
+#   Toolplus
+git checkout PCH/wxFormBuilder && git pull && git rebase PCH/master && git status -uno
+##  git rebase -i PCH/master
+##  git rebase PCH/master && git push --force-with-lease
+# git format-patch PCH/master
+
+
+git checkout PCH/staging && git pull && git rebase master && git status -uno
+#   git rebase -i build/PCH_speedup
+##  git rebase -i master
+##  git rebase master && git push --force-with-lease
+
+rm 0*.patch
+
+git format-patch master
+
+
+git checkout build/PCH_speedup && git pull && git rebase master && git status -uno
+#   git rebase PCH/staging
+##  git rebase -i master
+##  git rebase master && git push --force-with-lease
+
+git checkout code/remove_sdk_h && git pull && git rebase master && git status -uno
+##  git rebase -i master
+##  git rebase master && git push --force-with-lease
+
+git checkout build/convert_cbp_to_PCH && git pull && git rebase master && git status -uno
+#   git rebase PCH/staging
+#   git rebase build/PCH_speedup
+git rebase code/remove_sdk_h
+##  git rebase -i code/remove_sdk_h
+##  git rebase master && git push --force-with-lease
+
+git checkout PCH/code_fixes && git rebase master && git status -uno
+##  git rebase master && git push --force-with-lease
+
+git checkout code/PCH_shrink && git rebase master && git status -uno
+git rebase PCH/code_fixes && git status -uno
+#   git rebase -i master
+##  rm 0*.patch && git format-patch master
+##  git rebase master && git push --force-with-lease
+
+git checkout PCH/shrink && git pull && git rebase master && git status -uno
+#   git rebase build/convert_cbp_to_PCH
+git rebase code/PCH_shrink
+##  git rebase master && git push --force-with-lease
+
+# Keep seperate
+git checkout PCH/Valgrind && git pull && git rebase PCH/master && git status -uno
+git checkout PCH/devpak_plugin && git pull && git rebase PCH/master && git status -uno
+
+git rebase PCH/master && git push --force-with-lease
+
+git rebase -i PCH/master
+
+
+git checkout PCH/testing && git pull && git rebase PCH/master && git gc && git status -uno
+#
+##  rm 0*.patch && git format-patch master
+
+git rebase build/convert_cbp_to_PCH && \
+git rebase PCH/Valgrind && \
+git rebase PCH/devpak_plugin && \
+git rebase PCH/wxFormBuilder && \
+git rebase PCH/wxContribItems && \
+git rebase PCH/wxsmith && \
+git rebase PCH/misc && \
+git rebase PCH/contrib && \
+git rebase PCH/core && \
+git rebase PCH/master && git status -uno
+
+##  git rebase -i PCH/master
+
+git rebase PCH/master && git push --force-with-lease
+
+rm 0*.patch
+
+git format-patch master
+
+git format-patch PCH/master
+
+# Remove PCH Build changes to CB project files
+git checkout PCH/code_only && git rebase PCH/testing && git rebase -i PCH/master
+
+
+git checkout master && \
+git fsck --connectivity-only && git prune && git fsck && git gc && git prune && exit
