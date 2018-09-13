@@ -45,12 +45,12 @@ Core Project (Win7 64 bit)
   11:28   11:42   12:39   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
 
 C::B Workspace (Win7 64 bit)
-  63:06   63:00  105:53   NONPCH; master; Without PCH/Shrink and other PCH Code Changes wxMSW3.1
-  34:23   0?:??   0?:??   NONPCH; code/PCH_shrink; with sdk code size shrink; but, little other PCH code changes
-  34:11   34:07  105:00   NONPCH; PCH/code_only; With PCH_shrink and other PCH Code Changes wxMSW3.1
+ 106:08   63:00  105:53   NONPCH; master; Without PCH/Shrink and other PCH Code Changes wxMSW3.1
+  34:23  106:02   0?:??   NONPCH; code/PCH_shrink; with sdk code size shrink; but, little other PCH code changes
+ 104:38   34:07  105:00   NONPCH; PCH/code_only; With PCH_shrink and other PCH Code Changes wxMSW3.1
   46:24   0?:??   0?:??   PCH; PCH/staging; with plugin PCH fixes; without SDK Shrink
-  18:41   0?:??   0?:??   PCH; build/convert_cbp_to_PCH; Without PCH_shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
-  30:53   48:35   0?:??   PCH; PCH/testing; With PCH_shrink and other PCH Code Changes wxMSW3.1
+  18:41   55:16   0?:??   PCH; build/convert_cbp_to_PCH; Without PCH_shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  30:53   48:35   48:08   PCH; PCH/testing; With PCH_shrink and other PCH Code Changes wxMSW3.1
 
 wxSmithAui Plugin (Win7 64 bit)
   00:56   00:56   00:55   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
