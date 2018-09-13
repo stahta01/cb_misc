@@ -51,13 +51,6 @@ git checkout code/remove_sdk_h && git pull && git rebase master && git status -u
 ##  git rebase -i master
 ##  git rebase master && git push --force-with-lease
 
-git checkout build/convert_cbp_to_PCH && git pull && git rebase master && git status -uno
-#   git rebase PCH/staging
-#   git rebase build/PCH_speedup
-git rebase code/remove_sdk_h
-##  git rebase -i code/remove_sdk_h
-##  git rebase master && git push --force-with-lease
-
 git checkout PCH/code_fixes && git rebase master && git status -uno
 ##  git rebase master && git push --force-with-lease
 
@@ -70,6 +63,13 @@ git rebase PCH/code_fixes && git status -uno
 git checkout PCH/shrink && git pull && git rebase master && git status -uno
 #   git rebase build/convert_cbp_to_PCH
 git rebase code/PCH_shrink
+##  git rebase master && git push --force-with-lease
+
+git checkout build/convert_cbp_to_PCH && git pull && git rebase master && git status -uno
+#   git rebase PCH/staging
+#   git rebase build/PCH_speedup
+git rebase code/remove_sdk_h
+##  git rebase -i code/remove_sdk_h
 ##  git rebase master && git push --force-with-lease
 
 git checkout PCH/master && git pull && git rebase master && \
