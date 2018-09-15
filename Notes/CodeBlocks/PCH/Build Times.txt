@@ -6,13 +6,13 @@ Core Plugins Only (Win10 32 bit)
   0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW32 GCC
   0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW32 GCC
 
-Core Project (Win10 32 bit)
-  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW2.8.12 GCC 4.9.2
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW2.8.12 GCC 4.9.2
-  0?:??   0?:??   0?:??   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1 GCC 6.4.0
-  0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1 GCC 6.4.0
-  0?:??   0?:??   0?:??   PCH; Without PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW32 GCC
-  0?:??   0?:??   0?:??   PCH; With PCH/Shrink Code Changes wxMSW3.1 MSys2 MinGW32 GCC
+Core Project (Win10 32 bit) MSys2 GCC Compiler and wx2.8
+  20:49   0?:??   0?:??   PCH; master; Without PCH/Shrink and other PCH Code Changes
+  19:56   0?:??   0?:??   PCH; code/PCH_shrink; with sdk code size shrink; but, little other PCH code changes
+  0?:??   0?:??   0?:??   PCH; PCH/code_only; With PCH_shrink and other PCH Code Changes
+  0?:??   0?:??   0?:??   PCH; PCH/staging; with plugin PCH fixes; without SDK Shrink
+  20:06   0?:??   0?:??   PCH; build/convert_cbp_to_PCH; Without PCH_shrink Code Changes
+  19:20   0?:??   0?:??   PCH; PCH/testing; With PCH_shrink and other PCH Code Changes
 
 CB scintilla (Win7 64 bit)
   01:36   01:35   01:36   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
