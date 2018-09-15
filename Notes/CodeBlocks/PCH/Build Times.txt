@@ -52,6 +52,14 @@ C::B Workspace (Win7 64 bit)
   18:41   55:16   0?:??   PCH; build/convert_cbp_to_PCH; Without PCH_shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
   30:53   48:35   48:08   PCH; PCH/testing; With PCH_shrink and other PCH Code Changes wxMSW3.1
 
+FileManager Plugin (Win7 64 bit)
+  01:04   01:04   01:04   NONPCH; master; Without PCH/Shrink and other PCH Code Changes wxMSW3.1
+  01:04   0?:??   0?:??   NONPCH; code/PCH_shrink; with sdk code size shrink; but, little other PCH code changes
+  0?:??   0?:??   0?:??   NONPCH; PCH/code_only; With PCH_shrink and other PCH Code Changes wxMSW3.1
+  n/a     n/a     n/a     PCH; PCH/staging; with plugin PCH fixes; without SDK Shrink
+  00:51   00:50   00:50   PCH; build/convert_cbp_to_PCH; Without PCH_shrink Code Changes wxMSW3.1 MSys2 MinGW64 GCC
+  00:28   00:30   00:30   PCH; PCH/testing; With PCH_shrink and other PCH Code Changes wxMSW3.1
+
 wxSmithAui Plugin (Win7 64 bit)
   00:56   00:56   00:55   NONPCH; Without PCH/Shrink Code Changes wxMSW3.1
   0?:??   0?:??   0?:??   NONPCH; With PCH/Shrink Code Changes wxMSW3.1
