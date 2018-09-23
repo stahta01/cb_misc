@@ -4,7 +4,7 @@ $ git branch --list
   cmake/apps
   configure/apps
   games
-  gettext
+D gettext
   gmake/apps
   gui/libs
 ? issues
@@ -39,7 +39,7 @@ git checkout cleanup && git status
 git checkout staging && git pull && git rebase master && git push --force-with-lease
 
 
-git checkout kicad-staging && git pull && git rebase master && git status -uno
+git checkout kicad-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
 git checkout wxpython-staging && git pull && git rebase master && git status -uno && \
@@ -74,10 +74,6 @@ git push --force-with-lease
 
 git checkout configure/apps && git pull && git rebase master && git status -uno
 #   git rebase --ignore-date master
-#   git rebase -i master
-git push --force-with-lease
-
-git checkout gettext && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
