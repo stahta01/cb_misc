@@ -1,0 +1,40 @@
+# exit out of git-sh shell if in it.
+cd ~/devel/version_control
+# rm -fr codeblocks_svn2git_http_metadata-git
+
+mkdir -p ~/devel/version_control/codeblocks_svn2git_http_metadata-git
+cd ~/devel/version_control/codeblocks_svn2git_http_metadata-git
+# Test with this option  --revision 1:100
+svn2git http://svn.code.sf.net/p/codeblocks/code --notags --metadata
+git branch --list
+git log -1
+git svn info
+git svn log -1
+
+git remote add origin https://stahta01@github.com/stahta01/codeblocks_svn2git_http_metadata.git
+
+git fetch origin --prune
+git checkout master && git branch -u origin/master && git status
+git pull --ff-only origin master && git status
+git push origin master
+git config push.default current 
+git push origin --all
+
+
+git fetch origin
+git checkout master && git status -uno && git push origin
+git checkout release-16.xx && git status -uno   && git pull --ff-only origin release-16.xx && git push origin --set-upstream origin/release-16.xx
+git checkout release-15.xx && git status -uno   && git pull --ff-only origin release-15.xx && git push origin --set-upstream origin/release-15.xx
+git checkout scintilla_3_6_x && git status -uno && git pull --ff-only origin scintilla_3_6_x && git push origin --set-upstream origin/scintilla_3_6_x
+git checkout scintilla_3_5_x && git status -uno && git pull --ff-only origin scintilla_3_5_x && git push origin --set-upstream origin/scintilla_3_5_x
+
+# Info to record for the next time
+$ git remote -v
+
+$ git svn info
+
+$ git svn log -1
+
+$ git log -1
+
+$ git branch --list
