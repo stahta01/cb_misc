@@ -1,0 +1,31 @@
+wxUniversal build.txt
+
+gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
+
+./build/upmake
+cd build/bakefiles && bakefile_gen -b wx.bkl && cd ../..
+autoconf
+
+git checkout build/wxUniversal && autoconf && git gui
+
+Do build/upmake, bakefile_gen, and autoconf
+
+
+mkdir -p build_X11_universal && cd build_X11_universal
+../configure --prefix=/opt/wxX11/3.1.x --with-x11 --enable-universal
+make clean
+make
+cd samples/minimal && make clean && make
+
+
+mkdir -p build_gtk2_universal && cd build_gtk2_universal
+../configure --prefix=/opt/wxGTK2/3.1.x --with-gtk=2 --enable-universal --enable-permissive --disable-webview
+make clean
+make
+
+
+
+mkdir -p build_gtk3_universal && cd build_gtk3_universal
+../configure --prefix=/opt/wxGTK3/3.1.x --with-gtk=3 --enable-universal --enable-permissive
+make clean
+make
