@@ -29,3 +29,8 @@ mkdir -p build_gtk3_universal && cd build_gtk3_universal
 ../configure --prefix=/opt/wxGTK3/3.1.x --with-gtk=3 --enable-universal --enable-permissive
 make clean
 make
+
+
+mkdir -p build-msw-universal && cd build-msw-universal
+../configure --with-msw --enable-universal --disable-accessibility --disable-aui
+make
