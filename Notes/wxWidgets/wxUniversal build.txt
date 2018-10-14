@@ -8,6 +8,11 @@ cd build/bakefiles && bakefile_gen -b wx.bkl && cd ../..
 autoconf
 
 
+https://trac.wxwidgets.org/ticket/9624      wxUniv/X11
+https://trac.wxwidgets.org/ticket/15987     wxUniv/X11
+https://trac.wxwidgets.org/ticket/16214     wxUniv/X11
+
+
 cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_X11_universal && cd build_X11_universal
 #
 ../configure --prefix=/opt/wxX11/3.1.x --with-x11 --enable-universal
@@ -29,8 +34,26 @@ make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
 
-cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build-msw-universal && cd build-msw-universal
+https://trac.wxwidgets.org/ticket/4402      wxUniv/MSW
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build-msw-universal && cd build-msw-universal
 #
 ../configure --with-msw --enable-universal --disable-accessibility --disable-aui
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build-gtk2win && cd build-gtk2win
+#
+../configure --with-gtk=2
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
+
+https://trac.wxwidgets.org/ticket/15560     wxGTK2/Win32
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build-gtk2win-universal && cd build-gtk2win-universal
+#
+../configure --with-gtk=2 --enable-universal --disable-accessibility
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
