@@ -38,7 +38,7 @@ https://trac.wxwidgets.org/ticket/4402      wxUniv/MSW
 
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build-msw-universal && cd build-msw-universal
 #
-../configure --with-msw --enable-universal --disable-accessibility --disable-aui
+../configure --with-msw --enable-universal --disable-accessibility
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
