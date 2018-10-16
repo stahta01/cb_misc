@@ -34,16 +34,25 @@ make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
 
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
+  mkdir -p build-${MSYSTEM_CARCH}-msw && cd build-${MSYSTEM_CARCH}-msw
+#
+../configure --with-msw
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
 https://trac.wxwidgets.org/ticket/4402      wxUniv/MSW
 
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build-msw-universal && cd build-msw-universal
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
+  mkdir -p build-${MSYSTEM_CARCH}-msw-universal && cd build-${MSYSTEM_CARCH}-msw-universal
 #
 ../configure --with-msw --enable-universal --disable-accessibility
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
 
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build-gtk2win && cd build-gtk2win
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
+  mkdir -p build-${MSYSTEM_CARCH}-gtk2win && cd build-${MSYSTEM_CARCH}-gtk2win
 #
 ../configure --with-gtk=2
 make clean && make
@@ -52,8 +61,9 @@ cd samples/minimal && make clean && make && cd ../..
 
 https://trac.wxwidgets.org/ticket/15560     wxGTK2/Win32
 
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build-gtk2win-universal && cd build-gtk2win-universal
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
+  mkdir -p build-${MSYSTEM_CARCH}-gtk2win-universal && cd build-${MSYSTEM_CARCH}-gtk2win-universal
 #
-../configure --with-gtk=2 --enable-universal --disable-accessibility
+../configure --with-gtk=2 --enable-universal --enable-permissive --disable-accessibility
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
