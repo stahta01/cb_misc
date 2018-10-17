@@ -8,6 +8,13 @@ cd build/bakefiles && bakefile_gen -b wx.bkl && cd ../..
 autoconf
 
 
+cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_qt_universal && cd build_qt_universal
+#
+../configure --prefix=/opt/wxQt/3.1.x --with-qt --enable-universal
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
+
 https://trac.wxwidgets.org/ticket/9624      wxUniv/X11 "--enable-scrollbar" and "--disable-timer" Confirm Problem still exists
 https://trac.wxwidgets.org/ticket/15987     wxUniv/X11 Running the widgets sample under wxX11 and selecting the slider page results in a crash (probably because of the assert reentrancy) after printing out
 https://trac.wxwidgets.org/ticket/16214     wxUniv/X11 wxFileDialog broken on Linux in wxUniversal look & feel
@@ -66,4 +73,19 @@ cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWid
 #
 ../configure --with-gtk=2 --enable-universal --enable-permissive --disable-accessibility
 make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
+  mkdir -p build-${MSYSTEM_CARCH}-qt && cd build-${MSYSTEM_CARCH}-qt
+#
+../configure --with-qt --disable-precomp-headers
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
+  mkdir -p build-${MSYSTEM_CARCH}-qt-universal && cd build-${MSYSTEM_CARCH}-qt-universal
+#
+../configure --with-qt --enable-universal --enable-permissive --disable-accessibility --disable-printarch
+make clean && make # A large number of linking errors
 cd samples/minimal && make clean && make && cd ../..
