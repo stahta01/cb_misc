@@ -4,7 +4,7 @@ git config --global core.editor /usr/bin/scite
 
 # 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
 
-git config --global user.email "stahta01@users.sourceforge.net"
+git config --global user.email "stahta01@gmail.com"
 git config --global user.name  "Tim S"
 
 # On Windows computers set core.fileMode to false; this includes Cygwin.
