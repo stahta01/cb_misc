@@ -10,7 +10,7 @@ autoconf
 
 cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_qt_universal && cd build_qt_universal
 #
-../configure --prefix=/opt/wxQt/3.1.x --with-qt --enable-universal
+../configure --prefix=/opt/wxQt/3.1.x --with-qt --enable-universal --disable-printarch
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
@@ -18,7 +18,7 @@ cd samples/minimal && make clean && make && cd ../..
 https://trac.wxwidgets.org/ticket/9624      wxUniv/X11 "--enable-scrollbar" and "--disable-timer" Confirm Problem still exists
 https://trac.wxwidgets.org/ticket/15987     wxUniv/X11 Running the widgets sample under wxX11 and selecting the slider page results in a crash (probably because of the assert reentrancy) after printing out
 https://trac.wxwidgets.org/ticket/16214     wxUniv/X11 wxFileDialog broken on Linux in wxUniversal look & feel
-
+ 
 
 cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_X11_universal && cd build_X11_universal
 #
