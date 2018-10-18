@@ -3,8 +3,8 @@ wxUniversal build.txt
 gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
 
 # See how-to-add-files-to-build-system.md
-./build/upmake
-cd build/bakefiles && bakefile_gen -b wx.bkl && cd ../..
+./build/upmake && \
+cd build/bakefiles && bakefile_gen -b wx.bkl && cd ../.. && \
 autoconf
 
 
