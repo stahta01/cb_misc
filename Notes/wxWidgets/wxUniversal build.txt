@@ -18,7 +18,7 @@ cd samples/minimal && make clean && make && cd ../..
 https://trac.wxwidgets.org/ticket/9624      wxUniv/X11 "--enable-scrollbar" and "--disable-timer" Confirm Problem still exists
 https://trac.wxwidgets.org/ticket/15987     wxUniv/X11 Running the widgets sample under wxX11 and selecting the slider page results in a crash (probably because of the assert reentrancy) after printing out
 https://trac.wxwidgets.org/ticket/16214     wxUniv/X11 wxFileDialog broken on Linux in wxUniversal look & feel
- 
+
 
 cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_X11_universal && cd build_X11_universal
 #
@@ -90,7 +90,10 @@ cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWid
   --disable-printarch --disable-calendar --disable-dataviewctrl --disable-treelist --disable-datepick \
   --disable-wizarddlg --disable-commandlinkbutton --disable-timepick --disable-combobox \
   --disable-docview --disable-mdidoc --disable-help --disable-splash --disable-grid \
-  --disable-hyperlink --disable-addremovectrl --disable-dirdlg --disable-filedlg
+  --disable-hyperlink --disable-addremovectrl --disable-dirdlg --disable-filedlg \
+  --disable-filepicker --disable-dirpicker --disable-fontdlg --disable-fontpicker \
+  --disable-choice --disable-choicebook --disable-filectrl --disable-richtooltip && \
+make
 
 
 make clean && make # A large number of core linking errors
