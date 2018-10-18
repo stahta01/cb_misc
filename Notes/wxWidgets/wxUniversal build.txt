@@ -86,6 +86,13 @@ cd samples/minimal && make clean && make && cd ../..
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
   mkdir -p build-${MSYSTEM_CARCH}-qt-universal && cd build-${MSYSTEM_CARCH}-qt-universal
 #
-../configure --with-qt --enable-universal --enable-permissive --disable-accessibility --disable-printarch
-make clean && make # A large number of linking errors
+../configure --with-qt --enable-universal --enable-permissive --disable-accessibility \
+  --disable-printarch --disable-calendar --disable-dataviewctrl --disable-treelist --disable-datepick \
+  --disable-wizarddlg --disable-commandlinkbutton --disable-timepick --disable-combobox \
+  --disable-docview --disable-mdidoc --disable-help --disable-splash --disable-grid \
+  --disable-hyperlink --disable-addremovectrl --disable-dirdlg --disable-filedlg
+
+
+make clean && make # A large number of core linking errors
 cd samples/minimal && make clean && make && cd ../..
+./samples/minimal/minimal.exe
