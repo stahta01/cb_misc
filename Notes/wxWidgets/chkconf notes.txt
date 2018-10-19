@@ -1,0 +1,1361 @@
+wxUSE_OWNER_DRAWN
+wxUSE_COMBOBOX
+wxUSE_MENUS
+wxUSE_POPUPWIN
+wxUSE_LISTBOX
+wxUSE_RADIOBTN
+wxUSE_CHECKBOX
+wxUSE_TEXTCTRL
+wxUSE_CARET
+wxUSE_SCROLLBAR
+wxUSE_ALL_THEMES
+wxUSE_THEME_GTK
+wxUSE_THEME_METAL
+wxUSE_THEME_MONO
+wxUSE_THEME_WIN32
+wxUSE_MDI_ARCHITECTURE
+wxUSE_JOYSTICK
+wxUSE_THREADS
+wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW
+wxUSE_POSTSCRIPT
+wxUSE_METAFILE
+wxUSE_ENH_METAFILE
+wxUSE_ENH_METAFILE
+wxUSE_WEBVIEW
+wxUSE_WEBVIEW_WEBKIT
+wxUSE_MEDIACTRL
+wxUSE_UIACTIONSIMULATOR
+wxUSE_GLCANVAS
+wxUSE_CAIRO
+wxUSE_GRAPHICS_CONTEXT
+wxUSE_ACTIVEX
+# error "wxUSE_ACTIVEX must be defined."
+wxUSE_ACTIVEX 0
+#endif /* defined wxUSE_ACTIVEX  */
+wxUSE_WINRT
+# error "wxUSE_WINRT must be defined."
+wxUSE_WINRT 0
+#endif /* defined wxUSE_ACTIVEX  */
+wxUSE_CRASHREPORT
+# error "wxUSE_CRASHREPORT must be defined."
+wxUSE_CRASHREPORT 0
+#endif /* defined wxUSE_CRASHREPORT  */
+wxUSE_DBGHELP
+# error "wxUSE_DBGHELP must be defined"
+wxUSE_DBGHELP 1
+#endif /*wxUSE_DBGHELP */
+wxUSE_DC_CACHEING
+# error "wxUSE_DC_CACHEING must be defined"
+wxUSE_DC_CACHEING 1
+#endif /*wxUSE_DC_CACHEING */
+wxUSE_DIALUP_MANAGER
+# error "wxUSE_DIALUP_MANAGER must be defined."
+wxUSE_DIALUP_MANAGER 0
+#endif /* defined wxUSE_DIALUP_MANAGER  */
+wxUSE_MS_HTML_HELP
+# error "wxUSE_MS_HTML_HELP must be defined."
+wxUSE_MS_HTML_HELP 0
+#endif /* defined wxUSE_MS_HTML_HELP  */
+wxUSE_INICONF
+# error "wxUSE_INICONF must be defined."
+wxUSE_INICONF 0
+#endif /* defined wxUSE_INICONF  */
+wxUSE_OLE
+# error "wxUSE_OLE must be defined."
+wxUSE_OLE 0
+#endif /* defined wxUSE_OLE  */
+wxUSE_OLE_AUTOMATION
+# error "wxUSE_OLE_AUTOMATION must be defined."
+wxUSE_OLE_AUTOMATION 0
+#endif /* defined wxUSE_OLE_AUTOMATION  */
+wxUSE_TASKBARICON_BALLOONS
+# error "wxUSE_TASKBARICON_BALLOONS must be defined."
+wxUSE_TASKBARICON_BALLOONS 0
+#endif /*wxUSE_TASKBARICON_BALLOONS */
+wxUSE_TASKBARBUTTON
+# error "wxUSE_TASKBARBUTTON must be defined."
+wxUSE_TASKBARBUTTON 0
+#endif /*wxUSE_TASKBARBUTTON */
+wxUSE_UXTHEME
+# error "wxUSE_UXTHEME must be defined."
+wxUSE_UXTHEME 0
+#endif /*wxUSE_UXTHEME */
+ * However definingwxUSE_COMPILER_TLS as 2 overrides this safety check, see
+wxUSE_COMPILER_TLS == 1
+wxUSE_COMPILER_TLS
+wxUSE_COMPILER_TLS 0
+wxUSE_ON_FATAL_EXCEPTION
+wxUSE_ON_FATAL_EXCEPTION 0
+wxUSE_CRASHREPORT
+wxUSE_CRASHREPORT 0
+wxUSE_MEMORY_TRACING
+wxUSE_MEMORY_TRACING 0
+wxUSE_GLOBAL_MEMORY_OPERATORS
+wxUSE_GLOBAL_MEMORY_OPERATORS 0
+wxUSE_DEBUG_NEW_ALWAYS
+wxUSE_DEBUG_NEW_ALWAYS 0
+wxUSE_WCHAR_T
+wxUSE_WCHAR_T 0
+wxUSE_SECRETSTORE
+wxUSE_SECRETSTORE 0
+wxUSE_SPINCTRL
+wxUSE_SPINBTN
+wxUSE_SPINBTN
+wxUSE_SPINBTN 1
+wxUSE_OWNER_DRAWN
+wxUSE_CHECKLISTBOX
+wxUSE_CHECKLISTBOX 0
+wxUSE_CHECKLISTBOX
+wxUSE_REARRANGECTRL
+wxUSE_REARRANGECTRL 0
+wxUSE_LIBJPEG
+wxUSE_LIBJPEG 0
+/*wxUSE_DEBUG_NEW_ALWAYS = 1 not compatible with BC++ in DLL mode */
+wxUSE_DEBUG_NEW_ALWAYS
+wxUSE_DEBUG_NEW_ALWAYS 0
+wxUSE_ACTIVEX
+wxUSE_ACTIVEX
+wxUSE_ACTIVEX 0
+# endif /*wxUSE_ACTIVEX */
+ CurrentlywxUSE_GRAPHICS_CONTEXT is only enabled with MSVC by default, so
+ only check forwxUSE_ACTIVITYINDICATOR dependency on it if it can be
+wxUSE_GRAPHICS_CONTEXT  defined _MSC_VER
+wxUSE_ACTIVITYINDICATOR
+wxUSE_ACTIVITYINDICATOR 0
+#endif /* wxUSE_ACTIVITYINDICATOR  _MSC_VER */
+wxUSE_CRASHREPORT  wxUSE_ON_FATAL_EXCEPTION
+# error "wxUSE_CRASHREPORT requireswxUSE_ON_FATAL_EXCEPTION"
+wxUSE_CRASHREPORT
+wxUSE_CRASHREPORT 0
+#endif /*wxUSE_CRASHREPORT */
+wxUSE_VARIANT
+wxUSE_ACTIVEX
+wxUSE_ACTIVEX
+wxUSE_ACTIVEX 0
+wxUSE_OLE_AUTOMATION
+wxUSE_OLE_AUTOMATION
+wxUSE_OLE_AUTOMATION 0
+#endif /* wxUSE_VARIANT */
+wxUSE_DATAOBJ
+wxUSE_OLE
+# error "wxUSE_OLE requires wxDataObject"
+wxUSE_OLE
+wxUSE_OLE 0
+#endif /* wxUSE_DATAOBJ */
+wxUSE_DYNAMIC_LOADER
+wxUSE_MS_HTML_HELP
+# error "wxUSE_MS_HTML_HELP requireswxUSE_DYNAMIC_LOADER."
+wxUSE_MS_HTML_HELP
+wxUSE_MS_HTML_HELP 0
+wxUSE_DIALUP_MANAGER
+# error "wxUSE_DIALUP_MANAGER requireswxUSE_DYNAMIC_LOADER."
+wxUSE_DIALUP_MANAGER
+wxUSE_DIALUP_MANAGER 0
+#endif /* wxUSE_DYNAMIC_LOADER */
+wxUSE_DYNLIB_CLASS
+wxUSE_DBGHELP
+# error "wxUSE_DBGHELP requireswxUSE_DYNLIB_CLASS"
+wxUSE_DBGHELP
+wxUSE_DBGHELP 0
+wxUSE_DC_TRANSFORM_MATRIX
+# error "wxUSE_DC_TRANSFORM_MATRIX requireswxUSE_DYNLIB_CLASS"
+wxUSE_DC_TRANSFORM_MATRIX
+wxUSE_DC_TRANSFORM_MATRIX 0
+wxUSE_UXTHEME
+# error "wxUSE_UXTHEME requireswxUSE_DYNLIB_CLASS"
+wxUSE_UXTHEME
+wxUSE_UXTHEME 0
+wxUSE_MEDIACTRL
+# error "wxUSE_MEDIACTRL requireswxUSE_DYNLIB_CLASS"
+wxUSE_MEDIACTRL
+wxUSE_MEDIACTRL 0
+wxUSE_INKEDIT
+# error "wxUSE_INKEDIT requireswxUSE_DYNLIB_CLASS"
+wxUSE_INKEDIT
+wxUSE_INKEDIT 0
+#endif /* wxUSE_DYNLIB_CLASS */
+wxUSE_OLE
+wxUSE_ACTIVEX
+# error "wxActiveXContainer requireswxUSE_OLE"
+wxUSE_ACTIVEX
+wxUSE_ACTIVEX 0
+wxUSE_OLE_AUTOMATION
+# error "wxAutomationObject requireswxUSE_OLE"
+wxUSE_OLE_AUTOMATION
+wxUSE_OLE_AUTOMATION 0
+wxUSE_DRAG_AND_DROP
+# error "wxUSE_DRAG_AND_DROP requireswxUSE_OLE"
+wxUSE_DRAG_AND_DROP
+wxUSE_DRAG_AND_DROP 0
+#endif /* wxUSE_OLE */
+wxUSE_ACTIVEX
+wxUSE_MEDIACTRL
+wxUSE_MEDIACTRL
+wxUSE_MEDIACTRL 0
+wxUSE_WEBVIEW
+wxUSE_WEBVIEW
+wxUSE_WEBVIEW 0
+#endif /* wxUSE_ACTIVEX */
+wxUSE_ACTIVITYINDICATOR  wxUSE_GRAPHICS_CONTEXT
+# error "wxUSE_ACTIVITYINDICATOR requires wxGraphicsContext"
+wxUSE_ACTIVITYINDICATOR
+wxUSE_ACTIVITYINDICATOR 0
+#endif /*wxUSE_ACTIVITYINDICATOR */
+wxUSE_STACKWALKER  wxUSE_DBGHELP
+ Don't give an error in this case becausewxUSE_DBGHELP could be 0
+ choice than to disablewxUSE_STACKWALKER too in this case.
+ and explicitly disablingwxUSE_DBGHELP  which would ideally result in
+ an error ifwxUSE_STACKWALKER is not disabled too , but it's better to
+wxUSE_STACKWALKER
+wxUSE_STACKWALKER 0
+#endif /*wxUSE_STACKWALKER  wxUSE_DBGHELP */
+wxUSE_THREADS
+wxUSE_FSWATCHER
+wxUSE_FSWATCHER
+wxUSE_FSWATCHER 0
+#endif /* wxUSE_THREADS */
+wxUSE_OLE_AUTOMATION
+wxUSE_WEBVIEW
+# error "wxWebView requireswxUSE_OLE_AUTOMATION under MSW"
+wxUSE_WEBVIEW
+wxUSE_WEBVIEW 0
+#endif /* wxUSE_OLE_AUTOMATION */
+defined __WXUNIVERSAL__  wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW  wxUSE_POSTSCRIPT
+wxUSE_POSTSCRIPT
+wxUSE_POSTSCRIPT 1
+ If you get an error saying "wxUSE_FOO must be defined", it means that you
+ 1. checks that allwxUSE_XXX symbols we use are defined
+wxUSE_THREADS
+wxUSE_THREADS 0
+wxUSE_EXCEPTIONS
+wxUSE_EXCEPTIONS 0
+wxUSE_EXCEPTIONS
+wxUSE_EXCEPTIONS 0
+wxUSE_ANY
+# error "wxUSE_ANY must be defined, please read comment near the top of this file."
+wxUSE_ANY 0
+#endif /*wxUSE_ANY */
+wxUSE_COMPILER_TLS
+# error "wxUSE_COMPILER_TLS must be defined, please read comment near the top of this file."
+wxUSE_COMPILER_TLS 0
+#endif /* defined wxUSE_COMPILER_TLS  */
+wxUSE_CONSOLE_EVENTLOOP
+# error "wxUSE_CONSOLE_EVENTLOOP must be defined, please read comment near the top of this file."
+wxUSE_CONSOLE_EVENTLOOP 0
+#endif /* defined wxUSE_CONSOLE_EVENTLOOP  */
+wxUSE_DYNLIB_CLASS
+# error "wxUSE_DYNLIB_CLASS must be defined, please read comment near the top of this file."
+wxUSE_DYNLIB_CLASS 0
+#endif /* defined wxUSE_DYNLIB_CLASS  */
+wxUSE_EXCEPTIONS
+# error "wxUSE_EXCEPTIONS must be defined, please read comment near the top of this file."
+wxUSE_EXCEPTIONS 0
+#endif /* defined wxUSE_EXCEPTIONS  */
+wxUSE_FILE_HISTORY
+# error "wxUSE_FILE_HISTORY must be defined, please read comment near the top of this file."
+wxUSE_FILE_HISTORY 0
+#endif /* defined wxUSE_FILE_HISTORY  */
+wxUSE_FILESYSTEM
+# error "wxUSE_FILESYSTEM must be defined, please read comment near the top of this file."
+wxUSE_FILESYSTEM 0
+#endif /* defined wxUSE_FILESYSTEM  */
+wxUSE_FS_ARCHIVE
+# error "wxUSE_FS_ARCHIVE must be defined, please read comment near the top of this file."
+wxUSE_FS_ARCHIVE 0
+#endif /* defined wxUSE_FS_ARCHIVE  */
+wxUSE_FSVOLUME
+# error "wxUSE_FSVOLUME must be defined, please read comment near the top of this file."
+wxUSE_FSVOLUME 0
+#endif /* defined wxUSE_FSVOLUME  */
+wxUSE_FSWATCHER
+# error "wxUSE_FSWATCHER must be defined, please read comment near the top of this file."
+wxUSE_FSWATCHER 0
+#endif /* defined wxUSE_FSWATCHER  */
+wxUSE_DYNAMIC_LOADER
+# error "wxUSE_DYNAMIC_LOADER must be defined, please read comment near the top of this file."
+wxUSE_DYNAMIC_LOADER 0
+#endif /* defined wxUSE_DYNAMIC_LOADER  */
+wxUSE_INTL
+# error "wxUSE_INTL must be defined, please read comment near the top of this file."
+wxUSE_INTL 0
+#endif /* defined wxUSE_INTL  */
+wxUSE_IPV6
+# error "wxUSE_IPV6 must be defined, please read comment near the top of this file."
+wxUSE_IPV6 0
+#endif /* defined wxUSE_IPV6  */
+wxUSE_LOG
+# error "wxUSE_LOG must be defined, please read comment near the top of this file."
+wxUSE_LOG 0
+#endif /* defined wxUSE_LOG  */
+wxUSE_LONGLONG
+# error "wxUSE_LONGLONG must be defined, please read comment near the top of this file."
+wxUSE_LONGLONG 0
+#endif /* defined wxUSE_LONGLONG  */
+wxUSE_MIMETYPE
+# error "wxUSE_MIMETYPE must be defined, please read comment near the top of this file."
+wxUSE_MIMETYPE 0
+#endif /* defined wxUSE_MIMETYPE  */
+wxUSE_ON_FATAL_EXCEPTION
+# error "wxUSE_ON_FATAL_EXCEPTION must be defined, please read comment near the top of this file."
+wxUSE_ON_FATAL_EXCEPTION 0
+#endif /* defined wxUSE_ON_FATAL_EXCEPTION  */
+wxUSE_PRINTF_POS_PARAMS
+# error "wxUSE_PRINTF_POS_PARAMS must be defined, please read comment near the top of this file."
+wxUSE_PRINTF_POS_PARAMS 0
+#endif /* defined wxUSE_PRINTF_POS_PARAMS  */
+wxUSE_PROTOCOL
+# error "wxUSE_PROTOCOL must be defined, please read comment near the top of this file."
+wxUSE_PROTOCOL 0
+#endif /* defined wxUSE_PROTOCOL  */
+/* we may not definewxUSE_PROTOCOL_XXX ifwxUSE_PROTOCOL is set to 0 */
+wxUSE_PROTOCOL
+wxUSE_PROTOCOL_HTTP
+wxUSE_PROTOCOL_FTP
+wxUSE_PROTOCOL_FILE
+wxUSE_PROTOCOL_HTTP 0
+wxUSE_PROTOCOL_FTP 0
+wxUSE_PROTOCOL_FILE 0
+#endif /*wxUSE_PROTOCOL */
+wxUSE_PROTOCOL_HTTP
+# error "wxUSE_PROTOCOL_HTTP must be defined, please read comment near the top of this file."
+wxUSE_PROTOCOL_HTTP 0
+#endif /* defined wxUSE_PROTOCOL_HTTP  */
+wxUSE_PROTOCOL_FTP
+# error "wxUSE_PROTOCOL_FTP must be defined, please read comment near the top of this file."
+wxUSE_PROTOCOL_FTP 0
+#endif /* defined wxUSE_PROTOCOL_FTP  */
+wxUSE_PROTOCOL_FILE
+# error "wxUSE_PROTOCOL_FILE must be defined, please read comment near the top of this file."
+wxUSE_PROTOCOL_FILE 0
+#endif /* defined wxUSE_PROTOCOL_FILE  */
+wxUSE_REGEX
+# error "wxUSE_REGEX must be defined, please read comment near the top of this file."
+wxUSE_REGEX 0
+#endif /* defined wxUSE_REGEX  */
+wxUSE_SECRETSTORE
+# error "wxUSE_SECRETSTORE must be defined, please read comment near the top of this file."
+wxUSE_SECRETSTORE 1
+#endif /* defined wxUSE_SECRETSTORE  */
+wxUSE_STDPATHS
+# error "wxUSE_STDPATHS must be defined, please read comment near the top of this file."
+wxUSE_STDPATHS 1
+#endif /* defined wxUSE_STDPATHS  */
+wxUSE_XML
+# error "wxUSE_XML must be defined, please read comment near the top of this file."
+wxUSE_XML 0
+#endif /* defined wxUSE_XML  */
+wxUSE_SOCKETS
+# error "wxUSE_SOCKETS must be defined, please read comment near the top of this file."
+wxUSE_SOCKETS 0
+#endif /* defined wxUSE_SOCKETS  */
+wxUSE_STD_CONTAINERS
+# error "wxUSE_STD_CONTAINERS must be defined, please read comment near the top of this file."
+wxUSE_STD_CONTAINERS 0
+#endif /* defined wxUSE_STD_CONTAINERS  */
+wxUSE_STD_CONTAINERS_COMPATIBLY
+# error "wxUSE_STD_CONTAINERS_COMPATIBLY must be defined, please read comment near the top of this file."
+wxUSE_STD_CONTAINERS_COMPATIBLY 0
+#endif /* defined wxUSE_STD_CONTAINERS_COMPATIBLY  */
+wxUSE_STD_STRING_CONV_IN_WXSTRING
+# error "wxUSE_STD_STRING_CONV_IN_WXSTRING must be defined, please read comment near the top of this file."
+wxUSE_STD_STRING_CONV_IN_WXSTRING 0
+#endif /* defined wxUSE_STD_STRING_CONV_IN_WXSTRING  */
+wxUSE_STREAMS
+# error "wxUSE_STREAMS must be defined, please read comment near the top of this file."
+wxUSE_STREAMS 0
+#endif /* defined wxUSE_STREAMS  */
+wxUSE_STOPWATCH
+# error "wxUSE_STOPWATCH must be defined, please read comment near the top of this file."
+wxUSE_STOPWATCH 0
+#endif /* defined wxUSE_STOPWATCH  */
+wxUSE_TEXTBUFFER
+# error "wxUSE_TEXTBUFFER must be defined, please read comment near the top of this file."
+wxUSE_TEXTBUFFER 0
+#endif /* defined wxUSE_TEXTBUFFER  */
+wxUSE_TEXTFILE
+# error "wxUSE_TEXTFILE must be defined, please read comment near the top of this file."
+wxUSE_TEXTFILE 0
+#endif /* defined wxUSE_TEXTFILE  */
+wxUSE_UNICODE
+# error "wxUSE_UNICODE must be defined, please read comment near the top of this file."
+wxUSE_UNICODE 0
+#endif /* defined wxUSE_UNICODE  */
+wxUSE_UNSAFE_WXSTRING_CONV
+# error "wxUSE_UNSAFE_WXSTRING_CONV must be defined, please read comment near the top of this file."
+wxUSE_UNSAFE_WXSTRING_CONV 0
+#endif /* defined wxUSE_UNSAFE_WXSTRING_CONV  */
+wxUSE_URL
+# error "wxUSE_URL must be defined, please read comment near the top of this file."
+wxUSE_URL 0
+#endif /* defined wxUSE_URL  */
+wxUSE_VARIANT
+# error "wxUSE_VARIANT must be defined, please read comment near the top of this file."
+wxUSE_VARIANT 0
+#endif /*wxUSE_VARIANT */
+wxUSE_XLOCALE
+# error "wxUSE_XLOCALE must be defined, please read comment near the top of this file."
+wxUSE_XLOCALE 0
+#endif /* defined wxUSE_XLOCALE  */
+wxUSE_GUI
+wxUSE_ABOUTDLG
+# error "wxUSE_ABOUTDLG must be defined, please read comment near the top of this file."
+wxUSE_ABOUTDLG 0
+#endif /* defined wxUSE_ABOUTDLG  */
+wxUSE_ACCEL
+# error "wxUSE_ACCEL must be defined, please read comment near the top of this file."
+wxUSE_ACCEL 0
+#endif /* defined wxUSE_ACCEL  */
+wxUSE_ACCESSIBILITY
+# error "wxUSE_ACCESSIBILITY must be defined, please read comment near the top of this file."
+wxUSE_ACCESSIBILITY 0
+#endif /* defined wxUSE_ACCESSIBILITY  */
+wxUSE_ADDREMOVECTRL
+# error "wxUSE_ADDREMOVECTRL must be defined, please read comment near the top of this file."
+wxUSE_ADDREMOVECTRL 0
+#endif /* defined wxUSE_ADDREMOVECTRL  */
+wxUSE_ACTIVITYINDICATOR
+# error "wxUSE_ACTIVITYINDICATOR must be defined, please read comment near the top of this file."
+wxUSE_ACTIVITYINDICATOR 0
+#endif /* defined wxUSE_ACTIVITYINDICATOR  */
+wxUSE_ANIMATIONCTRL
+# error "wxUSE_ANIMATIONCTRL must be defined, please read comment near the top of this file."
+wxUSE_ANIMATIONCTRL 0
+#endif /* defined wxUSE_ANIMATIONCTRL  */
+wxUSE_ARTPROVIDER_STD
+# error "wxUSE_ARTPROVIDER_STD must be defined, please read comment near the top of this file."
+wxUSE_ARTPROVIDER_STD 0
+#endif /* defined wxUSE_ARTPROVIDER_STD  */
+wxUSE_ARTPROVIDER_TANGO
+# error "wxUSE_ARTPROVIDER_TANGO must be defined, please read comment near the top of this file."
+wxUSE_ARTPROVIDER_TANGO 0
+#endif /* defined wxUSE_ARTPROVIDER_TANGO  */
+wxUSE_AUTOID_MANAGEMENT
+# error "wxUSE_AUTOID_MANAGEMENT must be defined, please read comment near the top of this file."
+wxUSE_AUTOID_MANAGEMENT 0
+#endif /* defined wxUSE_AUTOID_MANAGEMENT  */
+wxUSE_BITMAPCOMBOBOX
+# error "wxUSE_BITMAPCOMBOBOX must be defined, please read comment near the top of this file."
+wxUSE_BITMAPCOMBOBOX 0
+#endif /* defined wxUSE_BITMAPCOMBOBOX  */
+wxUSE_BMPBUTTON
+# error "wxUSE_BMPBUTTON must be defined, please read comment near the top of this file."
+wxUSE_BMPBUTTON 0
+#endif /* defined wxUSE_BMPBUTTON  */
+wxUSE_BUTTON
+# error "wxUSE_BUTTON must be defined, please read comment near the top of this file."
+wxUSE_BUTTON 0
+#endif /* defined wxUSE_BUTTON  */
+wxUSE_CAIRO
+# error "wxUSE_CAIRO must be defined, please read comment near the top of this file."
+wxUSE_CAIRO 0
+#endif /* defined wxUSE_CAIRO  */
+wxUSE_CALENDARCTRL
+# error "wxUSE_CALENDARCTRL must be defined, please read comment near the top of this file."
+wxUSE_CALENDARCTRL 0
+#endif /* defined wxUSE_CALENDARCTRL  */
+wxUSE_CARET
+# error "wxUSE_CARET must be defined, please read comment near the top of this file."
+wxUSE_CARET 0
+#endif /* defined wxUSE_CARET  */
+wxUSE_CHECKBOX
+# error "wxUSE_CHECKBOX must be defined, please read comment near the top of this file."
+wxUSE_CHECKBOX 0
+#endif /* defined wxUSE_CHECKBOX  */
+wxUSE_CHECKLISTBOX
+# error "wxUSE_CHECKLISTBOX must be defined, please read comment near the top of this file."
+wxUSE_CHECKLISTBOX 0
+#endif /* defined wxUSE_CHECKLISTBOX  */
+wxUSE_CHOICE
+# error "wxUSE_CHOICE must be defined, please read comment near the top of this file."
+wxUSE_CHOICE 0
+#endif /* defined wxUSE_CHOICE  */
+wxUSE_CHOICEBOOK
+# error "wxUSE_CHOICEBOOK must be defined, please read comment near the top of this file."
+wxUSE_CHOICEBOOK 0
+#endif /* defined wxUSE_CHOICEBOOK  */
+wxUSE_CHOICEDLG
+# error "wxUSE_CHOICEDLG must be defined, please read comment near the top of this file."
+wxUSE_CHOICEDLG 0
+#endif /* defined wxUSE_CHOICEDLG  */
+wxUSE_CLIPBOARD
+# error "wxUSE_CLIPBOARD must be defined, please read comment near the top of this file."
+wxUSE_CLIPBOARD 0
+#endif /* defined wxUSE_CLIPBOARD  */
+wxUSE_COLLPANE
+# error "wxUSE_COLLPANE must be defined, please read comment near the top of this file."
+wxUSE_COLLPANE 0
+#endif /* defined wxUSE_COLLPANE  */
+wxUSE_COLOURDLG
+# error "wxUSE_COLOURDLG must be defined, please read comment near the top of this file."
+wxUSE_COLOURDLG 0
+#endif /* defined wxUSE_COLOURDLG  */
+wxUSE_COLOURPICKERCTRL
+# error "wxUSE_COLOURPICKERCTRL must be defined, please read comment near the top of this file."
+wxUSE_COLOURPICKERCTRL 0
+#endif /* defined wxUSE_COLOURPICKERCTRL  */
+wxUSE_COMBOBOX
+# error "wxUSE_COMBOBOX must be defined, please read comment near the top of this file."
+wxUSE_COMBOBOX 0
+#endif /* defined wxUSE_COMBOBOX  */
+wxUSE_COMMANDLINKBUTTON
+# error "wxUSE_COMMANDLINKBUTTON must be defined, please read comment near the top of this file."
+wxUSE_COMMANDLINKBUTTON 0
+#endif /* defined wxUSE_COMMANDLINKBUTTON  */
+wxUSE_COMBOCTRL
+# error "wxUSE_COMBOCTRL must be defined, please read comment near the top of this file."
+wxUSE_COMBOCTRL 0
+#endif /* defined wxUSE_COMBOCTRL  */
+wxUSE_DATAOBJ
+# error "wxUSE_DATAOBJ must be defined, please read comment near the top of this file."
+wxUSE_DATAOBJ 0
+#endif /* defined wxUSE_DATAOBJ  */
+wxUSE_DATAVIEWCTRL
+# error "wxUSE_DATAVIEWCTRL must be defined, please read comment near the top of this file."
+wxUSE_DATAVIEWCTRL 0
+#endif /* defined wxUSE_DATAVIEWCTRL  */
+wxUSE_DATEPICKCTRL
+# error "wxUSE_DATEPICKCTRL must be defined, please read comment near the top of this file."
+wxUSE_DATEPICKCTRL 0
+#endif /* defined wxUSE_DATEPICKCTRL  */
+wxUSE_DC_TRANSFORM_MATRIX
+# error "wxUSE_DC_TRANSFORM_MATRIX must be defined, please read comment near the top of this file."
+wxUSE_DC_TRANSFORM_MATRIX 1
+#endif /*wxUSE_DC_TRANSFORM_MATRIX */
+wxUSE_DIRPICKERCTRL
+# error "wxUSE_DIRPICKERCTRL must be defined, please read comment near the top of this file."
+wxUSE_DIRPICKERCTRL 0
+#endif /* defined wxUSE_DIRPICKERCTRL  */
+wxUSE_DISPLAY
+# error "wxUSE_DISPLAY must be defined, please read comment near the top of this file."
+wxUSE_DISPLAY 0
+#endif /* defined wxUSE_DISPLAY  */
+wxUSE_DOC_VIEW_ARCHITECTURE
+# error "wxUSE_DOC_VIEW_ARCHITECTURE must be defined, please read comment near the top of this file."
+wxUSE_DOC_VIEW_ARCHITECTURE 0
+#endif /* defined wxUSE_DOC_VIEW_ARCHITECTURE  */
+wxUSE_FILECTRL
+# error "wxUSE_FILECTRL must be defined, please read comment near the top of this file."
+wxUSE_FILECTRL 0
+#endif /* defined wxUSE_FILECTRL  */
+wxUSE_FILEDLG
+# error "wxUSE_FILEDLG must be defined, please read comment near the top of this file."
+wxUSE_FILEDLG 0
+#endif /* defined wxUSE_FILEDLG  */
+wxUSE_FILEPICKERCTRL
+# error "wxUSE_FILEPICKERCTRL must be defined, please read comment near the top of this file."
+wxUSE_FILEPICKERCTRL 0
+#endif /* defined wxUSE_FILEPICKERCTRL  */
+wxUSE_FONTDLG
+# error "wxUSE_FONTDLG must be defined, please read comment near the top of this file."
+wxUSE_FONTDLG 0
+#endif /* defined wxUSE_FONTDLG  */
+wxUSE_FONTMAP
+# error "wxUSE_FONTMAP must be defined, please read comment near the top of this file."
+wxUSE_FONTMAP 0
+#endif /* defined wxUSE_FONTMAP  */
+wxUSE_FONTPICKERCTRL
+# error "wxUSE_FONTPICKERCTRL must be defined, please read comment near the top of this file."
+wxUSE_FONTPICKERCTRL 0
+#endif /* defined wxUSE_FONTPICKERCTRL  */
+wxUSE_GAUGE
+# error "wxUSE_GAUGE must be defined, please read comment near the top of this file."
+wxUSE_GAUGE 0
+#endif /* defined wxUSE_GAUGE  */
+wxUSE_GRAPHICS_CONTEXT
+# error "wxUSE_GRAPHICS_CONTEXT must be defined, please read comment near the top of this file."
+wxUSE_GRAPHICS_CONTEXT 0
+#endif /* defined wxUSE_GRAPHICS_CONTEXT  */
+wxUSE_GRID
+# error "wxUSE_GRID must be defined, please read comment near the top of this file."
+wxUSE_GRID 0
+#endif /* defined wxUSE_GRID  */
+wxUSE_HEADERCTRL
+# error "wxUSE_HEADERCTRL must be defined, please read comment near the top of this file."
+wxUSE_HEADERCTRL 0
+#endif /* defined wxUSE_HEADERCTRL  */
+wxUSE_HELP
+# error "wxUSE_HELP must be defined, please read comment near the top of this file."
+wxUSE_HELP 0
+#endif /* defined wxUSE_HELP  */
+wxUSE_HYPERLINKCTRL
+# error "wxUSE_HYPERLINKCTRL must be defined, please read comment near the top of this file."
+wxUSE_HYPERLINKCTRL 0
+#endif /* defined wxUSE_HYPERLINKCTRL  */
+wxUSE_HTML
+# error "wxUSE_HTML must be defined, please read comment near the top of this file."
+wxUSE_HTML 0
+#endif /* defined wxUSE_HTML  */
+wxUSE_LIBMSPACK
+wxUSE_LIBMSPACK 0
+# error "wxUSE_LIBMSPACK must be defined, please read comment near the top of this file."
+wxUSE_LIBMSPACK 0
+#endif /* defined wxUSE_LIBMSPACK  */
+wxUSE_ICO_CUR
+# error "wxUSE_ICO_CUR must be defined, please read comment near the top of this file."
+wxUSE_ICO_CUR 0
+#endif /* defined wxUSE_ICO_CUR  */
+wxUSE_IFF
+# error "wxUSE_IFF must be defined, please read comment near the top of this file."
+wxUSE_IFF 0
+#endif /* defined wxUSE_IFF  */
+wxUSE_IMAGLIST
+# error "wxUSE_IMAGLIST must be defined, please read comment near the top of this file."
+wxUSE_IMAGLIST 0
+#endif /* defined wxUSE_IMAGLIST  */
+wxUSE_INFOBAR
+# error "wxUSE_INFOBAR must be defined, please read comment near the top of this file."
+wxUSE_INFOBAR 0
+#endif /* defined wxUSE_INFOBAR  */
+wxUSE_JOYSTICK
+# error "wxUSE_JOYSTICK must be defined, please read comment near the top of this file."
+wxUSE_JOYSTICK 0
+#endif /* defined wxUSE_JOYSTICK  */
+wxUSE_LISTBOOK
+# error "wxUSE_LISTBOOK must be defined, please read comment near the top of this file."
+wxUSE_LISTBOOK 0
+#endif /* defined wxUSE_LISTBOOK  */
+wxUSE_LISTBOX
+# error "wxUSE_LISTBOX must be defined, please read comment near the top of this file."
+wxUSE_LISTBOX 0
+#endif /* defined wxUSE_LISTBOX  */
+wxUSE_LISTCTRL
+# error "wxUSE_LISTCTRL must be defined, please read comment near the top of this file."
+wxUSE_LISTCTRL 0
+#endif /* defined wxUSE_LISTCTRL  */
+wxUSE_LOGGUI
+# error "wxUSE_LOGGUI must be defined, please read comment near the top of this file."
+wxUSE_LOGGUI 0
+#endif /* defined wxUSE_LOGGUI  */
+wxUSE_LOGWINDOW
+# error "wxUSE_LOGWINDOW must be defined, please read comment near the top of this file."
+wxUSE_LOGWINDOW 0
+#endif /* defined wxUSE_LOGWINDOW  */
+wxUSE_LOG_DIALOG
+# error "wxUSE_LOG_DIALOG must be defined, please read comment near the top of this file."
+wxUSE_LOG_DIALOG 0
+#endif /* defined wxUSE_LOG_DIALOG  */
+wxUSE_MARKUP
+# error "wxUSE_MARKUP must be defined, please read comment near the top of this file."
+wxUSE_MARKUP 0
+#endif /* defined wxUSE_MARKUP  */
+wxUSE_MDI
+# error "wxUSE_MDI must be defined, please read comment near the top of this file."
+wxUSE_MDI 0
+#endif /* defined wxUSE_MDI  */
+wxUSE_MDI_ARCHITECTURE
+# error "wxUSE_MDI_ARCHITECTURE must be defined, please read comment near the top of this file."
+wxUSE_MDI_ARCHITECTURE 0
+#endif /* defined wxUSE_MDI_ARCHITECTURE  */
+wxUSE_MENUS
+# error "wxUSE_MENUS must be defined, please read comment near the top of this file."
+wxUSE_MENUS 0
+#endif /* defined wxUSE_MENUS  */
+wxUSE_MSGDLG
+# error "wxUSE_MSGDLG must be defined, please read comment near the top of this file."
+wxUSE_MSGDLG 0
+#endif /* defined wxUSE_MSGDLG  */
+wxUSE_NOTEBOOK
+# error "wxUSE_NOTEBOOK must be defined, please read comment near the top of this file."
+wxUSE_NOTEBOOK 0
+#endif /* defined wxUSE_NOTEBOOK  */
+wxUSE_NOTIFICATION_MESSAGE
+# error "wxUSE_NOTIFICATION_MESSAGE must be defined, please read comment near the top of this file."
+wxUSE_NOTIFICATION_MESSAGE 0
+#endif /* defined wxUSE_NOTIFICATION_MESSAGE  */
+wxUSE_ODCOMBOBOX
+# error "wxUSE_ODCOMBOBOX must be defined, please read comment near the top of this file."
+wxUSE_ODCOMBOBOX 0
+#endif /* defined wxUSE_ODCOMBOBOX  */
+wxUSE_PALETTE
+# error "wxUSE_PALETTE must be defined, please read comment near the top of this file."
+wxUSE_PALETTE 0
+#endif /* defined wxUSE_PALETTE  */
+wxUSE_POPUPWIN
+# error "wxUSE_POPUPWIN must be defined, please read comment near the top of this file."
+wxUSE_POPUPWIN 0
+#endif /* defined wxUSE_POPUPWIN  */
+wxUSE_PREFERENCES_EDITOR
+# error "wxUSE_PREFERENCES_EDITOR must be defined, please read comment near the top of this file."
+wxUSE_PREFERENCES_EDITOR 0
+#endif /* defined wxUSE_PREFERENCES_EDITOR  */
+wxUSE_PRIVATE_FONTS
+# error "wxUSE_PRIVATE_FONTS must be defined, please read comment near the top of this file."
+wxUSE_PRIVATE_FONTS 0
+#endif /* defined wxUSE_PRIVATE_FONTS  */
+wxUSE_PRINTING_ARCHITECTURE
+# error "wxUSE_PRINTING_ARCHITECTURE must be defined, please read comment near the top of this file."
+wxUSE_PRINTING_ARCHITECTURE 0
+#endif /* defined wxUSE_PRINTING_ARCHITECTURE  */
+wxUSE_RADIOBOX
+# error "wxUSE_RADIOBOX must be defined, please read comment near the top of this file."
+wxUSE_RADIOBOX 0
+#endif /* defined wxUSE_RADIOBOX  */
+wxUSE_RADIOBTN
+# error "wxUSE_RADIOBTN must be defined, please read comment near the top of this file."
+wxUSE_RADIOBTN 0
+#endif /* defined wxUSE_RADIOBTN  */
+wxUSE_REARRANGECTRL
+# error "wxUSE_REARRANGECTRL must be defined, please read comment near the top of this file."
+wxUSE_REARRANGECTRL 0
+#endif /* defined wxUSE_REARRANGECTRL  */
+wxUSE_RIBBON
+# error "wxUSE_RIBBON must be defined, please read comment near the top of this file."
+wxUSE_RIBBON 0
+#endif /* defined wxUSE_RIBBON  */
+wxUSE_RICHMSGDLG
+# error "wxUSE_RICHMSGDLG must be defined, please read comment near the top of this file."
+wxUSE_RICHMSGDLG 0
+#endif /* defined wxUSE_RICHMSGDLG  */
+wxUSE_RICHTOOLTIP
+# error "wxUSE_RICHTOOLTIP must be defined, please read comment near the top of this file."
+wxUSE_RICHTOOLTIP 0
+#endif /* defined wxUSE_RICHTOOLTIP  */
+wxUSE_SASH
+# error "wxUSE_SASH must be defined, please read comment near the top of this file."
+wxUSE_SASH 0
+#endif /* defined wxUSE_SASH  */
+wxUSE_SCROLLBAR
+# error "wxUSE_SCROLLBAR must be defined, please read comment near the top of this file."
+wxUSE_SCROLLBAR 0
+#endif /* defined wxUSE_SCROLLBAR  */
+wxUSE_SLIDER
+# error "wxUSE_SLIDER must be defined, please read comment near the top of this file."
+wxUSE_SLIDER 0
+#endif /* defined wxUSE_SLIDER  */
+wxUSE_SOUND
+# error "wxUSE_SOUND must be defined, please read comment near the top of this file."
+wxUSE_SOUND 0
+#endif /* defined wxUSE_SOUND  */
+wxUSE_SPINBTN
+# error "wxUSE_SPINBTN must be defined, please read comment near the top of this file."
+wxUSE_SPINBTN 0
+#endif /* defined wxUSE_SPINBTN  */
+wxUSE_SPINCTRL
+# error "wxUSE_SPINCTRL must be defined, please read comment near the top of this file."
+wxUSE_SPINCTRL 0
+#endif /* defined wxUSE_SPINCTRL  */
+wxUSE_SPLASH
+# error "wxUSE_SPLASH must be defined, please read comment near the top of this file."
+wxUSE_SPLASH 0
+#endif /* defined wxUSE_SPLASH  */
+wxUSE_SPLITTER
+# error "wxUSE_SPLITTER must be defined, please read comment near the top of this file."
+wxUSE_SPLITTER 0
+#endif /* defined wxUSE_SPLITTER  */
+wxUSE_STATBMP
+# error "wxUSE_STATBMP must be defined, please read comment near the top of this file."
+wxUSE_STATBMP 0
+#endif /* defined wxUSE_STATBMP  */
+wxUSE_STATBOX
+# error "wxUSE_STATBOX must be defined, please read comment near the top of this file."
+wxUSE_STATBOX 0
+#endif /* defined wxUSE_STATBOX  */
+wxUSE_STATLINE
+# error "wxUSE_STATLINE must be defined, please read comment near the top of this file."
+wxUSE_STATLINE 0
+#endif /* defined wxUSE_STATLINE  */
+wxUSE_STATTEXT
+# error "wxUSE_STATTEXT must be defined, please read comment near the top of this file."
+wxUSE_STATTEXT 0
+#endif /* defined wxUSE_STATTEXT  */
+wxUSE_STATUSBAR
+# error "wxUSE_STATUSBAR must be defined, please read comment near the top of this file."
+wxUSE_STATUSBAR 0
+#endif /* defined wxUSE_STATUSBAR  */
+wxUSE_TASKBARICON
+# error "wxUSE_TASKBARICON must be defined, please read comment near the top of this file."
+wxUSE_TASKBARICON 0
+#endif /* defined wxUSE_TASKBARICON  */
+wxUSE_TEXTCTRL
+# error "wxUSE_TEXTCTRL must be defined, please read comment near the top of this file."
+wxUSE_TEXTCTRL 0
+#endif /* defined wxUSE_TEXTCTRL  */
+wxUSE_TIMEPICKCTRL
+# error "wxUSE_TIMEPICKCTRL must be defined, please read comment near the top of this file."
+wxUSE_TIMEPICKCTRL 0
+#endif /* defined wxUSE_TIMEPICKCTRL  */
+wxUSE_TIPWINDOW
+# error "wxUSE_TIPWINDOW must be defined, please read comment near the top of this file."
+wxUSE_TIPWINDOW 0
+#endif /* defined wxUSE_TIPWINDOW  */
+wxUSE_TOOLBAR
+# error "wxUSE_TOOLBAR must be defined, please read comment near the top of this file."
+wxUSE_TOOLBAR 0
+#endif /* defined wxUSE_TOOLBAR  */
+wxUSE_TOOLTIPS
+# error "wxUSE_TOOLTIPS must be defined, please read comment near the top of this file."
+wxUSE_TOOLTIPS 0
+#endif /* defined wxUSE_TOOLTIPS  */
+wxUSE_TREECTRL
+# error "wxUSE_TREECTRL must be defined, please read comment near the top of this file."
+wxUSE_TREECTRL 0
+#endif /* defined wxUSE_TREECTRL  */
+wxUSE_TREELISTCTRL
+# error "wxUSE_TREELISTCTRL must be defined, please read comment near the top of this file."
+wxUSE_TREELISTCTRL 0
+#endif /* defined wxUSE_TREELISTCTRL  */
+wxUSE_UIACTIONSIMULATOR
+# error "wxUSE_UIACTIONSIMULATOR must be defined, please read comment near the top of this file."
+wxUSE_UIACTIONSIMULATOR 0
+#endif /* defined wxUSE_UIACTIONSIMULATOR  */
+wxUSE_VALIDATORS
+# error "wxUSE_VALIDATORS must be defined, please read comment near the top of this file."
+wxUSE_VALIDATORS 0
+#endif /* defined wxUSE_VALIDATORS  */
+wxUSE_WEBVIEW
+# error "wxUSE_WEBVIEW must be defined, please read comment near the top of this file."
+wxUSE_WEBVIEW 0
+#endif /* defined wxUSE_WEBVIEW  */
+wxUSE_WXHTML_HELP
+# error "wxUSE_WXHTML_HELP must be defined, please read comment near the top of this file."
+wxUSE_WXHTML_HELP 0
+#endif /* defined wxUSE_WXHTML_HELP  */
+wxUSE_XRC
+# error "wxUSE_XRC must be defined, please read comment near the top of this file."
+wxUSE_XRC 0
+wxUSE_ARCHIVE_STREAMS
+wxUSE_DATETIME
+# error "wxArchive requireswxUSE_DATETIME"
+wxUSE_ARCHIVE_STREAMS
+wxUSE_ARCHIVE_STREAMS 0
+#endif /*wxUSE_ARCHIVE_STREAMS */
+wxUSE_PROTOCOL_FILE wxUSE_PROTOCOL_FTP wxUSE_PROTOCOL_HTTP
+wxUSE_PROTOCOL
+# error "wxUSE_PROTOCOL_XXX requireswxUSE_PROTOCOL"
+wxUSE_PROTOCOL
+wxUSE_PROTOCOL 1
+#endif /*wxUSE_PROTOCOL_XXX */
+wxUSE_URL
+wxUSE_PROTOCOL
+# error "wxUSE_URL requireswxUSE_PROTOCOL"
+wxUSE_PROTOCOL
+wxUSE_PROTOCOL 1
+#endif /*wxUSE_URL */
+wxUSE_PROTOCOL
+wxUSE_SOCKETS
+wxUSE_PROTOCOL_HTTP wxUSE_PROTOCOL_FTP
+# error "wxUSE_PROTOCOL_FTP/HTTP requireswxUSE_SOCKETS"
+wxUSE_SOCKETS
+wxUSE_SOCKETS 1
+wxUSE_STREAMS
+# error "wxUSE_PROTOCOL requireswxUSE_STREAMS"
+wxUSE_STREAMS
+wxUSE_STREAMS 1
+#endif /*wxUSE_PROTOCOL */
+/* have to test forwxUSE_HTML beforewxUSE_FILESYSTEM */
+wxUSE_HTML
+wxUSE_FILESYSTEM
+wxUSE_FILESYSTEM
+wxUSE_FILESYSTEM 1
+#endif /*wxUSE_HTML */
+wxUSE_FS_ARCHIVE
+wxUSE_FILESYSTEM
+wxUSE_FILESYSTEM
+wxUSE_FILESYSTEM 1
+wxUSE_ARCHIVE_STREAMS
+wxUSE_ARCHIVE_STREAMS
+wxUSE_ARCHIVE_STREAMS 1
+#endif /*wxUSE_FS_ARCHIVE */
+wxUSE_FILESYSTEM
+wxUSE_STREAMS
+# error "wxUSE_FILESYSTEM requireswxUSE_STREAMS"
+wxUSE_STREAMS
+wxUSE_STREAMS 1
+wxUSE_FILE  wxUSE_FFILE
+# error "wxUSE_FILESYSTEM requires eitherwxUSE_FILE orwxUSE_FFILE"
+wxUSE_FILE
+wxUSE_FILE 1
+wxUSE_FFILE
+wxUSE_FFILE 1
+#endif /*wxUSE_FILESYSTEM */
+wxUSE_FS_INET
+wxUSE_PROTOCOL
+# error "wxUSE_FS_INET requireswxUSE_PROTOCOL"
+wxUSE_PROTOCOL
+wxUSE_PROTOCOL 1
+#endif /*wxUSE_FS_INET */
+wxUSE_STOPWATCH wxUSE_DATETIME
+wxUSE_LONGLONG
+# error "wxUSE_STOPWATCH andwxUSE_DATETIME requirewxUSE_LONGLONG"
+wxUSE_LONGLONG
+wxUSE_LONGLONG 1
+#endif /*wxUSE_STOPWATCH */
+wxUSE_MIMETYPE  wxUSE_TEXTFILE
+# error "wxUSE_MIMETYPE requireswxUSE_TEXTFILE"
+wxUSE_TEXTFILE
+wxUSE_TEXTFILE 1
+#endif /*wxUSE_MIMETYPE */
+wxUSE_TEXTFILE  wxUSE_TEXTBUFFER
+# error "wxUSE_TEXTFILE requireswxUSE_TEXTBUFFER"
+wxUSE_TEXTBUFFER
+wxUSE_TEXTBUFFER 1
+#endif /*wxUSE_TEXTFILE */
+wxUSE_TEXTFILE  wxUSE_FILE
+# error "wxUSE_TEXTFILE requireswxUSE_FILE"
+wxUSE_FILE
+wxUSE_FILE 1
+#endif /*wxUSE_TEXTFILE */
+wxUSE_DYNLIB_CLASS
+wxUSE_DYNAMIC_LOADER
+# error "wxUSE_DYNAMIC_LOADER requireswxUSE_DYNLIB_CLASS."
+wxUSE_DYNLIB_CLASS 1
+#endif /*wxUSE_DYNLIB_CLASS */
+wxUSE_ZIPSTREAM
+wxUSE_ZLIB
+wxUSE_ZLIB
+wxUSE_ZLIB 1
+wxUSE_ARCHIVE_STREAMS
+wxUSE_ARCHIVE_STREAMS
+wxUSE_ARCHIVE_STREAMS 1
+#endif /*wxUSE_ZIPSTREAM */
+wxUSE_TARSTREAM
+wxUSE_ARCHIVE_STREAMS
+wxUSE_ARCHIVE_STREAMS
+wxUSE_ARCHIVE_STREAMS 1
+#endif /*wxUSE_TARSTREAM */
+wxUSE_GUI
+wxUSE_ACCESSIBILITY  defined __WXMSW__
+# error "wxUSE_ACCESSIBILITY is currently only supported under wxMSW"
+wxUSE_ACCESSIBILITY
+wxUSE_ACCESSIBILITY 0
+#endif /*wxUSE_ACCESSIBILITY */
+wxUSE_BUTTON  \
+wxUSE_CALENDARCTRL  \
+wxUSE_CARET  \
+wxUSE_COMBOBOX  \
+wxUSE_BMPBUTTON  \
+wxUSE_CHECKBOX  \
+wxUSE_CHECKLISTBOX  \
+wxUSE_CHOICE  \
+wxUSE_GAUGE  \
+wxUSE_GRID  \
+wxUSE_HEADERCTRL  \
+wxUSE_LISTBOX  \
+wxUSE_LISTCTRL  \
+wxUSE_NOTEBOOK  \
+wxUSE_RADIOBOX  \
+wxUSE_RADIOBTN  \
+wxUSE_REARRANGECTRL  \
+wxUSE_SCROLLBAR  \
+wxUSE_SLIDER  \
+wxUSE_SPINBTN  \
+wxUSE_SPINCTRL  \
+wxUSE_STATBMP  \
+wxUSE_STATBOX  \
+wxUSE_STATLINE  \
+wxUSE_STATTEXT  \
+wxUSE_STATUSBAR  \
+wxUSE_TEXTCTRL  \
+wxUSE_TOOLBAR  \
+wxUSE_TREECTRL  \
+wxUSE_TREELISTCTRL
+wxUSE_CONTROLS
+# error "wxUSE_CONTROLS unset but some controls used"
+wxUSE_CONTROLS
+wxUSE_CONTROLS 1
+wxUSE_ADDREMOVECTRL
+wxUSE_BMPBUTTON
+# error "wxUSE_ADDREMOVECTRL requireswxUSE_BMPBUTTON"
+wxUSE_ADDREMOVECTRL
+wxUSE_ADDREMOVECTRL 0
+#endif /*wxUSE_ADDREMOVECTRL */
+wxUSE_ANIMATIONCTRL
+wxUSE_STREAMS
+# error "wxUSE_ANIMATIONCTRL requireswxUSE_STREAMS"
+wxUSE_ANIMATIONCTRL
+wxUSE_ANIMATIONCTRL 0
+#endif /*wxUSE_ANIMATIONCTRL */
+wxUSE_BMPBUTTON
+wxUSE_BUTTON
+# error "wxUSE_BMPBUTTON requireswxUSE_BUTTON"
+wxUSE_BUTTON
+wxUSE_BUTTON 1
+#endif /*wxUSE_BMPBUTTON */
+wxUSE_COMMANDLINKBUTTON
+wxUSE_BUTTON
+# error "wxUSE_COMMANDLINKBUTTON requireswxUSE_BUTTON"
+wxUSE_BUTTON
+wxUSE_BUTTON 1
+#endif /*wxUSE_COMMANDLINKBUTTON */
+wxUSE_BOOKCTRL should be only used if any of the controls deriving from it
+wxUSE_BOOKCTRL
+# error "wxUSE_BOOKCTRL is defined automatically, don't define it"
+wxUSE_BOOKCTRL
+wxUSE_BOOKCTRL  wxUSE_AUI  \
+wxUSE_NOTEBOOK  \
+wxUSE_LISTBOOK  \
+wxUSE_CHOICEBOOK  \
+wxUSE_TOOLBOOK  \
+wxUSE_TREEBOOK
+wxUSE_COLLPANE
+wxUSE_BUTTON  wxUSE_STATLINE
+# error "wxUSE_COLLPANE requireswxUSE_BUTTON andwxUSE_STATLINE"
+wxUSE_COLLPANE
+wxUSE_COLLPANE 0
+#endif /*wxUSE_COLLPANE */
+wxUSE_LISTBOOK
+wxUSE_LISTCTRL
+wxUSE_LISTCTRL
+wxUSE_LISTCTRL 1
+#endif /*wxUSE_LISTBOOK */
+wxUSE_CHOICEBOOK
+wxUSE_CHOICE
+wxUSE_CHOICE
+wxUSE_CHOICE 1
+#endif /*wxUSE_CHOICEBOOK */
+wxUSE_TOOLBOOK
+wxUSE_TOOLBAR
+wxUSE_TOOLBAR
+wxUSE_TOOLBAR 1
+#endif /*wxUSE_TOOLBOOK */
+wxUSE_ODCOMBOBOX
+wxUSE_BITMAPCOMBOBOX
+wxUSE_BITMAPCOMBOBOX
+wxUSE_BITMAPCOMBOBOX 0
+#endif /* wxUSE_ODCOMBOBOX */
+wxUSE_HEADERCTRL
+wxUSE_DATAVIEWCTRL wxUSE_GRID
+wxUSE_HEADERCTRL
+wxUSE_HEADERCTRL 1
+#endif /* wxUSE_HEADERCTRL */
+wxUSE_REARRANGECTRL
+wxUSE_CHECKLISTBOX
+wxUSE_REARRANGECTRL
+wxUSE_REARRANGECTRL 0
+#endif /*wxUSE_REARRANGECTRL */
+wxUSE_RICHMSGDLG
+wxUSE_MSGDLG
+# error "wxUSE_RICHMSGDLG requireswxUSE_MSGDLG"
+wxUSE_MSGDLG
+wxUSE_MSGDLG 1
+#endif /*wxUSE_RICHMSGDLG */
+wxUSE_NATIVE_STATUSBAR
+wxUSE_NATIVE_STATUSBAR 0
+#elifwxUSE_NATIVE_STATUSBAR
+wxUSE_NATIVE_STATUSBAR
+wxUSE_NATIVE_STATUSBAR 0
+wxUSE_ACTIVITYINDICATOR  wxUSE_GRAPHICS_CONTEXT
+wxUSE_ACTIVITYINDICATOR
+wxUSE_ACTIVITYINDICATOR 0
+#endif /*wxUSE_ACTIVITYINDICATOR */
+wxUSE_GRAPHICS_CONTEXT  wxUSE_GEOMETRY
+# error "wxUSE_GRAPHICS_CONTEXT requireswxUSE_GEOMETRY"
+wxUSE_GRAPHICS_CONTEXT
+wxUSE_GRAPHICS_CONTEXT 0
+#endif /*wxUSE_GRAPHICS_CONTEXT */
+wxUSE_DC_TRANSFORM_MATRIX  wxUSE_GEOMETRY
+# error "wxUSE_DC_TRANSFORM_MATRIX requireswxUSE_GEOMETRY"
+wxUSE_DC_TRANSFORM_MATRIX
+wxUSE_DC_TRANSFORM_MATRIX 0
+#endif /*wxUSE_DC_TRANSFORM_MATRIX */
+wxUSE_FONTDLG wxUSE_FILEDLG wxUSE_CHOICEDLG
+defined wxUSE_CHOICE   \
+ defined wxUSE_TEXTCTRL   \
+ defined wxUSE_BUTTON   \
+ defined wxUSE_CHECKBOX   \
+ defined wxUSE_STATTEXT
+wxUSE_CHOICE
+wxUSE_CHOICE 1
+wxUSE_TEXTCTRL
+wxUSE_TEXTCTRL 1
+wxUSE_BUTTON
+wxUSE_BUTTON 1
+wxUSE_CHECKBOX
+wxUSE_CHECKBOX 1
+wxUSE_STATTEXT
+wxUSE_STATTEXT 1
+wxUSE_FILEDLG  wxUSE_FILECTRL  \
+wxUSE_FILECTRL
+wxUSE_FILECTRL 1
+#endif /*wxUSE_FILEDLG */
+wxUSE_ARTPROVIDER_TANGO
+ wxUSE_STREAMS wxUSE_IMAGE wxUSE_LIBPNG
+wxUSE_ARTPROVIDER_TANGO
+wxUSE_ARTPROVIDER_TANGO 0
+#endif /*wxUSE_ARTPROVIDER_TANGO */
+wxUSE_CALENDARCTRL
+ wxUSE_SPINBTN wxUSE_COMBOBOX
+wxUSE_SPINBTN
+wxUSE_COMBOBOX
+wxUSE_SPINBTN 1
+wxUSE_COMBOBOX 1
+wxUSE_DATETIME
+# error "wxCalendarCtrl requireswxUSE_DATETIME"
+wxUSE_DATETIME
+wxUSE_DATETIME 1
+#endif /*wxUSE_CALENDARCTRL */
+wxUSE_DATEPICKCTRL
+wxUSE_COMBOCTRL   defined __WXUNIVERSAL__   \
+# error "wxDatePickerCtrl requireswxUSE_COMBOCTRL"
+wxUSE_COMBOCTRL
+wxUSE_COMBOCTRL 1
+#endif /*wxUSE_DATEPICKCTRL */
+wxUSE_DATEPICKCTRL wxUSE_TIMEPICKCTRL
+wxUSE_DATETIME
+# error "wxDatePickerCtrl and wxTimePickerCtrl requireswxUSE_DATETIME"
+wxUSE_DATETIME
+wxUSE_DATETIME 1
+#endif /*wxUSE_DATEPICKCTRL wxUSE_TIMEPICKCTRL */
+wxUSE_CHECKLISTBOX
+wxUSE_LISTBOX
+wxUSE_LISTBOX
+wxUSE_LISTBOX 1
+#endif /*wxUSE_CHECKLISTBOX */
+wxUSE_CHOICEDLG
+wxUSE_LISTBOX
+wxUSE_LISTBOX
+wxUSE_LISTBOX 1
+#endif /*wxUSE_CHOICEDLG */
+wxUSE_FILECTRL
+wxUSE_DATETIME
+wxUSE_DATETIME
+wxUSE_DATETIME 1
+#endif /*wxUSE_FILECTRL */
+wxUSE_HELP
+wxUSE_BMPBUTTON
+# error "wxUSE_HELP requireswxUSE_BMPBUTTON"
+wxUSE_BMPBUTTON
+wxUSE_BMPBUTTON 1
+wxUSE_CHOICEDLG
+# error "wxUSE_HELP requireswxUSE_CHOICEDLG"
+wxUSE_CHOICEDLG
+wxUSE_CHOICEDLG 1
+#endif /*wxUSE_HELP */
+wxUSE_MS_HTML_HELP
+wxUSE_MS_HTML_HELP
+wxUSE_MS_HTML_HELP 0
+#endif /*wxUSE_MS_HTML_HELP */
+wxUSE_WXHTML_HELP
+wxUSE_HELP  wxUSE_HTML  wxUSE_COMBOBOX  wxUSE_NOTEBOOK  wxUSE_SPINCTRL
+wxUSE_HELP
+wxUSE_HELP 1
+wxUSE_HTML
+wxUSE_HTML 1
+wxUSE_COMBOBOX
+wxUSE_COMBOBOX 1
+wxUSE_NOTEBOOK
+wxUSE_NOTEBOOK 1
+wxUSE_SPINCTRL
+wxUSE_SPINCTRL 1
+#endif /*wxUSE_WXHTML_HELP */
+wxUSE_IMAGE
+ The defaultwxUSE_IMAGE setting is 1, so if it's set to 0 we assume the
+wxUSE_IMAGE.
+wxUSE_DRAGIMAGE
+# error "wxUSE_DRAGIMAGE requireswxUSE_IMAGE"
+wxUSE_DRAGIMAGE
+wxUSE_DRAGIMAGE 0
+wxUSE_LIBPNG
+# error "wxUSE_LIBPNG requireswxUSE_IMAGE"
+wxUSE_LIBPNG
+wxUSE_LIBPNG 0
+wxUSE_LIBJPEG
+# error "wxUSE_LIBJPEG requireswxUSE_IMAGE"
+wxUSE_LIBJPEG
+wxUSE_LIBJPEG 0
+wxUSE_LIBTIFF
+# error "wxUSE_LIBTIFF requireswxUSE_IMAGE"
+wxUSE_LIBTIFF
+wxUSE_LIBTIFF 0
+wxUSE_GIF
+# error "wxUSE_GIF requireswxUSE_IMAGE"
+wxUSE_GIF
+wxUSE_GIF 0
+wxUSE_PNM
+# error "wxUSE_PNM requireswxUSE_IMAGE"
+wxUSE_PNM
+wxUSE_PNM 0
+wxUSE_PCX
+# error "wxUSE_PCX requireswxUSE_IMAGE"
+wxUSE_PCX
+wxUSE_PCX 0
+wxUSE_IFF
+# error "wxUSE_IFF requireswxUSE_IMAGE"
+wxUSE_IFF
+wxUSE_IFF 0
+wxUSE_TOOLBAR
+# error "wxUSE_TOOLBAR requireswxUSE_IMAGE"
+wxUSE_TOOLBAR
+wxUSE_TOOLBAR 0
+wxUSE_XPM
+# error "wxUSE_XPM requireswxUSE_IMAGE"
+wxUSE_XPM
+wxUSE_XPM 0
+#endif /* wxUSE_IMAGE */
+wxUSE_DOC_VIEW_ARCHITECTURE
+wxUSE_MENUS
+# error "DocView requireswxUSE_MENUS"
+wxUSE_MENUS
+wxUSE_MENUS 1
+wxUSE_CHOICEDLG
+# error "DocView requireswxUSE_CHOICEDLG"
+wxUSE_CHOICEDLG
+wxUSE_CHOICEDLG 1
+wxUSE_STREAMS  wxUSE_STD_IOSTREAM
+# error "DocView requireswxUSE_STREAMS orwxUSE_STD_IOSTREAM"
+wxUSE_STREAMS
+wxUSE_STREAMS 1
+wxUSE_FILE_HISTORY
+# error "DocView requireswxUSE_FILE_HISTORY"
+wxUSE_FILE_HISTORY
+wxUSE_FILE_HISTORY 1
+#endif /*wxUSE_DOC_VIEW_ARCHITECTURE */
+wxUSE_PRINTING_ARCHITECTURE
+wxUSE_COMBOBOX
+# error "Print dialog requireswxUSE_COMBOBOX"
+wxUSE_COMBOBOX
+wxUSE_COMBOBOX 1
+#endif /*wxUSE_PRINTING_ARCHITECTURE */
+wxUSE_MDI_ARCHITECTURE
+wxUSE_MDI
+# error "MDI requireswxUSE_MDI"
+wxUSE_MDI
+wxUSE_MDI 1
+wxUSE_DOC_VIEW_ARCHITECTURE
+# error "wxUSE_MDI_ARCHITECTURE requireswxUSE_DOC_VIEW_ARCHITECTURE"
+wxUSE_DOC_VIEW_ARCHITECTURE
+wxUSE_DOC_VIEW_ARCHITECTURE 1
+#endif /*wxUSE_MDI_ARCHITECTURE */
+wxUSE_FILEDLG
+wxUSE_DOC_VIEW_ARCHITECTURE wxUSE_WXHTML_HELP
+# error "wxUSE_FILEDLG is required bywxUSE_DOC_VIEW_ARCHITECTURE andwxUSE_WXHTML_HELP"
+wxUSE_FILEDLG
+wxUSE_FILEDLG 1
+#endif /*wxUSE_FILEDLG */
+wxUSE_GAUGE  wxUSE_BUTTON
+wxUSE_PROGRESSDLG
+# error "Generic progress dialog requireswxUSE_GAUGE andwxUSE_BUTTON"
+wxUSE_GAUGE
+wxUSE_BUTTON
+wxUSE_GAUGE 1
+wxUSE_BUTTON 1
+#endif /* wxUSE_GAUGE */
+wxUSE_BUTTON
+wxUSE_FONTDLG  \
+wxUSE_FILEDLG  \
+wxUSE_CHOICEDLG  \
+wxUSE_NUMBERDLG  \
+wxUSE_TEXTDLG  \
+wxUSE_DIRDLG  \
+wxUSE_STARTUP_TIPS  \
+wxUSE_WIZARDDLG
+# error "Common and generic dialogs requirewxUSE_BUTTON"
+wxUSE_BUTTON
+wxUSE_BUTTON 1
+#endif /* wxUSE_BUTTON */
+wxUSE_TOOLBAR
+wxUSE_TOOLBAR_NATIVE
+# error "wxUSE_TOOLBAR is set to 0 butwxUSE_TOOLBAR_NATIVE is set to 1"
+wxUSE_TOOLBAR_NATIVE
+wxUSE_TOOLBAR_NATIVE 0
+wxUSE_IMAGLIST
+wxUSE_TREECTRL wxUSE_NOTEBOOK wxUSE_LISTCTRL wxUSE_TREELISTCTRL
+wxUSE_IMAGLIST
+wxUSE_IMAGLIST 1
+#endif /* wxUSE_IMAGLIST */
+wxUSE_RADIOBOX
+wxUSE_RADIOBTN
+# error "wxUSE_RADIOBOX requireswxUSE_RADIOBTN"
+wxUSE_RADIOBTN
+wxUSE_RADIOBTN 1
+wxUSE_STATBOX
+# error "wxUSE_RADIOBOX requireswxUSE_STATBOX"
+wxUSE_STATBOX
+wxUSE_STATBOX 1
+#endif /*wxUSE_RADIOBOX */
+wxUSE_LOGWINDOW
+wxUSE_TEXTCTRL
+# error "wxUSE_LOGWINDOW requireswxUSE_TEXTCTRL"
+wxUSE_TEXTCTRL
+wxUSE_TEXTCTRL 1
+#endif /*wxUSE_LOGWINDOW */
+wxUSE_LOG_DIALOG
+wxUSE_LISTCTRL  wxUSE_BUTTON
+# error "wxUSE_LOG_DIALOG requireswxUSE_LISTCTRL andwxUSE_BUTTON"
+wxUSE_LISTCTRL
+wxUSE_LISTCTRL 1
+wxUSE_BUTTON
+wxUSE_BUTTON 1
+#endif /*wxUSE_LOG_DIALOG */
+wxUSE_CLIPBOARD  wxUSE_DATAOBJ
+wxUSE_DATAOBJ
+wxUSE_DATAOBJ 1
+#endif /*wxUSE_CLIPBOARD */
+wxUSE_XRC  wxUSE_XML
+# error "wxUSE_XRC requireswxUSE_XML"
+wxUSE_XRC
+wxUSE_XRC 0
+#endif /*wxUSE_XRC */
+wxUSE_SOCKETS  wxUSE_STOPWATCH
+# error "wxUSE_SOCKETS requireswxUSE_STOPWATCH"
+wxUSE_SOCKETS
+wxUSE_SOCKETS 0
+#endif /*wxUSE_SOCKETS */
+wxUSE_SVG  wxUSE_STREAMS
+# error "wxUSE_SVG requireswxUSE_STREAMS"
+wxUSE_SVG
+wxUSE_SVG 0
+#endif /*wxUSE_SVG */
+wxUSE_SVG  wxUSE_IMAGE
+# error "wxUSE_SVG requireswxUSE_IMAGE"
+wxUSE_SVG
+wxUSE_SVG 0
+#endif /*wxUSE_SVG */
+wxUSE_SVG  wxUSE_LIBPNG
+# error "wxUSE_SVG requireswxUSE_LIBPNG"
+wxUSE_SVG
+wxUSE_SVG 0
+#endif /*wxUSE_SVG */
+wxUSE_TASKBARICON  wxUSE_MENUS
+# error "wxUSE_TASKBARICON requireswxUSE_MENUS"
+wxUSE_TASKBARICON
+wxUSE_TASKBARICON 0
+#endif /*wxUSE_TASKBARICON */
+wxUSE_VARIANT
+wxUSE_DATAVIEWCTRL
+wxUSE_DATAVIEWCTRL
+wxUSE_DATAVIEWCTRL 0
+#endif /*wxUSE_VARIANT */
+wxUSE_TREELISTCTRL  wxUSE_DATAVIEWCTRL
+# error "wxUSE_TREELISTCTRL requires wxDataViewCtrl"
+wxUSE_TREELISTCTRL
+wxUSE_WEBVIEW
+wxUSE_WEBVIEW_WEBKIT
+wxUSE_WEBVIEW_WEBKIT2
+wxUSE_WEBVIEW_IE
+wxUSE_WEBVIEW
+wxUSE_PREFERENCES_EDITOR
+wxUSE_NOTEBOOK
+wxUSE_TOOLBAR
+wxOSX_USE_NATIVE_TOOLBAR
+wxUSE_PREFERENCES_EDITOR
+wxUSE_PREFERENCES_EDITOR
+wxUSE_PRIVATE_FONTS
+wxUSE_PRIVATE_FONTS
+wxUSE_MEDIACTRL
+wxUSE_LONGLONG
+wxUSE_LONLONG
+wxUSE_STC
+wxUSE_STOPWATCH
+wxUSE_STC
+wxUSE_RICHTEXT
+wxUSE_HTML
+wxUSE_RICHTEXT
+wxUSE_LONGLONG
+wxUSE_LONLONG
+
+  --disable-calendar --disable-dataviewctrl --disable-treelist --disable-datepick \
+  --disable-printarch --disable-commandlinkbutton --disable-timepick --disable-combobox \
+  --disable-docview --disable-mdidoc --disable-help --disable-splash --disable-grid \
+  --disable-hyperlink --disable-addremovectrl --disable-dirdlg --disable-filedlg \
+  --disable-filepicker --disable-dirpicker --disable-fontdlg --disable-fontpicker \
+  --disable-choice --disable-choicebook --disable-filectrl --disable-richtooltip \
+  --disable-busyinfo --disable-collpane --disable-richmsgdlg --disable-colourpicker \
+  --disable-coldlg --disable-finddlg --disable-mdi --disable-aui  --disable-treebook \
+  --disable-notebook --disable-listbook --disable-choicebook --disable-toolbook \
+  --disable-prefseditor --disable-togglebtn --disable-bmpbutton \
+  --disable-logdialog --disable-progressdlg --disable-wizarddlg --disable-tipdlg \
+  --disable-numberdlg --disable-textdlg --disable-numberdlg --disable-choicedlg \
+  --disable-infobar --disable-notifmsg --disable-editablebox && \
+# wxHAS_ANY_BUTTON=0 (wxUSE_TOGGLEBTN=0 and wxUSE_BUTTON=0) caused build errors in Univ;
+#   might be fixed needs retested --disable-button
