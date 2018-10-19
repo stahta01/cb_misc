@@ -48,6 +48,15 @@ cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWid
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
+  mkdir -p build-${MSYSTEM_CARCH}-msw-disable && cd build-${MSYSTEM_CARCH}-msw-disable
+#
+../configure --with-msw --disable-scrollbar
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
+
 https://trac.wxwidgets.org/ticket/4402      wxUniv/MSW
 
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
@@ -89,29 +98,24 @@ cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWid
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
+  mkdir -p build-${MSYSTEM_CARCH}-qt-disable && cd build-${MSYSTEM_CARCH}-qt-disable
+#
+../configure --with-qt --disable-scrollbar
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
+
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
   mkdir -p build-${MSYSTEM_CARCH}-qt-universal && cd build-${MSYSTEM_CARCH}-qt-universal
 #
-../configure --with-qt --enable-universal --enable-permissive --disable-accessibility \
-  --disable-calendar --disable-dataviewctrl --disable-treelist --disable-datepick \
-  --disable-printarch --disable-commandlinkbutton --disable-timepick --disable-combobox \
-  --disable-docview --disable-mdidoc --disable-help --disable-splash --disable-grid \
-  --disable-hyperlink --disable-addremovectrl --disable-dirdlg --disable-filedlg \
-  --disable-filepicker --disable-dirpicker --disable-fontdlg --disable-fontpicker \
-  --disable-choice --disable-choicebook --disable-filectrl --disable-richtooltip \
-  --disable-busyinfo --disable-collpane --disable-richmsgdlg --disable-colourpicker \
-  --disable-coldlg --disable-finddlg --disable-mdi --disable-aui  --disable-treebook \
-  --disable-notebook --disable-listbook --disable-choicebook --disable-toolbook \
-  --disable-prefseditor --disable-togglebtn --disable-bmpbutton \
-  --disable-logdialog --disable-progressdlg --disable-wizarddlg --disable-tipdlg \
-  --disable-numberdlg --disable-textdlg --disable-numberdlg --disable-choicedlg \
-  --disable-infobar --disable-notifmsg --disable-editablebox && \
-make && clear && make
+../configure --with-qt --enable-universal --enable-permissive \
+  --disable-accessibility --disable-printarch \
+  --disable-accel --disable-coldlg --disable-colourpicker \
+  --disable-scrollbar && \
+make
 
-# wxHAS_ANY_BUTTON=0 (wxUSE_TOGGLEBTN=0 and wxUSE_BUTTON=0) caused build errors in Univ;
-#   might be fixed needs retested --disable-button
-
-
-make clean && make && clear && make # Over 5000 lines of core linking errors
+make clean && make
 cd samples/minimal && make clean && make && cd ../..
 ./samples/minimal/minimal.exe
