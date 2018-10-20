@@ -52,7 +52,7 @@ cd samples/minimal && make clean && make && cd ../..
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
   mkdir -p build-${MSYSTEM_CARCH}-msw-disable && cd build-${MSYSTEM_CARCH}-msw-disable
 #
-../configure --with-msw --disable-scrollbar
+../configure --with-msw --disable-scrollbar --disable-stc
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
@@ -112,9 +112,22 @@ cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWid
 #
 ../configure --with-qt --enable-universal --enable-permissive \
   --disable-accessibility --disable-printarch \
-  --disable-accel --disable-coldlg --disable-colourpicker \
-  --disable-scrollbar && \
+  --disable-accel --disable-coldlg --disable-scrollbar \
+  --disable-colourpicker --disable-stc \
+  --disable-spinctrl --disable-spinbtn \
+  --disable-htmlhelp --disable-slider --disable-timepick \
+  --disable-calendar --disable-datepick && \
 make
+
+coldlg        wxUSE_COLOURDLG         undefined reference to `wxColourDialog::GetColourData()'
+colourpicker  wxUSE_COLOURPICKERCTRL  error: 'wxColourDialog' was not declared in this scope
+spinctrl      wxUSE_SPINCTRL          undefined reference to `wxScrollArrows::~wxScrollArrows()'
+htmlhelp      wxUSE_WXHTML_HELP       #error "Built in help controller can't be compiled"
+calendar      wxUSE_CALCTRL           error: invalid use of incomplete type 'class wxSpinCtrl'
+datepick      wxUSE_DATEPICKCTRL      error: invalid use of incomplete type 'class wxCalendarCtrl'
+spinbtn       wxUSE_SPINBTN           undefined reference to `wxScrollArrows::HandleMouse(wxMouseEvent const&) const'
+slider        wxUSE_SLIDER            undefined reference to `wxScrollThumb::~wxScrollThumb()'
+timepick      wxUSE_TIMEPICKCTRL      error: 'wxSpinButton' does not name a type
 
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
