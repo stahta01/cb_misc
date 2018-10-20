@@ -1,32 +1,32 @@
-  --disable-busyinfo --disable-collpane --disable-richmsgdlg --disable-colourpicker
-  --disable-calendar --disable-dataviewctrl --disable-treelist --disable-datepick
-  --disable-choice --disable-choicebook --disable-filectrl --disable-richtooltip
-  --disable-coldlg --disable-finddlg --disable-mdi --disable-aui  --disable-treebook
-  --disable-docview --disable-mdidoc --disable-help --disable-splash --disable-grid
-  --disable-filepicker --disable-dirpicker --disable-fontdlg --disable-fontpicker
-  --disable-hyperlink --disable-addremovectrl --disable-dirdlg --disable-filedlg
-  --disable-infobar --disable-notifmsg --disable-editablebox
-  --disable-logdialog --disable-progressdlg --disable-wizarddlg --disable-tipdlg
-  --disable-notebook --disable-listbook --disable-choicebook --disable-toolbook
-  --disable-numberdlg --disable-textdlg --disable-numberdlg --disable-choicedlg
-  --disable-prefseditor --disable-togglebtn --disable-bmpbutton
-  --disable-printarch --disable-commandlinkbutton --disable-timepick --disable-combobox
-  --disable-button
-wxUSE_ABOUTDLG                        --enable-aboutdlg
-wxUSE_ACCEL                           --enable-accel
-wxUSE_ACCESSIBILITY                   --enable-accessibility
-wxUSE_ACTIVEX
-wxUSE_ACTIVITYINDICATOR               --enable-actindicator
-wxUSE_ADDREMOVECTRL                   --enable-addremovectr
-wxUSE_ALL_THEMES
-wxUSE_ANIMATIONCTRL                   --enable-animatectr
-wxUSE_ANY                             --enable-any
-wxUSE_ARCHIVE_STREAMS                 --enable-arcstream
-wxUSE_ARTPROVIDER_STD                 --enable-artstd
-wxUSE_ARTPROVIDER_TANGO               --enable-arttango
-wxUSE_AUI                             --enable-aui
-wxUSE_AUTOID_MANAGEMENT               --enable-autoidman
-wxUSE_BITMAPCOMBOBOX
+  busyinfo collpane richmsgdlg colourpicker
+  calendar dataviewctrl treelist datepick
+  choice choicebook filectrl richtooltip
+  coldlg finddlg mdi aui  treebook
+  docview mdidoc help splash grid
+  filepicker dirpicker fontdlg fontpicker
+  hyperlink addremovectrl dirdlg filedlg
+  infobar notifmsg editablebox
+  logdialog progressdlg wizarddlg tipdlg
+  notebook listbook choicebook toolbook
+  numberdlg textdlg numberdlg
+   togglebtn bmpbutton
+  printarch commandlinkbutton timepick combobox
+  button
+wxUSE_ABOUTDLG                        aboutdlg
+wxUSE_ACCEL                           accel
+wxUSE_ACCESSIBILITY                   accessibility
+wxUSE_ACTIVEX                         wxUSE_OLE
+wxUSE_ACTIVITYINDICATOR               actindicator
+wxUSE_ADDREMOVECTRL                   addremovectr
+wxUSE_ALL_THEMES                      wxUNIV_THEMES
+wxUSE_ANIMATIONCTRL                   animatectr
+wxUSE_ANY                             any
+wxUSE_ARCHIVE_STREAMS                 arcstream
+wxUSE_ARTPROVIDER_STD                 artstd
+wxUSE_ARTPROVIDER_TANGO               arttango
+wxUSE_AUI                             aui
+wxUSE_AUTOID_MANAGEMENT               autoidman
+wxUSE_BITMAPCOMBOBOX                  bmpcombobox
 wxUSE_BMPBUTTON
 wxUSE_BOOKCTRL
 wxUSE_BUTTON
@@ -37,11 +37,11 @@ wxUSE_CHECKBOX
 wxUSE_CHECKLISTBOX
 wxUSE_CHOICE
 wxUSE_CHOICEBOOK
-wxUSE_CHOICEDLG
+wxUSE_CHOICEDLG                       choicedlg
 wxUSE_CLIPBOARD
 wxUSE_COLLPANE
-wxUSE_COLOURDLG                       --enable-coldlg
-wxUSE_COLOURPICKERCTRL                --enable-colourpicker
+wxUSE_COLOURDLG                       coldlg
+wxUSE_COLOURPICKERCTRL                colourpicker
 wxUSE_COMBOBOX
 wxUSE_COMBOCTRL
 wxUSE_COMMANDLINKBUTTON
@@ -120,7 +120,7 @@ wxUSE_LONGLONG
 wxUSE_LONLONG
 wxUSE_MARKUP
 wxUSE_MDI
-wxUSE_MDI_ARCHITECTURE                --enable-mdidoc
+wxUSE_MDI_ARCHITECTURE                mdidoc
 wxUSE_MEDIACTRL
 wxUSE_MEMORY_TRACING
 wxUSE_MENUS
@@ -130,7 +130,7 @@ wxUSE_MSGDLG
 wxUSE_MS_HTML_HELP
 wxUSE_NATIVE_STATUSBAR
 wxUSE_NOTEBOOK
-wxUSE_NOTIFICATION_MESSAGE            --enable-notifmsg
+wxUSE_NOTIFICATION_MESSAGE            notifmsg
 wxUSE_NUMBERDLG
 wxUSE_ODCOMBOBOX
 wxUSE_OLE
@@ -142,8 +142,8 @@ wxUSE_PCX
 wxUSE_PNM
 wxUSE_POPUPWIN
 wxUSE_POSTSCRIPT
-wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW  --enable-ps-in-msw
-wxUSE_PREFERENCES_EDITOR
+wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW  ps-in-msw
+wxUSE_PREFERENCES_EDITOR              prefseditor
 wxUSE_PRINTF_POS_PARAMS
 wxUSE_PRINTING_ARCHITECTURE
 wxUSE_PRIVATE_FONTS
@@ -161,7 +161,7 @@ wxUSE_RICHMSGDLG
 wxUSE_RICHTEXT
 wxUSE_RICHTOOLTIP
 wxUSE_SASH
-wxUSE_SCROLLBAR                       --enable-scrollbar
+wxUSE_SCROLLBAR                       scrollbar
 wxUSE_SECRETSTORE
 wxUSE_SLIDER
 wxUSE_SOCKETS
