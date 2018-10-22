@@ -51,11 +51,24 @@ cd samples/minimal && make clean && make && cd ../..
 
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/wxWidgets && \
   mkdir -p build-${MSYSTEM_CARCH}-msw-disable && cd build-${MSYSTEM_CARCH}-msw-disable
-#
-../configure --with-msw --disable-scrollbar --disable-stc
+#   git checkout code/disable
+../configure --with-msw --disable-calendar
+
+make clean && make
+
+--disable-spinbtn --enable-timepick \
+   --disable-spinctrl --disable-htmlhelp --disable-datepick \
+  --enable-universal --disable-accessibility && \
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
+** ??? "wxDatePickerCtrl requires wxCalendarCtrl" This seems to be wrong to me!!!
+
+under MSW
+in wxGTK
+
+datepick      wxUSE_DATEPICKCTRL      error: invalid use of incomplete type 'class wxCalendarCtrl'
+calendar      wxUSE_CALCTRL
 
 https://trac.wxwidgets.org/ticket/4402      wxUniv/MSW
 
