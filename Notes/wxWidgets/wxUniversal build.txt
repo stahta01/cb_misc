@@ -7,6 +7,13 @@ gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
 cd build/bakefiles && bakefile_gen -b wx.bkl && cd ../.. && \
 autoconf
 
+# 
+cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_qt_disable && cd build_qt_disable
+#
+../configure --prefix=/opt/wxQt/3.1.x --with-qt --disable-spinbtn
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
 
 cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_qt_universal && cd build_qt_universal
 #
@@ -29,7 +36,7 @@ cd samples/minimal && make clean && make && cd ../..
 
 cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_gtk2_disable && cd build_gtk2_disable
 #
-../configure --prefix=/opt/wxGTK2/3.1.x --with-gtk=2 --disable-calendar
+../configure --prefix=/opt/wxGTK2/3.1.x --with-gtk=2 --disable-scrollbar
 make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
