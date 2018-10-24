@@ -27,6 +27,13 @@ make clean && make
 cd samples/minimal && make clean && make && cd ../..
 
 
+cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_gtk2_disable && cd build_gtk2_disable
+#
+../configure --prefix=/opt/wxGTK2/3.1.x --with-gtk=2 --disable-calendar
+make clean && make
+cd samples/minimal && make clean && make && cd ../..
+
+
 cd ~/devel/open_source_code/version_control/git_repos/wxWidgets && mkdir -p build_gtk2_universal && cd build_gtk2_universal
 #
 ../configure --prefix=/opt/wxGTK2/3.1.x --with-gtk=2 --enable-universal --enable-permissive --disable-webview
