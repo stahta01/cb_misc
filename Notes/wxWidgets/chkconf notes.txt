@@ -1,83 +1,76 @@
-  busyinfo collpane richmsgdlg colourpicker
-  calendar dataviewctrl treelist datepick
-  choice choicebook filectrl richtooltip
-  coldlg finddlg mdi aui  treebook
-  docview mdidoc help splash grid
-  filepicker dirpicker fontdlg fontpicker
-  hyperlink addremovectrl dirdlg filedlg
-  infobar notifmsg editablebox
-  logdialog progressdlg wizarddlg tipdlg
-  notebook listbook choicebook toolbook
-  numberdlg textdlg numberdlg
-   togglebtn bmpbutton
-  printarch commandlinkbutton timepick combobox
-  button
-wxUSE_ABOUTDLG                        aboutdlg
-wxUSE_ACCEL                           accel
-wxUSE_ACCESSIBILITY                   accessibility
-wxUSE_ACTIVEX                         wxUSE_OLE
-wxUSE_ACTIVITYINDICATOR               actindicator
-wxUSE_ADDREMOVECTRL                   addremovectr
-wxUSE_ALL_THEMES                      wxUNIV_THEMES
-wxUSE_ANIMATIONCTRL                   animatectr
-wxUSE_ANY                             any
-wxUSE_ARCHIVE_STREAMS                 arcstream
-wxUSE_ARTPROVIDER_STD                 artstd
-wxUSE_ARTPROVIDER_TANGO               arttango
-wxUSE_AUI                             aui
-wxUSE_AUTOID_MANAGEMENT               autoidman
-wxUSE_BITMAPCOMBOBOX                  bmpcombobox
-wxUSE_BMPBUTTON
-wxUSE_BOOKCTRL
-wxUSE_BUTTON
-wxUSE_CAIRO
-wxUSE_CALENDARCTRL
-wxUSE_CARET
-wxUSE_CHECKBOX
-wxUSE_CHECKLISTBOX
-wxUSE_CHOICE
-wxUSE_CHOICEBOOK
-wxUSE_CHOICEDLG                       choicedlg
-wxUSE_CLIPBOARD
-wxUSE_COLLPANE
-wxUSE_COLOURDLG                       coldlg
-wxUSE_COLOURPICKERCTRL                colourpicker
-wxUSE_COMBOBOX
-wxUSE_COMBOCTRL
-wxUSE_COMMANDLINKBUTTON
-wxUSE_COMPILER_TLS
-wxUSE_CONSOLE_EVENTLOOP
-wxUSE_CONTROLS
-wxUSE_CRASHREPORT
-wxUSE_DATAOBJ
-wxUSE_DATAVIEWCTRL
-wxUSE_DATEPICKCTRL
-wxUSE_DATETIME
-wxUSE_DBGHELP
-wxUSE_DC_CACHEING
-wxUSE_DC_TRANSFORM_MATRIX
-wxUSE_DEBUG_NEW_ALWAYS
-wxUSE_DIALUP_MANAGER
-wxUSE_DIRDLG
-wxUSE_DIRPICKERCTRL
-wxUSE_DISPLAY
-wxUSE_DOC_VIEW_ARCHITECTURE
-wxUSE_DRAGIMAGE
-wxUSE_DRAG_AND_DROP
-wxUSE_DYNAMIC_LOADER
-wxUSE_DYNLIB_CLASS
-wxUSE_ENH_METAFILE
-wxUSE_EXCEPTIONS
+wxUSE_ABOUTDLG                          aboutdlg
+wxUSE_ACCEL                             accel
+wxUSE_ACCESSIBILITY                     accessibility
+wxUSE_ACTIVEX                           wxUSE_OLE
+wxUSE_ACTIVITYINDICATOR                 actindicator
+wxUSE_ADDREMOVECTRL                     addremovectrl
+wxUSE_ALL_THEMES                        wxUNIV_THEMES
+wxUSE_ANIMATIONCTRL                     animatectr
+wxUSE_ANY                               any
+wxUSE_ARCHIVE_STREAMS                   arcstream
+wxUSE_ARTPROVIDER_STD                   artstd
+wxUSE_ARTPROVIDER_TANGO                 arttango
+wxUSE_AUI                               aui
+wxUSE_AUTOID_MANAGEMENT                 autoidman
+wxUSE_BITMAPCOMBOBOX                    bmpcombobox
+wxUSE_BMPBUTTON                         bmpbutton
+wxUSE_BOOKCTRL                          (wxUSE_AUI || wxUSE_NOTEBOOK || wxUSE_LISTBOOK || wxUSE_CHOICEBOOK || wxUSE_TOOLBOOK || wxUSE_TREEBOOK)
+wxUSE_BUSYINFO                          busyinfo
+wxUSE_BUTTON                            button
+wxUSE_CAIRO                             ?
+wxUSE_CALCTRL                           calendar
+wxUSE_CALENDARCTRL                      wxUSE_CALCTRL
+wxUSE_CARET                             caret
+wxUSE_CHECKBOX                          checkbox
+wxUSE_CHECKLISTBOX                      wxUSE_CHECKLST
+wxUSE_CHECKLST                          checklst
+wxUSE_CHOICE                            choice
+wxUSE_CHOICEBOOK                        choicebook
+wxUSE_CHOICEDLG                         choicedlg
+wxUSE_CLIPBOARD                         clipboard
+wxUSE_CMDLINE_PARSER                    cmdline
+wxUSE_COLLPANE                          collpane
+wxUSE_COLOURDLG                         coldlg
+wxUSE_COLOURPICKERCTRL                  colourpicker
+wxUSE_COMBOBOX                          combobox
+wxUSE_COMBOCTRL                         comboctrl
+wxUSE_COMMANDLINKBUTTON                 commandlinkbutton
+wxUSE_COMPILER_TLS                      tls
+wxUSE_CONSOLE_EVENTLOOP                 baseevtloop
+wxUSE_CONTROLS                          controls
+wxUSE_CRASHREPORT                       ?
+wxUSE_DATAOBJ                           dataobj
+wxUSE_DATAVIEWCTRL                      dataviewctrl
+wxUSE_DATEPICKCTRL                      datepick
+wxUSE_DATETIME                          datetime
+wxUSE_DBGHELP                           dbghelp
+wxUSE_DC_CACHEING                       dccache
+wxUSE_DC_TRANSFORM_MATRIX               dctransform
+wxUSE_DEBUGREPORT                       debugreport
+wxUSE_DEBUG_NEW_ALWAYS                  wxUSE_MEM_TRACING
+wxUSE_DIALUP_MANAGER                    dialupman
+wxUSE_DIRDLG                            dirdlg
+wxUSE_DIRPICKERCTRL                     dirpicker
+wxUSE_DISPLAY                           display
+wxUSE_DOC_VIEW_ARCHITECTURE             docview
+wxUSE_DRAGIMAGE                         dragimage
+wxUSE_DRAG_AND_DROP                     dnd
+wxUSE_DYNAMIC_LOADER                    dynamicloader
+wxUSE_DYNLIB_CLASS                      dynlib
+wxUSE_EDITABLELISTBOX                   editablebox
+wxUSE_ENH_METAFILE                      wxUSE_METAFILE && wxUSE_MSW
+wxUSE_EXCEPTIONS                        exceptions
 wxUSE_FFILE
 wxUSE_FILE
-wxUSE_FILECTRL
-wxUSE_FILEDLG
-wxUSE_FILEPICKERCTRL
+wxUSE_FILECTRL                          filectrl
+wxUSE_FILEDLG                           filedlg
+wxUSE_FILEPICKERCTRL                    filepicker
 wxUSE_FILESYSTEM
 wxUSE_FILE_HISTORY
-wxUSE_FONTDLG
+wxUSE_FINDREPLDLG                       finddlg
+wxUSE_FONTDLG                           fontdlg
 wxUSE_FONTMAP
-wxUSE_FONTPICKERCTRL
+wxUSE_FONTPICKERCTRL                    fontpicker
 wxUSE_FSVOLUME
 wxUSE_FSWATCHER
 wxUSE_FS_ARCHIVE
@@ -85,21 +78,20 @@ wxUSE_FS_INET
 wxUSE_GAUGE
 wxUSE_GEOMETRY
 wxUSE_GIF
-wxUSE_GLCANVAS
+wxUSE_GLCANVAS                          ?
 wxUSE_GLOBAL_MEMORY_OPERATORS
-wxUSE_GRAPHICS_CONTEXT
-wxUSE_GRID
+wxUSE_GRAPHICS_CONTEXT                  graphics_ctx
+wxUSE_GRID                              grid
 wxUSE_GUI
 wxUSE_HEADERCTRL
-wxUSE_HELP
-wxUSE_HTML
-wxUSE_HYPERLINKCTRL
+wxUSE_HELP                              help
+wxUSE_HTML                              html
+wxUSE_HYPERLINKCTRL                     hyperlink
 wxUSE_ICO_CUR
 wxUSE_IFF
-wxUSE_IMAGE
-wxUSE_IMAGE.
+wxUSE_IMAGE                             image
 wxUSE_IMAGLIST
-wxUSE_INFOBAR
+wxUSE_INFOBAR                           infobar
 wxUSE_INICONF
 wxUSE_INKEDIT
 wxUSE_INTL
@@ -109,124 +101,125 @@ wxUSE_LIBJPEG
 wxUSE_LIBMSPACK
 wxUSE_LIBPNG
 wxUSE_LIBTIFF
-wxUSE_LISTBOOK
+wxUSE_LISTBOOK                          listbook
 wxUSE_LISTBOX
 wxUSE_LISTCTRL
 wxUSE_LOG
 wxUSE_LOGGUI
 wxUSE_LOGWINDOW
-wxUSE_LOG_DIALOG
+wxUSE_LOG_DIALOG                        logdialog
 wxUSE_LONGLONG
 wxUSE_LONLONG
 wxUSE_MARKUP
-wxUSE_MDI
-wxUSE_MDI_ARCHITECTURE                mdidoc
+wxUSE_MDI                               mdi
+wxUSE_MDI_ARCHITECTURE                  mdidoc
 wxUSE_MEDIACTRL
 wxUSE_MEMORY_TRACING
-wxUSE_MENUS
+wxUSE_MENUS                             menus
 wxUSE_METAFILE
 wxUSE_MIMETYPE
 wxUSE_MSGDLG
 wxUSE_MS_HTML_HELP
 wxUSE_NATIVE_STATUSBAR
-wxUSE_NOTEBOOK
-wxUSE_NOTIFICATION_MESSAGE            notifmsg
-wxUSE_NUMBERDLG
+wxUSE_NOTEBOOK                          notebook
+wxUSE_NOTIFICATION_MESSAGE              notifmsg
+wxUSE_NUMBERDLG                         numberdlg
 wxUSE_ODCOMBOBOX
 wxUSE_OLE
 wxUSE_OLE_AUTOMATION
-wxUSE_ON_FATAL_EXCEPTION
-wxUSE_OWNER_DRAWN
+wxUSE_ON_FATAL_EXCEPTION                catch_segvs
+wxUSE_OWNER_DRAWN                       ownerdrawn
 wxUSE_PALETTE
 wxUSE_PCX
 wxUSE_PNM
-wxUSE_POPUPWIN
+wxUSE_POPUPWIN                          popupwin
 wxUSE_POSTSCRIPT
-wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW  ps-in-msw
-wxUSE_PREFERENCES_EDITOR              prefseditor
+wxUSE_POSTSCRIPT_ARCHITECTURE_IN_MSW    ps-in-msw
+wxUSE_PREFERENCES_EDITOR                prefseditor
 wxUSE_PRINTF_POS_PARAMS
-wxUSE_PRINTING_ARCHITECTURE
+wxUSE_PRINTING_ARCHITECTURE             printarch
 wxUSE_PRIVATE_FONTS
-wxUSE_PROGRESSDLG
-wxUSE_PROTOCOL
+wxUSE_PROGRESSDLG                       progressdlg
+wxUSE_PROTOCOL                          protocol
 wxUSE_PROTOCOL_FILE
 wxUSE_PROTOCOL_FTP
-wxUSE_PROTOCOL_HTTP
+wxUSE_PROTOCOL_HTTP                     protocol-http
 wxUSE_RADIOBOX
 wxUSE_RADIOBTN
 wxUSE_REARRANGECTRL
 wxUSE_REGEX
+wxUSE_REGKEY                            regkey
 wxUSE_RIBBON
-wxUSE_RICHMSGDLG
+wxUSE_RICHMSGDLG                        richmsgdlg
 wxUSE_RICHTEXT
-wxUSE_RICHTOOLTIP
+wxUSE_RICHTOOLTIP                       richtooltip
 wxUSE_SASH
-wxUSE_SCROLLBAR                       scrollbar
+wxUSE_SCROLLBAR                         scrollbar
 wxUSE_SECRETSTORE
-wxUSE_SLIDER
+wxUSE_SLIDER                            slider
 wxUSE_SOCKETS
 wxUSE_SOUND
-wxUSE_SPINBTN
-wxUSE_SPINCTRL
-wxUSE_SPLASH
+wxUSE_SPINBTN                           spinbtn
+wxUSE_SPINCTRL                          spinctrl
+wxUSE_SPLASH                            splash
 wxUSE_SPLITTER
 wxUSE_STACKWALKER
-wxUSE_STARTUP_TIPS
-wxUSE_STATBMP
+wxUSE_STARTUP_TIPS                      tipdlg
+wxUSE_STATBMP                           statbmp
 wxUSE_STATBOX
 wxUSE_STATLINE
 wxUSE_STATTEXT
-wxUSE_STATUSBAR
+wxUSE_STATUSBAR                         statusbar
 wxUSE_STC
 wxUSE_STDPATHS
-wxUSE_STD_CONTAINERS
+wxUSE_STD_CONTAINERS                    std_containers
 wxUSE_STD_CONTAINERS_COMPATIBLY
-wxUSE_STD_IOSTREAM
+wxUSE_STD_IOSTREAM                      std_iostreams
 wxUSE_STD_STRING_CONV_IN_WXSTRING
 wxUSE_STOPWATCH
-wxUSE_STREAMS
+wxUSE_STREAMS                           streams
 wxUSE_SVG
-wxUSE_TARSTREAM
+wxUSE_TARSTREAM                         tarstream
 wxUSE_TASKBARBUTTON
 wxUSE_TASKBARICON
 wxUSE_TASKBARICON_BALLOONS
 wxUSE_TEXTBUFFER
-wxUSE_TEXTCTRL
-wxUSE_TEXTDLG
+wxUSE_TEXTCTRL                          textctrl
+wxUSE_TEXTDLG                           textdlg
 wxUSE_TEXTFILE
 wxUSE_THEME_GTK
 wxUSE_THEME_METAL
 wxUSE_THEME_MONO
 wxUSE_THEME_WIN32
 wxUSE_THREADS
-wxUSE_TIMEPICKCTRL
-wxUSE_TIPWINDOW
-wxUSE_TOGGLEBTN
+wxUSE_TIMEPICKCTRL                      timepick
+wxUSE_TIPWINDOW                         tipwindow
+wxUSE_TOGGLEBTN                         togglebtn
 wxUSE_TOOLBAR
 wxUSE_TOOLBAR_NATIVE
-wxUSE_TOOLBOOK
+wxUSE_TOOLBOOK                          toolbook
 wxUSE_TOOLTIPS
-wxUSE_TREEBOOK
-wxUSE_TREECTRL
-wxUSE_TREELISTCTRL
-wxUSE_UIACTIONSIMULATOR
+wxUSE_TREEBOOK                          treebook
+wxUSE_TREECTRL                          treectrl
+wxUSE_TREELISTCTRL                      treelist
+wxUSE_UIACTIONSIMULATOR                 uiactionsim
 wxUSE_UNICODE
 wxUSE_UNSAFE_WXSTRING_CONV
-wxUSE_URL
-wxUSE_UXTHEME
+wxUSE_URL                               url
+wxUSE_UXTHEME                           uxtheme
 wxUSE_VALIDATORS
-wxUSE_VARIANT
+wxUSE_VARIANT                           variant
 wxUSE_WCHAR_T
 wxUSE_WEBVIEW
 wxUSE_WEBVIEW_IE
 wxUSE_WEBVIEW_WEBKIT
 wxUSE_WEBVIEW_WEBKIT2
 wxUSE_WINRT
-wxUSE_WIZARDDLG
-wxUSE_WXHTML_HELP
+wxUSE_WIZARDDLG                         wizarddlg
+wxUSE_WXHTML_HELP                       htmlhelp
 wxUSE_XLOCALE
 wxUSE_XML
 wxUSE_XPM
 wxUSE_XRC
-wxUSE_ZIPSTREAM
+wxUSE_ZIPSTREAM                         zipstream
 wxUSE_ZLIB
