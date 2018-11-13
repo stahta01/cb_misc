@@ -1,0 +1,19 @@
+build diffs.txt
+
+N configure: loading site script /etc/config.site
+
+N checking for gnatmake... gnatmake
+N checking whether compiler driver understands Ada... yes
+
+*** checking for msgfmt... /mingw32/bin/msgfmt
+* checking for gmsgfmt... /mingw32/bin/msgfmt
+? checking for xgettext... /mingw32/bin/xgettext
+? checking for msgmerge... /mingw32/bin/msgmerge
+
+*** checking for GNU gettext in libintl... yes
+
+* checking where the gettext function comes from... external libintl
+* checking how to link with libintl... /mingw32/lib/libintl.a /mingw32/lib/libiconv.a
+? checking for aclocal... aclocal
+? checking for autoconf... autoconf
+? checking for autoheader... autoheader
