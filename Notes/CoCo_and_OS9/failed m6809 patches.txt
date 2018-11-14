@@ -1,0 +1,32 @@
+failed m6809 patches.txt
+
+Skipped patched that only patch build-6809/testsuite/gcc.sum
+  0003-Update-smoketest-results.patch
+  0006-Update-smoketest-results-49-new-passes.patch
+  0009-Update-smoketest-results.patch
+  0015-Update-smoketest-results.patch
+  0020-Update-smoketest-results-many-new-passes.patch
+  0022-Update-smoketest-many-new-passes-due-to-newlib-write.patch
+  0028-Run-smoketest-on-3.4.6.patch
+  0036-Update-smoketest.-A-few-new-failures-a-few-passes.-O.patch
+  0038-Update-smoketest-last-commit-fixes-one-test.patch
+  0040-Rerun-smoketest-after-rebuilding-newlib-with-latest-.patch
+
+
+Partly Applied  
+  0001-Add-m6809-backend.patch
+  0005-m6809-Fix-mark-bad-testcases.patch
+  0011-Clean-test-cases-for-6809.patch
+  0039-Modify-testcases-which-don-t-work-on-the-6809-proper.patch
+
+Patches that likely needs major edit for it to apply 
+  0032-Enable-peepholing-of-prologue-epilogue-instructions.patch
+
+
+Patch failed at 0005 Modify testcases which don't work on the 6809 properly.
+
+git status -uno
+
+git am *.patch
+
+git apply --reject
