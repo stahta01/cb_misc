@@ -1,5 +1,21 @@
 failed m6809 patches.txt
 
+Important search terms
+  __m6809__
+  __m6309__
+
+Folders that was added to gcc6809
+  as
+  binutils
+  build-6809
+  gcc/config/m6809
+  gcc/testsuite/gcc.target/m6809
+
+Important GCC files modified by gcc6809
+  gcc/config.gcc
+  gcc/longlong.h
+
+
 Types of patches
   git
   smoketest
@@ -56,7 +72,6 @@ Patches that likely needs major edit for it to apply
   0148-register-copy-propagation-issue-removed-workaround-a.patch
   0158-Fix-double-defined-symbols.patch
 
-Patch failed at 0010 Fix double defined symbols
 
 git am 01*.patch
 
