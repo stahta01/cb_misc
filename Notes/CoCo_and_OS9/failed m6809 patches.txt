@@ -1,5 +1,20 @@
 failed m6809 patches.txt
 
+Types of patches
+  git
+  smoketest
+  asBackEnd
+  configure
+  testsuite
+  maintainer-scripts
+  binutils
+  build-6809/
+  libgcc
+  gccXXX
+    gccPeepholing
+    gccConfig
+  libstdc++-v3
+
 Skipped patched that only patch build-6809/testsuite/gcc.sum
   0003-Update-smoketest-results.patch
   0006-Update-smoketest-results-49-new-passes.patch
@@ -18,15 +33,37 @@ Partly Applied
   0005-m6809-Fix-mark-bad-testcases.patch
   0011-Clean-test-cases-for-6809.patch
   0039-Modify-testcases-which-don-t-work-on-the-6809-proper.patch
+  0051-improved-crt0.S-for-other-platform.patch
+  0056-add-support-for-C-exception-handling.patch
+  0057-fix-error-with-pod2man-version-2.4.2-added-pod2man-f.patch
+  0097-rewrite-library-system-huge-linker-speed-gain-suppor.patch
+  0105-cleanup.patch
+  0108-updraded-asx-to-V5.10.patch
+  0109-upgraded-asx-to-V5.11-added-home.htm.patch
+  0111-updated-asxmak.patch
+  0112-try-to-keep-asx-makefile-as-vanilla-as-possible.patch
+  0115-minor-changes.patch
+  0116-removed-dependencies-to-external-tools-minor-edit-to.patch
+  0135-applied-a-patch-to-prevent-naked-function-from-creat.patch
 
 Patches that likely needs major edit for it to apply 
   0032-Enable-peepholing-of-prologue-epilogue-instructions.patch
+  0043-use-proper-target-name.patch
+  0058-fix-makeinfo-error-added-flag-force.patch
+  0061-added-no-warn-flag-to-makeinfo.patch
+  0113-fixed-compile-issue-with-gcc-5.patch
+  0133-workaround-for-a-code-generation-bug.patch
+  0148-register-copy-propagation-issue-removed-workaround-a.patch
+  0158-Fix-double-defined-symbols.patch
 
+Patch failed at 0010 Fix double defined symbols
 
-Patch failed at 0005 Modify testcases which don't work on the 6809 properly.
+git am 01*.patch
+
+ls -1 01*.patch
 
 git status -uno
 
-git am *.patch
+git apply --reject .save
 
-git apply --reject
+git am 
