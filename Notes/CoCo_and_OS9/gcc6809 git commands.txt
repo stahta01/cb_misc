@@ -1,0 +1,6 @@
+gcc6809 git commands.txt
+
+git checkout temp && git format-patch gcc-4_3-branch
+
+
+git checkout gcc6809-4_6_branch && git format-patch --start-number 1000 gcc-4_6-branch
