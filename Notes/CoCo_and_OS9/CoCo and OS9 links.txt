@@ -19,25 +19,7 @@ dftools             Updated ? years ago by dfffffff
 
 gcc6809-4_3_6
 
-git prune && git gc && exit
 
-git fsck --help
-
-
-git checkout gcc6809-4_3_branch && git branch -D temp
-
-ls *.patch #1397
-
-git checkout temp && git format-patch gcc-4_3-branch
-
-
-ls *.patch #1397
-
-
-FIXUP GOES TO "Add m6809 backend"
-
-git checkout gcc6809-4_6_branch
-git rebase -i gcc-4_6-branch
 
 https://gitlab.com/stahta01
 
