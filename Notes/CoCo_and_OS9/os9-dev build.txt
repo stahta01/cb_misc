@@ -1,21 +1,28 @@
-os9-dev build.txt
-
-autoconf automake
-
 
 pacman -Syuu --noconfirm
 
 pacman -S --needed --noconfirm perl && source /etc/profile
 
-pacman -S --needed --noconfirm mingw-w64-i686-gcc
+# 32 bit only
+#   export MINGW_INSTALLS=mingw32
+#   pacman -S --needed --noconfirm mingw-w64-i686-gcc
 
-#   pacman -S --needed base-devel mingw-w64-i686-toolchain
+# 64 bit only
+#   export MINGW_INSTALLS=mingw64
+#   pacman -S --needed --noconfirm mingw-w64-x86_64-gcc
 
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/os9-dev/lwtools
-#   MINGW_INSTALLS=mingw32 makepkg-mingw -sLf
-pacman -U --noconfirm mingw-w64-i686-lwtools-4.15-1-any.pkg.tar.xz
+# Both 32 and 64 bit
+#   pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-x86_64-gcc
 
 
-cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/os9-dev/gcc6809
-MINGW_INSTALLS=mingw32 makepkg-mingw -sLfC --asdeps --needed --noconfirm
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/os9-dev/mingw-w64-toolshed
+makepkg-mingw -sLfC --asdeps --needed --noconfirm
 
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/os9-dev/mingw-w64-lwtools
+#   makepkg-mingw -sLfC
+pacman -U --noconfirm mingw-w64-*-lwtools-*-any.pkg.tar.xz
+
+
+cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/os9-dev/mingw-w64-gcc6809
+makepkg-mingw -sLfC --asdeps --needed --noconfirm
