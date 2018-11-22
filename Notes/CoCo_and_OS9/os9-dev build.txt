@@ -25,4 +25,5 @@ pacman -U --noconfirm mingw-w64-*-lwtools-*-any.pkg.tar.xz
 
 
 cd $HOMEDRIVE/Users/$USER/devel/open_source_code/version_control/git_repos/os9-dev/mingw-w64-gcc6809
-makepkg-mingw -sLfC --asdeps --needed --noconfirm
+#   makepkg-mingw -sLf --asdeps --needed --noconfirm
+pacman -U --noconfirm
