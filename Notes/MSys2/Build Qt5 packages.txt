@@ -1,5 +1,40 @@
 Build Qt5 packages.txt
 
+pacman-conf --version
+pacman-conf --help
+
+pacman-conf -r msys
+
+#CacheDir    = /var/cache/pacman/pkg/
+CacheDir    = /c/msys2/pkg
+
+sed --version
+
+
+
+# One time build tools installation
+pacman -S --asdeps --needed --noconfirm base-devel
+# for building mingw32 packages
+pacman -S --asdeps --needed --noconfirm mingw-w64-i686-toolchain
+# for building mingw64 packages
+pacman -S --asdeps --needed --noconfirm mingw-w64-x86_64-toolchain
+
+
+# Change to qt5 folder and build 64 bit package with log
+cd C:/PKGBUILD/mingw-w64-qt5 && MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
+# MINGW_INSTALLS=mingw64 makepkg-mingw -RLf # Repackage
+#   rm -fr C:/PKGBUILD/mingw-w64-qt5/src/x86_64
+
+
+# Change to qt5-static package folder and build after installing depends
+cd C:/PKGBUILD/mingw-w64-qt5-static && MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
+
+#   rm -fr C:/PKGBUILD/mingw-w64-qt5-static/src/i686
+#   rm -fr C:/PKGBUILD/mingw-w64-qt5-static/src/x86_64
+#   rm -fr C:/PKGBUILD/mingw-w64-qt5/src/i686
+
+
+
 dos2unix 7.3.4-1 (base-devel)
 
 
