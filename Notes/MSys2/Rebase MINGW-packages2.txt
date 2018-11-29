@@ -4,12 +4,15 @@ $ git remote -v
 
 
 $ git branch --list
-? DO_NOT_MERGE
+  DO_NOT_MERGE
   build_tools
   cleanup
+? cmake
   issues
 * master
   qt5-git
+? qt5-modules
+  qt5-package
   qt5.9-staging
 
 
@@ -27,6 +30,9 @@ git checkout cleanup && git status
 #   git rebase --ignore-date master
 
 git checkout qt5-git        && git pull && git rebase master && git status -uno && \
+git push --force-with-lease
+
+git checkout qt5-package    && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
 git checkout qt5.9-staging  && git pull && git rebase master && git status -uno && \
