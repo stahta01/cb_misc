@@ -3,6 +3,8 @@ failed m6809 patches.txt
 Important search terms
   __m6809__
   __m6309__
+  M6809STRICT
+  SDCDB
 
 Folders that was added to gcc6809
   as

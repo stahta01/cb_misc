@@ -27,6 +27,7 @@ ASxxxx Cross Assemblers
 https://github.com/nejohnson/asmxxx
 
 http://shop-pdp.net/ashtml/asxget.php
+http://shop-pdp.net/ashtml/asxarc.php
 http://shop-pdp.net/_ftp/asxxxx/asxs5p20.zip
 http://shop-pdp.net/_ftp/asxxxx/av5p10.zip
 http://shop-pdp.net/_ftp/asxxxx/u01510.zip
