@@ -1,5 +1,15 @@
 CoCo and OS9 links.txt
 
+http://hc12web.de/
+https://www.gnu.org/software/m68hc11/m68hc11_inst_ptc.html  GCC=3.3.1
+http://m68hc11.serveftp.org/m68hc11_inst_ptc.php            GCC=3.3.1
+http://www.msextra.com/tools/                               GCC=3.3.6
+http://www.seattlerobotics.org/encoder/200109/encoder.htm
+http://freehc12.gibibit.com/Toolchain_build                 GCC=4.2     4.2.4 20080411 (prerelease) (gcc-4_2-branch SVN rev 134197)
+svn update -r 134197
+
+http://data.mecheng.adelaide.edu.au/robotics/WWW_Devs/Dragon12/Dragon12.htm
+
 https://www.openhub.net/p/gcc6809
 3.4.6     http://www.macmess.org/downloads/gcc6809-CoCo-20071007-source.zip
 4.3.4-2   https://sourceforge.net/projects/freewpc/files/GCC-6809/
@@ -45,7 +55,14 @@ GCC 4.4.7   March 13, 2012    Last 4.4 release
 GCC 4.3.6   June 27, 2011     Last 4.3 release
 GCC 4.3.5   May 22, 2010
 GCC 4.3.4   August 4, 2009
+GCC 4.2.4	  May 19, 2008      Last 4.2 release
+GCC 4.3.0	  March 5, 2008
+GCC 4.2.3	  February 1, 2008  SVN r132045
 
+
+https://www.gnu.org/software/gcc/gcc-4.2/
+
+https://gcc.gnu.org/gcc-4.2/changes.html
 https://gcc.gnu.org/gcc-4.3/changes.html
 https://gcc.gnu.org/gcc-4.4/changes.html
 https://gcc.gnu.org/gcc-4.5/changes.html
