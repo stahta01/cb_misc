@@ -5,16 +5,17 @@ $ git remote -v
 
 $ git branch --list
   DO_NOT_MERGE
+  arm-none-eabi
   build_tools
-  cleanup
-? cmake
+? cleanup
+  cmake
   issues
 * master
   qt5-git
 ? qt5-modules
   qt5-package
   qt5.9-staging
-
+  staging
 
 # Rebase master and cleanup branches
 git checkout master && git fetch origin && git pull upstream master && git status -uno
@@ -28,6 +29,11 @@ git checkout cleanup && git status
 
 #   git rebase -i master
 #   git rebase --ignore-date master
+
+
+git checkout arm-none-eabi  && git pull && git rebase master && git status -uno && \
+git push --force-with-lease
+
 
 git checkout qt5-git        && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
