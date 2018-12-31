@@ -103,4 +103,4 @@ git push --force-with-lease
 git checkout cleanup && git status
 
 git checkout master && \
-git fsck --connectivity-only && git prune && git fsck && git gc && git prune && exit
+git fsck --connectivity-only && git prune && git repack -d && git fsck && git gc && git prune && exit
