@@ -2,13 +2,15 @@ CoCo and OS9 links.txt
 
 http://hc12web.de/
 https://www.gnu.org/software/m68hc11/m68hc11_inst_ptc.html  GCC=3.3.1
-http://m68hc11.serveftp.org/m68hc11_inst_ptc.php            GCC=3.3.1
+http://m68hc11.serveftp.org/m68hc11_inst_ptc.php            GCC=3.3.5
 http://www.msextra.com/tools/                               GCC=3.3.6
 http://www.seattlerobotics.org/encoder/200109/encoder.htm
 http://freehc12.gibibit.com/Toolchain_build                 GCC=4.2     4.2.4 20080411 (prerelease) (gcc-4_2-branch SVN rev 134197)
 svn update -r 134197
 
 http://data.mecheng.adelaide.edu.au/robotics/WWW_Devs/Dragon12/Dragon12.htm
+
+https://ftp.gnu.org/pub/gnu/gcc
 
 https://www.openhub.net/p/gcc6809
 3.4.6     http://www.macmess.org/downloads/gcc6809-CoCo-20071007-source.zip
@@ -58,15 +60,19 @@ GCC 4.3.4   August 4, 2009
 GCC 4.2.4	  May 19, 2008      Last 4.2 release
 GCC 4.3.0	  March 5, 2008
 GCC 4.2.3	  February 1, 2008  SVN r132045
+GCC 4.2.0	  May 13, 2007
 
+https://ftp.gnu.org/pub/gnu/gcc
 
 https://www.gnu.org/software/gcc/gcc-4.2/
 
+https://gcc.gnu.org/gcc-3.3/changes.html
 https://gcc.gnu.org/gcc-4.2/changes.html
 https://gcc.gnu.org/gcc-4.3/changes.html
 https://gcc.gnu.org/gcc-4.4/changes.html
 https://gcc.gnu.org/gcc-4.5/changes.html
 https://gcc.gnu.org/gcc-4.6/changes.html obsolete Motorola 68HC11 and 68HC12
+https://gcc.gnu.org/gcc-4.7/changes.html Last C based GCC
 
 https://gitlab.com/dfffffff/gcc6809.git
 
@@ -75,3 +81,10 @@ git clone https://gitlab.com/stahta01/gcc6809.git gcc6809_gitlab
 
 http://vectrex.malban.de/preliminary/3f057e5b.html
 http://toolshed.sourceforge.net/gcc-explorer/gcc6809-tutorial
+https://embarc.org/toolchain/maintainer/manual-build.html
+http://pipeline.lbl.gov/code/3rd_party/licenses.win/gcc-3.4.4-999/INSTALL/configure.html
+https://gcc.gnu.org/install/configure.html
+http://flash.uchicago.edu/~jbgallag/configure.html
+https://wiki.archlinux.org/index.php/Cross-compiling_tools_package_guidelines
+https://wiki.osdev.org/GCC_Cross-Compiler
+http://www.liblfds.org/mediawiki/index.php?title=Building_GCC#Table_of_GCC.2C_GCC_Dependency.2C_glibc_and_numactl_Release_Dates
