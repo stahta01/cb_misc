@@ -1,0 +1,9 @@
+4.6.4 See http://ppa.launchpad.net/tormodvolden/m6809 for patch files
+          https://launchpad.net/gcc-arm-embedded/+milestone/4.6-2012-q4-update
+      and https://gcc.gnu.org/svn/gcc/branches/ARM/embedded-4_6-branch/
+
+
+Version Information
+GCC         binutils   newlib   Status
+4.6.4       2.19.1     1.20.0   Builds without error in newlib
+4_6-2012q4  2.21+      1.19.0+  Build Error: binutils build error looks like an win32 issue
