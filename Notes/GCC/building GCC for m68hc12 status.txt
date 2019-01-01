@@ -8,5 +8,5 @@ https://github.com/stahta01/gcc4.3/tree/m6812
 
 
 Version Information
-GCC    binutils   newlib   Status
-4.3.6  2.19.1     1.20.0   ? Boot GCC Builds; but, internal compiler error on building Newlib
+GCC     binutils   newlib   Status
+4.3.6   2.19.1     1.20.0   Boot GCC Builds; but, internal compiler error on building Newlib
