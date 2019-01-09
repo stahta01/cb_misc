@@ -1,12 +1,14 @@
 https://github.com/stahta01/gcc4.3/tree/m6809
 
 4.6.4 See http://ppa.launchpad.net/tormodvolden/m6809 for patch files
-          https://launchpad.net/gcc-arm-embedded/+milestone/4.6-2012-q4-update
-      and https://gcc.gnu.org/svn/gcc/branches/ARM/embedded-4_6-branch/
 4.3.6 See https://gitlab.com/dfffffff/gcc6809 for patch files
 
 
 Version Information
-GCC    binutils   newlib   Status
-4.6.4  
-4.3.6  2.19.1     1.20.0   ? 
+GCC    AS6809    newlib   Status
+4.6.4            1.20.0   ? 
+4.3.6            1.20.0   ? 
+
+GCC    LWTOOLS   newlib   Status
+4.6.4            1.20.0   ? 
+4.3.6            1.20.0   ? 

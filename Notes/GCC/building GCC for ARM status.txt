@@ -1,9 +1,19 @@
-4.6.4 See http://ppa.launchpad.net/tormodvolden/m6809 for patch files
-          https://launchpad.net/gcc-arm-embedded/+milestone/4.6-2012-q4-update
+https://developer.arm.com/open-source/gnu-toolchain/gnu-rm
+
+4.6.4 See https://launchpad.net/gcc-arm-embedded/+milestone/4.6-2012-q4-update
       and https://gcc.gnu.org/svn/gcc/branches/ARM/embedded-4_6-branch/
 
 
 Version Information
-GCC         binutils   newlib   Status
-4.6.4       2.19.1     1.20.0   Builds without error in newlib
+GCC/ARM     binutils   newlib   Status
+8-2018q4    2.31+      3.0.0    Builds without error
+7-2018q2    2.30+      3.0.0    Builds without error
 4_6-2012q4  2.21+      1.19.0+  Build Error: binutils build error looks like an win32 issue
+4.6.4       2.19.1     1.20.0   Builds without error in newlib; but, full GCC fails to build
+4.5.0       2.19.1     1.20.0   cfns.gperf:101:1: error: 'gnu_inline' attribute present on 'libc_name_p'
+4.3.6       2.19.1     1.20.0   Builds without error in newlib; but, full GCC fails to build src-gcc/libiberty/strsignal.c:408: error: conflicting types for 'strsignal'
+
+
+8-2018q4    has GCC version 8.2.1
+7-2018q2    has GCC version 7.3.1
+4_6-2012q4  has GCC version 4.6.2
