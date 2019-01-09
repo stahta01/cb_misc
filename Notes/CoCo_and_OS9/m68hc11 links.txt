@@ -1,0 +1,32 @@
+m68hc12 links.txt
+
+ftp://ftp.realtime.bc.ca/pub/gnu-hc1x/  Patches for GCC 2.8
+
+http://www.faqs.org/faqs/microcontroller-faq/68hc11/
+
+https://www.gnu.org/software/m68hc11/m68hc11_binutils.html
+
+https://www.gnu.org/software/m68hc11/m68hc11_pkg_zip.html
+
+http://hc12web.de/
+http://www.seattlerobotics.org/encoder/200109/encoder.htm   Before GCC=3.3.1
+https://www.gnu.org/software/m68hc11/m68hc11_inst_ptc.html  GCC=3.3.1
+http://m68hc11.serveftp.org/m68hc11_inst_ptc.php            GCC=3.3.1
+http://www.msextra.com/tools/                               GCC=3.3.6
+http://freehc12.gibibit.com/Toolchain_build                 GCC=4.2     4.2.4 20080411 (prerelease) (gcc-4_2-branch SVN rev 134197)
+svn update -r 134197
+
+http://data.mecheng.adelaide.edu.au/robotics/WWW_Devs/Dragon12/Dragon12.htm
+
+
+http://freehc12.gibibit.com/files/newlib-1.16.0.tar.gz
+
+http://hc12web.de/
+https://www.gnu.org/software/m68hc11/m68hc11_inst_ptc.html  GCC=3.3.1
+http://m68hc11.serveftp.org/m68hc11_inst_ptc.php            GCC=3.3.5
+http://www.msextra.com/tools/                               GCC=3.3.6
+http://www.seattlerobotics.org/encoder/200109/encoder.htm
+http://freehc12.gibibit.com/Toolchain_build                 GCC=4.2     4.2.4 20080411 (prerelease) (gcc-4_2-branch SVN rev 134197)
+svn update -r 134197
+
+http://data.mecheng.adelaide.edu.au/robotics/WWW_Devs/Dragon12/Dragon12.htm
