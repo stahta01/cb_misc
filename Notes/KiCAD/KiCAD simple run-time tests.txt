@@ -1,0 +1,24 @@
+1. Verify build version information is displayed
+   Help -> About KiCad
+   button: "Show Version Info"
+
+2. Verify help works
+   Help -> KiCad Manual
+     Should open help information in web browser
+
+3. Verify the main menu options work
+   Tools -> Edit Schematic
+      Opens Eeschema; may have to click OK in "Project Rescue Helper"
+   Tools -> Edit Schematic Symbols
+      Opens "Symbol Library Editor"
+   Tools -> Edit PCB Layout
+      Opens Pcbnew
+   Tools -> View Gerber Files
+      Opens GerbView
+
+4. Verify the program paths are correct
+   Preferences -> Configure Paths
+      These are normally not correct
+   NEEDS FIXED!!
+
+http://docs.kicad-pcb.org/doxygen/md_Documentation_development_compiling.html
