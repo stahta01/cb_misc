@@ -1,17 +1,16 @@
 $ git branch --list
-  DO_NOT_MERGE
+? DO_NOT_MERGE
+? arm-none-eabi
   cleanup
   cmake/apps
   configure/apps
-  games
-D gettext
+  games             move into gmake/apps
   gmake/apps
-  gui/libs
-? issues
-  kicad
-  maintainer
+? gui/libs
+D issues
+  kicad-staging
+? maintainer        move into kicad-staging after it has been tested more.
 * master
-? mingw64/libs
   staging
   wxpython
   wxpython-staging

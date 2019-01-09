@@ -4,12 +4,13 @@ $ git remote -v
 
 
 $ git branch --list
-  DO_NOT_MERGE
+? DO_NOT_MERGE
   arm-none-eabi
   build_tools
-? cleanup
+  cleanup
   cmake
-  issues
+  cross-gcc
+D issues
 * master
   qt5-git
 ? qt5-modules
@@ -30,6 +31,8 @@ git checkout cleanup && git status
 #   git rebase -i master
 #   git rebase --ignore-date master
 
+git checkout cross-gcc      && git pull && git rebase master && git status -uno && \
+git push --force-with-lease
 
 git checkout arm-none-eabi  && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
@@ -50,12 +53,9 @@ git push --force-with-lease
 git checkout issues         && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout DO_NOT_MERGE   && git pull && git rebase master && git status -uno && \
-git push
-
 
 
 git checkout cleanup && git status
 
 git checkout master && \
-git fsck --connectivity-only && git prune && git fsck && git gc && git prune && exit
+git fsck --connectivity-only && git prune && git fsck && git repack && git gc && git prune && exit
