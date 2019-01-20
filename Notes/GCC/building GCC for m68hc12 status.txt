@@ -8,5 +8,16 @@ Version Information
 GCC     binutils   newlib   Status
 4.3.6   2.19.1     1.20.0   Boot GCC Builds; but, internal compiler error on building Newlib
 
+ GCC   binutils    newlib   Status
+4.3.6   2.19.1     1.20.0   Boot GCC Builds; but, internal compiler error on building Newlib
+4.3.6   2.19.1     1.15.0   newlib configure error more than one host mentioned in error
+4.3.6   2.19.1     1.16.0   Boot GCC Builds; but, internal compiler error on building Newlib
+4.2-svn 2.19.1     1.16.0   Boot GCC configure: error: can only configure for one host and one target at a time
+4.3.6+  2.19.1     1.16.0+  Boot GCC Builds; but, internal compiler error on building Newlib
+4.4.7+  2.19.1     1.16.0+  Boot GCC Builds; but, internal compiler error on building Newlib
+4.5.4+  2.19.1     1.16.0+  Boot GCC Builds; but, internal compiler error on building Newlib
+
+newlib 1.16.0+ means building without s12x patches; but, with most 6809 patches
+
 
 GCC     AS6812     newlib   Status

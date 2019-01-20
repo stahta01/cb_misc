@@ -1,5 +1,21 @@
 CoCo and OS9 links.txt
 
+http://www.mingw.org/wiki/HostedCrossCompilerHOWTO
+
+https://www.aslak.net/index.php/2018/03/07/exploring-c-compilers-for-the-6809/
+https://code.google.com/archive/p/gcc6809/downloads
+https://launchpad.net/~tormodvolden/+archive/ubuntu/m6809
+https://wiki.osdev.org/Target_Triplet
+https://www.openhub.net/p/gcc6809
+http://sdcc.sourceforge.net/
+  sdas and sdld, a retargettable assembler and linker, based on ASXXXX, written by Alan Baldwin; (GPL).
+  sdcpp preprocessor, based on GCC cpp; (GPL).
+  ucsim simulators, originally written by Daniel Drotos; (GPL).
+  sdcdb source level debugger, originally written by Sandeep Dutta; (GPL).
+  sdbinutils library archive utilities, including sdar, sdranlib and sdnm, derived from GNU Binutils; (GPL)
+
+https://wiki.osdev.org/OS_Specific_Toolchain
+
 Disassembler
   http://www.hermannseib.com/english/opensource.htm
 
@@ -17,7 +33,7 @@ http://www.lcurtisboyle.com/nitros9/coco_game_list.html
 http://www.progettoemma.net/mess/system.php?machine=coco3
 http://www.6809coder.com/2016/12/08/how-i-confirmed-my-coco-3-rom-was-dead/
 
-
+ftp://sourceware.org/pub/newlib/index.html
 https://ftp.gnu.org/pub/gnu/gcc
 
 https://www.openhub.net/p/gcc6809
@@ -87,6 +103,8 @@ https://gitlab.com/dfffffff/gcc6809.git
 git clone https://gitlab.com/stahta01/gcc6809.git gcc6809_gitlab
 
 
+http://vectrexc.malban.de/documentation/gcc-6809-documentation
+http://www.6809.org.uk/asm6809/
 http://vectrex.malban.de/preliminary/3f057e5b.html
 http://toolshed.sourceforge.net/gcc-explorer/gcc6809-tutorial
 https://embarc.org/toolchain/maintainer/manual-build.html

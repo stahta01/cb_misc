@@ -1,5 +1,8 @@
 m68hc12 links.txt
 
+http://www.chiark.greenend.org.uk/doc/gcc-4.3-doc/gcc.html
+http://pipeline.lbl.gov/code/3rd_party/licenses.win/gcc-3.4.4-999/INSTALL/specific.html
+
 ftp://ftp.realtime.bc.ca/pub/gnu-hc1x/  Patches for GCC 2.8
 
 http://www.faqs.org/faqs/microcontroller-faq/68hc11/
