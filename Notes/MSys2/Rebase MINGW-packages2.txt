@@ -50,10 +50,6 @@ git push --force-with-lease
 git checkout build_tools    && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout issues         && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
-
-
 
 git checkout cleanup && git status
 
