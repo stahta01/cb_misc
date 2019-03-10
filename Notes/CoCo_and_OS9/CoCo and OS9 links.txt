@@ -1,5 +1,30 @@
 CoCo and OS9 links.txt
 
+https://www.gurucoding.com/en/rpi_cross_compiler/index.php
+https://www.gurucoding.com/en/rpi_cross_compiler/downloading_files.php
+Download source code for 
+gcc-4.6.3 and binutils-2.22
+eglibc-2.13
+gmp-5.0.1, mpfr-3.0.1 and mpc-0.9
+Linux kernel (3.2.21 will do).
+https://www.gurucoding.com/en/rpi_cross_compiler/downloads/patches-for-raspberry-pi-toolchain.tar.gz
+
+Raspberry Pi 3 = ARMv8
+TARGET=arm-linux-gnueabihf
+TARGET=arm-linux-gnueabi
+
+arm-linux-eabi-binutils
+
+https://medium.com/@zw3rk/making-a-raspbian-cross-compilation-sdk-830fe56d75ba
+
+http://www.billgatliff.com/newlib.html
+
+https://hackaday.io/project/345-hd6309-singleboard-computer
+
+http://searle.hostei.com/grant/6809/Simple6809.html
+
+http://www.gweep.net/~shifty/music/miragehack/
+
 http://labor-liber.org/en/gnu-linux/development/index.php?diapo=extensions
 .s	Assembler code.
 .S	Assembler code which must be preprocessed.
@@ -9,6 +34,13 @@ https://www.gnu.org/software/gcc/codingconventions.html#CandCxx
 https://www.ee.ryerson.ca/~kclowes/stand-alone/CodingStandards/CodingStdAsm/index.html
 
 http://www.linuxfromscratch.org/lfs/view/6.6/chapter05/gcc-pass1.html
+
+https://gcc.gnu.org/onlinedocs/gcc-4.8.4/gcc/Other-Builtins.html
+https://gcc.gnu.org/onlinedocs/gcc-4.7.4/gcc/Other-Builtins.html
+https://gcc.gnu.org/onlinedocs/gcc-4.6.4/gcc/Other-Builtins.html
+
+https://gcc.gnu.org/onlinedocs/gcc-4.4.7/gcc/Other-Builtins.html
+https://gcc.gnu.org/onlinedocs/gcc-4.3.6/gcc/Other-Builtins.html
 
 https://gcc.gnu.org/onlinedocs/gcc-4.7.4/gccint/
 https://gcc.gnu.org/onlinedocs/gcc-4.6.4/gccint/
