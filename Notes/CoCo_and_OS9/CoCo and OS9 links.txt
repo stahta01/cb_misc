@@ -1,5 +1,12 @@
 CoCo and OS9 links.txt
 
+https://developer.arm.com/open-source/gnu-toolchain/gnu-rm
+
+https://help.github.com/en/articles/creating-releases
+
+Arm Wizard
+http://forums.codeblocks.org/index.php/topic,19345.msg157748/topicseen.html#msg157748
+
 https://www.gurucoding.com/en/rpi_cross_compiler/index.php
 https://www.gurucoding.com/en/rpi_cross_compiler/downloading_files.php
 Download source code for 
