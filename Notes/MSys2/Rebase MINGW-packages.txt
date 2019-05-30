@@ -3,20 +3,25 @@ $ git branch --list
 ? arm-none-eabi
   cleanup
   cmake/apps
+  codelite-staging
   configure/apps
-  games             move into gmake/apps
+D games
+  gcc-staging
+  gcc-testing
   gmake/apps
 ? gui/libs
-D issues
   kicad-staging
-? maintainer        move into kicad-staging after it has been tested more.
-* master
-  staging
+? maintainer
+  master
+  mingw-w64-libserialport-git
+  qt5-git
+* staging
+  temp
+  testing
   wxpython
   wxpython-staging
   wxwidgets
   wxwidgets-staging
-
 
 rm .git/index && git reset --hard && git status -uno
 
@@ -67,11 +72,6 @@ git checkout wxwidgets && git pull && git rebase master && git status -uno
 #   git format-patch master
 git push --force-with-lease
 
-git checkout kicad && git pull && git rebase master && git status -uno
-#   git rebase kicad-staging
-#   git format-patch master
-git push --force-with-lease
-
 git checkout configure/apps && git pull && git rebase master && git status -uno
 #   git rebase --ignore-date master
 #   git rebase -i master
@@ -82,8 +82,8 @@ git checkout gui/libs && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 git checkout gmake/apps && git pull && git rebase master && git status -uno
-#   git rebase -i master
 #   git rebase --ignore-date master
+#   git rebase -i master
 git push --force-with-lease
 
 git checkout cmake/apps && git pull && git rebase master && git status -uno
@@ -95,11 +95,9 @@ git push --force-with-lease
 git checkout maintainer && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
-git checkout games && git pull && git rebase master && git status -uno
-git push --force-with-lease
-
 
 git checkout cleanup && git status
+#   git clean -id
 
 git checkout master && \
 git fsck --connectivity-only && git prune && git repack -d && git fsck && git gc && git prune && exit

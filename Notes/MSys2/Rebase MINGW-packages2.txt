@@ -10,12 +10,9 @@ $ git branch --list
   cleanup
   cmake
   cross-gcc
-D issues
 * master
   qt5-git
-? qt5-modules
-  qt5-package
-  qt5.9-staging
+? qt5.9-staging
   staging
 
 # Rebase master and cleanup branches
@@ -41,17 +38,12 @@ git push --force-with-lease
 git checkout qt5-git        && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout qt5-package    && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
-
-git checkout qt5.9-staging  && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
-
 git checkout build_tools    && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
 
 git checkout cleanup && git status
+#   git clean -id
 
 git checkout master && \
 git fsck --connectivity-only && git prune && git fsck && git repack && git gc && git prune && exit
