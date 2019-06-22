@@ -1,26 +1,14 @@
 Need to verify the proper link order for GCC.
-Also, check wxWidgets makefile and wx-config 
+Also, check wxWidgets makefile and wx-config
 
-codeblocks
-propgrid
+# Windows file naming pattern
+wxmsw$(WX_VERSION)$(WX_SUFFIX)_richtext
 wxmsw$(WX_VERSION)$(WX_SUFFIX)_propgrid
 wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui
-wxmsw$(WX_VERSION)$(WX_SUFFIX)_richtext
 wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc
-wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv
 wxmsw$(WX_VERSION)$(WX_SUFFIX)_html
+wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv
 wxmsw$(WX_VERSION)$(WX_SUFFIX)_core
-wxbase$(WX_VERSION)$(WX_SUFFIX)_net
 wxbase$(WX_VERSION)$(WX_SUFFIX)_xml
+wxbase$(WX_VERSION)$(WX_SUFFIX)_net
 wxbase$(WX_VERSION)$(WX_SUFFIX)
-
-<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_propgrid" />
-<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_aui" />
-<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_richtext" />
-<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_xrc" />
-<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_adv" />
-<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_html" />
-<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)_core" />
-<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_net" />
-<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)_xml" />
-<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />

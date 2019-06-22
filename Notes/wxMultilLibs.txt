@@ -1,4 +1,5 @@
 # Windows Naming pattern
+wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_richtext
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_propgrid
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_aui
 wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_xrc
