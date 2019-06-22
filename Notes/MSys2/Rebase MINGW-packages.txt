@@ -1,22 +1,15 @@
 $ git branch --list
-? DO_NOT_MERGE
-? arm-none-eabi
   cleanup
   cmake/apps
-  codelite-staging
   configure/apps
-D games
-  gcc-staging
-  gcc-testing
+? gcc4_8
   gmake/apps
-? gui/libs
+  gnome_office
   kicad-staging
 ? maintainer
-  master
-  mingw-w64-libserialport-git
-  qt5-git
-* staging
-  temp
+  meson/apps
+* master
+  staging
   testing
   wxpython
   wxpython-staging
@@ -77,10 +70,6 @@ git checkout configure/apps && git pull && git rebase master && git status -uno
 #   git rebase -i master
 git push --force-with-lease
 
-git checkout gui/libs && git pull && git rebase master && git status -uno
-#   git rebase -i master
-git push --force-with-lease
-
 git checkout gmake/apps && git pull && git rebase master && git status -uno
 #   git rebase --ignore-date master
 #   git rebase -i master
@@ -92,9 +81,17 @@ git checkout cmake/apps && git pull && git rebase master && git status -uno
 #   git rebase --ignore-date master
 git push --force-with-lease
 
+git checkout meson/apps && git pull && git rebase master && git status -uno
+git push --force-with-lease
+
 git checkout maintainer && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
+git checkout gnome_office && git pull && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout testing && git pull && git rebase master && git status -uno
+git push --force-with-lease
 
 git checkout cleanup && git status
 #   git clean -id

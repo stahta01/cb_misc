@@ -8,11 +8,13 @@ $ git branch --list
   arm-none-eabi
   build_tools
   cleanup
-  cmake
+? cmake
   cross-gcc
+  gcc-staging
+  gcc4
+  issues
 * master
-  qt5-git
-? qt5.9-staging
+  qt-package
   staging
 
 # Rebase master and cleanup branches
@@ -28,14 +30,16 @@ git checkout cleanup && git status
 #   git rebase -i master
 #   git rebase --ignore-date master
 
+git checkout gcc4           && git pull && git rebase master && git status -uno && \
+git push --force-with-lease
+
+git checkout gcc-staging    && git pull && git rebase master && git status -uno && \
+git push --force-with-lease
+
 git checkout cross-gcc      && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
 git checkout arm-none-eabi  && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
-
-
-git checkout qt5-git        && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
 git checkout build_tools    && git pull && git rebase master && git status -uno && \
