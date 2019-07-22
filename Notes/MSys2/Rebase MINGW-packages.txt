@@ -1,20 +1,17 @@
 $ git branch --list
-  cleanup
-  cmake/apps
-  configure/apps
-? gcc4_8
-  gmake/apps
-  gnome_office
-  kicad-staging
-? maintainer
-  meson/apps
+  cleanup                 +1 OK
+  cmake/apps              +2 umbrello and uncrustify
+  configure/apps          +7
+  gmake/apps              +3 syasokoban, zinjai-git, and tinybldlin move some of them
+  gnome_office            +1 OK
 * master
-  staging
-  testing
-  wxpython
-  wxpython-staging
-  wxwidgets
-  wxwidgets-staging
+  meson/apps              +0
+  staging                 +0
+  testing                 +0
+? wxpython                +2 move git repos
+  wxpython-staging        +0
+? wxwidgets               +1 OK
+  wxwidgets-staging       +0
 
 rm .git/index && git reset --hard && git status -uno
 
@@ -35,9 +32,6 @@ git checkout cleanup && git status
 
 git checkout staging && git pull && git rebase master && git push --force-with-lease
 
-
-git checkout kicad-staging && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
 
 git checkout wxpython-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
@@ -82,9 +76,6 @@ git checkout cmake/apps && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 git checkout meson/apps && git pull && git rebase master && git status -uno
-git push --force-with-lease
-
-git checkout maintainer && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 git checkout gnome_office && git pull && git rebase master && git status -uno
