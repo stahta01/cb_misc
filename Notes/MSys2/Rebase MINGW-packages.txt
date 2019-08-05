@@ -2,13 +2,13 @@ $ git branch --list
   cleanup                 +1 OK
   cmake/apps              +2 umbrello and uncrustify
   configure/apps          +7
-  gmake/apps              +3 syasokoban, zinjai-git, and tinybldlin move some of them
+  gmake/apps              +0
   gnome_office            +1 OK
 * master
   meson/apps              +0
   staging                 +0
   testing                 +0
-? wxpython                +2 move git repos
+? wxpython                +0
   wxpython-staging        +0
 ? wxwidgets               +1 OK
   wxwidgets-staging       +0
