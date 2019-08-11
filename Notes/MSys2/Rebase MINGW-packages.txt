@@ -1,7 +1,7 @@
 $ git branch --list
   cleanup                 +1 OK
   cmake/apps              +2 umbrello and uncrustify
-  configure/apps          +7
+  configure/apps          +4
   gmake/apps              +0
   gnome_office            +1 OK
 * master
