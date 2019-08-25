@@ -26,7 +26,11 @@ git checkout cleanup && git pull && git rebase master && git status -uno
 
 git checkout master && git pull upstream master && git push origin
 
-git checkout cleanup && git pull && git rebase --ignore-date master && git push --force-with-lease
+git checkout sourcedir && git pull && git push
+# git rebase --ignore-date master && git push --force-with-lease
+
+git checkout cleanup && git pull && git rebase sourcedir && \
+git rebase --ignore-date master && git push --force-with-lease
 git checkout cleanup && git status
 
 
@@ -88,4 +92,4 @@ git checkout cleanup && git status
 #   git clean -id
 
 git checkout master && \
-git fsck --connectivity-only && git prune && git repack -d && git fsck && git gc && git prune && exit
+git fsck --connectivity-only && git prune && git repack -Ad && git fsck && git gc && git prune && exit

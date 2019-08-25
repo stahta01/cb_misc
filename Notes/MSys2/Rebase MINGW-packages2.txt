@@ -5,13 +5,13 @@ $ git remote -v
 
 $ git branch --list
 ? DO_NOT_MERGE
-  arm-none-eabi           +?
+  arm-none-eabi           +9
   build_tools             +0
-  cleanup                 +1
-  cross-gcc               +?
-  gcc-staging             +?
-  gcc-testing             +?
-? gcc4
+  cleanup                 +?
+  cross-gcc               +10
+  gcc-staging             +1
+? gcc-testing             +2
+D gcc4
   issues
 * master
   qt-package              +0
