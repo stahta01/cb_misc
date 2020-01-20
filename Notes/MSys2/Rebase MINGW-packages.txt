@@ -1,11 +1,13 @@
 $ git branch --list
-  cleanup                 +1 OK
+  cleanup                 +2 OK
   cmake/apps              +2 umbrello and uncrustify
   configure/apps          +1 tidyhtml
+  freerdp
   gmake/apps              +0
   gnome_office            +1 OK
 * master
   meson/apps              +0
+  sourcedir               +1
   staging                 +0
   testing                 +0
 ? wxpython                +0
@@ -26,8 +28,8 @@ git checkout cleanup && git pull && git rebase master && git status -uno
 
 git checkout master && git pull upstream master && git push origin
 
-git checkout sourcedir && git pull && git push
-# git rebase --ignore-date master && git push --force-with-lease
+git checkout sourcedir && git pull && \
+git rebase --ignore-date master && git push --force-with-lease
 
 git checkout cleanup && git pull && git rebase sourcedir && \
 git rebase --ignore-date master && git push --force-with-lease
@@ -86,6 +88,9 @@ git checkout gnome_office && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 git checkout testing && git pull && git rebase master && git status -uno
+git push --force-with-lease
+
+git checkout freerdp && git pull && git rebase master && git status -uno
 git push --force-with-lease
 
 git checkout cleanup && git status
