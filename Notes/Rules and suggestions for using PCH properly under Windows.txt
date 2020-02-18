@@ -31,7 +31,7 @@ III.Suggested rules for using CB PCH properly
 
 
 Things that fail when using a PCH properly under Windows MinGW GCC
-   1. Have CB set to put PCH in object directly fails to work 
+   1. Have CB set to put PCH in object directly fails to work
       if pch file in compiler working folder
       it reads the normal header file instead
 
@@ -122,3 +122,6 @@ Other locations to check include src/tools
       ToDo: Fix
          tools\cb_share_config
             app.h                            wx/wxprec.h,wx/wx.h,hdrstop
+
+Move HeadersPCH to inside WX_PRECOMP block inside headers
+Move InternalHeadersPCH to inside WX_PRECOMP block inside c++ files

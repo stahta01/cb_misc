@@ -1,3 +1,8 @@
+/***************************************************************
+ * Name:      wx_pch.h
+ * Purpose:   Header to create Pre-Compiled Header (PCH)
+ **************************************************************/
+
 #ifndef WX_PCH_H_INCLUDED
 #define WX_PCH_H_INCLUDED
 

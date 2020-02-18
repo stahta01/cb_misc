@@ -5,17 +5,18 @@ NOPCH, USE_PCH, WX_PRECOMP, CB_PRECOMP
 
 WXMAKINGDLL
 
+#include "sdk.h" // Code::Blocks Pre-compiled SDK
+
 -include "sdk.h"
 -Winvalid-pch
-../../../.objs31_64/include
 
 : Add [-include "sdk.h"]
 
 CB Tools
   cb_share_config               NOPCH
   Addr2LineUI                   NOPCH
-  CBLauncher                    NOPCH
-  cbp2make                      NOPCH
+  CBLauncher                    n/a
+  cbp2make                      n/a
 
 Contrib Plugins
   AutoVersioning                ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
@@ -59,5 +60,8 @@ Contrib Plugins
   wxSmith                      *CB_PRECOMP -include "sdk.h"
   wxSmithAui                  **CB_PRECOMP -include "sdk.h"
   wxSmithContribItems         **CB_PRECOMP -include "sdk.h"
+
+-Winvalid-pch
+-include "sdk.h"
 
 ** Means the project source code needs edited
