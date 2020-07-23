@@ -5,17 +5,17 @@ $ git remote -v
 
 $ git branch --list
 ? DO_NOT_MERGE
-  arm-none-eabi           +9
   build_tools             +0
-  cleanup                 +?
+  cleanup                 +2
   cross-gcc               +10
-  gcc-staging             +1
-? gcc-testing             +2
-D gcc4
-  issues
+  gtk3
+  julia1.1.1
+  julia1.4.x-staging
+  julia1.x.x-staging
 * master
-  qt-package              +0
+  sourcedir
   staging
+? testing
 
 # Rebase master and cleanup branches
 git checkout master && git fetch origin && git pull upstream master && git status -uno
@@ -30,24 +30,15 @@ git checkout cleanup && git status
 #   git rebase -i master
 #   git rebase --ignore-date master
 
-git checkout gcc-staging    && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
-#   git rebase -i master
-
-git checkout gcc-testing    && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
-
 git checkout cross-gcc      && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
-
-git checkout arm-none-eabi  && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
 git checkout build_tools    && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
-git checkout qt-package     && git pull && git rebase master && git status -uno && \
+git checkout gtk3           && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
+
 
 git checkout cleanup && git status
 #   git clean -id
