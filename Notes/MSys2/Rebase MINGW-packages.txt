@@ -2,18 +2,20 @@ $ git branch --list
   cleanup                 +2 OK
   cmake/apps              +2 umbrello and uncrustify
   configure/apps          +1 tidyhtml
+  drmemory
   freerdp
   gmake/apps              +0
   gnome_office            +1 OK
+  julia1.3.x-staging
 * master
   meson/apps              +0
   sourcedir               +1
   staging                 +0
   testing                 +0
-? wxpython                +0
-  wxpython-staging        +0
+D wxpython                +0
+D wxpython-staging        +0
 ? wxwidgets               +1 OK
-  wxwidgets-staging       +0
+  wxwidgets-staging       +?
 
 rm .git/index && git reset --hard && git status -uno
 
@@ -28,7 +30,7 @@ git checkout cleanup && git pull && git rebase master && git status -uno
 
 git checkout master && git pull upstream master && git push origin
 
-git checkout sourcedir && git pull && \
+git checkout sourcedir && git pull && git status -uno && \
 git rebase --ignore-date master && git push --force-with-lease
 
 git checkout cleanup && git pull && git rebase sourcedir && \
@@ -38,26 +40,15 @@ git checkout cleanup && git status
 
 git checkout staging && git pull && git rebase master && git push --force-with-lease
 
-
-git checkout wxpython-staging && git pull && git rebase master && git status -uno && \
-git push --force-with-lease
-
 git checkout wxwidgets-staging && git pull && git rebase master && git status -uno && \
 git push --force-with-lease
 
 
-git checkout wxpython && git pull && git rebase master && git status -uno
-#   git rebase -i master
-#   git log master..HEAD
-git push --force-with-lease
-
-git rebase wxpython-staging && git status -uno          && \
 git rebase wxwidgets-staging && git status -uno         && \
 git rebase master && git status -uno
 
 git checkout wxwidgets && git pull && git rebase master && git status -uno
 #   git rebase -i master
-#   git rebase -i wxpython-staging
 #   git rebase wxwidgets-staging
 #   git rebase -i wxwidgets-staging
 #   git rebase --ignore-date wxwidgets-staging
