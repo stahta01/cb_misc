@@ -4,9 +4,9 @@
 # The value of core.safecrlf must be false at this time.
 #
 # Need to record the old values in case you want to change them back
-git config --global core.eol            #
-git config --global core.autocrlf       #
-git config --global core.safecrlf       # warn
+git config --global core.eol            # LF
+git config --global core.autocrlf       # false
+git config --global core.safecrlf       # false
 
 git config --global core.eol      lf    ## Set to the auto line ending you want.
 git config --global core.autocrlf false ## if core.eol=crlf, use true else false
