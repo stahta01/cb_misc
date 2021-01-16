@@ -1,10 +1,13 @@
 # MSys2 header search paths
-$(TARGET_COMPILER_DIR)lib/wx/include/$(WX_TOOLKIT)-unicode-$(WX_VERSION)
+$(TARGET_COMPILER_DIR)lib/wx/include/$(WX_TOOLKIT)-$(WX_BUILD)-$(WX_VERSION)
 $(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)
 
 WX_SUFFIX=u
 WX_TOOLKIT=msw
 WX_VERSION=3.0
+WX_BUILD=unicode
+WX_BUILD=ansi-static
+WX_BUILD=ansi
 
 
 # Unix and MSys2 naming pattern
@@ -25,15 +28,22 @@ wx_base$(WX_SUFFIX)-$(WX_VERSION).dll
 # Static MSys2 names
 $(TARGET_COMPILER_DIR)lib/libwx_$(WX_TOOLKIT)$(WX_SUFFIX)_aui-$(WX_VERSION).a
 $(TARGET_COMPILER_DIR)lib/libwx_$(WX_TOOLKIT)$(WX_SUFFIX)_html-$(WX_VERSION).a
+$(TARGET_COMPILER_DIR)lib/libwx_$(WX_TOOLKIT)$(WX_SUFFIX)_adv-$(WX_VERSION).a
 $(TARGET_COMPILER_DIR)lib/libwx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).a
 $(TARGET_COMPILER_DIR)lib/libwx_base$(WX_SUFFIX)_net-$(WX_VERSION).a
 $(TARGET_COMPILER_DIR)lib/libwx_base$(WX_SUFFIX)-$(WX_VERSION).a
+
+libwx_msw_core-2.8.a
+libwx_base-2.8.a
 
 $(TARGET_COMPILER_DIR)lib/libwxtiff-$(WX_VERSION).a
 $(TARGET_COMPILER_DIR)lib/libwxjpeg-$(WX_VERSION).a
 $(TARGET_COMPILER_DIR)lib/libwxpng-$(WX_VERSION).a
 $(TARGET_COMPILER_DIR)lib/libwxzlib-$(WX_VERSION).a
+$(TARGET_COMPILER_DIR)lib/libwxregex-$(WX_VERSION).a
 
+
+$(TARGET_COMPILER_DIR)lib/libpng.a
 
 
 # Windows Naming pattern
