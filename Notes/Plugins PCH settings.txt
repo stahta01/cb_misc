@@ -10,6 +10,10 @@ WXMAKINGDLL
 -include "sdk.h"
 -Winvalid-pch
 
+noPCH
+usePCH
+-std=gnu++11
+
 : Add [-include "sdk.h"]
 
 CB Tools
@@ -22,14 +26,14 @@ Contrib Plugins
   AutoVersioning                ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
   BrowseTracker                 CB_PRECOMP
   byogames                      CB_PRECOMP
-  cb_koders                     CB_PRECOMP
+  cb_koders                     SKIP NOT WORTH FIXING
   Cccc                          CB_PRECOMP
   codesnippets                  NOPCH       Needs major source code work to change to CB_PRECOMP
   codestat                      CB_PRECOMP
   copystrings                   CB_PRECOMP
   CppCheck                      CB_PRECOMP
   Cscope                        CB_PRECOMP
-  devpak_plugin                *CB_PRECOMP -include "sdk.h"
+  devpak_plugin                 SKIP NOT WORTH FIXING
   DoxyBlocks                    CB_PRECOMP
   dragscroll                    ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
   EditorConfig                  CB_PRECOMP
@@ -49,9 +53,9 @@ Contrib Plugins
   regex_testbed                 CB_PRECOMP
   ReopenEditor                  CB_PRECOMP
   rndgen                        CB_PRECOMP
-  SmartIndent                   ?CB_PRECOMP Needs minor source code work to change to CB_PRECOMP
+  SmartIndent                 **CB_PRECOMP
   source_exporter              *CB_PRECOMP -include "sdk.h"
-  SpellChecker                  ?CB_PRECOMP and NOPCH
+  SpellChecker                **CB_PRECOMP and NOPCH
   symtab                        CB_PRECOMP
   ThreadSearch                  CB_PRECOMP
   ToolsPlus                     NOPCH       Needs major source code work to change to CB_PRECOMP
